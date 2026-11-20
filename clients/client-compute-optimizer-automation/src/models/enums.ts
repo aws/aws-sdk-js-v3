@@ -16,6 +16,22 @@ export type OrganizationRuleMode = (typeof OrganizationRuleMode)[keyof typeof Or
  * @public
  * @enum
  */
+export const OrganizationRuleModeSourceType = {
+  APPLIED: "Applied",
+  DEFAULT: "Default",
+  DIRECT: "Direct",
+  INHERITED: "Inherited",
+} as const;
+/**
+ * @public
+ */
+export type OrganizationRuleModeSourceType =
+  (typeof OrganizationRuleModeSourceType)[keyof typeof OrganizationRuleModeSourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const EnrollmentStatus = {
   ACTIVE: "Active",
   FAILED: "Failed",
@@ -26,6 +42,19 @@ export const EnrollmentStatus = {
  * @public
  */
 export type EnrollmentStatus = (typeof EnrollmentStatus)[keyof typeof EnrollmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoEnrollMemberAccounts = {
+  ALL: "All",
+  NONE: "None",
+} as const;
+/**
+ * @public
+ */
+export type AutoEnrollMemberAccounts = (typeof AutoEnrollMemberAccounts)[keyof typeof AutoEnrollMemberAccounts];
 
 /**
  * @public
@@ -245,6 +274,46 @@ export const ComparisonOperator = {
  * @public
  */
 export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof ComparisonOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationEnrollmentConfigurationType = {
+  ORGANIZATION_RULE_MODE: "OrganizationRuleMode",
+} as const;
+/**
+ * @public
+ */
+export type OrganizationEnrollmentConfigurationType =
+  (typeof OrganizationEnrollmentConfigurationType)[keyof typeof OrganizationEnrollmentConfigurationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationEnrollmentConfigurationStatus = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+} as const;
+/**
+ * @public
+ */
+export type OrganizationEnrollmentConfigurationStatus =
+  (typeof OrganizationEnrollmentConfigurationStatus)[keyof typeof OrganizationEnrollmentConfigurationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationTargetType = {
+  ACCOUNT: "Account",
+  ORGANIZATIONAL_UNIT: "OrganizationalUnit",
+} as const;
+/**
+ * @public
+ */
+export type OrganizationTargetType = (typeof OrganizationTargetType)[keyof typeof OrganizationTargetType];
 
 /**
  * @public

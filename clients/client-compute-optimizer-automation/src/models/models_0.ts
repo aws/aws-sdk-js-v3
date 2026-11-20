@@ -1,12 +1,17 @@
 // smithy-typescript generated code
 import type {
+  AutoEnrollMemberAccounts,
   AutomationEventFilterName,
   AutomationRuleFilterName,
   ComparisonOperator,
   EnrollmentStatus,
   EventStatus,
   EventType,
+  OrganizationEnrollmentConfigurationStatus,
+  OrganizationEnrollmentConfigurationType,
   OrganizationRuleMode,
+  OrganizationRuleModeSourceType,
+  OrganizationTargetType,
   RecommendedActionFilterName,
   RecommendedActionType,
   ResourceType,
@@ -18,6 +23,24 @@ import type {
   StepType,
   SummaryDimensionKey,
 } from "./enums";
+
+/**
+ * <p>Information about the source of an effective organization rule mode.</p>
+ * @public
+ */
+export interface OrganizationRuleModeSource {
+  /**
+   * <p>How the effective organization rule mode is supplied.</p> <ul> <li> <p> <code>Applied</code> - An organization enrollment configuration is on this organizational unit or account.</p> </li> <li> <p> <code>Inherited</code> - The organization enrollment configuration is on the parent organizational unit or root.</p> </li> <li> <p> <code>Direct</code> - The organization rule mode is set on the account itself, with no organization enrollment configuration applied.</p> </li> <li> <p> <code>Default</code> - No organization enrollment configuration applies, so the organization rule mode is None allowed.</p> </li> </ul>
+   * @public
+   */
+  sourceType: OrganizationRuleModeSourceType | undefined;
+
+  /**
+   * <p>The ID of the account, organizational unit (OU), or organization root that has the organization enrollment configuration. This field is omitted when <code>sourceType</code> is <code>Direct</code> or <code>Default</code>.</p>
+   * @public
+   */
+  sourceTargetId?: string | undefined;
+}
 
 /**
  * <p> Contains information about an Amazon Web Services account's enrollment and association status with Compute Optimizer Automation. </p>
@@ -43,6 +66,12 @@ export interface AccountInfo {
   organizationRuleMode: OrganizationRuleMode | undefined;
 
   /**
+   * <p>Information about the source of the account's effective organization rule mode. </p>
+   * @public
+   */
+  organizationRuleModeSource?: OrganizationRuleModeSource | undefined;
+
+  /**
    * <p>The reason for the current Automation enrollment status. </p>
    * @public
    */
@@ -66,7 +95,7 @@ export interface AssociateAccountsRequest {
   accountIds: string[] | undefined;
 
   /**
-   * <p> A unique identifier to ensure idempotency of the request. Valid for 24 hours after creation. </p>
+   * <p> A unique identifier to ensure idempotency of the request. Valid for 30 minutes after creation. </p>
    * @public
    */
   clientToken?: string | undefined;
@@ -227,7 +256,7 @@ export interface AutomationEventFilter {
   name: AutomationEventFilterName | undefined;
 
   /**
-   * <p> The values to use for the specified filter. </p>
+   * <p> The values to use for the specified filter. For the <code>ResourceType</code>, <code>EventType</code>, and <code>EventStatus</code> filters, the value that you specify must exactly match the corresponding field of the automation event, including case. For example, specify <code>Complete</code>, not <code>complete</code>. Wildcards aren't supported. An asterisk (<code>*</code>) or a question mark (<code>?</code>) in a value matches only that literal character. </p> <p> Valid values for the <code>EventStatus</code> filter are <code>Ready</code>, <code>InProgress</code>, <code>Complete</code>, <code>Failed</code>, <code>Cancelled</code>, <code>RollbackReady</code>, <code>RollbackInProgress</code>, <code>RollbackComplete</code>, and <code>RollbackFailed</code>. </p>
    * @public
    */
   values: string[] | undefined;
@@ -372,7 +401,7 @@ export interface AutomationEventSummary {
 }
 
 /**
- * <p>Configuration settings for organization-wide automation rules.</p>
+ * <p>Configuration settings that define the scope of an organization-wide automation rule. Each organizational unit (OU) list can contain up to 150 OUs or organization roots, and each account list can contain up to 50 accounts. Each included OU or organization root must have an effective organization rule mode of <code>AnyAllowed</code>. Exclusions take precedence over inclusions. An account that is in an included OU and is also excluded is excluded. The rule doesn't apply to the management account when the account is reached through an OU or the organization root.</p>
  * @public
  */
 export interface OrganizationConfiguration {
@@ -383,10 +412,28 @@ export interface OrganizationConfiguration {
   ruleApplyOrder?: RuleApplyOrder | undefined;
 
   /**
-   * <p>List of specific Amazon Web Services account IDs where the organization rule should be applied.</p>
+   * <p>The specific Amazon Web Services account IDs where the organization rule should be applied. You can specify up to 50 account IDs.</p>
    * @public
    */
   accountIds?: string[] | undefined;
+
+  /**
+   * <p>The organizational unit (OU) or organization root IDs to include in the organization rule scope. The rule applies to accounts in the specified OUs and their child OUs. You can specify up to 150 IDs.</p>
+   * @public
+   */
+  organizationalUnitIds?: string[] | undefined;
+
+  /**
+   * <p>The organizational unit (OU) or organization root IDs to exclude from the organization rule scope. The rule doesn't apply to accounts in the specified OUs or their child OUs. You can specify up to 150 IDs.</p>
+   * @public
+   */
+  excludedOrganizationalUnitIds?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services account IDs to exclude from the organization rule scope. You can specify up to 50 account IDs. An excluded account remains excluded even if it is in an included OU.</p>
+   * @public
+   */
+  excludedAccountIds?: string[] | undefined;
 }
 
 /**
@@ -509,7 +556,7 @@ export interface AutomationRule {
  */
 export interface IntegerCriteriaCondition {
   /**
-   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
+   * <p>The comparison operator used to evaluate the attribute against the specified values. Only operators that begin with <code>Numeric</code> are valid. Any other operator returns an <code>InvalidParameterValueException</code>.</p>
    * @public
    */
   comparison?: ComparisonOperator | undefined;
@@ -527,7 +574,7 @@ export interface IntegerCriteriaCondition {
  */
 export interface StringCriteriaCondition {
   /**
-   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
+   * <p>The comparison operator used to evaluate the attribute against the specified values. Only operators that begin with <code>String</code> are valid. Any other operator returns an <code>InvalidParameterValueException</code>.</p>
    * @public
    */
   comparison?: ComparisonOperator | undefined;
@@ -545,7 +592,7 @@ export interface StringCriteriaCondition {
  */
 export interface DoubleCriteriaCondition {
   /**
-   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
+   * <p>The comparison operator used to evaluate the attribute against the specified values. Only operators that begin with <code>Numeric</code> are valid. Any other operator returns an <code>InvalidParameterValueException</code>.</p>
    * @public
    */
   comparison?: ComparisonOperator | undefined;
@@ -563,7 +610,7 @@ export interface DoubleCriteriaCondition {
  */
 export interface ResourceTagsCriteriaCondition {
   /**
-   * <p>The comparison operator used to evaluate the attribute against the specified values.</p>
+   * <p>The comparison operator used to evaluate the attribute against the specified values. Only operators that begin with <code>String</code> are valid. Any other operator returns an <code>InvalidParameterValueException</code>.</p>
    * @public
    */
   comparison?: ComparisonOperator | undefined;
@@ -629,7 +676,7 @@ export interface Criteria {
   lookBackPeriodInDays?: IntegerCriteriaCondition[] | undefined;
 
   /**
-   * <p>Filter criteria indicating whether the recommended action requires a resource restart.</p>
+   * <p>Filter criteria indicating whether the recommended action requires a resource restart. Valid values are <code>true</code> and <code>false</code>. Values are case-sensitive unless you use an <code>IgnoreCase</code> comparison operator. For example, <code>StringEquals</code> with the value <code>False</code> matches no recommended actions.</p>
    * @public
    */
   restartNeeded?: StringCriteriaCondition[] | undefined;
@@ -842,6 +889,87 @@ export interface DeleteAutomationRuleRequest {
 export interface DeleteAutomationRuleResponse {}
 
 /**
+ * <p>An account, organizational unit (OU), or organization root to which an organization enrollment configuration applies. The management account can't be specified as an account target.</p>
+ * @public
+ */
+export type OrganizationTarget =
+  | OrganizationTarget.AccountIdMember
+  | OrganizationTarget.OrganizationalUnitIdMember
+  | OrganizationTarget.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OrganizationTarget {
+  /**
+   * <p>The ID of the member account to target. You can't specify the management account.</p>
+   * @public
+   */
+  export interface AccountIdMember {
+    accountId: string;
+    organizationalUnitId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ID of the organizational unit (OU) or organization root to target.</p>
+   * @public
+   */
+  export interface OrganizationalUnitIdMember {
+    accountId?: never;
+    organizationalUnitId: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    accountId?: never;
+    organizationalUnitId?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    accountId: (value: string) => T;
+    organizationalUnitId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteOrganizationEnrollmentConfigurationRequest {
+  /**
+   * <p> The account, organizational unit (OU), or organization root whose organization enrollment configuration you want to delete. </p>
+   * @public
+   */
+  target: OrganizationTarget | undefined;
+
+  /**
+   * <p> The organization enrollment configuration types to delete from the target. </p>
+   * @public
+   */
+  configurationTypes: OrganizationEnrollmentConfigurationType[] | undefined;
+
+  /**
+   * <p> A unique identifier to ensure idempotency of the request. </p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOrganizationEnrollmentConfigurationResponse {}
+
+/**
  * @public
  */
 export interface DisassociateAccountsRequest {
@@ -1039,7 +1167,7 @@ export interface GetAutomationRuleResponse {
   accountId?: string | undefined;
 
   /**
-   * <p>Configuration settings for organization-wide automation rules.</p>
+   * <p>Configuration settings that define the scope of an organization-wide automation rule. Each organizational unit (OU) list can contain up to 150 OUs or organization roots, and each account list can contain up to 50 accounts. Each included OU or organization root must have an effective organization rule mode of <code>AnyAllowed</code>. Exclusions take precedence over inclusions. An account that is in an included OU and is also excluded is excluded. The rule doesn't apply to the management account when the account is reached through an OU or the organization root.</p>
    * @public
    */
   organizationConfiguration?: OrganizationConfiguration | undefined;
@@ -1125,6 +1253,12 @@ export interface GetEnrollmentConfigurationResponse {
    * @public
    */
   lastUpdatedTimestamp?: Date | undefined;
+
+  /**
+   * <p> Specifies whether an organization enrollment configuration on your account, or inherited from a parent OU or the organization root, enables Automation for your member account. Associations made using <code>AssociateAccounts</code> don't affect this status. This field is returned for organization member accounts, including delegated administrators. It's omitted for management accounts and accounts that aren't in an organization. </p>
+   * @public
+   */
+  organizationEnrollmentConfigurationStatus?: OrganizationEnrollmentConfigurationStatus | undefined;
 }
 
 /**
@@ -1172,6 +1306,12 @@ export interface ListAutomationEventsRequest {
   filters?: AutomationEventFilter[] | undefined;
 
   /**
+   * <p> The organizational unit (OU) or organization root IDs to use to filter the results. The response includes events for accounts in the specified OUs and their child OUs. Only the management account or a delegated administrator can specify this parameter. </p>
+   * @public
+   */
+  organizationalUnitIds?: string[] | undefined;
+
+  /**
    * <p> The start of the time range to query for events. </p>
    * @public
    */
@@ -1184,7 +1324,7 @@ export interface ListAutomationEventsRequest {
   endTimeExclusive?: Date | undefined;
 
   /**
-   * <p> The maximum number of results to return in a single call. </p>
+   * <p> The maximum number of automation events to return in a single response. If you don't specify a value, the default is 100. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1224,7 +1364,7 @@ export interface ListAutomationEventStepsRequest {
   eventId: string | undefined;
 
   /**
-   * <p>The maximum number of automation event steps to return in a single response. Valid range is 1-1000.</p>
+   * <p>The maximum number of automation event steps to return in a single response. If you don't specify a value, the default is 100.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1264,6 +1404,12 @@ export interface ListAutomationEventSummariesRequest {
   filters?: AutomationEventFilter[] | undefined;
 
   /**
+   * <p> The organizational unit (OU) or organization root IDs to use to filter the results. The response includes event summaries for accounts in the specified OUs and their child OUs. Only the management account or a delegated administrator can specify this parameter. </p>
+   * @public
+   */
+  organizationalUnitIds?: string[] | undefined;
+
+  /**
    * <p>The start date for filtering automation event summaries, inclusive. Events created on or after this date will be included.</p>
    * @public
    */
@@ -1276,7 +1422,7 @@ export interface ListAutomationEventSummariesRequest {
   endDateExclusive?: string | undefined;
 
   /**
-   * <p>The maximum number of automation event summaries to return in a single response. Valid range is 1-1000.</p>
+   * <p>The maximum number of automation event summaries to return in a single response. If you don't specify a value, the default is 100.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1315,6 +1461,24 @@ export interface OrganizationScope {
    * @public
    */
   accountIds?: string[] | undefined;
+
+  /**
+   * <p>The organizational unit (OU) or organization root IDs to include in the preview scope. The preview includes accounts in the specified OUs and their child OUs.</p>
+   * @public
+   */
+  organizationalUnitIds?: string[] | undefined;
+
+  /**
+   * <p>The organizational unit (OU) or organization root IDs to exclude from the preview scope. The preview doesn't include accounts in the specified OUs or their child OUs.</p>
+   * @public
+   */
+  excludedOrganizationalUnitIds?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services account IDs to exclude from the preview scope.</p>
+   * @public
+   */
+  excludedAccountIds?: string[] | undefined;
 }
 
 /**
@@ -1328,7 +1492,7 @@ export interface ListAutomationRulePreviewRequest {
   ruleType: RuleType | undefined;
 
   /**
-   * <p> The organizational scope for the rule preview. </p>
+   * <p> The organizational scope for the rule preview. This parameter is required when <code>ruleType</code> is <code>OrganizationRule</code>. Don't specify it when <code>ruleType</code> is <code>AccountRule</code>. </p>
    * @public
    */
   organizationScope?: OrganizationScope | undefined;
@@ -1346,7 +1510,7 @@ export interface ListAutomationRulePreviewRequest {
   criteria?: Criteria | undefined;
 
   /**
-   * <p>The maximum number of automation rule preview results to return in a single response. Valid range is 1-1000.</p>
+   * <p>The maximum number of automation rule preview results to return in a single response. If you don't specify a value, the default is 100.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1563,7 +1727,7 @@ export interface ListAutomationRulePreviewSummariesRequest {
   ruleType: RuleType | undefined;
 
   /**
-   * <p>The organizational scope for the rule preview.</p>
+   * <p>The organizational scope for the rule preview. This parameter is required when <code>ruleType</code> is <code>OrganizationRule</code>. Don't specify it when <code>ruleType</code> is <code>AccountRule</code>.</p>
    * @public
    */
   organizationScope?: OrganizationScope | undefined;
@@ -1581,7 +1745,7 @@ export interface ListAutomationRulePreviewSummariesRequest {
   criteria?: Criteria | undefined;
 
   /**
-   * <p>The maximum number of automation rule preview summaries to return in a single response. Valid range is 1-1000.</p>
+   * <p>The maximum number of automation rule preview summaries to return in a single response. If you don't specify a value, the default is 100.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1675,7 +1839,7 @@ export interface ListAutomationRulesRequest {
   filters?: Filter[] | undefined;
 
   /**
-   * <p>The maximum number of automation rules to return in a single response. Valid range is 1-1000.</p>
+   * <p>The maximum number of automation rules to return in a single response. If you don't specify a value, the default is 100.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1705,7 +1869,141 @@ export interface ListAutomationRulesResponse {
 }
 
 /**
- * <p>A filter used to narrow down recommended action results based on specific criteria.</p>
+ * @public
+ */
+export interface ListOrganizationalUnitsRequest {
+  /**
+   * <p> The organizational unit (OU) or organization root IDs to return. If you don't specify this parameter, the operation returns the organization root and every OU. </p>
+   * @public
+   */
+  organizationalUnitIds?: string[] | undefined;
+
+  /**
+   * <p> The maximum number of organizational units to return in a single response. If you don't specify a value, the default is 1,000. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p> The token to use to retrieve the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about an organizational unit (OU) or the organization root, including whether an applicable organization enrollment configuration enables Automation for member accounts and the effective organization rule mode.</p>
+ * @public
+ */
+export interface OrganizationalUnitInfo {
+  /**
+   * <p>The ID of the organizational unit (OU) or organization root.</p>
+   * @public
+   */
+  organizationalUnitId: string | undefined;
+
+  /**
+   * <p>Whether an applicable organization enrollment configuration enables Automation for eligible member accounts beneath the organizational unit (OU) or organization root.</p> <ul> <li> <p> <code>All</code> - An organization enrollment configuration applies and enables Automation for affected member accounts, including accounts that join later. This value applies to configurations with either <code>AnyAllowed</code> or <code>NoneAllowed</code>.</p> </li> <li> <p> <code>None</code> - No organization enrollment configuration applies, so Automation isn't enabled by an organization enrollment configuration.</p> </li> </ul>
+   * @public
+   */
+  autoEnrollMemberAccounts: AutoEnrollMemberAccounts | undefined;
+
+  /**
+   * <p>The effective organization rule mode for the organizational unit or organization root.</p>
+   * @public
+   */
+  organizationRuleMode: OrganizationRuleMode | undefined;
+
+  /**
+   * <p>Information about the source of the effective organization rule mode.</p>
+   * @public
+   */
+  organizationRuleModeSource: OrganizationRuleModeSource | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationalUnitsResponse {
+  /**
+   * <p> The organizational units and organization root returned in this page of results, including the organization rule mode that applies to each. </p>
+   * @public
+   */
+  organizationalUnits: OrganizationalUnitInfo[] | undefined;
+
+  /**
+   * <p> The token to use to retrieve the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationEnrollmentConfigurationsRequest {
+  /**
+   * <p> The target type to use to filter the results. If you specify <code>OrganizationalUnit</code>, the results also include configurations stored on the organization root. If you don't specify a target type, the operation returns configurations for every target type. </p>
+   * @public
+   */
+  targetType?: OrganizationTargetType | undefined;
+
+  /**
+   * <p> The maximum number of organization enrollment configurations to return in a single response. If you don't specify a value, the default is 1,000. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p> The token to use to retrieve the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>An organization enrollment configuration sets the organization rule mode on an account, organizational unit (OU), or the organization root and enables Automation for affected member accounts that have opted in to Compute Optimizer.</p>
+ * @public
+ */
+export interface OrganizationEnrollmentConfiguration {
+  /**
+   * <p>The ID of the account, organizational unit (OU), or organization root on which the configuration is stored.</p>
+   * @public
+   */
+  targetId: string | undefined;
+
+  /**
+   * <p>The type of target on which the configuration is stored.</p>
+   * @public
+   */
+  targetType: OrganizationTargetType | undefined;
+
+  /**
+   * <p>The organization rule mode set on the target by the organization enrollment configuration.</p>
+   * @public
+   */
+  organizationRuleMode?: OrganizationRuleMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationEnrollmentConfigurationsResponse {
+  /**
+   * <p> The organization enrollment configurations stored on each target in this page of results. </p>
+   * @public
+   */
+  organizationEnrollmentConfigurations: OrganizationEnrollmentConfiguration[] | undefined;
+
+  /**
+   * <p> The token to use to retrieve the next page of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A filter used to narrow down recommended action results based on specific criteria. If a filter has more than one value, a recommended action matches the filter when it matches any of the values. If you specify more than one filter, a recommended action must match all of the filters.</p>
  * @public
  */
 export interface RecommendedActionFilter {
@@ -1716,7 +2014,7 @@ export interface RecommendedActionFilter {
   name: RecommendedActionFilterName | undefined;
 
   /**
-   * <p>List of filter values to match against the specified filter name. Used to narrow down recommended actions based on specific criteria.</p>
+   * <p>The list of values to filter by for the specified filter name. Wildcards aren't supported. An asterisk (<code>*</code>) or a question mark (<code>?</code>) in a value matches only that literal character. How a value is matched depends on the filter name:</p> <dl> <dt>ResourceType, RecommendedActionType, ResourceId, and AccountId</dt> <dd> <p>The value that you specify must exactly match the corresponding field of the recommended action, including case. For example, specify <code>EbsVolume</code>, not <code>ebsvolume</code>.</p> </dd> <dt>CurrentResourceDetailsEbsVolumeType</dt> <dd> <p>Matches when the value appears anywhere in the current resource details of the recommended action, which include the volume type, size, IOPS, and throughput. Matching is case sensitive, and a partial value also matches. For example, <code>gp</code> matches both <code>gp2</code> and <code>gp3</code> volumes, and <code>100</code> matches any volume whose size, IOPS, or throughput contains 100. To filter by volume type, specify the complete volume type, such as <code>gp3</code> or <code>io2</code>.</p> </dd> <dt>ResourceTagsKey and ResourceTagsValue</dt> <dd> <p>Matches when the value appears anywhere in the tags of the resource. Both filter names search every tag key and tag value. Matching is case sensitive, and a partial value also matches. For example, a <code>ResourceTagsKey</code> value of <code>test</code> matches a resource that has a tag value of <code>test</code>.</p> </dd> <dt>LookBackPeriodInDays</dt> <dd> <p>Matches when the lookback period of the recommended action equals the value. Specify a number of days, such as <code>14</code>.</p> </dd> <dt>RestartNeeded</dt> <dd> <p>Matches recommended actions based on whether implementing them requires a resource restart. Specify <code>true</code> or <code>false</code>.</p> </dd> </dl>
    * @public
    */
   values: string[] | undefined;
@@ -1733,7 +2031,13 @@ export interface ListRecommendedActionsRequest {
   filters?: RecommendedActionFilter[] | undefined;
 
   /**
-   * <p>The maximum number of recommended actions to return in a single response. Valid range is 1-1000.</p>
+   * <p> The organizational unit (OU) or organization root IDs to use to filter the results. The response includes recommended actions for accounts in the specified OUs and their child OUs. Only the management account or a delegated administrator can specify this parameter. </p>
+   * @public
+   */
+  organizationalUnitIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of recommended actions to return in a single response. If you don't specify a value, the default is 100.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1869,7 +2173,13 @@ export interface ListRecommendedActionSummariesRequest {
   filters?: RecommendedActionFilter[] | undefined;
 
   /**
-   * <p>The maximum number of recommended action summaries to return in a single response. Valid range is 1-1000.</p>
+   * <p> The organizational unit (OU) or organization root IDs to use to filter the results. The response includes recommended action summaries for accounts in the specified OUs and their child OUs. Only the management account or a delegated administrator can specify this parameter. </p>
+   * @public
+   */
+  organizationalUnitIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of recommended action summaries to return in a single response. If you don't specify a value, the default is 100.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -1955,6 +2265,34 @@ export interface ListTagsForResourceResponse {
    */
   tags?: Tag[] | undefined;
 }
+
+/**
+ * @public
+ */
+export interface PutOrganizationEnrollmentConfigurationRequest {
+  /**
+   * <p> The account, organizational unit (OU), or organization root on which to create or update the organization enrollment configuration. You can't specify the management account. </p>
+   * @public
+   */
+  target: OrganizationTarget | undefined;
+
+  /**
+   * <p> The organization rule mode to set on the target. An organization enrollment configuration with either <code>AnyAllowed</code> or <code>NoneAllowed</code> enables Automation for affected member accounts. <code>AnyAllowed</code> permits organization rules to apply to those accounts, while <code>NoneAllowed</code> doesn't. </p>
+   * @public
+   */
+  organizationRuleMode?: OrganizationRuleMode | undefined;
+
+  /**
+   * <p> A unique identifier to ensure idempotency of the request. </p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutOrganizationEnrollmentConfigurationResponse {}
 
 /**
  * @public
@@ -2263,7 +2601,7 @@ export interface UpdateAutomationRuleResponse {
  */
 export interface UpdateEnrollmentConfigurationRequest {
   /**
-   * <p>The desired enrollment status. </p> <ul> <li> <p>Active - Enables the Automation feature for your account.</p> </li> <li> <p>Inactive - Disables the Automation feature for your account and stops all of your automation rules. If you opt in again later, all rules will be inactive, and you must enable the rules you want to run. You must wait at least 24 hours after opting out to opt in again.</p> </li> </ul> <note> <p>The <code>Pending</code> and <code>Failed</code> options cannot be used to update the enrollment status of an account. They are returned in the response of a request to update the enrollment status of an account.</p> <p>If you are a member account, your account must be disassociated from your organization’s management account before you can disable Automation. Contact your administrator to make this change.</p> </note>
+   * <p>The desired enrollment status. </p> <ul> <li> <p>Active - Enables the Automation feature for your account.</p> </li> <li> <p>Inactive - Disables the Automation feature for your account and stops all of your automation rules. If you opt in again later, all rules will be inactive, and you must enable the rules you want to run. You must wait at least 24 hours after opting out to opt in again.</p> </li> </ul> <note> <p>The <code>Pending</code> and <code>Failed</code> options can't be used to update the enrollment status of an account. They are returned in the response of a request to update the enrollment status of an account.</p> <p>If you are a member account, you can't disable Automation while an organization enrollment configuration applies. If no organization enrollment configuration applies, you also can't disable Automation while your organization rule mode is <code>AnyAllowed</code>. Ask your administrator to delete the organization enrollment configuration or disassociate your account, as applicable.</p> </note>
    * @public
    */
   status: EnrollmentStatus | undefined;

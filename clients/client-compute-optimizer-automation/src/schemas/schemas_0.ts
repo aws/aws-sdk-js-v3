@@ -18,6 +18,7 @@ const _C = "Criteria";
 const _CAR = "CreateAutomationRule";
 const _CARR = "CreateAutomationRuleRequest";
 const _CARRr = "CreateAutomationRuleResponse";
+const _CE = "ConflictException";
 const _DA = "DisassociateAccounts";
 const _DAR = "DisassociateAccountsRequest";
 const _DARR = "DeleteAutomationRuleRequest";
@@ -26,6 +27,9 @@ const _DARe = "DeleteAutomationRule";
 const _DARi = "DisassociateAccountsResponse";
 const _DCC = "DoubleCriteriaCondition";
 const _DCCL = "DoubleCriteriaConditionList";
+const _DOEC = "DeleteOrganizationEnrollmentConfiguration";
+const _DOECR = "DeleteOrganizationEnrollmentConfigurationRequest";
+const _DOECRe = "DeleteOrganizationEnrollmentConfigurationResponse";
 const _EMS = "EstimatedMonthlySavings";
 const _EV = "EbsVolume";
 const _EVC = "EbsVolumeConfiguration";
@@ -68,6 +72,12 @@ const _LARR = "ListAutomationRulesRequest";
 const _LARRi = "ListAutomationRulesResponse";
 const _LARi = "ListAccountsResponse";
 const _LARis = "ListAutomationRules";
+const _LOEC = "ListOrganizationEnrollmentConfigurations";
+const _LOECR = "ListOrganizationEnrollmentConfigurationsRequest";
+const _LOECRi = "ListOrganizationEnrollmentConfigurationsResponse";
+const _LOU = "ListOrganizationalUnits";
+const _LOUR = "ListOrganizationalUnitsRequest";
+const _LOURi = "ListOrganizationalUnitsResponse";
 const _LRA = "ListRecommendedActions";
 const _LRAR = "ListRecommendedActionsRequest";
 const _LRARi = "ListRecommendedActionsResponse";
@@ -79,8 +89,17 @@ const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _NMAE = "NotManagementAccountException";
 const _OC = "OrganizationConfiguration";
+const _OEC = "OrganizationEnrollmentConfiguration";
+const _OECr = "OrganizationEnrollmentConfigurations";
 const _OIRE = "OptInRequiredException";
+const _ORMS = "OrganizationRuleModeSource";
 const _OS = "OrganizationScope";
+const _OT = "OrganizationTarget";
+const _OUI = "OrganizationalUnitInfo";
+const _OUIL = "OrganizationalUnitInfoList";
+const _POEC = "PutOrganizationEnrollmentConfiguration";
+const _POECR = "PutOrganizationEnrollmentConfigurationRequest";
+const _POECRu = "PutOrganizationEnrollmentConfigurationResponse";
 const _PR = "PreviewResult";
 const _PRS = "PreviewResultSummary";
 const _PRSr = "PreviewResultSummaries";
@@ -131,6 +150,7 @@ const _a = "accounts";
 const _aDS = "afterDiscountSavings";
 const _aE = "automationEvents";
 const _aEC = "automationEventCount";
+const _aEMA = "autoEnrollMemberAccounts";
 const _aES = "automationEventSteps";
 const _aESu = "automationEventSummaries";
 const _aI = "accountId";
@@ -142,6 +162,7 @@ const _cRD = "currentResourceDetails";
 const _cRS = "currentResourceSummary";
 const _cT = "clientToken";
 const _cTo = "completedTimestamp";
+const _cTon = "configurationTypes";
 const _cTr = "createdTimestamp";
 const _co = "comparison";
 const _con = "configuration";
@@ -150,10 +171,12 @@ const _cu = "currency";
 const _d = "dimensions";
 const _de = "description";
 const _e = "error";
+const _eAI = "excludedAccountIds";
 const _eD = "eventDescription";
 const _eDE = "endDateExclusive";
 const _eI = "eventId";
 const _eMS = "estimatedMonthlySavings";
+const _eOUI = "excludedOrganizationalUnitIds";
 const _eS = "eventStatus";
 const _eSR = "eventStatusReason";
 const _eT = "eventType";
@@ -174,8 +197,14 @@ const _mR = "maxResults";
 const _n = "name";
 const _nT = "nextToken";
 const _oC = "organizationConfiguration";
+const _oEC = "organizationEnrollmentConfigurations";
+const _oECS = "organizationEnrollmentConfigurationStatus";
 const _oRM = "organizationRuleMode";
+const _oRMS = "organizationRuleModeSource";
 const _oS = "organizationScope";
+const _oU = "organizationalUnits";
+const _oUI = "organizationalUnitIds";
+const _oUIr = "organizationalUnitId";
 const _p = "priority";
 const _pR = "previewResults";
 const _pRS = "previewResultSummaries";
@@ -210,14 +239,19 @@ const _sR = "statusReason";
 const _sS = "stepStatus";
 const _sT = "stepType";
 const _sTI = "startTimeInclusive";
+const _sTIo = "sourceTargetId";
+const _sTo = "sourceType";
 const _sTt = "startTimestamp";
 const _sc = "schedule";
 const _se = "server";
 const _st = "status";
 const _t = "total";
+const _tI = "targetId";
 const _tK = "tagKeys";
 const _tP = "timePeriod";
+const _tT = "targetType";
 const _ta = "tags";
+const _tar = "target";
 const _th = "throughput";
 const _ty = "type";
 const _v = "values";
@@ -237,6 +271,7 @@ import type {
 import { ComputeOptimizerAutomationServiceException } from "../models/ComputeOptimizerAutomationServiceException";
 import {
   AccessDeniedException,
+  ConflictException,
   ForbiddenException,
   IdempotencyTokenInUseException,
   IdempotentParameterMismatchException,
@@ -261,6 +296,12 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   [0]
 ];
 n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
@@ -338,8 +379,8 @@ export const errorTypeRegistries = [
 ]
 export var AccountInfo$: StaticStructureSchema = [3, n0, _AI,
   0,
-  [_aI, _st, _oRM, _lUT, _sR],
-  [0, 0, 0, 4, 0], 4
+  [_aI, _st, _oRM, _lUT, _oRMS, _sR],
+  [0, 0, 0, 4, () => OrganizationRuleModeSource$, 0], 4
 ];
 export var AssociateAccountsRequest$: StaticStructureSchema = [3, n0, _AAR,
   0,
@@ -397,6 +438,16 @@ export var DeleteAutomationRuleRequest$: StaticStructureSchema = [3, n0, _DARR,
   [0, 1, [0, 4]], 2
 ];
 export var DeleteAutomationRuleResponse$: StaticStructureSchema = [3, n0, _DARRe,
+  0,
+  [],
+  []
+];
+export var DeleteOrganizationEnrollmentConfigurationRequest$: StaticStructureSchema = [3, n0, _DOECR,
+  0,
+  [_tar, _cTon, _cT],
+  [() => OrganizationTarget$, 64 | 0, [0, 4]], 2
+];
+export var DeleteOrganizationEnrollmentConfigurationResponse$: StaticStructureSchema = [3, n0, _DOECRe,
   0,
   [],
   []
@@ -463,8 +514,8 @@ export var GetEnrollmentConfigurationRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var GetEnrollmentConfigurationResponse$: StaticStructureSchema = [3, n0, _GECRe,
   0,
-  [_st, _sR, _oRM, _lUT],
-  [0, 0, 0, 4], 1
+  [_st, _sR, _oRM, _lUT, _oECS],
+  [0, 0, 0, 4, 0], 1
 ];
 export var IntegerCriteriaCondition$: StaticStructureSchema = [3, n0, _ICC,
   0,
@@ -483,8 +534,8 @@ export var ListAccountsResponse$: StaticStructureSchema = [3, n0, _LARi,
 ];
 export var ListAutomationEventsRequest$: StaticStructureSchema = [3, n0, _LAER,
   0,
-  [_f, _sTI, _eTE, _mR, _nT],
-  [() => AutomationEventFilterList, 4, 4, 1, 0]
+  [_f, _oUI, _sTI, _eTE, _mR, _nT],
+  [() => AutomationEventFilterList, 64 | 0, 4, 4, 1, 0]
 ];
 export var ListAutomationEventsResponse$: StaticStructureSchema = [3, n0, _LAERi,
   0,
@@ -503,8 +554,8 @@ export var ListAutomationEventStepsResponse$: StaticStructureSchema = [3, n0, _L
 ];
 export var ListAutomationEventSummariesRequest$: StaticStructureSchema = [3, n0, _LAESRis,
   0,
-  [_f, _sDI, _eDE, _mR, _nT],
-  [() => AutomationEventFilterList, 0, 0, 1, 0]
+  [_f, _oUI, _sDI, _eDE, _mR, _nT],
+  [() => AutomationEventFilterList, 64 | 0, 0, 0, 1, 0]
 ];
 export var ListAutomationEventSummariesResponse$: StaticStructureSchema = [3, n0, _LAESRist,
   0,
@@ -541,10 +592,30 @@ export var ListAutomationRulesResponse$: StaticStructureSchema = [3, n0, _LARRi,
   [_aR, _nT],
   [() => AutomationRules, 0]
 ];
+export var ListOrganizationalUnitsRequest$: StaticStructureSchema = [3, n0, _LOUR,
+  0,
+  [_oUI, _mR, _nT],
+  [64 | 0, 1, 0]
+];
+export var ListOrganizationalUnitsResponse$: StaticStructureSchema = [3, n0, _LOURi,
+  0,
+  [_oU, _nT],
+  [() => OrganizationalUnitInfoList, 0], 1
+];
+export var ListOrganizationEnrollmentConfigurationsRequest$: StaticStructureSchema = [3, n0, _LOECR,
+  0,
+  [_tT, _mR, _nT],
+  [0, 1, 0]
+];
+export var ListOrganizationEnrollmentConfigurationsResponse$: StaticStructureSchema = [3, n0, _LOECRi,
+  0,
+  [_oEC, _nT],
+  [() => OrganizationEnrollmentConfigurations, 0], 1
+];
 export var ListRecommendedActionsRequest$: StaticStructureSchema = [3, n0, _LRAR,
   0,
-  [_f, _mR, _nT],
-  [() => RecommendedActionFilterList, 1, 0]
+  [_f, _oUI, _mR, _nT],
+  [() => RecommendedActionFilterList, 64 | 0, 1, 0]
 ];
 export var ListRecommendedActionsResponse$: StaticStructureSchema = [3, n0, _LRARi,
   0,
@@ -553,8 +624,8 @@ export var ListRecommendedActionsResponse$: StaticStructureSchema = [3, n0, _LRA
 ];
 export var ListRecommendedActionSummariesRequest$: StaticStructureSchema = [3, n0, _LRASR,
   0,
-  [_f, _mR, _nT],
-  [() => RecommendedActionFilterList, 1, 0]
+  [_f, _oUI, _mR, _nT],
+  [() => RecommendedActionFilterList, 64 | 0, 1, 0]
 ];
 export var ListRecommendedActionSummariesResponse$: StaticStructureSchema = [3, n0, _LRASRi,
   0,
@@ -571,15 +642,30 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_ta],
   [() => TagList]
 ];
+export var OrganizationalUnitInfo$: StaticStructureSchema = [3, n0, _OUI,
+  0,
+  [_oUIr, _aEMA, _oRM, _oRMS],
+  [0, 0, 0, () => OrganizationRuleModeSource$], 4
+];
 export var OrganizationConfiguration$: StaticStructureSchema = [3, n0, _OC,
   0,
-  [_rAO, _aIc],
-  [0, 64 | 0]
+  [_rAO, _aIc, _oUI, _eOUI, _eAI],
+  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
+];
+export var OrganizationEnrollmentConfiguration$: StaticStructureSchema = [3, n0, _OEC,
+  0,
+  [_tI, _tT, _oRM],
+  [0, 0, 0], 2
+];
+export var OrganizationRuleModeSource$: StaticStructureSchema = [3, n0, _ORMS,
+  0,
+  [_sTo, _sTIo],
+  [0, 0], 1
 ];
 export var OrganizationScope$: StaticStructureSchema = [3, n0, _OS,
   0,
-  [_aIc],
-  [64 | 0]
+  [_aIc, _oUI, _eOUI, _eAI],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var PreviewResult$: StaticStructureSchema = [3, n0, _PR,
   0,
@@ -590,6 +676,16 @@ export var PreviewResultSummary$: StaticStructureSchema = [3, n0, _PRS,
   0,
   [_k, _t],
   [0, () => RulePreviewTotal$], 2
+];
+export var PutOrganizationEnrollmentConfigurationRequest$: StaticStructureSchema = [3, n0, _POECR,
+  0,
+  [_tar, _oRM, _cT],
+  [() => OrganizationTarget$, 0, [0, 4]], 1
+];
+export var PutOrganizationEnrollmentConfigurationResponse$: StaticStructureSchema = [3, n0, _POECRu,
+  0,
+  [],
+  []
 ];
 export var RecommendedAction$: StaticStructureSchema = [3, n0, _RA,
   0,
@@ -742,7 +838,16 @@ var IntegerCriteriaConditionList: StaticListSchema = [1, n0, _ICCL,
   0, () => IntegerCriteriaCondition$
 ];
 var IntegerList = 64 | 1;
+var OrganizationalUnitIds = 64 | 0;
+var OrganizationalUnitInfoList: StaticListSchema = [1, n0, _OUIL,
+  0, () => OrganizationalUnitInfo$
+];
 var OrganizationConfigurationAccountIds = 64 | 0;
+var OrganizationConfigurationOrganizationalUnitIds = 64 | 0;
+var OrganizationEnrollmentConfigurations: StaticListSchema = [1, n0, _OECr,
+  0, () => OrganizationEnrollmentConfiguration$
+];
+var OrganizationEnrollmentConfigurationTypes = 64 | 0;
 var PreviewResults: StaticListSchema = [1, n0, _PRr,
   0, () => PreviewResult$
 ];
@@ -774,6 +879,11 @@ var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
 ];
+export var OrganizationTarget$: StaticUnionSchema = [4, n0, _OT,
+  0,
+  [_aI, _oUIr],
+  [0, 0]
+];
 export var ResourceDetails$: StaticUnionSchema = [4, n0, _RD,
   0,
   [_eV],
@@ -787,6 +897,9 @@ export var CreateAutomationRule$: StaticOperationSchema = [9, n0, _CAR,
 ];
 export var DeleteAutomationRule$: StaticOperationSchema = [9, n0, _DARe,
   2, () => DeleteAutomationRuleRequest$, () => DeleteAutomationRuleResponse$
+];
+export var DeleteOrganizationEnrollmentConfiguration$: StaticOperationSchema = [9, n0, _DOEC,
+  2, () => DeleteOrganizationEnrollmentConfigurationRequest$, () => DeleteOrganizationEnrollmentConfigurationResponse$
 ];
 export var DisassociateAccounts$: StaticOperationSchema = [9, n0, _DA,
   2, () => DisassociateAccountsRequest$, () => DisassociateAccountsResponse$
@@ -821,6 +934,12 @@ export var ListAutomationRulePreviewSummaries$: StaticOperationSchema = [9, n0, 
 export var ListAutomationRules$: StaticOperationSchema = [9, n0, _LARis,
   0, () => ListAutomationRulesRequest$, () => ListAutomationRulesResponse$
 ];
+export var ListOrganizationalUnits$: StaticOperationSchema = [9, n0, _LOU,
+  0, () => ListOrganizationalUnitsRequest$, () => ListOrganizationalUnitsResponse$
+];
+export var ListOrganizationEnrollmentConfigurations$: StaticOperationSchema = [9, n0, _LOEC,
+  0, () => ListOrganizationEnrollmentConfigurationsRequest$, () => ListOrganizationEnrollmentConfigurationsResponse$
+];
 export var ListRecommendedActions$: StaticOperationSchema = [9, n0, _LRA,
   0, () => ListRecommendedActionsRequest$, () => ListRecommendedActionsResponse$
 ];
@@ -829,6 +948,9 @@ export var ListRecommendedActionSummaries$: StaticOperationSchema = [9, n0, _LRA
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var PutOrganizationEnrollmentConfiguration$: StaticOperationSchema = [9, n0, _POEC,
+  2, () => PutOrganizationEnrollmentConfigurationRequest$, () => PutOrganizationEnrollmentConfigurationResponse$
 ];
 export var RollbackAutomationEvent$: StaticOperationSchema = [9, n0, _RAE,
   2, () => RollbackAutomationEventRequest$, () => RollbackAutomationEventResponse$

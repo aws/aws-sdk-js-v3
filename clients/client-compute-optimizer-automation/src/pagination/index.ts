@@ -7,5 +7,7 @@ export * from "./ListAutomationEventSummariesPaginator";
 export * from "./ListAutomationRulePreviewPaginator";
 export * from "./ListAutomationRulePreviewSummariesPaginator";
 export * from "./ListAutomationRulesPaginator";
+export * from "./ListOrganizationalUnitsPaginator";
+export * from "./ListOrganizationEnrollmentConfigurationsPaginator";
 export * from "./ListRecommendedActionsPaginator";
 export * from "./ListRecommendedActionSummariesPaginator";

@@ -23,7 +23,7 @@ export interface ListRecommendedActionsCommandInput extends ListRecommendedActio
 export interface ListRecommendedActionsCommandOutput extends ListRecommendedActionsResponse, __MetadataBearer {}
 
 /**
- * <p> Lists the recommended actions based that match specified filters. </p> <note> <p>Management accounts and delegated administrators can retrieve recommended actions that include associated member accounts. You can associate a member account using <code>AssociateAccounts</code>.</p> </note>
+ * <p> Lists the recommended actions that match the specified filters. </p> <note> <p>Management accounts and delegated administrators can retrieve recommended actions for member accounts that are associated using <code>AssociateAccounts</code> or have an applicable organization enrollment configuration with <code>organizationRuleMode</code> set to <code>AnyAllowed</code>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,6 +40,9 @@ export interface ListRecommendedActionsCommandOutput extends ListRecommendedActi
  *         "STRING_VALUE",
  *       ],
  *     },
+ *   ],
+ *   organizationalUnitIds: [ // OrganizationalUnitIds
+ *     "STRING_VALUE",
  *   ],
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",

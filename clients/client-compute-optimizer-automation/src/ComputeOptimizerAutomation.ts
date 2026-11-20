@@ -23,6 +23,11 @@ import {
   DeleteAutomationRuleCommand,
 } from "./commands/DeleteAutomationRuleCommand";
 import {
+  type DeleteOrganizationEnrollmentConfigurationCommandInput,
+  type DeleteOrganizationEnrollmentConfigurationCommandOutput,
+  DeleteOrganizationEnrollmentConfigurationCommand,
+} from "./commands/DeleteOrganizationEnrollmentConfigurationCommand";
+import {
   type DisassociateAccountsCommandInput,
   type DisassociateAccountsCommandOutput,
   DisassociateAccountsCommand,
@@ -78,6 +83,16 @@ import {
   ListAutomationRulesCommand,
 } from "./commands/ListAutomationRulesCommand";
 import {
+  type ListOrganizationalUnitsCommandInput,
+  type ListOrganizationalUnitsCommandOutput,
+  ListOrganizationalUnitsCommand,
+} from "./commands/ListOrganizationalUnitsCommand";
+import {
+  type ListOrganizationEnrollmentConfigurationsCommandInput,
+  type ListOrganizationEnrollmentConfigurationsCommandOutput,
+  ListOrganizationEnrollmentConfigurationsCommand,
+} from "./commands/ListOrganizationEnrollmentConfigurationsCommand";
+import {
   type ListRecommendedActionsCommandInput,
   type ListRecommendedActionsCommandOutput,
   ListRecommendedActionsCommand,
@@ -92,6 +107,11 @@ import {
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  type PutOrganizationEnrollmentConfigurationCommandInput,
+  type PutOrganizationEnrollmentConfigurationCommandOutput,
+  PutOrganizationEnrollmentConfigurationCommand,
+} from "./commands/PutOrganizationEnrollmentConfigurationCommand";
 import {
   type RollbackAutomationEventCommandInput,
   type RollbackAutomationEventCommandOutput,
@@ -130,6 +150,10 @@ import { paginateListAutomationEventSummaries } from "./pagination/ListAutomatio
 import { paginateListAutomationRulePreview } from "./pagination/ListAutomationRulePreviewPaginator";
 import { paginateListAutomationRulePreviewSummaries } from "./pagination/ListAutomationRulePreviewSummariesPaginator";
 import { paginateListAutomationRules } from "./pagination/ListAutomationRulesPaginator";
+import { paginateListOrganizationalUnits } from "./pagination/ListOrganizationalUnitsPaginator";
+import {
+  paginateListOrganizationEnrollmentConfigurations,
+} from "./pagination/ListOrganizationEnrollmentConfigurationsPaginator";
 import { paginateListRecommendedActions } from "./pagination/ListRecommendedActionsPaginator";
 import { paginateListRecommendedActionSummaries } from "./pagination/ListRecommendedActionSummariesPaginator";
 
@@ -137,6 +161,7 @@ const commands = {
   AssociateAccountsCommand,
   CreateAutomationRuleCommand,
   DeleteAutomationRuleCommand,
+  DeleteOrganizationEnrollmentConfigurationCommand,
   DisassociateAccountsCommand,
   GetAutomationEventCommand,
   GetAutomationRuleCommand,
@@ -148,9 +173,12 @@ const commands = {
   ListAutomationRulePreviewCommand,
   ListAutomationRulePreviewSummariesCommand,
   ListAutomationRulesCommand,
+  ListOrganizationalUnitsCommand,
+  ListOrganizationEnrollmentConfigurationsCommand,
   ListRecommendedActionsCommand,
   ListRecommendedActionSummariesCommand,
   ListTagsForResourceCommand,
+  PutOrganizationEnrollmentConfigurationCommand,
   RollbackAutomationEventCommand,
   StartAutomationEventCommand,
   TagResourceCommand,
@@ -166,6 +194,8 @@ const paginators = {
   paginateListAutomationRulePreview,
   paginateListAutomationRulePreviewSummaries,
   paginateListAutomationRules,
+  paginateListOrganizationalUnits,
+  paginateListOrganizationEnrollmentConfigurations,
   paginateListRecommendedActions,
   paginateListRecommendedActionSummaries,
 };
@@ -227,6 +257,23 @@ export interface ComputeOptimizerAutomation {
     args: DeleteAutomationRuleCommandInput,
     options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: DeleteAutomationRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteOrganizationEnrollmentConfigurationCommand}
+   */
+  deleteOrganizationEnrollmentConfiguration(
+    args: DeleteOrganizationEnrollmentConfigurationCommandInput,
+    options?: ComputeOptimizerAutomationRequestOptions
+  ): Promise<DeleteOrganizationEnrollmentConfigurationCommandOutput>;
+  deleteOrganizationEnrollmentConfiguration(
+    args: DeleteOrganizationEnrollmentConfigurationCommandInput,
+    cb: (err: any, data?: DeleteOrganizationEnrollmentConfigurationCommandOutput) => void
+  ): void;
+  deleteOrganizationEnrollmentConfiguration(
+    args: DeleteOrganizationEnrollmentConfigurationCommandInput,
+    options: ComputeOptimizerAutomationRequestOptions,
+    cb: (err: any, data?: DeleteOrganizationEnrollmentConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -422,6 +469,42 @@ export interface ComputeOptimizerAutomation {
   ): void;
 
   /**
+   * @see {@link ListOrganizationalUnitsCommand}
+   */
+  listOrganizationalUnits(): Promise<ListOrganizationalUnitsCommandOutput>;
+  listOrganizationalUnits(
+    args: ListOrganizationalUnitsCommandInput,
+    options?: ComputeOptimizerAutomationRequestOptions
+  ): Promise<ListOrganizationalUnitsCommandOutput>;
+  listOrganizationalUnits(
+    args: ListOrganizationalUnitsCommandInput,
+    cb: (err: any, data?: ListOrganizationalUnitsCommandOutput) => void
+  ): void;
+  listOrganizationalUnits(
+    args: ListOrganizationalUnitsCommandInput,
+    options: ComputeOptimizerAutomationRequestOptions,
+    cb: (err: any, data?: ListOrganizationalUnitsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListOrganizationEnrollmentConfigurationsCommand}
+   */
+  listOrganizationEnrollmentConfigurations(): Promise<ListOrganizationEnrollmentConfigurationsCommandOutput>;
+  listOrganizationEnrollmentConfigurations(
+    args: ListOrganizationEnrollmentConfigurationsCommandInput,
+    options?: ComputeOptimizerAutomationRequestOptions
+  ): Promise<ListOrganizationEnrollmentConfigurationsCommandOutput>;
+  listOrganizationEnrollmentConfigurations(
+    args: ListOrganizationEnrollmentConfigurationsCommandInput,
+    cb: (err: any, data?: ListOrganizationEnrollmentConfigurationsCommandOutput) => void
+  ): void;
+  listOrganizationEnrollmentConfigurations(
+    args: ListOrganizationEnrollmentConfigurationsCommandInput,
+    options: ComputeOptimizerAutomationRequestOptions,
+    cb: (err: any, data?: ListOrganizationEnrollmentConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRecommendedActionsCommand}
    */
   listRecommendedActions(): Promise<ListRecommendedActionsCommandOutput>;
@@ -472,6 +555,23 @@ export interface ComputeOptimizerAutomation {
     args: ListTagsForResourceCommandInput,
     options: ComputeOptimizerAutomationRequestOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutOrganizationEnrollmentConfigurationCommand}
+   */
+  putOrganizationEnrollmentConfiguration(
+    args: PutOrganizationEnrollmentConfigurationCommandInput,
+    options?: ComputeOptimizerAutomationRequestOptions
+  ): Promise<PutOrganizationEnrollmentConfigurationCommandOutput>;
+  putOrganizationEnrollmentConfiguration(
+    args: PutOrganizationEnrollmentConfigurationCommandInput,
+    cb: (err: any, data?: PutOrganizationEnrollmentConfigurationCommandOutput) => void
+  ): void;
+  putOrganizationEnrollmentConfiguration(
+    args: PutOrganizationEnrollmentConfigurationCommandInput,
+    options: ComputeOptimizerAutomationRequestOptions,
+    cb: (err: any, data?: PutOrganizationEnrollmentConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -652,6 +752,28 @@ export interface ComputeOptimizerAutomation {
     args?: ListAutomationRulesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListAutomationRulesCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationalUnitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationalUnitsCommandOutput}.
+   */
+  paginateListOrganizationalUnits(
+    args?: ListOrganizationalUnitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationalUnitsCommandOutput>;
+
+  /**
+   * @see {@link ListOrganizationEnrollmentConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListOrganizationEnrollmentConfigurationsCommandOutput}.
+   */
+  paginateListOrganizationEnrollmentConfigurations(
+    args?: ListOrganizationEnrollmentConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListOrganizationEnrollmentConfigurationsCommandOutput>;
 
   /**
    * @see {@link ListRecommendedActionsCommand}

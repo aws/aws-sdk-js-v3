@@ -6,6 +6,7 @@ import {
   AssociateAccountsCommand,
   AssociateAccountsRequest$,
   AssociateAccountsResponse$,
+  AutoEnrollMemberAccounts,
   AutomationEvent$,
   AutomationEventFilter$,
   AutomationEventFilterName,
@@ -17,6 +18,8 @@ import {
   ComputeOptimizerAutomation,
   ComputeOptimizerAutomationClient,
   ComputeOptimizerAutomationServiceException,
+  ConflictException,
+  ConflictException$,
   CreateAutomationRule$,
   CreateAutomationRuleCommand,
   CreateAutomationRuleRequest$,
@@ -26,6 +29,10 @@ import {
   DeleteAutomationRuleCommand,
   DeleteAutomationRuleRequest$,
   DeleteAutomationRuleResponse$,
+  DeleteOrganizationEnrollmentConfiguration$,
+  DeleteOrganizationEnrollmentConfigurationCommand,
+  DeleteOrganizationEnrollmentConfigurationRequest$,
+  DeleteOrganizationEnrollmentConfigurationResponse$,
   DisassociateAccounts$,
   DisassociateAccountsCommand,
   DisassociateAccountsRequest$,
@@ -89,6 +96,14 @@ import {
   ListAutomationRulesCommand,
   ListAutomationRulesRequest$,
   ListAutomationRulesResponse$,
+  ListOrganizationalUnits$,
+  ListOrganizationalUnitsCommand,
+  ListOrganizationalUnitsRequest$,
+  ListOrganizationalUnitsResponse$,
+  ListOrganizationEnrollmentConfigurations$,
+  ListOrganizationEnrollmentConfigurationsCommand,
+  ListOrganizationEnrollmentConfigurationsRequest$,
+  ListOrganizationEnrollmentConfigurationsResponse$,
   ListRecommendedActions$,
   ListRecommendedActionsCommand,
   ListRecommendedActionsRequest$,
@@ -105,9 +120,17 @@ import {
   NotManagementAccountException$,
   OptInRequiredException,
   OptInRequiredException$,
+  OrganizationalUnitInfo$,
   OrganizationConfiguration$,
+  OrganizationEnrollmentConfiguration$,
+  OrganizationEnrollmentConfigurationStatus,
+  OrganizationEnrollmentConfigurationType,
   OrganizationRuleMode,
+  OrganizationRuleModeSource$,
+  OrganizationRuleModeSourceType,
   OrganizationScope$,
+  OrganizationTarget$,
+  OrganizationTargetType,
   paginateListAccounts,
   paginateListAutomationEvents,
   paginateListAutomationEventSteps,
@@ -115,10 +138,16 @@ import {
   paginateListAutomationRulePreview,
   paginateListAutomationRulePreviewSummaries,
   paginateListAutomationRules,
+  paginateListOrganizationalUnits,
+  paginateListOrganizationEnrollmentConfigurations,
   paginateListRecommendedActions,
   paginateListRecommendedActionSummaries,
   PreviewResult$,
   PreviewResultSummary$,
+  PutOrganizationEnrollmentConfiguration$,
+  PutOrganizationEnrollmentConfigurationCommand,
+  PutOrganizationEnrollmentConfigurationRequest$,
+  PutOrganizationEnrollmentConfigurationResponse$,
   RecommendedAction$,
   RecommendedActionFilter$,
   RecommendedActionFilterName,
@@ -186,6 +215,8 @@ assert(typeof CreateAutomationRuleCommand === "function");
 assert(typeof CreateAutomationRule$ === "object");
 assert(typeof DeleteAutomationRuleCommand === "function");
 assert(typeof DeleteAutomationRule$ === "object");
+assert(typeof DeleteOrganizationEnrollmentConfigurationCommand === "function");
+assert(typeof DeleteOrganizationEnrollmentConfiguration$ === "object");
 assert(typeof DisassociateAccountsCommand === "function");
 assert(typeof DisassociateAccounts$ === "object");
 assert(typeof GetAutomationEventCommand === "function");
@@ -208,12 +239,18 @@ assert(typeof ListAutomationRulePreviewSummariesCommand === "function");
 assert(typeof ListAutomationRulePreviewSummaries$ === "object");
 assert(typeof ListAutomationRulesCommand === "function");
 assert(typeof ListAutomationRules$ === "object");
+assert(typeof ListOrganizationalUnitsCommand === "function");
+assert(typeof ListOrganizationalUnits$ === "object");
+assert(typeof ListOrganizationEnrollmentConfigurationsCommand === "function");
+assert(typeof ListOrganizationEnrollmentConfigurations$ === "object");
 assert(typeof ListRecommendedActionsCommand === "function");
 assert(typeof ListRecommendedActions$ === "object");
 assert(typeof ListRecommendedActionSummariesCommand === "function");
 assert(typeof ListRecommendedActionSummaries$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof PutOrganizationEnrollmentConfigurationCommand === "function");
+assert(typeof PutOrganizationEnrollmentConfiguration$ === "object");
 assert(typeof RollbackAutomationEventCommand === "function");
 assert(typeof RollbackAutomationEvent$ === "object");
 assert(typeof StartAutomationEventCommand === "function");
@@ -240,6 +277,8 @@ assert(typeof CreateAutomationRuleResponse$ === "object");
 assert(typeof Criteria$ === "object");
 assert(typeof DeleteAutomationRuleRequest$ === "object");
 assert(typeof DeleteAutomationRuleResponse$ === "object");
+assert(typeof DeleteOrganizationEnrollmentConfigurationRequest$ === "object");
+assert(typeof DeleteOrganizationEnrollmentConfigurationResponse$ === "object");
 assert(typeof DisassociateAccountsRequest$ === "object");
 assert(typeof DisassociateAccountsResponse$ === "object");
 assert(typeof DoubleCriteriaCondition$ === "object");
@@ -268,16 +307,26 @@ assert(typeof ListAutomationRulePreviewSummariesRequest$ === "object");
 assert(typeof ListAutomationRulePreviewSummariesResponse$ === "object");
 assert(typeof ListAutomationRulesRequest$ === "object");
 assert(typeof ListAutomationRulesResponse$ === "object");
+assert(typeof ListOrganizationalUnitsRequest$ === "object");
+assert(typeof ListOrganizationalUnitsResponse$ === "object");
+assert(typeof ListOrganizationEnrollmentConfigurationsRequest$ === "object");
+assert(typeof ListOrganizationEnrollmentConfigurationsResponse$ === "object");
 assert(typeof ListRecommendedActionsRequest$ === "object");
 assert(typeof ListRecommendedActionsResponse$ === "object");
 assert(typeof ListRecommendedActionSummariesRequest$ === "object");
 assert(typeof ListRecommendedActionSummariesResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof OrganizationalUnitInfo$ === "object");
 assert(typeof OrganizationConfiguration$ === "object");
+assert(typeof OrganizationEnrollmentConfiguration$ === "object");
+assert(typeof OrganizationRuleModeSource$ === "object");
 assert(typeof OrganizationScope$ === "object");
+assert(typeof OrganizationTarget$ === "object");
 assert(typeof PreviewResult$ === "object");
 assert(typeof PreviewResultSummary$ === "object");
+assert(typeof PutOrganizationEnrollmentConfigurationRequest$ === "object");
+assert(typeof PutOrganizationEnrollmentConfigurationResponse$ === "object");
 assert(typeof RecommendedAction$ === "object");
 assert(typeof RecommendedActionFilter$ === "object");
 assert(typeof RecommendedActionSummary$ === "object");
@@ -304,13 +353,18 @@ assert(typeof UpdateAutomationRuleResponse$ === "object");
 assert(typeof UpdateEnrollmentConfigurationRequest$ === "object");
 assert(typeof UpdateEnrollmentConfigurationResponse$ === "object");
 // enums
+assert(typeof AutoEnrollMemberAccounts === "object");
 assert(typeof AutomationEventFilterName === "object");
 assert(typeof AutomationRuleFilterName === "object");
 assert(typeof ComparisonOperator === "object");
 assert(typeof EnrollmentStatus === "object");
 assert(typeof EventStatus === "object");
 assert(typeof EventType === "object");
+assert(typeof OrganizationEnrollmentConfigurationStatus === "object");
+assert(typeof OrganizationEnrollmentConfigurationType === "object");
 assert(typeof OrganizationRuleMode === "object");
+assert(typeof OrganizationRuleModeSourceType === "object");
+assert(typeof OrganizationTargetType === "object");
 assert(typeof RecommendedActionFilterName === "object");
 assert(typeof RecommendedActionType === "object");
 assert(typeof ResourceType === "object");
@@ -324,6 +378,8 @@ assert(typeof SummaryDimensionKey === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof ComputeOptimizerAutomationServiceException);
 assert(typeof AccessDeniedException$ === "object");
+assert(ConflictException.prototype instanceof ComputeOptimizerAutomationServiceException);
+assert(typeof ConflictException$ === "object");
 assert(ForbiddenException.prototype instanceof ComputeOptimizerAutomationServiceException);
 assert(typeof ForbiddenException$ === "object");
 assert(IdempotencyTokenInUseException.prototype instanceof ComputeOptimizerAutomationServiceException);
@@ -355,6 +411,8 @@ assert(typeof paginateListAutomationEvents === "function");
 assert(typeof paginateListAutomationRulePreview === "function");
 assert(typeof paginateListAutomationRulePreviewSummaries === "function");
 assert(typeof paginateListAutomationRules === "function");
+assert(typeof paginateListOrganizationEnrollmentConfigurations === "function");
+assert(typeof paginateListOrganizationalUnits === "function");
 assert(typeof paginateListRecommendedActionSummaries === "function");
 assert(typeof paginateListRecommendedActions === "function");
 console.log(`ComputeOptimizerAutomation index test passed.`);

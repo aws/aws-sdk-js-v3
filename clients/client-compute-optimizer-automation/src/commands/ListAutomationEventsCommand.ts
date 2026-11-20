@@ -41,6 +41,9 @@ export interface ListAutomationEventsCommandOutput extends ListAutomationEventsR
  *       ],
  *     },
  *   ],
+ *   organizationalUnitIds: [ // OrganizationalUnitIds
+ *     "STRING_VALUE",
+ *   ],
  *   startTimeInclusive: new Date("TIMESTAMP"),
  *   endTimeExclusive: new Date("TIMESTAMP"),
  *   maxResults: Number("int"),

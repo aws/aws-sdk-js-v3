@@ -67,6 +67,10 @@ import type {
   DeleteAutomationRuleCommandOutput,
 } from "./commands/DeleteAutomationRuleCommand";
 import type {
+  DeleteOrganizationEnrollmentConfigurationCommandInput,
+  DeleteOrganizationEnrollmentConfigurationCommandOutput,
+} from "./commands/DeleteOrganizationEnrollmentConfigurationCommand";
+import type {
   DisassociateAccountsCommandInput,
   DisassociateAccountsCommandOutput,
 } from "./commands/DisassociateAccountsCommand";
@@ -108,6 +112,14 @@ import type {
   ListAutomationRulesCommandOutput,
 } from "./commands/ListAutomationRulesCommand";
 import type {
+  ListOrganizationalUnitsCommandInput,
+  ListOrganizationalUnitsCommandOutput,
+} from "./commands/ListOrganizationalUnitsCommand";
+import type {
+  ListOrganizationEnrollmentConfigurationsCommandInput,
+  ListOrganizationEnrollmentConfigurationsCommandOutput,
+} from "./commands/ListOrganizationEnrollmentConfigurationsCommand";
+import type {
   ListRecommendedActionsCommandInput,
   ListRecommendedActionsCommandOutput,
 } from "./commands/ListRecommendedActionsCommand";
@@ -119,6 +131,10 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type {
+  PutOrganizationEnrollmentConfigurationCommandInput,
+  PutOrganizationEnrollmentConfigurationCommandOutput,
+} from "./commands/PutOrganizationEnrollmentConfigurationCommand";
 import type {
   RollbackAutomationEventCommandInput,
   RollbackAutomationEventCommandOutput,
@@ -155,6 +171,7 @@ export type ServiceInputTypes =
   | AssociateAccountsCommandInput
   | CreateAutomationRuleCommandInput
   | DeleteAutomationRuleCommandInput
+  | DeleteOrganizationEnrollmentConfigurationCommandInput
   | DisassociateAccountsCommandInput
   | GetAutomationEventCommandInput
   | GetAutomationRuleCommandInput
@@ -166,9 +183,12 @@ export type ServiceInputTypes =
   | ListAutomationRulePreviewCommandInput
   | ListAutomationRulePreviewSummariesCommandInput
   | ListAutomationRulesCommandInput
+  | ListOrganizationEnrollmentConfigurationsCommandInput
+  | ListOrganizationalUnitsCommandInput
   | ListRecommendedActionSummariesCommandInput
   | ListRecommendedActionsCommandInput
   | ListTagsForResourceCommandInput
+  | PutOrganizationEnrollmentConfigurationCommandInput
   | RollbackAutomationEventCommandInput
   | StartAutomationEventCommandInput
   | TagResourceCommandInput
@@ -183,6 +203,7 @@ export type ServiceOutputTypes =
   | AssociateAccountsCommandOutput
   | CreateAutomationRuleCommandOutput
   | DeleteAutomationRuleCommandOutput
+  | DeleteOrganizationEnrollmentConfigurationCommandOutput
   | DisassociateAccountsCommandOutput
   | GetAutomationEventCommandOutput
   | GetAutomationRuleCommandOutput
@@ -194,9 +215,12 @@ export type ServiceOutputTypes =
   | ListAutomationRulePreviewCommandOutput
   | ListAutomationRulePreviewSummariesCommandOutput
   | ListAutomationRulesCommandOutput
+  | ListOrganizationEnrollmentConfigurationsCommandOutput
+  | ListOrganizationalUnitsCommandOutput
   | ListRecommendedActionSummariesCommandOutput
   | ListRecommendedActionsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutOrganizationEnrollmentConfigurationCommandOutput
   | RollbackAutomationEventCommandOutput
   | StartAutomationEventCommandOutput
   | TagResourceCommandOutput

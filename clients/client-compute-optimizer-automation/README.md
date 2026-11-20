@@ -241,6 +241,13 @@ DeleteAutomationRule
 </details>
 <details>
 <summary>
+DeleteOrganizationEnrollmentConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer-automation/command/DeleteOrganizationEnrollmentConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer-automation/Interface/DeleteOrganizationEnrollmentConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer-automation/Interface/DeleteOrganizationEnrollmentConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 DisassociateAccounts
 </summary>
 
@@ -318,6 +325,20 @@ ListAutomationRules
 </details>
 <details>
 <summary>
+ListOrganizationalUnits
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer-automation/command/ListOrganizationalUnitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer-automation/Interface/ListOrganizationalUnitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer-automation/Interface/ListOrganizationalUnitsCommandOutput/)
+</details>
+<details>
+<summary>
+ListOrganizationEnrollmentConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer-automation/command/ListOrganizationEnrollmentConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer-automation/Interface/ListOrganizationEnrollmentConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer-automation/Interface/ListOrganizationEnrollmentConfigurationsCommandOutput/)
+</details>
+<details>
+<summary>
 ListRecommendedActions
 </summary>
 
@@ -336,6 +357,13 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer-automation/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer-automation/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer-automation/Interface/ListTagsForResourceCommandOutput/)
+</details>
+<details>
+<summary>
+PutOrganizationEnrollmentConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer-automation/command/PutOrganizationEnrollmentConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer-automation/Interface/PutOrganizationEnrollmentConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer-automation/Interface/PutOrganizationEnrollmentConfigurationCommandOutput/)
 </details>
 <details>
 <summary>

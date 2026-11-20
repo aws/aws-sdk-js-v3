@@ -44,6 +44,10 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * //       accountId: "STRING_VALUE", // required
  * //       status: "Active" || "Inactive" || "Pending" || "Failed", // required
  * //       organizationRuleMode: "AnyAllowed" || "NoneAllowed", // required
+ * //       organizationRuleModeSource: { // OrganizationRuleModeSource
+ * //         sourceType: "Applied" || "Inherited" || "Direct" || "Default", // required
+ * //         sourceTargetId: "STRING_VALUE",
+ * //       },
  * //       statusReason: "STRING_VALUE",
  * //       lastUpdatedTimestamp: new Date("TIMESTAMP"), // required
  * //     },
@@ -72,7 +76,7 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *  <p> One or more parameter values are not valid. </p>
  *
  * @throws {@link NotManagementAccountException} (client fault)
- *  <p> The operation can only be performed by a management account. </p>
+ *  <p> The operation can only be performed by an organization's management account or a delegated administrator. </p>
  *
  * @throws {@link OptInRequiredException} (client fault)
  *  <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>

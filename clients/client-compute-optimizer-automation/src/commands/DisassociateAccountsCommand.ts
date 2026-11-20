@@ -23,7 +23,7 @@ export interface DisassociateAccountsCommandInput extends DisassociateAccountsRe
 export interface DisassociateAccountsCommandOutput extends DisassociateAccountsResponse, __MetadataBearer {}
 
 /**
- * <p> Disassociates member accounts from your organization's management account, removing centralized automation capabilities. Once disassociated, organization rules no longer apply to the member account, and the management account (or delegated administrator) cannot create Automation rules for that account. </p> <note> <p>Only the management account or a delegated administrator can perform this action.</p> </note>
+ * <p> Disassociates member accounts from your organization's management account, removing centralized automation capabilities. Once disassociated, organization rules no longer apply to the member account, and the management account (or delegated administrator) can't create automation rules for that account. </p> <p>Requests that include an account to which an organization enrollment configuration applies are rejected.</p> <note> <p>Only the management account or a delegated administrator can perform this action.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,7 +76,7 @@ export interface DisassociateAccountsCommandOutput extends DisassociateAccountsR
  *  <p> One or more parameter values are not valid. </p>
  *
  * @throws {@link NotManagementAccountException} (client fault)
- *  <p> The operation can only be performed by a management account. </p>
+ *  <p> The operation can only be performed by an organization's management account or a delegated administrator. </p>
  *
  * @throws {@link OptInRequiredException} (client fault)
  *  <p> The account must be opted in to Compute Optimizer Automation before performing this action. </p>

@@ -40,6 +40,7 @@ export interface GetEnrollmentConfigurationCommandOutput extends GetEnrollmentCo
  * //   statusReason: "STRING_VALUE",
  * //   organizationRuleMode: "AnyAllowed" || "NoneAllowed",
  * //   lastUpdatedTimestamp: new Date("TIMESTAMP"),
+ * //   organizationEnrollmentConfigurationStatus: "Active" || "Inactive",
  * // };
  *
  * ```

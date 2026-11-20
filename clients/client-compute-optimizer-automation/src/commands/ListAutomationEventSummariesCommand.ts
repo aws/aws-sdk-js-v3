@@ -41,6 +41,9 @@ export interface ListAutomationEventSummariesCommandOutput extends ListAutomatio
  *       ],
  *     },
  *   ],
+ *   organizationalUnitIds: [ // OrganizationalUnitIds
+ *     "STRING_VALUE",
+ *   ],
  *   startDateInclusive: "STRING_VALUE",
  *   endDateExclusive: "STRING_VALUE",
  *   maxResults: Number("int"),

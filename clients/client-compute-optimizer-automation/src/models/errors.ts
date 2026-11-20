@@ -132,7 +132,7 @@ export class InvalidParameterValueException extends __BaseException {
 }
 
 /**
- * <p> The operation can only be performed by a management account. </p>
+ * <p> The operation can only be performed by an organization's management account or a delegated administrator. </p>
  * @public
  */
 export class NotManagementAccountException extends __BaseException {
@@ -254,5 +254,26 @@ export class ServiceQuotaExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * <p> The request conflicts with a concurrent change to the same resource. Retry the request. </p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.computeoptimizerautomation#ConflictException";
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
   }
 }

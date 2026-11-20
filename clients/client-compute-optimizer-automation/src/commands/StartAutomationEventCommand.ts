@@ -23,7 +23,7 @@ export interface StartAutomationEventCommandInput extends StartAutomationEventRe
 export interface StartAutomationEventCommandOutput extends StartAutomationEventResponse, __MetadataBearer {}
 
 /**
- * <p> Initiates a one-time, on-demand automation for the specified recommended action. </p> <note> <p>Management accounts and delegated administrators can only initiate recommended actions for associated member accounts. You can associate a member account using <code>AssociateAccounts</code>.</p> </note>
+ * <p> Initiates a one-time, on-demand automation for the specified recommended action. </p> <note> <p>Management accounts and delegated administrators can initiate recommended actions for member accounts that are associated using <code>AssociateAccounts</code> or have an applicable organization enrollment configuration with <code>organizationRuleMode</code> set to <code>AnyAllowed</code>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

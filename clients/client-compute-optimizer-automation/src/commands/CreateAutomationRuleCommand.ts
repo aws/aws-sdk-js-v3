@@ -41,6 +41,15 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *     accountIds: [ // OrganizationConfigurationAccountIds
  *       "STRING_VALUE",
  *     ],
+ *     organizationalUnitIds: [ // OrganizationConfigurationOrganizationalUnitIds
+ *       "STRING_VALUE",
+ *     ],
+ *     excludedOrganizationalUnitIds: [
+ *       "STRING_VALUE",
+ *     ],
+ *     excludedAccountIds: [
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   priority: "STRING_VALUE",
  *   recommendedActionTypes: [ // RecommendedActionTypeList // required
@@ -139,6 +148,15 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  * //   organizationConfiguration: { // OrganizationConfiguration
  * //     ruleApplyOrder: "BeforeAccountRules" || "AfterAccountRules",
  * //     accountIds: [ // OrganizationConfigurationAccountIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     organizationalUnitIds: [ // OrganizationConfigurationOrganizationalUnitIds
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     excludedOrganizationalUnitIds: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     excludedAccountIds: [
  * //       "STRING_VALUE",
  * //     ],
  * //   },
