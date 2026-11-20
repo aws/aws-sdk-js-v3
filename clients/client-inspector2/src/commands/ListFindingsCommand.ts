@@ -151,6 +151,19 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *         sourceLayerHash: "<StringFilter>",
  *         sourceLambdaLayerArn: "<StringFilter>",
  *         filePath: "<StringFilter>",
+ *         runtimeReachability: { // RuntimeReachabilityFilter
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *         runtimeReachabilityReason: { // RuntimeReachabilityReasonFilter
+ *           comparison: "STRING_VALUE", // required
+ *           value: "STRING_VALUE", // required
+ *         },
+ *         purlQualifier: { // PurlQualifierFilter
+ *           comparison: "STRING_VALUE", // required
+ *           key: "STRING_VALUE", // required
+ *           value: "STRING_VALUE",
+ *         },
  *       },
  *     ],
  *     relatedVulnerabilities: "<StringFilterList>",
@@ -421,6 +434,9 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * //             fixedInVersion: "STRING_VALUE",
  * //             remediation: "STRING_VALUE",
  * //             sourceLambdaLayerArn: "STRING_VALUE",
+ * //             runtimeReachability: "STRING_VALUE",
+ * //             runtimeReachabilityReason: "STRING_VALUE",
+ * //             purl: "STRING_VALUE",
  * //           },
  * //         ],
  * //         source: "STRING_VALUE", // required

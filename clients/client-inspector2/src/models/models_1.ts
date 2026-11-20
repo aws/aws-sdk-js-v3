@@ -10,6 +10,7 @@ import type {
   CodeScanStatus,
   Currency,
   Ec2DeepInspectionStatus,
+  ExternalReportStatus,
   FilterAction,
   GroupKey,
   InheritanceMode,
@@ -20,7 +21,9 @@ import type {
   OnDemandScanStatus,
   OnDemandScanStatusReason,
   Operation,
+  ReportingErrorCode,
   ResourceType,
+  SbomReportFormat,
   ScanType,
   Service,
   SortField,
@@ -65,6 +68,7 @@ import type {
   Cvss3,
   Cvss4,
   DelegatedAdminAccount,
+  Destination,
   Ec2Configuration,
   EcrConfiguration,
   Epss,
@@ -74,10 +78,116 @@ import type {
   Finding,
   GcpProviderDetailUpdate,
   Member,
+  ResourceFilterCriteria,
   Schedule,
   StringFilter,
   TagFilter,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface GetOnDemandScanStatusResponse {
+  /**
+   * <p>The unique identifier of the on-demand scan.</p>
+   * @public
+   */
+  scanId: string | undefined;
+
+  /**
+   * <p>The ID of the resource that was scanned.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that was scanned.</p>
+   * @public
+   */
+  resourceType: OnDemandResourceType | undefined;
+
+  /**
+   * <p>The current status of the on-demand scan.</p>
+   * @public
+   */
+  scanStatus: OnDemandScanStatus | undefined;
+
+  /**
+   * <p>The reason associated with the current on-demand scan status.</p>
+   * @public
+   */
+  scanStatusReason?: OnDemandScanStatusReason | undefined;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, when the on-demand scan started.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, when the on-demand scan completed. This field is absent if the scan has not completed.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSbomExportRequest {
+  /**
+   * <p>The report ID of the SBOM export to get details for.</p>
+   * @public
+   */
+  reportId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSbomExportResponse {
+  /**
+   * <p>The report ID of the software bill of materials (SBOM) report.</p>
+   * @public
+   */
+  reportId?: string | undefined;
+
+  /**
+   * <p>The format of the software bill of materials (SBOM) report.</p>
+   * @public
+   */
+  format?: SbomReportFormat | undefined;
+
+  /**
+   * <p>The status of the software bill of materials (SBOM) report.</p>
+   * @public
+   */
+  status?: ExternalReportStatus | undefined;
+
+  /**
+   * <p>An error code.</p>
+   * @public
+   */
+  errorCode?: ReportingErrorCode | undefined;
+
+  /**
+   * <p>An error message.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings</p>
+   * @public
+   */
+  s3Destination?: Destination | undefined;
+
+  /**
+   * <p>Contains details about the resource filter criteria used for the software bill of materials (SBOM) report.</p>
+   * @public
+   */
+  filterCriteria?: ResourceFilterCriteria | undefined;
+}
 
 /**
  * <p>Contains the details required to register the GitHub App on the GitHub Enterprise Server instance.</p>

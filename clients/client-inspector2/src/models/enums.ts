@@ -1492,6 +1492,76 @@ export type FilterAction = (typeof FilterAction)[keyof typeof FilterAction];
  * @public
  * @enum
  */
+export const PurlQualifierKey = {
+  ARCH: "arch",
+  COLLECTOR: "collector",
+  DEV_DEPENDENCY: "dev_dependency",
+  DISTRO: "distro",
+  EPOCH: "epoch",
+  GO_TOOLCHAIN: "go_toolchain",
+  HARDENED: "hardened",
+  PRIVATE: "private",
+  RUST_TOOLCHAIN: "rust_toolchain",
+  SCOPE: "scope",
+  SKIP_CHROMIUM_DOWNLOAD: "skip_chromium_download",
+  SOURCE: "source",
+  STREAM: "stream",
+  TRANSITIVE_DEPENDENCY: "transitive_dependency",
+  UNRESOLVED: "unresolved",
+  VENDOR: "vendor",
+} as const;
+/**
+ * @public
+ */
+export type PurlQualifierKey = (typeof PurlQualifierKey)[keyof typeof PurlQualifierKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuntimeReachabilityComparison = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
+/**
+ * @public
+ */
+export type RuntimeReachabilityComparison =
+  (typeof RuntimeReachabilityComparison)[keyof typeof RuntimeReachabilityComparison];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuntimeReachability = {
+  NOT_REACHABLE: "NOT_REACHABLE",
+  REACHABLE: "REACHABLE",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type RuntimeReachability = (typeof RuntimeReachability)[keyof typeof RuntimeReachability];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuntimeReachabilityReason = {
+  PACKAGE_IN_DOCKERFILE_WORKLOAD_PATH: "PACKAGE_IN_DOCKERFILE_WORKLOAD_PATH",
+  PACKAGE_NOT_IN_DOCKERFILE_WORKLOAD_PATH: "PACKAGE_NOT_IN_DOCKERFILE_WORKLOAD_PATH",
+  PROCESS_NOT_OBSERVED_IN_EC2_RUNTIME: "PROCESS_NOT_OBSERVED_IN_EC2_RUNTIME",
+  PROCESS_OBSERVED_IN_EC2_RUNTIME: "PROCESS_OBSERVED_IN_EC2_RUNTIME",
+} as const;
+/**
+ * @public
+ */
+export type RuntimeReachabilityReason = (typeof RuntimeReachabilityReason)[keyof typeof RuntimeReachabilityReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const ReportFormat = {
   CSV: "CSV",
   JSON: "JSON",

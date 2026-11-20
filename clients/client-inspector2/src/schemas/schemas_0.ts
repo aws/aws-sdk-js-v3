@@ -446,6 +446,7 @@ const _PFLr = "ProviderFilterList";
 const _PFr = "ProviderFilter";
 const _PPSC = "ProjectPeriodicScanConfiguration";
 const _PPSCL = "ProjectPeriodicScanConfigurationList";
+const _PQF = "PurlQualifierFilter";
 const _PR = "PortRange";
 const _PRF = "PortRangeFilter";
 const _PRFL = "PortRangeFilterList";
@@ -467,6 +468,8 @@ const _RL = "ResourceList";
 const _RMF = "ResourceMapFilter";
 const _RMFL = "ResourceMapFilterList";
 const _RNFE = "ResourceNotFoundException";
+const _RRF = "RuntimeReachabilityFilter";
+const _RRRF = "RuntimeReachabilityReasonFilter";
 const _RS = "ResourceState";
 const _RSF = "ResourceStringFilter";
 const _RSFL = "ResourceStringFilterList";
@@ -993,6 +996,7 @@ const _pNr = "projectName";
 const _pOI = "providerOrgId";
 const _pP = "providerPartition";
 const _pPa = "packagePaths";
+const _pQ = "purlQualifier";
 const _pR = "providerRegion";
 const _pRo = "portRange";
 const _pSC = "periodicScanConfiguration";
@@ -1011,6 +1015,7 @@ const _pr = "product";
 const _pro = "provider";
 const _prog = "progress";
 const _prot = "protocol";
+const _pu = "purl";
 const _r = "reason";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
@@ -1026,6 +1031,8 @@ const _rIep = "reportId";
 const _rIu = "ruleId";
 const _rM = "resourceMetadata";
 const _rN = "repositoryName";
+const _rR = "runtimeReachability";
+const _rRR = "runtimeReachabilityReason";
 const _rS = "resourceStatus";
 const _rSC = "ruleSetCategories";
 const _rSe = "resourceState";
@@ -2740,8 +2747,8 @@ export var PackageAggregationResponse$: StaticStructureSchema = [3, n0, _PAR,
 ];
 export var PackageFilter$: StaticStructureSchema = [3, n0, _PF,
   0,
-  [_na, _ve, _epo, _rel, _arc, _sLH, _sLLA, _fP],
-  [() => StringFilter$, () => StringFilter$, () => NumberFilter$, () => StringFilter$, () => StringFilter$, () => StringFilter$, () => StringFilter$, () => StringFilter$]
+  [_na, _ve, _epo, _rel, _arc, _sLH, _sLLA, _fP, _rR, _rRR, _pQ],
+  [() => StringFilter$, () => StringFilter$, () => NumberFilter$, () => StringFilter$, () => StringFilter$, () => StringFilter$, () => StringFilter$, () => StringFilter$, () => RuntimeReachabilityFilter$, () => RuntimeReachabilityReasonFilter$, () => PurlQualifierFilter$]
 ];
 export var PackageVulnerabilityDetails$: StaticStructureSchema = [3, n0, _PVD,
   0,
@@ -2787,6 +2794,11 @@ export var ProviderFilter$: StaticStructureSchema = [3, n0, _PFr,
   0,
   [_co, _v],
   [0, 0], 2
+];
+export var PurlQualifierFilter$: StaticStructureSchema = [3, n0, _PQF,
+  0,
+  [_co, _k, _v],
+  [0, 0, 0], 2
 ];
 export var Recommendation$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -2854,6 +2866,16 @@ export var ResourceStatus$: StaticStructureSchema = [3, n0, _RSe,
   [0, 0, 0, 0, 0, 0], 2
 ];
 export var ResourceStringFilter$: StaticStructureSchema = [3, n0, _RSF,
+  0,
+  [_co, _v],
+  [0, 0], 2
+];
+export var RuntimeReachabilityFilter$: StaticStructureSchema = [3, n0, _RRF,
+  0,
+  [_co, _v],
+  [0, 0], 2
+];
+export var RuntimeReachabilityReasonFilter$: StaticStructureSchema = [3, n0, _RRRF,
   0,
   [_co, _v],
   [0, 0], 2
@@ -3250,8 +3272,8 @@ export var Vulnerability$: StaticStructureSchema = [3, n0, _Vu,
 ];
 export var VulnerablePackage$: StaticStructureSchema = [3, n0, _VP,
   0,
-  [_na, _ve, _sLH, _epo, _rel, _arch, _pM, _fP, _fIV, _rem, _sLLA],
-  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], 2
+  [_na, _ve, _sLH, _epo, _rel, _arch, _pM, _fP, _fIV, _rem, _sLLA, _rR, _rRR, _pu],
+  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 2
 ];
 export var WeeklySchedule$: StaticStructureSchema = [3, n0, _WS,
   0,

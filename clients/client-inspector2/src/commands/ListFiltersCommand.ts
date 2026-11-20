@@ -164,6 +164,19 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * //             sourceLayerHash: "<StringFilter>",
  * //             sourceLambdaLayerArn: "<StringFilter>",
  * //             filePath: "<StringFilter>",
+ * //             runtimeReachability: { // RuntimeReachabilityFilter
+ * //               comparison: "STRING_VALUE", // required
+ * //               value: "STRING_VALUE", // required
+ * //             },
+ * //             runtimeReachabilityReason: { // RuntimeReachabilityReasonFilter
+ * //               comparison: "STRING_VALUE", // required
+ * //               value: "STRING_VALUE", // required
+ * //             },
+ * //             purlQualifier: { // PurlQualifierFilter
+ * //               comparison: "STRING_VALUE", // required
+ * //               key: "STRING_VALUE", // required
+ * //               value: "STRING_VALUE",
+ * //             },
  * //           },
  * //         ],
  * //         relatedVulnerabilities: "<StringFilterList>",

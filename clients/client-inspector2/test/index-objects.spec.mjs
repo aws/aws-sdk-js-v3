@@ -560,6 +560,8 @@ import {
   ProviderDetailCreate$,
   ProviderDetailUpdate$,
   ProviderFilter$,
+  PurlQualifierFilter$,
+  PurlQualifierKey,
   Recommendation$,
   RelationshipStatus,
   Remediation$,
@@ -588,6 +590,11 @@ import {
   ResourceType,
   RuleSetCategory,
   Runtime,
+  RuntimeReachability,
+  RuntimeReachabilityComparison,
+  RuntimeReachabilityFilter$,
+  RuntimeReachabilityReason,
+  RuntimeReachabilityReasonFilter$,
   SbomReportFormat,
   ScanMode,
   ScanSource,
@@ -1228,6 +1235,7 @@ assert(typeof ProjectPeriodicScanConfiguration$ === "object");
 assert(typeof ProviderDetailCreate$ === "object");
 assert(typeof ProviderDetailUpdate$ === "object");
 assert(typeof ProviderFilter$ === "object");
+assert(typeof PurlQualifierFilter$ === "object");
 assert(typeof Recommendation$ === "object");
 assert(typeof Remediation$ === "object");
 assert(typeof RepositoryAggregation$ === "object");
@@ -1242,6 +1250,8 @@ assert(typeof ResourceScanMetadata$ === "object");
 assert(typeof ResourceState$ === "object");
 assert(typeof ResourceStatus$ === "object");
 assert(typeof ResourceStringFilter$ === "object");
+assert(typeof RuntimeReachabilityFilter$ === "object");
+assert(typeof RuntimeReachabilityReasonFilter$ === "object");
 assert(typeof ScanStatus$ === "object");
 assert(typeof Schedule$ === "object");
 assert(typeof ScopeConfiguration$ === "object");
@@ -1425,6 +1435,7 @@ assert(typeof PeriodicScanFrequency === "object");
 assert(typeof ProjectSelectionScope === "object");
 assert(typeof Provider === "object");
 assert(typeof ProviderComparison === "object");
+assert(typeof PurlQualifierKey === "object");
 assert(typeof RelationshipStatus === "object");
 assert(typeof ReportFormat === "object");
 assert(typeof ReportingErrorCode === "object");
@@ -1435,6 +1446,9 @@ assert(typeof ResourceStringComparison === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RuleSetCategory === "object");
 assert(typeof Runtime === "object");
+assert(typeof RuntimeReachability === "object");
+assert(typeof RuntimeReachabilityComparison === "object");
+assert(typeof RuntimeReachabilityReason === "object");
 assert(typeof SbomReportFormat === "object");
 assert(typeof ScanMode === "object");
 assert(typeof ScanSource === "object");

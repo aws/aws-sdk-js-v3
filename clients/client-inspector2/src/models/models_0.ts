@@ -81,8 +81,6 @@ import type {
   MapComparison,
   NetworkProtocol,
   OnDemandResourceType,
-  OnDemandScanStatus,
-  OnDemandScanStatusReason,
   PackageManager,
   PackageSortBy,
   PackageType,
@@ -90,6 +88,7 @@ import type {
   ProjectSelectionScope,
   Provider,
   ProviderComparison,
+  PurlQualifierKey,
   RelationshipStatus,
   ReportFormat,
   ReportingErrorCode,
@@ -100,6 +99,9 @@ import type {
   ResourceType,
   RuleSetCategory,
   Runtime,
+  RuntimeReachability,
+  RuntimeReachabilityComparison,
+  RuntimeReachabilityReason,
   SbomReportFormat,
   ScanMode,
   ScanSource,
@@ -7216,6 +7218,66 @@ export interface PortRangeFilter {
 }
 
 /**
+ * <p>An object that describes the details of a package URL (purl) qualifier filter.</p>
+ * @public
+ */
+export interface PurlQualifierFilter {
+  /**
+   * <p>The operator to use when comparing values in the filter.</p>
+   * @public
+   */
+  comparison: MapComparison | undefined;
+
+  /**
+   * <p>The package URL (purl) qualifier key to filter on.</p>
+   * @public
+   */
+  key: PurlQualifierKey | undefined;
+
+  /**
+   * <p>The package URL (purl) qualifier value to filter on.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * <p>An object that describes the details of a runtime reachability filter.</p>
+ * @public
+ */
+export interface RuntimeReachabilityFilter {
+  /**
+   * <p>The operator to use when comparing values in the filter.</p>
+   * @public
+   */
+  comparison: RuntimeReachabilityComparison | undefined;
+
+  /**
+   * <p>The runtime reachability status to filter on.</p>
+   * @public
+   */
+  value: RuntimeReachability | undefined;
+}
+
+/**
+ * <p>An object that describes the details of a runtime reachability reason filter.</p>
+ * @public
+ */
+export interface RuntimeReachabilityReasonFilter {
+  /**
+   * <p>The operator to use when comparing values in the filter.</p>
+   * @public
+   */
+  comparison: RuntimeReachabilityComparison | undefined;
+
+  /**
+   * <p>The runtime reachability reason to filter on.</p>
+   * @public
+   */
+  value: RuntimeReachabilityReason | undefined;
+}
+
+/**
  * <p>Contains information on the details of a package filter.</p>
  * @public
  */
@@ -7267,6 +7329,24 @@ export interface PackageFilter {
    * @public
    */
   filePath?: StringFilter | undefined;
+
+  /**
+   * <p>An object that contains details on the runtime reachability status of the package to filter on. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-runtime-reachability.html">Understanding runtime reachability</a> in the Amazon Inspector user guide.</p>
+   * @public
+   */
+  runtimeReachability?: RuntimeReachabilityFilter | undefined;
+
+  /**
+   * <p>An object that contains details on the runtime reachability reason of the package to filter on. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-runtime-reachability.html">Understanding runtime reachability</a> in the Amazon Inspector user guide.</p>
+   * @public
+   */
+  runtimeReachabilityReason?: RuntimeReachabilityReasonFilter | undefined;
+
+  /**
+   * <p>An object that contains details on the package URL (purl) qualifier to filter on.</p>
+   * @public
+   */
+  purlQualifier?: PurlQualifierFilter | undefined;
 }
 
 /**
@@ -8865,6 +8945,24 @@ export interface VulnerablePackage {
    * @public
    */
   sourceLambdaLayerArn?: string | undefined;
+
+  /**
+   * <p>The runtime reachability status of the vulnerable package. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-runtime-reachability.html">Understanding runtime reachability</a> in the Amazon Inspector user guide.</p>
+   * @public
+   */
+  runtimeReachability?: RuntimeReachability | undefined;
+
+  /**
+   * <p>The reason for the runtime reachability status of the vulnerable package. For more information, see <a href="https://docs.aws.amazon.com/inspector/latest/user/findings-understanding-runtime-reachability.html">Understanding runtime reachability</a> in the Amazon Inspector user guide.</p>
+   * @public
+   */
+  runtimeReachabilityReason?: RuntimeReachabilityReason | undefined;
+
+  /**
+   * <p>The package URL (purl) of the vulnerable package.</p>
+   * @public
+   */
+  purl?: string | undefined;
 }
 
 /**
@@ -10136,109 +10234,4 @@ export interface GetOnDemandScanStatusRequest {
    * @public
    */
   resourceType: OnDemandResourceType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetOnDemandScanStatusResponse {
-  /**
-   * <p>The unique identifier of the on-demand scan.</p>
-   * @public
-   */
-  scanId: string | undefined;
-
-  /**
-   * <p>The ID of the resource that was scanned.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that was scanned.</p>
-   * @public
-   */
-  resourceType: OnDemandResourceType | undefined;
-
-  /**
-   * <p>The current status of the on-demand scan.</p>
-   * @public
-   */
-  scanStatus: OnDemandScanStatus | undefined;
-
-  /**
-   * <p>The reason associated with the current on-demand scan status.</p>
-   * @public
-   */
-  scanStatusReason?: OnDemandScanStatusReason | undefined;
-
-  /**
-   * <p>The date and time, in ISO 8601 format, when the on-demand scan started.</p>
-   * @public
-   */
-  startedAt: Date | undefined;
-
-  /**
-   * <p>The date and time, in ISO 8601 format, when the on-demand scan completed. This field is absent if the scan has not completed.</p>
-   * @public
-   */
-  completedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSbomExportRequest {
-  /**
-   * <p>The report ID of the SBOM export to get details for.</p>
-   * @public
-   */
-  reportId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSbomExportResponse {
-  /**
-   * <p>The report ID of the software bill of materials (SBOM) report.</p>
-   * @public
-   */
-  reportId?: string | undefined;
-
-  /**
-   * <p>The format of the software bill of materials (SBOM) report.</p>
-   * @public
-   */
-  format?: SbomReportFormat | undefined;
-
-  /**
-   * <p>The status of the software bill of materials (SBOM) report.</p>
-   * @public
-   */
-  status?: ExternalReportStatus | undefined;
-
-  /**
-   * <p>An error code.</p>
-   * @public
-   */
-  errorCode?: ReportingErrorCode | undefined;
-
-  /**
-   * <p>An error message.</p>
-   * @public
-   */
-  errorMessage?: string | undefined;
-
-  /**
-   * <p>Contains details of the Amazon S3 bucket and KMS key used to export findings</p>
-   * @public
-   */
-  s3Destination?: Destination | undefined;
-
-  /**
-   * <p>Contains details about the resource filter criteria used for the software bill of materials (SBOM) report.</p>
-   * @public
-   */
-  filterCriteria?: ResourceFilterCriteria | undefined;
 }
