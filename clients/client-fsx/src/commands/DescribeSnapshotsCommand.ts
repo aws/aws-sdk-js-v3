@@ -28,7 +28,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  *             snapshots owned by your Amazon Web Services account in the Amazon Web Services Region of
  *             the endpoint that you're calling.</p>
  *          <p>When retrieving all snapshots, you can optionally specify the <code>MaxResults</code>
- *             parameter to limit the number of snapshots in a response. If more backups remain,
+ *             parameter to limit the number of snapshots in a response. If more snapshots remain,
  *                 Amazon FSx returns a <code>NextToken</code> value in the response. In this
  *             case, send a later request with the <code>NextToken</code> request parameter set to the
  *             value of <code>NextToken</code> from the last response. </p>
@@ -46,7 +46,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  *             </li>
  *             <li>
  *                <p>The order of snapshots returned in the response of one
- *                         <code>DescribeSnapshots</code> call and the order of backups returned across
+ *                         <code>DescribeSnapshots</code> call and the order of snapshots returned across
  *                     the responses of a multi-call iteration is unspecified. </p>
  *             </li>
  *          </ul>
@@ -331,7 +331,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * //                   OntapConfiguration: { // OntapFileSystemConfiguration
  * //                     AutomaticBackupRetentionDays: Number("int"),
  * //                     DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //                     DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2",
+ * //                     DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2" || "SINGLE_AZ_3" || "MULTI_AZ_3",
  * //                     EndpointIpAddressRange: "STRING_VALUE",
  * //                     Endpoints: { // FileSystemEndpoints
  * //                       Intercluster: { // FileSystemEndpoint
@@ -524,7 +524,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  * //             OntapConfiguration: {
  * //               AutomaticBackupRetentionDays: Number("int"),
  * //               DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //               DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2",
+ * //               DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2" || "SINGLE_AZ_3" || "MULTI_AZ_3",
  * //               EndpointIpAddressRange: "STRING_VALUE",
  * //               Endpoints: {
  * //                 Intercluster: {

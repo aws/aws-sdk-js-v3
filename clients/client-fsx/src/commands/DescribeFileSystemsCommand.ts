@@ -436,7 +436,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * //             OntapConfiguration: { // OntapFileSystemConfiguration
  * //               AutomaticBackupRetentionDays: Number("int"),
  * //               DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //               DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2",
+ * //               DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2" || "SINGLE_AZ_3" || "MULTI_AZ_3",
  * //               EndpointIpAddressRange: "STRING_VALUE",
  * //               Endpoints: { // FileSystemEndpoints
  * //                 Intercluster: { // FileSystemEndpoint
@@ -626,7 +626,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * //       OntapConfiguration: {
  * //         AutomaticBackupRetentionDays: Number("int"),
  * //         DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //         DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2",
+ * //         DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2" || "SINGLE_AZ_3" || "MULTI_AZ_3",
  * //         EndpointIpAddressRange: "STRING_VALUE",
  * //         Endpoints: {
  * //           Intercluster: {
