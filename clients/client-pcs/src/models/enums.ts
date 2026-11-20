@@ -16,6 +16,67 @@ export type AccountingMode = (typeof AccountingMode)[keyof typeof AccountingMode
  * @public
  * @enum
  */
+export const DeepHealthCheckOnStartProfile = {
+  LONG: "LONG",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+  QUICK: "QUICK",
+} as const;
+/**
+ * @public
+ */
+export type DeepHealthCheckOnStartProfile =
+  (typeof DeepHealthCheckOnStartProfile)[keyof typeof DeepHealthCheckOnStartProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeepHealthCheckOnStartRepairAction = {
+  AUTO: "AUTO",
+  ISOLATE: "ISOLATE",
+  NONE: "NONE",
+  REPLACE: "REPLACE",
+} as const;
+/**
+ * @public
+ */
+export type DeepHealthCheckOnStartRepairAction =
+  (typeof DeepHealthCheckOnStartRepairAction)[keyof typeof DeepHealthCheckOnStartRepairAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthMonitoringMode = {
+  NONE: "NONE",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type HealthMonitoringMode = (typeof HealthMonitoringMode)[keyof typeof HealthMonitoringMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthMonitoringRepairAction = {
+  AUTO: "AUTO",
+  ISOLATE: "ISOLATE",
+  NONE: "NONE",
+  REPLACE: "REPLACE",
+} as const;
+/**
+ * @public
+ */
+export type HealthMonitoringRepairAction =
+  (typeof HealthMonitoringRepairAction)[keyof typeof HealthMonitoringRepairAction];
+
+/**
+ * @public
+ * @enum
+ */
 export const LaunchTemplateMode = {
   CUSTOM: "CUSTOM",
   MANAGED: "MANAGED",

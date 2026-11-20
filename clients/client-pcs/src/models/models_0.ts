@@ -3,8 +3,12 @@ import type {
   AccountingMode,
   ClusterStatus,
   ComputeNodeGroupStatus,
+  DeepHealthCheckOnStartProfile,
+  DeepHealthCheckOnStartRepairAction,
   EndpointType,
   ExecutionPolicy,
+  HealthMonitoringMode,
+  HealthMonitoringRepairAction,
   JobSubmitPluginType,
   LaunchTemplateMode,
   NetworkType,
@@ -82,6 +86,72 @@ export interface InstanceConfig {
    * @public
    */
   instanceType?: string | undefined;
+}
+
+/**
+ * <p>The deep health check that runs each time an instance starts, including after a reboot, before the compute node accepts jobs.</p>
+ * @public
+ */
+export interface DeepHealthCheckOnStart {
+  /**
+   * <p>The deep health check profile to run. Each profile other than <code>NONE</code> runs NVIDIA Data Center GPU Manager (DCGM) diagnostics. More thorough profiles run more tests and add more time to instance launch. A profile other than <code>NONE</code> requires instance types with NVIDIA GPUs. This value is required when you specify <code>onStart</code>. There is no default value. Valid values:</p> <ul> <li> <p> <code>NONE</code> – Turns off the deep health check. You can't specify <code>repairAction</code> with this profile.</p> </li> <li> <p> <code>QUICK</code> – Runs basic GPU tests (DCGM diagnostics level 1). This profile adds the least time to instance launch.</p> </li> <li> <p> <code>MEDIUM</code> – Runs extended GPU tests (DCGM diagnostics level 2).</p> </li> <li> <p> <code>LONG</code> – Runs GPU stress and diagnostic tests (DCGM diagnostics level 3). This profile adds the most time to instance launch.</p> </li> </ul>
+   * @public
+   */
+  profile?: DeepHealthCheckOnStartProfile | undefined;
+
+  /**
+   * <p>The action that PCS takes when an instance fails the deep health check. You can't specify this value when <code>profile</code> is <code>NONE</code>. If you don't specify this value and <code>profile</code> isn't <code>NONE</code>, PCS uses <code>AUTO</code>. <code>GetComputeNodeGroup</code> doesn't return a <code>repairAction</code> that you didn't specify. Valid values:</p> <ul> <li> <p> <code>AUTO</code> – PCS chooses the repair action based on the fault.</p> </li> <li> <p> <code>REPLACE</code> – Replaces the instance before it accepts jobs.</p> </li> <li> <p> <code>ISOLATE</code> – Stops new jobs on the instance and keeps the instance running until you investigate.</p> </li> <li> <p> <code>NONE</code> – Records the fault in Slurm and leaves the instance available for jobs.</p> </li> </ul>
+   * @public
+   */
+  repairAction?: DeepHealthCheckOnStartRepairAction | undefined;
+}
+
+/**
+ * <p>The deep health check settings of a compute node group. Deep health checks test the graphics processing units (GPUs) of an instance each time it starts, including after a reboot, before it accepts jobs. Deep health checks with a profile other than <code>NONE</code> require instance types with NVIDIA GPUs.</p>
+ * @public
+ */
+export interface DeepHealthChecks {
+  /**
+   * <p>The deep health check to run each time an instance starts, including after a reboot, before the compute node accepts jobs. If the check fails after a reboot, PCS takes the same <code>repairAction</code> as at launch. For example, with <code>REPLACE</code>, PCS replaces the instance instead of returning it to service. If the compute node group has scripts in the <code>nodeBootstrapped</code> stage of <code>nodeLifecycleActions</code>, the deep health check runs after those scripts. If a script fails and its <code>onError</code> setting terminates the compute node, the deep health check doesn't run. This value is required when you specify <code>deepHealthChecks</code>.</p>
+   * @public
+   */
+  onStart?: DeepHealthCheckOnStart | undefined;
+}
+
+/**
+ * <p>The health monitoring settings of a compute node group. Health monitoring continuously checks running instances for hardware and software faults.</p>
+ * @public
+ */
+export interface HealthMonitoring {
+  /**
+   * <p>The health monitoring mode. This value is required when you specify <code>healthMonitoring</code>. There is no default value. Valid values:</p> <ul> <li> <p> <code>NONE</code> – Turns off health monitoring. You can't specify <code>repairAction</code> with this mode.</p> </li> <li> <p> <code>STANDARD</code> – Continuously checks running instances for hardware and software faults.</p> </li> </ul>
+   * @public
+   */
+  mode?: HealthMonitoringMode | undefined;
+
+  /**
+   * <p>The action that PCS takes when health monitoring finds a fault on an instance. You can't specify this value when <code>mode</code> is <code>NONE</code>. If you don't specify this value and <code>mode</code> isn't <code>NONE</code>, PCS uses <code>AUTO</code>. <code>GetComputeNodeGroup</code> doesn't return a <code>repairAction</code> that you didn't specify. Valid values:</p> <ul> <li> <p> <code>AUTO</code> – PCS chooses the repair action based on the fault.</p> </li> <li> <p> <code>REPLACE</code> – Replaces the instance after running jobs finish.</p> </li> <li> <p> <code>ISOLATE</code> – Stops new jobs on the instance and keeps the instance running until you investigate.</p> </li> <li> <p> <code>NONE</code> – Records the fault in Slurm and leaves the instance available for jobs.</p> </li> </ul>
+   * @public
+   */
+  repairAction?: HealthMonitoringRepairAction | undefined;
+}
+
+/**
+ * <p>The instance health check settings to configure on a compute node group when you create it. Specify <code>healthMonitoring</code>, <code>deepHealthChecks</code>, or both. You can't specify an empty object (<code>\{\}</code>).</p>
+ * @public
+ */
+export interface InstanceHealthChecksRequest {
+  /**
+   * <p>The health monitoring settings. Health monitoring continuously checks running instances for hardware and software faults. If you specify this object, it can't be empty.</p>
+   * @public
+   */
+  healthMonitoring?: HealthMonitoring | undefined;
+
+  /**
+   * <p>The deep health check settings. Deep health checks test the graphics processing units (GPUs) of an instance each time it starts, including after a reboot, before it accepts jobs. If you specify this object, it can't be empty.</p>
+   * @public
+   */
+  deepHealthChecks?: DeepHealthChecks | undefined;
 }
 
 /**
@@ -347,6 +417,12 @@ export interface CreateComputeNodeGroupRequest {
   nodeLifecycleActions?: NodeLifecycleActionsRequest | undefined;
 
   /**
+   * <p>The instance health check settings for the compute node group. Instance health checks detect faults on instances in the compute node group and respond with the repair action that you choose. You can configure health monitoring, deep health checks, or both. You can't specify an empty object (<code>\{\}</code>). Instance health checks require Slurm version 26.05 or later.</p>
+   * @public
+   */
+  instanceHealthChecks?: InstanceHealthChecksRequest | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate one for you.</p>
    * @public
    */
@@ -375,6 +451,24 @@ export interface ErrorInfo {
    * @public
    */
   message?: string | undefined;
+}
+
+/**
+ * <p>The instance health check settings of a compute node group. Instance health checks detect faults on instances in the compute node group and respond with the repair action that you choose.</p>
+ * @public
+ */
+export interface InstanceHealthChecks {
+  /**
+   * <p>The health monitoring settings. Health monitoring continuously checks running instances for hardware and software faults.</p>
+   * @public
+   */
+  healthMonitoring?: HealthMonitoring | undefined;
+
+  /**
+   * <p>The deep health check settings. Deep health checks test the graphics processing units (GPUs) of an instance each time it starts, including after a reboot, before it accepts jobs.</p>
+   * @public
+   */
+  deepHealthChecks?: DeepHealthChecks | undefined;
 }
 
 /**
@@ -563,6 +657,12 @@ export interface ComputeNodeGroup {
   nodeLifecycleActions?: NodeLifecycleActions | undefined;
 
   /**
+   * <p>The instance health check settings of the compute node group. Instance health checks detect faults on instances in the compute node group and respond with the repair action that you choose.</p>
+   * @public
+   */
+  instanceHealthChecks?: InstanceHealthChecks | undefined;
+
+  /**
    * <p>The list of errors that occurred during compute node group provisioning.</p>
    * @public
    */
@@ -743,6 +843,24 @@ export interface ListComputeNodeGroupsResponse {
 }
 
 /**
+ * <p>The instance health check settings to configure on a compute node group when you update it. These settings replace all of the current instance health check settings of the compute node group. Specify <code>healthMonitoring</code>, <code>deepHealthChecks</code>, or both. You can't specify an empty object (<code>\{\}</code>).</p>
+ * @public
+ */
+export interface UpdateInstanceHealthChecksRequest {
+  /**
+   * <p>The health monitoring settings. Health monitoring continuously checks running instances for hardware and software faults. If you specify this object, it can't be empty. If you omit this object, health monitoring is turned off.</p>
+   * @public
+   */
+  healthMonitoring?: HealthMonitoring | undefined;
+
+  /**
+   * <p>The deep health check settings. Deep health checks test the graphics processing units (GPUs) of an instance each time it starts, including after a reboot, before it accepts jobs. If you specify this object, it can't be empty. If you omit this object, deep health checks are turned off.</p>
+   * @public
+   */
+  deepHealthChecks?: DeepHealthChecks | undefined;
+}
+
+/**
  * <p>The lifecycle actions to configure on a compute node group when you update it. Lifecycle actions define scripts that PCS runs on compute nodes at specific stages of their lifecycle.</p>
  * @public
  */
@@ -871,6 +989,12 @@ export interface UpdateComputeNodeGroupRequest {
    * @public
    */
   nodeLifecycleActions?: UpdateNodeLifecycleActionsRequest | undefined;
+
+  /**
+   * <p>The instance health check settings for the compute node group. Instance health checks detect faults on instances in the compute node group and respond with the repair action that you choose. You can configure health monitoring, deep health checks, or both. You can't specify an empty object (<code>\{\}</code>). Instance health checks require Slurm version 26.05 or later.</p> <p>The settings that you specify replace all of the current instance health check settings of the compute node group. Include every setting that you want to keep. If you omit this member, the current settings don't change. If you omit <code>healthMonitoring</code> or <code>deepHealthChecks</code>, that check is turned off. You can also turn off a check: set <code>healthMonitoring.mode</code> or <code>deepHealthChecks.onStart.profile</code> to <code>NONE</code> and omit its <code>repairAction</code>. When you change these settings, PCS drains and replaces the instances in the compute node group.</p>
+   * @public
+   */
+  instanceHealthChecks?: UpdateInstanceHealthChecksRequest | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate one for you.</p>
@@ -1954,6 +2078,12 @@ export interface RegisterComputeNodeGroupInstanceResponse {
    * @public
    */
   schedulerVersion?: string | undefined;
+
+  /**
+   * <p>The instance health check settings configured for the compute node group that the compute node registered into. The compute node uses these settings to configure health monitoring and deep health checks.</p>
+   * @public
+   */
+  instanceHealthChecks?: InstanceHealthChecks | undefined;
 }
 
 /**

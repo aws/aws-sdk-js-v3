@@ -92,6 +92,18 @@ export interface RegisterComputeNodeGroupInstanceCommandOutput extends RegisterC
  * //     scriptCachingPolicy: "CACHE_ONCE" || "REFRESH_ON_REBOOT",
  * //   },
  * //   schedulerVersion: "STRING_VALUE",
+ * //   instanceHealthChecks: { // InstanceHealthChecks
+ * //     healthMonitoring: { // HealthMonitoring
+ * //       mode: "NONE" || "STANDARD",
+ * //       repairAction: "AUTO" || "REPLACE" || "ISOLATE" || "NONE",
+ * //     },
+ * //     deepHealthChecks: { // DeepHealthChecks
+ * //       onStart: { // DeepHealthCheckOnStart
+ * //         profile: "NONE" || "QUICK" || "MEDIUM" || "LONG",
+ * //         repairAction: "AUTO" || "REPLACE" || "ISOLATE" || "NONE",
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```

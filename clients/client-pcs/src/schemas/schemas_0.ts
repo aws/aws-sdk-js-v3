@@ -32,6 +32,8 @@ const _DCNGR = "DeleteComputeNodeGroupRequest";
 const _DCNGRe = "DeleteComputeNodeGroupResponse";
 const _DCR = "DeleteClusterRequest";
 const _DCRe = "DeleteClusterResponse";
+const _DHC = "DeepHealthChecks";
+const _DHCOS = "DeepHealthCheckOnStart";
 const _DQ = "DeleteQueue";
 const _DQR = "DeleteQueueRequest";
 const _DQRe = "DeleteQueueResponse";
@@ -49,7 +51,10 @@ const _GCS = "GresCustomSettings";
 const _GQ = "GetQueue";
 const _GQR = "GetQueueRequest";
 const _GQRe = "GetQueueResponse";
+const _HM = "HealthMonitoring";
 const _IC = "InstanceConfig";
+const _IHC = "InstanceHealthChecks";
+const _IHCR = "InstanceHealthChecksRequest";
 const _IL = "InstanceList";
 const _ISE = "InternalServerException";
 const _JA = "JwtAuth";
@@ -114,6 +119,7 @@ const _UCNGSCR = "UpdateComputeNodeGroupSlurmConfigurationRequest";
 const _UCR = "UpdateClusterRequest";
 const _UCRp = "UpdateClusterResponse";
 const _UCSCR = "UpdateClusterSlurmConfigurationRequest";
+const _UIHCR = "UpdateInstanceHealthChecksRequest";
 const _UNLAR = "UpdateNodeLifecycleActionsRequest";
 const _UQ = "UpdateQueue";
 const _UQR = "UpdateQueueRequest";
@@ -152,6 +158,7 @@ const _ch = "checksum";
 const _cl = "cluster";
 const _clu = "clusters";
 const _co = "code";
+const _dHC = "deepHealthChecks";
 const _dPTID = "defaultPurgeTimeInDays";
 const _e = "error";
 const _eI = "errorInfo";
@@ -161,10 +168,12 @@ const _fL = "fieldList";
 const _gCS = "gresCustomSettings";
 const _hE = "httpError";
 const _hH = "httpHeader";
+const _hM = "healthMonitoring";
 const _hQ = "httpQuery";
 const _i = "id";
 const _iA = "ipv6Address";
 const _iC = "instanceConfigs";
+const _iHC = "instanceHealthChecks";
 const _iIPA = "iamInstanceProfileArn";
 const _iT = "instanceType";
 const _jA = "jwtAuth";
@@ -186,20 +195,23 @@ const _nT = "nextToken";
 const _nTe = "networkType";
 const _ne = "networking";
 const _oE = "onError";
-const _p = "port";
+const _oS = "onStart";
+const _p = "profile";
 const _pIA = "privateIpAddress";
 const _pIAu = "publicIpAddress";
 const _pN = "parameterName";
 const _pO = "purchaseOption";
 const _pV = "parameterValue";
+const _po = "port";
 const _q = "queue";
 const _qC = "quotaCode";
 const _qI = "queueIdentifier";
 const _qN = "queueName";
 const _qu = "queues";
 const _r = "reason";
-const _rA = "resourceArn";
+const _rA = "repairAction";
 const _rAS = "retryAfterSeconds";
+const _rAe = "resourceArn";
 const _rI = "resourceId";
 const _rT = "resourceType";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pcs";
@@ -349,8 +361,8 @@ export var ClusterSummary$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var ComputeNodeGroup$: StaticStructureSchema = [3, n0, _CNG,
   0,
-  [_n, _i, _a, _cI, _cA, _mA, _st, _sI, _iIPA, _sCc, _iC, _aI, _sGI, _sKN, _pO, _lTM, _cLT, _sO, _sCl, _nLA, _eI],
-  [0, 0, 0, 0, 5, 5, 0, 64 | 0, 0, () => ScalingConfiguration$, () => InstanceList, 0, 64 | 0, 0, 0, 0, () => CustomLaunchTemplate$, () => SpotOptions$, () => ComputeNodeGroupSlurmConfiguration$, () => NodeLifecycleActions$, () => ErrorInfoList], 11
+  [_n, _i, _a, _cI, _cA, _mA, _st, _sI, _iIPA, _sCc, _iC, _aI, _sGI, _sKN, _pO, _lTM, _cLT, _sO, _sCl, _nLA, _iHC, _eI],
+  [0, 0, 0, 0, 5, 5, 0, 64 | 0, 0, () => ScalingConfiguration$, () => InstanceList, 0, 64 | 0, 0, 0, 0, () => CustomLaunchTemplate$, () => SpotOptions$, () => ComputeNodeGroupSlurmConfiguration$, () => NodeLifecycleActions$, () => InstanceHealthChecks$, () => ErrorInfoList], 11
 ];
 export var ComputeNodeGroupConfiguration$: StaticStructureSchema = [3, n0, _CNGC,
   0,
@@ -384,8 +396,8 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateComputeNodeGroupRequest$: StaticStructureSchema = [3, n0, _CCNGR,
   0,
-  [_cIl, _cNGN, _sI, _iIPA, _sCc, _iC, _aI, _sGI, _sKN, _pO, _lTM, _cLT, _sO, _sCl, _nLA, _cT, _t],
-  [0, 0, 64 | 0, 0, () => ScalingConfigurationRequest$, () => InstanceList, 0, 64 | 0, 0, 0, 0, () => CustomLaunchTemplate$, () => SpotOptions$, () => ComputeNodeGroupSlurmConfigurationRequest$, () => NodeLifecycleActionsRequest$, [0, 4], 128 | 0], 6
+  [_cIl, _cNGN, _sI, _iIPA, _sCc, _iC, _aI, _sGI, _sKN, _pO, _lTM, _cLT, _sO, _sCl, _nLA, _iHC, _cT, _t],
+  [0, 0, 64 | 0, 0, () => ScalingConfigurationRequest$, () => InstanceList, 0, 64 | 0, 0, 0, 0, () => CustomLaunchTemplate$, () => SpotOptions$, () => ComputeNodeGroupSlurmConfigurationRequest$, () => NodeLifecycleActionsRequest$, () => InstanceHealthChecksRequest$, [0, 4], 128 | 0], 6
 ];
 export var CreateComputeNodeGroupResponse$: StaticStructureSchema = [3, n0, _CCNGRr,
   0,
@@ -406,6 +418,16 @@ export var CustomLaunchTemplate$: StaticStructureSchema = [3, n0, _CLT,
   0,
   [_i, _v],
   [0, 0], 2
+];
+export var DeepHealthCheckOnStart$: StaticStructureSchema = [3, n0, _DHCOS,
+  0,
+  [_p, _rA],
+  [0, 0]
+];
+export var DeepHealthChecks$: StaticStructureSchema = [3, n0, _DHC,
+  0,
+  [_oS],
+  [() => DeepHealthCheckOnStart$]
 ];
 export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
@@ -439,7 +461,7 @@ export var DeleteQueueResponse$: StaticStructureSchema = [3, n0, _DQRe,
 ];
 export var Endpoint$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_ty, _pIA, _p, _pIAu, _iA],
+  [_ty, _pIA, _po, _pIAu, _iA],
   [0, 0, 0, 0, 0], 3
 ];
 export var ErrorInfo$: StaticStructureSchema = [3, n0, _EI,
@@ -477,10 +499,25 @@ export var GetQueueResponse$: StaticStructureSchema = [3, n0, _GQRe,
   [_q],
   [() => Queue$]
 ];
+export var HealthMonitoring$: StaticStructureSchema = [3, n0, _HM,
+  0,
+  [_mo, _rA],
+  [0, 0]
+];
 export var InstanceConfig$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_iT],
   [0]
+];
+export var InstanceHealthChecks$: StaticStructureSchema = [3, n0, _IHC,
+  0,
+  [_hM, _dHC],
+  [() => HealthMonitoring$, () => DeepHealthChecks$]
+];
+export var InstanceHealthChecksRequest$: StaticStructureSchema = [3, n0, _IHCR,
+  0,
+  [_hM, _dHC],
+  [() => HealthMonitoring$, () => DeepHealthChecks$]
 ];
 export var JobSubmitPlugin$: StaticStructureSchema = [3, n0, _JSP,
   0,
@@ -534,7 +571,7 @@ export var ListQueuesResponse$: StaticStructureSchema = [3, n0, _LQRi,
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_rA],
+  [_rAe],
   [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
@@ -599,8 +636,8 @@ export var RegisterComputeNodeGroupInstanceRequest$: StaticStructureSchema = [3,
 ];
 export var RegisterComputeNodeGroupInstanceResponse$: StaticStructureSchema = [3, n0, _RCNGIRe,
   0,
-  [_nID, _sSh, _en, _cN, _cNGI, _cNGN, _nLA, _sVc],
-  [0, [() => SharedSecret, 0], () => Endpoints, 0, 0, 0, () => NodeLifecycleActions$, 0], 3
+  [_nID, _sSh, _en, _cN, _cNGI, _cNGN, _nLA, _sVc, _iHC],
+  [0, [() => SharedSecret, 0], () => Endpoints, 0, 0, 0, () => NodeLifecycleActions$, 0, () => InstanceHealthChecks$], 3
 ];
 export var ScalingConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -659,7 +696,7 @@ export var SpotOptions$: StaticStructureSchema = [3, n0, _SO,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_rA, _t],
+  [_rAe, _t],
   [0, 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
@@ -669,7 +706,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_rA, _tK],
+  [_rAe, _tK],
   [[0, 1], 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
@@ -699,8 +736,8 @@ export var UpdateClusterSlurmConfigurationRequest$: StaticStructureSchema = [3, 
 ];
 export var UpdateComputeNodeGroupRequest$: StaticStructureSchema = [3, n0, _UCNGR,
   0,
-  [_cIl, _cNGIo, _aI, _sGI, _sKN, _sI, _lTM, _cLT, _pO, _sO, _sCc, _iIPA, _sCl, _nLA, _cT],
-  [0, 0, 0, 64 | 0, 0, 64 | 0, 0, () => CustomLaunchTemplate$, 0, () => SpotOptions$, () => ScalingConfigurationRequest$, 0, () => UpdateComputeNodeGroupSlurmConfigurationRequest$, () => UpdateNodeLifecycleActionsRequest$, [0, 4]], 2
+  [_cIl, _cNGIo, _aI, _sGI, _sKN, _sI, _lTM, _cLT, _pO, _sO, _sCc, _iIPA, _sCl, _nLA, _iHC, _cT],
+  [0, 0, 0, 64 | 0, 0, 64 | 0, 0, () => CustomLaunchTemplate$, 0, () => SpotOptions$, () => ScalingConfigurationRequest$, 0, () => UpdateComputeNodeGroupSlurmConfigurationRequest$, () => UpdateNodeLifecycleActionsRequest$, () => UpdateInstanceHealthChecksRequest$, [0, 4]], 2
 ];
 export var UpdateComputeNodeGroupResponse$: StaticStructureSchema = [3, n0, _UCNGRp,
   0,
@@ -711,6 +748,11 @@ export var UpdateComputeNodeGroupSlurmConfigurationRequest$: StaticStructureSche
   0,
   [_sDITIS, _sCS, _gCS],
   [1, () => SlurmCustomSettings, [1, n0, _GCS, 0, 128 | 0]]
+];
+export var UpdateInstanceHealthChecksRequest$: StaticStructureSchema = [3, n0, _UIHCR,
+  0,
+  [_hM, _dHC],
+  [() => HealthMonitoring$, () => DeepHealthChecks$]
 ];
 export var UpdateNodeLifecycleActionsRequest$: StaticStructureSchema = [3, n0, _UNLAR,
   0,

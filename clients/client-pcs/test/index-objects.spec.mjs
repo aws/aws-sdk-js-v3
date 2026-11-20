@@ -31,6 +31,10 @@ import {
   CreateQueueRequest$,
   CreateQueueResponse$,
   CustomLaunchTemplate$,
+  DeepHealthCheckOnStart$,
+  DeepHealthCheckOnStartProfile,
+  DeepHealthCheckOnStartRepairAction,
+  DeepHealthChecks$,
   DeleteCluster$,
   DeleteClusterCommand,
   DeleteClusterRequest$,
@@ -59,7 +63,12 @@ import {
   GetQueueCommand,
   GetQueueRequest$,
   GetQueueResponse$,
+  HealthMonitoring$,
+  HealthMonitoringMode,
+  HealthMonitoringRepairAction,
   InstanceConfig$,
+  InstanceHealthChecks$,
+  InstanceHealthChecksRequest$,
   InternalServerException,
   InternalServerException$,
   JobSubmitPlugin$,
@@ -149,6 +158,7 @@ import {
   UpdateComputeNodeGroupRequest$,
   UpdateComputeNodeGroupResponse$,
   UpdateComputeNodeGroupSlurmConfigurationRequest$,
+  UpdateInstanceHealthChecksRequest$,
   UpdateNodeLifecycleActionsRequest$,
   UpdateQueue$,
   UpdateQueueCommand,
@@ -225,6 +235,8 @@ assert(typeof CreateComputeNodeGroupResponse$ === "object");
 assert(typeof CreateQueueRequest$ === "object");
 assert(typeof CreateQueueResponse$ === "object");
 assert(typeof CustomLaunchTemplate$ === "object");
+assert(typeof DeepHealthCheckOnStart$ === "object");
+assert(typeof DeepHealthChecks$ === "object");
 assert(typeof DeleteClusterRequest$ === "object");
 assert(typeof DeleteClusterResponse$ === "object");
 assert(typeof DeleteComputeNodeGroupRequest$ === "object");
@@ -239,7 +251,10 @@ assert(typeof GetComputeNodeGroupRequest$ === "object");
 assert(typeof GetComputeNodeGroupResponse$ === "object");
 assert(typeof GetQueueRequest$ === "object");
 assert(typeof GetQueueResponse$ === "object");
+assert(typeof HealthMonitoring$ === "object");
 assert(typeof InstanceConfig$ === "object");
+assert(typeof InstanceHealthChecks$ === "object");
+assert(typeof InstanceHealthChecksRequest$ === "object");
 assert(typeof JobSubmitPlugin$ === "object");
 assert(typeof JobSubmitScriptSource$ === "object");
 assert(typeof JwtAuth$ === "object");
@@ -286,6 +301,7 @@ assert(typeof UpdateClusterSlurmConfigurationRequest$ === "object");
 assert(typeof UpdateComputeNodeGroupRequest$ === "object");
 assert(typeof UpdateComputeNodeGroupResponse$ === "object");
 assert(typeof UpdateComputeNodeGroupSlurmConfigurationRequest$ === "object");
+assert(typeof UpdateInstanceHealthChecksRequest$ === "object");
 assert(typeof UpdateNodeLifecycleActionsRequest$ === "object");
 assert(typeof UpdateQueueRequest$ === "object");
 assert(typeof UpdateQueueResponse$ === "object");
@@ -297,8 +313,12 @@ assert(typeof ValidationExceptionField$ === "object");
 assert(typeof AccountingMode === "object");
 assert(typeof ClusterStatus === "object");
 assert(typeof ComputeNodeGroupStatus === "object");
+assert(typeof DeepHealthCheckOnStartProfile === "object");
+assert(typeof DeepHealthCheckOnStartRepairAction === "object");
 assert(typeof EndpointType === "object");
 assert(typeof ExecutionPolicy === "object");
+assert(typeof HealthMonitoringMode === "object");
+assert(typeof HealthMonitoringRepairAction === "object");
 assert(typeof JobSubmitPluginType === "object");
 assert(typeof LaunchTemplateMode === "object");
 assert(typeof NetworkType === "object");

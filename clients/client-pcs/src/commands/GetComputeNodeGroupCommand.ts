@@ -123,6 +123,18 @@ export interface GetComputeNodeGroupCommandOutput extends GetComputeNodeGroupRes
  * //       },
  * //       scriptCachingPolicy: "CACHE_ONCE" || "REFRESH_ON_REBOOT",
  * //     },
+ * //     instanceHealthChecks: { // InstanceHealthChecks
+ * //       healthMonitoring: { // HealthMonitoring
+ * //         mode: "NONE" || "STANDARD",
+ * //         repairAction: "AUTO" || "REPLACE" || "ISOLATE" || "NONE",
+ * //       },
+ * //       deepHealthChecks: { // DeepHealthChecks
+ * //         onStart: { // DeepHealthCheckOnStart
+ * //           profile: "NONE" || "QUICK" || "MEDIUM" || "LONG",
+ * //           repairAction: "AUTO" || "REPLACE" || "ISOLATE" || "NONE",
+ * //         },
+ * //       },
+ * //     },
  * //     errorInfo: [ // ErrorInfoList
  * //       { // ErrorInfo
  * //         code: "STRING_VALUE",
