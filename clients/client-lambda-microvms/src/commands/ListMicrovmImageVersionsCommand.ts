@@ -95,6 +95,7 @@ export interface ListMicrovmImageVersionsCommandOutput extends ListMicrovmImageV
  * //       environmentVariables: { // EnvironmentVariableMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       kmsKeyIdentifier: "STRING_VALUE",
  * //       imageArn: "STRING_VALUE", // required
  * //       imageVersion: "STRING_VALUE", // required
  * //       state: "PENDING" || "IN_PROGRESS" || "SUCCESSFUL" || "FAILED" || "DELETING" || "DELETED" || "DELETE_FAILED", // required

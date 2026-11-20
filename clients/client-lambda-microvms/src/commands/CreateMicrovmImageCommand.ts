@@ -85,6 +85,7 @@ export interface CreateMicrovmImageCommandOutput extends CreateMicrovmImageRespo
  *   environmentVariables: { // EnvironmentVariableMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   kmsKeyIdentifier: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
@@ -152,6 +153,7 @@ export interface CreateMicrovmImageCommandOutput extends CreateMicrovmImageRespo
  * //   environmentVariables: { // EnvironmentVariableMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   kmsKeyIdentifier: "STRING_VALUE",
  * //   tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },

@@ -53,6 +53,7 @@ export interface GetMicrovmCommandOutput extends GetMicrovmResponse, __MetadataB
  * //   startedAt: new Date("TIMESTAMP"), // required
  * //   terminatedAt: new Date("TIMESTAMP"),
  * //   stateReason: "STRING_VALUE",
+ * //   kmsKeyIdentifier: "STRING_VALUE",
  * //   ingressNetworkConnectors: [ // NetworkConnectorList
  * //     "STRING_VALUE",
  * //   ],

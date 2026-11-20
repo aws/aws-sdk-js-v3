@@ -463,6 +463,12 @@ export interface CreateMicrovmImageRequest {
   environmentVariables?: Record<string, string> | undefined;
 
   /**
+   * <p>The customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that encrypts the contents and metadata of your MicroVM image version. You must have permission to use the key. Specify the key in one of the following formats:</p> <ul> <li> <p>Key ARN</p> </li> <li> <p>Alias ARN</p> </li> </ul> <p>If you don't specify a key, your MicroVM image version uses an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyIdentifier?: string | undefined;
+
+  /**
    * <p>The name of the MicroVM image. Must be unique within the AWS account.</p>
    * @public
    */
@@ -592,6 +598,12 @@ export interface CreateMicrovmImageResponse {
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>The customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that encrypts the contents and metadata of your MicroVM image version. If you don't specify a key, your MicroVM image version uses an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyIdentifier?: string | undefined;
 
   /**
    * <p>A set of key-value pairs that you can attach to the resource. Use tags to categorize resources for cost allocation, access control (ABAC), and organization.</p>
@@ -812,6 +824,12 @@ export interface GetMicrovmResponse {
    * @public
    */
   stateReason?: string | undefined;
+
+  /**
+   * <p>The customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that encrypts your MicroVM configuration at rest. If you don't specify a key, your MicroVM uses an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyIdentifier?: string | undefined;
 
   /**
    * <p>The list of ingress network connectors configured for the MicroVM.</p>
@@ -1096,6 +1114,12 @@ export interface GetMicrovmImageVersionOutput {
   environmentVariables?: Record<string, string> | undefined;
 
   /**
+   * <p>The customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that encrypts the contents and metadata of your MicroVM image version. If you don't specify a key, your MicroVM image version uses an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyIdentifier?: string | undefined;
+
+  /**
    * <p>The ARN of the MicroVM image.</p>
    * @public
    */
@@ -1369,6 +1393,12 @@ export interface RunMicrovmRequest {
   logging?: Logging | undefined;
 
   /**
+   * <p>The customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that encrypts your MicroVM configuration at rest. To use this operation, you must have permission to use the key. Specify the key ARN or the alias ARN.</p> <p>If you don't specify a key, your MicroVM uses an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyIdentifier?: string | undefined;
+
+  /**
    * <p>Per-MicroVM initialization data delivered as the request body of the /run lifecycle hook. Use to pass tenant-specific configuration such as session IDs or secret references. Maximum: 16,384 bytes.</p>
    * @public
    */
@@ -1456,6 +1486,12 @@ export interface RunMicrovmResponse {
    * @public
    */
   stateReason?: string | undefined;
+
+  /**
+   * <p>The customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that encrypts your MicroVM configuration at rest. If you don't specify a key, your MicroVM uses an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyIdentifier?: string | undefined;
 
   /**
    * <p>The list of ingress network connectors configured for the MicroVM.</p>
@@ -1891,6 +1927,12 @@ export interface MicrovmImageVersionSummary {
   environmentVariables?: Record<string, string> | undefined;
 
   /**
+   * <p>The customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that encrypts the contents and metadata of your MicroVM image version. If you don't specify a key, your MicroVM image version uses an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyIdentifier?: string | undefined;
+
+  /**
    * <p>The ARN of the MicroVM image.</p>
    * @public
    */
@@ -2033,6 +2075,12 @@ export interface UpdateMicrovmImageRequest {
   environmentVariables?: Record<string, string> | undefined;
 
   /**
+   * <p>The customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that encrypts the contents and metadata of your MicroVM image version. You must have permission to use the key. Specify the key in one of the following formats:</p> <ul> <li> <p>Key ARN</p> </li> <li> <p>Alias ARN</p> </li> </ul> <p>If you don't specify a key, your MicroVM image version uses an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyIdentifier?: string | undefined;
+
+  /**
    * <p>The unique identifier (ARN or ID) of the MicroVM image to update.</p>
    * @public
    */
@@ -2158,6 +2206,12 @@ export interface UpdateMicrovmImageResponse {
   environmentVariables?: Record<string, string> | undefined;
 
   /**
+   * <p>The customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that encrypts the contents and metadata of your MicroVM image version. If you don't specify a key, your MicroVM image version uses an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyIdentifier?: string | undefined;
+
+  /**
    * <p>The timestamp when the MicroVM image was last updated.</p>
    * @public
    */
@@ -2268,6 +2322,12 @@ export interface UpdateMicrovmImageVersionResponse {
    * @public
    */
   environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>The customer managed Amazon Web Services Key Management Service (Amazon Web Services KMS) key that encrypts the contents and metadata of your MicroVM image version. If you don't specify a key, your MicroVM image version uses an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyIdentifier?: string | undefined;
 
   /**
    * <p>The ARN of the MicroVM image.</p>

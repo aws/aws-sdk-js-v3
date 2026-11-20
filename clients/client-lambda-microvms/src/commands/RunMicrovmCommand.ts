@@ -54,6 +54,7 @@ export interface RunMicrovmCommandOutput extends RunMicrovmResponse, __MetadataB
  *       logStream: "STRING_VALUE",
  *     },
  *   },
+ *   kmsKeyIdentifier: "STRING_VALUE",
  *   runHookPayload: "STRING_VALUE",
  *   maximumDurationInSeconds: Number("int"),
  *   clientToken: "STRING_VALUE",
@@ -76,6 +77,7 @@ export interface RunMicrovmCommandOutput extends RunMicrovmResponse, __MetadataB
  * //   startedAt: new Date("TIMESTAMP"), // required
  * //   terminatedAt: new Date("TIMESTAMP"),
  * //   stateReason: "STRING_VALUE",
+ * //   kmsKeyIdentifier: "STRING_VALUE",
  * //   ingressNetworkConnectors: [ // NetworkConnectorList
  * //     "STRING_VALUE",
  * //   ],

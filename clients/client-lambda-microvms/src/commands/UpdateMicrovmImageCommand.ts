@@ -85,6 +85,7 @@ export interface UpdateMicrovmImageCommandOutput extends UpdateMicrovmImageRespo
  *   environmentVariables: { // EnvironmentVariableMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   kmsKeyIdentifier: "STRING_VALUE",
  *   imageIdentifier: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  * };
@@ -149,6 +150,7 @@ export interface UpdateMicrovmImageCommandOutput extends UpdateMicrovmImageRespo
  * //   environmentVariables: { // EnvironmentVariableMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   kmsKeyIdentifier: "STRING_VALUE",
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   imageVersion: "STRING_VALUE", // required
  * // };
