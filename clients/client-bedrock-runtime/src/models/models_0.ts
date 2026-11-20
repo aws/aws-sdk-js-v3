@@ -4196,6 +4196,12 @@ export interface ConverseRequest {
   guardrailConfig?: GuardrailConfiguration | undefined;
 
   /**
+   * <p>The ID or Amazon Resource Name (ARN) of the project to use for this invocation. The project must be active and belong to your AWS account and the AWS Region to which you send the request. Specify <code>default</code> or omit this field to use the default project for your account.</p> <p>For a non-default project, the inference target must resolve to a foundation model or system-defined inference profile. Application inference profiles don't support non-default projects.</p>
+   * @public
+   */
+  projectIdentifier?: string | undefined;
+
+  /**
    * <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
    * @public
    */
@@ -4531,6 +4537,12 @@ export interface ConverseStreamRequest {
    * @public
    */
   guardrailConfig?: GuardrailStreamConfiguration | undefined;
+
+  /**
+   * <p>The ID or Amazon Resource Name (ARN) of the project to use for this invocation. The project must be active and belong to your AWS account and the AWS Region to which you send the request. Specify <code>default</code> or omit this field to use the default project for your account.</p> <p>For a non-default project, the inference target must resolve to a foundation model or system-defined inference profile. Application inference profiles don't support non-default projects.</p>
+   * @public
+   */
+  projectIdentifier?: string | undefined;
 
   /**
    * <p>Additional inference parameters that the model supports, beyond the base set of inference parameters that <code>Converse</code> and <code>ConverseStream</code> support in the <code>inferenceConfig</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Model parameters</a>.</p>
@@ -5514,6 +5526,12 @@ export interface InvokeModelRequest {
    * @public
    */
   requestMetadata?: string | undefined;
+
+  /**
+   * <p>The ID or Amazon Resource Name (ARN) of the project to use for this invocation. The project must be active and belong to your AWS account and the AWS Region to which you send the request. Specify <code>default</code> or omit this field to use the default project for your account.</p> <p>For a non-default project, the inference target must resolve to a foundation model or system-defined inference profile. Application inference profiles don't support non-default projects.</p>
+   * @public
+   */
+  projectIdentifier?: string | undefined;
 }
 
 /**
@@ -5852,6 +5870,12 @@ export interface InvokeModelWithResponseStreamRequest {
    * @public
    */
   requestMetadata?: string | undefined;
+
+  /**
+   * <p>The ID or Amazon Resource Name (ARN) of the project to use for this invocation. The project must be active and belong to your AWS account and the AWS Region to which you send the request. Specify <code>default</code> or omit this field to use the default project for your account.</p> <p>For a non-default project, the inference target must resolve to a foundation model or system-defined inference profile. Application inference profiles don't support non-default projects.</p>
+   * @public
+   */
+  projectIdentifier?: string | undefined;
 }
 
 /**

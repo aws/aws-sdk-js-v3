@@ -260,6 +260,7 @@ const _XABA = "X-Amzn-Bedrock-Accept";
 const _XABCT = "X-Amzn-Bedrock-Content-Type";
 const _XABG = "X-Amzn-Bedrock-GuardrailIdentifier";
 const _XABG_ = "X-Amzn-Bedrock-GuardrailVersion";
+const _XABP = "X-Amzn-Bedrock-ProjectIdentifier";
 const _XABPL = "X-Amzn-Bedrock-PerformanceConfig-Latency";
 const _XABRM = "X-Amzn-Bedrock-Request-Metadata";
 const _XABST = "X-Amzn-Bedrock-Service-Tier";
@@ -417,6 +418,7 @@ const _pA = "promptAttack";
 const _pC = "performanceConfig";
 const _pCL = "performanceConfigLatency";
 const _pE = "piiEntities";
+const _pI = "projectIdentifier";
 const _pR = "promptRouter";
 const _pV = "promptVariables";
 const _pVA = "policyVersionArn";
@@ -747,8 +749,8 @@ export var ConverseMetrics$: StaticStructureSchema = [3, n0, _CM,
 ];
 export var ConverseRequest$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe, _oC],
-  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$, [() => OutputConfig$, 0]], 1
+  [_mI, _me, _sy, _iC, _tC, _gCu, _pI, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe, _oC],
+  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailConfiguration$, 0, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$, [() => OutputConfig$, 0]], 1
 ];
 export var ConverseResponse$: StaticStructureSchema = [3, n0, _CRo,
   0,
@@ -767,8 +769,8 @@ export var ConverseStreamMetrics$: StaticStructureSchema = [3, n0, _CSM,
 ];
 export var ConverseStreamRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_mI, _me, _sy, _iC, _tC, _gCu, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe, _oC],
-  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailStreamConfiguration$, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$, [() => OutputConfig$, 0]], 1
+  [_mI, _me, _sy, _iC, _tC, _gCu, _pI, _aMRF, _pV, _aMRFP, _rM, _pC, _sTe, _oC],
+  [[0, 1], [() => Messages, 0], [() => SystemContentBlocks, 0], () => InferenceConfiguration$, () => ToolConfiguration$, () => GuardrailStreamConfiguration$, 0, 15, [() => PromptVariableMap, 0], 64 | 0, [() => RequestMetadata, 0], () => PerformanceConfiguration$, () => ServiceTier$, [() => OutputConfig$, 0]], 1
 ];
 export var ConverseStreamResponse$: StaticStructureSchema = [3, n0, _CSRo,
   0,
@@ -1167,8 +1169,8 @@ export var InvokeGuardrailChecksResponse$: StaticStructureSchema = [3, n0, _IGCR
 ];
 export var InvokeModelRequest$: StaticStructureSchema = [3, n0, _IMR,
   0,
-  [_mI, _bo, _cT, _ac, _tr, _gIu, _gV, _pCL, _sTe, _rM],
-  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _A }], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }], [() => RequestMetadataJson, { [_hH]: _XABRM }]], 1
+  [_mI, _bo, _cT, _ac, _tr, _gIu, _gV, _pCL, _sTe, _rM, _pI],
+  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _A }], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }], [() => RequestMetadataJson, { [_hH]: _XABRM }], [0, { [_hH]: _XABP }]], 1
 ];
 export var InvokeModelResponse$: StaticStructureSchema = [3, n0, _IMRn,
   0,
@@ -1192,8 +1194,8 @@ export var InvokeModelWithBidirectionalStreamResponse$: StaticStructureSchema = 
 ];
 export var InvokeModelWithResponseStreamRequest$: StaticStructureSchema = [3, n0, _IMWRSR,
   0,
-  [_mI, _bo, _cT, _ac, _tr, _gIu, _gV, _pCL, _sTe, _rM],
-  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XABA }], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }], [() => RequestMetadataJson, { [_hH]: _XABRM }]], 1
+  [_mI, _bo, _cT, _ac, _tr, _gIu, _gV, _pCL, _sTe, _rM, _pI],
+  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XABA }], [0, { [_hH]: _XABT }], [0, { [_hH]: _XABG }], [0, { [_hH]: _XABG_ }], [0, { [_hH]: _XABPL }], [0, { [_hH]: _XABST }], [() => RequestMetadataJson, { [_hH]: _XABRM }], [0, { [_hH]: _XABP }]], 1
 ];
 export var InvokeModelWithResponseStreamResponse$: StaticStructureSchema = [3, n0, _IMWRSRn,
   0,

@@ -2,14 +2,14 @@ POST https://bedrock-runtime.us-east-1.amazonaws.com
 /model/__modelId__/converse
 
 content-type: application/json
-content-length: 2066
+content-length: 2110
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/bedrock-runtime#_.__ m/E,e
 host: bedrock-runtime.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 68b8a1f7985707b151f82aeeb63a6b8bada34d57a3beb203041455867e361240
+x-amz-content-sha256: 603f3382ad22e973a98e830e278ff01b3dae03fd7140253fc1cdc60acac99c42
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [Uint8Array (json)]
@@ -183,6 +183,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_r
     "guardrailVersion": "__guardrailVersion__",
     "trace": "__trace__"
   },
+  "projectIdentifier": "__projectIdentifier__",
   "additionalModelRequestFields": {
     "doc_note": "this is a document",
     "doc_date": 946702799.999,
