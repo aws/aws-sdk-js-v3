@@ -45,15 +45,18 @@ export interface GetRelationshipCommandOutput extends GetRelationshipResponse, _
  * //     id: "STRING_VALUE",
  * //     revision: "STRING_VALUE",
  * //     catalog: "STRING_VALUE",
- * //     associationType: "DOWNSTREAM_SELLER" || "END_CUSTOMER" || "INTERNAL",
+ * //     associationType: "DOWNSTREAM_SELLER" || "END_CUSTOMER" || "INTERNAL" || "MANAGED_SERVICES_END_CUSTOMER",
  * //     programManagementAccountId: "STRING_VALUE",
  * //     associatedAccountId: "STRING_VALUE",
  * //     displayName: "STRING_VALUE",
  * //     resaleAccountModel: "DISTRIBUTOR" || "END_CUSTOMER" || "SOLUTION_PROVIDER",
  * //     sector: "COMMERCIAL" || "GOVERNMENT" || "GOVERNMENT_EXCEPTION",
+ * //     accountScope: "ENTIRE_ORGANIZATION" || "SPECIFIC_MEMBER_ACCOUNTS",
+ * //     channelContractId: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     startDate: new Date("TIMESTAMP"),
+ * //     endDate: new Date("TIMESTAMP"),
  * //   },
  * // };
  *
@@ -108,6 +111,38 @@ export interface GetRelationshipCommandOutput extends GetRelationshipResponse, _
  *     revision: "3",
  *     sector: "COMMERCIAL",
  *     updatedAt: "2024-05-02T16:18:16Z"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Example for GetRelationship - MANAGED_SERVICES_END_CUSTOMER
+ * ```javascript
+ * //
+ * const input = {
+ *   catalog: "AWS",
+ *   identifier: "rs-abc123def456g",
+ *   programManagementAccountIdentifier: "pma-abcdef123456g"
+ * };
+ * const command = new GetRelationshipCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   relationshipDetail: {
+ *     accountScope: "ENTIRE_ORGANIZATION",
+ *     arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/program-management-account/pma-abcdef123456g/relationship/rs-abc123def456g",
+ *     associatedAccountId: "987654321012",
+ *     associationType: "MANAGED_SERVICES_END_CUSTOMER",
+ *     channelContractId: "cc-4fj3bd2o3vb91",
+ *     createdAt: "2026-09-08T16:18:16Z",
+ *     displayName: "TestManagedCustomer",
+ *     endDate: "2027-03-31T00:00:00Z",
+ *     id: "rs-abc123def456g",
+ *     programManagementAccountId: "pma-abcdef123456g",
+ *     revision: "2",
+ *     sector: "COMMERCIAL",
+ *     startDate: "2026-10-01T00:00:00Z",
+ *     updatedAt: "2026-09-10T09:30:00Z"
  *   }
  * }
  * *\/

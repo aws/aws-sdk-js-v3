@@ -1,14 +1,20 @@
 // smithy-typescript generated code
 import type {
+  AccountScope,
   AssociationType,
+  ChannelContractStatus,
+  ChannelContractType,
   Coverage,
   HandshakeStatus,
   HandshakeType,
   ListProgramManagementAccountsSortName,
   ListRelationshipsSortName,
+  ManagedServicesAttestationTypeSortName,
+  ManagedServicesSupportedService,
   ParticipantType,
   Program,
   ProgramManagementAccountStatus,
+  ProgramManagementAccountType,
   ProgramManagementAccountTypeSortName,
   Provider,
   ResaleAccountModel,
@@ -96,6 +102,118 @@ export interface ValidationExceptionField {
 }
 
 /**
+ * <p>The postal address of a legal entity.</p>
+ * @public
+ */
+export interface Address {
+  /**
+   * <p>The city or locality.</p>
+   * @public
+   */
+  city: string | undefined;
+
+  /**
+   * <p>The state, province, or prefecture.</p>
+   * @public
+   */
+  stateOrRegion: string | undefined;
+
+  /**
+   * <p>The postal code.</p>
+   * @public
+   */
+  postalCode: string | undefined;
+
+  /**
+   * <p>The two-letter ISO 3166-1 country code.</p>
+   * @public
+   */
+  countryCode: string | undefined;
+
+  /**
+   * <p>The first line of the street address.</p>
+   * @public
+   */
+  addressLine: string | undefined;
+
+  /**
+   * <p>The second line of the street address.</p>
+   * @public
+   */
+  addressLine2?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelChannelContractRequest {
+  /**
+   * <p>The catalog identifier for the channel contract.</p>
+   * @public
+   */
+  catalog: string | undefined;
+
+  /**
+   * <p>The unique identifier of the channel contract to cancel.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The reason for canceling the channel contract. Later requests don't change or remove it.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a canceled channel contract.</p>
+ * @public
+ */
+export interface CancelChannelContractDetail {
+  /**
+   * <p>The unique identifier of the canceled channel contract.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the canceled channel contract.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The current status of the canceled channel contract.</p>
+   * @public
+   */
+  status?: ChannelContractStatus | undefined;
+
+  /**
+   * <p>The reason the channel contract was canceled, if one was provided.</p>
+   * @public
+   */
+  cancellationReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelChannelContractResponse {
+  /**
+   * <p>Details of the canceled channel contract.</p>
+   * @public
+   */
+  channelContractDetail?: CancelChannelContractDetail | undefined;
+}
+
+/**
  * @public
  */
 export interface CancelChannelHandshakeRequest {
@@ -145,6 +263,699 @@ export interface CancelChannelHandshakeResponse {
    * @public
    */
   channelHandshakeDetail?: CancelChannelHandshakeDetail | undefined;
+}
+
+/**
+ * <p>Details specific to managed services attestation channel contracts. Applies only to managed services attestation channel contracts.</p>
+ * @public
+ */
+export interface ManagedServicesAttestationDetails {
+  /**
+   * <p>The legal name of the end customer's legal entity.</p>
+   * @public
+   */
+  legalEntityName: string | undefined;
+
+  /**
+   * <p>The identifier of the relationship covered by the attestation.</p>
+   * @public
+   */
+  relationshipIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the program management account.</p>
+   * @public
+   */
+  programManagementAccountIdentifier: string | undefined;
+
+  /**
+   * <p>The AWS account IDs of the end customer's member accounts covered by the managed services.</p>
+   * @public
+   */
+  memberAccountIds?: string[] | undefined;
+
+  /**
+   * <p>The end date of the managed services attestation.</p>
+   * @public
+   */
+  endDate: Date | undefined;
+
+  /**
+   * <p>The managed services that the partner provides to the end customer.</p>
+   * @public
+   */
+  supportedServices: ManagedServicesSupportedService[] | undefined;
+
+  /**
+   * <p>The name of the person who signs the attestation for the end customer.</p>
+   * @public
+   */
+  signatoryName: string | undefined;
+
+  /**
+   * <p>The email address of the signatory.</p>
+   * @public
+   */
+  signatoryEmail: string | undefined;
+
+  /**
+   * <p>The address of the end customer's legal entity, if available.</p>
+   * @public
+   */
+  legalEntityAddress?: Address | undefined;
+}
+
+/**
+ * <p>Contains detailed information about different types of channel contracts.</p>
+ * @public
+ */
+export type ChannelContractDetails =
+  | ChannelContractDetails.ManagedServicesAttestationDetailsMember
+  | ChannelContractDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ChannelContractDetails {
+  /**
+   * <p>Details specific to managed services attestation channel contracts. Applies only to managed services attestation channel contracts.</p>
+   * @public
+   */
+  export interface ManagedServicesAttestationDetailsMember {
+    managedServicesAttestationDetails: ManagedServicesAttestationDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    managedServicesAttestationDetails?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    managedServicesAttestationDetails: (value: ManagedServicesAttestationDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Detailed information about a channel contract.</p>
+ * @public
+ */
+export interface ChannelContractDetail {
+  /**
+   * <p>The unique identifier of the channel contract.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the channel contract.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The catalog identifier associated with the channel contract.</p>
+   * @public
+   */
+  catalog: string | undefined;
+
+  /**
+   * <p>The type of the channel contract.</p>
+   * @public
+   */
+  contractType: ChannelContractType | undefined;
+
+  /**
+   * <p>The current status of the channel contract.</p>
+   * @public
+   */
+  status: ChannelContractStatus | undefined;
+
+  /**
+   * <p>The timestamp when the channel contract was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the channel contract was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the channel contract was accepted, if applicable.</p>
+   * @public
+   */
+  respondedAt?: Date | undefined;
+
+  /**
+   * <p>The reason the channel contract was canceled, if one was provided.</p>
+   * @public
+   */
+  cancellationReason?: string | undefined;
+
+  /**
+   * <p>Type-specific details of the channel contract.</p>
+   * @public
+   */
+  details: ChannelContractDetails | undefined;
+}
+
+/**
+ * <p>Payload for managed services attestation channel contract requests. Applies only to managed services attestation channel contracts.</p>
+ * @public
+ */
+export interface ManagedServicesAttestationPayload {
+  /**
+   * <p>The legal name of the end customer's legal entity.</p>
+   * @public
+   */
+  legalEntityName: string | undefined;
+
+  /**
+   * <p>The identifier of the managed services relationship to cover with the attestation.</p>
+   * @public
+   */
+  relationshipIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the program management account for the relationship.</p>
+   * @public
+   */
+  programManagementAccountIdentifier: string | undefined;
+
+  /**
+   * <p>The AWS account IDs of the end customer's member accounts to cover, not allowed when the account scope is the entire organization.</p>
+   * @public
+   */
+  memberAccountIds?: string[] | undefined;
+
+  /**
+   * <p>The end date of the attestation, which must be after the start date of the relationship.</p>
+   * @public
+   */
+  endDate: Date | undefined;
+
+  /**
+   * <p>The managed services that the partner provides to the end customer.</p>
+   * @public
+   */
+  supportedServices: ManagedServicesSupportedService[] | undefined;
+
+  /**
+   * <p>The address of the end customer's legal entity.</p>
+   * @public
+   */
+  legalEntityAddress: Address | undefined;
+
+  /**
+   * <p>The name of the person who signs the attestation for the end customer.</p>
+   * @public
+   */
+  signatoryName: string | undefined;
+
+  /**
+   * <p>The email address to which the attestation is sent for signature.</p>
+   * @public
+   */
+  signatoryEmail: string | undefined;
+}
+
+/**
+ * <p>Contains the payload data for different types of channel contracts.</p>
+ * @public
+ */
+export type ChannelContractPayload =
+  | ChannelContractPayload.ManagedServicesAttestationPayloadMember
+  | ChannelContractPayload.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ChannelContractPayload {
+  /**
+   * <p>Payload for creating a managed services attestation channel contract. Applies only to managed services attestation channel contracts.</p>
+   * @public
+   */
+  export interface ManagedServicesAttestationPayloadMember {
+    managedServicesAttestationPayload: ManagedServicesAttestationPayload;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    managedServicesAttestationPayload?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    managedServicesAttestationPayload: (value: ManagedServicesAttestationPayload) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A key-value pair that can be associated with a resource.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The key of the tag.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The value of the tag.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateChannelContractRequest {
+  /**
+   * <p>The type of channel contract to create (for example, managed services attestation).</p>
+   * @public
+   */
+  contractType: ChannelContractType | undefined;
+
+  /**
+   * <p>The catalog identifier for the channel contract.</p>
+   * @public
+   */
+  catalog: string | undefined;
+
+  /**
+   * <p>The payload containing specific details for the contract type.</p>
+   * @public
+   */
+  payload: ChannelContractPayload | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Key-value pairs to associate with the channel contract.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Contains details about a newly created channel contract.</p>
+ * @public
+ */
+export interface CreateChannelContractDetail {
+  /**
+   * <p>The unique identifier of the created channel contract.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created channel contract.</p>
+   * @public
+   */
+  arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateChannelContractResponse {
+  /**
+   * <p>Details of the created channel contract.</p>
+   * @public
+   */
+  channelContractDetail?: CreateChannelContractDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetChannelContractRequest {
+  /**
+   * <p>The catalog identifier for the channel contract.</p>
+   * @public
+   */
+  catalog: string | undefined;
+
+  /**
+   * <p>The unique identifier of the channel contract to retrieve.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetChannelContractResponse {
+  /**
+   * <p>Details of the requested channel contract.</p>
+   * @public
+   */
+  channelContractDetail?: ChannelContractDetail | undefined;
+}
+
+/**
+ * <p>Filters specific to managed services attestation channel contracts. Applies only to managed services attestation channel contracts.</p>
+ * @public
+ */
+export interface ManagedServicesAttestationTypeFilters {
+  /**
+   * <p>Filter by relationship identifiers.</p>
+   * @public
+   */
+  relationshipIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>Filter by legal entity names.</p>
+   * @public
+   */
+  legalEntityNames?: string[] | undefined;
+}
+
+/**
+ * <p>Type-specific filters for listing channel contracts.</p>
+ * @public
+ */
+export type ListChannelContractsTypeFilters =
+  | ListChannelContractsTypeFilters.ManagedServicesAttestationTypeFiltersMember
+  | ListChannelContractsTypeFilters.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ListChannelContractsTypeFilters {
+  /**
+   * <p>Filters specific to managed services attestation channel contracts. Applies only to managed services attestation channel contracts.</p>
+   * @public
+   */
+  export interface ManagedServicesAttestationTypeFiltersMember {
+    managedServicesAttestationTypeFilters: ManagedServicesAttestationTypeFilters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    managedServicesAttestationTypeFilters?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    managedServicesAttestationTypeFilters: (value: ManagedServicesAttestationTypeFilters) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Sorting options specific to managed services attestation channel contracts. Applies only to managed services attestation channel contracts.</p>
+ * @public
+ */
+export interface ManagedServicesAttestationTypeSort {
+  /**
+   * <p>The sort order (ascending or descending).</p>
+   * @public
+   */
+  sortOrder: SortOrder | undefined;
+
+  /**
+   * <p>The field to sort by.</p>
+   * @public
+   */
+  sortBy: ManagedServicesAttestationTypeSortName | undefined;
+}
+
+/**
+ * <p>Type-specific sorting options for listing channel contracts.</p>
+ * @public
+ */
+export type ListChannelContractsTypeSort =
+  | ListChannelContractsTypeSort.ManagedServicesAttestationTypeSortMember
+  | ListChannelContractsTypeSort.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ListChannelContractsTypeSort {
+  /**
+   * <p>Sorting options specific to managed services attestation channel contracts. Applies only to managed services attestation channel contracts.</p>
+   * @public
+   */
+  export interface ManagedServicesAttestationTypeSortMember {
+    managedServicesAttestationTypeSort: ManagedServicesAttestationTypeSort;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    managedServicesAttestationTypeSort?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    managedServicesAttestationTypeSort: (value: ManagedServicesAttestationTypeSort) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListChannelContractsRequest {
+  /**
+   * <p>The catalog identifier to filter channel contracts.</p>
+   * @public
+   */
+  catalog: string | undefined;
+
+  /**
+   * <p>Filter results by contract type.</p>
+   * @public
+   */
+  contractType: ChannelContractType | undefined;
+
+  /**
+   * <p>Filter results by channel contract status.</p>
+   * @public
+   */
+  statuses?: ChannelContractStatus[] | undefined;
+
+  /**
+   * <p>Type-specific filters for channel contracts.</p>
+   * @public
+   */
+  contractTypeFilters?: ListChannelContractsTypeFilters | undefined;
+
+  /**
+   * <p>Type-specific sorting options for channel contracts.</p>
+   * @public
+   */
+  contractTypeSort?: ListChannelContractsTypeSort | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Token for retrieving the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a managed services attestation channel contract. Applies only to managed services attestation channel contracts.</p>
+ * @public
+ */
+export interface ManagedServicesAttestationSummaryDetails {
+  /**
+   * <p>The legal name of the end customer's legal entity.</p>
+   * @public
+   */
+  legalEntityName: string | undefined;
+
+  /**
+   * <p>The identifier of the relationship covered by the attestation.</p>
+   * @public
+   */
+  relationshipIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the program management account.</p>
+   * @public
+   */
+  programManagementAccountIdentifier: string | undefined;
+
+  /**
+   * <p>The AWS account IDs of the end customer's member accounts covered by the managed services.</p>
+   * @public
+   */
+  memberAccountIds?: string[] | undefined;
+
+  /**
+   * <p>The end date of the managed services attestation.</p>
+   * @public
+   */
+  endDate: Date | undefined;
+
+  /**
+   * <p>The managed services that the partner provides to the end customer.</p>
+   * @public
+   */
+  supportedServices: ManagedServicesSupportedService[] | undefined;
+}
+
+/**
+ * <p>Contains summary information about different types of channel contracts.</p>
+ * @public
+ */
+export type ChannelContractSummaryDetails =
+  | ChannelContractSummaryDetails.ManagedServicesAttestationDetailsMember
+  | ChannelContractSummaryDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ChannelContractSummaryDetails {
+  /**
+   * <p>Summary details specific to managed services attestation channel contracts. Applies only to managed services attestation channel contracts.</p>
+   * @public
+   */
+  export interface ManagedServicesAttestationDetailsMember {
+    managedServicesAttestationDetails: ManagedServicesAttestationSummaryDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    managedServicesAttestationDetails?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    managedServicesAttestationDetails: (value: ManagedServicesAttestationSummaryDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Summary information about a channel contract.</p>
+ * @public
+ */
+export interface ChannelContractSummary {
+  /**
+   * <p>The unique identifier of the channel contract.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the channel contract.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The catalog identifier associated with the channel contract.</p>
+   * @public
+   */
+  catalog: string | undefined;
+
+  /**
+   * <p>The type of the channel contract.</p>
+   * @public
+   */
+  contractType: ChannelContractType | undefined;
+
+  /**
+   * <p>The current status of the channel contract.</p>
+   * @public
+   */
+  status: ChannelContractStatus | undefined;
+
+  /**
+   * <p>The timestamp when the channel contract was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the channel contract was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the channel contract was accepted, if applicable.</p>
+   * @public
+   */
+  respondedAt?: Date | undefined;
+
+  /**
+   * <p>Type-specific summary details of the channel contract.</p>
+   * @public
+   */
+  details: ChannelContractSummaryDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListChannelContractsResponse {
+  /**
+   * <p>List of channel contracts matching the criteria.</p>
+   * @public
+   */
+  items: ChannelContractSummary[] | undefined;
+
+  /**
+   * <p>Token for retrieving the next page of results, if available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -252,24 +1063,6 @@ export namespace ChannelHandshakePayload {
     revokeServicePeriodPayload: (value: RevokeServicePeriodPayload) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * <p>A key-value pair that can be associated with a resource.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>The key of the tag.</p>
-   * @public
-   */
-  key: string | undefined;
-
-  /**
-   * <p>The value of the tag.</p>
-   * @public
-   */
-  value: string | undefined;
 }
 
 /**
@@ -974,6 +1767,12 @@ export interface CreateProgramManagementAccountRequest {
    * @public
    */
   tags?: Tag[] | undefined;
+
+  /**
+   * <p>The type of the program management account (for example, resale billing transfer, managed services), required for the managed services provider program.</p>
+   * @public
+   */
+  type?: ProgramManagementAccountType | undefined;
 }
 
 /**
@@ -1172,7 +1971,7 @@ export interface CreateRelationshipRequest {
    * <p>The AWS account ID to associate in this relationship.</p>
    * @public
    */
-  associatedAccountId: string | undefined;
+  associatedAccountId?: string | undefined;
 
   /**
    * <p>A human-readable name for the relationship.</p>
@@ -1181,7 +1980,7 @@ export interface CreateRelationshipRequest {
   displayName: string | undefined;
 
   /**
-   * <p>The resale account model for the relationship.</p>
+   * <p>The resale account model for the relationship. Applies only to billing transfer relationships.</p>
    * @public
    */
   resaleAccountModel?: ResaleAccountModel | undefined;
@@ -1205,10 +2004,22 @@ export interface CreateRelationshipRequest {
   tags?: Tag[] | undefined;
 
   /**
-   * <p>The support plan requested for this relationship.</p>
+   * <p>The support plan requested for this relationship. Applies only to billing transfer relationships.</p>
    * @public
    */
   requestedSupportPlan?: SupportPlan | undefined;
+
+  /**
+   * <p>The account scope for a managed services relationship (for example, entire organization, specific member accounts). Applies only to managed services relationships.</p>
+   * @public
+   */
+  accountScope?: AccountScope | undefined;
+
+  /**
+   * <p>The start date of the managed services relationship. Applies only to managed services relationships.</p>
+   * @public
+   */
+  startDate?: Date | undefined;
 }
 
 /**
@@ -1379,7 +2190,7 @@ export interface RelationshipDetail {
   displayName?: string | undefined;
 
   /**
-   * <p>The resale account model for the relationship.</p>
+   * <p>The resale account model for the relationship. Applies only to billing transfer relationships.</p>
    * @public
    */
   resaleAccountModel?: ResaleAccountModel | undefined;
@@ -1389,6 +2200,18 @@ export interface RelationshipDetail {
    * @public
    */
   sector?: Sector | undefined;
+
+  /**
+   * <p>The account scope of the managed services relationship. Applies only to managed services relationships.</p>
+   * @public
+   */
+  accountScope?: AccountScope | undefined;
+
+  /**
+   * <p>The identifier of the channel contract currently in effect for the relationship. Applies only to managed services relationships.</p>
+   * @public
+   */
+  channelContractId?: string | undefined;
 
   /**
    * <p>The timestamp when the relationship was created.</p>
@@ -1407,6 +2230,12 @@ export interface RelationshipDetail {
    * @public
    */
   startDate?: Date | undefined;
+
+  /**
+   * <p>The end date of the relationship.</p>
+   * @public
+   */
+  endDate?: Date | undefined;
 }
 
 /**
@@ -1489,6 +2318,12 @@ export interface ListProgramManagementAccountsRequest {
    * @public
    */
   nextToken?: string | undefined;
+
+  /**
+   * <p>Filter by program management account type.</p>
+   * @public
+   */
+  type?: ProgramManagementAccountType | undefined;
 }
 
 /**
@@ -1561,6 +2396,12 @@ export interface ProgramManagementAccountSummary {
    * @public
    */
   status?: ProgramManagementAccountStatus | undefined;
+
+  /**
+   * <p>The type of the program management account.</p>
+   * @public
+   */
+  type?: ProgramManagementAccountType | undefined;
 }
 
 /**
@@ -1873,7 +2714,7 @@ export interface UpdateRelationshipRequest {
   displayName?: string | undefined;
 
   /**
-   * <p>The updated support plan for the relationship.</p>
+   * <p>The updated support plan for the relationship. Applies only to billing transfer relationships.</p>
    * @public
    */
   requestedSupportPlan?: SupportPlan | undefined;

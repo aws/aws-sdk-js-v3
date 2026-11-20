@@ -34,7 +34,7 @@ export interface CreateProgramManagementAccountCommandOutput extends CreateProgr
  * const client = new PartnerCentralChannelClient(config);
  * const input = { // CreateProgramManagementAccountRequest
  *   catalog: "STRING_VALUE", // required
- *   program: "SOLUTION_PROVIDER" || "DISTRIBUTION" || "DISTRIBUTION_SELLER", // required
+ *   program: "SOLUTION_PROVIDER" || "DISTRIBUTION" || "DISTRIBUTION_SELLER" || "MANAGED_SERVICES_PROVIDER", // required
  *   displayName: "STRING_VALUE", // required
  *   accountId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
@@ -44,6 +44,7 @@ export interface CreateProgramManagementAccountCommandOutput extends CreateProgr
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   type: "RESALE_BILLING_TRANSFER" || "MANAGED_SERVICES",
  * };
  * const command = new CreateProgramManagementAccountCommand(input);
  * const response = await client.send(command);
@@ -104,6 +105,29 @@ export interface CreateProgramManagementAccountCommandOutput extends CreateProgr
  *   programManagementAccountDetail: {
  *     arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/program-management-account/pma-u8ic702rtzng8",
  *     id: "pma-u8ic702rtzng8"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Example for CreateProgramManagementAccount - MANAGED_SERVICES
+ * ```javascript
+ * //
+ * const input = {
+ *   accountId: "111122223333",
+ *   catalog: "AWS",
+ *   clientToken: "clientToken",
+ *   displayName: "TestManagedServices",
+ *   program: "MANAGED_SERVICES_PROVIDER",
+ *   type: "MANAGED_SERVICES"
+ * };
+ * const command = new CreateProgramManagementAccountCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   programManagementAccountDetail: {
+ *     arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/program-management-account/pma-abcdef123456g",
+ *     id: "pma-abcdef123456g"
  *   }
  * }
  * *\/

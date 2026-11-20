@@ -34,9 +34,9 @@ export interface CreateRelationshipCommandOutput extends CreateRelationshipRespo
  * const client = new PartnerCentralChannelClient(config);
  * const input = { // CreateRelationshipRequest
  *   catalog: "STRING_VALUE", // required
- *   associationType: "DOWNSTREAM_SELLER" || "END_CUSTOMER" || "INTERNAL", // required
+ *   associationType: "DOWNSTREAM_SELLER" || "END_CUSTOMER" || "INTERNAL" || "MANAGED_SERVICES_END_CUSTOMER", // required
  *   programManagementAccountIdentifier: "STRING_VALUE", // required
- *   associatedAccountId: "STRING_VALUE", // required
+ *   associatedAccountId: "STRING_VALUE",
  *   displayName: "STRING_VALUE", // required
  *   resaleAccountModel: "DISTRIBUTOR" || "END_CUSTOMER" || "SOLUTION_PROVIDER",
  *   sector: "COMMERCIAL" || "GOVERNMENT" || "GOVERNMENT_EXCEPTION", // required
@@ -64,6 +64,8 @@ export interface CreateRelationshipCommandOutput extends CreateRelationshipRespo
  *       chargeAccountId: "STRING_VALUE",
  *     },
  *   },
+ *   accountScope: "ENTIRE_ORGANIZATION" || "SPECIFIC_MEMBER_ACCOUNTS",
+ *   startDate: new Date("TIMESTAMP"),
  * };
  * const command = new CreateRelationshipCommand(input);
  * const response = await client.send(command);
@@ -127,6 +129,32 @@ export interface CreateRelationshipCommandOutput extends CreateRelationshipRespo
  *   relationshipDetail: {
  *     arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/program-management-account/pma-u8ic702rtzng8/relationship/rs-l9o4fj3b5zb91",
  *     id: "rs-l9o4fj3b5zb91"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Example for CreateRelationship - MANAGED_SERVICES_END_CUSTOMER
+ * ```javascript
+ * //
+ * const input = {
+ *   accountScope: "ENTIRE_ORGANIZATION",
+ *   associatedAccountId: "987654321012",
+ *   associationType: "MANAGED_SERVICES_END_CUSTOMER",
+ *   catalog: "AWS",
+ *   clientToken: "clientToken",
+ *   displayName: "TestManagedCustomer",
+ *   programManagementAccountIdentifier: "pma-abcdef123456g",
+ *   sector: "COMMERCIAL",
+ *   startDate: "2026-10-01T00:00:00Z"
+ * };
+ * const command = new CreateRelationshipCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   relationshipDetail: {
+ *     arn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/program-management-account/pma-abcdef123456g/relationship/rs-abc123def456g",
+ *     id: "rs-abc123def456g"
  *   }
  * }
  * *\/

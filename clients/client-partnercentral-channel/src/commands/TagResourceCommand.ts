@@ -94,6 +94,25 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * *\/
  * ```
  *
+ * @example Example for TagResource - ChannelContract
+ * ```javascript
+ * //
+ * const input = {
+ *   resourceArn: "arn:aws:partnercentral:us-east-1:123456789012:catalog/AWS/channel-contract/cc-4fj3bd2o3vb91",
+ *   tags: [
+ *     {
+ *       key: "ExampleKey",
+ *       value: "ExampleValue"
+ *     }
+ *   ]
+ * };
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class TagResourceCommand extends command<TagResourceCommandInput, TagResourceCommandOutput>(

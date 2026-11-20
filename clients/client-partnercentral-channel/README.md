@@ -188,10 +188,24 @@ AcceptChannelHandshake
 </details>
 <details>
 <summary>
+CancelChannelContract
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/CancelChannelContractCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CancelChannelContractCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CancelChannelContractCommandOutput/)
+</details>
+<details>
+<summary>
 CancelChannelHandshake
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/CancelChannelHandshakeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CancelChannelHandshakeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CancelChannelHandshakeCommandOutput/)
+</details>
+<details>
+<summary>
+CreateChannelContract
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/CreateChannelContractCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CreateChannelContractCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/CreateChannelContractCommandOutput/)
 </details>
 <details>
 <summary>
@@ -230,10 +244,24 @@ DeleteRelationship
 </details>
 <details>
 <summary>
+GetChannelContract
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/GetChannelContractCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/GetChannelContractCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/GetChannelContractCommandOutput/)
+</details>
+<details>
+<summary>
 GetRelationship
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/GetRelationshipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/GetRelationshipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/GetRelationshipCommandOutput/)
+</details>
+<details>
+<summary>
+ListChannelContracts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-channel/command/ListChannelContractsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/ListChannelContractsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-channel/Interface/ListChannelContractsCommandOutput/)
 </details>
 <details>
 <summary>

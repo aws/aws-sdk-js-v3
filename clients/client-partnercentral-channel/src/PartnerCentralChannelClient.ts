@@ -59,9 +59,17 @@ import type {
   AcceptChannelHandshakeCommandOutput,
 } from "./commands/AcceptChannelHandshakeCommand";
 import type {
+  CancelChannelContractCommandInput,
+  CancelChannelContractCommandOutput,
+} from "./commands/CancelChannelContractCommand";
+import type {
   CancelChannelHandshakeCommandInput,
   CancelChannelHandshakeCommandOutput,
 } from "./commands/CancelChannelHandshakeCommand";
+import type {
+  CreateChannelContractCommandInput,
+  CreateChannelContractCommandOutput,
+} from "./commands/CreateChannelContractCommand";
 import type {
   CreateChannelHandshakeCommandInput,
   CreateChannelHandshakeCommandOutput,
@@ -82,7 +90,15 @@ import type {
   DeleteRelationshipCommandInput,
   DeleteRelationshipCommandOutput,
 } from "./commands/DeleteRelationshipCommand";
+import type {
+  GetChannelContractCommandInput,
+  GetChannelContractCommandOutput,
+} from "./commands/GetChannelContractCommand";
 import type { GetRelationshipCommandInput, GetRelationshipCommandOutput } from "./commands/GetRelationshipCommand";
+import type {
+  ListChannelContractsCommandInput,
+  ListChannelContractsCommandOutput,
+} from "./commands/ListChannelContractsCommand";
 import type {
   ListChannelHandshakesCommandInput,
   ListChannelHandshakesCommandOutput,
@@ -129,13 +145,17 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AcceptChannelHandshakeCommandInput
+  | CancelChannelContractCommandInput
   | CancelChannelHandshakeCommandInput
+  | CreateChannelContractCommandInput
   | CreateChannelHandshakeCommandInput
   | CreateProgramManagementAccountCommandInput
   | CreateRelationshipCommandInput
   | DeleteProgramManagementAccountCommandInput
   | DeleteRelationshipCommandInput
+  | GetChannelContractCommandInput
   | GetRelationshipCommandInput
+  | ListChannelContractsCommandInput
   | ListChannelHandshakesCommandInput
   | ListProgramManagementAccountsCommandInput
   | ListRelationshipsCommandInput
@@ -151,13 +171,17 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AcceptChannelHandshakeCommandOutput
+  | CancelChannelContractCommandOutput
   | CancelChannelHandshakeCommandOutput
+  | CreateChannelContractCommandOutput
   | CreateChannelHandshakeCommandOutput
   | CreateProgramManagementAccountCommandOutput
   | CreateRelationshipCommandOutput
   | DeleteProgramManagementAccountCommandOutput
   | DeleteRelationshipCommandOutput
+  | GetChannelContractCommandOutput
   | GetRelationshipCommandOutput
+  | ListChannelContractsCommandOutput
   | ListChannelHandshakesCommandOutput
   | ListProgramManagementAccountsCommandOutput
   | ListRelationshipsCommandOutput

@@ -13,10 +13,20 @@ import {
   AcceptChannelHandshakeCommand,
 } from "./commands/AcceptChannelHandshakeCommand";
 import {
+  type CancelChannelContractCommandInput,
+  type CancelChannelContractCommandOutput,
+  CancelChannelContractCommand,
+} from "./commands/CancelChannelContractCommand";
+import {
   type CancelChannelHandshakeCommandInput,
   type CancelChannelHandshakeCommandOutput,
   CancelChannelHandshakeCommand,
 } from "./commands/CancelChannelHandshakeCommand";
+import {
+  type CreateChannelContractCommandInput,
+  type CreateChannelContractCommandOutput,
+  CreateChannelContractCommand,
+} from "./commands/CreateChannelContractCommand";
 import {
   type CreateChannelHandshakeCommandInput,
   type CreateChannelHandshakeCommandOutput,
@@ -43,10 +53,20 @@ import {
   DeleteRelationshipCommand,
 } from "./commands/DeleteRelationshipCommand";
 import {
+  type GetChannelContractCommandInput,
+  type GetChannelContractCommandOutput,
+  GetChannelContractCommand,
+} from "./commands/GetChannelContractCommand";
+import {
   type GetRelationshipCommandInput,
   type GetRelationshipCommandOutput,
   GetRelationshipCommand,
 } from "./commands/GetRelationshipCommand";
+import {
+  type ListChannelContractsCommandInput,
+  type ListChannelContractsCommandOutput,
+  ListChannelContractsCommand,
+} from "./commands/ListChannelContractsCommand";
 import {
   type ListChannelHandshakesCommandInput,
   type ListChannelHandshakesCommandOutput,
@@ -92,6 +112,7 @@ import {
   type UpdateRelationshipCommandOutput,
   UpdateRelationshipCommand,
 } from "./commands/UpdateRelationshipCommand";
+import { paginateListChannelContracts } from "./pagination/ListChannelContractsPaginator";
 import { paginateListChannelHandshakes } from "./pagination/ListChannelHandshakesPaginator";
 import { paginateListProgramManagementAccounts } from "./pagination/ListProgramManagementAccountsPaginator";
 import { paginateListRelationships } from "./pagination/ListRelationshipsPaginator";
@@ -99,13 +120,17 @@ import { PartnerCentralChannelClient } from "./PartnerCentralChannelClient";
 
 const commands = {
   AcceptChannelHandshakeCommand,
+  CancelChannelContractCommand,
   CancelChannelHandshakeCommand,
+  CreateChannelContractCommand,
   CreateChannelHandshakeCommand,
   CreateProgramManagementAccountCommand,
   CreateRelationshipCommand,
   DeleteProgramManagementAccountCommand,
   DeleteRelationshipCommand,
+  GetChannelContractCommand,
   GetRelationshipCommand,
+  ListChannelContractsCommand,
   ListChannelHandshakesCommand,
   ListProgramManagementAccountsCommand,
   ListRelationshipsCommand,
@@ -117,6 +142,7 @@ const commands = {
   UpdateRelationshipCommand,
 };
 const paginators = {
+  paginateListChannelContracts,
   paginateListChannelHandshakes,
   paginateListProgramManagementAccounts,
   paginateListRelationships,
@@ -148,6 +174,23 @@ export interface PartnerCentralChannel {
   ): void;
 
   /**
+   * @see {@link CancelChannelContractCommand}
+   */
+  cancelChannelContract(
+    args: CancelChannelContractCommandInput,
+    options?: PartnerCentralChannelRequestOptions
+  ): Promise<CancelChannelContractCommandOutput>;
+  cancelChannelContract(
+    args: CancelChannelContractCommandInput,
+    cb: (err: any, data?: CancelChannelContractCommandOutput) => void
+  ): void;
+  cancelChannelContract(
+    args: CancelChannelContractCommandInput,
+    options: PartnerCentralChannelRequestOptions,
+    cb: (err: any, data?: CancelChannelContractCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CancelChannelHandshakeCommand}
    */
   cancelChannelHandshake(
@@ -162,6 +205,23 @@ export interface PartnerCentralChannel {
     args: CancelChannelHandshakeCommandInput,
     options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: CancelChannelHandshakeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelContractCommand}
+   */
+  createChannelContract(
+    args: CreateChannelContractCommandInput,
+    options?: PartnerCentralChannelRequestOptions
+  ): Promise<CreateChannelContractCommandOutput>;
+  createChannelContract(
+    args: CreateChannelContractCommandInput,
+    cb: (err: any, data?: CreateChannelContractCommandOutput) => void
+  ): void;
+  createChannelContract(
+    args: CreateChannelContractCommandInput,
+    options: PartnerCentralChannelRequestOptions,
+    cb: (err: any, data?: CreateChannelContractCommandOutput) => void
   ): void;
 
   /**
@@ -250,6 +310,23 @@ export interface PartnerCentralChannel {
   ): void;
 
   /**
+   * @see {@link GetChannelContractCommand}
+   */
+  getChannelContract(
+    args: GetChannelContractCommandInput,
+    options?: PartnerCentralChannelRequestOptions
+  ): Promise<GetChannelContractCommandOutput>;
+  getChannelContract(
+    args: GetChannelContractCommandInput,
+    cb: (err: any, data?: GetChannelContractCommandOutput) => void
+  ): void;
+  getChannelContract(
+    args: GetChannelContractCommandInput,
+    options: PartnerCentralChannelRequestOptions,
+    cb: (err: any, data?: GetChannelContractCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRelationshipCommand}
    */
   getRelationship(
@@ -264,6 +341,23 @@ export interface PartnerCentralChannel {
     args: GetRelationshipCommandInput,
     options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: GetRelationshipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelContractsCommand}
+   */
+  listChannelContracts(
+    args: ListChannelContractsCommandInput,
+    options?: PartnerCentralChannelRequestOptions
+  ): Promise<ListChannelContractsCommandOutput>;
+  listChannelContracts(
+    args: ListChannelContractsCommandInput,
+    cb: (err: any, data?: ListChannelContractsCommandOutput) => void
+  ): void;
+  listChannelContracts(
+    args: ListChannelContractsCommandInput,
+    options: PartnerCentralChannelRequestOptions,
+    cb: (err: any, data?: ListChannelContractsCommandOutput) => void
   ): void;
 
   /**
@@ -418,6 +512,17 @@ export interface PartnerCentralChannel {
     options: PartnerCentralChannelRequestOptions,
     cb: (err: any, data?: UpdateRelationshipCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListChannelContractsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelContractsCommandOutput}.
+   */
+  paginateListChannelContracts(
+    args: ListChannelContractsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelContractsCommandOutput>;
 
   /**
    * @see {@link ListChannelHandshakesCommand}

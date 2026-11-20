@@ -6,17 +6,36 @@ import {
   AcceptChannelHandshakeResponse$,
   AccessDeniedException,
   AccessDeniedException$,
+  AccountScope,
+  Address$,
   AssociationType,
+  CancelChannelContract$,
+  CancelChannelContractCommand,
+  CancelChannelContractDetail$,
+  CancelChannelContractRequest$,
+  CancelChannelContractResponse$,
   CancelChannelHandshake$,
   CancelChannelHandshakeCommand,
   CancelChannelHandshakeDetail$,
   CancelChannelHandshakeRequest$,
   CancelChannelHandshakeResponse$,
+  ChannelContractDetail$,
+  ChannelContractDetails$,
+  ChannelContractPayload$,
+  ChannelContractStatus,
+  ChannelContractSummary$,
+  ChannelContractSummaryDetails$,
+  ChannelContractType,
   ChannelHandshakePayload$,
   ChannelHandshakeSummary$,
   ConflictException,
   ConflictException$,
   Coverage,
+  CreateChannelContract$,
+  CreateChannelContractCommand,
+  CreateChannelContractDetail$,
+  CreateChannelContractRequest$,
+  CreateChannelContractResponse$,
   CreateChannelHandshake$,
   CreateChannelHandshakeCommand,
   CreateChannelHandshakeDetail$,
@@ -40,6 +59,10 @@ import {
   DeleteRelationshipCommand,
   DeleteRelationshipRequest$,
   DeleteRelationshipResponse$,
+  GetChannelContract$,
+  GetChannelContractCommand,
+  GetChannelContractRequest$,
+  GetChannelContractResponse$,
   GetRelationship$,
   GetRelationshipCommand,
   GetRelationshipRequest$,
@@ -49,6 +72,12 @@ import {
   HandshakeType,
   InternalServerException,
   InternalServerException$,
+  ListChannelContracts$,
+  ListChannelContractsCommand,
+  ListChannelContractsRequest$,
+  ListChannelContractsResponse$,
+  ListChannelContractsTypeFilters$,
+  ListChannelContractsTypeSort$,
   ListChannelHandshakes$,
   ListChannelHandshakesCommand,
   ListChannelHandshakesRequest$,
@@ -71,6 +100,14 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  ManagedServicesAttestationDetails$,
+  ManagedServicesAttestationPayload$,
+  ManagedServicesAttestationSummaryDetails$,
+  ManagedServicesAttestationTypeFilters$,
+  ManagedServicesAttestationTypeSort$,
+  ManagedServicesAttestationTypeSortName,
+  ManagedServicesSupportedService,
+  paginateListChannelContracts,
   paginateListChannelHandshakes,
   paginateListProgramManagementAccounts,
   paginateListRelationships,
@@ -83,6 +120,7 @@ import {
   ProgramManagementAccountHandshakeDetail$,
   ProgramManagementAccountStatus,
   ProgramManagementAccountSummary$,
+  ProgramManagementAccountType,
   ProgramManagementAccountTypeFilters$,
   ProgramManagementAccountTypeSort$,
   ProgramManagementAccountTypeSortName,
@@ -148,8 +186,12 @@ assert(typeof PartnerCentralChannel === "function");
 // commands
 assert(typeof AcceptChannelHandshakeCommand === "function");
 assert(typeof AcceptChannelHandshake$ === "object");
+assert(typeof CancelChannelContractCommand === "function");
+assert(typeof CancelChannelContract$ === "object");
 assert(typeof CancelChannelHandshakeCommand === "function");
 assert(typeof CancelChannelHandshake$ === "object");
+assert(typeof CreateChannelContractCommand === "function");
+assert(typeof CreateChannelContract$ === "object");
 assert(typeof CreateChannelHandshakeCommand === "function");
 assert(typeof CreateChannelHandshake$ === "object");
 assert(typeof CreateProgramManagementAccountCommand === "function");
@@ -160,8 +202,12 @@ assert(typeof DeleteProgramManagementAccountCommand === "function");
 assert(typeof DeleteProgramManagementAccount$ === "object");
 assert(typeof DeleteRelationshipCommand === "function");
 assert(typeof DeleteRelationship$ === "object");
+assert(typeof GetChannelContractCommand === "function");
+assert(typeof GetChannelContract$ === "object");
 assert(typeof GetRelationshipCommand === "function");
 assert(typeof GetRelationship$ === "object");
+assert(typeof ListChannelContractsCommand === "function");
+assert(typeof ListChannelContracts$ === "object");
 assert(typeof ListChannelHandshakesCommand === "function");
 assert(typeof ListChannelHandshakes$ === "object");
 assert(typeof ListProgramManagementAccountsCommand === "function");
@@ -184,11 +230,23 @@ assert(typeof UpdateRelationship$ === "object");
 assert(typeof AcceptChannelHandshakeDetail$ === "object");
 assert(typeof AcceptChannelHandshakeRequest$ === "object");
 assert(typeof AcceptChannelHandshakeResponse$ === "object");
+assert(typeof Address$ === "object");
+assert(typeof CancelChannelContractDetail$ === "object");
+assert(typeof CancelChannelContractRequest$ === "object");
+assert(typeof CancelChannelContractResponse$ === "object");
 assert(typeof CancelChannelHandshakeDetail$ === "object");
 assert(typeof CancelChannelHandshakeRequest$ === "object");
 assert(typeof CancelChannelHandshakeResponse$ === "object");
+assert(typeof ChannelContractDetail$ === "object");
+assert(typeof ChannelContractDetails$ === "object");
+assert(typeof ChannelContractPayload$ === "object");
+assert(typeof ChannelContractSummary$ === "object");
+assert(typeof ChannelContractSummaryDetails$ === "object");
 assert(typeof ChannelHandshakePayload$ === "object");
 assert(typeof ChannelHandshakeSummary$ === "object");
+assert(typeof CreateChannelContractDetail$ === "object");
+assert(typeof CreateChannelContractRequest$ === "object");
+assert(typeof CreateChannelContractResponse$ === "object");
 assert(typeof CreateChannelHandshakeDetail$ === "object");
 assert(typeof CreateChannelHandshakeRequest$ === "object");
 assert(typeof CreateChannelHandshakeResponse$ === "object");
@@ -202,9 +260,15 @@ assert(typeof DeleteProgramManagementAccountRequest$ === "object");
 assert(typeof DeleteProgramManagementAccountResponse$ === "object");
 assert(typeof DeleteRelationshipRequest$ === "object");
 assert(typeof DeleteRelationshipResponse$ === "object");
+assert(typeof GetChannelContractRequest$ === "object");
+assert(typeof GetChannelContractResponse$ === "object");
 assert(typeof GetRelationshipRequest$ === "object");
 assert(typeof GetRelationshipResponse$ === "object");
 assert(typeof HandshakeDetail$ === "object");
+assert(typeof ListChannelContractsRequest$ === "object");
+assert(typeof ListChannelContractsResponse$ === "object");
+assert(typeof ListChannelContractsTypeFilters$ === "object");
+assert(typeof ListChannelContractsTypeSort$ === "object");
 assert(typeof ListChannelHandshakesRequest$ === "object");
 assert(typeof ListChannelHandshakesResponse$ === "object");
 assert(typeof ListChannelHandshakesTypeFilters$ === "object");
@@ -217,6 +281,11 @@ assert(typeof ListRelationshipsResponse$ === "object");
 assert(typeof ListRelationshipsSortBase$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof ManagedServicesAttestationDetails$ === "object");
+assert(typeof ManagedServicesAttestationPayload$ === "object");
+assert(typeof ManagedServicesAttestationSummaryDetails$ === "object");
+assert(typeof ManagedServicesAttestationTypeFilters$ === "object");
+assert(typeof ManagedServicesAttestationTypeSort$ === "object");
 assert(typeof PartnerLedSupport$ === "object");
 assert(typeof ProgramManagementAccountHandshakeDetail$ === "object");
 assert(typeof ProgramManagementAccountSummary$ === "object");
@@ -251,15 +320,21 @@ assert(typeof UpdateRelationshipRequest$ === "object");
 assert(typeof UpdateRelationshipResponse$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 // enums
+assert(typeof AccountScope === "object");
 assert(typeof AssociationType === "object");
+assert(typeof ChannelContractStatus === "object");
+assert(typeof ChannelContractType === "object");
 assert(typeof Coverage === "object");
 assert(typeof HandshakeStatus === "object");
 assert(typeof HandshakeType === "object");
 assert(typeof ListProgramManagementAccountsSortName === "object");
 assert(typeof ListRelationshipsSortName === "object");
+assert(typeof ManagedServicesAttestationTypeSortName === "object");
+assert(typeof ManagedServicesSupportedService === "object");
 assert(typeof ParticipantType === "object");
 assert(typeof Program === "object");
 assert(typeof ProgramManagementAccountStatus === "object");
+assert(typeof ProgramManagementAccountType === "object");
 assert(typeof ProgramManagementAccountTypeSortName === "object");
 assert(typeof Provider === "object");
 assert(typeof ResaleAccountModel === "object");
@@ -286,6 +361,7 @@ assert(ValidationException.prototype instanceof PartnerCentralChannelServiceExce
 assert(typeof ValidationException$ === "object");
 assert(PartnerCentralChannelServiceException.prototype instanceof Error);
 // paginators
+assert(typeof paginateListChannelContracts === "function");
 assert(typeof paginateListChannelHandshakes === "function");
 assert(typeof paginateListProgramManagementAccounts === "function");
 assert(typeof paginateListRelationships === "function");

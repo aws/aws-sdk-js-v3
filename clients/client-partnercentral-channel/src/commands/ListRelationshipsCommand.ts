@@ -39,7 +39,7 @@ export interface ListRelationshipsCommandOutput extends ListRelationshipsRespons
  *     "STRING_VALUE",
  *   ],
  *   associationTypes: [ // AssociationTypeList
- *     "DOWNSTREAM_SELLER" || "END_CUSTOMER" || "INTERNAL",
+ *     "DOWNSTREAM_SELLER" || "END_CUSTOMER" || "INTERNAL" || "MANAGED_SERVICES_END_CUSTOMER",
  *   ],
  *   displayNames: [ // RelationshipDisplayNameList
  *     "STRING_VALUE",
@@ -62,7 +62,7 @@ export interface ListRelationshipsCommandOutput extends ListRelationshipsRespons
  * //       id: "STRING_VALUE",
  * //       revision: "STRING_VALUE",
  * //       catalog: "STRING_VALUE",
- * //       associationType: "DOWNSTREAM_SELLER" || "END_CUSTOMER" || "INTERNAL",
+ * //       associationType: "DOWNSTREAM_SELLER" || "END_CUSTOMER" || "INTERNAL" || "MANAGED_SERVICES_END_CUSTOMER",
  * //       programManagementAccountId: "STRING_VALUE",
  * //       associatedAccountId: "STRING_VALUE",
  * //       displayName: "STRING_VALUE",

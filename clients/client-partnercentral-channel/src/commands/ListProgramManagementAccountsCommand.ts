@@ -39,7 +39,7 @@ export interface ListProgramManagementAccountsCommandOutput extends ListProgramM
  *     "STRING_VALUE",
  *   ],
  *   programs: [ // ProgramList
- *     "SOLUTION_PROVIDER" || "DISTRIBUTION" || "DISTRIBUTION_SELLER",
+ *     "SOLUTION_PROVIDER" || "DISTRIBUTION" || "DISTRIBUTION_SELLER" || "MANAGED_SERVICES_PROVIDER",
  *   ],
  *   accountIds: [ // AccountIdList
  *     "STRING_VALUE",
@@ -52,6 +52,7 @@ export interface ListProgramManagementAccountsCommandOutput extends ListProgramM
  *     sortBy: "UpdatedAt", // required
  *   },
  *   nextToken: "STRING_VALUE",
+ *   type: "RESALE_BILLING_TRANSFER" || "MANAGED_SERVICES",
  * };
  * const command = new ListProgramManagementAccountsCommand(input);
  * const response = await client.send(command);
@@ -61,7 +62,7 @@ export interface ListProgramManagementAccountsCommandOutput extends ListProgramM
  * //       id: "STRING_VALUE",
  * //       revision: "STRING_VALUE",
  * //       catalog: "STRING_VALUE",
- * //       program: "SOLUTION_PROVIDER" || "DISTRIBUTION" || "DISTRIBUTION_SELLER",
+ * //       program: "SOLUTION_PROVIDER" || "DISTRIBUTION" || "DISTRIBUTION_SELLER" || "MANAGED_SERVICES_PROVIDER",
  * //       displayName: "STRING_VALUE",
  * //       accountId: "STRING_VALUE",
  * //       arn: "STRING_VALUE",
@@ -69,6 +70,7 @@ export interface ListProgramManagementAccountsCommandOutput extends ListProgramM
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       startDate: new Date("TIMESTAMP"),
  * //       status: "PENDING" || "ACTIVE" || "INACTIVE",
+ * //       type: "RESALE_BILLING_TRANSFER" || "MANAGED_SERVICES",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -56,7 +56,7 @@ export interface ListChannelHandshakesCommandOutput extends ListChannelHandshake
  *     },
  *     programManagementAccountTypeFilters: { // ProgramManagementAccountTypeFilters
  *       programs: [ // ProgramList
- *         "SOLUTION_PROVIDER" || "DISTRIBUTION" || "DISTRIBUTION_SELLER",
+ *         "SOLUTION_PROVIDER" || "DISTRIBUTION" || "DISTRIBUTION_SELLER" || "MANAGED_SERVICES_PROVIDER",
  *       ],
  *     },
  *   },
@@ -106,7 +106,7 @@ export interface ListChannelHandshakesCommandOutput extends ListChannelHandshake
  * //           endDate: new Date("TIMESTAMP"),
  * //         },
  * //         programManagementAccountHandshakeDetail: { // ProgramManagementAccountHandshakeDetail
- * //           program: "SOLUTION_PROVIDER" || "DISTRIBUTION" || "DISTRIBUTION_SELLER",
+ * //           program: "SOLUTION_PROVIDER" || "DISTRIBUTION" || "DISTRIBUTION_SELLER" || "MANAGED_SERVICES_PROVIDER",
  * //         },
  * //       },
  * //       createdAt: new Date("TIMESTAMP"),

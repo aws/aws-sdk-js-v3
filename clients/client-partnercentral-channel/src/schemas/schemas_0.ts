@@ -1,8 +1,19 @@
+const _A = "Address";
 const _ACH = "AcceptChannelHandshake";
 const _ACHD = "AcceptChannelHandshakeDetail";
 const _ACHR = "AcceptChannelHandshakeRequest";
 const _ACHRc = "AcceptChannelHandshakeResponse";
 const _ADE = "AccessDeniedException";
+const _CCC = "CancelChannelContract";
+const _CCCD = "CancelChannelContractDetail";
+const _CCCDr = "CreateChannelContractDetail";
+const _CCCR = "CancelChannelContractRequest";
+const _CCCRa = "CancelChannelContractResponse";
+const _CCCRr = "CreateChannelContractRequest";
+const _CCCRre = "CreateChannelContractResponse";
+const _CCCr = "CreateChannelContract";
+const _CCD = "ChannelContractDetail";
+const _CCDh = "ChannelContractDetails";
 const _CCH = "CancelChannelHandshake";
 const _CCHD = "CancelChannelHandshakeDetail";
 const _CCHDr = "CreateChannelHandshakeDetail";
@@ -11,6 +22,14 @@ const _CCHRa = "CancelChannelHandshakeResponse";
 const _CCHRr = "CreateChannelHandshakeRequest";
 const _CCHRre = "CreateChannelHandshakeResponse";
 const _CCHr = "CreateChannelHandshake";
+const _CCLEN = "ChannelContractLegalEntityName";
+const _CCLENFL = "ChannelContractLegalEntityNameFilterList";
+const _CCP = "ChannelContractPayload";
+const _CCS = "ChannelContractSummary";
+const _CCSD = "ChannelContractSummaryDetails";
+const _CCSE = "ChannelContractSignatoryEmail";
+const _CCSN = "ChannelContractSignatoryName";
+const _CCSh = "ChannelContractSummaries";
 const _CE = "ConflictException";
 const _CHP = "ChannelHandshakePayload";
 const _CHS = "ChannelHandshakeSummary";
@@ -29,11 +48,19 @@ const _DPMARe = "DeleteProgramManagementAccountResponse";
 const _DR = "DeleteRelationship";
 const _DRR = "DeleteRelationshipRequest";
 const _DRRe = "DeleteRelationshipResponse";
+const _GCC = "GetChannelContract";
+const _GCCR = "GetChannelContractRequest";
+const _GCCRe = "GetChannelContractResponse";
 const _GR = "GetRelationship";
 const _GRR = "GetRelationshipRequest";
 const _GRRe = "GetRelationshipResponse";
 const _HD = "HandshakeDetail";
 const _ISE = "InternalServerException";
+const _LCC = "ListChannelContracts";
+const _LCCR = "ListChannelContractsRequest";
+const _LCCRi = "ListChannelContractsResponse";
+const _LCCTF = "ListChannelContractsTypeFilters";
+const _LCCTS = "ListChannelContractsTypeSort";
 const _LCH = "ListChannelHandshakes";
 const _LCHR = "ListChannelHandshakesRequest";
 const _LCHRi = "ListChannelHandshakesResponse";
@@ -50,6 +77,11 @@ const _LRSB = "ListRelationshipsSortBase";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _MSAD = "ManagedServicesAttestationDetails";
+const _MSAP = "ManagedServicesAttestationPayload";
+const _MSASD = "ManagedServicesAttestationSummaryDetails";
+const _MSATF = "ManagedServicesAttestationTypeFilters";
+const _MSATS = "ManagedServicesAttestationTypeSort";
 const _PLS = "PartnerLedSupport";
 const _PMAHD = "ProgramManagementAccountHandshakeDetail";
 const _PMAS = "ProgramManagementAccountSummary";
@@ -101,22 +133,34 @@ const _aAI = "associatedAccountId";
 const _aAIs = "associatedAccountIds";
 const _aI = "accountId";
 const _aIc = "accountIds";
+const _aL = "addressLine";
+const _aLd = "addressLine2";
 const _aRI = "associatedResourceId";
 const _aRIs = "associatedResourceIdentifier";
 const _aRIss = "associatedResourceIdentifiers";
+const _aS = "accountScope";
 const _aT = "associationType";
 const _aTs = "associationTypes";
 const _c = "client";
 const _cA = "createdAt";
 const _cAI = "chargeAccountId";
+const _cC = "countryCode";
+const _cCD = "channelContractDetail";
+const _cCI = "channelContractId";
 const _cHD = "channelHandshakeDetail";
+const _cR = "cancellationReason";
 const _cT = "clientToken";
+const _cTF = "contractTypeFilters";
+const _cTS = "contractTypeSort";
+const _cTo = "contractType";
 const _ca = "catalog";
+const _ci = "city";
 const _co = "coverage";
 const _cod = "code";
-const _d = "detail";
+const _d = "details";
 const _dN = "displayName";
 const _dNi = "displayNames";
+const _de = "detail";
 const _e = "error";
 const _eD = "endDate";
 const _fL = "fieldList";
@@ -129,14 +173,23 @@ const _i = "id";
 const _id = "identifier";
 const _it = "items";
 const _k = "key";
+const _lEA = "legalEntityAddress";
+const _lEN = "legalEntityName";
+const _lENe = "legalEntityNames";
 const _m = "message";
+const _mAI = "memberAccountIds";
 const _mND = "minimumNoticeDays";
 const _mR = "maxResults";
+const _mSAD = "managedServicesAttestationDetails";
+const _mSAP = "managedServicesAttestationPayload";
+const _mSATF = "managedServicesAttestationTypeFilters";
+const _mSATS = "managedServicesAttestationTypeSort";
 const _n = "note";
 const _nT = "nextToken";
 const _na = "name";
 const _oAI = "ownerAccountId";
 const _p = "payload";
+const _pC = "postalCode";
 const _pLS = "partnerLedSupport";
 const _pMAD = "programManagementAccountDetail";
 const _pMAHD = "programManagementAccountHandshakeDetail";
@@ -151,12 +204,15 @@ const _pro = "programs";
 const _prov = "provider";
 const _qC = "quotaCode";
 const _r = "reason";
-const _rA = "resourceArn";
+const _rA = "respondedAt";
 const _rAI = "receiverAccountId";
 const _rAM = "resaleAccountModel";
+const _rAe = "resourceArn";
 const _rD = "relationshipDetail";
 const _rE = "resoldEnterprise";
 const _rI = "resourceId";
+const _rIe = "relationshipIdentifier";
+const _rIel = "relationshipIdentifiers";
 const _rSP = "requestedSupportPlan";
 const _rSPHD = "revokeServicePeriodHandshakeDetail";
 const _rSPP = "revokeServicePeriodPayload";
@@ -171,9 +227,13 @@ const _sB = "sortBy";
 const _sC = "serviceCode";
 const _sD = "startDate";
 const _sDN = "senderDisplayName";
+const _sE = "signatoryEmail";
+const _sN = "signatoryName";
 const _sO = "sortOrder";
+const _sOR = "stateOrRegion";
 const _sPT = "servicePeriodType";
 const _sPTe = "servicePeriodTypes";
+const _sS = "supportedServices";
 const _sSPHD = "startServicePeriodHandshakeDetail";
 const _sSPP = "startServicePeriodPayload";
 const _sSPTF = "startServicePeriodTypeFilters";
@@ -186,6 +246,7 @@ const _sta = "statuses";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tL = "tamLocation";
+const _ty = "type";
 const _uA = "updatedAt";
 const _v = "value";
 const n0 = "com.amazonaws.partnercentralchannel";
@@ -196,6 +257,7 @@ import type {
   StaticErrorSchema,
   StaticListSchema,
   StaticOperationSchema,
+  StaticSimpleSchema,
   StaticStructureSchema,
   StaticUnionSchema,
 } from "@smithy/types";
@@ -267,6 +329,9 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var ChannelContractLegalEntityName: StaticSimpleSchema = [0, n0, _CCLEN, 8, 0];
+var ChannelContractSignatoryEmail: StaticSimpleSchema = [0, n0, _CCSE, 8, 0];
+var ChannelContractSignatoryName: StaticSimpleSchema = [0, n0, _CCSN, 8, 0];
 export var AcceptChannelHandshakeDetail$: StaticStructureSchema = [3, n0, _ACHD,
   0,
   [_i, _a, _st],
@@ -281,6 +346,26 @@ export var AcceptChannelHandshakeResponse$: StaticStructureSchema = [3, n0, _ACH
   0,
   [_cHD],
   [() => AcceptChannelHandshakeDetail$]
+];
+export var Address$: StaticStructureSchema = [3, n0, _A,
+  8,
+  [_ci, _sOR, _pC, _cC, _aL, _aLd],
+  [0, 0, 0, 0, 0, 0], 5
+];
+export var CancelChannelContractDetail$: StaticStructureSchema = [3, n0, _CCCD,
+  0,
+  [_i, _a, _st, _cR],
+  [0, 0, 0, 0]
+];
+export var CancelChannelContractRequest$: StaticStructureSchema = [3, n0, _CCCR,
+  0,
+  [_ca, _id, _r, _cT],
+  [0, 0, 0, [0, 4]], 2
+];
+export var CancelChannelContractResponse$: StaticStructureSchema = [3, n0, _CCCRa,
+  0,
+  [_cCD],
+  [() => CancelChannelContractDetail$]
 ];
 export var CancelChannelHandshakeDetail$: StaticStructureSchema = [3, n0, _CCHD,
   0,
@@ -297,10 +382,35 @@ export var CancelChannelHandshakeResponse$: StaticStructureSchema = [3, n0, _CCH
   [_cHD],
   [() => CancelChannelHandshakeDetail$]
 ];
+export var ChannelContractDetail$: StaticStructureSchema = [3, n0, _CCD,
+  0,
+  [_i, _a, _ca, _cTo, _st, _cA, _uA, _d, _rA, _cR],
+  [0, 0, 0, 0, 0, 5, 5, [() => ChannelContractDetails$, 0], 5, 0], 8
+];
+export var ChannelContractSummary$: StaticStructureSchema = [3, n0, _CCS,
+  0,
+  [_i, _a, _ca, _cTo, _st, _cA, _uA, _d, _rA],
+  [0, 0, 0, 0, 0, 5, 5, [() => ChannelContractSummaryDetails$, 0], 5], 8
+];
 export var ChannelHandshakeSummary$: StaticStructureSchema = [3, n0, _CHS,
   0,
-  [_i, _a, _ca, _hT, _oAI, _sAI, _sDN, _rAI, _aRI, _d, _cA, _uA, _st],
+  [_i, _a, _ca, _hT, _oAI, _sAI, _sDN, _rAI, _aRI, _de, _cA, _uA, _st],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, () => HandshakeDetail$, 5, 5, 0]
+];
+export var CreateChannelContractDetail$: StaticStructureSchema = [3, n0, _CCCDr,
+  0,
+  [_i, _a],
+  [0, 0]
+];
+export var CreateChannelContractRequest$: StaticStructureSchema = [3, n0, _CCCRr,
+  0,
+  [_cTo, _ca, _p, _cT, _t],
+  [0, 0, [() => ChannelContractPayload$, 0], [0, 4], () => TagList], 3
+];
+export var CreateChannelContractResponse$: StaticStructureSchema = [3, n0, _CCCRre,
+  0,
+  [_cCD],
+  [() => CreateChannelContractDetail$]
 ];
 export var CreateChannelHandshakeDetail$: StaticStructureSchema = [3, n0, _CCHDr,
   0,
@@ -324,8 +434,8 @@ export var CreateProgramManagementAccountDetail$: StaticStructureSchema = [3, n0
 ];
 export var CreateProgramManagementAccountRequest$: StaticStructureSchema = [3, n0, _CPMAR,
   0,
-  [_ca, _pr, _dN, _aI, _cT, _t],
-  [0, 0, 0, 0, [0, 4], () => TagList], 4
+  [_ca, _pr, _dN, _aI, _cT, _t, _ty],
+  [0, 0, 0, 0, [0, 4], () => TagList, 0], 4
 ];
 export var CreateProgramManagementAccountResponse$: StaticStructureSchema = [3, n0, _CPMARr,
   0,
@@ -339,8 +449,8 @@ export var CreateRelationshipDetail$: StaticStructureSchema = [3, n0, _CRD,
 ];
 export var CreateRelationshipRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
-  [_ca, _aT, _pMAI, _aAI, _dN, _sec, _rAM, _cT, _t, _rSP],
-  [0, 0, 0, 0, 0, 0, 0, [0, 4], () => TagList, () => SupportPlan$], 6
+  [_ca, _aT, _pMAI, _dN, _sec, _aAI, _rAM, _cT, _t, _rSP, _aS, _sD],
+  [0, 0, 0, 0, 0, 0, 0, [0, 4], () => TagList, () => SupportPlan$, 0, 5], 5
 ];
 export var CreateRelationshipResponse$: StaticStructureSchema = [3, n0, _CRRr,
   0,
@@ -367,6 +477,16 @@ export var DeleteRelationshipResponse$: StaticStructureSchema = [3, n0, _DRRe,
   [],
   []
 ];
+export var GetChannelContractRequest$: StaticStructureSchema = [3, n0, _GCCR,
+  0,
+  [_ca, _id],
+  [0, 0], 2
+];
+export var GetChannelContractResponse$: StaticStructureSchema = [3, n0, _GCCRe,
+  0,
+  [_cCD],
+  [[() => ChannelContractDetail$, 0]]
+];
 export var GetRelationshipRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
   [_ca, _pMAI, _id],
@@ -376,6 +496,16 @@ export var GetRelationshipResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
   [_rD],
   [() => RelationshipDetail$]
+];
+export var ListChannelContractsRequest$: StaticStructureSchema = [3, n0, _LCCR,
+  0,
+  [_ca, _cTo, _sta, _cTF, _cTS, _mR, _nT],
+  [0, 0, 64 | 0, [() => ListChannelContractsTypeFilters$, 0], () => ListChannelContractsTypeSort$, 1, 0], 2
+];
+export var ListChannelContractsResponse$: StaticStructureSchema = [3, n0, _LCCRi,
+  0,
+  [_it, _nT],
+  [[() => ChannelContractSummaries, 0], 0], 1
 ];
 export var ListChannelHandshakesRequest$: StaticStructureSchema = [3, n0, _LCHR,
   0,
@@ -389,8 +519,8 @@ export var ListChannelHandshakesResponse$: StaticStructureSchema = [3, n0, _LCHR
 ];
 export var ListProgramManagementAccountsRequest$: StaticStructureSchema = [3, n0, _LPMAR,
   0,
-  [_ca, _mR, _dNi, _pro, _aIc, _sta, _so, _nT],
-  [0, 1, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => ListProgramManagementAccountsSortBase$, 0], 1
+  [_ca, _mR, _dNi, _pro, _aIc, _sta, _so, _nT, _ty],
+  [0, 1, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => ListProgramManagementAccountsSortBase$, 0, 0], 1
 ];
 export var ListProgramManagementAccountsResponse$: StaticStructureSchema = [3, n0, _LPMARi,
   0,
@@ -419,13 +549,38 @@ export var ListRelationshipsSortBase$: StaticStructureSchema = [3, n0, _LRSB,
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_rA],
+  [_rAe],
   [0], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
   [_t],
   [() => TagList]
+];
+export var ManagedServicesAttestationDetails$: StaticStructureSchema = [3, n0, _MSAD,
+  0,
+  [_lEN, _rIe, _pMAI, _eD, _sS, _sN, _sE, _mAI, _lEA],
+  [[() => ChannelContractLegalEntityName, 0], 0, 0, 5, 64 | 0, [() => ChannelContractSignatoryName, 0], [() => ChannelContractSignatoryEmail, 0], 64 | 0, [() => Address$, 0]], 7
+];
+export var ManagedServicesAttestationPayload$: StaticStructureSchema = [3, n0, _MSAP,
+  0,
+  [_lEN, _rIe, _pMAI, _eD, _sS, _lEA, _sN, _sE, _mAI],
+  [[() => ChannelContractLegalEntityName, 0], 0, 0, 5, 64 | 0, [() => Address$, 0], [() => ChannelContractSignatoryName, 0], [() => ChannelContractSignatoryEmail, 0], 64 | 0], 8
+];
+export var ManagedServicesAttestationSummaryDetails$: StaticStructureSchema = [3, n0, _MSASD,
+  0,
+  [_lEN, _rIe, _pMAI, _eD, _sS, _mAI],
+  [[() => ChannelContractLegalEntityName, 0], 0, 0, 5, 64 | 0, 64 | 0], 5
+];
+export var ManagedServicesAttestationTypeFilters$: StaticStructureSchema = [3, n0, _MSATF,
+  0,
+  [_rIel, _lENe],
+  [64 | 0, [() => ChannelContractLegalEntityNameFilterList, 0]]
+];
+export var ManagedServicesAttestationTypeSort$: StaticStructureSchema = [3, n0, _MSATS,
+  0,
+  [_sO, _sB],
+  [0, 0], 2
 ];
 export var PartnerLedSupport$: StaticStructureSchema = [3, n0, _PLS,
   0,
@@ -439,8 +594,8 @@ export var ProgramManagementAccountHandshakeDetail$: StaticStructureSchema = [3,
 ];
 export var ProgramManagementAccountSummary$: StaticStructureSchema = [3, n0, _PMAS,
   0,
-  [_i, _re, _ca, _pr, _dN, _aI, _a, _cA, _uA, _sD, _st],
-  [0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0]
+  [_i, _re, _ca, _pr, _dN, _aI, _a, _cA, _uA, _sD, _st, _ty],
+  [0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0, 0]
 ];
 export var ProgramManagementAccountTypeFilters$: StaticStructureSchema = [3, n0, _PMATF,
   0,
@@ -469,8 +624,8 @@ export var RejectChannelHandshakeResponse$: StaticStructureSchema = [3, n0, _RCH
 ];
 export var RelationshipDetail$: StaticStructureSchema = [3, n0, _RD,
   0,
-  [_a, _i, _re, _ca, _aT, _pMAIro, _aAI, _dN, _rAM, _sec, _cA, _uA, _sD],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5]
+  [_a, _i, _re, _ca, _aT, _pMAIro, _aAI, _dN, _rAM, _sec, _aS, _cCI, _cA, _uA, _sD, _eD],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5]
 ];
 export var RelationshipSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -534,7 +689,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_rA, _t],
+  [_rAe, _t],
   [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
@@ -544,7 +699,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_rA, _tK],
+  [_rAe, _tK],
   [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
@@ -590,10 +745,21 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 var AccountIdList = 64 | 0;
 var AssociatedResourceIdentifierList = 64 | 0;
 var AssociationTypeList = 64 | 0;
+var ChannelContractLegalEntityNameFilterList: StaticListSchema = [1, n0, _CCLENFL,
+  0, [() => ChannelContractLegalEntityName,
+    0]
+];
+var ChannelContractStatusFilterList = 64 | 0;
+var ChannelContractSummaries: StaticListSchema = [1, n0, _CCSh,
+  0, [() => ChannelContractSummary$,
+    0]
+];
 var ChannelHandshakeSummaries: StaticListSchema = [1, n0, _CHSh,
   0, () => ChannelHandshakeSummary$
 ];
 var HandshakeStatusList = 64 | 0;
+var ManagedServicesSupportedServiceList = 64 | 0;
+var MemberAccountIdList = 64 | 0;
 var ProgramList = 64 | 0;
 var ProgramManagementAccountDisplayNameList = 64 | 0;
 var ProgramManagementAccountIdentifierList = 64 | 0;
@@ -602,6 +768,7 @@ var ProgramManagementAccountSummaries: StaticListSchema = [1, n0, _PMASr,
   0, () => ProgramManagementAccountSummary$
 ];
 var RelationshipDisplayNameList = 64 | 0;
+var RelationshipIdentifierFilterList = 64 | 0;
 var RelationshipSummaries: StaticListSchema = [1, n0, _RSe,
   0, () => RelationshipSummary$
 ];
@@ -613,6 +780,21 @@ var TagList: StaticListSchema = [1, n0, _TL,
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
+export var ChannelContractDetails$: StaticUnionSchema = [4, n0, _CCDh,
+  0,
+  [_mSAD],
+  [[() => ManagedServicesAttestationDetails$, 0]]
+];
+export var ChannelContractPayload$: StaticUnionSchema = [4, n0, _CCP,
+  0,
+  [_mSAP],
+  [[() => ManagedServicesAttestationPayload$, 0]]
+];
+export var ChannelContractSummaryDetails$: StaticUnionSchema = [4, n0, _CCSD,
+  0,
+  [_mSAD],
+  [[() => ManagedServicesAttestationSummaryDetails$, 0]]
+];
 export var ChannelHandshakePayload$: StaticUnionSchema = [4, n0, _CHP,
   0,
   [_sSPP, _rSPP],
@@ -622,6 +804,16 @@ export var HandshakeDetail$: StaticUnionSchema = [4, n0, _HD,
   0,
   [_sSPHD, _rSPHD, _pMAHD],
   [() => StartServicePeriodHandshakeDetail$, () => RevokeServicePeriodHandshakeDetail$, () => ProgramManagementAccountHandshakeDetail$]
+];
+export var ListChannelContractsTypeFilters$: StaticUnionSchema = [4, n0, _LCCTF,
+  0,
+  [_mSATF],
+  [[() => ManagedServicesAttestationTypeFilters$, 0]]
+];
+export var ListChannelContractsTypeSort$: StaticUnionSchema = [4, n0, _LCCTS,
+  0,
+  [_mSATS],
+  [() => ManagedServicesAttestationTypeSort$]
 ];
 export var ListChannelHandshakesTypeFilters$: StaticUnionSchema = [4, n0, _LCHTF,
   0,
@@ -641,8 +833,14 @@ export var SupportPlan$: StaticUnionSchema = [4, n0, _SP,
 export var AcceptChannelHandshake$: StaticOperationSchema = [9, n0, _ACH,
   { [_h]: ["POST", "/AcceptChannelHandshake", 200] }, () => AcceptChannelHandshakeRequest$, () => AcceptChannelHandshakeResponse$
 ];
+export var CancelChannelContract$: StaticOperationSchema = [9, n0, _CCC,
+  { [_h]: ["POST", "/CancelChannelContract", 200] }, () => CancelChannelContractRequest$, () => CancelChannelContractResponse$
+];
 export var CancelChannelHandshake$: StaticOperationSchema = [9, n0, _CCH,
   { [_h]: ["POST", "/CancelChannelHandshake", 200] }, () => CancelChannelHandshakeRequest$, () => CancelChannelHandshakeResponse$
+];
+export var CreateChannelContract$: StaticOperationSchema = [9, n0, _CCCr,
+  { [_h]: ["POST", "/CreateChannelContract", 200] }, () => CreateChannelContractRequest$, () => CreateChannelContractResponse$
 ];
 export var CreateChannelHandshake$: StaticOperationSchema = [9, n0, _CCHr,
   { [_h]: ["POST", "/CreateChannelHandshake", 200] }, () => CreateChannelHandshakeRequest$, () => CreateChannelHandshakeResponse$
@@ -659,8 +857,14 @@ export var DeleteProgramManagementAccount$: StaticOperationSchema = [9, n0, _DPM
 export var DeleteRelationship$: StaticOperationSchema = [9, n0, _DR,
   { [_h]: ["POST", "/DeleteRelationship", 200] }, () => DeleteRelationshipRequest$, () => DeleteRelationshipResponse$
 ];
+export var GetChannelContract$: StaticOperationSchema = [9, n0, _GCC,
+  { [_h]: ["POST", "/GetChannelContract", 200] }, () => GetChannelContractRequest$, () => GetChannelContractResponse$
+];
 export var GetRelationship$: StaticOperationSchema = [9, n0, _GR,
   { [_h]: ["POST", "/GetRelationship", 200] }, () => GetRelationshipRequest$, () => GetRelationshipResponse$
+];
+export var ListChannelContracts$: StaticOperationSchema = [9, n0, _LCC,
+  { [_h]: ["POST", "/ListChannelContracts", 200] }, () => ListChannelContractsRequest$, () => ListChannelContractsResponse$
 ];
 export var ListChannelHandshakes$: StaticOperationSchema = [9, n0, _LCH,
   { [_h]: ["POST", "/ListChannelHandshakes", 200] }, () => ListChannelHandshakesRequest$, () => ListChannelHandshakesResponse$
