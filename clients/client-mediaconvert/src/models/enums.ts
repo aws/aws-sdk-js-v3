@@ -441,6 +441,8 @@ export const AudioCodec = {
   AC3: "AC3",
   AC4: "AC4",
   AIFF: "AIFF",
+  DTSC: "DTSC",
+  DTSX: "DTSX",
   EAC3: "EAC3",
   EAC3_ATMOS: "EAC3_ATMOS",
   FLAC: "FLAC",
@@ -455,6 +457,19 @@ export const AudioCodec = {
  * @public
  */
 export type AudioCodec = (typeof AudioCodec)[keyof typeof AudioCodec];
+
+/**
+ * @public
+ * @enum
+ */
+export const DtsxCodingMode = {
+  CODING_MODE_5_1: "CODING_MODE_5_1",
+  CODING_MODE_5_1_4: "CODING_MODE_5_1_4",
+} as const;
+/**
+ * @public
+ */
+export type DtsxCodingMode = (typeof DtsxCodingMode)[keyof typeof DtsxCodingMode];
 
 /**
  * @public
@@ -4171,6 +4186,7 @@ export type ChromaPositionMode = (typeof ChromaPositionMode)[keyof typeof Chroma
  * @enum
  */
 export const Av1AdaptiveQuantization = {
+  AUTO: "AUTO",
   HIGH: "HIGH",
   HIGHER: "HIGHER",
   LOW: "LOW",
@@ -4195,6 +4211,19 @@ export const Av1BitDepth = {
  * @public
  */
 export type Av1BitDepth = (typeof Av1BitDepth)[keyof typeof Av1BitDepth];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1FastDecode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type Av1FastDecode = (typeof Av1FastDecode)[keyof typeof Av1FastDecode];
 
 /**
  * @public
@@ -4242,6 +4271,19 @@ export type Av1FramerateConversionAlgorithm =
  * @public
  * @enum
  */
+export const Av1GopSizeUnits = {
+  FRAMES: "FRAMES",
+  SECONDS: "SECONDS",
+} as const;
+/**
+ * @public
+ */
+export type Av1GopSizeUnits = (typeof Av1GopSizeUnits)[keyof typeof Av1GopSizeUnits];
+
+/**
+ * @public
+ * @enum
+ */
 export const Av1RateControlMode = {
   CBR: "CBR",
   QVBR: "QVBR",
@@ -4278,6 +4320,20 @@ export const Av1SpatialAdaptiveQuantization = {
  */
 export type Av1SpatialAdaptiveQuantization =
   (typeof Av1SpatialAdaptiveQuantization)[keyof typeof Av1SpatialAdaptiveQuantization];
+
+/**
+ * @public
+ * @enum
+ */
+export const Av1TemporalAdaptiveQuantization = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type Av1TemporalAdaptiveQuantization =
+  (typeof Av1TemporalAdaptiveQuantization)[keyof typeof Av1TemporalAdaptiveQuantization];
 
 /**
  * @public
@@ -6400,6 +6456,20 @@ export const DropFrameTimecode = {
  * @public
  */
 export type DropFrameTimecode = (typeof DropFrameTimecode)[keyof typeof DropFrameTimecode];
+
+/**
+ * @public
+ * @enum
+ */
+export const DynamicMultiviewSettingsEnabled = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type DynamicMultiviewSettingsEnabled =
+  (typeof DynamicMultiviewSettingsEnabled)[keyof typeof DynamicMultiviewSettingsEnabled];
 
 /**
  * @public

@@ -67,14 +67,17 @@ import {
   AutomatedEncodingSettings$,
   Av1AdaptiveQuantization,
   Av1BitDepth,
+  Av1FastDecode,
   Av1FilmGrainSynthesis,
   Av1FramerateControl,
   Av1FramerateConversionAlgorithm,
+  Av1GopSizeUnits,
   Av1QvbrSettings$,
   Av1RateControlMode,
   Av1SceneChangeDetect,
   Av1Settings$,
   Av1SpatialAdaptiveQuantization,
+  Av1TemporalAdaptiveQuantization,
   AvailBlanking$,
   AvcIntraClass,
   AvcIntraFramerateControl,
@@ -255,6 +258,9 @@ import {
   DolbyVisionPresence,
   DolbyVisionProfile,
   DropFrameTimecode,
+  DtscSettings$,
+  DtsxCodingMode,
+  DtsxSettings$,
   DurationControl$,
   DvbddsHandling,
   DvbNitSettings$,
@@ -274,6 +280,8 @@ import {
   DvbTdtSettings$,
   DynamicAudioSelector$,
   DynamicAudioSelectorType,
+  DynamicMultiviewSettings$,
+  DynamicMultiviewSettingsEnabled,
   Eac3AtmosBitstreamMode,
   Eac3AtmosCodingMode,
   Eac3AtmosDialogueIntelligence,
@@ -1022,6 +1030,8 @@ assert(typeof DisassociateCertificateResponse$ === "object");
 assert(typeof DolbyVision$ === "object");
 assert(typeof DolbyVisionLevel6Metadata$ === "object");
 assert(typeof DolbyVisionMetadata$ === "object");
+assert(typeof DtscSettings$ === "object");
+assert(typeof DtsxSettings$ === "object");
 assert(typeof DurationControl$ === "object");
 assert(typeof DvbNitSettings$ === "object");
 assert(typeof DvbSdtSettings$ === "object");
@@ -1029,6 +1039,7 @@ assert(typeof DvbSubDestinationSettings$ === "object");
 assert(typeof DvbSubSourceSettings$ === "object");
 assert(typeof DvbTdtSettings$ === "object");
 assert(typeof DynamicAudioSelector$ === "object");
+assert(typeof DynamicMultiviewSettings$ === "object");
 assert(typeof Eac3AtmosSettings$ === "object");
 assert(typeof Eac3Settings$ === "object");
 assert(typeof ElementalInferenceConfiguration$ === "object");
@@ -1271,12 +1282,15 @@ assert(typeof AudioSmpte337Passthrough === "object");
 assert(typeof AudioTypeControl === "object");
 assert(typeof Av1AdaptiveQuantization === "object");
 assert(typeof Av1BitDepth === "object");
+assert(typeof Av1FastDecode === "object");
 assert(typeof Av1FilmGrainSynthesis === "object");
 assert(typeof Av1FramerateControl === "object");
 assert(typeof Av1FramerateConversionAlgorithm === "object");
+assert(typeof Av1GopSizeUnits === "object");
 assert(typeof Av1RateControlMode === "object");
 assert(typeof Av1SceneChangeDetect === "object");
 assert(typeof Av1SpatialAdaptiveQuantization === "object");
+assert(typeof Av1TemporalAdaptiveQuantization === "object");
 assert(typeof AvcIntraClass === "object");
 assert(typeof AvcIntraFramerateControl === "object");
 assert(typeof AvcIntraFramerateConversionAlgorithm === "object");
@@ -1369,6 +1383,7 @@ assert(typeof DolbyVisionMapping === "object");
 assert(typeof DolbyVisionPresence === "object");
 assert(typeof DolbyVisionProfile === "object");
 assert(typeof DropFrameTimecode === "object");
+assert(typeof DtsxCodingMode === "object");
 assert(typeof DvbddsHandling === "object");
 assert(typeof DvbSubSubtitleFallbackFont === "object");
 assert(typeof DvbSubtitleAlignment === "object");
@@ -1381,6 +1396,7 @@ assert(typeof DvbSubtitleStylePassthrough === "object");
 assert(typeof DvbSubtitleTeletextSpacing === "object");
 assert(typeof DvbSubtitlingType === "object");
 assert(typeof DynamicAudioSelectorType === "object");
+assert(typeof DynamicMultiviewSettingsEnabled === "object");
 assert(typeof Eac3AtmosBitstreamMode === "object");
 assert(typeof Eac3AtmosCodingMode === "object");
 assert(typeof Eac3AtmosDialogueIntelligence === "object");

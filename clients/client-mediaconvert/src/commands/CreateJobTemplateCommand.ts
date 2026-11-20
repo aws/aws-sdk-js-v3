@@ -883,7 +883,16 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                     Channels: Number("int"),
  *                     SampleRate: Number("int"),
  *                   },
- *                   Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "AC4" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH" || "FLAC",
+ *                   Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "AC4" || "DTSX" || "DTSC" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH" || "FLAC",
+ *                   DtscSettings: { // DtscSettings
+ *                     Bitrate: Number("int"),
+ *                     SampleRate: Number("int"),
+ *                   },
+ *                   DtsxSettings: { // DtsxSettings
+ *                     Bitrate: Number("int"),
+ *                     CodingMode: "CODING_MODE_5_1" || "CODING_MODE_5_1_4",
+ *                     SampleRate: Number("int"),
+ *                   },
  *                   Eac3AtmosSettings: { // Eac3AtmosSettings
  *                     Bitrate: Number("int"),
  *                     BitstreamMode: "COMPLETE_MAIN",
@@ -1254,15 +1263,17 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *               ChromaPositionMode: "AUTO" || "FORCE_CENTER" || "FORCE_TOP_LEFT",
  *               CodecSettings: { // VideoCodecSettings
  *                 Av1Settings: { // Av1Settings
- *                   AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
+ *                   AdaptiveQuantization: "OFF" || "AUTO" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
  *                   BitDepth: "BIT_8" || "BIT_10",
  *                   Bitrate: Number("int"),
+ *                   FastDecode: "DISABLED" || "ENABLED",
  *                   FilmGrainSynthesis: "DISABLED" || "ENABLED",
  *                   FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *                   FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  *                   FramerateDenominator: Number("int"),
  *                   FramerateNumerator: Number("int"),
  *                   GopSize: Number("double"),
+ *                   GopSizeUnits: "FRAMES" || "SECONDS",
  *                   MaxBitrate: Number("int"),
  *                   NumberBFramesBetweenReferenceFrames: Number("int"),
  *                   PerFrameMetrics: [
@@ -1278,6 +1289,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                   SlidingWindowMs: Number("int"),
  *                   SlidingWindowPeakBitrate: Number("int"),
  *                   SpatialAdaptiveQuantization: "DISABLED" || "ENABLED",
+ *                   TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  *                 },
  *                 AvcIntraSettings: { // AvcIntraSettings
  *                   AvcIntraClass: "CLASS_50" || "CLASS_100" || "CLASS_200" || "CLASS_4K_2K",
@@ -1599,14 +1611,15 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *                 Y: Number("int"),
  *               },
  *               DropFrameTimecode: "DISABLED" || "ENABLED",
+ *               DynamicMultiviewSettings: { // DynamicMultiviewSettings
+ *                 Enabled: "DISABLED" || "ENABLED",
+ *                 Regions: [ // __listOfRectangle
+ *                   "<Rectangle>",
+ *                 ],
+ *               },
  *               FixedAfd: Number("int"),
  *               Height: Number("int"),
- *               Position: {
- *                 Height: Number("int"),
- *                 Width: Number("int"),
- *                 X: Number("int"),
- *                 Y: Number("int"),
- *               },
+ *               Position: "<Rectangle>",
  *               RespondToAfd: "NONE" || "RESPOND" || "PASSTHROUGH",
  *               ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL" || "SMART_CROP",
  *               Sharpness: Number("int"),
@@ -2601,7 +2614,16 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                       Channels: Number("int"),
  * //                       SampleRate: Number("int"),
  * //                     },
- * //                     Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "AC4" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH" || "FLAC",
+ * //                     Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "AC4" || "DTSX" || "DTSC" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH" || "FLAC",
+ * //                     DtscSettings: { // DtscSettings
+ * //                       Bitrate: Number("int"),
+ * //                       SampleRate: Number("int"),
+ * //                     },
+ * //                     DtsxSettings: { // DtsxSettings
+ * //                       Bitrate: Number("int"),
+ * //                       CodingMode: "CODING_MODE_5_1" || "CODING_MODE_5_1_4",
+ * //                       SampleRate: Number("int"),
+ * //                     },
  * //                     Eac3AtmosSettings: { // Eac3AtmosSettings
  * //                       Bitrate: Number("int"),
  * //                       BitstreamMode: "COMPLETE_MAIN",
@@ -2972,15 +2994,17 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                 ChromaPositionMode: "AUTO" || "FORCE_CENTER" || "FORCE_TOP_LEFT",
  * //                 CodecSettings: { // VideoCodecSettings
  * //                   Av1Settings: { // Av1Settings
- * //                     AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
+ * //                     AdaptiveQuantization: "OFF" || "AUTO" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
  * //                     BitDepth: "BIT_8" || "BIT_10",
  * //                     Bitrate: Number("int"),
+ * //                     FastDecode: "DISABLED" || "ENABLED",
  * //                     FilmGrainSynthesis: "DISABLED" || "ENABLED",
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     GopSize: Number("double"),
+ * //                     GopSizeUnits: "FRAMES" || "SECONDS",
  * //                     MaxBitrate: Number("int"),
  * //                     NumberBFramesBetweenReferenceFrames: Number("int"),
  * //                     PerFrameMetrics: [
@@ -2996,6 +3020,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                     SlidingWindowMs: Number("int"),
  * //                     SlidingWindowPeakBitrate: Number("int"),
  * //                     SpatialAdaptiveQuantization: "DISABLED" || "ENABLED",
+ * //                     TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //                   },
  * //                   AvcIntraSettings: { // AvcIntraSettings
  * //                     AvcIntraClass: "CLASS_50" || "CLASS_100" || "CLASS_200" || "CLASS_4K_2K",
@@ -3317,14 +3342,15 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * //                   Y: Number("int"),
  * //                 },
  * //                 DropFrameTimecode: "DISABLED" || "ENABLED",
+ * //                 DynamicMultiviewSettings: { // DynamicMultiviewSettings
+ * //                   Enabled: "DISABLED" || "ENABLED",
+ * //                   Regions: [ // __listOfRectangle
+ * //                     "<Rectangle>",
+ * //                   ],
+ * //                 },
  * //                 FixedAfd: Number("int"),
  * //                 Height: Number("int"),
- * //                 Position: {
- * //                   Height: Number("int"),
- * //                   Width: Number("int"),
- * //                   X: Number("int"),
- * //                   Y: Number("int"),
- * //                 },
+ * //                 Position: "<Rectangle>",
  * //                 RespondToAfd: "NONE" || "RESPOND" || "PASSTHROUGH",
  * //                 ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL" || "SMART_CROP",
  * //                 Sharpness: Number("int"),
