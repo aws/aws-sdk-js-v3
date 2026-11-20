@@ -165,7 +165,10 @@ export class Upload extends EventEmitter {
       eventEmitter.on("xhr.upload.progress", uploadEventListener);
     }
 
-    const resolved = await Promise.all([this.client.send(new PutObjectCommand(params)), clientConfig?.endpoint?.()]);
+    const resolved = await Promise.all([
+      this.client.send(new PutObjectCommand(params), { abortSignal: this.abortController.signal }),
+      clientConfig?.endpoint?.(),
+    ]);
     const putResult = resolved[0];
     let endpoint: Endpoint | undefined = resolved[1];
 
