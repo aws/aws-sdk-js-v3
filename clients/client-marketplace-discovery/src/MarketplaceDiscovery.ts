@@ -34,6 +34,11 @@ import {
   ListFulfillmentOptionsCommand,
 } from "./commands/ListFulfillmentOptionsCommand";
 import {
+  type ListListingAttributesCommandInput,
+  type ListListingAttributesCommandOutput,
+  ListListingAttributesCommand,
+} from "./commands/ListListingAttributesCommand";
+import {
   type ListPurchaseOptionsCommandInput,
   type ListPurchaseOptionsCommandOutput,
   ListPurchaseOptionsCommand,
@@ -51,6 +56,7 @@ import {
 import { MarketplaceDiscoveryClient } from "./MarketplaceDiscoveryClient";
 import { paginateGetOfferTerms } from "./pagination/GetOfferTermsPaginator";
 import { paginateListFulfillmentOptions } from "./pagination/ListFulfillmentOptionsPaginator";
+import { paginateListListingAttributes } from "./pagination/ListListingAttributesPaginator";
 import { paginateListPurchaseOptions } from "./pagination/ListPurchaseOptionsPaginator";
 import { paginateSearchFacets } from "./pagination/SearchFacetsPaginator";
 import { paginateSearchListings } from "./pagination/SearchListingsPaginator";
@@ -62,6 +68,7 @@ const commands = {
   GetOfferTermsCommand,
   GetProductCommand,
   ListFulfillmentOptionsCommand,
+  ListListingAttributesCommand,
   ListPurchaseOptionsCommand,
   SearchFacetsCommand,
   SearchListingsCommand,
@@ -69,6 +76,7 @@ const commands = {
 const paginators = {
   paginateGetOfferTerms,
   paginateListFulfillmentOptions,
+  paginateListListingAttributes,
   paginateListPurchaseOptions,
   paginateSearchFacets,
   paginateSearchListings,
@@ -185,6 +193,23 @@ export interface MarketplaceDiscovery {
   ): void;
 
   /**
+   * @see {@link ListListingAttributesCommand}
+   */
+  listListingAttributes(
+    args: ListListingAttributesCommandInput,
+    options?: MarketplaceDiscoveryRequestOptions
+  ): Promise<ListListingAttributesCommandOutput>;
+  listListingAttributes(
+    args: ListListingAttributesCommandInput,
+    cb: (err: any, data?: ListListingAttributesCommandOutput) => void
+  ): void;
+  listListingAttributes(
+    args: ListListingAttributesCommandInput,
+    options: MarketplaceDiscoveryRequestOptions,
+    cb: (err: any, data?: ListListingAttributesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPurchaseOptionsCommand}
    */
   listPurchaseOptions(): Promise<ListPurchaseOptionsCommandOutput>;
@@ -261,6 +286,17 @@ export interface MarketplaceDiscovery {
   ): Paginator<ListFulfillmentOptionsCommandOutput>;
 
   /**
+   * @see {@link ListListingAttributesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListListingAttributesCommandOutput}.
+   */
+  paginateListListingAttributes(
+    args: ListListingAttributesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListListingAttributesCommandOutput>;
+
+  /**
    * @see {@link ListPurchaseOptionsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -295,7 +331,7 @@ export interface MarketplaceDiscovery {
 }
 
 /**
- * <p>The AWS Marketplace Discovery API provides programmatic access to the AWS Marketplace catalog, including searching and browsing listings, retrieving product details and fulfillment options, and accessing public and private offer pricing and terms.</p>
+ * <p>With the AWS Marketplace Discovery API (Discovery API), you have programmatic access to the AWS Marketplace catalog. You can search and browse listings, retrieve product details and fulfillment options, and access public and private offer pricing and terms. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/developerguide/discovery-apis.html">Using the AWS Marketplace Discovery API</a> in the <i>AWS Marketplace Developer Guide</i>.</p>
  * @public
  */
 export class MarketplaceDiscovery extends MarketplaceDiscoveryClient implements MarketplaceDiscovery {}

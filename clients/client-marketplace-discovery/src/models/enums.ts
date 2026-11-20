@@ -75,6 +75,19 @@ export type PricingUnitType = (typeof PricingUnitType)[keyof typeof PricingUnitT
  * @public
  * @enum
  */
+export const PurchaseIndicatorType = {
+  AVAILABLE_FOR_USE_WITHOUT_SUBSCRIPTION: "AVAILABLE_FOR_USE_WITHOUT_SUBSCRIPTION",
+  NOT_AVAILABLE_FOR_SUBSCRIPTION: "NOT_AVAILABLE_FOR_SUBSCRIPTION",
+} as const;
+/**
+ * @public
+ */
+export type PurchaseIndicatorType = (typeof PurchaseIndicatorType)[keyof typeof PurchaseIndicatorType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceContentType = {
   EMAIL: "EMAIL",
   LINK: "LINK",
@@ -131,8 +144,11 @@ export type SellerEngagementContentType =
  * @enum
  */
 export const SellerEngagementType = {
+  BUY_NOW: "BUY_NOW",
+  EXPRESS_PRIVATE_OFFER: "EXPRESS_PRIVATE_OFFER",
   REQUEST_FOR_DEMO: "REQUEST_FOR_DEMO",
   REQUEST_FOR_PRIVATE_OFFER: "REQUEST_FOR_PRIVATE_OFFER",
+  TRY_FOR_FREE: "TRY_FOR_FREE",
 } as const;
 /**
  * @public
@@ -289,6 +305,94 @@ export type SaasQuickLaunchStatus = (typeof SaasQuickLaunchStatus)[keyof typeof 
  * @public
  * @enum
  */
+export const ListingAttributeType = {
+  CASE_STUDY: "CASE_STUDY",
+  SPECIALIZATION_DETAIL: "SPECIALIZATION_DETAIL",
+  TRUST_CENTER_CERTIFICATION: "TRUST_CENTER_CERTIFICATION",
+  TRUST_CENTER_CONTROL: "TRUST_CENTER_CONTROL",
+  TRUST_CENTER_DOCUMENT: "TRUST_CENTER_DOCUMENT",
+  TRUST_CENTER_FAQ: "TRUST_CENTER_FAQ",
+  TRUST_CENTER_SOURCE: "TRUST_CENTER_SOURCE",
+  TRUST_CENTER_UPDATE: "TRUST_CENTER_UPDATE",
+} as const;
+/**
+ * @public
+ */
+export type ListingAttributeType = (typeof ListingAttributeType)[keyof typeof ListingAttributeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CaseStudyResourceType = {
+  CASE_STUDY_WEBSITE: "CASE_STUDY_WEBSITE",
+} as const;
+/**
+ * @public
+ */
+export type CaseStudyResourceType = (typeof CaseStudyResourceType)[keyof typeof CaseStudyResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SpecializationType = {
+  INDUSTRY: "INDUSTRY",
+  SERVICES: "SERVICES",
+  USE_CASE: "USE_CASE",
+} as const;
+/**
+ * @public
+ */
+export type SpecializationType = (typeof SpecializationType)[keyof typeof SpecializationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustCenterControlDomain = {
+  AI_GOVERNANCE: "AI_GOVERNANCE",
+  RESILIENCE: "RESILIENCE",
+  SECURITY: "SECURITY",
+} as const;
+/**
+ * @public
+ */
+export type TrustCenterControlDomain = (typeof TrustCenterControlDomain)[keyof typeof TrustCenterControlDomain];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustCenterDocumentAccessType = {
+  DOWNLOAD: "DOWNLOAD",
+  REQUEST_ACCESS: "REQUEST_ACCESS",
+  VIEW: "VIEW",
+} as const;
+/**
+ * @public
+ */
+export type TrustCenterDocumentAccessType =
+  (typeof TrustCenterDocumentAccessType)[keyof typeof TrustCenterDocumentAccessType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustCenterProvider = {
+  DRATA: "DRATA",
+  OTHER: "OTHER",
+  VANTA: "VANTA",
+} as const;
+/**
+ * @public
+ */
+export type TrustCenterProvider = (typeof TrustCenterProvider)[keyof typeof TrustCenterProvider];
+
+/**
+ * @public
+ * @enum
+ */
 export const PurchaseOptionFilterType = {
   AVAILABILITY_STATUS: "AVAILABILITY_STATUS",
   PRODUCT_ID: "PRODUCT_ID",
@@ -321,12 +425,17 @@ export type PurchaseOptionType = (typeof PurchaseOptionType)[keyof typeof Purcha
 export const SearchFacetType = {
   AVERAGE_CUSTOMER_RATING: "AVERAGE_CUSTOMER_RATING",
   CATEGORY: "CATEGORY",
+  CERTIFICATES: "CERTIFICATES",
   DEPLOYED_ON_AWS: "DEPLOYED_ON_AWS",
   FULFILLMENT_OPTION_TYPE: "FULFILLMENT_OPTION_TYPE",
   NUMBER_OF_PRODUCTS: "NUMBER_OF_PRODUCTS",
   PRICING_MODEL: "PRICING_MODEL",
   PRICING_UNIT: "PRICING_UNIT",
   PUBLISHER: "PUBLISHER",
+  SELLER_ENGAGEMENT: "SELLER_ENGAGEMENT",
+  SPECIALIZATION: "SPECIALIZATION",
+  SPECIALIZATION_CATEGORY: "SPECIALIZATION_CATEGORY",
+  TRUST_CENTER: "TRUST_CENTER",
 } as const;
 /**
  * @public
@@ -339,6 +448,7 @@ export type SearchFacetType = (typeof SearchFacetType)[keyof typeof SearchFacetT
  */
 export const SearchFilterType = {
   CATEGORY: "CATEGORY",
+  CERTIFICATES: "CERTIFICATES",
   DEPLOYED_ON_AWS: "DEPLOYED_ON_AWS",
   FULFILLMENT_OPTION_TYPE: "FULFILLMENT_OPTION_TYPE",
   MAX_AVERAGE_CUSTOMER_RATING: "MAX_AVERAGE_CUSTOMER_RATING",
@@ -346,7 +456,12 @@ export const SearchFilterType = {
   NUMBER_OF_PRODUCTS: "NUMBER_OF_PRODUCTS",
   PRICING_MODEL: "PRICING_MODEL",
   PRICING_UNIT: "PRICING_UNIT",
+  PRODUCT_ID: "PRODUCT_ID",
   PUBLISHER: "PUBLISHER",
+  SELLER_ENGAGEMENT: "SELLER_ENGAGEMENT",
+  SPECIALIZATION: "SPECIALIZATION",
+  SPECIALIZATION_CATEGORY: "SPECIALIZATION_CATEGORY",
+  TRUST_CENTER: "TRUST_CENTER",
 } as const;
 /**
  * @public

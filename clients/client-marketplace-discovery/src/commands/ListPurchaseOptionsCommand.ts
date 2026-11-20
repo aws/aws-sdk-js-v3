@@ -23,7 +23,7 @@ export interface ListPurchaseOptionsCommandInput extends ListPurchaseOptionsInpu
 export interface ListPurchaseOptionsCommandOutput extends ListPurchaseOptionsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the purchase options (offers and offer sets) available to the buyer. You can filter results by product, seller, purchase option type, visibility scope, and availability status.</p> <note> <p>You must include at least one of the following filters in the request: a <code>PRODUCT_ID</code> filter to specify the product for which to retrieve purchase options, or a <code>VISIBILITY_SCOPE</code> filter to retrieve purchase options by visibility.</p> </note>
+ * <p>Retrieves the purchase options (offers and offer sets) available to you. You can filter results by product, seller, purchase option type, visibility scope, and availability status. The operation returns results in pages. Use <code>nextToken</code> to retrieve the next page.</p> <note> <p>You must include at least one of the following filters in the request: a <code>PRODUCT_ID</code> filter to specify the product for which to retrieve purchase options, or a <code>VISIBILITY_SCOPE</code> filter to retrieve purchase options by visibility.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,16 +107,16 @@ export interface ListPurchaseOptionsCommandOutput extends ListPurchaseOptionsOut
  * @see {@link MarketplaceDiscoveryClientResolvedConfig | config} for MarketplaceDiscoveryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *  <p>You don't have sufficient access to perform this action. Verify that you have the required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was denied due to request throttling. Reduce the frequency of your requests and retry.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *  <p>The input fails to satisfy the constraints specified by the service. Check the <code>reason</code> field for the constraint that failed.</p>
  *
  * @throws {@link MarketplaceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDiscovery service.</p>

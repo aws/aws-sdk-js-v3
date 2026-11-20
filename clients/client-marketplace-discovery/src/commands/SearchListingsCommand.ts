@@ -23,7 +23,7 @@ export interface SearchListingsCommandInput extends SearchListingsInput {}
 export interface SearchListingsCommandOutput extends SearchListingsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of product listings based on search criteria and filters. You can search by keyword, filter by category, pricing model, fulfillment type, and other attributes, and sort results by relevance or customer rating.</p>
+ * <p>Searches for listings that match your search criteria and filters. You can search by keyword, filter by category, pricing model, fulfillment type, and other attributes, and sort results by relevance or customer rating. The operation returns results in pages. Use <code>nextToken</code> to retrieve the next page.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,7 +37,7 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  *   searchText: "STRING_VALUE",
  *   filters: [ // SearchFilterList
  *     { // SearchFilter
- *       filterType: "MIN_AVERAGE_CUSTOMER_RATING" || "MAX_AVERAGE_CUSTOMER_RATING" || "CATEGORY" || "PUBLISHER" || "FULFILLMENT_OPTION_TYPE" || "PRICING_MODEL" || "PRICING_UNIT" || "DEPLOYED_ON_AWS" || "NUMBER_OF_PRODUCTS", // required
+ *       filterType: "MIN_AVERAGE_CUSTOMER_RATING" || "MAX_AVERAGE_CUSTOMER_RATING" || "CATEGORY" || "PUBLISHER" || "FULFILLMENT_OPTION_TYPE" || "PRICING_MODEL" || "PRICING_UNIT" || "DEPLOYED_ON_AWS" || "NUMBER_OF_PRODUCTS" || "CERTIFICATES" || "PRODUCT_ID" || "SPECIALIZATION" || "SPECIALIZATION_CATEGORY" || "SELLER_ENGAGEMENT" || "TRUST_CENTER", // required
  *       filterValues: [ // SearchFilterValueList // required
  *         "STRING_VALUE",
  *       ],
@@ -116,6 +116,44 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * //           },
  * //         },
  * //       ],
+ * //       trustCenterSummary: { // TrustCenterSummary
+ * //         sourceSummaries: [ // TrustCenterSourceSummaryList // required
+ * //           { // TrustCenterSourceSummary
+ * //             contentType: "EMAIL" || "PHONE_NUMBER" || "LINK" || "OTHER", // required
+ * //             value: "STRING_VALUE", // required
+ * //             displayName: "STRING_VALUE",
+ * //             provider: "DRATA" || "VANTA" || "OTHER", // required
+ * //           },
+ * //         ],
+ * //         certificationSummaries: [ // TrustCenterCertificationSummaryList // required
+ * //           { // TrustCenterCertificationSummary
+ * //             certificationType: "STRING_VALUE", // required
+ * //             displayName: "STRING_VALUE", // required
+ * //             logoUrl: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         totalCertificationCount: Number("long"), // required
+ * //       },
+ * //       caseStudiesSummary: { // CaseStudiesSummary
+ * //         caseStudyCount: Number("long"), // required
+ * //       },
+ * //       useCaseSummary: { // UseCaseSummary
+ * //         useCases: [ // UseCaseSummaryList // required
+ * //           { // UseCaseSummaryEntry
+ * //             useCase: { // UseCaseInformation
+ * //               displayName: "STRING_VALUE", // required
+ * //               value: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       sellerEngagements: [ // SellerEngagementList
+ * //         { // SellerEngagement
+ * //           engagementType: "REQUEST_FOR_PRIVATE_OFFER" || "REQUEST_FOR_DEMO" || "EXPRESS_PRIVATE_OFFER" || "BUY_NOW" || "TRY_FOR_FREE", // required
+ * //           contentType: "LINK", // required
+ * //           value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -130,16 +168,16 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * @see {@link MarketplaceDiscoveryClientResolvedConfig | config} for MarketplaceDiscoveryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *  <p>You don't have sufficient access to perform this action. Verify that you have the required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was denied due to request throttling. Reduce the frequency of your requests and retry.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *  <p>The input fails to satisfy the constraints specified by the service. Check the <code>reason</code> field for the constraint that failed.</p>
  *
  * @throws {@link MarketplaceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDiscovery service.</p>
@@ -147,7 +185,7 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  *
  * @example Search for machine learning listings
  * ```javascript
- * // Search for SaaS listings in the machine learning category with sorting by relevance
+ * // Search for ISO 27001 certified SaaS listings in the machine learning category, sorted by relevance
  * const input = {
  *   filters: [
  *     {
@@ -160,6 +198,12 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  *       filterType: "FULFILLMENT_OPTION_TYPE",
  *       filterValues: [
  *         "SAAS"
+ *       ]
+ *     },
+ *     {
+ *       filterType: "CERTIFICATES",
+ *       filterValues: [
+ *         "ISO_27001"
  *       ]
  *     }
  *   ],
@@ -193,6 +237,9 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  *           displayName: "Free Trial"
  *         }
  *       ],
+ *       caseStudiesSummary: {
+ *         caseStudyCount: 7
+ *       },
  *       catalog: "AWSMarketplace",
  *       categories: [
  *         {
@@ -247,11 +294,135 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  *           }
  *         ]
  *       },
- *       shortDescription: "Advanced computer vision solution for object detection and classification."
+ *       sellerEngagements: [
+ *         {
+ *           contentType: "LINK",
+ *           engagementType: "REQUEST_FOR_PRIVATE_OFFER",
+ *           value: "https://aws.amazon.com/marketplace/customer-connect/private-offer/prodview-sampleSearchId?campaignId=sampleCampaignId"
+ *         },
+ *         {
+ *           contentType: "LINK",
+ *           engagementType: "REQUEST_FOR_DEMO",
+ *           value: "https://aws.amazon.com/marketplace/customer-connect/demo/prodview-sampleSearchId?campaignId=sampleCampaignId"
+ *         },
+ *         {
+ *           contentType: "LINK",
+ *           engagementType: "EXPRESS_PRIVATE_OFFER",
+ *           value: "https://aws.amazon.com/marketplace/epo/#/offer?productId=prod-sampleSearchId&listingId=prodview-sampleSearchId"
+ *         },
+ *         {
+ *           contentType: "LINK",
+ *           engagementType: "BUY_NOW",
+ *           value: "https://aws.amazon.com/marketplace/procurement?productId=prod-sampleSearchId"
+ *         },
+ *         {
+ *           contentType: "LINK",
+ *           engagementType: "TRY_FOR_FREE",
+ *           value: "https://aws.amazon.com/marketplace/procurement?productId=prod-sampleSearchId&tryForFree=true"
+ *         }
+ *       ],
+ *       shortDescription: "Advanced computer vision solution for object detection and classification.",
+ *       trustCenterSummary: {
+ *         certificationSummaries: [
+ *           {
+ *             certificationType: "SOC2_TYPE_2",
+ *             displayName: "SOC 2 Type II",
+ *             logoUrl: "https://awsmp-logos.s3.amazonaws.com/certification-logos/soc2.svg"
+ *           },
+ *           {
+ *             certificationType: "ISO_27001",
+ *             displayName: "ISO 27001",
+ *             logoUrl: "https://awsmp-logos.s3.amazonaws.com/certification-logos/iso27001.svg"
+ *           }
+ *         ],
+ *         sourceSummaries: [
+ *           {
+ *             contentType: "LINK",
+ *             displayName: "Drata",
+ *             provider: "DRATA",
+ *             value: "https://trust.example.com/"
+ *           }
+ *         ],
+ *         totalCertificationCount: 2
+ *       },
+ *       useCaseSummary: {
+ *         useCases: [
+ *           {
+ *             useCase: {
+ *               displayName: "Contextual Analysis",
+ *               value: "CONTEXTUAL_ANALYSIS"
+ *             }
+ *           }
+ *         ]
+ *       }
  *     }
  *   ],
  *   nextToken: "eyJsYXN0RXZhbHVhdGVkS2V5Ijp7Imxpc3RpbmdJZCI6InByb2R2aWV3LXNhbXBsZVNlYXJjaElkIn19",
- *   totalResults: 1250
+ *   totalResults: 42
+ * }
+ * *\/
+ * ```
+ *
+ * @example Search listings with a Trust Center source and no certifications
+ * ```javascript
+ * // Return Trust Center source information when no certifications are available
+ * const input = {
+ *   filters: [
+ *     {
+ *       filterType: "TRUST_CENTER",
+ *       filterValues: [
+ *         "HAS_TRUST_CENTER"
+ *       ]
+ *     }
+ *   ],
+ *   locale: "en-US",
+ *   maxResults: 1,
+ *   searchText: "security"
+ * };
+ * const command = new SearchListingsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   listingSummaries: [
+ *     {
+ *       associatedEntities:       [],
+ *       badges:       [],
+ *       catalog: "AWSMarketplace",
+ *       categories:       [],
+ *       fulfillmentOptionSummaries:       [],
+ *       listingId: "prodview-sourceOnlyId",
+ *       listingName: "sample source-only listing",
+ *       logoThumbnailUrl: "https://awsmp-logos.s3.amazonaws.com/product-logos/source-only.png",
+ *       pricingModels:       [],
+ *       pricingUnits:       [],
+ *       publisher: {
+ *         displayName: "sample source-only seller",
+ *         sellerProfileId: "seller-sourceOnlyId"
+ *       },
+ *       reviewSummary: {
+ *         reviewSourceSummaries:         []
+ *       },
+ *       sellerEngagements:       [],
+ *       shortDescription: "Continuous cloud security posture monitoring with automated compliance checks.",
+ *       trustCenterSummary: {
+ *         certificationSummaries:         [],
+ *         sourceSummaries: [
+ *           {
+ *             contentType: "LINK",
+ *             displayName: "Example Trust Center",
+ *             provider: "OTHER",
+ *             value: "https://example.com/trust-center"
+ *           }
+ *         ],
+ *         totalCertificationCount: 0
+ *       },
+ *       useCaseSummary: {
+ *         useCases:         []
+ *       }
+ *     }
+ *   ],
+ *   nextToken: "eyJsYXN0RXZhbHVhdGVkS2V5Ijp7Imxpc3RpbmdJZCI6InByb2R2aWV3LXNvdXJjZU9ubHlJZCJ9fQ==",
+ *   totalResults: 38
  * }
  * *\/
  * ```

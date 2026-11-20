@@ -92,12 +92,17 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  * //   ],
  * //   sellerEngagements: [ // SellerEngagementList // required
  * //     { // SellerEngagement
- * //       engagementType: "REQUEST_FOR_PRIVATE_OFFER" || "REQUEST_FOR_DEMO", // required
+ * //       engagementType: "REQUEST_FOR_PRIVATE_OFFER" || "REQUEST_FOR_DEMO" || "EXPRESS_PRIVATE_OFFER" || "BUY_NOW" || "TRY_FOR_FREE", // required
  * //       contentType: "LINK", // required
  * //       value: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   listingId: "STRING_VALUE", // required
+ * //   purchaseIndicators: [ // PurchaseIndicatorList // required
+ * //     { // PurchaseIndicator
+ * //       indicatorType: "NOT_AVAILABLE_FOR_SUBSCRIPTION" || "AVAILABLE_FOR_USE_WITHOUT_SUBSCRIPTION", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -109,19 +114,19 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  * @see {@link MarketplaceDiscoveryClientResolvedConfig | config} for MarketplaceDiscoveryClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *  <p>The specified resource doesn't exist. Verify that the identifier is correct.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *  <p>You don't have sufficient access to perform this action. Verify that you have the required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was denied due to request throttling. Reduce the frequency of your requests and retry.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *  <p>The input fails to satisfy the constraints specified by the service. Check the <code>reason</code> field for the constraint that failed.</p>
  *
  * @throws {@link MarketplaceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDiscovery service.</p>
@@ -182,6 +187,7 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  *       }
  *     }
  *   ],
+ *   purchaseIndicators:   [],
  *   resources: [
  *     {
  *       contentType: "LINK",
@@ -269,6 +275,7 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  *       }
  *     }
  *   ],
+ *   purchaseIndicators:   [],
  *   resources: [
  *     {
  *       contentType: "PHONE_NUMBER",
@@ -350,6 +357,7 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  *   productId: "prod-sampleProServId",
  *   productName: "sample professional services product",
  *   promotionalMedia:   [],
+ *   purchaseIndicators:   [],
  *   resources: [
  *     {
  *       contentType: "LINK",
@@ -366,6 +374,122 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  *     }
  *   ],
  *   shortDescription: "Expert cloud migration and modernization consulting services."
+ * }
+ * *\/
+ * ```
+ *
+ * @example GetProduct for product available without a subscription
+ * ```javascript
+ * //
+ * const input = {
+ *   locale: "en-US",
+ *   productId: "prod-sampleNoSubscriptionId"
+ * };
+ * const command = new GetProductCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   catalog: "AWSMarketplace",
+ *   categories: [
+ *     {
+ *       categoryId: "operating-systems",
+ *       displayName: "Operating Systems"
+ *     }
+ *   ],
+ *   deployedOnAws: "DEPLOYED",
+ *   fulfillmentOptionSummaries: [
+ *     {
+ *       displayName: "Amazon Machine Image",
+ *       fulfillmentOptionType: "AMAZON_MACHINE_IMAGE"
+ *     }
+ *   ],
+ *   highlights: [
+ *     "Enterprise Linux optimized for Amazon EC2"
+ *   ],
+ *   listingId: "listing-sampleNoSubscriptionId",
+ *   locale: "en-US",
+ *   logoThumbnailUrl: "https://example.com/logos/sample-os-logo.png",
+ *   longDescription: "A sample enterprise Linux operating system for development, test, and production workloads on Amazon EC2.",
+ *   manufacturer: {
+ *     displayName: "sample operating system seller",
+ *     sellerProfileId: "seller-sampleNoSubscriptionId"
+ *   },
+ *   productId: "prod-sampleNoSubscriptionId",
+ *   productName: "sample operating system product",
+ *   promotionalMedia:   [],
+ *   purchaseIndicators: [
+ *     {
+ *       indicatorType: "AVAILABLE_FOR_USE_WITHOUT_SUBSCRIPTION"
+ *     }
+ *   ],
+ *   resources: [
+ *     {
+ *       contentType: "LINK",
+ *       displayName: "Getting started",
+ *       resourceType: "MANUFACTURER_INSTRUCTIONS",
+ *       value: "https://example.com/docs/getting-started"
+ *     }
+ *   ],
+ *   sellerEngagements:   [],
+ *   shortDescription: "A sample enterprise Linux image optimized for Amazon EC2."
+ * }
+ * *\/
+ * ```
+ *
+ * @example GetProduct for product not available for new subscriptions
+ * ```javascript
+ * //
+ * const input = {
+ *   locale: "en-US",
+ *   productId: "prod-sampleUnavailableId"
+ * };
+ * const command = new GetProductCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   catalog: "AWSMarketplace",
+ *   categories: [
+ *     {
+ *       categoryId: "network-infrastructure",
+ *       displayName: "Network Infrastructure"
+ *     }
+ *   ],
+ *   deployedOnAws: "DEPLOYED",
+ *   fulfillmentOptionSummaries: [
+ *     {
+ *       displayName: "Helm",
+ *       fulfillmentOptionType: "HELM"
+ *     }
+ *   ],
+ *   highlights: [
+ *     "Secure application access across clouds"
+ *   ],
+ *   listingId: "listing-sampleUnavailableId",
+ *   locale: "en-US",
+ *   logoThumbnailUrl: "https://example.com/logos/sample-network-logo.png",
+ *   longDescription: "A sample application networking platform that provides secure access and performance insights for applications that run across clouds.",
+ *   manufacturer: {
+ *     displayName: "sample network infrastructure seller",
+ *     sellerProfileId: "seller-sampleUnavailableId"
+ *   },
+ *   productId: "prod-sampleUnavailableId",
+ *   productName: "sample network infrastructure product",
+ *   promotionalMedia:   [],
+ *   purchaseIndicators: [
+ *     {
+ *       indicatorType: "NOT_AVAILABLE_FOR_SUBSCRIPTION"
+ *     }
+ *   ],
+ *   resources: [
+ *     {
+ *       contentType: "OTHER",
+ *       displayName: "Support",
+ *       resourceType: "MANUFACTURER_SUPPORT",
+ *       value: "Email support@example.com for technical support."
+ *     }
+ *   ],
+ *   sellerEngagements:   [],
+ *   shortDescription: "A sample application networking platform for multi-cloud environments."
  * }
  * *\/
  * ```

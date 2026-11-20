@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript MarketplaceDiscovery Client for Node.js, Browser and React Native.
 
-<p>The AWS Marketplace Discovery API provides programmatic access to the AWS Marketplace catalog, including searching and browsing listings, retrieving product details and fulfillment options, and accessing public and private offer pricing and terms.</p>
+<p>With the AWS Marketplace Discovery API (Discovery API), you have programmatic access to the AWS Marketplace catalog. You can search and browse listings, retrieve product details and fulfillment options, and access public and private offer pricing and terms. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/developerguide/discovery-apis.html">Using the AWS Marketplace Discovery API</a> in the <i>AWS Marketplace Developer Guide</i>.</p>
 
 ## Installing
 
@@ -220,6 +220,13 @@ ListFulfillmentOptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-discovery/command/ListFulfillmentOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-discovery/Interface/ListFulfillmentOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-discovery/Interface/ListFulfillmentOptionsCommandOutput/)
+</details>
+<details>
+<summary>
+ListListingAttributes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-discovery/command/ListListingAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-discovery/Interface/ListListingAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-discovery/Interface/ListListingAttributesCommandOutput/)
 </details>
 <details>
 <summary>

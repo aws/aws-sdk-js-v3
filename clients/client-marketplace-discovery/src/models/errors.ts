@@ -5,7 +5,7 @@ import type { ValidationExceptionReason } from "./enums";
 import { MarketplaceDiscoveryServiceException as __BaseException } from "./MarketplaceDiscoveryServiceException";
 
 /**
- * <p>You don't have sufficient access to perform this action.</p>
+ * <p>You don't have sufficient access to perform this action. Verify that you have the required permissions.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -47,7 +47,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The specified resource doesn't exist.</p>
+ * <p>The specified resource doesn't exist. Verify that the identifier is correct.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -68,7 +68,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * <p>The request was denied due to request throttling. Reduce the frequency of your requests and retry.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -89,7 +89,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * <p>The input fails to satisfy the constraints specified by the service. Check the <code>reason</code> field for the constraint that failed.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -97,7 +97,7 @@ export class ValidationException extends __BaseException {
   readonly name = "ValidationException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>The reason that the input fails to satisfy the constraints specified by the service.</p>
+   * <p>The reason that the input fails to satisfy the constraints that the Discovery API specifies. This field has one of the following values:</p> <dl> <dt>INVALID_PAGINATION_TOKEN</dt> <dd> <p>The <code>nextToken</code> value is malformed, expired, or belongs to a different request. Start the pagination again from the first page.</p> </dd> <dt>MALFORMED_REQUEST_PARAMETERS</dt> <dd> <p>One or more request parameters have an invalid value. Correct the parameters that you specified, and then resubmit your request.</p> </dd> <dt>PAGINATION_LIMIT_EXCEEDED</dt> <dd> <p>The request asks for results beyond the deepest page that the operation returns. Narrow your request with filters or a more specific search.</p> </dd> </dl>
    * @public
    */
   reason?: ValidationExceptionReason | undefined;

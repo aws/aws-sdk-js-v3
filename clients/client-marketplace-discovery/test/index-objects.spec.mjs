@@ -10,6 +10,10 @@ import {
   AwsSupportedService$,
   BillingPeriodType,
   ByolPricingTerm$,
+  CaseStudiesSummary$,
+  CaseStudy$,
+  CaseStudyResource$,
+  CaseStudyResourceType,
   Category$,
   CloudFormationFulfillmentOption$,
   ConfigurableUpfrontPricingTerm$,
@@ -26,6 +30,7 @@ import {
   Ec2ImageBuilderComponentFulfillmentOption$,
   EksAddOnFulfillmentOption$,
   EksAddOnOperatingSystem$,
+  EngagementDates$,
   FixedPercentage$,
   FixedUpfrontPricingTerm$,
   FreeTrialPricingTerm$,
@@ -64,11 +69,17 @@ import {
   ListFulfillmentOptionsInput$,
   ListFulfillmentOptionsOutput$,
   ListingAssociatedEntity$,
+  ListingAttributeResults$,
+  ListingAttributeType,
   ListingBadge$,
   ListingBadgeType,
   ListingFacet$,
   ListingSummary$,
   ListingSummaryAssociatedEntity$,
+  ListListingAttributes$,
+  ListListingAttributesCommand,
+  ListListingAttributesInput$,
+  ListListingAttributesOutput$,
   ListPurchaseOptions$,
   ListPurchaseOptionsCommand,
   ListPurchaseOptionsInput$,
@@ -84,6 +95,7 @@ import {
   OfferTerm$,
   paginateGetOfferTerms,
   paginateListFulfillmentOptions,
+  paginateListListingAttributes,
   paginateListPurchaseOptions,
   paginateSearchFacets,
   paginateSearchListings,
@@ -101,6 +113,8 @@ import {
   PromotionalEmbeddedImage$,
   PromotionalEmbeddedVideo$,
   PromotionalMedia$,
+  PurchaseIndicator$,
+  PurchaseIndicatorType,
   PurchaseOptionAssociatedEntity$,
   PurchaseOptionBadge$,
   PurchaseOptionBadgeType,
@@ -111,6 +125,7 @@ import {
   RateCardConstraintType,
   RateCardItem$,
   RecurringPaymentTerm$,
+  RegionalPrice$,
   RenewalTerm$,
   Resource$,
   ResourceContentType,
@@ -120,6 +135,8 @@ import {
   ReviewSourceId,
   ReviewSourceSummary$,
   ReviewSummary$,
+  SaasCloudFormationDeploymentTemplate$,
+  SaasDeploymentTemplate$,
   SaasFulfillmentOption$,
   SaasQuickLaunchStatus,
   SageMakerAlgorithmFulfillmentOption$,
@@ -146,15 +163,35 @@ import {
   SellerEngagementContentType,
   SellerEngagementType,
   SellerInformation$,
+  Specialization$,
+  SpecializationCategory$,
+  SpecializationDetail$,
+  SpecializationType,
+  SpecializationTypeDetail$,
   SupportTerm$,
   TermTemplate$,
   TermType,
   ThrottlingException,
   ThrottlingException$,
+  TrustCenterCertificationAttribute$,
+  TrustCenterCertificationSummary$,
+  TrustCenterControl$,
+  TrustCenterControlDomain,
+  TrustCenterDocumentAccessType,
+  TrustCenterDocumentAttribute$,
+  TrustCenterFaqAttribute$,
+  TrustCenterProvider,
+  TrustCenterSource$,
+  TrustCenterSourceSummary$,
+  TrustCenterSummary$,
+  TrustCenterUpdateAttribute$,
   UsageBasedPricingTerm$,
   UsageBasedRateCardItem$,
   UseCase$,
   UseCaseEntry$,
+  UseCaseInformation$,
+  UseCaseSummary$,
+  UseCaseSummaryEntry$,
   ValidationException,
   ValidationException$,
   ValidationExceptionReason,
@@ -178,6 +215,8 @@ assert(typeof GetProductCommand === "function");
 assert(typeof GetProduct$ === "object");
 assert(typeof ListFulfillmentOptionsCommand === "function");
 assert(typeof ListFulfillmentOptions$ === "object");
+assert(typeof ListListingAttributesCommand === "function");
+assert(typeof ListListingAttributes$ === "object");
 assert(typeof ListPurchaseOptionsCommand === "function");
 assert(typeof ListPurchaseOptions$ === "object");
 assert(typeof SearchFacetsCommand === "function");
@@ -193,6 +232,9 @@ assert(typeof AmazonMachineImageSecurityGroup$ === "object");
 assert(typeof ApiFulfillmentOption$ === "object");
 assert(typeof AwsSupportedService$ === "object");
 assert(typeof ByolPricingTerm$ === "object");
+assert(typeof CaseStudiesSummary$ === "object");
+assert(typeof CaseStudy$ === "object");
+assert(typeof CaseStudyResource$ === "object");
 assert(typeof Category$ === "object");
 assert(typeof CloudFormationFulfillmentOption$ === "object");
 assert(typeof ConfigurableUpfrontPricingTerm$ === "object");
@@ -207,6 +249,7 @@ assert(typeof DocumentItem$ === "object");
 assert(typeof Ec2ImageBuilderComponentFulfillmentOption$ === "object");
 assert(typeof EksAddOnFulfillmentOption$ === "object");
 assert(typeof EksAddOnOperatingSystem$ === "object");
+assert(typeof EngagementDates$ === "object");
 assert(typeof FixedPercentage$ === "object");
 assert(typeof FixedUpfrontPricingTerm$ === "object");
 assert(typeof FreeTrialPricingTerm$ === "object");
@@ -229,10 +272,13 @@ assert(typeof LegalTerm$ === "object");
 assert(typeof ListFulfillmentOptionsInput$ === "object");
 assert(typeof ListFulfillmentOptionsOutput$ === "object");
 assert(typeof ListingAssociatedEntity$ === "object");
+assert(typeof ListingAttributeResults$ === "object");
 assert(typeof ListingBadge$ === "object");
 assert(typeof ListingFacet$ === "object");
 assert(typeof ListingSummary$ === "object");
 assert(typeof ListingSummaryAssociatedEntity$ === "object");
+assert(typeof ListListingAttributesInput$ === "object");
+assert(typeof ListListingAttributesOutput$ === "object");
 assert(typeof ListPurchaseOptionsInput$ === "object");
 assert(typeof ListPurchaseOptionsOutput$ === "object");
 assert(typeof NetPaymentTerm$ === "object");
@@ -253,16 +299,20 @@ assert(typeof ProfessionalServicesFulfillmentOption$ === "object");
 assert(typeof PromotionalEmbeddedImage$ === "object");
 assert(typeof PromotionalEmbeddedVideo$ === "object");
 assert(typeof PromotionalMedia$ === "object");
+assert(typeof PurchaseIndicator$ === "object");
 assert(typeof PurchaseOptionAssociatedEntity$ === "object");
 assert(typeof PurchaseOptionBadge$ === "object");
 assert(typeof PurchaseOptionFilter$ === "object");
 assert(typeof PurchaseOptionSummary$ === "object");
 assert(typeof RateCardItem$ === "object");
 assert(typeof RecurringPaymentTerm$ === "object");
+assert(typeof RegionalPrice$ === "object");
 assert(typeof RenewalTerm$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ReviewSourceSummary$ === "object");
 assert(typeof ReviewSummary$ === "object");
+assert(typeof SaasCloudFormationDeploymentTemplate$ === "object");
+assert(typeof SaasDeploymentTemplate$ === "object");
 assert(typeof SaasFulfillmentOption$ === "object");
 assert(typeof SageMakerAlgorithmFulfillmentOption$ === "object");
 assert(typeof SageMakerAlgorithmRecommendation$ === "object");
@@ -277,23 +327,42 @@ assert(typeof SearchListingsOutput$ === "object");
 assert(typeof Selector$ === "object");
 assert(typeof SellerEngagement$ === "object");
 assert(typeof SellerInformation$ === "object");
+assert(typeof Specialization$ === "object");
+assert(typeof SpecializationCategory$ === "object");
+assert(typeof SpecializationDetail$ === "object");
+assert(typeof SpecializationTypeDetail$ === "object");
 assert(typeof SupportTerm$ === "object");
 assert(typeof TermTemplate$ === "object");
+assert(typeof TrustCenterCertificationAttribute$ === "object");
+assert(typeof TrustCenterCertificationSummary$ === "object");
+assert(typeof TrustCenterControl$ === "object");
+assert(typeof TrustCenterDocumentAttribute$ === "object");
+assert(typeof TrustCenterFaqAttribute$ === "object");
+assert(typeof TrustCenterSource$ === "object");
+assert(typeof TrustCenterSourceSummary$ === "object");
+assert(typeof TrustCenterSummary$ === "object");
+assert(typeof TrustCenterUpdateAttribute$ === "object");
 assert(typeof UsageBasedPricingTerm$ === "object");
 assert(typeof UsageBasedRateCardItem$ === "object");
 assert(typeof UseCase$ === "object");
 assert(typeof UseCaseEntry$ === "object");
+assert(typeof UseCaseInformation$ === "object");
+assert(typeof UseCaseSummary$ === "object");
+assert(typeof UseCaseSummaryEntry$ === "object");
 assert(typeof ValidityTerm$ === "object");
 assert(typeof VariablePaymentTerm$ === "object");
 // enums
 assert(typeof BillingPeriodType === "object");
+assert(typeof CaseStudyResourceType === "object");
 assert(typeof DeployedOnAwsStatus === "object");
 assert(typeof DimensionLabelType === "object");
 assert(typeof FulfillmentOptionType === "object");
 assert(typeof LegalDocumentType === "object");
+assert(typeof ListingAttributeType === "object");
 assert(typeof ListingBadgeType === "object");
 assert(typeof PricingModelType === "object");
 assert(typeof PricingUnitType === "object");
+assert(typeof PurchaseIndicatorType === "object");
 assert(typeof PurchaseOptionBadgeType === "object");
 assert(typeof PurchaseOptionFilterType === "object");
 assert(typeof PurchaseOptionType === "object");
@@ -309,7 +378,11 @@ assert(typeof SearchListingsSortOrder === "object");
 assert(typeof SelectorType === "object");
 assert(typeof SellerEngagementContentType === "object");
 assert(typeof SellerEngagementType === "object");
+assert(typeof SpecializationType === "object");
 assert(typeof TermType === "object");
+assert(typeof TrustCenterControlDomain === "object");
+assert(typeof TrustCenterDocumentAccessType === "object");
+assert(typeof TrustCenterProvider === "object");
 assert(typeof ValidationExceptionReason === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof MarketplaceDiscoveryServiceException);
@@ -326,6 +399,7 @@ assert(MarketplaceDiscoveryServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetOfferTerms === "function");
 assert(typeof paginateListFulfillmentOptions === "function");
+assert(typeof paginateListListingAttributes === "function");
 assert(typeof paginateListPurchaseOptions === "function");
 assert(typeof paginateSearchFacets === "function");
 assert(typeof paginateSearchListings === "function");

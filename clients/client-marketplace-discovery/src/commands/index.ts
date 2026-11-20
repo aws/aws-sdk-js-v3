@@ -5,6 +5,7 @@ export * from "./GetOfferSetCommand";
 export * from "./GetOfferTermsCommand";
 export * from "./GetProductCommand";
 export * from "./ListFulfillmentOptionsCommand";
+export * from "./ListListingAttributesCommand";
 export * from "./ListPurchaseOptionsCommand";
 export * from "./SearchFacetsCommand";
 export * from "./SearchListingsCommand";

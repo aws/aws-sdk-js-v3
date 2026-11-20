@@ -1,13 +1,16 @@
 // smithy-typescript generated code
 import type {
   BillingPeriodType,
+  CaseStudyResourceType,
   DeployedOnAwsStatus,
   DimensionLabelType,
   FulfillmentOptionType,
   LegalDocumentType,
+  ListingAttributeType,
   ListingBadgeType,
   PricingModelType,
   PricingUnitType,
+  PurchaseIndicatorType,
   PurchaseOptionBadgeType,
   PurchaseOptionFilterType,
   PurchaseOptionType,
@@ -23,7 +26,11 @@ import type {
   SelectorType,
   SellerEngagementContentType,
   SellerEngagementType,
+  SpecializationType,
   TermType,
+  TrustCenterControlDomain,
+  TrustCenterDocumentAccessType,
+  TrustCenterProvider,
 } from "./enums";
 
 /**
@@ -38,14 +45,14 @@ export interface AmazonMachineImageEbsVolume {
   volumeTypes: string[] | undefined;
 
   /**
-   * <p>The total number of provisioned IOPS supported.</p>
+   * <p>The total number of provisioned input/output operations per second (IOPS) that the volume supports.</p>
    * @public
    */
   iops?: number | undefined;
 }
 
 /**
- * <p>Describes an operating system supported by an AMI fulfillment option.</p>
+ * <p>Describes an operating system that an AMI fulfillment option supports.</p>
  * @public
  */
 export interface AmazonMachineImageOperatingSystem {
@@ -92,19 +99,19 @@ export interface AmazonMachineImageSecurityGroup {
   toPort: number | undefined;
 
   /**
-   * <p>The IP address ranges in CIDR format.</p>
+   * <p>The IP address ranges in Classless Inter-Domain Routing (CIDR) format.</p>
    * @public
    */
   cidrIpAddresses: string[] | undefined;
 }
 
 /**
- * <p>Recommended instance types for running an AMI fulfillment option.</p>
+ * <p>The recommended instance types for running an AMI fulfillment option.</p>
  * @public
  */
 export interface AmazonMachineImageRecommendation {
   /**
-   * <p>The recommended EC2 instance type for this AMI.</p>
+   * <p>The recommended Amazon Elastic Compute Cloud (Amazon EC2) instance type for this AMI.</p>
    * @public
    */
   instanceType: string | undefined;
@@ -158,13 +165,13 @@ export interface AmazonMachineImageFulfillmentOption {
   operatingSystems: AmazonMachineImageOperatingSystem[] | undefined;
 
   /**
-   * <p>Recommended instance types for running this AMI.</p>
+   * <p>The recommended instance types for running this AMI.</p>
    * @public
    */
   recommendation?: AmazonMachineImageRecommendation | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * <p>Release notes that describe the changes in this version of the fulfillment option.</p>
    * @public
    */
   releaseNotes?: string | undefined;
@@ -200,7 +207,7 @@ export interface AmazonMachineImageFulfillmentOption {
   amiAlias?: string | undefined;
 
   /**
-   * <p>The supported Amazon EBS volume configuration for the AMI.</p>
+   * <p>The supported Amazon Elastic Block Store (Amazon EBS) volume configuration for the AMI.</p>
    * @public
    */
   ebsVolume?: AmazonMachineImageEbsVolume | undefined;
@@ -237,7 +244,7 @@ export interface AwsSupportedService {
 }
 
 /**
- * <p>Describes an API-based fulfillment option, where the product is accessed through an API integration.</p>
+ * <p>Describes an API-based fulfillment option, where you access the product through an API integration.</p>
  * @public
  */
 export interface ApiFulfillmentOption {
@@ -277,7 +284,7 @@ export interface ApiFulfillmentOption {
  */
 export interface GetListingInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * <p>The preferred locale for response content, as a Best Current Practice 47 (BCP 47) language tag or a comma-separated priority list of language tags. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If you omit this field, the service returns content in the default locale.</p>
    * @public
    */
   locale?: string | undefined;
@@ -385,14 +392,14 @@ export interface ListingBadge {
   displayName: string | undefined;
 
   /**
-   * <p>The machine-readable type of the badge.</p>
+   * <p>The machine-readable type of the badge. See <code>ListingBadgeType</code> for the values.</p>
    * @public
    */
   badgeType: ListingBadgeType | undefined;
 }
 
 /**
- * <p>A category used to classify a listing or product into a logical group.</p>
+ * <p>A category that classifies a listing or product into a logical group.</p>
  * @public
  */
 export interface Category {
@@ -428,12 +435,12 @@ export interface FulfillmentOptionSummary {
 }
 
 /**
- * <p>A pricing model that determines how buyers are charged for a listing, such as usage-based, contract, BYOL, or free.</p>
+ * <p>A pricing model that determines how you are charged for a listing, such as usage-based, contract, Bring Your Own License (BYOL), or free.</p>
  * @public
  */
 export interface PricingModel {
   /**
-   * <p>The machine-readable type of the pricing model.</p>
+   * <p>The machine-readable type of the pricing model. See <code>PricingModelType</code> for the values.</p>
    * @public
    */
   pricingModelType: PricingModelType | undefined;
@@ -577,18 +584,30 @@ export namespace PromotionalMedia {
 }
 
 /**
+ * <p>An indicator describing a purchase characteristic, such as availability for use without a subscription.</p>
+ * @public
+ */
+export interface PurchaseIndicator {
+  /**
+   * <p>The type of purchase indicator.</p>
+   * @public
+   */
+  indicatorType: PurchaseIndicatorType | undefined;
+}
+
+/**
  * <p>A resource that provides supplementary information about a product, such as documentation links, support contacts, or usage instructions.</p>
  * @public
  */
 export interface Resource {
   /**
-   * <p>The category of the resource, such as manufacturer support or usage instructions.</p>
+   * <p>The category of the resource, such as manufacturer support or usage instructions. This field has one of the following values:</p> <dl> <dt>MANUFACTURER_INSTRUCTIONS</dt> <dd> <p>Usage instructions from the seller.</p> </dd> <dt>MANUFACTURER_SUPPORT</dt> <dd> <p>Support information from the seller.</p> </dd> </dl>
    * @public
    */
   resourceType: ResourceType | undefined;
 
   /**
-   * <p>The format of the resource content, such as a URL, email address, or text.</p>
+   * <p>The format of the resource content, such as a URL, email address, or text. This field has one of the following values:</p> <dl> <dt>EMAIL</dt> <dd> <p>An email address.</p> </dd> <dt>LINK</dt> <dd> <p>A URL.</p> </dd> <dt>OTHER</dt> <dd> <p>Text in another format.</p> </dd> <dt>PHONE_NUMBER</dt> <dd> <p>A phone number.</p> </dd> </dl>
    * @public
    */
   contentType: ResourceContentType | undefined;
@@ -618,13 +637,13 @@ export interface ReviewSourceSummary {
   sourceName: string | undefined;
 
   /**
-   * <p>The machine-readable identifier of the review source. This field has one of the following values:</p> <ul> <li> <p> <code>AWS_MARKETPLACE</code> – The reviews come from AWS Marketplace.</p> </li> <li> <p> <code>G2</code> – The reviews come from G2.</p> </li> <li> <p> <code>PEERSPOT</code> – The reviews come from PeerSpot.</p> </li> </ul>
+   * <p>The machine-readable identifier of the review source. This field has one of the following values:</p> <dl> <dt>AWS_MARKETPLACE</dt> <dd> <p>The reviews come from AWS Marketplace.</p> </dd> <dt>G2</dt> <dd> <p>The reviews come from G2.</p> </dd> <dt>PEERSPOT</dt> <dd> <p>The reviews come from PeerSpot.</p> </dd> </dl>
    * @public
    */
   sourceId: ReviewSourceId | undefined;
 
   /**
-   * <p>The URL where the reviews can be accessed at the source.</p>
+   * <p>The URL where you can read the reviews at their source.</p>
    * @public
    */
   sourceUrl?: string | undefined;
@@ -655,12 +674,12 @@ export interface ReviewSummary {
 }
 
 /**
- * <p>An engagement option available to potential buyers of a product, such as requesting a private offer or a demo.</p>
+ * <p>A way you can engage with the seller of a product, such as requesting a private offer or a demo.</p>
  * @public
  */
 export interface SellerEngagement {
   /**
-   * <p>The type of engagement, such as <code>REQUEST_FOR_PRIVATE_OFFER</code> or <code>REQUEST_FOR_DEMO</code>.</p>
+   * <p>The type of engagement. This field has one of the following values:</p> <dl> <dt>BUY_NOW</dt> <dd> <p>The product is available for immediate purchase.</p> </dd> <dt>EXPRESS_PRIVATE_OFFER</dt> <dd> <p>You can request an express private offer and accept it immediately.</p> </dd> <dt>REQUEST_FOR_DEMO</dt> <dd> <p>You can request a demo from the seller.</p> </dd> <dt>REQUEST_FOR_PRIVATE_OFFER</dt> <dd> <p>You can request a private offer from the seller.</p> </dd> <dt>TRY_FOR_FREE</dt> <dd> <p>The product offers a free trial.</p> </dd> </dl>
    * @public
    */
   engagementType: SellerEngagementType | undefined;
@@ -719,7 +738,7 @@ export interface UseCaseEntry {
  */
 export interface GetListingOutput {
   /**
-   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * <p>The locale of the returned content. This value indicates whether the response contains content in the requested locale or fell back to the default locale. See <code>Locale</code> for details.</p>
    * @public
    */
   locale?: string | undefined;
@@ -743,13 +762,13 @@ export interface GetListingOutput {
   catalog: string | undefined;
 
   /**
-   * <p>The categories used to classify this listing into logical groups.</p>
+   * <p>The categories that classify this listing into logical groups.</p>
    * @public
    */
   categories: Category[] | undefined;
 
   /**
-   * <p>A summary of fulfillment options available for deploying or accessing the listing, such as AMI, SaaS, or Container.</p>
+   * <p>A summary of fulfillment options available for deploying or accessing the listing, such as Amazon Machine Image (AMI), Software as a Service (SaaS), or Container.</p>
    * @public
    */
   fulfillmentOptionSummaries: FulfillmentOptionSummary[] | undefined;
@@ -791,7 +810,7 @@ export interface GetListingOutput {
   longDescription: string | undefined;
 
   /**
-   * <p>The pricing models for offers associated with this listing, such as usage-based, contract, BYOL, or free.</p>
+   * <p>The pricing models for offers associated with this listing, such as usage-based, contract, Bring Your Own License (BYOL), or free.</p>
    * @public
    */
   pricingModels: PricingModel[] | undefined;
@@ -827,7 +846,7 @@ export interface GetListingOutput {
   reviewSummary?: ReviewSummary | undefined;
 
   /**
-   * <p>Engagement options available to potential buyers, such as requesting a private offer or requesting a demo.</p>
+   * <p>The engagement options available to you, such as buying now, requesting a private offer, or requesting a demo.</p>
    * @public
    */
   sellerEngagements: SellerEngagement[] | undefined;
@@ -839,10 +858,16 @@ export interface GetListingOutput {
   shortDescription: string | undefined;
 
   /**
-   * <p>Use cases associated with the listing, describing scenarios where the product can be applied.</p>
+   * <p>Use cases associated with the listing, describing scenarios where you can apply the product.</p>
    * @public
    */
   useCases: UseCaseEntry[] | undefined;
+
+  /**
+   * <p>Indicators describing purchase characteristics of this listing, such as whether you can subscribe to it or use it without a subscription. The list is empty when no special purchase conditions apply.</p>
+   * @public
+   */
+  purchaseIndicators: PurchaseIndicator[] | undefined;
 }
 
 /**
@@ -850,7 +875,7 @@ export interface GetListingOutput {
  */
 export interface GetOfferInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * <p>The preferred locale for response content, as a Best Current Practice 47 (BCP 47) language tag or a comma-separated priority list of language tags. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If you omit this field, the service returns content in the default locale.</p>
    * @public
    */
   locale?: string | undefined;
@@ -899,7 +924,7 @@ export interface OfferAssociatedEntity {
 }
 
 /**
- * <p>A badge indicating a special attribute of a purchase option, such as private pricing or future dated.</p>
+ * <p>A badge indicating a special attribute of a purchase option, such as private pricing or future-dated.</p>
  * @public
  */
 export interface PurchaseOptionBadge {
@@ -910,7 +935,7 @@ export interface PurchaseOptionBadge {
   displayName: string | undefined;
 
   /**
-   * <p>The machine-readable type of the badge.</p>
+   * <p>The machine-readable type of the badge. See <code>PurchaseOptionBadgeType</code> for the values.</p>
    * @public
    */
   badgeType: PurchaseOptionBadgeType | undefined;
@@ -921,7 +946,7 @@ export interface PurchaseOptionBadge {
  */
 export interface GetOfferOutput {
   /**
-   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * <p>The locale of the returned content. This value indicates whether the response contains content in the requested locale or fell back to the default locale. See <code>Locale</code> for details.</p>
    * @public
    */
   locale?: string | undefined;
@@ -939,19 +964,19 @@ export interface GetOfferOutput {
   catalog: string | undefined;
 
   /**
-   * <p>The display name of the offer. This is free-form text provided by the seller.</p>
+   * <p>The display name of the offer. The seller provides this free-form text.</p>
    * @public
    */
   offerName?: string | undefined;
 
   /**
-   * <p>The date and time until when the offer can be procured. This value is null for offers that never expire.</p>
+   * <p>The date and time until which you can procure the offer. This value is null for offers that never expire.</p>
    * @public
    */
   expirationTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the offer became available to the buyer.</p>
+   * <p>The date and time when the offer became available to you.</p>
    * @public
    */
   availableFromTime?: Date | undefined;
@@ -969,25 +994,25 @@ export interface GetOfferOutput {
   associatedEntities: OfferAssociatedEntity[] | undefined;
 
   /**
-   * <p>An encoded string to be passed by the acceptor of the terms when creating an agreement.</p>
+   * <p>An encoded string that you pass when you accept the terms and create an agreement.</p>
    * @public
    */
   agreementProposalId: string | undefined;
 
   /**
-   * <p>The identifier of the existing agreement that this offer would replace. Enables agreement-based offer functionality.</p>
+   * <p>The identifier of the existing agreement that this offer would replace.</p>
    * @public
    */
   replacementAgreementId?: string | undefined;
 
   /**
-   * <p>The pricing model that determines how buyers are charged, such as usage-based, contract, BYOL, or free.</p>
+   * <p>The pricing model that determines how you are charged, such as usage-based, contract, Bring Your Own License (BYOL), or free.</p>
    * @public
    */
   pricingModel: PricingModel | undefined;
 
   /**
-   * <p>Badges indicating special attributes of the offer, such as private pricing, future dated, or replacement offer.</p>
+   * <p>Badges indicating special attributes of the offer, such as private pricing, future-dated, or replacement offer.</p>
    * @public
    */
   badges: PurchaseOptionBadge[] | undefined;
@@ -998,7 +1023,7 @@ export interface GetOfferOutput {
  */
 export interface GetOfferSetInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * <p>The preferred locale for response content, as a Best Current Practice 47 (BCP 47) language tag or a comma-separated priority list of language tags. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If you omit this field, the service returns content in the default locale.</p>
    * @public
    */
   locale?: string | undefined;
@@ -1033,7 +1058,7 @@ export interface OfferSetAssociatedEntity {
  */
 export interface GetOfferSetOutput {
   /**
-   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * <p>The locale of the returned content. This value indicates whether the response contains content in the requested locale or fell back to the default locale. See <code>Locale</code> for details.</p>
    * @public
    */
   locale?: string | undefined;
@@ -1057,7 +1082,7 @@ export interface GetOfferSetOutput {
   offerSetName?: string | undefined;
 
   /**
-   * <p>The date and time when the offer set became available to the buyer.</p>
+   * <p>The date and time when the offer set became available to you.</p>
    * @public
    */
   availableFromTime?: Date | undefined;
@@ -1069,7 +1094,7 @@ export interface GetOfferSetOutput {
   expirationTime?: Date | undefined;
 
   /**
-   * <p>Detailed information about the offer set that helps buyers understand its purpose and contents.</p>
+   * <p>Detailed information about the offer set that helps you understand its purpose and contents.</p>
    * @public
    */
   buyerNotes?: string | undefined;
@@ -1081,7 +1106,7 @@ export interface GetOfferSetOutput {
   sellerOfRecord: SellerInformation | undefined;
 
   /**
-   * <p>Badges indicating special attributes of the offer set, such as private pricing or future dated.</p>
+   * <p>Badges indicating special attributes of the offer set, such as private pricing or future-dated.</p>
    * @public
    */
   badges: PurchaseOptionBadge[] | undefined;
@@ -1098,7 +1123,7 @@ export interface GetOfferSetOutput {
  */
 export interface GetOfferTermsInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * <p>The preferred locale for response content, as a Best Current Practice 47 (BCP 47) language tag or a comma-separated priority list of language tags. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If you omit this field, the service returns content in the default locale.</p>
    * @public
    */
   locale?: string | undefined;
@@ -1110,20 +1135,20 @@ export interface GetOfferTermsInput {
   offerId: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to get more results.</p>
+   * <p>The maximum number of terms to return in each call. If you omit this field, the default is 10. Use <code>nextToken</code> to retrieve the next page.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
    * @public
    */
   nextToken?: string | undefined;
 }
 
 /**
- * <p>Defines a Bring Your Own License (BYOL) pricing term, where buyers use their existing license for the product.</p>
+ * <p>Describes a Bring Your Own License (BYOL) pricing term. With this term, you use your existing license for the product.</p>
  * @public
  */
 export interface ByolPricingTerm {
@@ -1141,30 +1166,30 @@ export interface ByolPricingTerm {
 }
 
 /**
- * <p>Constraints that control how a buyer can configure a rate card.</p>
+ * <p>Constraints that control how you can configure a rate card.</p>
  * @public
  */
 export interface Constraints {
   /**
-   * <p>Whether the buyer can select multiple dimensions. Values are <code>Allowed</code> or <code>Disallowed</code>.</p>
+   * <p>Specifies whether you can select multiple dimensions. This field has one of the following values:</p> <dl> <dt>Allowed</dt> <dd> <p>You can select more than one dimension.</p> </dd> <dt>Disallowed</dt> <dd> <p>You can select only one dimension.</p> </dd> </dl>
    * @public
    */
   multipleDimensionSelection: RateCardConstraintType | undefined;
 
   /**
-   * <p>Whether the buyer can configure quantities. Values are <code>Allowed</code> or <code>Disallowed</code>.</p>
+   * <p>Specifies whether you can configure quantities. This field has one of the following values:</p> <dl> <dt>Allowed</dt> <dd> <p>You can set the quantity of each dimension.</p> </dd> <dt>Disallowed</dt> <dd> <p>You cannot change the quantity.</p> </dd> </dl>
    * @public
    */
   quantityConfiguration: RateCardConstraintType | undefined;
 }
 
 /**
- * <p>A label used to group or categorize pricing dimensions, such as by region or SageMaker option.</p>
+ * <p>A label that groups or categorizes pricing dimensions, such as by region or SageMaker option.</p>
  * @public
  */
 export interface DimensionLabel {
   /**
-   * <p>The type of the dimension label, such as <code>Region</code> or <code>SagemakerOption</code>.</p>
+   * <p>The type of the dimension label. This field has one of the following values:</p> <dl> <dt>Region</dt> <dd> <p>The label groups dimensions by AWS Region.</p> </dd> <dt>SagemakerOption</dt> <dd> <p>The label groups dimensions by Amazon SageMaker option.</p> </dd> </dl>
    * @public
    */
   labelType: DimensionLabelType | undefined;
@@ -1180,6 +1205,30 @@ export interface DimensionLabel {
    * @public
    */
   displayName?: string | undefined;
+}
+
+/**
+ * <p>A price override for a pricing dimension in one AWS Region.</p>
+ * @public
+ */
+export interface RegionalPrice {
+  /**
+   * <p>The AWS Region the override applies to.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>The human-readable display name of the Region.</p>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>The per-unit price for the dimension in this Region.</p>
+   * @public
+   */
+  price: string | undefined;
 }
 
 /**
@@ -1206,7 +1255,7 @@ export interface RateCardItem {
   description?: string | undefined;
 
   /**
-   * <p>Labels used to categorize this dimension, such as by region.</p>
+   * <p>Labels that categorize this dimension, such as by region.</p>
    * @public
    */
   dimensionLabels?: DimensionLabel[] | undefined;
@@ -1222,6 +1271,12 @@ export interface RateCardItem {
    * @public
    */
   price: string | undefined;
+
+  /**
+   * <p>The price overrides for the dimension in individual AWS Regions. When a Regional price is present for an AWS Region, it replaces the default price.</p>
+   * @public
+   */
+  regionalPrices: RegionalPrice[] | undefined;
 }
 
 /**
@@ -1254,7 +1309,7 @@ export interface ConfigurableUpfrontRateCardItem {
   selector: Selector | undefined;
 
   /**
-   * <p>Constraints on how the buyer can configure this rate card, such as whether multiple dimensions can be selected.</p>
+   * <p>Constraints on how you can configure this rate card, such as whether you can select multiple dimensions.</p>
    * @public
    */
   constraints: Constraints | undefined;
@@ -1267,7 +1322,7 @@ export interface ConfigurableUpfrontRateCardItem {
 }
 
 /**
- * <p>Defines a configurable upfront pricing term with selectable rate cards, where buyers choose from predefined pricing configurations.</p>
+ * <p>Describes a configurable upfront pricing term with selectable rate cards. You choose from predefined pricing configurations.</p>
  * @public
  */
 export interface ConfigurableUpfrontPricingTerm {
@@ -1297,7 +1352,7 @@ export interface ConfigurableUpfrontPricingTerm {
 }
 
 /**
- * <p>An entitlement granted to the buyer as part of a pricing term.</p>
+ * <p>An entitlement that you receive as part of a pricing term.</p>
  * @public
  */
 export interface GrantItem {
@@ -1320,7 +1375,7 @@ export interface GrantItem {
   description?: string | undefined;
 
   /**
-   * <p>Labels used to categorize this entitlement, such as by region.</p>
+   * <p>Labels that categorize this entitlement, such as by region.</p>
    * @public
    */
   dimensionLabels?: DimensionLabel[] | undefined;
@@ -1332,14 +1387,14 @@ export interface GrantItem {
   unit: string | undefined;
 
   /**
-   * <p>The maximum quantity of the entitlement that can be granted.</p>
+   * <p>The maximum quantity of the entitlement that you can receive.</p>
    * @public
    */
   maxQuantity?: number | undefined;
 }
 
 /**
- * <p>Defines a fixed upfront pricing term with a pre-paid amount and granted entitlements.</p>
+ * <p>Describes a fixed upfront pricing term with a pre-paid amount and granted entitlements.</p>
  * @public
  */
 export interface FixedUpfrontPricingTerm {
@@ -1374,14 +1429,14 @@ export interface FixedUpfrontPricingTerm {
   price: string | undefined;
 
   /**
-   * <p>The entitlements granted to the buyer as part of this term.</p>
+   * <p>The entitlements that you receive as part of this term.</p>
    * @public
    */
   grants: GrantItem[] | undefined;
 }
 
 /**
- * <p>Defines a free trial pricing term that enables customers to try the product before purchasing.</p>
+ * <p>Describes a free trial pricing term. With this term, you can try the product before you purchase it.</p>
  * @public
  */
 export interface FreeTrialPricingTerm {
@@ -1404,14 +1459,14 @@ export interface FreeTrialPricingTerm {
   duration?: string | undefined;
 
   /**
-   * <p>The entitlements granted to the buyer during the free trial.</p>
+   * <p>The entitlements that you receive during the free trial.</p>
    * @public
    */
   grants: GrantItem[] | undefined;
 }
 
 /**
- * <p>A legal document associated with a legal term, such as a EULA or data subscription agreement.</p>
+ * <p>A legal document associated with a legal term, such as an End User License Agreement (EULA) or a data subscription agreement.</p>
  * @public
  */
 export interface DocumentItem {
@@ -1435,7 +1490,7 @@ export interface DocumentItem {
 }
 
 /**
- * <p>Defines a legal term containing documents proposed to buyers, such as EULAs and data subscription agreements.</p>
+ * <p>Describes a legal term containing documents proposed to you, such as End User License Agreements (EULAs) and data subscription agreements.</p>
  * @public
  */
 export interface LegalTerm {
@@ -1452,14 +1507,14 @@ export interface LegalTerm {
   type: TermType | undefined;
 
   /**
-   * <p>The legal documents proposed to the buyer as part of this term.</p>
+   * <p>The legal documents proposed to you as part of this term.</p>
    * @public
    */
   documents: DocumentItem[] | undefined;
 }
 
 /**
- * <p>Defines a net payment term that sets how many days after the invoice date the payment is due.</p>
+ * <p>Describes a net payment term that sets how many days after the invoice date the payment is due.</p>
  * @public
  */
 export interface NetPaymentTerm {
@@ -1501,7 +1556,7 @@ export interface ScheduleItem {
 }
 
 /**
- * <p>Defines a payment schedule term with installment payments at specified dates.</p>
+ * <p>Describes a payment schedule term with installment payments at specified dates.</p>
  * @public
  */
 export interface PaymentScheduleTerm {
@@ -1531,7 +1586,7 @@ export interface PaymentScheduleTerm {
 }
 
 /**
- * <p>Defines a recurring payment term with fixed charges at regular billing intervals.</p>
+ * <p>Describes a recurring payment term with fixed charges at regular billing intervals.</p>
  * @public
  */
 export interface RecurringPaymentTerm {
@@ -1603,7 +1658,7 @@ export interface PercentageRange {
 }
 
 /**
- * <p>The pricing adjustment that applies at each renewal cycle, expressed as either a fixed percentage or a percentage range. Exactly one variant is present.</p>
+ * <p>The pricing adjustment that applies at each renewal cycle, expressed as either a fixed percentage or a percentage range. Exactly one of the following members is present:</p> <dl> <dt>fixedPercentage</dt> <dd> <p>A single fixed percentage applied uniformly at every renewal cycle.</p> </dd> <dt>percentageRange</dt> <dd> <p>A percentage range with minimum, maximum, and default values that bound the price increase at each renewal cycle.</p> </dd> </dl>
  * @public
  */
 export type PriceIncrease =
@@ -1731,7 +1786,7 @@ export namespace TermTemplate {
 }
 
 /**
- * <p>Defines a renewal term that enables automatic agreement renewal.</p>
+ * <p>Describes a renewal term that renews the agreement automatically.</p>
  * @public
  */
 export interface RenewalTerm {
@@ -1760,7 +1815,7 @@ export interface RenewalTerm {
   lockoutPeriod?: string | undefined;
 
   /**
-   * <p>The duration before the agreement end date by which the renewal price is finalized, represented in ISO 8601 format (for example, P30D). Only applicable with <code>PercentageRange</code>.</p>
+   * <p>The duration before the agreement end date by which the renewal price is finalized, represented in ISO 8601 format (for example, P30D). This field applies only with <code>PercentageRange</code>.</p>
    * @public
    */
   adjustmentDeadline?: string | undefined;
@@ -1779,7 +1834,7 @@ export interface RenewalTerm {
 }
 
 /**
- * <p>Defines a support term that includes the refund policy for the offer.</p>
+ * <p>Describes a support term that includes the refund policy for the offer.</p>
  * @public
  */
 export interface SupportTerm {
@@ -1815,7 +1870,7 @@ export interface UsageBasedRateCardItem {
 }
 
 /**
- * <p>Defines a usage-based pricing term (typically pay-as-you-go), where buyers are charged based on product usage.</p>
+ * <p>Describes a usage-based pricing term, typically pay-as-you-go. You are charged based on your use of the product.</p>
  * @public
  */
 export interface UsageBasedPricingTerm {
@@ -1845,7 +1900,7 @@ export interface UsageBasedPricingTerm {
 }
 
 /**
- * <p>Defines a validity term that specifies the duration or date range of an agreement.</p>
+ * <p>Describes a validity term that specifies the duration or date range of an agreement.</p>
  * @public
  */
 export interface ValidityTerm {
@@ -1881,7 +1936,7 @@ export interface ValidityTerm {
 }
 
 /**
- * <p>Defines a variable payment term with a maximum total charge amount.</p>
+ * <p>Describes a variable payment term with a maximum total charge amount.</p>
  * @public
  */
 export interface VariablePaymentTerm {
@@ -1935,7 +1990,7 @@ export type OfferTerm =
  */
 export namespace OfferTerm {
   /**
-   * <p>Defines a Bring Your Own License (BYOL) pricing term, where buyers use their existing license for the product.</p>
+   * <p>Describes a Bring Your Own License (BYOL) pricing term. With this term, you use your existing license for the product.</p>
    * @public
    */
   export interface ByolPricingTermMember {
@@ -1956,7 +2011,7 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a configurable upfront pricing term with selectable rate cards, where buyers choose from predefined pricing configurations.</p>
+   * <p>Describes a configurable upfront pricing term with selectable rate cards. You choose from predefined pricing configurations.</p>
    * @public
    */
   export interface ConfigurableUpfrontPricingTermMember {
@@ -1977,7 +2032,7 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a fixed upfront pricing term with a pre-paid amount and granted entitlements.</p>
+   * <p>Describes a fixed upfront pricing term with a pre-paid amount and granted entitlements.</p>
    * @public
    */
   export interface FixedUpfrontPricingTermMember {
@@ -1998,7 +2053,7 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a free trial pricing term that enables customers to try the product before purchasing.</p>
+   * <p>Describes a free trial pricing term. With this term, you can try the product before you purchase it.</p>
    * @public
    */
   export interface FreeTrialPricingTermMember {
@@ -2019,7 +2074,7 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a legal term containing documents proposed to buyers, such as EULAs and data subscription agreements.</p>
+   * <p>Describes a legal term containing documents proposed to you, such as End User License Agreements (EULAs) and data subscription agreements.</p>
    * @public
    */
   export interface LegalTermMember {
@@ -2040,7 +2095,7 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a payment schedule term with installment payments at specified dates.</p>
+   * <p>Describes a payment schedule term with installment payments at specified dates.</p>
    * @public
    */
   export interface PaymentScheduleTermMember {
@@ -2061,7 +2116,7 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a recurring payment term with fixed charges at regular billing intervals.</p>
+   * <p>Describes a recurring payment term with fixed charges at regular billing intervals.</p>
    * @public
    */
   export interface RecurringPaymentTermMember {
@@ -2082,7 +2137,7 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a renewal term that enables automatic agreement renewal.</p>
+   * <p>Describes a renewal term that renews the agreement automatically.</p>
    * @public
    */
   export interface RenewalTermMember {
@@ -2103,7 +2158,7 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a support term that includes the refund policy for the offer.</p>
+   * <p>Describes a support term that includes the refund policy for the offer.</p>
    * @public
    */
   export interface SupportTermMember {
@@ -2124,7 +2179,7 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a usage-based pricing term (typically pay-as-you-go), where buyers are charged based on product usage.</p>
+   * <p>Describes a usage-based pricing term, typically pay-as-you-go. You are charged based on your use of the product.</p>
    * @public
    */
   export interface UsageBasedPricingTermMember {
@@ -2145,7 +2200,7 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a validity term that specifies the duration or date range of an agreement.</p>
+   * <p>Describes a validity term that specifies the duration or date range of an agreement.</p>
    * @public
    */
   export interface ValidityTermMember {
@@ -2166,7 +2221,7 @@ export namespace OfferTerm {
   }
 
   /**
-   * <p>Defines a variable payment term with a maximum total charge amount.</p>
+   * <p>Describes a variable payment term with a maximum total charge amount.</p>
    * @public
    */
   export interface VariablePaymentTermMember {
@@ -2254,7 +2309,7 @@ export namespace OfferTerm {
  */
 export interface GetOfferTermsOutput {
   /**
-   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * <p>The locale of the returned content. This value indicates whether the response contains content in the requested locale or fell back to the default locale. See <code>Locale</code> for details.</p>
    * @public
    */
   locale?: string | undefined;
@@ -2266,7 +2321,7 @@ export interface GetOfferTermsOutput {
   offerTerms: OfferTerm[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2277,7 +2332,7 @@ export interface GetOfferTermsOutput {
  */
 export interface GetProductInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * <p>The preferred locale for response content, as a Best Current Practice 47 (BCP 47) language tag or a comma-separated priority list of language tags. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If you omit this field, the service returns content in the default locale.</p>
    * @public
    */
   locale?: string | undefined;
@@ -2294,7 +2349,7 @@ export interface GetProductInput {
  */
 export interface GetProductOutput {
   /**
-   * <p>The locale of the returned content. Indicates whether the response contains content in the requested locale, or fell back to the default locale. See <code>Locale</code> for details.</p>
+   * <p>The locale of the returned content. This value indicates whether the response contains content in the requested locale or fell back to the default locale. See <code>Locale</code> for details.</p>
    * @public
    */
   locale?: string | undefined;
@@ -2324,7 +2379,7 @@ export interface GetProductOutput {
   manufacturer: SellerInformation | undefined;
 
   /**
-   * <p>Indicates whether the product is deployed on AWS infrastructure.</p>
+   * <p>Specifies whether the product is deployed on AWS infrastructure.</p>
    * @public
    */
   deployedOnAws: DeployedOnAwsStatus | undefined;
@@ -2348,13 +2403,13 @@ export interface GetProductOutput {
   logoThumbnailUrl: string | undefined;
 
   /**
-   * <p>A summary of fulfillment options available for deploying or accessing the product, such as AMI, SaaS, or Container.</p>
+   * <p>A summary of fulfillment options available for deploying or accessing the product, such as Amazon Machine Image (AMI), Software as a Service (SaaS), or Container.</p>
    * @public
    */
   fulfillmentOptionSummaries: FulfillmentOptionSummary[] | undefined;
 
   /**
-   * <p>The categories used to classify this product into logical groups.</p>
+   * <p>The categories that classify this product into logical groups.</p>
    * @public
    */
   categories: Category[] | undefined;
@@ -2378,7 +2433,7 @@ export interface GetProductOutput {
   resources: Resource[] | undefined;
 
   /**
-   * <p>Engagement options available to potential buyers, such as requesting a private offer or requesting a demo.</p>
+   * <p>The engagement options available to you, such as buying now, requesting a private offer, or requesting a demo.</p>
    * @public
    */
   sellerEngagements: SellerEngagement[] | undefined;
@@ -2388,6 +2443,12 @@ export interface GetProductOutput {
    * @public
    */
   listingId: string | undefined;
+
+  /**
+   * <p>Indicators describing purchase characteristics of this product, such as whether you can subscribe to it or use it without a subscription. The list is empty when no special purchase conditions apply.</p>
+   * @public
+   */
+  purchaseIndicators: PurchaseIndicator[] | undefined;
 }
 
 /**
@@ -2395,7 +2456,7 @@ export interface GetProductOutput {
  */
 export interface ListFulfillmentOptionsInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * <p>The preferred locale for response content, as a Best Current Practice 47 (BCP 47) language tag or a comma-separated priority list of language tags. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If you omit this field, the service returns content in the default locale.</p>
    * @public
    */
   locale?: string | undefined;
@@ -2407,13 +2468,13 @@ export interface ListFulfillmentOptionsInput {
   productId: string | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to get more results.</p>
+   * <p>The maximum number of fulfillment options to return in each call. If you omit this field, the default is 25. Use <code>nextToken</code> to retrieve the next page.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -2455,7 +2516,7 @@ export interface CloudFormationFulfillmentOption {
   fulfillmentOptionVersion?: string | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * <p>Release notes that describe the changes in this version of the fulfillment option.</p>
    * @public
    */
   releaseNotes?: string | undefined;
@@ -2473,6 +2534,18 @@ export interface CloudFormationFulfillmentOption {
   availableFromTime?: Date | undefined;
 
   /**
+   * <p>The URL of the architecture diagram for the CloudFormation template.</p>
+   * @public
+   */
+  architectureDiagramUrl?: string | undefined;
+
+  /**
+   * <p>The URL of the CloudFormation template.</p>
+   * @public
+   */
+  deploymentTemplateUrl?: string | undefined;
+
+  /**
    * <p>A short description of the fulfillment option.</p>
    * @public
    */
@@ -2486,7 +2559,7 @@ export interface CloudFormationFulfillmentOption {
 }
 
 /**
- * <p>Describes an operating system supported by a container fulfillment option.</p>
+ * <p>Describes an operating system that a container fulfillment option supports.</p>
  * @public
  */
 export interface ContainerOperatingSystem {
@@ -2551,7 +2624,7 @@ export interface ContainerFulfillmentOption {
   awsSupportedServices?: AwsSupportedService[] | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * <p>Release notes that describe the changes in this version of the fulfillment option.</p>
    * @public
    */
   releaseNotes?: string | undefined;
@@ -2624,7 +2697,7 @@ export interface DataExchangeFulfillmentOption {
 }
 
 /**
- * <p>Describes an EC2 Image Builder component fulfillment option.</p>
+ * <p>Describes an Amazon Elastic Compute Cloud (Amazon EC2) Image Builder component fulfillment option.</p>
  * @public
  */
 export interface Ec2ImageBuilderComponentFulfillmentOption {
@@ -2665,13 +2738,13 @@ export interface Ec2ImageBuilderComponentFulfillmentOption {
   operatingSystems?: ContainerOperatingSystem[] | undefined;
 
   /**
-   * <p>The AWS services supported by this EC2 Image Builder component.</p>
+   * <p>The AWS services that this EC2 Image Builder component supports.</p>
    * @public
    */
   awsSupportedServices?: AwsSupportedService[] | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * <p>Release notes that describe the changes in this version of the fulfillment option.</p>
    * @public
    */
   releaseNotes?: string | undefined;
@@ -2684,7 +2757,7 @@ export interface Ec2ImageBuilderComponentFulfillmentOption {
 }
 
 /**
- * <p>Describes an operating system supported by an EKS add-on fulfillment option.</p>
+ * <p>Describes an operating system that an Amazon EKS add-on fulfillment option supports.</p>
  * @public
  */
 export interface EksAddOnOperatingSystem {
@@ -2702,7 +2775,7 @@ export interface EksAddOnOperatingSystem {
 }
 
 /**
- * <p>Describes an Amazon EKS add-on fulfillment option.</p>
+ * <p>Describes an Amazon Elastic Kubernetes Service (Amazon EKS) add-on fulfillment option.</p>
  * @public
  */
 export interface EksAddOnFulfillmentOption {
@@ -2743,7 +2816,7 @@ export interface EksAddOnFulfillmentOption {
   operatingSystems?: EksAddOnOperatingSystem[] | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * <p>Release notes that describe the changes in this version of the fulfillment option.</p>
    * @public
    */
   releaseNotes?: string | undefined;
@@ -2762,7 +2835,7 @@ export interface EksAddOnFulfillmentOption {
 }
 
 /**
- * <p>Describes an operating system supported by a Helm chart fulfillment option.</p>
+ * <p>Describes an operating system that a Helm chart fulfillment option supports.</p>
  * @public
  */
 export interface HelmOperatingSystem {
@@ -2821,7 +2894,7 @@ export interface HelmFulfillmentOption {
   operatingSystems?: HelmOperatingSystem[] | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * <p>Release notes that describe the changes in this version of the fulfillment option.</p>
    * @public
    */
   releaseNotes?: string | undefined;
@@ -2864,6 +2937,81 @@ export interface ProfessionalServicesFulfillmentOption {
 }
 
 /**
+ * <p>Contains a single AWS CloudFormation deployment template for a Software as a Service (SaaS) product.</p>
+ * @public
+ */
+export interface SaasCloudFormationDeploymentTemplate {
+  /**
+   * <p>The display name of the deployment template.</p>
+   * @public
+   */
+  templateName: string | undefined;
+
+  /**
+   * <p>A description of the deployment template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The default CloudFormation stack name used when deploying this template.</p>
+   * @public
+   */
+  defaultStackName: string | undefined;
+
+  /**
+   * <p>The URL of the CloudFormation deployment template.</p>
+   * @public
+   */
+  templateUrl: string | undefined;
+
+  /**
+   * <p>The AWS Identity and Access Management (IAM) policy that you need to deploy this template.</p>
+   * @public
+   */
+  iamPolicy: string | undefined;
+}
+
+/**
+ * <p>Contains a deployment template for a SaaS product. Exactly one member is set, indicating the deployment template type.</p>
+ * @public
+ */
+export type SaasDeploymentTemplate =
+  | SaasDeploymentTemplate.CloudFormationDeploymentTemplateMember
+  | SaasDeploymentTemplate.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SaasDeploymentTemplate {
+  /**
+   * <p>An AWS CloudFormation deployment template.</p>
+   * @public
+   */
+  export interface CloudFormationDeploymentTemplateMember {
+    cloudFormationDeploymentTemplate: SaasCloudFormationDeploymentTemplate;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cloudFormationDeploymentTemplate?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    cloudFormationDeploymentTemplate: (value: SaasCloudFormationDeploymentTemplate) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Describes a Software as a Service (SaaS) fulfillment option.</p>
  * @public
  */
@@ -2893,7 +3041,7 @@ export interface SaasFulfillmentOption {
   fulfillmentUrl?: string | undefined;
 
   /**
-   * <p>Instructions on how to access and use this SaaS product.</p>
+   * <p>Instructions on how you access and use this SaaS product.</p>
    * @public
    */
   usageInstructions?: string | undefined;
@@ -2905,31 +3053,37 @@ export interface SaasFulfillmentOption {
   availableFromTime?: Date | undefined;
 
   /**
-   * <p>The URL that a buyer uses to launch the seller's SaaS product. This URL is distinct from <code>fulfillmentUrl</code>, which is the seller's software registration landing page.</p>
+   * <p>The URL that you use to launch the seller's SaaS product. This URL is distinct from <code>fulfillmentUrl</code>, which is the seller's software registration landing page.</p>
    * @public
    */
   launchUrl?: string | undefined;
 
   /**
-   * <p>Specifies whether the SaaS product supports quick-launch deployment.</p>
+   * <p>Specifies whether the SaaS product supports Quick Launch deployment. This field has one of the following values:</p> <dl> <dt>DISABLED</dt> <dd> <p>The product does not support Quick Launch.</p> </dd> <dt>ENABLED</dt> <dd> <p>The product supports Quick Launch.</p> </dd> </dl>
    * @public
    */
   quickLaunch: SaasQuickLaunchStatus | undefined;
+
+  /**
+   * <p>The AWS CloudFormation deployment templates available for this SaaS product. The list is empty when no deployment templates are available.</p>
+   * @public
+   */
+  deploymentTemplates: SaasDeploymentTemplate[] | undefined;
 }
 
 /**
- * <p>Recommended instance types for training and inference with a SageMaker algorithm.</p>
+ * <p>The recommended instance types for training and inference with a SageMaker algorithm.</p>
  * @public
  */
 export interface SageMakerAlgorithmRecommendation {
   /**
-   * <p>The recommended instance type for batch inference.</p>
+   * <p>The instance type that the seller recommends for batch transform jobs with this algorithm.</p>
    * @public
    */
   recommendedBatchTransformInstanceType: string | undefined;
 
   /**
-   * <p>The recommended instance type for real-time inference.</p>
+   * <p>The instance type that the seller recommends for real-time inference endpoints with this algorithm.</p>
    * @public
    */
   recommendedRealtimeInferenceInstanceType?: string | undefined;
@@ -2971,7 +3125,7 @@ export interface SageMakerAlgorithmFulfillmentOption {
   fulfillmentOptionVersion?: string | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * <p>Release notes that describe the changes in this version of the fulfillment option.</p>
    * @public
    */
   releaseNotes?: string | undefined;
@@ -2983,25 +3137,25 @@ export interface SageMakerAlgorithmFulfillmentOption {
   usageInstructions?: string | undefined;
 
   /**
-   * <p>Recommended instance types for training and inference with this algorithm.</p>
+   * <p>The recommended instance types for training and inference with this algorithm.</p>
    * @public
    */
   recommendation?: SageMakerAlgorithmRecommendation | undefined;
 }
 
 /**
- * <p>Recommended instance types for inference with a SageMaker model.</p>
+ * <p>The recommended instance types for inference with a SageMaker model.</p>
  * @public
  */
 export interface SageMakerModelRecommendation {
   /**
-   * <p>The recommended instance type for batch inference.</p>
+   * <p>The instance type that the seller recommends for batch transform jobs with this model package.</p>
    * @public
    */
   recommendedBatchTransformInstanceType: string | undefined;
 
   /**
-   * <p>The recommended instance type for real-time inference.</p>
+   * <p>The instance type that the seller recommends for real-time inference endpoints with this model package.</p>
    * @public
    */
   recommendedRealtimeInferenceInstanceType?: string | undefined;
@@ -3037,7 +3191,7 @@ export interface SageMakerModelFulfillmentOption {
   fulfillmentOptionVersion?: string | undefined;
 
   /**
-   * <p>Release notes describing changes in this version of the fulfillment option.</p>
+   * <p>Release notes that describe the changes in this version of the fulfillment option.</p>
    * @public
    */
   releaseNotes?: string | undefined;
@@ -3049,13 +3203,13 @@ export interface SageMakerModelFulfillmentOption {
   usageInstructions?: string | undefined;
 
   /**
-   * <p>Recommended instance types for inference with this model.</p>
+   * <p>The recommended instance types for inference with this model.</p>
    * @public
    */
   recommendation?: SageMakerModelRecommendation | undefined;
 
   /**
-   * <p>The MIME types that this model accepts as input.</p>
+   * <p>The Multipurpose Internet Mail Extensions (MIME) types that this model accepts as input.</p>
    * @public
    */
   supportedContentTypes?: string[] | undefined;
@@ -3091,7 +3245,7 @@ export type FulfillmentOption =
  */
 export namespace FulfillmentOption {
   /**
-   * <p>An Amazon Machine Image (AMI) fulfillment option for EC2 deployment.</p>
+   * <p>An Amazon Machine Image (AMI) fulfillment option for Amazon Elastic Compute Cloud (Amazon EC2) deployment.</p>
    * @public
    */
   export interface AmazonMachineImageFulfillmentOptionMember {
@@ -3211,7 +3365,7 @@ export namespace FulfillmentOption {
   }
 
   /**
-   * <p>An EC2 Image Builder component fulfillment option.</p>
+   * <p>An Amazon Elastic Compute Cloud (Amazon EC2) Image Builder component fulfillment option.</p>
    * @public
    */
   export interface Ec2ImageBuilderComponentFulfillmentOptionMember {
@@ -3375,19 +3529,659 @@ export namespace FulfillmentOption {
  */
 export interface ListFulfillmentOptionsOutput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list of language tags that specifies the preferred locale for response content. The field accepts a maximum of two language tags.</p> <p>The service resolves a locale string to the nearest supported locale. If no supported locale matches, the service applies the fallback behavior described below.</p> <ul> <li> <p> <b>Preferred locale</b> (first tag) – The locale you want the service to return content in.</p> </li> <li> <p> <b>Fallback locale</b> (optional, second tag) – The service default locale (<code>en-US</code> or <code>en</code>). The service returns content in this locale when translated content for the preferred locale is unavailable.</p> </li> </ul> <p>The field is optional. If omitted or null, the service returns content in the default locale (<code>en-US</code>).</p> <p> <b>Supported locales:</b> </p> <ul> <li> <p> <code>en-US</code> – English (service default, also resolves from <code>en</code>)</p> </li> <li> <p> <code>fr</code> – French</p> </li> <li> <p> <code>es</code> – Spanish</p> </li> <li> <p> <code>ko</code> – Korean</p> </li> <li> <p> <code>ja</code> – Japanese</p> </li> </ul> <p> <b>Fallback behavior:</b> </p> <ul> <li> <p>If translated content for the preferred locale is unavailable, the service returns content in the default locale.</p> </li> <li> <p>If the preferred locale is not supported and no fallback is provided, the service returns a <code>ValidationException</code>.</p> </li> <li> <p>If you provide an unsupported locale with the default locale as fallback (for example, <code>xx, en-US</code>), the service returns content in the default locale.</p> </li> </ul> <p> <b>Response locale field (Get APIs):</b> The <code>locale</code> field in Get API responses indicates the locale of the returned content. You can use this field to determine whether the response contains content in the requested locale or the default locale.</p> <p> <b>Examples:</b> </p> <ul> <li> <p> <code>fr</code> – Request French content. If unavailable, falls back to <code>en-US</code>.</p> </li> <li> <p> <code>fr, en-US</code> – Request French content with explicit fallback to English.</p> </li> <li> <p> <code>en-US</code> – Request content in the default locale.</p> </li> </ul>
+   * <p>A Best Current Practice 47 (BCP 47) language tag or comma-separated priority list of language tags that specifies the preferred locale for response content. The field accepts a maximum of two language tags.</p> <p>The service resolves a locale string to the nearest supported locale. If no supported locale matches, the service applies the fallback behavior described in the following lists.</p> <ul> <li> <p> <b>Preferred locale</b> (first tag) – The locale you want the service to return content in.</p> </li> <li> <p> <b>Fallback locale</b> (optional, second tag) – The service default locale (<code>en-US</code> or <code>en</code>). The service returns content in this locale when translated content for the preferred locale is unavailable.</p> </li> </ul> <p>The field is optional. If you omit this field or set it to null, the service returns content in the default locale (<code>en-US</code>).</p> <p>The service supports the following locales:</p> <dl> <dt>en-US</dt> <dd> <p>English (service default, also resolves from <code>en</code>)</p> </dd> <dt>fr</dt> <dd> <p>French</p> </dd> <dt>es</dt> <dd> <p>Spanish</p> </dd> <dt>ko</dt> <dd> <p>Korean</p> </dd> <dt>ja</dt> <dd> <p>Japanese</p> </dd> </dl> <p>The fallback behavior is as follows:</p> <ul> <li> <p>If translated content for the preferred locale is unavailable, the service returns content in the default locale.</p> </li> <li> <p>If the preferred locale is not supported and you provide no fallback, the service returns a <code>ValidationException</code>.</p> </li> <li> <p>If you provide an unsupported locale with the default locale as fallback (for example, <code>xx, en-US</code>), the service returns content in the default locale.</p> </li> </ul> <p>The <code>locale</code> field in Get API responses indicates the locale of the returned content. You can use this field to determine whether the response contains content in the requested locale or the default locale.</p> <p>The following examples show how the field works:</p> <dl> <dt>fr</dt> <dd> <p>Request French content. If unavailable, falls back to <code>en-US</code>.</p> </dd> <dt>fr, en-US</dt> <dd> <p>Request French content with explicit fallback to English.</p> </dd> <dt>en-US</dt> <dd> <p>Request content in the default locale.</p> </dd> </dl>
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>The fulfillment options available for the product. Each option describes how the buyer can deploy or access the product.</p>
+   * <p>The fulfillment options available for the product. Each option describes how you can deploy or access the product.</p>
    * @public
    */
   fulfillmentOptions: FulfillmentOption[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the listing and attribute types to retrieve.</p>
+ * @public
+ */
+export interface ListListingAttributesInput {
+  /**
+   * <p>The preferred locale for response content, as a Best Current Practice 47 (BCP 47) language tag or a comma-separated priority list of language tags. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If you omit this field, the service returns content in the default locale.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the listing whose attributes are requested.</p>
+   * @public
+   */
+  listingId: string | undefined;
+
+  /**
+   * <p>The attribute types to retrieve. Specify one or more of the following values:</p> <dl> <dt>CASE_STUDY</dt> <dd> <p>Case studies associated with the listing.</p> </dd> <dt>SPECIALIZATION_DETAIL</dt> <dd> <p>Specializations earned for the listing.</p> </dd> <dt>TRUST_CENTER_CERTIFICATION</dt> <dd> <p>Trust center certifications associated with the listing.</p> </dd> <dt>TRUST_CENTER_CONTROL</dt> <dd> <p>Trust center controls associated with the listing.</p> </dd> <dt>TRUST_CENTER_DOCUMENT</dt> <dd> <p>Trust center documents associated with the listing.</p> </dd> <dt>TRUST_CENTER_FAQ</dt> <dd> <p>The trust center FAQ associated with the listing.</p> </dd> <dt>TRUST_CENTER_SOURCE</dt> <dd> <p>Trust center sources associated with the listing.</p> </dd> <dt>TRUST_CENTER_UPDATE</dt> <dd> <p>Trust center updates associated with the listing.</p> </dd> </dl>
+   * @public
+   */
+  attributeTypes: ListingAttributeType[] | undefined;
+
+  /**
+   * <p>The maximum number of attributes to return in each call. If you omit this field, the default is 25. Use <code>nextToken</code> to retrieve the next page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Key implementation dates for a case study.</p>
+ * @public
+ */
+export interface EngagementDates {
+  /**
+   * <p>The implementation start date.</p>
+   * @public
+   */
+  startDate: Date | undefined;
+
+  /**
+   * <p>The implementation completion date. The service omits this field for an engagement in progress.</p>
+   * @public
+   */
+  completionDate?: Date | undefined;
+}
+
+/**
+ * <p>A resource that a case study cites, such as supporting documentation or a web page.</p>
+ * @public
+ */
+export interface CaseStudyResource {
+  /**
+   * <p>The format of the resource value.</p>
+   * @public
+   */
+  contentType: ResourceContentType | undefined;
+
+  /**
+   * <p>The resource value, such as a URL.</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The resource name displayed to you.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The type of case study resource.</p>
+   * @public
+   */
+  resourceType: CaseStudyResourceType | undefined;
+}
+
+/**
+ * <p>A case study associated with a listing.</p>
+ * @public
+ */
+export interface CaseStudy {
+  /**
+   * <p>The unique identifier of the case study.</p>
+   * @public
+   */
+  caseStudyId: string | undefined;
+
+  /**
+   * <p>The case study name displayed to you.</p>
+   * @public
+   */
+  caseStudyName: string | undefined;
+
+  /**
+   * <p>A brief value proposition for the case study.</p>
+   * @public
+   */
+  shortDescription: string | undefined;
+
+  /**
+   * <p>The key implementation dates for the engagement.</p>
+   * @public
+   */
+  engagementDates?: EngagementDates | undefined;
+
+  /**
+   * <p>The business challenge that the engagement addresses.</p>
+   * @public
+   */
+  challenge?: string | undefined;
+
+  /**
+   * <p>How the partner resolved the challenge.</p>
+   * @public
+   */
+  resolution?: string | undefined;
+
+  /**
+   * <p>The implementation approach used for the engagement.</p>
+   * @public
+   */
+  implementationApproach?: string | undefined;
+
+  /**
+   * <p>The results and outcomes achieved by the engagement.</p>
+   * @public
+   */
+  outcome?: string | undefined;
+
+  /**
+   * <p>Resources related to the case study.</p>
+   * @public
+   */
+  resources?: CaseStudyResource[] | undefined;
+}
+
+/**
+ * <p>Describes a specialization type with its display information.</p>
+ * @public
+ */
+export interface SpecializationTypeDetail {
+  /**
+   * <p>The specialization type.</p>
+   * @public
+   */
+  specializationType: SpecializationType | undefined;
+
+  /**
+   * <p>The name of the specialization type displayed to you.</p>
+   * @public
+   */
+  displayName: string | undefined;
+}
+
+/**
+ * <p>A specialization earned for the listing, such as an AWS Competency.</p>
+ * @public
+ */
+export interface Specialization {
+  /**
+   * <p>The unique identifier of the specialization.</p>
+   * @public
+   */
+  specializationId: string | undefined;
+
+  /**
+   * <p>The name of the specialization displayed to you.</p>
+   * @public
+   */
+  specializationName: string | undefined;
+
+  /**
+   * <p>A description of the specialization displayed to you.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The types that categorize this specialization.</p>
+   * @public
+   */
+  specializationTypes: SpecializationTypeDetail[] | undefined;
+
+  /**
+   * <p>The identifiers of the case studies that this specialization cites. Retrieve the case studies with the <code>CASE_STUDY</code> attribute type.</p>
+   * @public
+   */
+  caseStudyIds?: string[] | undefined;
+}
+
+/**
+ * <p>A category under a specialization that the listing earned.</p>
+ * @public
+ */
+export interface SpecializationCategory {
+  /**
+   * <p>The unique identifier of the category.</p>
+   * @public
+   */
+  specializationCategoryId: string | undefined;
+
+  /**
+   * <p>The name of the category displayed to you.</p>
+   * @public
+   */
+  specializationCategoryName: string | undefined;
+
+  /**
+   * <p>The identifier of the parent specialization.</p>
+   * @public
+   */
+  parentSpecializationId: string | undefined;
+}
+
+/**
+ * <p>A specialization result for a listing. Exactly one member is set: a specialization or a category under one.</p>
+ * @public
+ */
+export type SpecializationDetail =
+  | SpecializationDetail.SpecializationMember
+  | SpecializationDetail.SpecializationCategoryMember
+  | SpecializationDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SpecializationDetail {
+  /**
+   * <p>A specialization earned for the listing.</p>
+   * @public
+   */
+  export interface SpecializationMember {
+    specialization: Specialization;
+    specializationCategory?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A category under a specialization that the listing earned.</p>
+   * @public
+   */
+  export interface SpecializationCategoryMember {
+    specialization?: never;
+    specializationCategory: SpecializationCategory;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    specialization?: never;
+    specializationCategory?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    specialization: (value: Specialization) => T;
+    specializationCategory: (value: SpecializationCategory) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A trust center certification associated with a listing.</p>
+ * @public
+ */
+export interface TrustCenterCertificationAttribute {
+  /**
+   * <p>The certification type. The set of values is open and can include provider-defined certifications.</p>
+   * @public
+   */
+  certificationType: string | undefined;
+
+  /**
+   * <p>The authoritative certification name displayed to you.</p>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>The URL of the certification logo.</p>
+   * @public
+   */
+  logoUrl: string | undefined;
+}
+
+/**
+ * <p>A control that a trust center publishes.</p>
+ * @public
+ */
+export interface TrustCenterControl {
+  /**
+   * <p>The name of the control.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the control.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The trust center domains to which the control applies.</p>
+   * @public
+   */
+  domains: TrustCenterControlDomain[] | undefined;
+}
+
+/**
+ * <p>A trust center document associated with a listing.</p>
+ * @public
+ */
+export interface TrustCenterDocumentAttribute {
+  /**
+   * <p>The format of the document resource value.</p>
+   * @public
+   */
+  contentType: ResourceContentType | undefined;
+
+  /**
+   * <p>The URL used to download, view, or request access to the document.</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The document name displayed to you.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The subject area of the document.</p>
+   * @public
+   */
+  subjectArea?: string | undefined;
+
+  /**
+   * <p>How the document can be accessed.</p>
+   * @public
+   */
+  accessType: TrustCenterDocumentAccessType | undefined;
+}
+
+/**
+ * <p>A frequently asked question that a trust center publishes.</p>
+ * @public
+ */
+export interface TrustCenterFaqAttribute {
+  /**
+   * <p>The question.</p>
+   * @public
+   */
+  question: string | undefined;
+
+  /**
+   * <p>The answer.</p>
+   * @public
+   */
+  answer: string | undefined;
+
+  /**
+   * <p>The subject area of the question.</p>
+   * @public
+   */
+  subjectArea?: string | undefined;
+}
+
+/**
+ * <p>A source of trust center information.</p>
+ * @public
+ */
+export interface TrustCenterSource {
+  /**
+   * <p>The format of the trust center source value.</p>
+   * @public
+   */
+  contentType: ResourceContentType | undefined;
+
+  /**
+   * <p>The URL of the trust center.</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The trust center provider name displayed to you.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The provider hosting the trust center.</p>
+   * @public
+   */
+  provider: TrustCenterProvider | undefined;
+}
+
+/**
+ * <p>An update that a trust center publishes.</p>
+ * @public
+ */
+export interface TrustCenterUpdateAttribute {
+  /**
+   * <p>The update title.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The update description.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The time when the update was published.</p>
+   * @public
+   */
+  publishedTime: Date | undefined;
+}
+
+/**
+ * <p>An attribute associated with a listing. Each entry contains one attribute type.</p>
+ * @public
+ */
+export type ListingAttributeResults =
+  | ListingAttributeResults.CaseStudyMember
+  | ListingAttributeResults.SpecializationDetailMember
+  | ListingAttributeResults.TrustCenterCertificationMember
+  | ListingAttributeResults.TrustCenterControlMember
+  | ListingAttributeResults.TrustCenterDocumentMember
+  | ListingAttributeResults.TrustCenterFaqMember
+  | ListingAttributeResults.TrustCenterSourceMember
+  | ListingAttributeResults.TrustCenterUpdateMember
+  | ListingAttributeResults.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ListingAttributeResults {
+  /**
+   * <p>A case study associated with the listing.</p>
+   * @public
+   */
+  export interface CaseStudyMember {
+    caseStudy: CaseStudy;
+    specializationDetail?: never;
+    trustCenterSource?: never;
+    trustCenterCertification?: never;
+    trustCenterDocument?: never;
+    trustCenterControl?: never;
+    trustCenterFaq?: never;
+    trustCenterUpdate?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A specialization earned for the listing. Each result is either a specialization or a category under a specialization.</p>
+   * @public
+   */
+  export interface SpecializationDetailMember {
+    caseStudy?: never;
+    specializationDetail: SpecializationDetail;
+    trustCenterSource?: never;
+    trustCenterCertification?: never;
+    trustCenterDocument?: never;
+    trustCenterControl?: never;
+    trustCenterFaq?: never;
+    trustCenterUpdate?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A trust center source associated with the listing.</p>
+   * @public
+   */
+  export interface TrustCenterSourceMember {
+    caseStudy?: never;
+    specializationDetail?: never;
+    trustCenterSource: TrustCenterSource;
+    trustCenterCertification?: never;
+    trustCenterDocument?: never;
+    trustCenterControl?: never;
+    trustCenterFaq?: never;
+    trustCenterUpdate?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A trust center certification associated with the listing.</p>
+   * @public
+   */
+  export interface TrustCenterCertificationMember {
+    caseStudy?: never;
+    specializationDetail?: never;
+    trustCenterSource?: never;
+    trustCenterCertification: TrustCenterCertificationAttribute;
+    trustCenterDocument?: never;
+    trustCenterControl?: never;
+    trustCenterFaq?: never;
+    trustCenterUpdate?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A trust center document associated with the listing.</p>
+   * @public
+   */
+  export interface TrustCenterDocumentMember {
+    caseStudy?: never;
+    specializationDetail?: never;
+    trustCenterSource?: never;
+    trustCenterCertification?: never;
+    trustCenterDocument: TrustCenterDocumentAttribute;
+    trustCenterControl?: never;
+    trustCenterFaq?: never;
+    trustCenterUpdate?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A trust center control associated with the listing.</p>
+   * @public
+   */
+  export interface TrustCenterControlMember {
+    caseStudy?: never;
+    specializationDetail?: never;
+    trustCenterSource?: never;
+    trustCenterCertification?: never;
+    trustCenterDocument?: never;
+    trustCenterControl: TrustCenterControl;
+    trustCenterFaq?: never;
+    trustCenterUpdate?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A trust center frequently asked question associated with the listing.</p>
+   * @public
+   */
+  export interface TrustCenterFaqMember {
+    caseStudy?: never;
+    specializationDetail?: never;
+    trustCenterSource?: never;
+    trustCenterCertification?: never;
+    trustCenterDocument?: never;
+    trustCenterControl?: never;
+    trustCenterFaq: TrustCenterFaqAttribute;
+    trustCenterUpdate?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A trust center update associated with the listing.</p>
+   * @public
+   */
+  export interface TrustCenterUpdateMember {
+    caseStudy?: never;
+    specializationDetail?: never;
+    trustCenterSource?: never;
+    trustCenterCertification?: never;
+    trustCenterDocument?: never;
+    trustCenterControl?: never;
+    trustCenterFaq?: never;
+    trustCenterUpdate: TrustCenterUpdateAttribute;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    caseStudy?: never;
+    specializationDetail?: never;
+    trustCenterSource?: never;
+    trustCenterCertification?: never;
+    trustCenterDocument?: never;
+    trustCenterControl?: never;
+    trustCenterFaq?: never;
+    trustCenterUpdate?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    caseStudy: (value: CaseStudy) => T;
+    specializationDetail: (value: SpecializationDetail) => T;
+    trustCenterSource: (value: TrustCenterSource) => T;
+    trustCenterCertification: (value: TrustCenterCertificationAttribute) => T;
+    trustCenterDocument: (value: TrustCenterDocumentAttribute) => T;
+    trustCenterControl: (value: TrustCenterControl) => T;
+    trustCenterFaq: (value: TrustCenterFaqAttribute) => T;
+    trustCenterUpdate: (value: TrustCenterUpdateAttribute) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains the requested listing attributes and pagination information.</p>
+ * @public
+ */
+export interface ListListingAttributesOutput {
+  /**
+   * <p>The locale of the returned content. See <code>Locale</code> for details.</p>
+   * @public
+   */
+  locale?: string | undefined;
+
+  /**
+   * <p>The requested attributes. Each entry contains one attribute type.</p>
+   * @public
+   */
+  listingAttributes: ListingAttributeResults[] | undefined;
+
+  /**
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3399,13 +4193,13 @@ export interface ListFulfillmentOptionsOutput {
  */
 export interface PurchaseOptionFilter {
   /**
-   * <p>The type of filter to apply, such as <code>PRODUCT_ID</code>, <code>VISIBILITY_SCOPE</code>, or <code>PURCHASE_OPTION_TYPE</code>.</p>
+   * <p>The type of filter to apply. This field has one of the following values:</p> <dl> <dt>AVAILABILITY_STATUS</dt> <dd> <p>Filters by whether the purchase option is available or expired.</p> </dd> <dt>PRODUCT_ID</dt> <dd> <p>Filters by product.</p> </dd> <dt>PURCHASE_OPTION_TYPE</dt> <dd> <p>Filters by offer or offer set.</p> </dd> <dt>SELLER_OF_RECORD_PROFILE_ID</dt> <dd> <p>Filters by seller.</p> </dd> <dt>VISIBILITY_SCOPE</dt> <dd> <p>Filters by visibility.</p> </dd> </dl> <p>See <code>filterValues</code> for the values that each type accepts.</p>
    * @public
    */
   filterType: PurchaseOptionFilterType | undefined;
 
   /**
-   * <p>The values to filter by. Supported values depend on <code>filterType</code>:</p> <ul> <li> <p> <code>PRODUCT_ID</code> – One or more product identifiers to filter by.</p> </li> <li> <p> <code>SELLER_OF_RECORD_PROFILE_ID</code> – One or more seller profile identifiers to filter by.</p> </li> <li> <p> <code>PURCHASE_OPTION_TYPE</code> – One or more purchase option types to filter by: <code>OFFER</code> or <code>OFFERSET</code>.</p> </li> <li> <p> <code>VISIBILITY_SCOPE</code> – The visibility scope to filter by: <code>PRIVATE</code>.</p> </li> <li> <p> <code>AVAILABILITY_STATUS</code> – One or more availability statuses to filter by: <code>AVAILABLE</code> or <code>EXPIRED</code>.</p> </li> </ul> <p>To retrieve private offers and offer sets visible to you, use <code>VISIBILITY_SCOPE</code> with <code>PRIVATE</code>. OR logic combines multiple values within the same filter.</p>
+   * <p>The values to filter by. Supported values depend on <code>filterType</code>:</p> <dl> <dt>AVAILABILITY_STATUS</dt> <dd> <p>One or more availability statuses to filter by: <code>AVAILABLE</code> or <code>EXPIRED</code>.</p> </dd> <dt>PRODUCT_ID</dt> <dd> <p>One or more product identifiers to filter by.</p> </dd> <dt>PURCHASE_OPTION_TYPE</dt> <dd> <p>One or more purchase option types to filter by: <code>OFFER</code> or <code>OFFERSET</code>.</p> </dd> <dt>SELLER_OF_RECORD_PROFILE_ID</dt> <dd> <p>One or more seller profile identifiers to filter by.</p> </dd> <dt>VISIBILITY_SCOPE</dt> <dd> <p>The visibility scope to filter by: <code>PRIVATE</code>.</p> </dd> </dl> <p>To retrieve private offers and offer sets visible to you, use <code>VISIBILITY_SCOPE</code> with <code>PRIVATE</code>. Within one filter, a result matches if it has any of the values.</p>
    * @public
    */
   filterValues: string[] | undefined;
@@ -3416,25 +4210,25 @@ export interface PurchaseOptionFilter {
  */
 export interface ListPurchaseOptionsInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * <p>The preferred locale for response content, as a Best Current Practice 47 (BCP 47) language tag or a comma-separated priority list of language tags. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If you omit this field, the service returns content in the default locale.</p>
    * @public
    */
   locale?: string | undefined;
 
   /**
-   * <p>Filters to narrow the results. Multiple filters are combined with AND logic. Multiple values within the same filter are combined with OR logic.</p>
+   * <p>Filters to narrow the results. A result must match every filter. Within one filter, a result matches if it has any of the values.</p>
    * @public
    */
   filters?: PurchaseOptionFilter[] | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to get more results.</p>
+   * <p>The maximum number of purchase options to return in each call. If you omit this field, the default is 25. Use <code>nextToken</code> to retrieve the next page.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3465,7 +4259,7 @@ export interface PurchaseOptionAssociatedEntity {
 }
 
 /**
- * <p>Summary information about a purchase option (offer or offer set) available to the buyer, including the seller, badges, and associated products.</p>
+ * <p>Summary information about a purchase option (offer or offer set) available to you, including the seller, badges, and associated products.</p>
  * @public
  */
 export interface PurchaseOptionSummary {
@@ -3482,7 +4276,7 @@ export interface PurchaseOptionSummary {
   catalog: string | undefined;
 
   /**
-   * <p>The type of purchase option. Values are <code>OFFER</code> for a single-product offer or <code>OFFERSET</code> for a bundled offer set.</p>
+   * <p>The type of purchase option. This field has one of the following values:</p> <dl> <dt>OFFER</dt> <dd> <p>An offer for a single product.</p> </dd> <dt>OFFERSET</dt> <dd> <p>An offer set that bundles offers for several products.</p> </dd> </dl>
    * @public
    */
   purchaseOptionType: PurchaseOptionType | undefined;
@@ -3494,7 +4288,7 @@ export interface PurchaseOptionSummary {
   purchaseOptionName?: string | undefined;
 
   /**
-   * <p>The date and time when the purchase option became available to the buyer.</p>
+   * <p>The date and time when the purchase option became available to you.</p>
    * @public
    */
   availableFromTime?: Date | undefined;
@@ -3512,7 +4306,7 @@ export interface PurchaseOptionSummary {
   sellerOfRecord: SellerInformation | undefined;
 
   /**
-   * <p>Badges indicating special attributes of the purchase option, such as private pricing or future dated.</p>
+   * <p>Badges indicating special attributes of the purchase option, such as private pricing or future-dated.</p>
    * @public
    */
   badges?: PurchaseOptionBadge[] | undefined;
@@ -3529,13 +4323,13 @@ export interface PurchaseOptionSummary {
  */
 export interface ListPurchaseOptionsOutput {
   /**
-   * <p>The purchase options available to the buyer. Each option is either an offer for a single product or an offer set spanning multiple products.</p>
+   * <p>The purchase options available to you. Each option is either an offer for a single product or an offer set spanning multiple products.</p>
    * @public
    */
   purchaseOptions?: PurchaseOptionSummary[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3547,13 +4341,13 @@ export interface ListPurchaseOptionsOutput {
  */
 export interface SearchFilter {
   /**
-   * <p>The type of filter to apply.</p>
+   * <p>The type of filter to apply. See <code>filterValues</code> for the supported types and their values.</p>
    * @public
    */
   filterType: SearchFilterType | undefined;
 
   /**
-   * <p>The values to filter by. Term filters accept multiple values (OR logic). Range filters (MIN/MAX_AVERAGE_CUSTOMER_RATING) accept a single value between 0.0 and 5.0.</p>
+   * <p>The values to filter by. Term filters accept multiple values, and a result matches if it has any of them. Range filters accept a single value. The supported values for each <code>filterType</code> are as follows:</p> <dl> <dt>CATEGORY</dt> <dd> <p>One or more category identifiers. Matches listings in those categories.</p> </dd> <dt>CERTIFICATES</dt> <dd> <p>One or more certification identifiers, such as <code>ISO_27001</code> or <code>SOC2_TYPE_2</code>. Matches listings that hold those certifications.</p> </dd> <dt>DEPLOYED_ON_AWS</dt> <dd> <p>The single value <code>DEPLOYED_ON_AWS</code>. Matches listings whose products are deployed on AWS infrastructure.</p> </dd> <dt>FULFILLMENT_OPTION_TYPE</dt> <dd> <p>One or more fulfillment option types, such as <code>SAAS</code>, <code>AMAZON_MACHINE_IMAGE</code>, or <code>CONTAINER</code>. Matches listings that you can deploy or access in those ways.</p> </dd> <dt>MAX_AVERAGE_CUSTOMER_RATING</dt> <dd> <p>A single rating between <code>0.0</code> and <code>5.0</code>. Matches listings whose average customer rating is at or below that value.</p> </dd> <dt>MIN_AVERAGE_CUSTOMER_RATING</dt> <dd> <p>A single rating between <code>0.0</code> and <code>5.0</code>. Matches listings whose average customer rating is at or above that value.</p> </dd> <dt>NUMBER_OF_PRODUCTS</dt> <dd> <p> <code>SINGLE_PRODUCT</code> or <code>MULTI_PRODUCT</code>. Matches single-product listings or multi-product solutions.</p> </dd> <dt>PRICING_MODEL</dt> <dd> <p>One or more of <code>BYOL</code>, <code>CONTRACT</code>, <code>FREE</code>, and <code>USAGE</code>. Matches listings with offers that use those pricing models.</p> </dd> <dt>PRICING_UNIT</dt> <dd> <p>One or more pricing units, such as <code>USERS</code>, <code>HOSTS</code>, or <code>REQUESTS</code>. Matches listings that bill by those units.</p> </dd> <dt>PRODUCT_ID</dt> <dd> <p>One or more product identifiers. Matches listings that contain those products.</p> </dd> <dt>PUBLISHER</dt> <dd> <p>One or more publisher identifiers. Matches listings from those sellers.</p> </dd> <dt>SELLER_ENGAGEMENT</dt> <dd> <p>One or more <code>SellerEngagementType</code> values, such as <code>BUY_NOW</code> or <code>REQUEST_FOR_DEMO</code>. Matches listings that offer those ways to engage with the seller.</p> </dd> <dt>SPECIALIZATION</dt> <dd> <p>One or more specialization identifiers. Matches listings that earned those specializations.</p> </dd> <dt>SPECIALIZATION_CATEGORY</dt> <dd> <p>One or more specialization category identifiers. Matches listings that earned a category under a specialization.</p> </dd> <dt>TRUST_CENTER</dt> <dd> <p>The single value <code>HAS_TRUST_CENTER</code>. Matches listings that have a trust center.</p> </dd> </dl> <p>Use <code>SearchFacets</code> to retrieve the values available for <code>CATEGORY</code>, <code>PUBLISHER</code>, <code>CERTIFICATES</code>, <code>SPECIALIZATION</code>, and <code>SPECIALIZATION_CATEGORY</code>.</p>
    * @public
    */
   filterValues: string[] | undefined;
@@ -3564,7 +4358,7 @@ export interface SearchFilter {
  */
 export interface SearchFacetsInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * <p>The preferred locale for response content, as a Best Current Practice 47 (BCP 47) language tag or a comma-separated priority list of language tags. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If you omit this field, the service returns content in the default locale.</p>
    * @public
    */
   locale?: string | undefined;
@@ -3576,19 +4370,19 @@ export interface SearchFacetsInput {
   searchText?: string | undefined;
 
   /**
-   * <p>Filters to apply before retrieving facets. Multiple filters are combined with AND logic. Multiple values within the same filter are combined with OR logic.</p>
+   * <p>Filters to apply before retrieving facets. A result must match every filter. Within one filter, a result matches if it has any of the values.</p>
    * @public
    */
   filters?: SearchFilter[] | undefined;
 
   /**
-   * <p>A list of specific facet types to retrieve. If empty or null, all available facets are returned.</p>
+   * <p>The facet types to retrieve. If you omit this field or leave it empty, the service returns all available facets.</p>
    * @public
    */
   facetTypes?: SearchFacetType[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3641,7 +4435,7 @@ export interface SearchFacetsOutput {
   listingFacets: Partial<Record<SearchFacetType, ListingFacet[]>> | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3652,7 +4446,7 @@ export interface SearchFacetsOutput {
  */
 export interface SearchListingsInput {
   /**
-   * <p>A BCP 47 language tag or comma-separated priority list specifying the preferred locale for response content. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If omitted, the service returns content in the default locale.</p>
+   * <p>The preferred locale for response content, as a Best Current Practice 47 (BCP 47) language tag or a comma-separated priority list of language tags. See <code>Locale</code> for supported values, constraints, fallback behavior, and the default locale. If you omit this field, the service returns content in the default locale.</p>
    * @public
    */
   locale?: string | undefined;
@@ -3664,31 +4458,31 @@ export interface SearchListingsInput {
   searchText?: string | undefined;
 
   /**
-   * <p>Filters to narrow search results. Multiple filters are combined with AND logic. Multiple values within the same filter are combined with OR logic.</p>
+   * <p>Filters to narrow search results. A result must match every filter. Within one filter, a result matches if it has any of the values.</p>
    * @public
    */
   filters?: SearchFilter[] | undefined;
 
   /**
-   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to get more results.</p>
+   * <p>The maximum number of listings to return in each call. If you omit this field, the default is 25. Use <code>nextToken</code> to retrieve the next page.</p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p>The field to sort results by. Valid values are <code>RELEVANCE</code> and <code>AVERAGE_CUSTOMER_RATING</code>.</p>
+   * <p>The field to sort results by. If you do not specify a value, the service sorts by <code>RELEVANCE</code>. This field has one of the following values:</p> <dl> <dt>AVERAGE_CUSTOMER_RATING</dt> <dd> <p>Sorts by average customer rating.</p> </dd> <dt>RELEVANCE</dt> <dd> <p>Sorts by relevance to the search query.</p> </dd> </dl>
    * @public
    */
   sortBy?: SearchListingsSortBy | undefined;
 
   /**
-   * <p>The sort direction. Valid values are <code>DESCENDING</code> and <code>ASCENDING</code>.</p>
+   * <p>The sort direction. If you do not specify a value, the service sorts in <code>DESCENDING</code> order. This field has one of the following values:</p> <dl> <dt>ASCENDING</dt> <dd> <p>Sorts from lowest to highest.</p> </dd> <dt>DESCENDING</dt> <dd> <p>Sorts from highest to lowest.</p> </dd> </dl>
    * @public
    */
   sortOrder?: SearchListingsSortOrder | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3704,6 +4498,138 @@ export interface ListingSummaryAssociatedEntity {
    * @public
    */
   product?: ProductInformation | undefined;
+}
+
+/**
+ * <p>A summary of the case studies associated with a listing.</p>
+ * @public
+ */
+export interface CaseStudiesSummary {
+  /**
+   * <p>The total number of case studies associated with the listing.</p>
+   * @public
+   */
+  caseStudyCount: number | undefined;
+}
+
+/**
+ * <p>Summary information for a certification associated with a listing.</p>
+ * @public
+ */
+export interface TrustCenterCertificationSummary {
+  /**
+   * <p>The certification type. The set of values is open and can include provider-defined certifications.</p>
+   * @public
+   */
+  certificationType: string | undefined;
+
+  /**
+   * <p>The certification name displayed to you.</p>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>The URL of the certification logo.</p>
+   * @public
+   */
+  logoUrl: string | undefined;
+}
+
+/**
+ * <p>Summary information for a source of trust center information.</p>
+ * @public
+ */
+export interface TrustCenterSourceSummary {
+  /**
+   * <p>The format of the trust center source value.</p>
+   * @public
+   */
+  contentType: ResourceContentType | undefined;
+
+  /**
+   * <p>The URL of the trust center.</p>
+   * @public
+   */
+  value: string | undefined;
+
+  /**
+   * <p>The trust center provider name displayed to you.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The provider hosting the trust center.</p>
+   * @public
+   */
+  provider: TrustCenterProvider | undefined;
+}
+
+/**
+ * <p>A summary of trust center information associated with a listing.</p>
+ * @public
+ */
+export interface TrustCenterSummary {
+  /**
+   * <p>Trust center source summaries associated with the listing.</p>
+   * @public
+   */
+  sourceSummaries: TrustCenterSourceSummary[] | undefined;
+
+  /**
+   * <p>A subset of certifications associated with the listing, selected by importance.</p>
+   * @public
+   */
+  certificationSummaries: TrustCenterCertificationSummary[] | undefined;
+
+  /**
+   * <p>The total number of distinct certifications associated with the listing, including certifications omitted from <code>certificationSummaries</code>.</p>
+   * @public
+   */
+  totalCertificationCount: number | undefined;
+}
+
+/**
+ * <p>The name and identifier of a use case.</p>
+ * @public
+ */
+export interface UseCaseInformation {
+  /**
+   * <p>The human-readable name of the use case.</p>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>The machine-readable identifier of the use case.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * <p>A use case entry, as in <code>GetListing</code> without the description.</p>
+ * @public
+ */
+export interface UseCaseSummaryEntry {
+  /**
+   * <p>The name and identifier of the use case.</p>
+   * @public
+   */
+  useCase: UseCaseInformation | undefined;
+}
+
+/**
+ * <p>The use cases of a listing, in summary form.</p>
+ * @public
+ */
+export interface UseCaseSummary {
+  /**
+   * <p>The use cases, in the order the seller defined them.</p>
+   * @public
+   */
+  useCases: UseCaseSummaryEntry[] | undefined;
 }
 
 /**
@@ -3754,7 +4680,7 @@ export interface ListingSummary {
   logoThumbnailUrl: string | undefined;
 
   /**
-   * <p>The categories used to classify this listing into logical groups.</p>
+   * <p>The categories that classify this listing into logical groups.</p>
    * @public
    */
   categories: Category[] | undefined;
@@ -3788,6 +4714,30 @@ export interface ListingSummary {
    * @public
    */
   associatedEntities: ListingSummaryAssociatedEntity[] | undefined;
+
+  /**
+   * <p>A summary of trust center sources and certifications associated with the listing.</p>
+   * @public
+   */
+  trustCenterSummary?: TrustCenterSummary | undefined;
+
+  /**
+   * <p>A summary of the case studies associated with the listing. Retrieve the case studies with <code>ListListingAttributes</code>.</p>
+   * @public
+   */
+  caseStudiesSummary?: CaseStudiesSummary | undefined;
+
+  /**
+   * <p>A summary of the use cases the listing is written for: the name and identifier of each, without descriptions. The summary is empty when the listing has none.</p>
+   * @public
+   */
+  useCaseSummary?: UseCaseSummary | undefined;
+
+  /**
+   * <p>The seller engagement options available for this listing, such as buying now, requesting a private offer, or requesting a demo.</p>
+   * @public
+   */
+  sellerEngagements?: SellerEngagement[] | undefined;
 }
 
 /**
@@ -3807,7 +4757,7 @@ export interface SearchListingsOutput {
   listingSummaries: ListingSummary[] | undefined;
 
   /**
-   * <p>If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page.</p>
+   * <p>If the service returns <code>nextToken</code>, more results are available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again with the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. An expired pagination token returns a <code>ValidationException</code>.</p>
    * @public
    */
   nextToken?: string | undefined;

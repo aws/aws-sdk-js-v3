@@ -16,6 +16,10 @@ const _CFO = "ContainerFulfillmentOption";
 const _CL = "CategoryList";
 const _COS = "ContainerOperatingSystem";
 const _COSL = "ContainerOperatingSystemList";
+const _CS = "CaseStudy";
+const _CSR = "CaseStudyResource";
+const _CSRL = "CaseStudyResourceList";
+const _CSS = "CaseStudiesSummary";
 const _CUPT = "ConfigurableUpfrontPricingTerm";
 const _CURCI = "ConfigurableUpfrontRateCardItem";
 const _CURCL = "ConfigurableUpfrontRateCardList";
@@ -30,6 +34,7 @@ const _DLo = "DocumentList";
 const _EAOFO = "EksAddOnFulfillmentOption";
 const _EAOOS = "EksAddOnOperatingSystem";
 const _EAOOSL = "EksAddOnOperatingSystemList";
+const _ED = "EngagementDates";
 const _EIBCFO = "Ec2ImageBuilderComponentFulfillmentOption";
 const _FO = "FulfillmentOption";
 const _FOL = "FulfillmentOptionsList";
@@ -61,6 +66,8 @@ const _HOSL = "HelmOperatingSystemList";
 const _ISE = "InternalServerException";
 const _LAE = "ListingAssociatedEntity";
 const _LAEL = "ListingAssociatedEntityList";
+const _LAR = "ListingAttributeResults";
+const _LARL = "ListingAttributeResultsList";
 const _LB = "ListingBadge";
 const _LBL = "ListingBadgeList";
 const _LF = "ListingFacet";
@@ -68,6 +75,9 @@ const _LFL = "ListingFacetList";
 const _LFO = "ListFulfillmentOptions";
 const _LFOI = "ListFulfillmentOptionsInput";
 const _LFOO = "ListFulfillmentOptionsOutput";
+const _LLA = "ListListingAttributes";
+const _LLAI = "ListListingAttributesInput";
+const _LLAO = "ListListingAttributesOutput";
 const _LPO = "ListPurchaseOptions";
 const _LPOI = "ListPurchaseOptionsInput";
 const _LPOO = "ListPurchaseOptionsOutput";
@@ -88,7 +98,9 @@ const _OTL = "OfferTermsList";
 const _PEI = "PromotionalEmbeddedImage";
 const _PEV = "PromotionalEmbeddedVideo";
 const _PI = "ProductInformation";
+const _PIL = "PurchaseIndicatorList";
 const _PIr = "PriceIncrease";
+const _PIu = "PurchaseIndicator";
 const _PM = "PricingModel";
 const _PML = "PricingModelList";
 const _PMLr = "PromotionalMediaList";
@@ -114,12 +126,19 @@ const _RCI = "RateCardItem";
 const _RCL = "RateCardList";
 const _RL = "ResourceList";
 const _RNFE = "ResourceNotFoundException";
+const _RP = "RegionalPrice";
+const _RPL = "RegionalPriceList";
 const _RPT = "RecurringPaymentTerm";
 const _RS = "ReviewSummary";
 const _RSS = "ReviewSourceSummary";
 const _RSSL = "ReviewSourceSummaryList";
 const _RT = "RenewalTerm";
 const _S = "Selector";
+const _SC = "SpecializationCategory";
+const _SCFDT = "SaasCloudFormationDeploymentTemplate";
+const _SD = "SpecializationDetail";
+const _SDT = "SaasDeploymentTemplate";
+const _SDTL = "SaasDeploymentTemplateList";
 const _SE = "SellerEngagement";
 const _SEL = "SellerEngagementList";
 const _SF = "SearchFilter";
@@ -139,6 +158,20 @@ const _SMAR = "SageMakerAlgorithmRecommendation";
 const _SMMFO = "SageMakerModelFulfillmentOption";
 const _SMMR = "SageMakerModelRecommendation";
 const _ST = "SupportTerm";
+const _STD = "SpecializationTypeDetail";
+const _STL = "SpecializationTypeList";
+const _Sp = "Specialization";
+const _TCC = "TrustCenterControl";
+const _TCCA = "TrustCenterCertificationAttribute";
+const _TCCS = "TrustCenterCertificationSummary";
+const _TCCSL = "TrustCenterCertificationSummaryList";
+const _TCDA = "TrustCenterDocumentAttribute";
+const _TCFA = "TrustCenterFaqAttribute";
+const _TCS = "TrustCenterSource";
+const _TCSS = "TrustCenterSourceSummary";
+const _TCSSL = "TrustCenterSourceSummaryList";
+const _TCSr = "TrustCenterSummary";
+const _TCUA = "TrustCenterUpdateAttribute";
 const _TE = "ThrottlingException";
 const _TT = "TermTemplate";
 const _TTFM = "TypeToFacetMap";
@@ -148,13 +181,18 @@ const _UBRCI = "UsageBasedRateCardItem";
 const _UBRCL = "UsageBasedRateCardList";
 const _UC = "UseCase";
 const _UCE = "UseCaseEntry";
+const _UCI = "UseCaseInformation";
 const _UCL = "UseCaseList";
+const _UCS = "UseCaseSummary";
+const _UCSE = "UseCaseSummaryEntry";
+const _UCSL = "UseCaseSummaryList";
 const _VE = "ValidationException";
 const _VPT = "VariablePaymentTerm";
 const _VT = "ValidityTerm";
 const _a = "architecture";
 const _aA = "amiAlias";
 const _aD = "adjustmentDeadline";
+const _aDU = "architectureDiagramUrl";
 const _aDg = "agreementDuration";
 const _aE = "associatedEntities";
 const _aED = "agreementEndDate";
@@ -165,7 +203,10 @@ const _aPI = "agreementProposalId";
 const _aR = "averageRating";
 const _aSD = "agreementStartDate";
 const _aSS = "awsSupportedServices";
+const _aT = "attributeTypes";
+const _aTc = "accessType";
 const _aUT = "accessUrlTemplate";
+const _an = "answer";
 const _b = "badges";
 const _bN = "buyerNotes";
 const _bP = "billingPeriod";
@@ -174,17 +215,28 @@ const _bT = "badgeType";
 const _c = "client";
 const _cA = "chargeAmount";
 const _cC = "currencyCode";
-const _cD = "chargeDate";
+const _cD = "completionDate";
 const _cDO = "chargeDateOffset";
+const _cDh = "chargeDate";
+const _cFDT = "cloudFormationDeploymentTemplate";
 const _cFFO = "cloudFormationFulfillmentOption";
 const _cFO = "containerFulfillmentOption";
 const _cI = "categoryId";
 const _cIA = "cidrIpAddresses";
 const _cP = "chargePercentage";
+const _cS = "certificationSummaries";
+const _cSC = "caseStudyCount";
+const _cSI = "caseStudyId";
+const _cSIa = "caseStudyIds";
+const _cSN = "caseStudyName";
+const _cSS = "caseStudiesSummary";
+const _cSa = "caseStudy";
 const _cT = "contentType";
+const _cTe = "certificationType";
 const _cUPT = "configurableUpfrontPricingTerm";
 const _ca = "catalog";
 const _cat = "categories";
+const _ch = "challenge";
 const _co = "constraints";
 const _cou = "count";
 const _d = "description";
@@ -196,11 +248,16 @@ const _dL = "dimensionLabels";
 const _dN = "displayName";
 const _dOA = "deployedOnAws";
 const _dOM = "dayOfMonth";
+const _dSN = "defaultStackName";
+const _dT = "deploymentTemplates";
+const _dTU = "deploymentTemplateUrl";
 const _dV = "defaultValue";
 const _do = "documents";
+const _dom = "domains";
 const _du = "duration";
 const _e = "error";
 const _eAOFO = "eksAddOnFulfillmentOption";
+const _eD = "engagementDates";
 const _eI = "embeddedImage";
 const _eIBCFO = "ec2ImageBuilderComponentFulfillmentOption";
 const _eT = "expirationTime";
@@ -229,10 +286,14 @@ const _hE = "httpError";
 const _hFO = "helmFulfillmentOption";
 const _ht = "http";
 const _i = "iops";
+const _iA = "implementationApproach";
 const _iG = "integrationGuide";
+const _iP = "iamPolicy";
 const _iT = "instanceType";
+const _iTn = "indicatorType";
 const _id = "id";
 const _l = "locale";
+const _lA = "listingAttributes";
 const _lD = "longDescription";
 const _lF = "listingFacets";
 const _lI = "listingId";
@@ -243,6 +304,7 @@ const _lT = "labelType";
 const _lTU = "logoThumbnailUrl";
 const _lTe = "legalTerm";
 const _lU = "launchUrl";
+const _lUo = "logoUrl";
 const _lV = "labelValue";
 const _m = "message";
 const _mDS = "multipleDimensionSelection";
@@ -253,9 +315,10 @@ const _mTCA = "maxTotalChargeAmount";
 const _mV = "minimumValue";
 const _mVa = "maximumValue";
 const _ma = "manufacturer";
+const _n = "name";
 const _nPT = "netPaymentTerm";
 const _nT = "nextToken";
-const _o = "offer";
+const _o = "outcome";
 const _oI = "offerId";
 const _oN = "offerName";
 const _oS = "operatingSystems";
@@ -266,10 +329,12 @@ const _oSNf = "offerSetName";
 const _oSV = "operatingSystemVersion";
 const _oSf = "offerSet";
 const _oT = "offerTerms";
+const _of = "offer";
 const _p = "protocol";
 const _pDP = "paymentDuePeriod";
-const _pI = "productId";
-const _pIr = "priceIncrease";
+const _pI = "purchaseIndicators";
+const _pIr = "productId";
+const _pIri = "priceIncrease";
 const _pM = "pricingModels";
 const _pMT = "pricingModelType";
 const _pMr = "promotionalMedia";
@@ -281,8 +346,10 @@ const _pON = "purchaseOptionName";
 const _pOT = "purchaseOptionType";
 const _pR = "percentageRange";
 const _pSFO = "professionalServicesFulfillmentOption";
+const _pSI = "parentSpecializationId";
 const _pST = "paymentScheduleTerm";
 const _pSTT = "paymentScheduleTermTemplate";
+const _pT = "publishedTime";
 const _pU = "pricingUnits";
 const _pUT = "pricingUnitType";
 const _pV = "percentageValue";
@@ -290,7 +357,9 @@ const _pa = "parent";
 const _pr = "price";
 const _pre = "preview";
 const _pro = "product";
+const _prov = "provider";
 const _pu = "publisher";
+const _q = "question";
 const _qC = "quantityConfiguration";
 const _qL = "quickLaunch";
 const _r = "reason";
@@ -300,8 +369,9 @@ const _rBTIT = "recommendedBatchTransformInstanceType";
 const _rC = "rateCards";
 const _rCa = "rateCard";
 const _rN = "releaseNotes";
-const _rP = "refundPolicy";
+const _rP = "regionalPrices";
 const _rPT = "recurringPaymentTerm";
+const _rPe = "refundPolicy";
 const _rRIIT = "recommendedRealtimeInferenceInstanceType";
 const _rS = "reviewSummary";
 const _rSS = "reviewSourceSummaries";
@@ -309,47 +379,72 @@ const _rT = "resourceType";
 const _rTIT = "recommendedTrainingInstanceType";
 const _rTe = "renewalTerm";
 const _re = "recommendation";
-const _res = "resources";
+const _reg = "region";
+const _res = "resolution";
+const _reso = "resources";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.marketplacediscovery";
+const _sA = "subjectArea";
 const _sB = "sortBy";
+const _sC = "specializationCategory";
+const _sCI = "specializationCategoryId";
+const _sCN = "specializationCategoryName";
 const _sCT = "supportedContentTypes";
 const _sD = "shortDescription";
+const _sDp = "specializationDetail";
+const _sDt = "startDate";
 const _sE = "sellerEngagements";
 const _sFO = "saasFulfillmentOption";
 const _sG = "securityGroups";
 const _sI = "sourceId";
+const _sIp = "specializationId";
 const _sMAFO = "sageMakerAlgorithmFulfillmentOption";
 const _sMMFO = "sageMakerModelFulfillmentOption";
 const _sN = "sourceName";
+const _sNp = "specializationName";
 const _sO = "sortOrder";
 const _sOR = "sellerOfRecord";
 const _sPI = "sellerProfileId";
 const _sRMT = "supportedResponseMimeTypes";
+const _sS = "sourceSummaries";
 const _sST = "supportedServiceType";
 const _sT = "searchText";
+const _sTp = "specializationTypes";
+const _sTpe = "specializationType";
 const _sTu = "supportTerm";
 const _sU = "sourceUrl";
 const _sc = "schedule";
 const _se = "server";
 const _sel = "selector";
+const _sp = "specialization";
 const _t = "type";
+const _tCC = "totalCertificationCount";
+const _tCCr = "trustCenterCertification";
+const _tCCru = "trustCenterControl";
+const _tCD = "trustCenterDocument";
+const _tCF = "trustCenterFaq";
+const _tCS = "trustCenterSummary";
+const _tCSr = "trustCenterSource";
+const _tCU = "trustCenterUpdate";
+const _tN = "templateName";
 const _tP = "toPort";
 const _tR = "totalReviews";
 const _tRo = "totalResults";
 const _tT = "termTemplates";
+const _tU = "templateUrl";
 const _th = "thumbnail";
 const _ti = "title";
 const _u = "url";
 const _uBPT = "usageBasedPricingTerm";
 const _uC = "useCases";
+const _uCS = "useCaseSummary";
 const _uCs = "useCase";
 const _uI = "usageInstructions";
 const _un = "unit";
-const _v = "version";
+const _v = "value";
 const _vPT = "variablePaymentTerm";
 const _vT = "volumeTypes";
 const _vTa = "validityTerm";
-const _va = "value";
+const _ve = "version";
 const n0 = "com.amazonaws.marketplacediscovery";
 
 // smithy-typescript generated code
@@ -456,6 +551,21 @@ export var ByolPricingTerm$: StaticStructureSchema = [3, n0, _BPT,
   [_id, _t],
   [0, 0], 2
 ];
+export var CaseStudiesSummary$: StaticStructureSchema = [3, n0, _CSS,
+  0,
+  [_cSC],
+  [1], 1
+];
+export var CaseStudy$: StaticStructureSchema = [3, n0, _CS,
+  0,
+  [_cSI, _cSN, _sD, _eD, _ch, _res, _iA, _o, _reso],
+  [0, 0, 0, () => EngagementDates$, 0, 0, 0, 0, () => CaseStudyResourceList], 3
+];
+export var CaseStudyResource$: StaticStructureSchema = [3, n0, _CSR,
+  0,
+  [_cT, _v, _rT, _dN],
+  [0, 0, 0, 0], 3
+];
 export var Category$: StaticStructureSchema = [3, n0, _C,
   0,
   [_cI, _dN],
@@ -463,8 +573,8 @@ export var Category$: StaticStructureSchema = [3, n0, _C,
 ];
 export var CloudFormationFulfillmentOption$: StaticStructureSchema = [3, n0, _CFFO,
   0,
-  [_fOI, _fON, _fOT, _fODN, _fOV, _rN, _uI, _aFT, _sD, _lD],
-  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0], 4
+  [_fOI, _fON, _fOT, _fODN, _fOV, _rN, _uI, _aFT, _aDU, _dTU, _sD, _lD],
+  [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0], 4
 ];
 export var ConfigurableUpfrontPricingTerm$: StaticStructureSchema = [3, n0, _CUPT,
   0,
@@ -508,7 +618,7 @@ export var DimensionLabel$: StaticStructureSchema = [3, n0, _DL,
 ];
 export var DocumentItem$: StaticStructureSchema = [3, n0, _DI,
   0,
-  [_t, _u, _v],
+  [_t, _u, _ve],
   [0, 0, 0], 2
 ];
 export var Ec2ImageBuilderComponentFulfillmentOption$: StaticStructureSchema = [3, n0, _EIBCFO,
@@ -525,6 +635,11 @@ export var EksAddOnOperatingSystem$: StaticStructureSchema = [3, n0, _EAOOS,
   0,
   [_oSFN, _oSN],
   [0, 0], 2
+];
+export var EngagementDates$: StaticStructureSchema = [3, n0, _ED,
+  0,
+  [_sDt, _cD],
+  [4, 4], 1
 ];
 export var FixedPercentage$: StaticStructureSchema = [3, n0, _FP,
   0,
@@ -553,8 +668,8 @@ export var GetListingInput$: StaticStructureSchema = [3, n0, _GLI,
 ];
 export var GetListingOutput$: StaticStructureSchema = [3, n0, _GLO,
   0,
-  [_aE, _b, _ca, _cat, _fOS, _h, _lI, _lN, _lTU, _lD, _pM, _pU, _pMr, _pu, _res, _sE, _sD, _uC, _l, _iG, _rS],
-  [() => ListingAssociatedEntityList, () => ListingBadgeList, 0, () => CategoryList, () => FulfillmentOptionSummaryList, 64 | 0, 0, 0, 0, 0, () => PricingModelList, () => PricingUnitList, () => PromotionalMediaList, () => SellerInformation$, () => ResourceList, () => SellerEngagementList, 0, () => UseCaseList, 0, 0, () => ReviewSummary$], 18
+  [_aE, _b, _ca, _cat, _fOS, _h, _lI, _lN, _lTU, _lD, _pM, _pU, _pMr, _pu, _reso, _sE, _sD, _uC, _pI, _l, _iG, _rS],
+  [() => ListingAssociatedEntityList, () => ListingBadgeList, 0, () => CategoryList, () => FulfillmentOptionSummaryList, 64 | 0, 0, 0, 0, 0, () => PricingModelList, () => PricingUnitList, () => PromotionalMediaList, () => SellerInformation$, () => ResourceList, () => SellerEngagementList, 0, () => UseCaseList, () => PurchaseIndicatorList, 0, 0, () => ReviewSummary$], 19
 ];
 export var GetOfferInput$: StaticStructureSchema = [3, n0, _GOI,
   0,
@@ -588,13 +703,13 @@ export var GetOfferTermsOutput$: StaticStructureSchema = [3, n0, _GOTO,
 ];
 export var GetProductInput$: StaticStructureSchema = [3, n0, _GPI,
   0,
-  [_pI, _l],
+  [_pIr, _l],
   [0, 0], 1
 ];
 export var GetProductOutput$: StaticStructureSchema = [3, n0, _GPO,
   0,
-  [_pI, _ca, _pN, _ma, _dOA, _sD, _lD, _lTU, _fOS, _cat, _h, _pMr, _res, _sE, _lI, _l],
-  [0, 0, 0, () => SellerInformation$, 0, 0, 0, 0, () => FulfillmentOptionSummaryList, () => CategoryList, 64 | 0, () => PromotionalMediaList, () => ResourceList, () => SellerEngagementList, 0, 0], 15
+  [_pIr, _ca, _pN, _ma, _dOA, _sD, _lD, _lTU, _fOS, _cat, _h, _pMr, _reso, _sE, _lI, _pI, _l],
+  [0, 0, 0, () => SellerInformation$, 0, 0, 0, 0, () => FulfillmentOptionSummaryList, () => CategoryList, 64 | 0, () => PromotionalMediaList, () => ResourceList, () => SellerEngagementList, 0, () => PurchaseIndicatorList, 0], 16
 ];
 export var GrantItem$: StaticStructureSchema = [3, n0, _GI,
   0,
@@ -618,7 +733,7 @@ export var LegalTerm$: StaticStructureSchema = [3, n0, _LT,
 ];
 export var ListFulfillmentOptionsInput$: StaticStructureSchema = [3, n0, _LFOI,
   0,
-  [_pI, _l, _mR, _nT],
+  [_pIr, _l, _mR, _nT],
   [0, 0, 1, 0], 1
 ];
 export var ListFulfillmentOptionsOutput$: StaticStructureSchema = [3, n0, _LFOO,
@@ -628,7 +743,7 @@ export var ListFulfillmentOptionsOutput$: StaticStructureSchema = [3, n0, _LFOO,
 ];
 export var ListingAssociatedEntity$: StaticStructureSchema = [3, n0, _LAE,
   0,
-  [_pro, _o],
+  [_pro, _of],
   [() => ProductInformation$, () => OfferInformation$]
 ];
 export var ListingBadge$: StaticStructureSchema = [3, n0, _LB,
@@ -638,18 +753,28 @@ export var ListingBadge$: StaticStructureSchema = [3, n0, _LB,
 ];
 export var ListingFacet$: StaticStructureSchema = [3, n0, _LF,
   0,
-  [_va, _dN, _cou, _pa],
+  [_v, _dN, _cou, _pa],
   [0, 0, 1, 0], 3
 ];
 export var ListingSummary$: StaticStructureSchema = [3, n0, _LS,
   0,
-  [_lI, _lN, _pu, _fOS, _ca, _sD, _lTU, _cat, _b, _rS, _pM, _pU, _aE],
-  [0, 0, () => SellerInformation$, () => FulfillmentOptionSummaryList, 0, 0, 0, () => CategoryList, () => ListingBadgeList, () => ReviewSummary$, () => PricingModelList, () => PricingUnitList, () => ListingSummaryAssociatedEntityList], 13
+  [_lI, _lN, _pu, _fOS, _ca, _sD, _lTU, _cat, _b, _rS, _pM, _pU, _aE, _tCS, _cSS, _uCS, _sE],
+  [0, 0, () => SellerInformation$, () => FulfillmentOptionSummaryList, 0, 0, 0, () => CategoryList, () => ListingBadgeList, () => ReviewSummary$, () => PricingModelList, () => PricingUnitList, () => ListingSummaryAssociatedEntityList, () => TrustCenterSummary$, () => CaseStudiesSummary$, () => UseCaseSummary$, () => SellerEngagementList], 13
 ];
 export var ListingSummaryAssociatedEntity$: StaticStructureSchema = [3, n0, _LSAE,
   0,
   [_pro],
   [() => ProductInformation$]
+];
+export var ListListingAttributesInput$: StaticStructureSchema = [3, n0, _LLAI,
+  0,
+  [_lI, _aT, _l, _mR, _nT],
+  [0, 64 | 0, 0, 1, 0], 2
+];
+export var ListListingAttributesOutput$: StaticStructureSchema = [3, n0, _LLAO,
+  0,
+  [_lA, _l, _nT],
+  [() => ListingAttributeResultsList, 0, 0], 1
 ];
 export var ListPurchaseOptionsInput$: StaticStructureSchema = [3, n0, _LPOI,
   0,
@@ -678,7 +803,7 @@ export var OfferInformation$: StaticStructureSchema = [3, n0, _OI,
 ];
 export var OfferSetAssociatedEntity$: StaticStructureSchema = [3, n0, _OSAE,
   0,
-  [_pro, _o],
+  [_pro, _of],
   [() => ProductInformation$, () => OfferInformation$], 2
 ];
 export var OfferSetInformation$: StaticStructureSchema = [3, n0, _OSI,
@@ -718,7 +843,7 @@ export var PricingUnit$: StaticStructureSchema = [3, n0, _PU,
 ];
 export var ProductInformation$: StaticStructureSchema = [3, n0, _PI,
   0,
-  [_pI, _pN, _ma],
+  [_pIr, _pN, _ma],
   [0, 0, () => SellerInformation$], 3
 ];
 export var ProfessionalServicesFulfillmentOption$: StaticStructureSchema = [3, n0, _PSFO,
@@ -736,9 +861,14 @@ export var PromotionalEmbeddedVideo$: StaticStructureSchema = [3, n0, _PEV,
   [_ti, _u, _pre, _th, _d],
   [0, 0, 0, 0, 0], 4
 ];
+export var PurchaseIndicator$: StaticStructureSchema = [3, n0, _PIu,
+  0,
+  [_iTn],
+  [0], 1
+];
 export var PurchaseOptionAssociatedEntity$: StaticStructureSchema = [3, n0, _POAE,
   0,
-  [_pro, _o, _oSf],
+  [_pro, _of, _oSf],
   [() => ProductInformation$, () => OfferInformation$, () => OfferSetInformation$], 2
 ];
 export var PurchaseOptionBadge$: StaticStructureSchema = [3, n0, _POB,
@@ -758,22 +888,27 @@ export var PurchaseOptionSummary$: StaticStructureSchema = [3, n0, _POS,
 ];
 export var RateCardItem$: StaticStructureSchema = [3, n0, _RCI,
   0,
-  [_dK, _dN, _un, _pr, _d, _dL],
-  [0, 0, 0, 0, 0, () => DimensionLabelList], 4
+  [_dK, _dN, _un, _pr, _rP, _d, _dL],
+  [0, 0, 0, 0, () => RegionalPriceList, 0, () => DimensionLabelList], 5
 ];
 export var RecurringPaymentTerm$: StaticStructureSchema = [3, n0, _RPT,
   0,
   [_id, _t, _cC, _bP, _pr],
   [0, 0, 0, 0, 0], 5
 ];
+export var RegionalPrice$: StaticStructureSchema = [3, n0, _RP,
+  0,
+  [_reg, _dN, _pr],
+  [0, 0, 0], 3
+];
 export var RenewalTerm$: StaticStructureSchema = [3, n0, _RT,
   0,
-  [_id, _t, _mRa, _lP, _aD, _pIr, _tT],
+  [_id, _t, _mRa, _lP, _aD, _pIri, _tT],
   [0, 0, 1, 0, 0, () => PriceIncrease$, () => TermTemplateList], 2
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_rT, _cT, _va, _dN],
+  [_rT, _cT, _v, _dN],
   [0, 0, 0, 0], 3
 ];
 export var ReviewSourceSummary$: StaticStructureSchema = [3, n0, _RSS,
@@ -786,10 +921,15 @@ export var ReviewSummary$: StaticStructureSchema = [3, n0, _RS,
   [_rSS],
   [() => ReviewSourceSummaryList], 1
 ];
+export var SaasCloudFormationDeploymentTemplate$: StaticStructureSchema = [3, n0, _SCFDT,
+  0,
+  [_tN, _dSN, _tU, _iP, _d],
+  [0, 0, 0, 0, 0], 4
+];
 export var SaasFulfillmentOption$: StaticStructureSchema = [3, n0, _SFO,
   0,
-  [_fOI, _fOT, _fODN, _qL, _fU, _uI, _aFT, _lU],
-  [0, 0, 0, 0, 0, 0, 4, 0], 4
+  [_fOI, _fOT, _fODN, _qL, _dT, _fU, _uI, _aFT, _lU],
+  [0, 0, 0, 0, () => SaasDeploymentTemplateList, 0, 0, 4, 0], 5
 ];
 export var SageMakerAlgorithmFulfillmentOption$: StaticStructureSchema = [3, n0, _SMAFO,
   0,
@@ -813,7 +953,7 @@ export var SageMakerModelRecommendation$: StaticStructureSchema = [3, n0, _SMMR,
 ];
 export var ScheduleItem$: StaticStructureSchema = [3, n0, _SI,
   0,
-  [_cD, _cA],
+  [_cDh, _cA],
   [4, 0], 2
 ];
 export var SearchFacetsInput$: StaticStructureSchema = [3, n0, _SFI,
@@ -843,12 +983,12 @@ export var SearchListingsOutput$: StaticStructureSchema = [3, n0, _SLO,
 ];
 export var Selector$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_t, _va],
+  [_t, _v],
   [0, 0], 2
 ];
 export var SellerEngagement$: StaticStructureSchema = [3, n0, _SE,
   0,
-  [_eTn, _cT, _va],
+  [_eTn, _cT, _v],
   [0, 0, 0], 3
 ];
 export var SellerInformation$: StaticStructureSchema = [3, n0, _SIe,
@@ -856,10 +996,70 @@ export var SellerInformation$: StaticStructureSchema = [3, n0, _SIe,
   [_sPI, _dN],
   [0, 0], 2
 ];
+export var Specialization$: StaticStructureSchema = [3, n0, _Sp,
+  0,
+  [_sIp, _sNp, _sTp, _d, _cSIa],
+  [0, 0, () => SpecializationTypeList, 0, 64 | 0], 3
+];
+export var SpecializationCategory$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_sCI, _sCN, _pSI],
+  [0, 0, 0], 3
+];
+export var SpecializationTypeDetail$: StaticStructureSchema = [3, n0, _STD,
+  0,
+  [_sTpe, _dN],
+  [0, 0], 2
+];
 export var SupportTerm$: StaticStructureSchema = [3, n0, _ST,
   0,
-  [_id, _t, _rP],
+  [_id, _t, _rPe],
   [0, 0, 0], 3
+];
+export var TrustCenterCertificationAttribute$: StaticStructureSchema = [3, n0, _TCCA,
+  0,
+  [_cTe, _dN, _lUo],
+  [0, 0, 0], 3
+];
+export var TrustCenterCertificationSummary$: StaticStructureSchema = [3, n0, _TCCS,
+  0,
+  [_cTe, _dN, _lUo],
+  [0, 0, 0], 3
+];
+export var TrustCenterControl$: StaticStructureSchema = [3, n0, _TCC,
+  0,
+  [_n, _dom, _d],
+  [0, 64 | 0, 0], 2
+];
+export var TrustCenterDocumentAttribute$: StaticStructureSchema = [3, n0, _TCDA,
+  0,
+  [_cT, _v, _aTc, _dN, _sA],
+  [0, 0, 0, 0, 0], 3
+];
+export var TrustCenterFaqAttribute$: StaticStructureSchema = [3, n0, _TCFA,
+  0,
+  [_q, _an, _sA],
+  [0, 0, 0], 2
+];
+export var TrustCenterSource$: StaticStructureSchema = [3, n0, _TCS,
+  0,
+  [_cT, _v, _prov, _dN],
+  [0, 0, 0, 0], 3
+];
+export var TrustCenterSourceSummary$: StaticStructureSchema = [3, n0, _TCSS,
+  0,
+  [_cT, _v, _prov, _dN],
+  [0, 0, 0, 0], 3
+];
+export var TrustCenterSummary$: StaticStructureSchema = [3, n0, _TCSr,
+  0,
+  [_sS, _cS, _tCC],
+  [() => TrustCenterSourceSummaryList, () => TrustCenterCertificationSummaryList, 1], 3
+];
+export var TrustCenterUpdateAttribute$: StaticStructureSchema = [3, n0, _TCUA,
+  0,
+  [_ti, _d, _pT],
+  [0, 0, 4], 3
 ];
 export var UsageBasedPricingTerm$: StaticStructureSchema = [3, n0, _UBPT,
   0,
@@ -873,13 +1073,28 @@ export var UsageBasedRateCardItem$: StaticStructureSchema = [3, n0, _UBRCI,
 ];
 export var UseCase$: StaticStructureSchema = [3, n0, _UC,
   0,
-  [_d, _dN, _va],
+  [_d, _dN, _v],
   [0, 0, 0], 3
 ];
 export var UseCaseEntry$: StaticStructureSchema = [3, n0, _UCE,
   0,
   [_uCs],
   [() => UseCase$], 1
+];
+export var UseCaseInformation$: StaticStructureSchema = [3, n0, _UCI,
+  0,
+  [_dN, _v],
+  [0, 0], 2
+];
+export var UseCaseSummary$: StaticStructureSchema = [3, n0, _UCS,
+  0,
+  [_uC],
+  [() => UseCaseSummaryList], 1
+];
+export var UseCaseSummaryEntry$: StaticStructureSchema = [3, n0, _UCSE,
+  0,
+  [_uCs],
+  [() => UseCaseInformation$], 1
 ];
 export var ValidityTerm$: StaticStructureSchema = [3, n0, _VT,
   0,
@@ -901,6 +1116,10 @@ var AmazonMachineImageSecurityGroupList: StaticListSchema = [1, n0, _AMISGL,
 ];
 var AwsSupportedServiceList: StaticListSchema = [1, n0, _ASSL,
   0, () => AwsSupportedService$
+];
+var CaseStudyIdList = 64 | 0;
+var CaseStudyResourceList: StaticListSchema = [1, n0, _CSRL,
+  0, () => CaseStudyResource$
 ];
 var CategoryList: StaticListSchema = [1, n0, _CL,
   0, () => Category$
@@ -940,6 +1159,10 @@ var HighlightList = 64 | 0;
 var ListingAssociatedEntityList: StaticListSchema = [1, n0, _LAEL,
   0, () => ListingAssociatedEntity$
 ];
+var ListingAttributeResultsList: StaticListSchema = [1, n0, _LARL,
+  0, () => ListingAttributeResults$
+];
+var ListingAttributeTypeList = 64 | 0;
 var ListingBadgeList: StaticListSchema = [1, n0, _LBL,
   0, () => ListingBadge$
 ];
@@ -973,6 +1196,9 @@ var PricingUnitList: StaticListSchema = [1, n0, _PUL,
 var PromotionalMediaList: StaticListSchema = [1, n0, _PMLr,
   0, () => PromotionalMedia$
 ];
+var PurchaseIndicatorList: StaticListSchema = [1, n0, _PIL,
+  0, () => PurchaseIndicator$
+];
 var PurchaseOptionAssociatedEntityList: StaticListSchema = [1, n0, _POAEL,
   0, () => PurchaseOptionAssociatedEntity$
 ];
@@ -989,11 +1215,17 @@ var PurchaseOptionSummaryList: StaticListSchema = [1, n0, _POSL,
 var RateCardList: StaticListSchema = [1, n0, _RCL,
   0, () => RateCardItem$
 ];
+var RegionalPriceList: StaticListSchema = [1, n0, _RPL,
+  0, () => RegionalPrice$
+];
 var ResourceList: StaticListSchema = [1, n0, _RL,
   0, () => Resource$
 ];
 var ReviewSourceSummaryList: StaticListSchema = [1, n0, _RSSL,
   0, () => ReviewSourceSummary$
+];
+var SaasDeploymentTemplateList: StaticListSchema = [1, n0, _SDTL,
+  0, () => SaasDeploymentTemplate$
 ];
 var SageMakerModelContentTypeList = 64 | 0;
 var SageMakerModelResponseMimeTypeList = 64 | 0;
@@ -1007,14 +1239,27 @@ var SearchFilterValueList = 64 | 0;
 var SellerEngagementList: StaticListSchema = [1, n0, _SEL,
   0, () => SellerEngagement$
 ];
+var SpecializationTypeList: StaticListSchema = [1, n0, _STL,
+  0, () => SpecializationTypeDetail$
+];
 var TermTemplateList: StaticListSchema = [1, n0, _TTL,
   0, () => TermTemplate$
+];
+var TrustCenterCertificationSummaryList: StaticListSchema = [1, n0, _TCCSL,
+  0, () => TrustCenterCertificationSummary$
+];
+var TrustCenterControlDomainList = 64 | 0;
+var TrustCenterSourceSummaryList: StaticListSchema = [1, n0, _TCSSL,
+  0, () => TrustCenterSourceSummary$
 ];
 var UsageBasedRateCardList: StaticListSchema = [1, n0, _UBRCL,
   0, () => UsageBasedRateCardItem$
 ];
 var UseCaseList: StaticListSchema = [1, n0, _UCL,
   0, () => UseCaseEntry$
+];
+var UseCaseSummaryList: StaticListSchema = [1, n0, _UCSL,
+  0, () => UseCaseSummaryEntry$
 ];
 var TypeToFacetMap: StaticMapSchema = [2, n0, _TTFM,
   0, 0, () => ListingFacetList
@@ -1023,6 +1268,11 @@ export var FulfillmentOption$: StaticUnionSchema = [4, n0, _FO,
   0,
   [_aMIFO, _aFO, _cFFO, _cFO, _hFO, _eAOFO, _eIBCFO, _dEFO, _pSFO, _sFO, _sMAFO, _sMMFO],
   [() => AmazonMachineImageFulfillmentOption$, () => ApiFulfillmentOption$, () => CloudFormationFulfillmentOption$, () => ContainerFulfillmentOption$, () => HelmFulfillmentOption$, () => EksAddOnFulfillmentOption$, () => Ec2ImageBuilderComponentFulfillmentOption$, () => DataExchangeFulfillmentOption$, () => ProfessionalServicesFulfillmentOption$, () => SaasFulfillmentOption$, () => SageMakerAlgorithmFulfillmentOption$, () => SageMakerModelFulfillmentOption$]
+];
+export var ListingAttributeResults$: StaticUnionSchema = [4, n0, _LAR,
+  0,
+  [_cSa, _sDp, _tCSr, _tCCr, _tCD, _tCCru, _tCF, _tCU],
+  [() => CaseStudy$, () => SpecializationDetail$, () => TrustCenterSource$, () => TrustCenterCertificationAttribute$, () => TrustCenterDocumentAttribute$, () => TrustCenterControl$, () => TrustCenterFaqAttribute$, () => TrustCenterUpdateAttribute$]
 ];
 export var OfferTerm$: StaticUnionSchema = [4, n0, _OT,
   0,
@@ -1038,6 +1288,16 @@ export var PromotionalMedia$: StaticUnionSchema = [4, n0, _PMr,
   0,
   [_eI, _eVm],
   [() => PromotionalEmbeddedImage$, () => PromotionalEmbeddedVideo$]
+];
+export var SaasDeploymentTemplate$: StaticUnionSchema = [4, n0, _SDT,
+  0,
+  [_cFDT],
+  [() => SaasCloudFormationDeploymentTemplate$]
+];
+export var SpecializationDetail$: StaticUnionSchema = [4, n0, _SD,
+  0,
+  [_sp, _sC],
+  [() => Specialization$, () => SpecializationCategory$]
 ];
 export var TermTemplate$: StaticUnionSchema = [4, n0, _TT,
   0,
@@ -1061,6 +1321,9 @@ export var GetProduct$: StaticOperationSchema = [9, n0, _GP,
 ];
 export var ListFulfillmentOptions$: StaticOperationSchema = [9, n0, _LFO,
   { [_ht]: ["POST", "/2026-02-05/listFulfillmentOptions", 200] }, () => ListFulfillmentOptionsInput$, () => ListFulfillmentOptionsOutput$
+];
+export var ListListingAttributes$: StaticOperationSchema = [9, n0, _LLA,
+  { [_ht]: ["POST", "/2026-02-05/listListingAttributes", 200] }, () => ListListingAttributesInput$, () => ListListingAttributesOutput$
 ];
 export var ListPurchaseOptions$: StaticOperationSchema = [9, n0, _LPO,
   { [_ht]: ["POST", "/2026-02-05/listPurchaseOptions", 200] }, () => ListPurchaseOptionsInput$, () => ListPurchaseOptionsOutput$

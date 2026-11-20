@@ -140,7 +140,7 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * //   },
  * //   sellerEngagements: [ // SellerEngagementList // required
  * //     { // SellerEngagement
- * //       engagementType: "REQUEST_FOR_PRIVATE_OFFER" || "REQUEST_FOR_DEMO", // required
+ * //       engagementType: "REQUEST_FOR_PRIVATE_OFFER" || "REQUEST_FOR_DEMO" || "EXPRESS_PRIVATE_OFFER" || "BUY_NOW" || "TRY_FOR_FREE", // required
  * //       contentType: "LINK", // required
  * //       value: "STRING_VALUE", // required
  * //     },
@@ -155,6 +155,11 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * //       },
  * //     },
  * //   ],
+ * //   purchaseIndicators: [ // PurchaseIndicatorList // required
+ * //     { // PurchaseIndicator
+ * //       indicatorType: "NOT_AVAILABLE_FOR_SUBSCRIPTION" || "AVAILABLE_FOR_USE_WITHOUT_SUBSCRIPTION", // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -166,19 +171,19 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * @see {@link MarketplaceDiscoveryClientResolvedConfig | config} for MarketplaceDiscoveryClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *  <p>The specified resource doesn't exist. Verify that the identifier is correct.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *  <p>You don't have sufficient access to perform this action. Verify that you have the required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was denied due to request throttling. Reduce the frequency of your requests and retry.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *  <p>The input fails to satisfy the constraints specified by the service. Check the <code>reason</code> field for the constraint that failed.</p>
  *
  * @throws {@link MarketplaceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDiscovery service.</p>
@@ -207,7 +212,12 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *       }
  *     }
  *   ],
- *   badges:   [],
+ *   badges: [
+ *     {
+ *       badgeType: "QUICK_LAUNCH",
+ *       displayName: "Quick Launch"
+ *     }
+ *   ],
  *   catalog: "AWSMarketplace",
  *   categories: [
  *     {
@@ -260,6 +270,7 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *     displayName: "sample SaaS seller",
  *     sellerProfileId: "seller-sampleSaasId"
  *   },
+ *   purchaseIndicators:   [],
  *   resources: [
  *     {
  *       contentType: "LINK",
@@ -354,10 +365,6 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *     {
  *       badgeType: "DEPLOYED_ON_AWS",
  *       displayName: "Deployed on AWS"
- *     },
- *     {
- *       badgeType: "QUICK_LAUNCH",
- *       displayName: "Quick Launch"
  *     }
  *   ],
  *   catalog: "AWSMarketplace",
@@ -373,8 +380,8 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *   ],
  *   fulfillmentOptionSummaries: [
  *     {
- *       displayName: "SaaS",
- *       fulfillmentOptionType: "SAAS"
+ *       displayName: "Amazon Machine Image",
+ *       fulfillmentOptionType: "AMAZON_MACHINE_IMAGE"
  *     }
  *   ],
  *   highlights: [
@@ -415,6 +422,7 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *     displayName: "sample AMI seller",
  *     sellerProfileId: "seller-sampleAmiId"
  *   },
+ *   purchaseIndicators:   [],
  *   resources: [
  *     {
  *       contentType: "LINK",
@@ -536,6 +544,7 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *     displayName: "sample multi-product seller",
  *     sellerProfileId: "seller-sampleMultiProductId"
  *   },
+ *   purchaseIndicators:   [],
  *   resources: [
  *     {
  *       contentType: "LINK",
@@ -576,6 +585,176 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *       }
  *     }
  *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example GetListing for listing available without a subscription
+ * ```javascript
+ * //
+ * const input = {
+ *   listingId: "prodview-sampleNoSubscriptionId",
+ *   locale: "en-US"
+ * };
+ * const command = new GetListingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   associatedEntities: [
+ *     {
+ *       offer: {
+ *         offerId: "offer-sampleNoSubscriptionId",
+ *         sellerOfRecord: {
+ *           displayName: "sample operating system seller",
+ *           sellerProfileId: "seller-sampleNoSubscriptionId"
+ *         }
+ *       },
+ *       product: {
+ *         manufacturer: {
+ *           displayName: "sample operating system seller",
+ *           sellerProfileId: "seller-sampleNoSubscriptionId"
+ *         },
+ *         productId: "prod-sampleNoSubscriptionId",
+ *         productName: "sample operating system product"
+ *       }
+ *     }
+ *   ],
+ *   badges: [
+ *     {
+ *       badgeType: "DEPLOYED_ON_AWS",
+ *       displayName: "Deployed on AWS"
+ *     },
+ *     {
+ *       badgeType: "AWS_FREE_TIER",
+ *       displayName: "AWS Free Tier"
+ *     }
+ *   ],
+ *   catalog: "AWSMarketplace",
+ *   categories: [
+ *     {
+ *       categoryId: "operating-systems",
+ *       displayName: "Operating Systems"
+ *     }
+ *   ],
+ *   fulfillmentOptionSummaries: [
+ *     {
+ *       displayName: "Amazon Machine Image",
+ *       fulfillmentOptionType: "AMAZON_MACHINE_IMAGE"
+ *     }
+ *   ],
+ *   highlights: [
+ *     "Enterprise Linux optimized for Amazon EC2"
+ *   ],
+ *   listingId: "prodview-sampleNoSubscriptionId",
+ *   listingName: "sample operating system listing",
+ *   locale: "en-US",
+ *   logoThumbnailUrl: "https://example.com/logos/sample-os-logo.png",
+ *   longDescription: "A sample enterprise Linux operating system for development, test, and production workloads on Amazon EC2.",
+ *   pricingModels: [
+ *     {
+ *       displayName: "Free",
+ *       pricingModelType: "FREE"
+ *     }
+ *   ],
+ *   pricingUnits:   [],
+ *   promotionalMedia:   [],
+ *   publisher: {
+ *     displayName: "sample operating system seller",
+ *     sellerProfileId: "seller-sampleNoSubscriptionId"
+ *   },
+ *   purchaseIndicators: [
+ *     {
+ *       indicatorType: "AVAILABLE_FOR_USE_WITHOUT_SUBSCRIPTION"
+ *     }
+ *   ],
+ *   resources: [
+ *     {
+ *       contentType: "LINK",
+ *       displayName: "Getting started",
+ *       resourceType: "MANUFACTURER_INSTRUCTIONS",
+ *       value: "https://example.com/docs/getting-started"
+ *     }
+ *   ],
+ *   sellerEngagements:   [],
+ *   shortDescription: "A sample enterprise Linux image optimized for Amazon EC2.",
+ *   useCases:   []
+ * }
+ * *\/
+ * ```
+ *
+ * @example GetListing for listing not available for new subscriptions
+ * ```javascript
+ * //
+ * const input = {
+ *   listingId: "prodview-sampleUnavailableId",
+ *   locale: "en-US"
+ * };
+ * const command = new GetListingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   associatedEntities: [
+ *     {
+ *       product: {
+ *         manufacturer: {
+ *           displayName: "sample network infrastructure seller",
+ *           sellerProfileId: "seller-sampleUnavailableId"
+ *         },
+ *         productId: "prod-sampleUnavailableId",
+ *         productName: "sample network infrastructure product"
+ *       }
+ *     }
+ *   ],
+ *   badges: [
+ *     {
+ *       badgeType: "DEPLOYED_ON_AWS",
+ *       displayName: "Deployed on AWS"
+ *     }
+ *   ],
+ *   catalog: "AWSMarketplace",
+ *   categories: [
+ *     {
+ *       categoryId: "network-infrastructure",
+ *       displayName: "Network Infrastructure"
+ *     }
+ *   ],
+ *   fulfillmentOptionSummaries: [
+ *     {
+ *       displayName: "Helm",
+ *       fulfillmentOptionType: "HELM"
+ *     }
+ *   ],
+ *   highlights: [
+ *     "Secure application access across clouds"
+ *   ],
+ *   listingId: "prodview-sampleUnavailableId",
+ *   listingName: "sample network infrastructure listing",
+ *   locale: "en-US",
+ *   logoThumbnailUrl: "https://example.com/logos/sample-network-logo.png",
+ *   longDescription: "A sample application networking platform that provides secure access and performance insights for applications that run across clouds.",
+ *   pricingModels:   [],
+ *   pricingUnits:   [],
+ *   promotionalMedia:   [],
+ *   publisher: {
+ *     displayName: "sample network infrastructure seller",
+ *     sellerProfileId: "seller-sampleUnavailableId"
+ *   },
+ *   purchaseIndicators: [
+ *     {
+ *       indicatorType: "NOT_AVAILABLE_FOR_SUBSCRIPTION"
+ *     }
+ *   ],
+ *   resources: [
+ *     {
+ *       contentType: "OTHER",
+ *       displayName: "Support",
+ *       resourceType: "MANUFACTURER_SUPPORT",
+ *       value: "Email support@example.com for technical support."
+ *     }
+ *   ],
+ *   sellerEngagements:   [],
+ *   shortDescription: "A sample application networking platform for multi-cloud environments.",
+ *   useCases:   []
  * }
  * *\/
  * ```

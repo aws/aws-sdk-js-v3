@@ -23,7 +23,7 @@ export interface GetOfferTermsCommandInput extends GetOfferTermsInput {}
 export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the terms attached to an offer, such as pricing terms (usage-based, contract, BYOL, free trial), legal terms, payment schedules, validity terms, support terms, and renewal terms.</p>
+ * <p>Retrieves the terms attached to an offer, such as pricing terms (usage-based, contract, Bring Your Own License (BYOL), free trial), legal terms, payment schedules, validity terms, support terms, and renewal terms. The operation returns results in pages. Use <code>nextToken</code> to retrieve the next page.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +76,13 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * //                 ],
  * //                 unit: "STRING_VALUE", // required
  * //                 price: "STRING_VALUE", // required
+ * //                 regionalPrices: [ // RegionalPriceList // required
+ * //                   { // RegionalPrice
+ * //                     region: "STRING_VALUE", // required
+ * //                     displayName: "STRING_VALUE", // required
+ * //                     price: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
  * //               },
  * //             ],
  * //           },
@@ -209,6 +216,13 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * //                 ],
  * //                 unit: "STRING_VALUE", // required
  * //                 price: "STRING_VALUE", // required
+ * //                 regionalPrices: [ // required
+ * //                   {
+ * //                     region: "STRING_VALUE", // required
+ * //                     displayName: "STRING_VALUE", // required
+ * //                     price: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
  * //               },
  * //             ],
  * //           },
@@ -246,19 +260,19 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * @see {@link MarketplaceDiscoveryClientResolvedConfig | config} for MarketplaceDiscoveryClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *  <p>The specified resource doesn't exist. Verify that the identifier is correct.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *  <p>You don't have sufficient access to perform this action. Verify that you have the required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was denied due to request throttling. Reduce the frequency of your requests and retry.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *  <p>The input fails to satisfy the constraints specified by the service. Check the <code>reason</code> field for the constraint that failed.</p>
  *
  * @throws {@link MarketplaceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDiscovery service.</p>
@@ -296,6 +310,7 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  *                 ],
  *                 displayName: "ml.m5.2xlarge Inference (Batch)",
  *                 price: "2.00000000",
+ *                 regionalPrices:                 [],
  *                 unit: "HostHrs"
  *               },
  *               {
@@ -310,6 +325,7 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  *                 ],
  *                 displayName: "ml.m5.2xlarge Inference (Real-Time)",
  *                 price: "2.00000000",
+ *                 regionalPrices:                 [],
  *                 unit: "HostHrs"
  *               },
  *               {
@@ -324,6 +340,7 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  *                 ],
  *                 displayName: "ml.m5.large Inference (Batch)",
  *                 price: "2.00000000",
+ *                 regionalPrices:                 [],
  *                 unit: "HostHrs"
  *               },
  *               {
@@ -338,6 +355,7 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  *                 ],
  *                 displayName: "ml.m5.large Inference (Real-Time)",
  *                 price: "2.00000000",
+ *                 regionalPrices:                 [],
  *                 unit: "HostHrs"
  *               }
  *             ]
@@ -450,6 +468,72 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * *\/
  * ```
  *
+ * @example GetOfferTerms for Usage-based offer with regional pricing
+ * ```javascript
+ * //
+ * const input = {
+ *   locale: "en-US",
+ *   offerId: "offer-sampleRegionalPricingId"
+ * };
+ * const command = new GetOfferTermsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   locale: "en-US",
+ *   offerTerms: [
+ *     {
+ *       usageBasedPricingTerm: {
+ *         currencyCode: "USD",
+ *         id: "term-sampleRegionalUsageBasedPricingId",
+ *         rateCards: [
+ *           {
+ *             rateCard: [
+ *               {
+ *                 description: "Software usage on the t3.medium instance type",
+ *                 dimensionKey: "t3.medium",
+ *                 dimensionLabels:                 [],
+ *                 displayName: "t3.medium",
+ *                 price: "0.10000000",
+ *                 regionalPrices: [
+ *                   {
+ *                     displayName: "Europe (Ireland)",
+ *                     price: "0.12000000",
+ *                     region: "eu-west-1"
+ *                   },
+ *                   {
+ *                     displayName: "Asia Pacific (Tokyo)",
+ *                     price: "0.14000000",
+ *                     region: "ap-northeast-1"
+ *                   }
+ *                 ],
+ *                 unit: "Hrs"
+ *               },
+ *               {
+ *                 description: "Software usage on the m5.large instance type",
+ *                 dimensionKey: "m5.large",
+ *                 dimensionLabels:                 [],
+ *                 displayName: "m5.large",
+ *                 price: "0.20000000",
+ *                 regionalPrices: [
+ *                   {
+ *                     displayName: "Europe (Ireland)",
+ *                     price: "0.24000000",
+ *                     region: "eu-west-1"
+ *                   }
+ *                 ],
+ *                 unit: "Hrs"
+ *               }
+ *             ]
+ *           }
+ *         ],
+ *         type: "UsageBasedPricingTerm"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @example GetOfferTerms for BYOL offer
  * ```javascript
  * //
@@ -511,29 +595,31 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  *             },
  *             rateCard: [
  *               {
- *                 dimensionKey: "api_calls_us_east_1",
+ *                 dimensionKey: "api_calls_batch",
  *                 dimensionLabels: [
  *                   {
- *                     displayName: "US East (N. Virginia)",
- *                     labelType: "Region",
- *                     labelValue: "us-east-1"
+ *                     displayName: "Model Batch Transform",
+ *                     labelType: "SagemakerOption",
+ *                     labelValue: "Model Batch Transform"
  *                   }
  *                 ],
- *                 displayName: "API Calls (US East)",
+ *                 displayName: "API Calls (Batch)",
  *                 price: "0.001",
+ *                 regionalPrices:                 [],
  *                 unit: "Requests"
  *               },
  *               {
- *                 dimensionKey: "api_calls_us_west_2",
+ *                 dimensionKey: "api_calls_realtime",
  *                 dimensionLabels: [
  *                   {
- *                     displayName: "US West (Oregon)",
- *                     labelType: "Region",
- *                     labelValue: "us-west-2"
+ *                     displayName: "Model Real-Time Inference",
+ *                     labelType: "SagemakerOption",
+ *                     labelValue: "Model Real-Time Inference"
  *                   }
  *                 ],
- *                 displayName: "API Calls (US West)",
+ *                 displayName: "API Calls (Real-Time)",
  *                 price: "0.001",
+ *                 regionalPrices:                 [],
  *                 unit: "Requests"
  *               }
  *             ],

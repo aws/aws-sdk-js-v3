@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./GetOfferTermsPaginator";
 export * from "./ListFulfillmentOptionsPaginator";
+export * from "./ListListingAttributesPaginator";
 export * from "./ListPurchaseOptionsPaginator";
 export * from "./SearchFacetsPaginator";
 export * from "./SearchListingsPaginator";

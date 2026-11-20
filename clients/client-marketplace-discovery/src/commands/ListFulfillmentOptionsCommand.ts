@@ -23,7 +23,7 @@ export interface ListFulfillmentOptionsCommandInput extends ListFulfillmentOptio
 export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOptionsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the fulfillment options available for a product, including deployment details such as version information, operating systems, usage instructions, and release notes.</p>
+ * <p>Retrieves the fulfillment options available for a product, including deployment details such as version information, operating systems, usage instructions, and release notes. The operation returns results in pages. Use <code>nextToken</code> to retrieve the next page.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,6 +106,8 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * //         releaseNotes: "STRING_VALUE",
  * //         usageInstructions: "STRING_VALUE",
  * //         availableFromTime: new Date("TIMESTAMP"),
+ * //         architectureDiagramUrl: "STRING_VALUE",
+ * //         deploymentTemplateUrl: "STRING_VALUE",
  * //         shortDescription: "STRING_VALUE",
  * //         longDescription: "STRING_VALUE",
  * //       },
@@ -224,6 +226,17 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * //         availableFromTime: new Date("TIMESTAMP"),
  * //         launchUrl: "STRING_VALUE",
  * //         quickLaunch: "ENABLED" || "DISABLED", // required
+ * //         deploymentTemplates: [ // SaasDeploymentTemplateList // required
+ * //           { // SaasDeploymentTemplate Union: only one key present
+ * //             cloudFormationDeploymentTemplate: { // SaasCloudFormationDeploymentTemplate
+ * //               templateName: "STRING_VALUE", // required
+ * //               description: "STRING_VALUE",
+ * //               defaultStackName: "STRING_VALUE", // required
+ * //               templateUrl: "STRING_VALUE", // required
+ * //               iamPolicy: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //       sageMakerAlgorithmFulfillmentOption: { // SageMakerAlgorithmFulfillmentOption
  * //         fulfillmentOptionId: "STRING_VALUE", // required
@@ -270,19 +283,19 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  * @see {@link MarketplaceDiscoveryClientResolvedConfig | config} for MarketplaceDiscoveryClient's `config` shape.
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified resource doesn't exist.</p>
+ *  <p>The specified resource doesn't exist. Verify that the identifier is correct.</p>
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have sufficient access to perform this action.</p>
+ *  <p>You don't have sufficient access to perform this action. Verify that you have the required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Unexpected error during processing of the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was denied due to request throttling. Reduce the frequency of your requests and retry.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by the service.</p>
+ *  <p>The input fails to satisfy the constraints specified by the service. Check the <code>reason</code> field for the constraint that failed.</p>
  *
  * @throws {@link MarketplaceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDiscovery service.</p>
@@ -394,7 +407,9 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *   fulfillmentOptions: [
  *     {
  *       cloudFormationFulfillmentOption: {
+ *         architectureDiagramUrl: "https://example.com/cft/architecture-diagram.png",
  *         availableFromTime: "2021-12-15T00:00:00Z",
+ *         deploymentTemplateUrl: "https://example.com/cft/template.yaml",
  *         fulfillmentOptionDisplayName: "CloudFormation Template",
  *         fulfillmentOptionId: "fo-sampleCftId",
  *         fulfillmentOptionName: "Sophos Standalone Firewall for AWS",
@@ -653,6 +668,17 @@ export interface ListFulfillmentOptionsCommandOutput extends ListFulfillmentOpti
  *     {
  *       saasFulfillmentOption: {
  *         availableFromTime: "2018-08-07T00:00:00.000Z",
+ *         deploymentTemplates: [
+ *           {
+ *             cloudFormationDeploymentTemplate: {
+ *               defaultStackName: "example-saas-quick-launch",
+ *               description: "Deploys the IAM role that the product needs in your AWS account.",
+ *               iamPolicy: `{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":["example:Action"],"Resource":["arn:aws:example:::EXAMPLE-RESOURCE"]}]}`,
+ *               templateName: "Primary deployment template",
+ *               templateUrl: "https://example.com/templates/primary.yaml"
+ *             }
+ *           }
+ *         ],
  *         fulfillmentOptionDisplayName: "SaaS",
  *         fulfillmentOptionId: "fo-sampleSaasId",
  *         fulfillmentOptionType: "SAAS",

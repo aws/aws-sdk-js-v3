@@ -64,6 +64,10 @@ import type {
   ListFulfillmentOptionsCommandOutput,
 } from "./commands/ListFulfillmentOptionsCommand";
 import type {
+  ListListingAttributesCommandInput,
+  ListListingAttributesCommandOutput,
+} from "./commands/ListListingAttributesCommand";
+import type {
   ListPurchaseOptionsCommandInput,
   ListPurchaseOptionsCommandOutput,
 } from "./commands/ListPurchaseOptionsCommand";
@@ -90,6 +94,7 @@ export type ServiceInputTypes =
   | GetOfferTermsCommandInput
   | GetProductCommandInput
   | ListFulfillmentOptionsCommandInput
+  | ListListingAttributesCommandInput
   | ListPurchaseOptionsCommandInput
   | SearchFacetsCommandInput
   | SearchListingsCommandInput;
@@ -104,6 +109,7 @@ export type ServiceOutputTypes =
   | GetOfferTermsCommandOutput
   | GetProductCommandOutput
   | ListFulfillmentOptionsCommandOutput
+  | ListListingAttributesCommandOutput
   | ListPurchaseOptionsCommandOutput
   | SearchFacetsCommandOutput
   | SearchListingsCommandOutput;
@@ -300,7 +306,7 @@ export type MarketplaceDiscoveryClientResolvedConfigType = __SmithyResolvedConfi
 export interface MarketplaceDiscoveryClientResolvedConfig extends MarketplaceDiscoveryClientResolvedConfigType {}
 
 /**
- * <p>The AWS Marketplace Discovery API provides programmatic access to the AWS Marketplace catalog, including searching and browsing listings, retrieving product details and fulfillment options, and accessing public and private offer pricing and terms.</p>
+ * <p>With the AWS Marketplace Discovery API (Discovery API), you have programmatic access to the AWS Marketplace catalog. You can search and browse listings, retrieve product details and fulfillment options, and access public and private offer pricing and terms. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/developerguide/discovery-apis.html">Using the AWS Marketplace Discovery API</a> in the <i>AWS Marketplace Developer Guide</i>.</p>
  * @public
  */
 export class MarketplaceDiscoveryClient extends __Client<
