@@ -103,6 +103,7 @@ import {
   DeviceProxy$,
   DeviceSelectionConfiguration$,
   DeviceSelectionResult$,
+  DeviceType,
   EnvironmentVariable$,
   ExecutionConfiguration$,
   ExecutionResult,
@@ -826,6 +827,7 @@ assert(typeof DeviceFilterAttribute === "object");
 assert(typeof DeviceFormFactor === "object");
 assert(typeof DevicePlatform === "object");
 assert(typeof DevicePoolType === "object");
+assert(typeof DeviceType === "object");
 assert(typeof ExecutionResult === "object");
 assert(typeof ExecutionResultCode === "object");
 assert(typeof ExecutionStatus === "object");

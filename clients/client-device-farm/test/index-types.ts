@@ -243,6 +243,7 @@ export type {
   DeviceFormFactor,
   DevicePlatform,
   DevicePoolType,
+  DeviceType,
   ExecutionResult,
   ExecutionResultCode,
   ExecutionStatus,

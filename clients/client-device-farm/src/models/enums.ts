@@ -87,6 +87,7 @@ export const DeviceAttribute = {
   APPIUM_VERSION: "APPIUM_VERSION",
   ARN: "ARN",
   AVAILABILITY: "AVAILABILITY",
+  DEVICE_TYPE: "DEVICE_TYPE",
   FLEET_TYPE: "FLEET_TYPE",
   FORM_FACTOR: "FORM_FACTOR",
   INSTANCE_ARN: "INSTANCE_ARN",
@@ -204,6 +205,19 @@ export const InstanceStatus = {
  * @public
  */
 export type InstanceStatus = (typeof InstanceStatus)[keyof typeof InstanceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DeviceType = {
+  PHYSICAL: "PHYSICAL",
+  VIRTUAL: "VIRTUAL",
+} as const;
+/**
+ * @public
+ */
+export type DeviceType = (typeof DeviceType)[keyof typeof DeviceType];
 
 /**
  * @public
@@ -425,6 +439,7 @@ export type OfferingTransactionType = (typeof OfferingTransactionType)[keyof typ
 export const DeviceFilterAttribute = {
   ARN: "ARN",
   AVAILABILITY: "AVAILABILITY",
+  DEVICE_TYPE: "DEVICE_TYPE",
   FLEET_TYPE: "FLEET_TYPE",
   FORM_FACTOR: "FORM_FACTOR",
   INSTANCE_ARN: "INSTANCE_ARN",

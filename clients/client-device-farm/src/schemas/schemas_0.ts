@@ -926,8 +926,8 @@ export var DeleteVPCEConfigurationResult$: StaticStructureSchema = [3, n0, _DVPC
 ];
 export var Device$: StaticStructureSchema = [3, n0, _D,
   0,
-  [_a, _n, _ma, _mo, _mI, _fF, _pl, _o, _cp, _re, _hS, _me, _i, _ca, _ra, _rAE, _rDE, _fT, _fN, _in, _av],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => CPU$, () => Resolution$, 1, 1, 0, 0, 0, 2, 2, 0, 0, () => DeviceInstances, 0]
+  [_a, _n, _ma, _mo, _mI, _fF, _pl, _t, _o, _cp, _re, _hS, _me, _i, _ca, _ra, _rAE, _rDE, _fT, _fN, _in, _av],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => CPU$, () => Resolution$, 1, 1, 0, 0, 0, 2, 2, 0, 0, () => DeviceInstances, 0]
 ];
 export var DeviceFilter$: StaticStructureSchema = [3, n0, _DF,
   0,

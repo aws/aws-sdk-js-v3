@@ -46,6 +46,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResult, __MetadataBeare
  * //     modelId: "STRING_VALUE",
  * //     formFactor: "PHONE" || "TABLET",
  * //     platform: "ANDROID" || "IOS",
+ * //     type: "PHYSICAL" || "VIRTUAL",
  * //     os: "STRING_VALUE",
  * //     cpu: { // CPU
  * //       frequency: "STRING_VALUE",
@@ -143,7 +144,8 @@ export interface GetDeviceCommandOutput extends GetDeviceResult, __MetadataBeare
  *     resolution: {
  *       height: 1920,
  *       width: 1080
- *     }
+ *     },
+ *     type: "PHYSICAL"
  *   }
  * }
  * *\/

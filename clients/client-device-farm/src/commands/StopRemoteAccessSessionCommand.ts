@@ -55,6 +55,7 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  * //       modelId: "STRING_VALUE",
  * //       formFactor: "PHONE" || "TABLET",
  * //       platform: "ANDROID" || "IOS",
+ * //       type: "PHYSICAL" || "VIRTUAL",
  * //       os: "STRING_VALUE",
  * //       cpu: { // CPU
  * //         frequency: "STRING_VALUE",

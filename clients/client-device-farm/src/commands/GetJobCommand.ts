@@ -65,6 +65,7 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  * //       modelId: "STRING_VALUE",
  * //       formFactor: "PHONE" || "TABLET",
  * //       platform: "ANDROID" || "IOS",
+ * //       type: "PHYSICAL" || "VIRTUAL",
  * //       os: "STRING_VALUE",
  * //       cpu: { // CPU
  * //         frequency: "STRING_VALUE",

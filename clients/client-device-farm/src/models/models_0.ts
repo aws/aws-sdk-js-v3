@@ -10,6 +10,7 @@ import type {
   DeviceFormFactor,
   DevicePlatform,
   DevicePoolType,
+  DeviceType,
   ExecutionResult,
   ExecutionResultCode,
   ExecutionStatus,
@@ -327,6 +328,12 @@ export interface Rule {
    *                <p>Supported operators: <code>EQUALS</code>
    *                </p>
    *             </dd>
+   *             <dt>DEVICE_TYPE</dt>
+   *             <dd>
+   *                <p>The device type. Valid values are PHYSICAL or VIRTUAL.</p>
+   *                <p>Supported operators: <code>EQUALS</code>
+   *                </p>
+   *             </dd>
    *             <dt>FLEET_TYPE</dt>
    *             <dd>
    *                <p>The fleet type. Valid values are PUBLIC or PRIVATE.</p>
@@ -444,6 +451,12 @@ export interface CreateDevicePoolRequest {
 
   /**
    * <p>The device pool's rules.</p>
+   *          <note>
+   *             <p>A device pool contains either physical devices or virtual devices, but not both. If you define the
+   *                 pool with attribute rules and those rules do not include a <code>DEVICE_TYPE</code> rule, the pool
+   *                 contains only physical devices. If you define the pool by listing device ARNs, the pool contains the
+   *                 devices you list.</p>
+   *          </note>
    * @public
    */
   rules: Rule[] | undefined;
@@ -502,6 +515,12 @@ export interface DevicePool {
 
   /**
    * <p>Information about the device pool's rules.</p>
+   *          <note>
+   *             <p>A device pool contains either physical devices or virtual devices, but not both. If you define the
+   *                 pool with attribute rules and those rules do not include a <code>DEVICE_TYPE</code> rule, the pool
+   *                 contains only physical devices. If you define the pool by listing device ARNs, the pool contains the
+   *                 devices you list.</p>
+   *          </note>
    * @public
    */
   rules?: Rule[] | undefined;
@@ -1146,7 +1165,7 @@ export interface Resolution {
 }
 
 /**
- * <p>Represents a device type that an app is tested against.</p>
+ * <p>Represents a device that an app is tested against.</p>
  * @public
  */
 export interface Device {
@@ -1209,6 +1228,26 @@ export interface Device {
    * @public
    */
   platform?: DevicePlatform | undefined;
+
+  /**
+   * <p>The device type.</p>
+   *          <p>Allowed values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>PHYSICAL: A physical device.</p>
+   *             </li>
+   *             <li>
+   *                <p>VIRTUAL: An emulator or simulator hosted by Device Farm.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>For iOS, a virtual device requires a simulator build of your app, and a physical device requires a
+   *                 device build. If the app does not match the device type, the device is reported as incompatible with a
+   *                     <code>DEVICE_TYPE</code> incompatibility message.</p>
+   *          </note>
+   * @public
+   */
+  type?: DeviceType | undefined;
 
   /**
    * <p>The device's operating system type.</p>
@@ -2761,6 +2800,9 @@ export interface IncompatibilityMessage {
    *                <p>ARN</p>
    *             </li>
    *             <li>
+   *                <p>DEVICE_TYPE (for example, physical or virtual)</p>
+   *             </li>
+   *             <li>
    *                <p>FORM_FACTOR (for example, phone or tablet)</p>
    *             </li>
    *             <li>
@@ -3456,6 +3498,12 @@ export interface DeviceFilter {
    *                <p>Supported operators: <code>EQUALS</code>
    *                </p>
    *             </dd>
+   *             <dt>DEVICE_TYPE</dt>
+   *             <dd>
+   *                <p>The device type. Valid values are PHYSICAL or VIRTUAL.</p>
+   *                <p>Supported operators: <code>EQUALS</code>
+   *                </p>
+   *             </dd>
    *             <dt>MANUFACTURER</dt>
    *             <dd>
    *                <p>The device manufacturer (for example, Apple).</p>
@@ -3536,6 +3584,9 @@ export interface DeviceFilter {
    *             </li>
    *             <li>
    *                <p>The FORM_FACTOR attribute can be set to PHONE or TABLET.</p>
+   *             </li>
+   *             <li>
+   *                <p>The DEVICE_TYPE attribute can be set to PHYSICAL or VIRTUAL.</p>
    *             </li>
    *             <li>
    *                <p>The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.</p>
@@ -4816,6 +4867,9 @@ export interface ListDevicesRequest {
    *                   </li>
    *                   <li>
    *                      <p>FORM_FACTOR: The device form factor. Valid values are PHONE or TABLET.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>DEVICE_TYPE: The device type. Valid values are PHYSICAL or VIRTUAL.</p>
    *                   </li>
    *                   <li>
    *                      <p>MANUFACTURER: The device manufacturer (for example, Apple).</p>
@@ -6256,6 +6310,10 @@ export interface DeviceSelectionConfiguration {
    *                             TABLET.</p>
    *                   </li>
    *                   <li>
+   *                      <p>DEVICE_TYPE: The device type. Valid values are PHYSICAL or
+   *                             VIRTUAL.</p>
+   *                   </li>
+   *                   <li>
    *                      <p>MANUFACTURER: The device manufacturer (for example,
    *                             Apple).</p>
    *                   </li>
@@ -6337,11 +6395,19 @@ export interface DeviceSelectionConfiguration {
    *                      <p>The FORM_FACTOR attribute can be set to PHONE or TABLET.</p>
    *                   </li>
    *                   <li>
+   *                      <p>The DEVICE_TYPE attribute can be set to PHYSICAL or VIRTUAL.</p>
+   *                   </li>
+   *                   <li>
    *                      <p>The FLEET_TYPE attribute can be set to PUBLIC or PRIVATE.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>If the filters select devices by attribute and do not include a <code>DEVICE_TYPE</code> filter, only
+   *                 physical devices are selected. If the filters select devices by ARN, the run uses the devices you
+   *                 list.</p>
+   *          </note>
    * @public
    */
   filters: DeviceFilter[] | undefined;
@@ -6426,6 +6492,11 @@ export interface ScheduleRunRequest {
    *                <code>deviceSelectionConfiguration</code>
    *             </b> is required in a
    *             request.</p>
+   *          <note>
+   *             <p>If the filters select devices by attribute and do not include a <code>DEVICE_TYPE</code> filter, only
+   *                 physical devices are selected. If the filters select devices by ARN, the run uses the devices you
+   *                 list.</p>
+   *          </note>
    * @public
    */
   deviceSelectionConfiguration?: DeviceSelectionConfiguration | undefined;
@@ -6653,6 +6724,12 @@ export interface UpdateDevicePoolRequest {
   /**
    * <p>Represents the rules to modify for the device pool. Updating rules is optional. If you update rules for
    *             your request, the update replaces the existing rules.</p>
+   *          <note>
+   *             <p>A device pool contains either physical devices or virtual devices, but not both. If you define the
+   *                 pool with attribute rules and those rules do not include a <code>DEVICE_TYPE</code> rule, the pool
+   *                 contains only physical devices. If you define the pool by listing device ARNs, the pool contains the
+   *                 devices you list.</p>
+   *          </note>
    * @public
    */
   rules?: Rule[] | undefined;

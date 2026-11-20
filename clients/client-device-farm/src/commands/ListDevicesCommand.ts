@@ -37,7 +37,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  *   nextToken: "STRING_VALUE",
  *   filters: [ // DeviceFilters
  *     { // DeviceFilter
- *       attribute: "ARN" || "PLATFORM" || "OS_VERSION" || "MODEL" || "AVAILABILITY" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE", // required
+ *       attribute: "ARN" || "PLATFORM" || "OS_VERSION" || "MODEL" || "AVAILABILITY" || "FORM_FACTOR" || "DEVICE_TYPE" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE", // required
  *       operator: "EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "IN" || "NOT_IN" || "CONTAINS", // required
  *       values: [ // DeviceFilterValues // required
  *         "STRING_VALUE",
@@ -57,6 +57,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  * //       modelId: "STRING_VALUE",
  * //       formFactor: "PHONE" || "TABLET",
  * //       platform: "ANDROID" || "IOS",
+ * //       type: "PHYSICAL" || "VIRTUAL",
  * //       os: "STRING_VALUE",
  * //       cpu: { // CPU
  * //         frequency: "STRING_VALUE",

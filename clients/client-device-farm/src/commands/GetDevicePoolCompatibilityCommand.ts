@@ -107,6 +107,7 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * //         modelId: "STRING_VALUE",
  * //         formFactor: "PHONE" || "TABLET",
  * //         platform: "ANDROID" || "IOS",
+ * //         type: "PHYSICAL" || "VIRTUAL",
  * //         os: "STRING_VALUE",
  * //         cpu: { // CPU
  * //           frequency: "STRING_VALUE",
@@ -153,7 +154,7 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * //       incompatibilityMessages: [ // IncompatibilityMessages
  * //         { // IncompatibilityMessage
  * //           message: "STRING_VALUE",
- * //           type: "ARN" || "PLATFORM" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "APPIUM_VERSION" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE" || "OS_VERSION" || "MODEL" || "AVAILABILITY",
+ * //           type: "ARN" || "PLATFORM" || "FORM_FACTOR" || "DEVICE_TYPE" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "APPIUM_VERSION" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE" || "OS_VERSION" || "MODEL" || "AVAILABILITY",
  * //         },
  * //       ],
  * //     },
@@ -168,6 +169,7 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * //         modelId: "STRING_VALUE",
  * //         formFactor: "PHONE" || "TABLET",
  * //         platform: "ANDROID" || "IOS",
+ * //         type: "PHYSICAL" || "VIRTUAL",
  * //         os: "STRING_VALUE",
  * //         cpu: {
  * //           frequency: "STRING_VALUE",
@@ -214,7 +216,7 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * //       incompatibilityMessages: [
  * //         {
  * //           message: "STRING_VALUE",
- * //           type: "ARN" || "PLATFORM" || "FORM_FACTOR" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "APPIUM_VERSION" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE" || "OS_VERSION" || "MODEL" || "AVAILABILITY",
+ * //           type: "ARN" || "PLATFORM" || "FORM_FACTOR" || "DEVICE_TYPE" || "MANUFACTURER" || "REMOTE_ACCESS_ENABLED" || "REMOTE_DEBUG_ENABLED" || "APPIUM_VERSION" || "INSTANCE_ARN" || "INSTANCE_LABELS" || "FLEET_TYPE" || "OS_VERSION" || "MODEL" || "AVAILABILITY",
  * //         },
  * //       ],
  * //     },
