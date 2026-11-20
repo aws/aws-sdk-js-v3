@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core/client";
+import { markNonRecoverableStsError, setCredentialFeature } from "@aws-sdk/core/client";
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 import { CredentialsProviderError, getProfileName } from "@smithy/core/config";
 import type { AwsCredentialIdentity, IniSection, Logger, ParsedIniData, Profile } from "@smithy/types";
@@ -189,9 +189,13 @@ export const resolveAssumeRoleCredentials = async (
     }
 
     const sourceCreds = await sourceCredsProvider;
-    return options.roleAssumer!(sourceCreds, params).then((creds) =>
-      setCredentialFeature(creds, "CREDENTIALS_PROFILE_SOURCE_PROFILE", "o")
-    );
+    return options.roleAssumer!(sourceCreds, params)
+      .then((creds) => setCredentialFeature(creds, "CREDENTIALS_PROFILE_SOURCE_PROFILE", "o"))
+      .catch((error) => {
+        // Some STS failures need customer action, e.g. a denied role or a disabled region.
+        // Marking them stops the refresh lifecycle from hiding them behind its backoff.
+        throw markNonRecoverableStsError(error);
+      });
   }
 };
 

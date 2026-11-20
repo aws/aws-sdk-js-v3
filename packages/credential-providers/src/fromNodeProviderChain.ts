@@ -39,11 +39,17 @@ export const fromNodeProviderChain = (
   init: DefaultProviderInit = {}
 ): MemoizedRuntimeConfigAwsCredentialIdentityProvider => {
   let chain: MemoizedRuntimeConfigAwsCredentialIdentityProvider | undefined;
-  return async (args?: AwsIdentityProperties & { forceRefresh?: boolean }) => {
+  const provider = async (args?: AwsIdentityProperties & { forceRefresh?: boolean }) => {
     if (!chain) {
       const { defaultProvider } = await import("@aws-sdk/credential-provider-node");
       chain = defaultProvider({ ...init });
     }
     return chain(args);
   };
+
+  provider.memoized = true as const;
+  Object.defineProperty(provider, "invalidate", {
+    get: () => chain?.invalidate?.bind(chain),
+  });
+  return provider;
 };

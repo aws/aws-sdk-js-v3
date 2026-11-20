@@ -325,4 +325,40 @@ describe(resolveAssumeRoleCredentials.name, () => {
       DurationSeconds: parseInt(mockRoleAssumeParams.duration_seconds),
     });
   });
+
+  describe("non-recoverable STS failures", () => {
+    const assumeRoleFails = (failure: unknown) =>
+      resolveAssumeRoleCredentials(
+        mockProfileName,
+        getMockProfilesWithCredSource(getMockRoleAssumeParams()),
+        { ...mockOptions, roleAssumer: vi.fn().mockRejectedValue(failure) },
+        mockCallerClientConfig,
+        {},
+        resolveProfileData
+      ).catch((error) => error);
+
+    it.each(["AccessDenied", "MalformedPolicyDocument", "PackedPolicyTooLarge", "RegionDisabledException"])(
+      "marks %s, which cannot succeed until the customer acts",
+      async (name) => {
+        const failure = Object.assign(new Error("sts rejected the request"), { name });
+
+        const error = await assumeRoleFails(failure);
+
+        expect(error).toBe(failure);
+        expect(error.$nonRecoverable).toBe(true);
+      }
+    );
+
+    it.each(["ThrottlingException", "TimeoutError"])(
+      "leaves %s recoverable, so the lifecycle keeps using cached credentials",
+      async (name) => {
+        const failure = Object.assign(new Error("sts is unwell"), { name });
+
+        const error = await assumeRoleFails(failure);
+
+        expect(error).toBe(failure);
+        expect(error.$nonRecoverable).toBeUndefined();
+      }
+    );
+  });
 });

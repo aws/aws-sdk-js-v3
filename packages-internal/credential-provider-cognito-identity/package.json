@@ -40,6 +40,7 @@
     "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.mts"
   },
   "dependencies": {
+    "@aws-sdk/core": "workspace:^3.981.0",
     "@aws-sdk/nested-clients": "workspace:^3.998.3",
     "@aws-sdk/types": "workspace:^3.975.1",
     "@smithy/core": "^3.40.0",
