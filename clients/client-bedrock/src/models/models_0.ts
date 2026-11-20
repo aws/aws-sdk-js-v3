@@ -4,7 +4,6 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 import type {
   AdvancedPromptOptimizationJobStatus,
   AgreementStatus,
-  ApplicationType,
   AttributeType,
   AutomatedReasoningCheckLogicWarningType,
   AutomatedReasoningCheckResult,
@@ -21,18 +20,13 @@ import type {
   CustomModelDeploymentStatus,
   CustomModelDeploymentUpdateStatus,
   DataRetentionMode,
+  DataRetentionStorageDestination,
+  DataRetentionStorageModelProvider,
+  DataRetentionStorageResourceStatus,
+  DataRetentionStorageScope,
   EvaluationJobStatus,
-  EvaluationJobType,
   EvaluationTaskType,
   ExternalSourceType,
-  GuardrailContentFilterAction,
-  GuardrailContentFiltersTierName,
-  GuardrailContentFilterType,
-  GuardrailContextualGroundingAction,
-  GuardrailContextualGroundingFilterType,
-  GuardrailContextualGroundingTierName,
-  GuardrailFilterStrength,
-  GuardrailModality,
   InputTags,
   ModelStatus,
   PerformanceConfigLatency,
@@ -6283,6 +6277,510 @@ export interface PutAccountDataRetentionResponse {
 }
 
 /**
+ * <p>Identifies the model provider whose account retention storage configuration to delete.</p>
+ * @public
+ */
+export interface DeleteAccountDataRetentionStorageRequest {
+  /**
+   * <p>The model provider whose retention storage configuration is addressed by this request.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+}
+
+/**
+ * <p>A successful deletion returns no response fields.</p>
+ * @public
+ */
+export interface DeleteAccountDataRetentionStorageResponse {}
+
+/**
+ * <p>Identifies the model provider whose organization retention storage configuration to delete.</p>
+ * @public
+ */
+export interface DeleteOrganizationDataRetentionStorageRequest {
+  /**
+   * <p>The model provider whose retention storage configuration is addressed by this request.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+}
+
+/**
+ * <p>A successful deletion returns no response fields.</p>
+ * @public
+ */
+export interface DeleteOrganizationDataRetentionStorageResponse {}
+
+/**
+ * <p>Identifies the project and model provider whose retention storage configuration to delete.</p>
+ * @public
+ */
+export interface DeleteProjectDataRetentionStorageRequest {
+  /**
+   * <p>The ID or ARN of a named project owned by the calling account in this AWS Region. The default project is not supported; use the account-level retention storage operations instead.</p>
+   * @public
+   */
+  projectIdentifier: string | undefined;
+
+  /**
+   * <p>The model provider whose retention storage configuration is addressed by this request.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+}
+
+/**
+ * <p>A successful deletion returns no response fields.</p>
+ * @public
+ */
+export interface DeleteProjectDataRetentionStorageResponse {}
+
+/**
+ * <p>Identifies the model provider whose account retention storage configuration to retrieve.</p>
+ * @public
+ */
+export interface GetAccountDataRetentionStorageRequest {
+  /**
+   * <p>The model provider whose retention storage configuration is addressed by this request.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+}
+
+/**
+ * <p>You provide the Amazon S3 destination and AWS Key Management Service (AWS KMS) key for retained data.</p> <p>Before saving a customer-managed destination, Amazon Bedrock validates that you can use the bucket and key and that their resource policies permit the required Amazon Bedrock access. If validation fails, Amazon Bedrock rejects the configuration without saving it.</p> <p>You need <code>s3:PutObject</code>, <code>s3:GetObject</code>, <code>kms:GenerateDataKey</code>, and <code>kms:Decrypt</code> permissions. The Amazon S3 bucket policy must allow the Amazon Bedrock service principal, <code>bedrock.amazonaws.com</code>, to put, get, and delete objects with conditions appropriate to the configuration scope.</p> <p>Use <code>aws:SourceAccount</code> for account scope, <code>aws:SourceOrgID</code> for organization scope, and both <code>aws:SourceAccount</code> and the project's <code>aws:SourceArn</code> for project scope. Validation rejects resource policies that allow the service principal to access the destination without the required scope conditions.</p> <p>The key policy must permit <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> for both uses of the key: direct use by Amazon Bedrock with the scope conditions, and use through Amazon S3 with a <code>kms:ViaService</code> condition for the bucket's Region and <code>kms:EncryptionContext:aws:s3:arn</code> scoped to the bucket.</p>
+ * @public
+ */
+export interface DataRetentionStorageConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed AWS Key Management Service (AWS KMS) key you use to encrypt retained data. Specify an enabled symmetric encryption key in the AWS Region where you register the configuration. You cannot specify a key alias.</p>
+   * @public
+   */
+  kmsKeyArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket that receives retained data. The bucket must be in the AWS Region where you register the configuration.</p>
+   * @public
+   */
+  s3BucketArn: string | undefined;
+
+  /**
+   * <p>The AWS account ID of the destination bucket's owner. You must specify the owner, even when the bucket belongs to another account. Amazon Bedrock uses this ID to verify bucket ownership for each delivery request.</p>
+   * @public
+   */
+  s3BucketOwner: string | undefined;
+}
+
+/**
+ * <p>The calling account's stored retention storage configuration for the requested model provider.</p>
+ * @public
+ */
+export interface GetAccountDataRetentionStorageResponse {
+  /**
+   * <p>Scope addressed by the operation that returned this record.</p>
+   * @public
+   */
+  scope: DataRetentionStorageScope | undefined;
+
+  /**
+   * <p>Model provider this configuration applies to.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+
+  /**
+   * <p>Where this record delivers retained data.</p>
+   * @public
+   */
+  storageDestination: DataRetentionStorageDestination | undefined;
+
+  /**
+   * <p>The stored destination and key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  storageConfiguration?: DataRetentionStorageConfiguration | undefined;
+
+  /**
+   * <p>Time the stored record last changed.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Validation state of the KMS key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  kmsKeyStatus?: DataRetentionStorageResourceStatus | undefined;
+
+  /**
+   * <p>Validation state of the bucket. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  s3BucketStatus?: DataRetentionStorageResourceStatus | undefined;
+}
+
+/**
+ * <p>Identifies the model provider whose organization retention storage configuration to retrieve.</p>
+ * @public
+ */
+export interface GetOrganizationDataRetentionStorageRequest {
+  /**
+   * <p>The model provider whose retention storage configuration is addressed by this request.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+}
+
+/**
+ * <p>The organization's stored retention storage configuration for the requested model provider.</p>
+ * @public
+ */
+export interface GetOrganizationDataRetentionStorageResponse {
+  /**
+   * <p>Scope addressed by the operation that returned this record.</p>
+   * @public
+   */
+  scope: DataRetentionStorageScope | undefined;
+
+  /**
+   * <p>Model provider this configuration applies to.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+
+  /**
+   * <p>Where this record delivers retained data.</p>
+   * @public
+   */
+  storageDestination: DataRetentionStorageDestination | undefined;
+
+  /**
+   * <p>The stored destination and key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  storageConfiguration?: DataRetentionStorageConfiguration | undefined;
+
+  /**
+   * <p>Time the stored record last changed.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Validation state of the KMS key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  kmsKeyStatus?: DataRetentionStorageResourceStatus | undefined;
+
+  /**
+   * <p>Validation state of the bucket. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  s3BucketStatus?: DataRetentionStorageResourceStatus | undefined;
+}
+
+/**
+ * <p>Identifies the project and model provider whose retention storage configuration to retrieve.</p>
+ * @public
+ */
+export interface GetProjectDataRetentionStorageRequest {
+  /**
+   * <p>The ID or ARN of a named project owned by the calling account in this AWS Region. The default project is not supported; use the account-level retention storage operations instead.</p>
+   * @public
+   */
+  projectIdentifier: string | undefined;
+
+  /**
+   * <p>The model provider whose retention storage configuration is addressed by this request.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+}
+
+/**
+ * <p>The project's stored retention storage configuration for the requested model provider.</p>
+ * @public
+ */
+export interface GetProjectDataRetentionStorageResponse {
+  /**
+   * <p>Scope addressed by the operation that returned this record.</p>
+   * @public
+   */
+  scope: DataRetentionStorageScope | undefined;
+
+  /**
+   * <p>Model provider this configuration applies to.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+
+  /**
+   * <p>Where this record delivers retained data.</p>
+   * @public
+   */
+  storageDestination: DataRetentionStorageDestination | undefined;
+
+  /**
+   * <p>The stored destination and key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  storageConfiguration?: DataRetentionStorageConfiguration | undefined;
+
+  /**
+   * <p>Time the stored record last changed.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Validation state of the KMS key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  kmsKeyStatus?: DataRetentionStorageResourceStatus | undefined;
+
+  /**
+   * <p>Validation state of the bucket. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  s3BucketStatus?: DataRetentionStorageResourceStatus | undefined;
+
+  /**
+   * <p>ARN of the configured project.</p>
+   * @public
+   */
+  projectArn: string | undefined;
+}
+
+/**
+ * <p>The model provider and retention storage destination to configure for the calling account.</p>
+ * @public
+ */
+export interface PutAccountDataRetentionStorageRequest {
+  /**
+   * <p>The model provider whose retention storage configuration is addressed by this request.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+
+  /**
+   * <p>Where retained data is delivered for this scope. customer_managed requires storageConfiguration; amazon_managed forbids it.</p>
+   * @public
+   */
+  storageDestination: DataRetentionStorageDestination | undefined;
+
+  /**
+   * <p>Destination bucket and key. Required when storageDestination is customer_managed; rejected with ValidationException when amazon_managed.</p>
+   * @public
+   */
+  storageConfiguration?: DataRetentionStorageConfiguration | undefined;
+}
+
+/**
+ * <p>The stored configuration after the write.</p>
+ * @public
+ */
+export interface PutAccountDataRetentionStorageResponse {
+  /**
+   * <p>Scope addressed by the operation that returned this record.</p>
+   * @public
+   */
+  scope: DataRetentionStorageScope | undefined;
+
+  /**
+   * <p>Model provider this configuration applies to.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+
+  /**
+   * <p>Where this record delivers retained data.</p>
+   * @public
+   */
+  storageDestination: DataRetentionStorageDestination | undefined;
+
+  /**
+   * <p>The stored destination and key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  storageConfiguration?: DataRetentionStorageConfiguration | undefined;
+
+  /**
+   * <p>Time the stored record last changed.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Validation state of the KMS key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  kmsKeyStatus?: DataRetentionStorageResourceStatus | undefined;
+
+  /**
+   * <p>Validation state of the bucket. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  s3BucketStatus?: DataRetentionStorageResourceStatus | undefined;
+}
+
+/**
+ * <p>The model provider and retention storage destination to configure for the organization.</p>
+ * @public
+ */
+export interface PutOrganizationDataRetentionStorageRequest {
+  /**
+   * <p>The model provider whose retention storage configuration is addressed by this request.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+
+  /**
+   * <p>Where retained data is delivered for this scope. customer_managed requires storageConfiguration; amazon_managed forbids it.</p>
+   * @public
+   */
+  storageDestination: DataRetentionStorageDestination | undefined;
+
+  /**
+   * <p>Destination bucket and key. Required when storageDestination is customer_managed; rejected with ValidationException when amazon_managed.</p>
+   * @public
+   */
+  storageConfiguration?: DataRetentionStorageConfiguration | undefined;
+}
+
+/**
+ * <p>The organization's stored retention storage configuration after the write.</p>
+ * @public
+ */
+export interface PutOrganizationDataRetentionStorageResponse {
+  /**
+   * <p>Scope addressed by the operation that returned this record.</p>
+   * @public
+   */
+  scope: DataRetentionStorageScope | undefined;
+
+  /**
+   * <p>Model provider this configuration applies to.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+
+  /**
+   * <p>Where this record delivers retained data.</p>
+   * @public
+   */
+  storageDestination: DataRetentionStorageDestination | undefined;
+
+  /**
+   * <p>The stored destination and key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  storageConfiguration?: DataRetentionStorageConfiguration | undefined;
+
+  /**
+   * <p>Time the stored record last changed.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Validation state of the KMS key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  kmsKeyStatus?: DataRetentionStorageResourceStatus | undefined;
+
+  /**
+   * <p>Validation state of the bucket. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  s3BucketStatus?: DataRetentionStorageResourceStatus | undefined;
+}
+
+/**
+ * <p>The project, model provider, and retention storage destination to configure.</p>
+ * @public
+ */
+export interface PutProjectDataRetentionStorageRequest {
+  /**
+   * <p>The ID or ARN of a named project owned by the calling account in this AWS Region. The default project is not supported; use the account-level retention storage operations instead.</p>
+   * @public
+   */
+  projectIdentifier: string | undefined;
+
+  /**
+   * <p>The model provider whose retention storage configuration is addressed by this request.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+
+  /**
+   * <p>Where retained data is delivered for this scope. customer_managed requires storageConfiguration; amazon_managed forbids it.</p>
+   * @public
+   */
+  storageDestination: DataRetentionStorageDestination | undefined;
+
+  /**
+   * <p>Destination bucket and key. Required when storageDestination is customer_managed; rejected with ValidationException when amazon_managed.</p>
+   * @public
+   */
+  storageConfiguration?: DataRetentionStorageConfiguration | undefined;
+}
+
+/**
+ * <p>The project's stored retention storage configuration after the write.</p>
+ * @public
+ */
+export interface PutProjectDataRetentionStorageResponse {
+  /**
+   * <p>Scope addressed by the operation that returned this record.</p>
+   * @public
+   */
+  scope: DataRetentionStorageScope | undefined;
+
+  /**
+   * <p>Model provider this configuration applies to.</p>
+   * @public
+   */
+  modelProvider: DataRetentionStorageModelProvider | undefined;
+
+  /**
+   * <p>Where this record delivers retained data.</p>
+   * @public
+   */
+  storageDestination: DataRetentionStorageDestination | undefined;
+
+  /**
+   * <p>The stored destination and key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  storageConfiguration?: DataRetentionStorageConfiguration | undefined;
+
+  /**
+   * <p>Time the stored record last changed.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Validation state of the KMS key. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  kmsKeyStatus?: DataRetentionStorageResourceStatus | undefined;
+
+  /**
+   * <p>Validation state of the bucket. Present only when storageDestination is customer_managed.</p>
+   * @public
+   */
+  s3BucketStatus?: DataRetentionStorageResourceStatus | undefined;
+
+  /**
+   * <p>ARN of the configured project.</p>
+   * @public
+   */
+  projectArn: string | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteEnforcedGuardrailConfigurationRequest {
@@ -7506,446 +8004,4 @@ export namespace EvaluationPrecomputedRagSourceConfig {
     retrieveAndGenerateSourceConfig: (value: EvaluationPrecomputedRetrieveAndGenerateSourceConfig) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * <p>The Amazon S3 location where the results of your evaluation job are saved.</p>
- * @public
- */
-export interface EvaluationOutputDataConfig {
-  /**
-   * <p>The Amazon S3 URI where the results of the evaluation job are saved.</p>
-   * @public
-   */
-  s3Uri: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateEvaluationJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the evaluation job.</p>
-   * @public
-   */
-  jobArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEvaluationJobRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the evaluation job you want get information on.</p>
-   * @public
-   */
-  jobIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEvaluationJobsRequest {
-  /**
-   * <p>A filter to only list evaluation jobs created after a specified time.</p>
-   * @public
-   */
-  creationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter to only list evaluation jobs created before a specified time.</p>
-   * @public
-   */
-  creationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter to only list evaluation jobs that are of a certain status.</p>
-   * @public
-   */
-  statusEquals?: EvaluationJobStatus | undefined;
-
-  /**
-   * <p>A filter to only list evaluation jobs that are either model evaluations or knowledge base evaluations.</p>
-   * @public
-   */
-  applicationTypeEquals?: ApplicationType | undefined;
-
-  /**
-   * <p>A filter to only list evaluation jobs that contain a specified string in the job name.</p>
-   * @public
-   */
-  nameContains?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Specifies a creation time to sort the list of evaluation jobs by when they were created.</p>
-   * @public
-   */
-  sortBy?: SortJobsBy | undefined;
-
-  /**
-   * <p>Specifies whether to sort the list of evaluation jobs by either ascending or descending order.</p>
-   * @public
-   */
-  sortOrder?: SortOrder | undefined;
-}
-
-/**
- * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
- * @public
- */
-export interface EvaluationModelConfigSummary {
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the models used for the evaluation job.</p>
-   * @public
-   */
-  bedrockModelIdentifiers?: string[] | undefined;
-
-  /**
-   * <p>A label that identifies the models used for a model evaluation job where you provide your own inference response data.</p>
-   * @public
-   */
-  precomputedInferenceSourceIdentifiers?: string[] | undefined;
-}
-
-/**
- * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
- * @public
- */
-export interface EvaluationRagConfigSummary {
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the Knowledge Base resources used for a Knowledge Base evaluation job where Amazon Bedrock invokes the Knowledge Base for you.</p>
-   * @public
-   */
-  bedrockKnowledgeBaseIdentifiers?: string[] | undefined;
-
-  /**
-   * <p>A label that identifies the RAG sources used for a Knowledge Base evaluation job where you provide your own inference response data.</p>
-   * @public
-   */
-  precomputedRagSourceIdentifiers?: string[] | undefined;
-}
-
-/**
- * <p>Identifies the models, Knowledge Bases, or other RAG sources evaluated in a model or Knowledge Base evaluation job.</p>
- * @public
- */
-export interface EvaluationInferenceConfigSummary {
-  /**
-   * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
-   * @public
-   */
-  modelConfigSummary?: EvaluationModelConfigSummary | undefined;
-
-  /**
-   * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
-   * @public
-   */
-  ragConfigSummary?: EvaluationRagConfigSummary | undefined;
-}
-
-/**
- * <p>Summary information of an evaluation job.</p>
- * @public
- */
-export interface EvaluationSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the evaluation job.</p>
-   * @public
-   */
-  jobArn: string | undefined;
-
-  /**
-   * <p>The name for the evaluation job.</p>
-   * @public
-   */
-  jobName: string | undefined;
-
-  /**
-   * <p>The current status of the evaluation job.</p>
-   * @public
-   */
-  status: EvaluationJobStatus | undefined;
-
-  /**
-   * <p>The time the evaluation job was created.</p>
-   * @public
-   */
-  creationTime: Date | undefined;
-
-  /**
-   * <p>Specifies whether the evaluation job is automated or human-based.</p>
-   * @public
-   */
-  jobType: EvaluationJobType | undefined;
-
-  /**
-   * <p>The type of task for model evaluation.</p>
-   * @public
-   */
-  evaluationTaskTypes: EvaluationTaskType[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the model(s) used for the evaluation job.</p>
-   *
-   * @deprecated (since 2025-03-07) Inference identifiers should be retrieved from the inferenceConfigSummary.
-   * @public
-   */
-  modelIdentifiers?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the knowledge base resources used for a knowledge base evaluation job.</p>
-   *
-   * @deprecated (since 2025-03-07) Inference identifiers should be retrieved from the inferenceConfigSummary.
-   * @public
-   */
-  ragIdentifiers?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the models used to compute the metrics for a knowledge base evaluation job.</p>
-   * @public
-   */
-  evaluatorModelIdentifiers?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the models used to compute custom metrics in an Amazon Bedrock evaluation job.</p>
-   * @public
-   */
-  customMetricsEvaluatorModelIdentifiers?: string[] | undefined;
-
-  /**
-   * <p>Identifies the models, Knowledge Bases, or other RAG sources evaluated in a model or Knowledge Base evaluation job.</p>
-   * @public
-   */
-  inferenceConfigSummary?: EvaluationInferenceConfigSummary | undefined;
-
-  /**
-   * <p>Specifies whether the evaluation job is for evaluating a model or evaluating a knowledge base (retrieval and response generation).</p>
-   * @public
-   */
-  applicationType?: ApplicationType | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEvaluationJobsResponse {
-  /**
-   * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>A list of summaries of the evaluation jobs.</p>
-   * @public
-   */
-  jobSummaries?: EvaluationSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEvaluationJobRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the evaluation job you want to stop.</p>
-   * @public
-   */
-  jobIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEvaluationJobResponse {}
-
-/**
- * <p>Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.</p>
- * @public
- */
-export interface GuardrailAutomatedReasoningPolicyConfig {
-  /**
-   * <p>The list of Automated Reasoning policy ARNs to include in the guardrail configuration.</p>
-   * @public
-   */
-  policies: string[] | undefined;
-
-  /**
-   * <p>The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.</p>
-   * @public
-   */
-  confidenceThreshold?: number | undefined;
-}
-
-/**
- * <p>Contains filter strengths for harmful content. Guardrails support the following content filters to detect and filter harmful user inputs and FM-generated outputs.</p> <ul> <li> <p> <b>Hate</b> – Describes language or a statement that discriminates, criticizes, insults, denounces, or dehumanizes a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).</p> </li> <li> <p> <b>Insults</b> – Describes language or a statement that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.</p> </li> <li> <p> <b>Sexual</b> – Describes language or a statement that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.</p> </li> <li> <p> <b>Violence</b> – Describes language or a statement that includes glorification of or threats to inflict physical pain, hurt, or injury toward a person, group or thing.</p> </li> </ul> <p>Content filtering depends on the confidence classification of user inputs and FM responses across each of the four harmful categories. All input and output statements are classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For example, if a statement is classified as <i>Hate</i> with HIGH confidence, the likelihood of the statement representing hateful content is high. A single statement can be classified across multiple categories with varying confidence levels. For example, a single statement can be classified as <i>Hate</i> with HIGH confidence, <i>Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters.html">Guardrails content filters</a>.</p>
- * @public
- */
-export interface GuardrailContentFilterConfig {
-  /**
-   * <p>The harmful category that the content filter is applied to.</p>
-   * @public
-   */
-  type: GuardrailContentFilterType | undefined;
-
-  /**
-   * <p>The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
-   * @public
-   */
-  inputStrength: GuardrailFilterStrength | undefined;
-
-  /**
-   * <p>The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
-   * @public
-   */
-  outputStrength: GuardrailFilterStrength | undefined;
-
-  /**
-   * <p>The input modalities selected for the guardrail content filter configuration.</p>
-   * @public
-   */
-  inputModalities?: GuardrailModality[] | undefined;
-
-  /**
-   * <p>The output modalities selected for the guardrail content filter configuration.</p>
-   * @public
-   */
-  outputModalities?: GuardrailModality[] | undefined;
-
-  /**
-   * <p>Specifies the action to take when harmful content is detected. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  inputAction?: GuardrailContentFilterAction | undefined;
-
-  /**
-   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  outputAction?: GuardrailContentFilterAction | undefined;
-
-  /**
-   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  inputEnabled?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  outputEnabled?: boolean | undefined;
-}
-
-/**
- * <p>The tier that your guardrail uses for content filters. Consider using a tier that balances performance, accuracy, and compatibility with your existing generative AI workflows.</p>
- * @public
- */
-export interface GuardrailContentFiltersTierConfig {
-  /**
-   * <p>The tier that your guardrail uses for content filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
-   * @public
-   */
-  tierName: GuardrailContentFiltersTierName | undefined;
-}
-
-/**
- * <p>Contains details about how to handle harmful content.</p>
- * @public
- */
-export interface GuardrailContentPolicyConfig {
-  /**
-   * <p>Contains the type of the content filter and how strongly it should apply to prompts and model responses.</p>
-   * @public
-   */
-  filtersConfig: GuardrailContentFilterConfig[] | undefined;
-
-  /**
-   * <p>The tier that your guardrail uses for content filters.</p>
-   * @public
-   */
-  tierConfig?: GuardrailContentFiltersTierConfig | undefined;
-}
-
-/**
- * <p>The filter configuration details for the guardrails contextual grounding filter.</p>
- * @public
- */
-export interface GuardrailContextualGroundingFilterConfig {
-  /**
-   * <p>The filter details for the guardrails contextual grounding filter.</p>
-   * @public
-   */
-  type: GuardrailContextualGroundingFilterType | undefined;
-
-  /**
-   * <p>The threshold details for the guardrails contextual grounding filter.</p>
-   * @public
-   */
-  threshold: number | undefined;
-
-  /**
-   * <p>Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  action?: GuardrailContextualGroundingAction | undefined;
-
-  /**
-   * <p>Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  enabled?: boolean | undefined;
-}
-
-/**
- * <p>Specifies the tier that your guardrail uses for contextual grounding checks.</p>
- * @public
- */
-export interface GuardrailContextualGroundingTierConfig {
-  /**
-   * <p>The tier that your guardrail uses for contextual grounding. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established contextual grounding functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier, with support for reasoning, conversational content and more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
-   * @public
-   */
-  tierName: GuardrailContextualGroundingTierName | undefined;
-}
-
-/**
- * <p>The policy configuration details for the guardrails contextual grounding policy.</p>
- * @public
- */
-export interface GuardrailContextualGroundingPolicyConfig {
-  /**
-   * <p>The filter configuration details for the guardrails contextual grounding policy.</p>
-   * @public
-   */
-  filtersConfig: GuardrailContextualGroundingFilterConfig[] | undefined;
-
-  /**
-   * <p>The tier that your guardrail uses for contextual grounding.</p>
-   * @public
-   */
-  tierConfig?: GuardrailContextualGroundingTierConfig | undefined;
-}
-
-/**
- * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
- * @public
- */
-export interface GuardrailCrossRegionConfig {
-  /**
-   * <p>The ID or Amazon Resource Name (ARN) of the guardrail profile that your guardrail is using. Guardrail profile availability depends on your current Amazon Web Services Region. For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html">Amazon Bedrock User Guide</a>.</p>
-   * @public
-   */
-  guardrailProfileIdentifier: string | undefined;
 }

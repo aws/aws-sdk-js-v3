@@ -36,6 +36,7 @@ export interface ListInferenceProfilesCommandOutput extends ListInferenceProfile
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   typeEquals: "SYSTEM_DEFINED" || "APPLICATION",
+ *   projectIdentifier: "STRING_VALUE",
  * };
  * const command = new ListInferenceProfilesCommand(input);
  * const response = await client.send(command);

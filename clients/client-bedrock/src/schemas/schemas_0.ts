@@ -7,10 +7,13 @@ const _AECMS = "AutomatedEvaluationCustomMetricSource";
 const _AEGIIC = "AccountEnforcedGuardrailInferenceInputConfiguration";
 const _AEGOC = "AccountEnforcedGuardrailOutputConfiguration";
 const _AEGOCc = "AccountEnforcedGuardrailsOutputConfiguration";
+const _AP = "ArchiveProject";
 const _APOIC = "AdvancedPromptOptimizationInputConfig";
 const _APOJS = "AdvancedPromptOptimizationJobSummary";
 const _APOJSd = "AdvancedPromptOptimizationJobSummaries";
 const _APOOC = "AdvancedPromptOptimizationOutputConfig";
+const _APR = "ArchiveProjectRequest";
+const _APRr = "ArchiveProjectResponse";
 const _ARCDSL = "AutomatedReasoningCheckDifferenceScenarioList";
 const _ARCF = "AutomatedReasoningCheckFinding";
 const _ARCFL = "AutomatedReasoningCheckFindingList";
@@ -243,13 +246,19 @@ const _CMMERr = "CreateMarketplaceModelEndpointResponse";
 const _CMS = "CustomModelSummary";
 const _CMSL = "CustomModelSummaryList";
 const _CMU = "CustomModelUnits";
+const _CP = "CreateProject";
 const _CPMT = "CreateProvisionedModelThroughput";
 const _CPMTR = "CreateProvisionedModelThroughputRequest";
 const _CPMTRr = "CreateProvisionedModelThroughputResponse";
-const _CPR = "CreatePromptRouter";
+const _CPR = "CreateProjectRequest";
 const _CPRR = "CreatePromptRouterRequest";
 const _CPRRr = "CreatePromptRouterResponse";
+const _CPRr = "CreateProjectResponse";
+const _CPRre = "CreatePromptRouter";
 const _CWC = "CloudWatchConfig";
+const _DADRS = "DeleteAccountDataRetentionStorage";
+const _DADRSR = "DeleteAccountDataRetentionStorageRequest";
+const _DADRSRe = "DeleteAccountDataRetentionStorageResponse";
 const _DARP = "DeleteAutomatedReasoningPolicy";
 const _DARPBW = "DeleteAutomatedReasoningPolicyBuildWorkflow";
 const _DARPBWR = "DeleteAutomatedReasoningPolicyBuildWorkflowRequest";
@@ -290,7 +299,13 @@ const _DMMERe = "DeleteMarketplaceModelEndpointResponse";
 const _DMMERer = "DeregisterMarketplaceModelEndpointRequest";
 const _DMMERere = "DeregisterMarketplaceModelEndpointResponse";
 const _DMMEe = "DeregisterMarketplaceModelEndpoint";
+const _DODRS = "DeleteOrganizationDataRetentionStorage";
+const _DODRSR = "DeleteOrganizationDataRetentionStorageRequest";
+const _DODRSRe = "DeleteOrganizationDataRetentionStorageResponse";
 const _DPD = "DataProcessingDetails";
+const _DPDRS = "DeleteProjectDataRetentionStorage";
+const _DPDRSR = "DeleteProjectDataRetentionStorageRequest";
+const _DPDRSRe = "DeleteProjectDataRetentionStorageResponse";
 const _DPMT = "DeleteProvisionedModelThroughput";
 const _DPMTR = "DeleteProvisionedModelThroughputRequest";
 const _DPMTRe = "DeleteProvisionedModelThroughputResponse";
@@ -301,6 +316,7 @@ const _DPRe = "DeletePromptRouter";
 const _DRP = "DeleteResourcePolicy";
 const _DRPR = "DeleteResourcePolicyRequest";
 const _DRPRe = "DeleteResourcePolicyResponse";
+const _DRSC = "DataRetentionStorageConfiguration";
 const _EARPV = "ExportAutomatedReasoningPolicyVersion";
 const _EARPVR = "ExportAutomatedReasoningPolicyVersionRequest";
 const _EARPVRx = "ExportAutomatedReasoningPolicyVersionResponse";
@@ -347,6 +363,9 @@ const _FMSL = "FoundationModelSummaryList";
 const _GADR = "GetAccountDataRetention";
 const _GADRR = "GetAccountDataRetentionRequest";
 const _GADRRe = "GetAccountDataRetentionResponse";
+const _GADRS = "GetAccountDataRetentionStorage";
+const _GADRSR = "GetAccountDataRetentionStorageRequest";
+const _GADRSRe = "GetAccountDataRetentionStorageResponse";
 const _GAPOJ = "GetAdvancedPromptOptimizationJob";
 const _GAPOJR = "GetAdvancedPromptOptimizationJobRequest";
 const _GAPOJRe = "GetAdvancedPromptOptimizationJobResponse";
@@ -451,6 +470,13 @@ const _GMWL = "GuardrailManagedWordLists";
 const _GMWLC = "GuardrailManagedWordListsConfig";
 const _GMu = "GuardrailModalities";
 const _GN = "GuardrailName";
+const _GODRS = "GetOrganizationDataRetentionStorage";
+const _GODRSR = "GetOrganizationDataRetentionStorageRequest";
+const _GODRSRe = "GetOrganizationDataRetentionStorageResponse";
+const _GP = "GetProject";
+const _GPDRS = "GetProjectDataRetentionStorage";
+const _GPDRSR = "GetProjectDataRetentionStorageRequest";
+const _GPDRSRe = "GetProjectDataRetentionStorageResponse";
 const _GPE = "GuardrailPiiEntity";
 const _GPEC = "GuardrailPiiEntityConfig";
 const _GPECu = "GuardrailPiiEntitiesConfig";
@@ -458,9 +484,11 @@ const _GPEu = "GuardrailPiiEntities";
 const _GPMT = "GetProvisionedModelThroughput";
 const _GPMTR = "GetProvisionedModelThroughputRequest";
 const _GPMTRe = "GetProvisionedModelThroughputResponse";
-const _GPR = "GetPromptRouter";
+const _GPR = "GetProjectRequest";
 const _GPRR = "GetPromptRouterRequest";
 const _GPRRe = "GetPromptRouterResponse";
+const _GPRe = "GetProjectResponse";
+const _GPRet = "GetPromptRouter";
 const _GR = "GuardrailRegex";
 const _GRC = "GuardrailRegexConfig";
 const _GRCu = "GuardrailRegexesConfig";
@@ -476,6 +504,18 @@ const _GSRu = "GuardrailStatusReasons";
 const _GSu = "GuardrailSummaries";
 const _GT = "GuardrailTopic";
 const _GTA = "GuardrailTopicAction";
+const _GTAP = "GetTrustedAccessProgram";
+const _GTAPAE = "GetTrustedAccessProgramAccountEnrollment";
+const _GTAPAER = "GetTrustedAccessProgramAccountEnrollmentRequest";
+const _GTAPAERe = "GetTrustedAccessProgramAccountEnrollmentResponse";
+const _GTAPOE = "GetTrustedAccessProgramOrganizationEnrollment";
+const _GTAPOER = "GetTrustedAccessProgramOrganizationEnrollmentRequest";
+const _GTAPOERe = "GetTrustedAccessProgramOrganizationEnrollmentResponse";
+const _GTAPPE = "GetTrustedAccessProgramProjectEnrollment";
+const _GTAPPER = "GetTrustedAccessProgramProjectEnrollmentRequest";
+const _GTAPPERe = "GetTrustedAccessProgramProjectEnrollmentResponse";
+const _GTAPR = "GetTrustedAccessProgramRequest";
+const _GTAPRe = "GetTrustedAccessProgramResponse";
 const _GTC = "GuardrailTopicConfig";
 const _GTCu = "GuardrailTopicsConfig";
 const _GTD = "GuardrailTopicDefinition";
@@ -581,13 +621,19 @@ const _LMIJi = "ListModelInvocationJobs";
 const _LMME = "ListMarketplaceModelEndpoints";
 const _LMMER = "ListMarketplaceModelEndpointsRequest";
 const _LMMERi = "ListMarketplaceModelEndpointsResponse";
+const _LP = "ListProjects";
 const _LPMT = "ListProvisionedModelThroughputs";
 const _LPMTR = "ListProvisionedModelThroughputsRequest";
 const _LPMTRi = "ListProvisionedModelThroughputsResponse";
-const _LPR = "ListPromptRouters";
+const _LPR = "ListProjectsRequest";
 const _LPRR = "ListPromptRoutersRequest";
 const _LPRRi = "ListPromptRoutersResponse";
+const _LPRi = "ListProjectsResponse";
+const _LPRis = "ListPromptRouters";
 const _LT = "LegalTerm";
+const _LTAP = "ListTrustedAccessPrograms";
+const _LTAPR = "ListTrustedAccessProgramsRequest";
+const _LTAPRi = "ListTrustedAccessProgramsResponse";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -623,7 +669,11 @@ const _Of = "Offers";
 const _PADR = "PutAccountDataRetention";
 const _PADRR = "PutAccountDataRetentionRequest";
 const _PADRRu = "PutAccountDataRetentionResponse";
+const _PADRS = "PutAccountDataRetentionStorage";
+const _PADRSR = "PutAccountDataRetentionStorageRequest";
+const _PADRSRu = "PutAccountDataRetentionStorageResponse";
 const _PC = "PerformanceConfiguration";
+const _PDR = "ProjectDataRetention";
 const _PEGC = "PutEnforcedGuardrailConfiguration";
 const _PEGCR = "PutEnforcedGuardrailConfigurationRequest";
 const _PEGCRu = "PutEnforcedGuardrailConfigurationResponse";
@@ -632,6 +682,13 @@ const _PMILCR = "PutModelInvocationLoggingConfigurationRequest";
 const _PMILCRu = "PutModelInvocationLoggingConfigurationResponse";
 const _PMS = "ProvisionedModelSummary";
 const _PMSr = "ProvisionedModelSummaries";
+const _PN = "ProjectName";
+const _PODRS = "PutOrganizationDataRetentionStorage";
+const _PODRSR = "PutOrganizationDataRetentionStorageRequest";
+const _PODRSRu = "PutOrganizationDataRetentionStorageResponse";
+const _PPDRS = "PutProjectDataRetentionStorage";
+const _PPDRSR = "PutProjectDataRetentionStorageRequest";
+const _PPDRSRu = "PutProjectDataRetentionStorageResponse";
 const _PRD = "PromptRouterDescription";
 const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
@@ -640,7 +697,18 @@ const _PRS = "PromptRouterSummary";
 const _PRSr = "PromptRouterSummaries";
 const _PRTM = "PromptRouterTargetModel";
 const _PRTMr = "PromptRouterTargetModels";
+const _PS = "ProjectSummary";
+const _PSL = "ProjectSummaryList";
 const _PT = "PricingTerm";
+const _PTAPAE = "PutTrustedAccessProgramAccountEnrollment";
+const _PTAPAER = "PutTrustedAccessProgramAccountEnrollmentRequest";
+const _PTAPAERu = "PutTrustedAccessProgramAccountEnrollmentResponse";
+const _PTAPOE = "PutTrustedAccessProgramOrganizationEnrollment";
+const _PTAPOER = "PutTrustedAccessProgramOrganizationEnrollmentRequest";
+const _PTAPOERu = "PutTrustedAccessProgramOrganizationEnrollmentResponse";
+const _PTAPPE = "PutTrustedAccessProgramProjectEnrollment";
+const _PTAPPER = "PutTrustedAccessProgramProjectEnrollmentRequest";
+const _PTAPPERu = "PutTrustedAccessProgramProjectEnrollmentResponse";
 const _PTr = "PromptTemplate";
 const _PUCFMA = "PutUseCaseForModelAccess";
 const _PUCFMAR = "PutUseCaseForModelAccessRequest";
@@ -695,8 +763,23 @@ const _SMIJRt = "StopModelInvocationJobResponse";
 const _SOD = "S3ObjectDoc";
 const _SQEE = "ServiceQuotaExceededException";
 const _ST = "SupportTerm";
+const _STAPAA = "StartTrustedAccessProgramAccountApplication";
+const _STAPAAR = "StartTrustedAccessProgramAccountApplicationRequest";
+const _STAPAARt = "StartTrustedAccessProgramAccountApplicationResponse";
+const _STAPOA = "StartTrustedAccessProgramOrganizationApplication";
+const _STAPOAR = "StartTrustedAccessProgramOrganizationApplicationRequest";
+const _STAPOARt = "StartTrustedAccessProgramOrganizationApplicationResponse";
+const _STAPPA = "StartTrustedAccessProgramProjectApplication";
+const _STAPPAR = "StartTrustedAccessProgramProjectApplicationRequest";
+const _STAPPARt = "StartTrustedAccessProgramProjectApplicationResponse";
 const _SUE = "ServiceUnavailableException";
 const _T = "Tag";
+const _TAPAR = "TrustedAccessProgramApplicationResult";
+const _TAPAT = "TrustedAccessProgramApplicationToken";
+const _TAPPH = "TrustedAccessProgramProviderHandoff";
+const _TAPS = "TrustedAccessProgramSummary";
+const _TAPSr = "TrustedAccessProgramSummaries";
+const _TARC = "TrustedAccessResolutionContext";
 const _TD = "TermDetails";
 const _TDC = "TrainingDataConfig";
 const _TDr = "TrainingDetails";
@@ -728,9 +811,12 @@ const _UGRp = "UpdateGuardrailResponse";
 const _UMME = "UpdateMarketplaceModelEndpoint";
 const _UMMER = "UpdateMarketplaceModelEndpointRequest";
 const _UMMERp = "UpdateMarketplaceModelEndpointResponse";
+const _UP = "UpdateProject";
 const _UPMT = "UpdateProvisionedModelThroughput";
 const _UPMTR = "UpdateProvisionedModelThroughputRequest";
 const _UPMTRp = "UpdateProvisionedModelThroughputResponse";
+const _UPR = "UpdateProjectRequest";
+const _UPRp = "UpdateProjectResponse";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
@@ -746,14 +832,16 @@ const _VSBRMC = "VectorSearchBedrockRerankingModelConfiguration";
 const _VSRC = "VectorSearchRerankingConfiguration";
 const _VT = "ValidityTerm";
 const _Va = "Validators";
-const _a = "annotation";
-const _aA = "agreementAvailability";
+const _a = "arn";
+const _aA = "archivedAt";
+const _aAg = "agreementAvailability";
 const _aAn = "andAll";
 const _aD = "agreementDuration";
 const _aDDE = "audioDataDeliveryEnabled";
 const _aE = "alternateExpression";
 const _aEc = "acceptEula";
 const _aI = "assetId";
+const _aIc = "accountId";
 const _aJ = "accuracyJustification";
 const _aM = "assetManifest";
 const _aMRF = "additionalModelRequestFields";
@@ -771,14 +859,16 @@ const _aSt = "atomicStatements";
 const _aSu = "authorizationStatus";
 const _aT = "assetType";
 const _aTE = "applicationTypeEquals";
+const _aTEA = "applicationTokenExpiresAt";
 const _aTFR = "aggregatedTestFindingsResult";
 const _aTV = "addTypeValue";
 const _aTd = "addType";
 const _aTp = "applicationType";
+const _aTpp = "applicationToken";
 const _aV = "addVariable";
 const _ac = "action";
-const _an = "annotations";
-const _ar = "arn";
+const _an = "annotation";
+const _ann = "annotations";
 const _au = "automated";
 const _bC = "byteContent";
 const _bCT = "byCustomizationType";
@@ -871,12 +961,14 @@ const _dMU = "desiredModelUnits";
 const _dN = "documentName";
 const _dPD = "dataProcessingDetails";
 const _dPMN = "desiredProvisionedModelName";
-const _dR = "deleteRule";
+const _dR = "dataRetention";
 const _dRS = "disjointRuleSets";
+const _dRe = "deleteRule";
 const _dS = "differenceScenarios";
 const _dSo = "documentSources";
 const _dT = "deleteType";
 const _dTV = "deleteTypeValue";
+const _dU = "detailsUrl";
 const _dV = "deleteVariable";
 const _da = "data";
 const _dat = "dataset";
@@ -905,11 +997,13 @@ const _eOLT = "endOfLifeTime";
 const _eR = "expectedResult";
 const _eRC = "errorRecordCount";
 const _eRx = "executionRole";
-const _eS = "endpointStatus";
+const _eS = "eligibilityScope";
 const _eSC = "externalSourcesConfiguration";
 const _eSM = "endpointStatusMessage";
+const _eSn = "endpointStatus";
 const _eT = "endTime";
 const _eTT = "evaluationTaskTypes";
+const _eU = "enrollmentUrl";
 const _en = "entries";
 const _ena = "enabled";
 const _eq = "equals";
@@ -1022,6 +1116,7 @@ const _kEK = "kmsEncryptionKey";
 const _kIC = "kbInferenceConfig";
 const _kKA = "kmsKeyArn";
 const _kKI = "kmsKeyId";
+const _kKS = "kmsKeyStatus";
 const _kP = "keyPrefix";
 const _l = "logic";
 const _lA = "lambdaArn";
@@ -1074,6 +1169,7 @@ const _mME = "marketplaceModelEndpoint";
 const _mMEa = "marketplaceModelEndpoints";
 const _mN = "modelName";
 const _mNe = "metricNames";
+const _mP = "modelProvider";
 const _mPA = "modelPackageArn";
 const _mPADS = "modelPackageArnDataSource";
 const _mPL = "maxPromptLength";
@@ -1114,7 +1210,8 @@ const _oC = "outputConfig";
 const _oCr = "orchestrationConfiguration";
 const _oDC = "outputDataConfig";
 const _oE = "outputEnabled";
-const _oI = "offerId";
+const _oI = "optIn";
+const _oIf = "offerId";
 const _oM = "outputModalities";
 const _oMA = "outputModelArn";
 const _oMKKA = "outputModelKmsKeyArn";
@@ -1128,6 +1225,7 @@ const _of = "offers";
 const _op = "options";
 const _p = "premises";
 const _pA = "policyArn";
+const _pAr = "projectArn";
 const _pC = "performanceConfig";
 const _pD = "policyDefinition";
 const _pDR = "policyDefinitionRule";
@@ -1137,9 +1235,13 @@ const _pE = "priorElement";
 const _pEAT = "publicExtendedAccessTime";
 const _pEC = "piiEntitiesConfig";
 const _pEi = "piiEntities";
-const _pI = "policyId";
+const _pH = "providerHandoff";
+const _pI = "projectIdentifier";
 const _pIS = "precomputedInferenceSource";
 const _pISI = "precomputedInferenceSourceIdentifiers";
+const _pIo = "policyId";
+const _pIr = "programIdentifier";
+const _pIro = "programId";
 const _pMA = "provisionedModelArn";
 const _pMI = "provisionedModelId";
 const _pMN = "provisionedModelName";
@@ -1154,6 +1256,8 @@ const _pRS = "promptRouterSummaries";
 const _pRSC = "precomputedRagSourceConfig";
 const _pRSI = "precomputedRagSourceIdentifiers";
 const _pS = "policyScenarios";
+const _pSr = "projectSummaries";
+const _pSro = "programSummaries";
 const _pT = "promptTemplate";
 const _pV = "policyVariable";
 const _pVA = "policyVersionArn";
@@ -1182,6 +1286,7 @@ const _rCetr = "retrieveConfig";
 const _rCf = "rftConfig";
 const _rCo = "routingCriteria";
 const _rE = "reasoningEffort";
+const _rF = "resolvedFor";
 const _rI = "ruleId";
 const _rIa = "ragIdentifiers";
 const _rIu = "ruleIds";
@@ -1197,21 +1302,27 @@ const _rSC = "retrieveSourceConfig";
 const _rSI = "ragSourceIdentifier";
 const _rSS = "responseStreamingSupported";
 const _re = "regexes";
+const _res = "result";
 const _ru = "rules";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrock";
 const _sAE = "sourceAccountEquals";
 const _sAI = "sourceAccountId";
 const _sB = "sortBy";
+const _sBA = "s3BucketArn";
 const _sBO = "s3BucketOwner";
-const _sC = "s3Config";
+const _sBS = "s3BucketStatus";
+const _sC = "storageConfiguration";
 const _sCG = "selectiveContentGuarding";
-const _sCo = "sourceContent";
+const _sCo = "s3Config";
+const _sCou = "sourceContent";
 const _sCt = "stringContains";
-const _sD = "statusDetails";
+const _sD = "storageDestination";
 const _sDS = "s3DataSource";
+const _sDt = "statusDetails";
 const _sE = "scenarioExpression";
 const _sEKI = "s3EncryptionKeyId";
 const _sEt = "statusEquals";
+const _sF = "statusFilter";
 const _sGI = "securityGroupIds";
 const _sI = "statementId";
 const _sIDC = "s3InputDataConfig";
@@ -1233,6 +1344,7 @@ const _sOLT = "startOfLifeTime";
 const _sR = "supportingRules";
 const _sRC = "successRecordCount";
 const _sRt = "statusReasons";
+const _sRta = "statusReason";
 const _sS = "stopSequences";
 const _sT = "sourceType";
 const _sTA = "submitTimeAfter";
@@ -1243,9 +1355,11 @@ const _sU = "s3Uri";
 const _sV = "stringValue";
 const _sW = "startsWith";
 const _sa = "satisfiable";
-const _sc = "scenario";
+const _sc = "scope";
+const _sce = "scenario";
 const _se = "server";
 const _so = "sources";
+const _sou = "source";
 const _st = "status";
 const _sta = "statements";
 const _sy = "system";
@@ -1500,8 +1614,10 @@ var Identifier: StaticSimpleSchema = [0, n0, _I, 8, 0];
 var InferenceProfileDescription: StaticSimpleSchema = [0, n0, _IPD, 8, 0];
 var Message: StaticSimpleSchema = [0, n0, _M, 8, 0];
 var MetricName: StaticSimpleSchema = [0, n0, _MN, 8, 0];
+var ProjectName: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 var PromptRouterDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
 var TextPromptTemplate: StaticSimpleSchema = [0, n0, _TPT, 8, 0];
+var TrustedAccessProgramApplicationToken: StaticSimpleSchema = [0, n0, _TAPAT, 8, 0];
 export var AccountEnforcedGuardrailInferenceInputConfiguration$: StaticStructureSchema = [3, n0, _AEGIIC,
   0,
   [_gI, _gV, _sCG, _mE],
@@ -1531,6 +1647,16 @@ export var AgreementAvailability$: StaticStructureSchema = [3, n0, _AA,
   0,
   [_st, _eM],
   [0, 0], 1
+];
+export var ArchiveProjectRequest$: StaticStructureSchema = [3, n0, _APR,
+  0,
+  [_pI],
+  [[0, 1]], 1
+];
+export var ArchiveProjectResponse$: StaticStructureSchema = [3, n0, _APRr,
+  0,
+  [_i, _a, _n, _st, _cA, _dR, _aA],
+  [0, 0, [() => ProjectName, 0], 0, 5, () => ProjectDataRetention$, 5], 6
 ];
 export var AutomatedEvaluationConfig$: StaticStructureSchema = [3, n0, _AEC,
   0,
@@ -1674,7 +1800,7 @@ export var AutomatedReasoningPolicyBuildLog$: StaticStructureSchema = [3, n0, _A
 ];
 export var AutomatedReasoningPolicyBuildLogEntry$: StaticStructureSchema = [3, n0, _ARPBLE,
   0,
-  [_a, _st, _bS],
+  [_an, _st, _bS],
   [[() => AutomatedReasoningPolicyAnnotation$, 0], 0, [() => AutomatedReasoningPolicyBuildStepList, 0]], 3
 ];
 export var AutomatedReasoningPolicyBuildResultAssetManifest$: StaticStructureSchema = [3, n0, _ARPBRAM,
@@ -1704,7 +1830,7 @@ export var AutomatedReasoningPolicyBuildWorkflowDocument$: StaticStructureSchema
 ];
 export var AutomatedReasoningPolicyBuildWorkflowRepairContent$: StaticStructureSchema = [3, n0, _ARPBWRC,
   0,
-  [_an],
+  [_ann],
   [[() => AutomatedReasoningPolicyAnnotationList, 0]], 1
 ];
 export var AutomatedReasoningPolicyBuildWorkflowSource$: StaticStructureSchema = [3, n0, _ARPBWS,
@@ -1859,7 +1985,7 @@ export var AutomatedReasoningPolicyStatementReference$: StaticStructureSchema = 
 ];
 export var AutomatedReasoningPolicySummary$: StaticStructureSchema = [3, n0, _ARPSut,
   0,
-  [_pA, _n, _ve, _pI, _cA, _uA, _d],
+  [_pA, _n, _ve, _pIo, _cA, _uA, _d],
   [0, [() => AutomatedReasoningPolicyName, 0], 0, 0, 5, 5, [() => AutomatedReasoningPolicyDescription, 0]], 6
 ];
 export var AutomatedReasoningPolicyTestCase$: StaticStructureSchema = [3, n0, _ARPTC,
@@ -2147,6 +2273,16 @@ export var CreateModelInvocationJobResponse$: StaticStructureSchema = [3, n0, _C
   [_jA],
   [0], 1
 ];
+export var CreateProjectRequest$: StaticStructureSchema = [3, n0, _CPR,
+  0,
+  [_n, _ta, _dR],
+  [[() => ProjectName, 0], () => TagList, () => ProjectDataRetention$], 1
+];
+export var CreateProjectResponse$: StaticStructureSchema = [3, n0, _CPRr,
+  0,
+  [_i, _a, _n, _st, _cA, _dR, _aA],
+  [0, 0, [() => ProjectName, 0], 0, 5, () => ProjectDataRetention$, 5], 6
+];
 export var CreatePromptRouterRequest$: StaticStructureSchema = [3, n0, _CPRR,
   0,
   [_pRN, _mo, _rCo, _fM, _cRT, _d, _ta],
@@ -2206,6 +2342,21 @@ export var DataProcessingDetails$: StaticStructureSchema = [3, n0, _DPD,
   0,
   [_st, _cT, _lMT],
   [0, 5, 5]
+];
+export var DataRetentionStorageConfiguration$: StaticStructureSchema = [3, n0, _DRSC,
+  0,
+  [_kKA, _sBA, _sBO],
+  [0, 0, 0], 3
+];
+export var DeleteAccountDataRetentionStorageRequest$: StaticStructureSchema = [3, n0, _DADRSR,
+  0,
+  [_mP],
+  [[0, 1]], 1
+];
+export var DeleteAccountDataRetentionStorageResponse$: StaticStructureSchema = [3, n0, _DADRSRe,
+  0,
+  [],
+  []
 ];
 export var DeleteAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [3, n0, _DARPBWR,
   0,
@@ -2323,6 +2474,26 @@ export var DeleteModelInvocationLoggingConfigurationRequest$: StaticStructureSch
   []
 ];
 export var DeleteModelInvocationLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _DMILCRe,
+  0,
+  [],
+  []
+];
+export var DeleteOrganizationDataRetentionStorageRequest$: StaticStructureSchema = [3, n0, _DODRSR,
+  0,
+  [_mP],
+  [[0, 1]], 1
+];
+export var DeleteOrganizationDataRetentionStorageResponse$: StaticStructureSchema = [3, n0, _DODRSRe,
+  0,
+  [],
+  []
+];
+export var DeleteProjectDataRetentionStorageRequest$: StaticStructureSchema = [3, n0, _DPDRSR,
+  0,
+  [_pI, _mP],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteProjectDataRetentionStorageResponse$: StaticStructureSchema = [3, n0, _DPDRSRe,
   0,
   [],
   []
@@ -2497,6 +2668,16 @@ export var GetAccountDataRetentionResponse$: StaticStructureSchema = [3, n0, _GA
   [_mod, _uA],
   [0, 5], 1
 ];
+export var GetAccountDataRetentionStorageRequest$: StaticStructureSchema = [3, n0, _GADRSR,
+  0,
+  [_mP],
+  [[0, 1]], 1
+];
+export var GetAccountDataRetentionStorageResponse$: StaticStructureSchema = [3, n0, _GADRSRe,
+  0,
+  [_sc, _mP, _sD, _uA, _sC, _kKS, _sBS],
+  [0, 0, 0, 5, () => DataRetentionStorageConfiguration$, 0, 0], 4
+];
 export var GetAdvancedPromptOptimizationJobRequest$: StaticStructureSchema = [3, n0, _GAPOJR,
   0,
   [_jI],
@@ -2514,7 +2695,7 @@ export var GetAutomatedReasoningPolicyAnnotationsRequest$: StaticStructureSchema
 ];
 export var GetAutomatedReasoningPolicyAnnotationsResponse$: StaticStructureSchema = [3, n0, _GARPARe,
   0,
-  [_pA, _n, _bWI, _an, _aSH, _uA],
+  [_pA, _n, _bWI, _ann, _aSH, _uA],
   [0, [() => AutomatedReasoningPolicyName, 0], 0, [() => AutomatedReasoningPolicyAnnotationList, 0], 0, 5], 6
 ];
 export var GetAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [3, n0, _GARPBWR,
@@ -2544,7 +2725,7 @@ export var GetAutomatedReasoningPolicyNextScenarioRequest$: StaticStructureSchem
 ];
 export var GetAutomatedReasoningPolicyNextScenarioResponse$: StaticStructureSchema = [3, n0, _GARPNSRe,
   0,
-  [_pA, _sc],
+  [_pA, _sce],
   [0, [() => AutomatedReasoningPolicyScenario$, 0]], 1
 ];
 export var GetAutomatedReasoningPolicyRequest$: StaticStructureSchema = [3, n0, _GARPR,
@@ -2554,7 +2735,7 @@ export var GetAutomatedReasoningPolicyRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var GetAutomatedReasoningPolicyResponse$: StaticStructureSchema = [3, n0, _GARPRe,
   0,
-  [_pA, _n, _ve, _pI, _dHe, _uA, _d, _kKA, _cA],
+  [_pA, _n, _ve, _pIo, _dHe, _uA, _d, _kKA, _cA],
   [0, [() => AutomatedReasoningPolicyName, 0], 0, 0, 0, 5, [() => AutomatedReasoningPolicyDescription, 0], 0, 5], 6
 ];
 export var GetAutomatedReasoningPolicyTestCaseRequest$: StaticStructureSchema = [3, n0, _GARPTCR,
@@ -2614,13 +2795,13 @@ export var GetFoundationModelAvailabilityRequest$: StaticStructureSchema = [3, n
 ];
 export var GetFoundationModelAvailabilityResponse$: StaticStructureSchema = [3, n0, _GFMARe,
   0,
-  [_mIo, _aA, _aSu, _eAn, _rAeg],
+  [_mIo, _aAg, _aSu, _eAn, _rAeg],
   [0, () => AgreementAvailability$, 0, 0, 0], 5
 ];
 export var GetFoundationModelRequest$: StaticStructureSchema = [3, n0, _GFMR,
   0,
-  [_mI],
-  [[0, 1]], 1
+  [_mI, _pI],
+  [[0, 1], [0, { [_hQ]: _pI }]], 1
 ];
 export var GetFoundationModelResponse$: StaticStructureSchema = [3, n0, _GFMRe,
   0,
@@ -2649,8 +2830,8 @@ export var GetImportedModelResponse$: StaticStructureSchema = [3, n0, _GIMRe,
 ];
 export var GetInferenceProfileRequest$: StaticStructureSchema = [3, n0, _GIPR,
   0,
-  [_iPI],
-  [[0, 1]], 1
+  [_iPI, _pI],
+  [[0, 1], [0, { [_hQ]: _pI }]], 1
 ];
 export var GetInferenceProfileResponse$: StaticStructureSchema = [3, n0, _GIPRe,
   0,
@@ -2684,7 +2865,7 @@ export var GetModelCustomizationJobRequest$: StaticStructureSchema = [3, n0, _GM
 ];
 export var GetModelCustomizationJobResponse$: StaticStructureSchema = [3, n0, _GMCJReto,
   0,
-  [_jA, _jN, _oMN, _rA, _cT, _bMA, _tDC, _vDC, _oDC, _oMA, _cRT, _st, _sD, _fMa, _lMT, _eT, _hP, _cTu, _oMKKA, _tM, _vM, _vCp, _cC],
+  [_jA, _jN, _oMN, _rA, _cT, _bMA, _tDC, _vDC, _oDC, _oMA, _cRT, _st, _sDt, _fMa, _lMT, _eT, _hP, _cTu, _oMKKA, _tM, _vM, _vCp, _cC],
   [0, 0, 0, 0, 5, 0, [() => TrainingDataConfig$, 0], () => ValidationDataConfig$, () => OutputDataConfig$, 0, 0, 0, () => StatusDetails$, 0, 5, 5, 128 | 0, 0, 0, () => TrainingMetrics$, () => ValidationMetrics, () => VpcConfig$, () => CustomizationConfig$], 9
 ];
 export var GetModelImportJobRequest$: StaticStructureSchema = [3, n0, _GMIJR,
@@ -2717,6 +2898,36 @@ export var GetModelInvocationLoggingConfigurationResponse$: StaticStructureSchem
   [_lC],
   [() => LoggingConfig$]
 ];
+export var GetOrganizationDataRetentionStorageRequest$: StaticStructureSchema = [3, n0, _GODRSR,
+  0,
+  [_mP],
+  [[0, 1]], 1
+];
+export var GetOrganizationDataRetentionStorageResponse$: StaticStructureSchema = [3, n0, _GODRSRe,
+  0,
+  [_sc, _mP, _sD, _uA, _sC, _kKS, _sBS],
+  [0, 0, 0, 5, () => DataRetentionStorageConfiguration$, 0, 0], 4
+];
+export var GetProjectDataRetentionStorageRequest$: StaticStructureSchema = [3, n0, _GPDRSR,
+  0,
+  [_pI, _mP],
+  [[0, 1], [0, 1]], 2
+];
+export var GetProjectDataRetentionStorageResponse$: StaticStructureSchema = [3, n0, _GPDRSRe,
+  0,
+  [_sc, _mP, _sD, _uA, _pAr, _sC, _kKS, _sBS],
+  [0, 0, 0, 5, 0, () => DataRetentionStorageConfiguration$, 0, 0], 5
+];
+export var GetProjectRequest$: StaticStructureSchema = [3, n0, _GPR,
+  0,
+  [_pI],
+  [[0, 1]], 1
+];
+export var GetProjectResponse$: StaticStructureSchema = [3, n0, _GPRe,
+  0,
+  [_i, _a, _n, _st, _cA, _dR, _aA],
+  [0, 0, [() => ProjectName, 0], 0, 5, () => ProjectDataRetention$, 5], 6
+];
 export var GetPromptRouterRequest$: StaticStructureSchema = [3, n0, _GPRR,
   0,
   [_pRA],
@@ -2746,6 +2957,46 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
   [_rP],
   [0]
+];
+export var GetTrustedAccessProgramAccountEnrollmentRequest$: StaticStructureSchema = [3, n0, _GTAPAER,
+  0,
+  [_pIr],
+  [[0, 1]], 1
+];
+export var GetTrustedAccessProgramAccountEnrollmentResponse$: StaticStructureSchema = [3, n0, _GTAPAERe,
+  0,
+  [_oI, _uA],
+  [0, 5], 1
+];
+export var GetTrustedAccessProgramOrganizationEnrollmentRequest$: StaticStructureSchema = [3, n0, _GTAPOER,
+  0,
+  [_pIr],
+  [[0, 1]], 1
+];
+export var GetTrustedAccessProgramOrganizationEnrollmentResponse$: StaticStructureSchema = [3, n0, _GTAPOERe,
+  0,
+  [_oI, _uA],
+  [0, 5], 1
+];
+export var GetTrustedAccessProgramProjectEnrollmentRequest$: StaticStructureSchema = [3, n0, _GTAPPER,
+  0,
+  [_pIr, _pI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetTrustedAccessProgramProjectEnrollmentResponse$: StaticStructureSchema = [3, n0, _GTAPPERe,
+  0,
+  [_oI, _uA],
+  [0, 5], 1
+];
+export var GetTrustedAccessProgramRequest$: StaticStructureSchema = [3, n0, _GTAPR,
+  0,
+  [_pIr, _pI],
+  [[0, 1], [0, { [_hQ]: _pI }]], 1
+];
+export var GetTrustedAccessProgramResponse$: StaticStructureSchema = [3, n0, _GTAPRe,
+  0,
+  [_pIro, _n, _d, _pNr, _dU, _st, _sou, _rF, _oI, _eU, _sRta, _eS, _uA],
+  [0, 0, 0, 0, 0, 0, 0, () => TrustedAccessResolutionContext$, 0, 0, 0, 0, 5], 9
 ];
 export var GetUseCaseForModelAccessRequest$: StaticStructureSchema = [3, n0, _GUCFMAR,
   0,
@@ -2884,7 +3135,7 @@ export var GuardrailSensitiveInformationPolicyConfig$: StaticStructureSchema = [
 ];
 export var GuardrailSummary$: StaticStructureSchema = [3, n0, _GS,
   0,
-  [_i, _ar, _st, _n, _ve, _cA, _uA, _d, _cRD],
+  [_i, _a, _st, _n, _ve, _cA, _uA, _d, _cRD],
   [0, 0, 0, [() => GuardrailName, 0], 0, 5, 5, [() => GuardrailDescription, 0], () => GuardrailCrossRegionDetails$], 7
 ];
 export var GuardrailTopic$: StaticStructureSchema = [3, n0, _GT,
@@ -3114,8 +3365,8 @@ export var ListFoundationModelAgreementOffersResponse$: StaticStructureSchema = 
 ];
 export var ListFoundationModelsRequest$: StaticStructureSchema = [3, n0, _LFMR,
   0,
-  [_bP, _bCT, _bOMy, _bIT],
-  [[0, { [_hQ]: _bP }], [0, { [_hQ]: _bCT }], [0, { [_hQ]: _bOMy }], [0, { [_hQ]: _bIT }]]
+  [_bP, _bCT, _bOMy, _bIT, _pI],
+  [[0, { [_hQ]: _bP }], [0, { [_hQ]: _bCT }], [0, { [_hQ]: _bOMy }], [0, { [_hQ]: _bIT }], [0, { [_hQ]: _pI }]]
 ];
 export var ListFoundationModelsResponse$: StaticStructureSchema = [3, n0, _LFMRi,
   0,
@@ -3144,8 +3395,8 @@ export var ListImportedModelsResponse$: StaticStructureSchema = [3, n0, _LIMRi,
 ];
 export var ListInferenceProfilesRequest$: StaticStructureSchema = [3, n0, _LIPR,
   0,
-  [_mR, _nT, _tE],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _ty }]]
+  [_mR, _nT, _tE, _pI],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _ty }], [0, { [_hQ]: _pI }]]
 ];
 export var ListInferenceProfilesResponse$: StaticStructureSchema = [3, n0, _LIPRi,
   0,
@@ -3202,6 +3453,16 @@ export var ListModelInvocationJobsResponse$: StaticStructureSchema = [3, n0, _LM
   [_nT, _iJS],
   [0, [() => ModelInvocationJobSummaries, 0]]
 ];
+export var ListProjectsRequest$: StaticStructureSchema = [3, n0, _LPR,
+  0,
+  [_nT, _mR, _sF],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sF }]]
+];
+export var ListProjectsResponse$: StaticStructureSchema = [3, n0, _LPRi,
+  0,
+  [_pSr, _nT],
+  [[() => ProjectSummaryList, 0], 0], 1
+];
 export var ListPromptRoutersRequest$: StaticStructureSchema = [3, n0, _LPRR,
   0,
   [_mR, _nT, _ty],
@@ -3232,14 +3493,24 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_ta],
   [() => TagList]
 ];
+export var ListTrustedAccessProgramsRequest$: StaticStructureSchema = [3, n0, _LTAPR,
+  0,
+  [_pI, _mR, _nT],
+  [[0, { [_hQ]: _pI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListTrustedAccessProgramsResponse$: StaticStructureSchema = [3, n0, _LTAPRi,
+  0,
+  [_pSro, _nT],
+  [() => TrustedAccessProgramSummaries, 0], 1
+];
 export var LoggingConfig$: StaticStructureSchema = [3, n0, _LC,
   0,
-  [_cWC, _sC, _tDDE, _iDDE, _eDDE, _vDDE, _aDDE],
+  [_cWC, _sCo, _tDDE, _iDDE, _eDDE, _vDDE, _aDDE],
   [() => CloudWatchConfig$, () => S3Config$, 2, 2, 2, 2, 2]
 ];
 export var MarketplaceModelEndpoint$: StaticStructureSchema = [3, n0, _MME,
   0,
-  [_eA, _mSI, _cA, _uA, _eCn, _eS, _st, _sM, _eSM],
+  [_eA, _mSI, _cA, _uA, _eCn, _eSn, _st, _sM, _eSM],
   [0, 0, 5, 5, () => EndpointConfig$, 0, 0, 0, 0], 6
 ];
 export var MarketplaceModelEndpointSummary$: StaticStructureSchema = [3, n0, _MMES,
@@ -3269,7 +3540,7 @@ export var ModelCopyJobSummary$: StaticStructureSchema = [3, n0, _MCJS,
 ];
 export var ModelCustomizationJobSummary$: StaticStructureSchema = [3, n0, _MCJSo,
   0,
-  [_jA, _bMA, _jN, _st, _cT, _sD, _lMT, _eT, _cMA, _cMN, _cTu],
+  [_jA, _bMA, _jN, _st, _cT, _sDt, _lMT, _eT, _cMA, _cMN, _cTu],
   [0, 0, 0, 0, 5, () => StatusDetails$, 5, 5, 0, 0, 0], 5
 ];
 export var ModelEnforcement$: StaticStructureSchema = [3, n0, _ME,
@@ -3304,7 +3575,7 @@ export var ModelPackageArnDataSource$: StaticStructureSchema = [3, n0, _MPADS,
 ];
 export var Offer$: StaticStructureSchema = [3, n0, _O,
   0,
-  [_oT, _tD, _oI],
+  [_oT, _tD, _oIf],
   [0, () => TermDetails$, 0], 2
 ];
 export var OrchestrationConfiguration$: StaticStructureSchema = [3, n0, _OC,
@@ -3326,6 +3597,16 @@ export var PricingTerm$: StaticStructureSchema = [3, n0, _PT,
   0,
   [_rCa],
   [() => RateCard], 1
+];
+export var ProjectDataRetention$: StaticStructureSchema = [3, n0, _PDR,
+  0,
+  [_mod],
+  [0], 1
+];
+export var ProjectSummary$: StaticStructureSchema = [3, n0, _PS,
+  0,
+  [_i, _a, _n, _st, _cA, _dR, _aA],
+  [0, 0, [() => ProjectName, 0], 0, 5, () => ProjectDataRetention$, 5], 6
 ];
 export var PromptRouterSummary$: StaticStructureSchema = [3, n0, _PRS,
   0,
@@ -3357,6 +3638,16 @@ export var PutAccountDataRetentionResponse$: StaticStructureSchema = [3, n0, _PA
   [_mod, _uA],
   [0, 5], 1
 ];
+export var PutAccountDataRetentionStorageRequest$: StaticStructureSchema = [3, n0, _PADRSR,
+  0,
+  [_mP, _sD, _sC],
+  [[0, 1], 0, () => DataRetentionStorageConfiguration$], 2
+];
+export var PutAccountDataRetentionStorageResponse$: StaticStructureSchema = [3, n0, _PADRSRu,
+  0,
+  [_sc, _mP, _sD, _uA, _sC, _kKS, _sBS],
+  [0, 0, 0, 5, () => DataRetentionStorageConfiguration$, 0, 0], 4
+];
 export var PutEnforcedGuardrailConfigurationRequest$: StaticStructureSchema = [3, n0, _PEGCR,
   0,
   [_gIC, _cI],
@@ -3377,6 +3668,26 @@ export var PutModelInvocationLoggingConfigurationResponse$: StaticStructureSchem
   [],
   []
 ];
+export var PutOrganizationDataRetentionStorageRequest$: StaticStructureSchema = [3, n0, _PODRSR,
+  0,
+  [_mP, _sD, _sC],
+  [[0, 1], 0, () => DataRetentionStorageConfiguration$], 2
+];
+export var PutOrganizationDataRetentionStorageResponse$: StaticStructureSchema = [3, n0, _PODRSRu,
+  0,
+  [_sc, _mP, _sD, _uA, _sC, _kKS, _sBS],
+  [0, 0, 0, 5, () => DataRetentionStorageConfiguration$, 0, 0], 4
+];
+export var PutProjectDataRetentionStorageRequest$: StaticStructureSchema = [3, n0, _PPDRSR,
+  0,
+  [_pI, _mP, _sD, _sC],
+  [[0, 1], [0, 1], 0, () => DataRetentionStorageConfiguration$], 3
+];
+export var PutProjectDataRetentionStorageResponse$: StaticStructureSchema = [3, n0, _PPDRSRu,
+  0,
+  [_sc, _mP, _sD, _uA, _pAr, _sC, _kKS, _sBS],
+  [0, 0, 0, 5, 0, () => DataRetentionStorageConfiguration$, 0, 0], 5
+];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_rAe, _rP],
@@ -3386,6 +3697,36 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   0,
   [_rAe],
   [0]
+];
+export var PutTrustedAccessProgramAccountEnrollmentRequest$: StaticStructureSchema = [3, n0, _PTAPAER,
+  0,
+  [_pIr, _oI],
+  [[0, 1], 0], 2
+];
+export var PutTrustedAccessProgramAccountEnrollmentResponse$: StaticStructureSchema = [3, n0, _PTAPAERu,
+  0,
+  [_oI, _uA],
+  [0, 5], 2
+];
+export var PutTrustedAccessProgramOrganizationEnrollmentRequest$: StaticStructureSchema = [3, n0, _PTAPOER,
+  0,
+  [_pIr, _oI],
+  [[0, 1], 0], 2
+];
+export var PutTrustedAccessProgramOrganizationEnrollmentResponse$: StaticStructureSchema = [3, n0, _PTAPOERu,
+  0,
+  [_oI, _uA],
+  [0, 5], 2
+];
+export var PutTrustedAccessProgramProjectEnrollmentRequest$: StaticStructureSchema = [3, n0, _PTAPPER,
+  0,
+  [_pIr, _pI, _oI],
+  [[0, 1], [0, 1], 0], 3
+];
+export var PutTrustedAccessProgramProjectEnrollmentResponse$: StaticStructureSchema = [3, n0, _PTAPPERu,
+  0,
+  [_oI, _uA],
+  [0, 5], 2
 ];
 export var PutUseCaseForModelAccessRequest$: StaticStructureSchema = [3, n0, _PUCFMAR,
   0,
@@ -3474,7 +3815,7 @@ export var SelectiveContentGuarding$: StaticStructureSchema = [3, n0, _SCG,
 ];
 export var StartAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [3, n0, _SARPBWR,
   0,
-  [_pA, _bWT, _sCo, _cRT],
+  [_pA, _bWT, _sCou, _cRT],
   [[0, 1], [0, 1], [() => AutomatedReasoningPolicyBuildWorkflowSource$, 16], [0, { [_hH]: _xact, [_iTd]: 1 }]], 3
 ];
 export var StartAutomatedReasoningPolicyBuildWorkflowResponse$: StaticStructureSchema = [3, n0, _SARPBWRt,
@@ -3491,6 +3832,36 @@ export var StartAutomatedReasoningPolicyTestWorkflowResponse$: StaticStructureSc
   0,
   [_pA],
   [0], 1
+];
+export var StartTrustedAccessProgramAccountApplicationRequest$: StaticStructureSchema = [3, n0, _STAPAAR,
+  0,
+  [_pIr],
+  [[0, 1]], 1
+];
+export var StartTrustedAccessProgramAccountApplicationResponse$: StaticStructureSchema = [3, n0, _STAPAARt,
+  0,
+  [_res],
+  [[() => TrustedAccessProgramApplicationResult$, 0]], 1
+];
+export var StartTrustedAccessProgramOrganizationApplicationRequest$: StaticStructureSchema = [3, n0, _STAPOAR,
+  0,
+  [_pIr],
+  [[0, 1]], 1
+];
+export var StartTrustedAccessProgramOrganizationApplicationResponse$: StaticStructureSchema = [3, n0, _STAPOARt,
+  0,
+  [_res],
+  [[() => TrustedAccessProgramApplicationResult$, 0]], 1
+];
+export var StartTrustedAccessProgramProjectApplicationRequest$: StaticStructureSchema = [3, n0, _STAPPAR,
+  0,
+  [_pIr, _pI],
+  [[0, 1], [0, 1]], 2
+];
+export var StartTrustedAccessProgramProjectApplicationResponse$: StaticStructureSchema = [3, n0, _STAPPARt,
+  0,
+  [_res],
+  [[() => TrustedAccessProgramApplicationResult$, 0]], 1
 ];
 export var StatusDetails$: StaticStructureSchema = [3, n0, _SD,
   0,
@@ -3587,6 +3958,21 @@ export var TrainingMetrics$: StaticStructureSchema = [3, n0, _TM,
   [_tL],
   [1]
 ];
+export var TrustedAccessProgramProviderHandoff$: StaticStructureSchema = [3, n0, _TAPPH,
+  0,
+  [_aTpp, _aTEA, _eU],
+  [[() => TrustedAccessProgramApplicationToken, 0], 5, 0], 2
+];
+export var TrustedAccessProgramSummary$: StaticStructureSchema = [3, n0, _TAPS,
+  0,
+  [_pIro, _n, _d, _pNr, _dU, _st, _sou, _rF, _oI, _eU, _sRta, _eS, _uA],
+  [0, 0, 0, 0, 0, 0, 0, () => TrustedAccessResolutionContext$, 0, 0, 0, 0, 5], 9
+];
+export var TrustedAccessResolutionContext$: StaticStructureSchema = [3, n0, _TARC,
+  0,
+  [_aIc, _pAr],
+  [0, 0], 1
+];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rARN, _tK],
@@ -3599,7 +3985,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAutomatedReasoningPolicyAnnotationsRequest$: StaticStructureSchema = [3, n0, _UARPAR,
   0,
-  [_pA, _bWI, _an, _lUASH],
+  [_pA, _bWI, _ann, _lUASH],
   [[0, 1], [0, 1], [() => AutomatedReasoningPolicyAnnotationList, 0], 0], 4
 ];
 export var UpdateAutomatedReasoningPolicyAnnotationsResponse$: StaticStructureSchema = [3, n0, _UARPARp,
@@ -3656,6 +4042,16 @@ export var UpdateMarketplaceModelEndpointResponse$: StaticStructureSchema = [3, 
   0,
   [_mME],
   [() => MarketplaceModelEndpoint$], 1
+];
+export var UpdateProjectRequest$: StaticStructureSchema = [3, n0, _UPR,
+  0,
+  [_pI, _n, _dR],
+  [[0, 1], [() => ProjectName, 0], () => ProjectDataRetention$], 1
+];
+export var UpdateProjectResponse$: StaticStructureSchema = [3, n0, _UPRp,
+  0,
+  [_i, _a, _n, _st, _cA, _dR, _aA],
+  [0, 0, [() => ProjectName, 0], 0, 5, () => ProjectDataRetention$, 5], 6
 ];
 export var UpdateProvisionedModelThroughputRequest$: StaticStructureSchema = [3, n0, _UPMTR,
   0,
@@ -4049,6 +4445,10 @@ var NonEmptyStringList = 64 | 0;
 var Offers: StaticListSchema = [1, n0, _Of,
   0, () => Offer$
 ];
+var ProjectSummaryList: StaticListSchema = [1, n0, _PSL,
+  0, [() => ProjectSummary$,
+    0]
+];
 var PromptRouterSummaries: StaticListSchema = [1, n0, _PRSr,
   0, [() => PromptRouterSummary$,
     0]
@@ -4083,6 +4483,9 @@ var SubnetIds = 64 | 0;
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
+];
+var TrustedAccessProgramSummaries: StaticListSchema = [1, n0, _TAPSr,
+  0, () => TrustedAccessProgramSummary$
 ];
 var ValidationMetrics: StaticListSchema = [1, n0, _VMa,
   0, () => ValidatorMetric$
@@ -4124,7 +4527,7 @@ export var AutomatedReasoningPolicyAnnotatedContent$: StaticUnionSchema = [4, n0
 ];
 export var AutomatedReasoningPolicyAnnotation$: StaticUnionSchema = [4, n0, _ARPA,
   0,
-  [_aTd, _uTp, _dT, _aV, _uVp, _dV, _aR, _uR, _dR, _aRFNL, _uFRF, _uFSF, _iCng],
+  [_aTd, _uTp, _dT, _aV, _uVp, _dV, _aR, _uR, _dRe, _aRFNL, _uFRF, _uFSF, _iCng],
   [[() => AutomatedReasoningPolicyAddTypeAnnotation$, 0], [() => AutomatedReasoningPolicyUpdateTypeAnnotation$, 0], [() => AutomatedReasoningPolicyDeleteTypeAnnotation$, 0], [() => AutomatedReasoningPolicyAddVariableAnnotation$, 0], [() => AutomatedReasoningPolicyUpdateVariableAnnotation$, 0], [() => AutomatedReasoningPolicyDeleteVariableAnnotation$, 0], [() => AutomatedReasoningPolicyAddRuleAnnotation$, 0], [() => AutomatedReasoningPolicyUpdateRuleAnnotation$, 0], () => AutomatedReasoningPolicyDeleteRuleAnnotation$, [() => AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation$, 0], [() => AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation$, 0], [() => AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation$, 0], [() => AutomatedReasoningPolicyIngestContentAnnotation$, 0]]
 ];
 export var AutomatedReasoningPolicyBuildResultAssets$: StaticUnionSchema = [4, n0, _ARPBRA,
@@ -4149,7 +4552,7 @@ export var AutomatedReasoningPolicyGenerateFidelityReportContent$: StaticUnionSc
 ];
 export var AutomatedReasoningPolicyMutation$: StaticUnionSchema = [4, n0, _ARPM,
   0,
-  [_aTd, _uTp, _dT, _aV, _uVp, _dV, _aR, _uR, _dR],
+  [_aTd, _uTp, _dT, _aV, _uVp, _dV, _aR, _uR, _dRe],
   [[() => AutomatedReasoningPolicyAddTypeMutation$, 0], [() => AutomatedReasoningPolicyUpdateTypeMutation$, 0], [() => AutomatedReasoningPolicyDeleteTypeMutation$, 0], [() => AutomatedReasoningPolicyAddVariableMutation$, 0], [() => AutomatedReasoningPolicyUpdateVariableMutation$, 0], [() => AutomatedReasoningPolicyDeleteVariableMutation$, 0], [() => AutomatedReasoningPolicyAddRuleMutation$, 0], [() => AutomatedReasoningPolicyUpdateRuleMutation$, 0], () => AutomatedReasoningPolicyDeleteRuleMutation$]
 ];
 export var AutomatedReasoningPolicyTypeValueAnnotation$: StaticUnionSchema = [4, n0, _ARPTVA,
@@ -4267,6 +4670,14 @@ export var RetrievalFilter$: StaticUnionSchema = [4, n0, _RF,
   [_eq, _nE, _gT, _gTOE, _lTes, _lTOE, _in_, _nI, _sW, _lCi, _sCt, _aAn, _oAr],
   [() => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, [() => RetrievalFilterList, 0], [() => RetrievalFilterList, 0]]
 ];
+export var TrustedAccessProgramApplicationResult$: StaticUnionSchema = [4, n0, _TAPAR,
+  0,
+  [_pH],
+  [[() => TrustedAccessProgramProviderHandoff$, 0]]
+];
+export var ArchiveProject$: StaticOperationSchema = [9, n0, _AP,
+  { [_ht]: ["POST", "/projects/{projectIdentifier}/archive", 200] }, () => ArchiveProjectRequest$, () => ArchiveProjectResponse$
+];
 export var BatchDeleteAdvancedPromptOptimizationJob$: StaticOperationSchema = [9, n0, _BDAPOJ,
   { [_ht]: ["POST", "/advanced-prompt-optimization-job/batch-delete", 202] }, () => BatchDeleteAdvancedPromptOptimizationJobRequest$, () => BatchDeleteAdvancedPromptOptimizationJobResponse$
 ];
@@ -4324,11 +4735,17 @@ export var CreateModelImportJob$: StaticOperationSchema = [9, n0, _CMIJ,
 export var CreateModelInvocationJob$: StaticOperationSchema = [9, n0, _CMIJr,
   { [_ht]: ["POST", "/model-invocation-job", 200] }, () => CreateModelInvocationJobRequest$, () => CreateModelInvocationJobResponse$
 ];
-export var CreatePromptRouter$: StaticOperationSchema = [9, n0, _CPR,
+export var CreateProject$: StaticOperationSchema = [9, n0, _CP,
+  { [_ht]: ["POST", "/projects", 200] }, () => CreateProjectRequest$, () => CreateProjectResponse$
+];
+export var CreatePromptRouter$: StaticOperationSchema = [9, n0, _CPRre,
   { [_ht]: ["POST", "/prompt-routers", 200] }, () => CreatePromptRouterRequest$, () => CreatePromptRouterResponse$
 ];
 export var CreateProvisionedModelThroughput$: StaticOperationSchema = [9, n0, _CPMT,
   { [_ht]: ["POST", "/provisioned-model-throughput", 201] }, () => CreateProvisionedModelThroughputRequest$, () => CreateProvisionedModelThroughputResponse$
+];
+export var DeleteAccountDataRetentionStorage$: StaticOperationSchema = [9, n0, _DADRS,
+  { [_ht]: ["DELETE", "/v1/data_retention/storage/{modelProvider}", 200] }, () => DeleteAccountDataRetentionStorageRequest$, () => DeleteAccountDataRetentionStorageResponse$
 ];
 export var DeleteAutomatedReasoningPolicy$: StaticOperationSchema = [9, n0, _DARP,
   { [_ht]: ["DELETE", "/automated-reasoning-policies/{policyArn}", 202] }, () => DeleteAutomatedReasoningPolicyRequest$, () => DeleteAutomatedReasoningPolicyResponse$
@@ -4366,6 +4783,12 @@ export var DeleteMarketplaceModelEndpoint$: StaticOperationSchema = [9, n0, _DMM
 export var DeleteModelInvocationLoggingConfiguration$: StaticOperationSchema = [9, n0, _DMILC,
   { [_ht]: ["DELETE", "/logging/modelinvocations", 200] }, () => DeleteModelInvocationLoggingConfigurationRequest$, () => DeleteModelInvocationLoggingConfigurationResponse$
 ];
+export var DeleteOrganizationDataRetentionStorage$: StaticOperationSchema = [9, n0, _DODRS,
+  { [_ht]: ["DELETE", "/v1/data_retention/organization-storage/{modelProvider}", 200] }, () => DeleteOrganizationDataRetentionStorageRequest$, () => DeleteOrganizationDataRetentionStorageResponse$
+];
+export var DeleteProjectDataRetentionStorage$: StaticOperationSchema = [9, n0, _DPDRS,
+  { [_ht]: ["DELETE", "/v1/projects/{projectIdentifier}/data_retention/storage/{modelProvider}", 200] }, () => DeleteProjectDataRetentionStorageRequest$, () => DeleteProjectDataRetentionStorageResponse$
+];
 export var DeletePromptRouter$: StaticOperationSchema = [9, n0, _DPRe,
   { [_ht]: ["DELETE", "/prompt-routers/{promptRouterArn}", 200] }, () => DeletePromptRouterRequest$, () => DeletePromptRouterResponse$
 ];
@@ -4383,6 +4806,9 @@ export var ExportAutomatedReasoningPolicyVersion$: StaticOperationSchema = [9, n
 ];
 export var GetAccountDataRetention$: StaticOperationSchema = [9, n0, _GADR,
   { [_ht]: ["GET", "/data-retention", 200] }, () => GetAccountDataRetentionRequest$, () => GetAccountDataRetentionResponse$
+];
+export var GetAccountDataRetentionStorage$: StaticOperationSchema = [9, n0, _GADRS,
+  { [_ht]: ["GET", "/v1/data_retention/storage/{modelProvider}", 200] }, () => GetAccountDataRetentionStorageRequest$, () => GetAccountDataRetentionStorageResponse$
 ];
 export var GetAdvancedPromptOptimizationJob$: StaticOperationSchema = [9, n0, _GAPOJ,
   { [_ht]: ["GET", "/advanced-prompt-optimization-jobs/{jobIdentifier}", 200] }, () => GetAdvancedPromptOptimizationJobRequest$, () => GetAdvancedPromptOptimizationJobResponse$
@@ -4450,7 +4876,16 @@ export var GetModelInvocationJob$: StaticOperationSchema = [9, n0, _GMIJe,
 export var GetModelInvocationLoggingConfiguration$: StaticOperationSchema = [9, n0, _GMILC,
   { [_ht]: ["GET", "/logging/modelinvocations", 200] }, () => GetModelInvocationLoggingConfigurationRequest$, () => GetModelInvocationLoggingConfigurationResponse$
 ];
-export var GetPromptRouter$: StaticOperationSchema = [9, n0, _GPR,
+export var GetOrganizationDataRetentionStorage$: StaticOperationSchema = [9, n0, _GODRS,
+  { [_ht]: ["GET", "/v1/data_retention/organization-storage/{modelProvider}", 200] }, () => GetOrganizationDataRetentionStorageRequest$, () => GetOrganizationDataRetentionStorageResponse$
+];
+export var GetProject$: StaticOperationSchema = [9, n0, _GP,
+  { [_ht]: ["GET", "/projects/{projectIdentifier}", 200] }, () => GetProjectRequest$, () => GetProjectResponse$
+];
+export var GetProjectDataRetentionStorage$: StaticOperationSchema = [9, n0, _GPDRS,
+  { [_ht]: ["GET", "/v1/projects/{projectIdentifier}/data_retention/storage/{modelProvider}", 200] }, () => GetProjectDataRetentionStorageRequest$, () => GetProjectDataRetentionStorageResponse$
+];
+export var GetPromptRouter$: StaticOperationSchema = [9, n0, _GPRet,
   { [_ht]: ["GET", "/prompt-routers/{promptRouterArn}", 200] }, () => GetPromptRouterRequest$, () => GetPromptRouterResponse$
 ];
 export var GetProvisionedModelThroughput$: StaticOperationSchema = [9, n0, _GPMT,
@@ -4458,6 +4893,18 @@ export var GetProvisionedModelThroughput$: StaticOperationSchema = [9, n0, _GPMT
 ];
 export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
   { [_ht]: ["GET", "/resource-policy/{resourceArn}", 200] }, () => GetResourcePolicyRequest$, () => GetResourcePolicyResponse$
+];
+export var GetTrustedAccessProgram$: StaticOperationSchema = [9, n0, _GTAP,
+  { [_ht]: ["GET", "/trusted-access-programs/{programIdentifier}", 200] }, () => GetTrustedAccessProgramRequest$, () => GetTrustedAccessProgramResponse$
+];
+export var GetTrustedAccessProgramAccountEnrollment$: StaticOperationSchema = [9, n0, _GTAPAE,
+  { [_ht]: ["GET", "/trusted-access-programs/{programIdentifier}/account-enrollment", 200] }, () => GetTrustedAccessProgramAccountEnrollmentRequest$, () => GetTrustedAccessProgramAccountEnrollmentResponse$
+];
+export var GetTrustedAccessProgramOrganizationEnrollment$: StaticOperationSchema = [9, n0, _GTAPOE,
+  { [_ht]: ["GET", "/trusted-access-programs/{programIdentifier}/organization-enrollment", 200] }, () => GetTrustedAccessProgramOrganizationEnrollmentRequest$, () => GetTrustedAccessProgramOrganizationEnrollmentResponse$
+];
+export var GetTrustedAccessProgramProjectEnrollment$: StaticOperationSchema = [9, n0, _GTAPPE,
+  { [_ht]: ["GET", "/trusted-access-programs/{programIdentifier}/project-enrollment/{projectIdentifier}", 200] }, () => GetTrustedAccessProgramProjectEnrollmentRequest$, () => GetTrustedAccessProgramProjectEnrollmentResponse$
 ];
 export var GetUseCaseForModelAccess$: StaticOperationSchema = [9, n0, _GUCFMA,
   { [_ht]: ["GET", "/use-case-for-model-access", 200] }, () => GetUseCaseForModelAccessRequest$, () => GetUseCaseForModelAccessResponse$
@@ -4519,7 +4966,10 @@ export var ListModelImportJobs$: StaticOperationSchema = [9, n0, _LMIJ,
 export var ListModelInvocationJobs$: StaticOperationSchema = [9, n0, _LMIJi,
   { [_ht]: ["GET", "/model-invocation-jobs", 200] }, () => ListModelInvocationJobsRequest$, () => ListModelInvocationJobsResponse$
 ];
-export var ListPromptRouters$: StaticOperationSchema = [9, n0, _LPR,
+export var ListProjects$: StaticOperationSchema = [9, n0, _LP,
+  { [_ht]: ["GET", "/projects", 200] }, () => ListProjectsRequest$, () => ListProjectsResponse$
+];
+export var ListPromptRouters$: StaticOperationSchema = [9, n0, _LPRis,
   { [_ht]: ["GET", "/prompt-routers", 200] }, () => ListPromptRoutersRequest$, () => ListPromptRoutersResponse$
 ];
 export var ListProvisionedModelThroughputs$: StaticOperationSchema = [9, n0, _LPMT,
@@ -4528,8 +4978,14 @@ export var ListProvisionedModelThroughputs$: StaticOperationSchema = [9, n0, _LP
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_ht]: ["POST", "/listTagsForResource", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
+export var ListTrustedAccessPrograms$: StaticOperationSchema = [9, n0, _LTAP,
+  { [_ht]: ["GET", "/trusted-access-programs", 200] }, () => ListTrustedAccessProgramsRequest$, () => ListTrustedAccessProgramsResponse$
+];
 export var PutAccountDataRetention$: StaticOperationSchema = [9, n0, _PADR,
   { [_ht]: ["PUT", "/data-retention", 200] }, () => PutAccountDataRetentionRequest$, () => PutAccountDataRetentionResponse$
+];
+export var PutAccountDataRetentionStorage$: StaticOperationSchema = [9, n0, _PADRS,
+  { [_ht]: ["PUT", "/v1/data_retention/storage/{modelProvider}", 200] }, () => PutAccountDataRetentionStorageRequest$, () => PutAccountDataRetentionStorageResponse$
 ];
 export var PutEnforcedGuardrailConfiguration$: StaticOperationSchema = [9, n0, _PEGC,
   { [_ht]: ["PUT", "/enforcedGuardrailsConfiguration", 200] }, () => PutEnforcedGuardrailConfigurationRequest$, () => PutEnforcedGuardrailConfigurationResponse$
@@ -4537,8 +4993,23 @@ export var PutEnforcedGuardrailConfiguration$: StaticOperationSchema = [9, n0, _
 export var PutModelInvocationLoggingConfiguration$: StaticOperationSchema = [9, n0, _PMILC,
   { [_ht]: ["PUT", "/logging/modelinvocations", 200] }, () => PutModelInvocationLoggingConfigurationRequest$, () => PutModelInvocationLoggingConfigurationResponse$
 ];
+export var PutOrganizationDataRetentionStorage$: StaticOperationSchema = [9, n0, _PODRS,
+  { [_ht]: ["PUT", "/v1/data_retention/organization-storage/{modelProvider}", 200] }, () => PutOrganizationDataRetentionStorageRequest$, () => PutOrganizationDataRetentionStorageResponse$
+];
+export var PutProjectDataRetentionStorage$: StaticOperationSchema = [9, n0, _PPDRS,
+  { [_ht]: ["PUT", "/v1/projects/{projectIdentifier}/data_retention/storage/{modelProvider}", 200] }, () => PutProjectDataRetentionStorageRequest$, () => PutProjectDataRetentionStorageResponse$
+];
 export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
   { [_ht]: ["POST", "/resource-policy", 201] }, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
+];
+export var PutTrustedAccessProgramAccountEnrollment$: StaticOperationSchema = [9, n0, _PTAPAE,
+  { [_ht]: ["PUT", "/trusted-access-programs/{programIdentifier}/account-enrollment", 200] }, () => PutTrustedAccessProgramAccountEnrollmentRequest$, () => PutTrustedAccessProgramAccountEnrollmentResponse$
+];
+export var PutTrustedAccessProgramOrganizationEnrollment$: StaticOperationSchema = [9, n0, _PTAPOE,
+  { [_ht]: ["PUT", "/trusted-access-programs/{programIdentifier}/organization-enrollment", 200] }, () => PutTrustedAccessProgramOrganizationEnrollmentRequest$, () => PutTrustedAccessProgramOrganizationEnrollmentResponse$
+];
+export var PutTrustedAccessProgramProjectEnrollment$: StaticOperationSchema = [9, n0, _PTAPPE,
+  { [_ht]: ["PUT", "/trusted-access-programs/{programIdentifier}/project-enrollment/{projectIdentifier}", 200] }, () => PutTrustedAccessProgramProjectEnrollmentRequest$, () => PutTrustedAccessProgramProjectEnrollmentResponse$
 ];
 export var PutUseCaseForModelAccess$: StaticOperationSchema = [9, n0, _PUCFMA,
   { [_ht]: ["POST", "/use-case-for-model-access", 201] }, () => PutUseCaseForModelAccessRequest$, () => PutUseCaseForModelAccessResponse$
@@ -4551,6 +5022,15 @@ export var StartAutomatedReasoningPolicyBuildWorkflow$: StaticOperationSchema = 
 ];
 export var StartAutomatedReasoningPolicyTestWorkflow$: StaticOperationSchema = [9, n0, _SARPTW,
   { [_ht]: ["POST", "/automated-reasoning-policies/{policyArn}/build-workflows/{buildWorkflowId}/test-workflows", 200] }, () => StartAutomatedReasoningPolicyTestWorkflowRequest$, () => StartAutomatedReasoningPolicyTestWorkflowResponse$
+];
+export var StartTrustedAccessProgramAccountApplication$: StaticOperationSchema = [9, n0, _STAPAA,
+  { [_ht]: ["POST", "/trusted-access-programs/{programIdentifier}/account-application", 200] }, () => StartTrustedAccessProgramAccountApplicationRequest$, () => StartTrustedAccessProgramAccountApplicationResponse$
+];
+export var StartTrustedAccessProgramOrganizationApplication$: StaticOperationSchema = [9, n0, _STAPOA,
+  { [_ht]: ["POST", "/trusted-access-programs/{programIdentifier}/organization-application", 200] }, () => StartTrustedAccessProgramOrganizationApplicationRequest$, () => StartTrustedAccessProgramOrganizationApplicationResponse$
+];
+export var StartTrustedAccessProgramProjectApplication$: StaticOperationSchema = [9, n0, _STAPPA,
+  { [_ht]: ["POST", "/trusted-access-programs/{programIdentifier}/project-application/{projectIdentifier}", 200] }, () => StartTrustedAccessProgramProjectApplicationRequest$, () => StartTrustedAccessProgramProjectApplicationResponse$
 ];
 export var StopAdvancedPromptOptimizationJob$: StaticOperationSchema = [9, n0, _SAPOJ,
   { [_ht]: ["POST", "/advanced-prompt-optimization-jobs/{jobIdentifier}/stop", 200] }, () => StopAdvancedPromptOptimizationJobRequest$, () => StopAdvancedPromptOptimizationJobResponse$
@@ -4587,6 +5067,9 @@ export var UpdateGuardrail$: StaticOperationSchema = [9, n0, _UG,
 ];
 export var UpdateMarketplaceModelEndpoint$: StaticOperationSchema = [9, n0, _UMME,
   { [_ht]: ["PATCH", "/marketplace-model/endpoints/{endpointArn}", 200] }, () => UpdateMarketplaceModelEndpointRequest$, () => UpdateMarketplaceModelEndpointResponse$
+];
+export var UpdateProject$: StaticOperationSchema = [9, n0, _UP,
+  { [_ht]: ["POST", "/projects/{projectIdentifier}", 200] }, () => UpdateProjectRequest$, () => UpdateProjectResponse$
 ];
 export var UpdateProvisionedModelThroughput$: StaticOperationSchema = [9, n0, _UPMT,
   { [_ht]: ["PATCH", "/provisioned-model-throughput/{provisionedModelId}", 200] }, () => UpdateProvisionedModelThroughputRequest$, () => UpdateProvisionedModelThroughputResponse$

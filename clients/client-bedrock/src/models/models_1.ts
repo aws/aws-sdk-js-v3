@@ -4,9 +4,11 @@ import type {
   AuthorizationStatus,
   CommitmentDuration,
   CustomizationType,
+  DataRetentionMode,
   EntitlementAvailability,
   EvaluationJobStatus,
   EvaluationJobType,
+  EvaluationTaskType,
   FineTuningJobStatus,
   FoundationModelLifecycleStatus,
   GuardrailContentFilterAction,
@@ -37,6 +39,7 @@ import type {
   ModelInvocationType,
   ModelModality,
   OfferType,
+  ProjectStatus,
   PromptRouterStatus,
   PromptRouterType,
   ProvisionedModelStatus,
@@ -48,21 +51,19 @@ import type {
   SortJobsBy,
   SortModelsBy,
   SortOrder,
+  TrustedAccessProgramOptIn,
+  TrustedAccessProgramScope,
+  TrustedAccessProgramStatus,
 } from "./enums";
 import type {
   AgreementAvailability,
   CustomizationConfig,
   EvaluationConfig,
   EvaluationModelConfig,
-  EvaluationOutputDataConfig,
   EvaluationPrecomputedRagSourceConfig,
   ExternalSourcesRetrieveAndGenerateConfiguration,
   FilterAttribute,
   GenerationConfiguration,
-  GuardrailAutomatedReasoningPolicyConfig,
-  GuardrailContentPolicyConfig,
-  GuardrailContextualGroundingPolicyConfig,
-  GuardrailCrossRegionConfig,
   ImplicitFilterConfiguration,
   ModelDataSource,
   OrchestrationConfiguration,
@@ -75,6 +76,448 @@ import type {
   VectorSearchRerankingConfiguration,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The Amazon S3 location where the results of your evaluation job are saved.</p>
+ * @public
+ */
+export interface EvaluationOutputDataConfig {
+  /**
+   * <p>The Amazon S3 URI where the results of the evaluation job are saved.</p>
+   * @public
+   */
+  s3Uri: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEvaluationJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the evaluation job.</p>
+   * @public
+   */
+  jobArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEvaluationJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the evaluation job you want get information on.</p>
+   * @public
+   */
+  jobIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEvaluationJobsRequest {
+  /**
+   * <p>A filter to only list evaluation jobs created after a specified time.</p>
+   * @public
+   */
+  creationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter to only list evaluation jobs created before a specified time.</p>
+   * @public
+   */
+  creationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter to only list evaluation jobs that are of a certain status.</p>
+   * @public
+   */
+  statusEquals?: EvaluationJobStatus | undefined;
+
+  /**
+   * <p>A filter to only list evaluation jobs that are either model evaluations or knowledge base evaluations.</p>
+   * @public
+   */
+  applicationTypeEquals?: ApplicationType | undefined;
+
+  /**
+   * <p>A filter to only list evaluation jobs that contain a specified string in the job name.</p>
+   * @public
+   */
+  nameContains?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Specifies a creation time to sort the list of evaluation jobs by when they were created.</p>
+   * @public
+   */
+  sortBy?: SortJobsBy | undefined;
+
+  /**
+   * <p>Specifies whether to sort the list of evaluation jobs by either ascending or descending order.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+}
+
+/**
+ * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+ * @public
+ */
+export interface EvaluationModelConfigSummary {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the models used for the evaluation job.</p>
+   * @public
+   */
+  bedrockModelIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>A label that identifies the models used for a model evaluation job where you provide your own inference response data.</p>
+   * @public
+   */
+  precomputedInferenceSourceIdentifiers?: string[] | undefined;
+}
+
+/**
+ * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+ * @public
+ */
+export interface EvaluationRagConfigSummary {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Knowledge Base resources used for a Knowledge Base evaluation job where Amazon Bedrock invokes the Knowledge Base for you.</p>
+   * @public
+   */
+  bedrockKnowledgeBaseIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>A label that identifies the RAG sources used for a Knowledge Base evaluation job where you provide your own inference response data.</p>
+   * @public
+   */
+  precomputedRagSourceIdentifiers?: string[] | undefined;
+}
+
+/**
+ * <p>Identifies the models, Knowledge Bases, or other RAG sources evaluated in a model or Knowledge Base evaluation job.</p>
+ * @public
+ */
+export interface EvaluationInferenceConfigSummary {
+  /**
+   * <p>A summary of the models used in an Amazon Bedrock model evaluation job. These resources can be models in Amazon Bedrock or models outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+   * @public
+   */
+  modelConfigSummary?: EvaluationModelConfigSummary | undefined;
+
+  /**
+   * <p>A summary of the RAG resources used in an Amazon Bedrock Knowledge Base evaluation job. These resources can be Knowledge Bases in Amazon Bedrock or RAG sources outside of Amazon Bedrock that you use to generate your own inference response data.</p>
+   * @public
+   */
+  ragConfigSummary?: EvaluationRagConfigSummary | undefined;
+}
+
+/**
+ * <p>Summary information of an evaluation job.</p>
+ * @public
+ */
+export interface EvaluationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the evaluation job.</p>
+   * @public
+   */
+  jobArn: string | undefined;
+
+  /**
+   * <p>The name for the evaluation job.</p>
+   * @public
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The current status of the evaluation job.</p>
+   * @public
+   */
+  status: EvaluationJobStatus | undefined;
+
+  /**
+   * <p>The time the evaluation job was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>Specifies whether the evaluation job is automated or human-based.</p>
+   * @public
+   */
+  jobType: EvaluationJobType | undefined;
+
+  /**
+   * <p>The type of task for model evaluation.</p>
+   * @public
+   */
+  evaluationTaskTypes: EvaluationTaskType[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the model(s) used for the evaluation job.</p>
+   *
+   * @deprecated (since 2025-03-07) Inference identifiers should be retrieved from the inferenceConfigSummary.
+   * @public
+   */
+  modelIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the knowledge base resources used for a knowledge base evaluation job.</p>
+   *
+   * @deprecated (since 2025-03-07) Inference identifiers should be retrieved from the inferenceConfigSummary.
+   * @public
+   */
+  ragIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the models used to compute the metrics for a knowledge base evaluation job.</p>
+   * @public
+   */
+  evaluatorModelIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the models used to compute custom metrics in an Amazon Bedrock evaluation job.</p>
+   * @public
+   */
+  customMetricsEvaluatorModelIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>Identifies the models, Knowledge Bases, or other RAG sources evaluated in a model or Knowledge Base evaluation job.</p>
+   * @public
+   */
+  inferenceConfigSummary?: EvaluationInferenceConfigSummary | undefined;
+
+  /**
+   * <p>Specifies whether the evaluation job is for evaluating a model or evaluating a knowledge base (retrieval and response generation).</p>
+   * @public
+   */
+  applicationType?: ApplicationType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEvaluationJobsResponse {
+  /**
+   * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of summaries of the evaluation jobs.</p>
+   * @public
+   */
+  jobSummaries?: EvaluationSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEvaluationJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the evaluation job you want to stop.</p>
+   * @public
+   */
+  jobIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEvaluationJobResponse {}
+
+/**
+ * <p>Configuration settings for integrating Automated Reasoning policies with Amazon Bedrock Guardrails.</p>
+ * @public
+ */
+export interface GuardrailAutomatedReasoningPolicyConfig {
+  /**
+   * <p>The list of Automated Reasoning policy ARNs to include in the guardrail configuration.</p>
+   * @public
+   */
+  policies: string[] | undefined;
+
+  /**
+   * <p>The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.</p>
+   * @public
+   */
+  confidenceThreshold?: number | undefined;
+}
+
+/**
+ * <p>Contains filter strengths for harmful content. Guardrails support the following content filters to detect and filter harmful user inputs and FM-generated outputs.</p> <ul> <li> <p> <b>Hate</b> – Describes language or a statement that discriminates, criticizes, insults, denounces, or dehumanizes a person or group on the basis of an identity (such as race, ethnicity, gender, religion, sexual orientation, ability, and national origin).</p> </li> <li> <p> <b>Insults</b> – Describes language or a statement that includes demeaning, humiliating, mocking, insulting, or belittling language. This type of language is also labeled as bullying.</p> </li> <li> <p> <b>Sexual</b> – Describes language or a statement that indicates sexual interest, activity, or arousal using direct or indirect references to body parts, physical traits, or sex.</p> </li> <li> <p> <b>Violence</b> – Describes language or a statement that includes glorification of or threats to inflict physical pain, hurt, or injury toward a person, group or thing.</p> </li> </ul> <p>Content filtering depends on the confidence classification of user inputs and FM responses across each of the four harmful categories. All input and output statements are classified into one of four confidence levels (NONE, LOW, MEDIUM, HIGH) for each harmful category. For example, if a statement is classified as <i>Hate</i> with HIGH confidence, the likelihood of the statement representing hateful content is high. A single statement can be classified across multiple categories with varying confidence levels. For example, a single statement can be classified as <i>Hate</i> with HIGH confidence, <i>Insults</i> with LOW confidence, <i>Sexual</i> with NONE confidence, and <i>Violence</i> with MEDIUM confidence.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters.html">Guardrails content filters</a>.</p>
+ * @public
+ */
+export interface GuardrailContentFilterConfig {
+  /**
+   * <p>The harmful category that the content filter is applied to.</p>
+   * @public
+   */
+  type: GuardrailContentFilterType | undefined;
+
+  /**
+   * <p>The strength of the content filter to apply to prompts. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
+   * @public
+   */
+  inputStrength: GuardrailFilterStrength | undefined;
+
+  /**
+   * <p>The strength of the content filter to apply to model responses. As you increase the filter strength, the likelihood of filtering harmful content increases and the probability of seeing harmful content in your application reduces.</p>
+   * @public
+   */
+  outputStrength: GuardrailFilterStrength | undefined;
+
+  /**
+   * <p>The input modalities selected for the guardrail content filter configuration.</p>
+   * @public
+   */
+  inputModalities?: GuardrailModality[] | undefined;
+
+  /**
+   * <p>The output modalities selected for the guardrail content filter configuration.</p>
+   * @public
+   */
+  outputModalities?: GuardrailModality[] | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailContentFilterAction | undefined;
+
+  /**
+   * <p>Specifies the action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailContentFilterAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>The tier that your guardrail uses for content filters. Consider using a tier that balances performance, accuracy, and compatibility with your existing generative AI workflows.</p>
+ * @public
+ */
+export interface GuardrailContentFiltersTierConfig {
+  /**
+   * <p>The tier that your guardrail uses for content filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
+   * @public
+   */
+  tierName: GuardrailContentFiltersTierName | undefined;
+}
+
+/**
+ * <p>Contains details about how to handle harmful content.</p>
+ * @public
+ */
+export interface GuardrailContentPolicyConfig {
+  /**
+   * <p>Contains the type of the content filter and how strongly it should apply to prompts and model responses.</p>
+   * @public
+   */
+  filtersConfig: GuardrailContentFilterConfig[] | undefined;
+
+  /**
+   * <p>The tier that your guardrail uses for content filters.</p>
+   * @public
+   */
+  tierConfig?: GuardrailContentFiltersTierConfig | undefined;
+}
+
+/**
+ * <p>The filter configuration details for the guardrails contextual grounding filter.</p>
+ * @public
+ */
+export interface GuardrailContextualGroundingFilterConfig {
+  /**
+   * <p>The filter details for the guardrails contextual grounding filter.</p>
+   * @public
+   */
+  type: GuardrailContextualGroundingFilterType | undefined;
+
+  /**
+   * <p>The threshold details for the guardrails contextual grounding filter.</p>
+   * @public
+   */
+  threshold: number | undefined;
+
+  /**
+   * <p>Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  action?: GuardrailContextualGroundingAction | undefined;
+
+  /**
+   * <p>Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
+ * <p>Specifies the tier that your guardrail uses for contextual grounding checks.</p>
+ * @public
+ */
+export interface GuardrailContextualGroundingTierConfig {
+  /**
+   * <p>The tier that your guardrail uses for contextual grounding. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established contextual grounding functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier, with support for reasoning, conversational content and more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
+   * @public
+   */
+  tierName: GuardrailContextualGroundingTierName | undefined;
+}
+
+/**
+ * <p>The policy configuration details for the guardrails contextual grounding policy.</p>
+ * @public
+ */
+export interface GuardrailContextualGroundingPolicyConfig {
+  /**
+   * <p>The filter configuration details for the guardrails contextual grounding policy.</p>
+   * @public
+   */
+  filtersConfig: GuardrailContextualGroundingFilterConfig[] | undefined;
+
+  /**
+   * <p>The tier that your guardrail uses for contextual grounding.</p>
+   * @public
+   */
+  tierConfig?: GuardrailContextualGroundingTierConfig | undefined;
+}
+
+/**
+ * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed. Using guardrail profiles helps maintain guardrail performance and reliability when demand increases.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+ * @public
+ */
+export interface GuardrailCrossRegionConfig {
+  /**
+   * <p>The ID or Amazon Resource Name (ARN) of the guardrail profile that your guardrail is using. Guardrail profile availability depends on your current Amazon Web Services Region. For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  guardrailProfileIdentifier: string | undefined;
+}
 
 /**
  * <p>The PII entity to configure for the guardrail.</p>
@@ -1488,6 +1931,12 @@ export interface GetInferenceProfileRequest {
    * @public
    */
   inferenceProfileIdentifier: string | undefined;
+
+  /**
+   * <p>The ID or Amazon Resource Name (ARN) of a project. Amazon Bedrock uses the project's trusted access program participation when determining whether to return a system-defined inference profile. The project must belong to your account in the same AWS Region and partition as the request.</p> <p>If you omit this parameter or specify <code>default</code>, Amazon Bedrock uses your account's participation, including organization inheritance.</p> <p>A project that doesn't exist or is archived causes a <code>ValidationException</code>. Specifying a project other than <code>default</code> for an application inference profile also causes a <code>ValidationException</code>.</p>
+   * @public
+   */
+  projectIdentifier?: string | undefined;
 }
 
 /**
@@ -1582,6 +2031,12 @@ export interface ListInferenceProfilesRequest {
    * @public
    */
   typeEquals?: InferenceProfileType | undefined;
+
+  /**
+   * <p>The ID or Amazon Resource Name (ARN) of a project. Amazon Bedrock uses the project's trusted access program participation when determining which system-defined inference profiles to return. The project must belong to your account in the same AWS Region and partition as the request.</p> <p>If you omit this parameter or specify <code>default</code>, Amazon Bedrock uses your account's participation, including organization inheritance.</p> <p>A project that doesn't exist or is archived causes a <code>ValidationException</code>. Specifying a project other than <code>default</code> with <code>typeEquals</code> set to <code>APPLICATION</code> also causes a <code>ValidationException</code>. Omit <code>typeEquals</code> or set it to <code>SYSTEM_DEFINED</code> to list system-defined inference profiles for the project.</p>
+   * @public
+   */
+  projectIdentifier?: string | undefined;
 }
 
 /**
@@ -3132,6 +3587,12 @@ export interface GetFoundationModelRequest {
    * @public
    */
   modelIdentifier: string | undefined;
+
+  /**
+   * <p>The ID or Amazon Resource Name (ARN) of a project. Amazon Bedrock uses the project's trusted access program participation when determining whether to return the model. The project must belong to your account in the same AWS Region and partition as the request.</p> <p>If you omit this parameter or specify <code>default</code>, Amazon Bedrock uses your account's participation, including organization inheritance.</p> <p>A project that doesn't exist or is archived causes a <code>ValidationException</code>. A model outside the project's available model catalog causes a <code>ResourceNotFoundException</code>.</p>
+   * @public
+   */
+  projectIdentifier?: string | undefined;
 }
 
 /**
@@ -3274,6 +3735,12 @@ export interface ListFoundationModelsRequest {
    * @public
    */
   byInferenceType?: InferenceType | undefined;
+
+  /**
+   * <p>The ID or Amazon Resource Name (ARN) of a project. Amazon Bedrock uses the project's trusted access program participation when determining which models to return. The project must belong to your account in the same AWS Region and partition as the request.</p> <p>If you omit this parameter or specify <code>default</code>, Amazon Bedrock uses your account's participation, including organization inheritance. A project that doesn't exist or is archived causes a <code>ValidationException</code>.</p>
+   * @public
+   */
+  projectIdentifier?: string | undefined;
 }
 
 /**
@@ -3351,6 +3818,372 @@ export interface ListFoundationModelsResponse {
    * @public
    */
   modelSummaries?: FoundationModelSummary[] | undefined;
+}
+
+/**
+ * <p>Identifies the project to archive.</p>
+ * @public
+ */
+export interface ArchiveProjectRequest {
+  /**
+   * <p>The id or ARN of the project to archive.</p>
+   * @public
+   */
+  projectIdentifier: string | undefined;
+}
+
+/**
+ * <p>A project's data-retention setting: the project-scope mode, which may be <code>inherit</code> to defer to the account scope or the model default. Uses the same mode space as the account-level data-retention operations; the effective mode for a request resolves project, then account, then model default.</p>
+ * @public
+ */
+export interface ProjectDataRetention {
+  /**
+   * <p>The project's data retention mode. Use <code>inherit</code> to defer to the account setting or model default.</p>
+   * @public
+   */
+  mode: DataRetentionMode | undefined;
+}
+
+/**
+ * <p>The project after the archive operation.</p>
+ * @public
+ */
+export interface ArchiveProjectResponse {
+  /**
+   * <p>The project ID. The account's default project uses <code>default</code>; a named project's generated ID starts with <code>proj_</code>.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The project's display name. Project names do not have to be unique.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The project's lifecycle status.</p>
+   * @public
+   */
+  status: ProjectStatus | undefined;
+
+  /**
+   * <p>The time the project was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time the project was archived.</p>
+   * @public
+   */
+  archivedAt?: Date | undefined;
+
+  /**
+   * <p>The project's data retention setting. A mode of <code>inherit</code> defers to the account setting or model default.</p>
+   * @public
+   */
+  dataRetention: ProjectDataRetention | undefined;
+}
+
+/**
+ * <p>The display name, optional tags, and optional data retention setting for the new project.</p>
+ * @public
+ */
+export interface CreateProjectRequest {
+  /**
+   * <p>The display name for the project. Project names do not have to be unique.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The tags to associate with the project.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>The project's data-retention mode. If you omit this field, Amazon Bedrock sets the mode to <code>inherit</code>. The project then uses the account setting or the model default.</p>
+   * @public
+   */
+  dataRetention?: ProjectDataRetention | undefined;
+}
+
+/**
+ * <p>The newly created project.</p>
+ * @public
+ */
+export interface CreateProjectResponse {
+  /**
+   * <p>The project ID. The account's default project uses <code>default</code>; a named project's generated ID starts with <code>proj_</code>.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The project's display name. Project names do not have to be unique.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The project's lifecycle status.</p>
+   * @public
+   */
+  status: ProjectStatus | undefined;
+
+  /**
+   * <p>The time the project was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time the project was archived.</p>
+   * @public
+   */
+  archivedAt?: Date | undefined;
+
+  /**
+   * <p>The project's data retention setting. A mode of <code>inherit</code> defers to the account setting or model default.</p>
+   * @public
+   */
+  dataRetention: ProjectDataRetention | undefined;
+}
+
+/**
+ * <p>Identifies the project to retrieve.</p>
+ * @public
+ */
+export interface GetProjectRequest {
+  /**
+   * <p>The id or ARN of the project to retrieve.</p>
+   * @public
+   */
+  projectIdentifier: string | undefined;
+}
+
+/**
+ * <p>The requested project's details and data retention setting.</p>
+ * @public
+ */
+export interface GetProjectResponse {
+  /**
+   * <p>The project ID. The account's default project uses <code>default</code>; a named project's generated ID starts with <code>proj_</code>.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The project's display name. Project names do not have to be unique.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The project's lifecycle status.</p>
+   * @public
+   */
+  status: ProjectStatus | undefined;
+
+  /**
+   * <p>The time the project was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time the project was archived.</p>
+   * @public
+   */
+  archivedAt?: Date | undefined;
+
+  /**
+   * <p>The project's data retention setting. A mode of <code>inherit</code> defers to the account setting or model default.</p>
+   * @public
+   */
+  dataRetention: ProjectDataRetention | undefined;
+}
+
+/**
+ * <p>The page size, continuation token, and optional lifecycle status filter for listing projects.</p>
+ * @public
+ */
+export interface ListProjectsRequest {
+  /**
+   * <p>Continuation token from a previous ListProjects response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of projects to return in one response, from 1 to 100. The default is 20.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Returns only the projects in this lifecycle status. When absent, no status filtering is applied and every project is returned. New lifecycle states extend the <code>ProjectStatus</code> enum, and with it this filter, compatibly.</p>
+   * @public
+   */
+  statusFilter?: ProjectStatus | undefined;
+}
+
+/**
+ * <p>A project. The same field set every project-returning operation uses: create, get, update, and archive all return the full project, and list returns one per project.</p>
+ * @public
+ */
+export interface ProjectSummary {
+  /**
+   * <p>The project ID. The account's default project uses <code>default</code>; a named project's generated ID starts with <code>proj_</code>.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The project's display name. Project names do not have to be unique.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The project's lifecycle status.</p>
+   * @public
+   */
+  status: ProjectStatus | undefined;
+
+  /**
+   * <p>The time the project was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time the project was archived.</p>
+   * @public
+   */
+  archivedAt?: Date | undefined;
+
+  /**
+   * <p>The project's data retention setting. A mode of <code>inherit</code> defers to the account setting or model default.</p>
+   * @public
+   */
+  dataRetention: ProjectDataRetention | undefined;
+}
+
+/**
+ * <p>A page of projects and a continuation token when more results are available.</p>
+ * @public
+ */
+export interface ListProjectsResponse {
+  /**
+   * <p>The projects returned for this page, including their details and data retention settings.</p>
+   * @public
+   */
+  projectSummaries: ProjectSummary[] | undefined;
+
+  /**
+   * <p>Continuation token; present only when more results exist. Pass it in the next request to fetch the following page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Identifies the project and the field to update. Specify exactly one of <code>name</code> or <code>dataRetention</code>.</p>
+ * @public
+ */
+export interface UpdateProjectRequest {
+  /**
+   * <p>The id or ARN of the project to update.</p>
+   * @public
+   */
+  projectIdentifier: string | undefined;
+
+  /**
+   * <p>The project's new display name. Specify this field only when <code>dataRetention</code> is omitted. Project names do not have to be unique.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The project's new data-retention mode. Must be set on its own.</p>
+   * @public
+   */
+  dataRetention?: ProjectDataRetention | undefined;
+}
+
+/**
+ * <p>The project after the update.</p>
+ * @public
+ */
+export interface UpdateProjectResponse {
+  /**
+   * <p>The project ID. The account's default project uses <code>default</code>; a named project's generated ID starts with <code>proj_</code>.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The project's display name. Project names do not have to be unique.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The project's lifecycle status.</p>
+   * @public
+   */
+  status: ProjectStatus | undefined;
+
+  /**
+   * <p>The time the project was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time the project was archived.</p>
+   * @public
+   */
+  archivedAt?: Date | undefined;
+
+  /**
+   * <p>The project's data retention setting. A mode of <code>inherit</code> defers to the account setting or model default.</p>
+   * @public
+   */
+  dataRetention: ProjectDataRetention | undefined;
 }
 
 /**
@@ -4878,6 +5711,603 @@ export interface StopModelCustomizationJobRequest {
  * @public
  */
 export interface StopModelCustomizationJobResponse {}
+
+/**
+ * <p>Identifies the trusted access program and optional named project for which to resolve participation.</p>
+ * @public
+ */
+export interface GetTrustedAccessProgramRequest {
+  /**
+   * <p>Identifier of the trusted access program.</p>
+   * @public
+   */
+  programIdentifier: string | undefined;
+
+  /**
+   * <p>The ID or ARN of a named Bedrock project owned by the calling account in this Region. When omitted, resolves participation for the calling account, including participation inherited from its current organization. When specified, resolves participation for the project, including participation inherited from the account and its current organization. You cannot specify the default project. Omit this field to resolve its inherited participation. An ARN from another account, Region, or partition returns ValidationException. A project that does not exist in the calling account returns ResourceNotFoundException.</p>
+   * @public
+   */
+  projectIdentifier?: string | undefined;
+}
+
+/**
+ * <p>Account and optional project context evaluated when resolving a trusted access program's status.</p>
+ * @public
+ */
+export interface TrustedAccessResolutionContext {
+  /**
+   * <p>AWS account for which the program status was resolved, including applicable organization settings.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The canonical ARN of the authorized named project for which participation was resolved. Omitted when the request has no project context.</p>
+   * @public
+   */
+  projectArn?: string | undefined;
+}
+
+/**
+ * <p>The program's details and participation resolved for the calling account or requested project.</p>
+ * @public
+ */
+export interface GetTrustedAccessProgramResponse {
+  /**
+   * <p>Identifier of the trusted access program.</p>
+   * @public
+   */
+  programId: string | undefined;
+
+  /**
+   * <p>Display name of the program.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Description of the program and its effects on model access or data handling.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>Name of the model provider offering the program.</p>
+   * @public
+   */
+  providerName: string | undefined;
+
+  /**
+   * <p>URL with program details, terms, and instructions for obtaining access.</p>
+   * @public
+   */
+  detailsUrl: string | undefined;
+
+  /**
+   * <p>Provider application intake URL. Omitted when the program has no customer-facing intake URL.</p>
+   * @public
+   */
+  enrollmentUrl?: string | undefined;
+
+  /**
+   * <p>Participation status resolved for the account and optional project context.</p>
+   * @public
+   */
+  status: TrustedAccessProgramStatus | undefined;
+
+  /**
+   * <p>Nonempty explanation for requestable or revoked status. Omitted for other statuses.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>Scope deciding the status. This can differ from the scope supplying the resolved opt-in preference and enrollment timestamps.</p>
+   * @public
+   */
+  source: TrustedAccessProgramScope | undefined;
+
+  /**
+   * <p>Scope supplying the applicable approval or most-specific revocation. Omitted when no approval or revocation applies.</p>
+   * @public
+   */
+  eligibilityScope?: TrustedAccessProgramScope | undefined;
+
+  /**
+   * <p>Account and optional project context for which participation was resolved.</p>
+   * @public
+   */
+  resolvedFor: TrustedAccessResolutionContext | undefined;
+
+  /**
+   * <p>Resolved customer preference, preserved independently of eligibility, including while revoked.</p>
+   * @public
+   */
+  optIn: TrustedAccessProgramOptIn | undefined;
+
+  /**
+   * <p>Last change to the enrollment supplying the resolved opt-in. Present for enabled or disabled, including while revoked; omitted for inherit.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Identifies the trusted access program whose saved account enrollment preference to retrieve.</p>
+ * @public
+ */
+export interface GetTrustedAccessProgramAccountEnrollmentRequest {
+  /**
+   * <p>The identifier of the trusted access program.</p>
+   * @public
+   */
+  programIdentifier: string | undefined;
+}
+
+/**
+ * <p>The account's stored enrollment. updatedAt is present whenever a row exists, including an explicit inherit setting.</p>
+ * @public
+ */
+export interface GetTrustedAccessProgramAccountEnrollmentResponse {
+  /**
+   * <p>Stored preference at the addressed scope. A missing enrollment returns inherit without updatedAt.</p>
+   * @public
+   */
+  optIn: TrustedAccessProgramOptIn | undefined;
+
+  /**
+   * <p>Last change to the stored enrollment. Present whenever a row exists, including an explicitly stored inherit setting.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Identifies the trusted access program whose saved organization enrollment preference to retrieve.</p>
+ * @public
+ */
+export interface GetTrustedAccessProgramOrganizationEnrollmentRequest {
+  /**
+   * <p>The identifier of the trusted access program.</p>
+   * @public
+   */
+  programIdentifier: string | undefined;
+}
+
+/**
+ * <p>The organization's stored enrollment. updatedAt is present whenever a row exists, including an explicit inherit setting.</p>
+ * @public
+ */
+export interface GetTrustedAccessProgramOrganizationEnrollmentResponse {
+  /**
+   * <p>Stored preference at the addressed scope. A missing enrollment returns inherit without updatedAt.</p>
+   * @public
+   */
+  optIn: TrustedAccessProgramOptIn | undefined;
+
+  /**
+   * <p>Last change to the stored enrollment. Present whenever a row exists, including an explicitly stored inherit setting.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>Identifies the trusted access program and named project whose saved enrollment preference to retrieve.</p>
+ * @public
+ */
+export interface GetTrustedAccessProgramProjectEnrollmentRequest {
+  /**
+   * <p>The identifier of the trusted access program.</p>
+   * @public
+   */
+  programIdentifier: string | undefined;
+
+  /**
+   * <p>The id or ARN of the named Bedrock project. The default project is not supported; use GetTrustedAccessProgramAccountEnrollment for account-level enrollment. An ARN from another account, Region, or partition returns ValidationException. A project that does not exist in the calling account returns ResourceNotFoundException.</p>
+   * @public
+   */
+  projectIdentifier: string | undefined;
+}
+
+/**
+ * <p>The project's stored enrollment. updatedAt is present whenever a row exists, including an explicit inherit setting.</p>
+ * @public
+ */
+export interface GetTrustedAccessProgramProjectEnrollmentResponse {
+  /**
+   * <p>Stored preference at the addressed scope. A missing enrollment returns inherit without updatedAt.</p>
+   * @public
+   */
+  optIn: TrustedAccessProgramOptIn | undefined;
+
+  /**
+   * <p>Last change to the stored enrollment. Present whenever a row exists, including an explicitly stored inherit setting.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>The optional named project for which to resolve participation in visible trusted access programs.</p>
+ * @public
+ */
+export interface ListTrustedAccessProgramsRequest {
+  /**
+   * <p>The ID or ARN of a named Bedrock project owned by the calling account in this Region. When omitted, resolves participation for the calling account, including participation inherited from its current organization. When specified, resolves participation for the project, including participation inherited from the account and its current organization. You cannot specify the default project. Omit this field to resolve its inherited participation. An ARN from another account, Region, or partition returns ValidationException. A project that does not exist in the calling account returns ResourceNotFoundException.</p>
+   * @public
+   */
+  projectIdentifier?: string | undefined;
+
+  /**
+   * <p>Reserved for future pagination support. Currently ignored; the response includes all visible programs.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Reserved for future pagination support. Omit this field.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Program details and participation resolved for the calling account and optional named project.</p>
+ * @public
+ */
+export interface TrustedAccessProgramSummary {
+  /**
+   * <p>Identifier of the trusted access program.</p>
+   * @public
+   */
+  programId: string | undefined;
+
+  /**
+   * <p>Display name of the program.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Description of the program and its effects on model access or data handling.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>Name of the model provider offering the program.</p>
+   * @public
+   */
+  providerName: string | undefined;
+
+  /**
+   * <p>URL with program details, terms, and instructions for obtaining access.</p>
+   * @public
+   */
+  detailsUrl: string | undefined;
+
+  /**
+   * <p>Provider application intake URL. Omitted when the program has no customer-facing intake URL.</p>
+   * @public
+   */
+  enrollmentUrl?: string | undefined;
+
+  /**
+   * <p>Participation status resolved for the account and optional project context.</p>
+   * @public
+   */
+  status: TrustedAccessProgramStatus | undefined;
+
+  /**
+   * <p>Nonempty explanation for requestable or revoked status. Omitted for other statuses.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>Scope deciding the status. This can differ from the scope supplying the resolved opt-in preference and enrollment timestamps.</p>
+   * @public
+   */
+  source: TrustedAccessProgramScope | undefined;
+
+  /**
+   * <p>Scope supplying the applicable approval or most-specific revocation. Omitted when no approval or revocation applies.</p>
+   * @public
+   */
+  eligibilityScope?: TrustedAccessProgramScope | undefined;
+
+  /**
+   * <p>Account and optional project context for which participation was resolved.</p>
+   * @public
+   */
+  resolvedFor: TrustedAccessResolutionContext | undefined;
+
+  /**
+   * <p>Resolved customer preference, preserved independently of eligibility, including while revoked.</p>
+   * @public
+   */
+  optIn: TrustedAccessProgramOptIn | undefined;
+
+  /**
+   * <p>Last change to the enrollment supplying the resolved opt-in. Present for enabled or disabled, including while revoked; omitted for inherit.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * <p>The visible trusted access programs and their resolved participation statuses.</p>
+ * @public
+ */
+export interface ListTrustedAccessProgramsResponse {
+  /**
+   * <p>All visible programs with resolved participation, ordered by program ID. Always present, including an empty array when no programs are visible.</p>
+   * @public
+   */
+  programSummaries: TrustedAccessProgramSummary[] | undefined;
+
+  /**
+   * <p>Reserved for future pagination support. Currently omitted because the response contains the complete list.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The trusted access program and enrollment preference to save for the calling account.</p>
+ * @public
+ */
+export interface PutTrustedAccessProgramAccountEnrollmentRequest {
+  /**
+   * <p>The identifier of the trusted access program.</p>
+   * @public
+   */
+  programIdentifier: string | undefined;
+
+  /**
+   * <p>The enrollment preference to store. A transition to enabled accepts the program's terms. Changing the preference records a new updatedAt. Repeating the same stored preference preserves updatedAt.</p>
+   * @public
+   */
+  optIn: TrustedAccessProgramOptIn | undefined;
+}
+
+/**
+ * <p>The account's resulting stored enrollment setting. An initial inherit write creates a stored setting with updatedAt.</p>
+ * @public
+ */
+export interface PutTrustedAccessProgramAccountEnrollmentResponse {
+  /**
+   * <p>Stored preference at the addressed scope. A missing enrollment returns inherit without updatedAt.</p>
+   * @public
+   */
+  optIn: TrustedAccessProgramOptIn | undefined;
+
+  /**
+   * <p>The time the stored enrollment setting last changed.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>The trusted access program and enrollment preference to save for the organization.</p>
+ * @public
+ */
+export interface PutTrustedAccessProgramOrganizationEnrollmentRequest {
+  /**
+   * <p>The identifier of the trusted access program.</p>
+   * @public
+   */
+  programIdentifier: string | undefined;
+
+  /**
+   * <p>The enrollment preference to store for the organization. A transition to enabled accepts the program's terms. Changing the preference records a new updatedAt. Repeating the same stored preference preserves updatedAt.</p>
+   * @public
+   */
+  optIn: TrustedAccessProgramOptIn | undefined;
+}
+
+/**
+ * <p>The organization's resulting stored enrollment setting. An initial inherit write creates a stored setting with updatedAt.</p>
+ * @public
+ */
+export interface PutTrustedAccessProgramOrganizationEnrollmentResponse {
+  /**
+   * <p>Stored preference at the addressed scope. A missing enrollment returns inherit without updatedAt.</p>
+   * @public
+   */
+  optIn: TrustedAccessProgramOptIn | undefined;
+
+  /**
+   * <p>The time the stored enrollment setting last changed.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>The trusted access program, named project, and enrollment preference to save.</p>
+ * @public
+ */
+export interface PutTrustedAccessProgramProjectEnrollmentRequest {
+  /**
+   * <p>The identifier of the trusted access program.</p>
+   * @public
+   */
+  programIdentifier: string | undefined;
+
+  /**
+   * <p>The id or ARN of the named Bedrock project. The default project is not supported; use PutTrustedAccessProgramAccountEnrollment for account-level enrollment. An ARN from another account, Region, or partition returns ValidationException. A project that does not exist in the calling account returns ResourceNotFoundException.</p>
+   * @public
+   */
+  projectIdentifier: string | undefined;
+
+  /**
+   * <p>The enrollment preference to store. A transition to enabled accepts the program's terms. Changing the preference records a new updatedAt. Repeating the same stored preference preserves updatedAt.</p>
+   * @public
+   */
+  optIn: TrustedAccessProgramOptIn | undefined;
+}
+
+/**
+ * <p>The project's resulting stored enrollment setting. An initial inherit write creates a stored setting with updatedAt.</p>
+ * @public
+ */
+export interface PutTrustedAccessProgramProjectEnrollmentResponse {
+  /**
+   * <p>Stored preference at the addressed scope. A missing enrollment returns inherit without updatedAt.</p>
+   * @public
+   */
+  optIn: TrustedAccessProgramOptIn | undefined;
+
+  /**
+   * <p>The time the stored enrollment setting last changed.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>Identifies the trusted access program for which to prepare an account application handoff.</p>
+ * @public
+ */
+export interface StartTrustedAccessProgramAccountApplicationRequest {
+  /**
+   * <p>Identifier of the trusted access program.</p>
+   * @public
+   */
+  programIdentifier: string | undefined;
+}
+
+/**
+ * <p>Information needed to continue an application with the provider.</p>
+ * @public
+ */
+export interface TrustedAccessProgramProviderHandoff {
+  /**
+   * <p>Provider intake URL. When present, open it and paste the complete application token into the provider's token field. Omitted when the provider receives the application token through a separate integration.</p>
+   * @public
+   */
+  enrollmentUrl?: string | undefined;
+
+  /**
+   * <p>Opaque token binding the application to the authenticated customer, requested program, and scope.</p>
+   * @public
+   */
+  applicationToken: string | undefined;
+
+  /**
+   * <p>Deadline for the provider to accept the application context. Start another application handoff if the token expires before acceptance.</p>
+   * @public
+   */
+  applicationTokenExpiresAt: Date | undefined;
+}
+
+/**
+ * <p>Result of preparing an application. A provider handoff does not submit an application, grant eligibility, or change enrollment. Clients must tolerate unknown union members.</p>
+ * @public
+ */
+export type TrustedAccessProgramApplicationResult =
+  | TrustedAccessProgramApplicationResult.ProviderHandoffMember
+  | TrustedAccessProgramApplicationResult.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TrustedAccessProgramApplicationResult {
+  /**
+   * <p>Information for continuing the application with the provider.</p>
+   * @public
+   */
+  export interface ProviderHandoffMember {
+    providerHandoff: TrustedAccessProgramProviderHandoff;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    providerHandoff?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    providerHandoff: (value: TrustedAccessProgramProviderHandoff) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The information needed to continue the account's application with the provider.</p>
+ * @public
+ */
+export interface StartTrustedAccessProgramAccountApplicationResponse {
+  /**
+   * <p>Provider handoff for the calling account.</p>
+   * @public
+   */
+  result: TrustedAccessProgramApplicationResult | undefined;
+}
+
+/**
+ * <p>Identifies the trusted access program for which to prepare an organization application handoff.</p>
+ * @public
+ */
+export interface StartTrustedAccessProgramOrganizationApplicationRequest {
+  /**
+   * <p>Identifier of the trusted access program.</p>
+   * @public
+   */
+  programIdentifier: string | undefined;
+}
+
+/**
+ * <p>The information needed to continue the organization's application with the provider.</p>
+ * @public
+ */
+export interface StartTrustedAccessProgramOrganizationApplicationResponse {
+  /**
+   * <p>Provider handoff for the calling account's current organization.</p>
+   * @public
+   */
+  result: TrustedAccessProgramApplicationResult | undefined;
+}
+
+/**
+ * <p>Identifies the trusted access program and named project for which to prepare an application handoff.</p>
+ * @public
+ */
+export interface StartTrustedAccessProgramProjectApplicationRequest {
+  /**
+   * <p>Identifier of the trusted access program.</p>
+   * @public
+   */
+  programIdentifier: string | undefined;
+
+  /**
+   * <p>The id or ARN of the named Bedrock project. The default project is not supported; use StartTrustedAccessProgramAccountApplication for an account-level application. An ARN from another account, Region, or partition returns ValidationException. A project that does not exist in the calling account returns ResourceNotFoundException.</p>
+   * @public
+   */
+  projectIdentifier: string | undefined;
+}
+
+/**
+ * <p>The information needed to continue the project's application with the provider.</p>
+ * @public
+ */
+export interface StartTrustedAccessProgramProjectApplicationResponse {
+  /**
+   * <p>Provider handoff for the named project.</p>
+   * @public
+   */
+  result: TrustedAccessProgramApplicationResult | undefined;
+}
 
 /**
  * <p>Specifies the filters to use on the metadata attributes/fields in the knowledge base data sources before returning results.</p>

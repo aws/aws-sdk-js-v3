@@ -17,5 +17,7 @@ export * from "./ListModelCopyJobsPaginator";
 export * from "./ListModelCustomizationJobsPaginator";
 export * from "./ListModelImportJobsPaginator";
 export * from "./ListModelInvocationJobsPaginator";
+export * from "./ListProjectsPaginator";
 export * from "./ListPromptRoutersPaginator";
 export * from "./ListProvisionedModelThroughputsPaginator";
+export * from "./ListTrustedAccessProgramsPaginator";

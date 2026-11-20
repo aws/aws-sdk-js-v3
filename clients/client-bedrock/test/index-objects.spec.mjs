@@ -10,6 +10,10 @@ import {
   AgreementAvailability$,
   AgreementStatus,
   ApplicationType,
+  ArchiveProject$,
+  ArchiveProjectCommand,
+  ArchiveProjectRequest$,
+  ArchiveProjectResponse$,
   AttributeType,
   AuthorizationStatus,
   AutomatedEvaluationConfig$,
@@ -201,6 +205,10 @@ import {
   CreateModelInvocationJobCommand,
   CreateModelInvocationJobRequest$,
   CreateModelInvocationJobResponse$,
+  CreateProject$,
+  CreateProjectCommand,
+  CreateProjectRequest$,
+  CreateProjectResponse$,
   CreatePromptRouter$,
   CreatePromptRouterCommand,
   CreatePromptRouterRequest$,
@@ -223,6 +231,15 @@ import {
   CustomModelUnits$,
   DataProcessingDetails$,
   DataRetentionMode,
+  DataRetentionStorageConfiguration$,
+  DataRetentionStorageDestination,
+  DataRetentionStorageModelProvider,
+  DataRetentionStorageResourceStatus,
+  DataRetentionStorageScope,
+  DeleteAccountDataRetentionStorage$,
+  DeleteAccountDataRetentionStorageCommand,
+  DeleteAccountDataRetentionStorageRequest$,
+  DeleteAccountDataRetentionStorageResponse$,
   DeleteAutomatedReasoningPolicy$,
   DeleteAutomatedReasoningPolicyBuildWorkflow$,
   DeleteAutomatedReasoningPolicyBuildWorkflowCommand,
@@ -271,6 +288,14 @@ import {
   DeleteModelInvocationLoggingConfigurationCommand,
   DeleteModelInvocationLoggingConfigurationRequest$,
   DeleteModelInvocationLoggingConfigurationResponse$,
+  DeleteOrganizationDataRetentionStorage$,
+  DeleteOrganizationDataRetentionStorageCommand,
+  DeleteOrganizationDataRetentionStorageRequest$,
+  DeleteOrganizationDataRetentionStorageResponse$,
+  DeleteProjectDataRetentionStorage$,
+  DeleteProjectDataRetentionStorageCommand,
+  DeleteProjectDataRetentionStorageRequest$,
+  DeleteProjectDataRetentionStorageResponse$,
   DeletePromptRouter$,
   DeletePromptRouterCommand,
   DeletePromptRouterRequest$,
@@ -331,6 +356,10 @@ import {
   GetAccountDataRetentionCommand,
   GetAccountDataRetentionRequest$,
   GetAccountDataRetentionResponse$,
+  GetAccountDataRetentionStorage$,
+  GetAccountDataRetentionStorageCommand,
+  GetAccountDataRetentionStorageRequest$,
+  GetAccountDataRetentionStorageResponse$,
   GetAdvancedPromptOptimizationJob$,
   GetAdvancedPromptOptimizationJobCommand,
   GetAdvancedPromptOptimizationJobRequest$,
@@ -419,6 +448,18 @@ import {
   GetModelInvocationLoggingConfigurationCommand,
   GetModelInvocationLoggingConfigurationRequest$,
   GetModelInvocationLoggingConfigurationResponse$,
+  GetOrganizationDataRetentionStorage$,
+  GetOrganizationDataRetentionStorageCommand,
+  GetOrganizationDataRetentionStorageRequest$,
+  GetOrganizationDataRetentionStorageResponse$,
+  GetProject$,
+  GetProjectCommand,
+  GetProjectDataRetentionStorage$,
+  GetProjectDataRetentionStorageCommand,
+  GetProjectDataRetentionStorageRequest$,
+  GetProjectDataRetentionStorageResponse$,
+  GetProjectRequest$,
+  GetProjectResponse$,
   GetPromptRouter$,
   GetPromptRouterCommand,
   GetPromptRouterRequest$,
@@ -431,6 +472,22 @@ import {
   GetResourcePolicyCommand,
   GetResourcePolicyRequest$,
   GetResourcePolicyResponse$,
+  GetTrustedAccessProgram$,
+  GetTrustedAccessProgramAccountEnrollment$,
+  GetTrustedAccessProgramAccountEnrollmentCommand,
+  GetTrustedAccessProgramAccountEnrollmentRequest$,
+  GetTrustedAccessProgramAccountEnrollmentResponse$,
+  GetTrustedAccessProgramCommand,
+  GetTrustedAccessProgramOrganizationEnrollment$,
+  GetTrustedAccessProgramOrganizationEnrollmentCommand,
+  GetTrustedAccessProgramOrganizationEnrollmentRequest$,
+  GetTrustedAccessProgramOrganizationEnrollmentResponse$,
+  GetTrustedAccessProgramProjectEnrollment$,
+  GetTrustedAccessProgramProjectEnrollmentCommand,
+  GetTrustedAccessProgramProjectEnrollmentRequest$,
+  GetTrustedAccessProgramProjectEnrollmentResponse$,
+  GetTrustedAccessProgramRequest$,
+  GetTrustedAccessProgramResponse$,
   GetUseCaseForModelAccess$,
   GetUseCaseForModelAccessCommand,
   GetUseCaseForModelAccessRequest$,
@@ -589,6 +646,10 @@ import {
   ListModelInvocationJobsCommand,
   ListModelInvocationJobsRequest$,
   ListModelInvocationJobsResponse$,
+  ListProjects$,
+  ListProjectsCommand,
+  ListProjectsRequest$,
+  ListProjectsResponse$,
   ListPromptRouters$,
   ListPromptRoutersCommand,
   ListPromptRoutersRequest$,
@@ -601,6 +662,10 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  ListTrustedAccessPrograms$,
+  ListTrustedAccessProgramsCommand,
+  ListTrustedAccessProgramsRequest$,
+  ListTrustedAccessProgramsResponse$,
   LoggingConfig$,
   MarketplaceModelEndpoint$,
   MarketplaceModelEndpointSummary$,
@@ -647,11 +712,16 @@ import {
   paginateListModelCustomizationJobs,
   paginateListModelImportJobs,
   paginateListModelInvocationJobs,
+  paginateListProjects,
   paginateListPromptRouters,
   paginateListProvisionedModelThroughputs,
+  paginateListTrustedAccessPrograms,
   PerformanceConfigLatency,
   PerformanceConfiguration$,
   PricingTerm$,
+  ProjectDataRetention$,
+  ProjectStatus,
+  ProjectSummary$,
   PromptRouterStatus,
   PromptRouterSummary$,
   PromptRouterTargetModel$,
@@ -663,6 +733,10 @@ import {
   PutAccountDataRetentionCommand,
   PutAccountDataRetentionRequest$,
   PutAccountDataRetentionResponse$,
+  PutAccountDataRetentionStorage$,
+  PutAccountDataRetentionStorageCommand,
+  PutAccountDataRetentionStorageRequest$,
+  PutAccountDataRetentionStorageResponse$,
   PutEnforcedGuardrailConfiguration$,
   PutEnforcedGuardrailConfigurationCommand,
   PutEnforcedGuardrailConfigurationRequest$,
@@ -671,10 +745,30 @@ import {
   PutModelInvocationLoggingConfigurationCommand,
   PutModelInvocationLoggingConfigurationRequest$,
   PutModelInvocationLoggingConfigurationResponse$,
+  PutOrganizationDataRetentionStorage$,
+  PutOrganizationDataRetentionStorageCommand,
+  PutOrganizationDataRetentionStorageRequest$,
+  PutOrganizationDataRetentionStorageResponse$,
+  PutProjectDataRetentionStorage$,
+  PutProjectDataRetentionStorageCommand,
+  PutProjectDataRetentionStorageRequest$,
+  PutProjectDataRetentionStorageResponse$,
   PutResourcePolicy$,
   PutResourcePolicyCommand,
   PutResourcePolicyRequest$,
   PutResourcePolicyResponse$,
+  PutTrustedAccessProgramAccountEnrollment$,
+  PutTrustedAccessProgramAccountEnrollmentCommand,
+  PutTrustedAccessProgramAccountEnrollmentRequest$,
+  PutTrustedAccessProgramAccountEnrollmentResponse$,
+  PutTrustedAccessProgramOrganizationEnrollment$,
+  PutTrustedAccessProgramOrganizationEnrollmentCommand,
+  PutTrustedAccessProgramOrganizationEnrollmentRequest$,
+  PutTrustedAccessProgramOrganizationEnrollmentResponse$,
+  PutTrustedAccessProgramProjectEnrollment$,
+  PutTrustedAccessProgramProjectEnrollmentCommand,
+  PutTrustedAccessProgramProjectEnrollmentRequest$,
+  PutTrustedAccessProgramProjectEnrollmentResponse$,
   PutUseCaseForModelAccess$,
   PutUseCaseForModelAccessCommand,
   PutUseCaseForModelAccessRequest$,
@@ -729,6 +823,18 @@ import {
   StartAutomatedReasoningPolicyTestWorkflowCommand,
   StartAutomatedReasoningPolicyTestWorkflowRequest$,
   StartAutomatedReasoningPolicyTestWorkflowResponse$,
+  StartTrustedAccessProgramAccountApplication$,
+  StartTrustedAccessProgramAccountApplicationCommand,
+  StartTrustedAccessProgramAccountApplicationRequest$,
+  StartTrustedAccessProgramAccountApplicationResponse$,
+  StartTrustedAccessProgramOrganizationApplication$,
+  StartTrustedAccessProgramOrganizationApplicationCommand,
+  StartTrustedAccessProgramOrganizationApplicationRequest$,
+  StartTrustedAccessProgramOrganizationApplicationResponse$,
+  StartTrustedAccessProgramProjectApplication$,
+  StartTrustedAccessProgramProjectApplicationCommand,
+  StartTrustedAccessProgramProjectApplicationRequest$,
+  StartTrustedAccessProgramProjectApplicationResponse$,
   Status,
   StatusDetails$,
   StopAdvancedPromptOptimizationJob$,
@@ -763,6 +869,13 @@ import {
   TrainingDataConfig$,
   TrainingDetails$,
   TrainingMetrics$,
+  TrustedAccessProgramApplicationResult$,
+  TrustedAccessProgramOptIn,
+  TrustedAccessProgramProviderHandoff$,
+  TrustedAccessProgramScope,
+  TrustedAccessProgramStatus,
+  TrustedAccessProgramSummary$,
+  TrustedAccessResolutionContext$,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
@@ -791,6 +904,10 @@ import {
   UpdateMarketplaceModelEndpointCommand,
   UpdateMarketplaceModelEndpointRequest$,
   UpdateMarketplaceModelEndpointResponse$,
+  UpdateProject$,
+  UpdateProjectCommand,
+  UpdateProjectRequest$,
+  UpdateProjectResponse$,
   UpdateProvisionedModelThroughput$,
   UpdateProvisionedModelThroughputCommand,
   UpdateProvisionedModelThroughputRequest$,
@@ -813,6 +930,8 @@ import assert from "node:assert";
 assert(typeof BedrockClient === "function");
 assert(typeof Bedrock === "function");
 // commands
+assert(typeof ArchiveProjectCommand === "function");
+assert(typeof ArchiveProject$ === "object");
 assert(typeof BatchDeleteAdvancedPromptOptimizationJobCommand === "function");
 assert(typeof BatchDeleteAdvancedPromptOptimizationJob$ === "object");
 assert(typeof BatchDeleteEvaluationJobCommand === "function");
@@ -851,10 +970,14 @@ assert(typeof CreateModelImportJobCommand === "function");
 assert(typeof CreateModelImportJob$ === "object");
 assert(typeof CreateModelInvocationJobCommand === "function");
 assert(typeof CreateModelInvocationJob$ === "object");
+assert(typeof CreateProjectCommand === "function");
+assert(typeof CreateProject$ === "object");
 assert(typeof CreatePromptRouterCommand === "function");
 assert(typeof CreatePromptRouter$ === "object");
 assert(typeof CreateProvisionedModelThroughputCommand === "function");
 assert(typeof CreateProvisionedModelThroughput$ === "object");
+assert(typeof DeleteAccountDataRetentionStorageCommand === "function");
+assert(typeof DeleteAccountDataRetentionStorage$ === "object");
 assert(typeof DeleteAutomatedReasoningPolicyCommand === "function");
 assert(typeof DeleteAutomatedReasoningPolicy$ === "object");
 assert(typeof DeleteAutomatedReasoningPolicyBuildWorkflowCommand === "function");
@@ -879,6 +1002,10 @@ assert(typeof DeleteMarketplaceModelEndpointCommand === "function");
 assert(typeof DeleteMarketplaceModelEndpoint$ === "object");
 assert(typeof DeleteModelInvocationLoggingConfigurationCommand === "function");
 assert(typeof DeleteModelInvocationLoggingConfiguration$ === "object");
+assert(typeof DeleteOrganizationDataRetentionStorageCommand === "function");
+assert(typeof DeleteOrganizationDataRetentionStorage$ === "object");
+assert(typeof DeleteProjectDataRetentionStorageCommand === "function");
+assert(typeof DeleteProjectDataRetentionStorage$ === "object");
 assert(typeof DeletePromptRouterCommand === "function");
 assert(typeof DeletePromptRouter$ === "object");
 assert(typeof DeleteProvisionedModelThroughputCommand === "function");
@@ -891,6 +1018,8 @@ assert(typeof ExportAutomatedReasoningPolicyVersionCommand === "function");
 assert(typeof ExportAutomatedReasoningPolicyVersion$ === "object");
 assert(typeof GetAccountDataRetentionCommand === "function");
 assert(typeof GetAccountDataRetention$ === "object");
+assert(typeof GetAccountDataRetentionStorageCommand === "function");
+assert(typeof GetAccountDataRetentionStorage$ === "object");
 assert(typeof GetAdvancedPromptOptimizationJobCommand === "function");
 assert(typeof GetAdvancedPromptOptimizationJob$ === "object");
 assert(typeof GetAutomatedReasoningPolicyCommand === "function");
@@ -935,12 +1064,26 @@ assert(typeof GetModelInvocationJobCommand === "function");
 assert(typeof GetModelInvocationJob$ === "object");
 assert(typeof GetModelInvocationLoggingConfigurationCommand === "function");
 assert(typeof GetModelInvocationLoggingConfiguration$ === "object");
+assert(typeof GetOrganizationDataRetentionStorageCommand === "function");
+assert(typeof GetOrganizationDataRetentionStorage$ === "object");
+assert(typeof GetProjectCommand === "function");
+assert(typeof GetProject$ === "object");
+assert(typeof GetProjectDataRetentionStorageCommand === "function");
+assert(typeof GetProjectDataRetentionStorage$ === "object");
 assert(typeof GetPromptRouterCommand === "function");
 assert(typeof GetPromptRouter$ === "object");
 assert(typeof GetProvisionedModelThroughputCommand === "function");
 assert(typeof GetProvisionedModelThroughput$ === "object");
 assert(typeof GetResourcePolicyCommand === "function");
 assert(typeof GetResourcePolicy$ === "object");
+assert(typeof GetTrustedAccessProgramCommand === "function");
+assert(typeof GetTrustedAccessProgram$ === "object");
+assert(typeof GetTrustedAccessProgramAccountEnrollmentCommand === "function");
+assert(typeof GetTrustedAccessProgramAccountEnrollment$ === "object");
+assert(typeof GetTrustedAccessProgramOrganizationEnrollmentCommand === "function");
+assert(typeof GetTrustedAccessProgramOrganizationEnrollment$ === "object");
+assert(typeof GetTrustedAccessProgramProjectEnrollmentCommand === "function");
+assert(typeof GetTrustedAccessProgramProjectEnrollment$ === "object");
 assert(typeof GetUseCaseForModelAccessCommand === "function");
 assert(typeof GetUseCaseForModelAccess$ === "object");
 assert(typeof ListAdvancedPromptOptimizationJobsCommand === "function");
@@ -981,20 +1124,36 @@ assert(typeof ListModelImportJobsCommand === "function");
 assert(typeof ListModelImportJobs$ === "object");
 assert(typeof ListModelInvocationJobsCommand === "function");
 assert(typeof ListModelInvocationJobs$ === "object");
+assert(typeof ListProjectsCommand === "function");
+assert(typeof ListProjects$ === "object");
 assert(typeof ListPromptRoutersCommand === "function");
 assert(typeof ListPromptRouters$ === "object");
 assert(typeof ListProvisionedModelThroughputsCommand === "function");
 assert(typeof ListProvisionedModelThroughputs$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof ListTrustedAccessProgramsCommand === "function");
+assert(typeof ListTrustedAccessPrograms$ === "object");
 assert(typeof PutAccountDataRetentionCommand === "function");
 assert(typeof PutAccountDataRetention$ === "object");
+assert(typeof PutAccountDataRetentionStorageCommand === "function");
+assert(typeof PutAccountDataRetentionStorage$ === "object");
 assert(typeof PutEnforcedGuardrailConfigurationCommand === "function");
 assert(typeof PutEnforcedGuardrailConfiguration$ === "object");
 assert(typeof PutModelInvocationLoggingConfigurationCommand === "function");
 assert(typeof PutModelInvocationLoggingConfiguration$ === "object");
+assert(typeof PutOrganizationDataRetentionStorageCommand === "function");
+assert(typeof PutOrganizationDataRetentionStorage$ === "object");
+assert(typeof PutProjectDataRetentionStorageCommand === "function");
+assert(typeof PutProjectDataRetentionStorage$ === "object");
 assert(typeof PutResourcePolicyCommand === "function");
 assert(typeof PutResourcePolicy$ === "object");
+assert(typeof PutTrustedAccessProgramAccountEnrollmentCommand === "function");
+assert(typeof PutTrustedAccessProgramAccountEnrollment$ === "object");
+assert(typeof PutTrustedAccessProgramOrganizationEnrollmentCommand === "function");
+assert(typeof PutTrustedAccessProgramOrganizationEnrollment$ === "object");
+assert(typeof PutTrustedAccessProgramProjectEnrollmentCommand === "function");
+assert(typeof PutTrustedAccessProgramProjectEnrollment$ === "object");
 assert(typeof PutUseCaseForModelAccessCommand === "function");
 assert(typeof PutUseCaseForModelAccess$ === "object");
 assert(typeof RegisterMarketplaceModelEndpointCommand === "function");
@@ -1003,6 +1162,12 @@ assert(typeof StartAutomatedReasoningPolicyBuildWorkflowCommand === "function");
 assert(typeof StartAutomatedReasoningPolicyBuildWorkflow$ === "object");
 assert(typeof StartAutomatedReasoningPolicyTestWorkflowCommand === "function");
 assert(typeof StartAutomatedReasoningPolicyTestWorkflow$ === "object");
+assert(typeof StartTrustedAccessProgramAccountApplicationCommand === "function");
+assert(typeof StartTrustedAccessProgramAccountApplication$ === "object");
+assert(typeof StartTrustedAccessProgramOrganizationApplicationCommand === "function");
+assert(typeof StartTrustedAccessProgramOrganizationApplication$ === "object");
+assert(typeof StartTrustedAccessProgramProjectApplicationCommand === "function");
+assert(typeof StartTrustedAccessProgramProjectApplication$ === "object");
 assert(typeof StopAdvancedPromptOptimizationJobCommand === "function");
 assert(typeof StopAdvancedPromptOptimizationJob$ === "object");
 assert(typeof StopEvaluationJobCommand === "function");
@@ -1027,6 +1192,8 @@ assert(typeof UpdateGuardrailCommand === "function");
 assert(typeof UpdateGuardrail$ === "object");
 assert(typeof UpdateMarketplaceModelEndpointCommand === "function");
 assert(typeof UpdateMarketplaceModelEndpoint$ === "object");
+assert(typeof UpdateProjectCommand === "function");
+assert(typeof UpdateProject$ === "object");
 assert(typeof UpdateProvisionedModelThroughputCommand === "function");
 assert(typeof UpdateProvisionedModelThroughput$ === "object");
 // structural schemas
@@ -1036,6 +1203,8 @@ assert(typeof AdvancedPromptOptimizationInputConfig$ === "object");
 assert(typeof AdvancedPromptOptimizationJobSummary$ === "object");
 assert(typeof AdvancedPromptOptimizationOutputConfig$ === "object");
 assert(typeof AgreementAvailability$ === "object");
+assert(typeof ArchiveProjectRequest$ === "object");
+assert(typeof ArchiveProjectResponse$ === "object");
 assert(typeof AutomatedEvaluationConfig$ === "object");
 assert(typeof AutomatedEvaluationCustomMetricConfig$ === "object");
 assert(typeof AutomatedEvaluationCustomMetricSource$ === "object");
@@ -1170,6 +1339,8 @@ assert(typeof CreateModelImportJobRequest$ === "object");
 assert(typeof CreateModelImportJobResponse$ === "object");
 assert(typeof CreateModelInvocationJobRequest$ === "object");
 assert(typeof CreateModelInvocationJobResponse$ === "object");
+assert(typeof CreateProjectRequest$ === "object");
+assert(typeof CreateProjectResponse$ === "object");
 assert(typeof CreatePromptRouterRequest$ === "object");
 assert(typeof CreatePromptRouterResponse$ === "object");
 assert(typeof CreateProvisionedModelThroughputRequest$ === "object");
@@ -1184,6 +1355,9 @@ assert(typeof CustomModelDeploymentUpdateDetails$ === "object");
 assert(typeof CustomModelSummary$ === "object");
 assert(typeof CustomModelUnits$ === "object");
 assert(typeof DataProcessingDetails$ === "object");
+assert(typeof DataRetentionStorageConfiguration$ === "object");
+assert(typeof DeleteAccountDataRetentionStorageRequest$ === "object");
+assert(typeof DeleteAccountDataRetentionStorageResponse$ === "object");
 assert(typeof DeleteAutomatedReasoningPolicyBuildWorkflowRequest$ === "object");
 assert(typeof DeleteAutomatedReasoningPolicyBuildWorkflowResponse$ === "object");
 assert(typeof DeleteAutomatedReasoningPolicyRequest$ === "object");
@@ -1208,6 +1382,10 @@ assert(typeof DeleteMarketplaceModelEndpointRequest$ === "object");
 assert(typeof DeleteMarketplaceModelEndpointResponse$ === "object");
 assert(typeof DeleteModelInvocationLoggingConfigurationRequest$ === "object");
 assert(typeof DeleteModelInvocationLoggingConfigurationResponse$ === "object");
+assert(typeof DeleteOrganizationDataRetentionStorageRequest$ === "object");
+assert(typeof DeleteOrganizationDataRetentionStorageResponse$ === "object");
+assert(typeof DeleteProjectDataRetentionStorageRequest$ === "object");
+assert(typeof DeleteProjectDataRetentionStorageResponse$ === "object");
 assert(typeof DeletePromptRouterRequest$ === "object");
 assert(typeof DeletePromptRouterResponse$ === "object");
 assert(typeof DeleteProvisionedModelThroughputRequest$ === "object");
@@ -1249,6 +1427,8 @@ assert(typeof FoundationModelSummary$ === "object");
 assert(typeof GenerationConfiguration$ === "object");
 assert(typeof GetAccountDataRetentionRequest$ === "object");
 assert(typeof GetAccountDataRetentionResponse$ === "object");
+assert(typeof GetAccountDataRetentionStorageRequest$ === "object");
+assert(typeof GetAccountDataRetentionStorageResponse$ === "object");
 assert(typeof GetAdvancedPromptOptimizationJobRequest$ === "object");
 assert(typeof GetAdvancedPromptOptimizationJobResponse$ === "object");
 assert(typeof GetAutomatedReasoningPolicyAnnotationsRequest$ === "object");
@@ -1293,12 +1473,26 @@ assert(typeof GetModelInvocationJobRequest$ === "object");
 assert(typeof GetModelInvocationJobResponse$ === "object");
 assert(typeof GetModelInvocationLoggingConfigurationRequest$ === "object");
 assert(typeof GetModelInvocationLoggingConfigurationResponse$ === "object");
+assert(typeof GetOrganizationDataRetentionStorageRequest$ === "object");
+assert(typeof GetOrganizationDataRetentionStorageResponse$ === "object");
+assert(typeof GetProjectDataRetentionStorageRequest$ === "object");
+assert(typeof GetProjectDataRetentionStorageResponse$ === "object");
+assert(typeof GetProjectRequest$ === "object");
+assert(typeof GetProjectResponse$ === "object");
 assert(typeof GetPromptRouterRequest$ === "object");
 assert(typeof GetPromptRouterResponse$ === "object");
 assert(typeof GetProvisionedModelThroughputRequest$ === "object");
 assert(typeof GetProvisionedModelThroughputResponse$ === "object");
 assert(typeof GetResourcePolicyRequest$ === "object");
 assert(typeof GetResourcePolicyResponse$ === "object");
+assert(typeof GetTrustedAccessProgramAccountEnrollmentRequest$ === "object");
+assert(typeof GetTrustedAccessProgramAccountEnrollmentResponse$ === "object");
+assert(typeof GetTrustedAccessProgramOrganizationEnrollmentRequest$ === "object");
+assert(typeof GetTrustedAccessProgramOrganizationEnrollmentResponse$ === "object");
+assert(typeof GetTrustedAccessProgramProjectEnrollmentRequest$ === "object");
+assert(typeof GetTrustedAccessProgramProjectEnrollmentResponse$ === "object");
+assert(typeof GetTrustedAccessProgramRequest$ === "object");
+assert(typeof GetTrustedAccessProgramResponse$ === "object");
 assert(typeof GetUseCaseForModelAccessRequest$ === "object");
 assert(typeof GetUseCaseForModelAccessResponse$ === "object");
 assert(typeof GraderConfig$ === "object");
@@ -1394,12 +1588,16 @@ assert(typeof ListModelImportJobsRequest$ === "object");
 assert(typeof ListModelImportJobsResponse$ === "object");
 assert(typeof ListModelInvocationJobsRequest$ === "object");
 assert(typeof ListModelInvocationJobsResponse$ === "object");
+assert(typeof ListProjectsRequest$ === "object");
+assert(typeof ListProjectsResponse$ === "object");
 assert(typeof ListPromptRoutersRequest$ === "object");
 assert(typeof ListPromptRoutersResponse$ === "object");
 assert(typeof ListProvisionedModelThroughputsRequest$ === "object");
 assert(typeof ListProvisionedModelThroughputsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof ListTrustedAccessProgramsRequest$ === "object");
+assert(typeof ListTrustedAccessProgramsResponse$ === "object");
 assert(typeof LoggingConfig$ === "object");
 assert(typeof MarketplaceModelEndpoint$ === "object");
 assert(typeof MarketplaceModelEndpointSummary$ === "object");
@@ -1422,18 +1620,32 @@ assert(typeof OrchestrationConfiguration$ === "object");
 assert(typeof OutputDataConfig$ === "object");
 assert(typeof PerformanceConfiguration$ === "object");
 assert(typeof PricingTerm$ === "object");
+assert(typeof ProjectDataRetention$ === "object");
+assert(typeof ProjectSummary$ === "object");
 assert(typeof PromptRouterSummary$ === "object");
 assert(typeof PromptRouterTargetModel$ === "object");
 assert(typeof PromptTemplate$ === "object");
 assert(typeof ProvisionedModelSummary$ === "object");
 assert(typeof PutAccountDataRetentionRequest$ === "object");
 assert(typeof PutAccountDataRetentionResponse$ === "object");
+assert(typeof PutAccountDataRetentionStorageRequest$ === "object");
+assert(typeof PutAccountDataRetentionStorageResponse$ === "object");
 assert(typeof PutEnforcedGuardrailConfigurationRequest$ === "object");
 assert(typeof PutEnforcedGuardrailConfigurationResponse$ === "object");
 assert(typeof PutModelInvocationLoggingConfigurationRequest$ === "object");
 assert(typeof PutModelInvocationLoggingConfigurationResponse$ === "object");
+assert(typeof PutOrganizationDataRetentionStorageRequest$ === "object");
+assert(typeof PutOrganizationDataRetentionStorageResponse$ === "object");
+assert(typeof PutProjectDataRetentionStorageRequest$ === "object");
+assert(typeof PutProjectDataRetentionStorageResponse$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
+assert(typeof PutTrustedAccessProgramAccountEnrollmentRequest$ === "object");
+assert(typeof PutTrustedAccessProgramAccountEnrollmentResponse$ === "object");
+assert(typeof PutTrustedAccessProgramOrganizationEnrollmentRequest$ === "object");
+assert(typeof PutTrustedAccessProgramOrganizationEnrollmentResponse$ === "object");
+assert(typeof PutTrustedAccessProgramProjectEnrollmentRequest$ === "object");
+assert(typeof PutTrustedAccessProgramProjectEnrollmentResponse$ === "object");
 assert(typeof PutUseCaseForModelAccessRequest$ === "object");
 assert(typeof PutUseCaseForModelAccessResponse$ === "object");
 assert(typeof QueryTransformationConfiguration$ === "object");
@@ -1460,6 +1672,12 @@ assert(typeof StartAutomatedReasoningPolicyBuildWorkflowRequest$ === "object");
 assert(typeof StartAutomatedReasoningPolicyBuildWorkflowResponse$ === "object");
 assert(typeof StartAutomatedReasoningPolicyTestWorkflowRequest$ === "object");
 assert(typeof StartAutomatedReasoningPolicyTestWorkflowResponse$ === "object");
+assert(typeof StartTrustedAccessProgramAccountApplicationRequest$ === "object");
+assert(typeof StartTrustedAccessProgramAccountApplicationResponse$ === "object");
+assert(typeof StartTrustedAccessProgramOrganizationApplicationRequest$ === "object");
+assert(typeof StartTrustedAccessProgramOrganizationApplicationResponse$ === "object");
+assert(typeof StartTrustedAccessProgramProjectApplicationRequest$ === "object");
+assert(typeof StartTrustedAccessProgramProjectApplicationResponse$ === "object");
 assert(typeof StatusDetails$ === "object");
 assert(typeof StopAdvancedPromptOptimizationJobRequest$ === "object");
 assert(typeof StopAdvancedPromptOptimizationJobResponse$ === "object");
@@ -1479,6 +1697,10 @@ assert(typeof TextInferenceConfig$ === "object");
 assert(typeof TrainingDataConfig$ === "object");
 assert(typeof TrainingDetails$ === "object");
 assert(typeof TrainingMetrics$ === "object");
+assert(typeof TrustedAccessProgramApplicationResult$ === "object");
+assert(typeof TrustedAccessProgramProviderHandoff$ === "object");
+assert(typeof TrustedAccessProgramSummary$ === "object");
+assert(typeof TrustedAccessResolutionContext$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateAutomatedReasoningPolicyAnnotationsRequest$ === "object");
@@ -1493,6 +1715,8 @@ assert(typeof UpdateGuardrailRequest$ === "object");
 assert(typeof UpdateGuardrailResponse$ === "object");
 assert(typeof UpdateMarketplaceModelEndpointRequest$ === "object");
 assert(typeof UpdateMarketplaceModelEndpointResponse$ === "object");
+assert(typeof UpdateProjectRequest$ === "object");
+assert(typeof UpdateProjectResponse$ === "object");
 assert(typeof UpdateProvisionedModelThroughputRequest$ === "object");
 assert(typeof UpdateProvisionedModelThroughputResponse$ === "object");
 assert(typeof ValidationDataConfig$ === "object");
@@ -1526,6 +1750,10 @@ assert(typeof CustomizationType === "object");
 assert(typeof CustomModelDeploymentStatus === "object");
 assert(typeof CustomModelDeploymentUpdateStatus === "object");
 assert(typeof DataRetentionMode === "object");
+assert(typeof DataRetentionStorageDestination === "object");
+assert(typeof DataRetentionStorageModelProvider === "object");
+assert(typeof DataRetentionStorageResourceStatus === "object");
+assert(typeof DataRetentionStorageScope === "object");
 assert(typeof EntitlementAvailability === "object");
 assert(typeof EvaluationJobStatus === "object");
 assert(typeof EvaluationJobType === "object");
@@ -1564,6 +1792,7 @@ assert(typeof ModelModality === "object");
 assert(typeof ModelStatus === "object");
 assert(typeof OfferType === "object");
 assert(typeof PerformanceConfigLatency === "object");
+assert(typeof ProjectStatus === "object");
 assert(typeof PromptRouterStatus === "object");
 assert(typeof PromptRouterType === "object");
 assert(typeof ProvisionedModelStatus === "object");
@@ -1580,6 +1809,9 @@ assert(typeof SortJobsBy === "object");
 assert(typeof SortModelsBy === "object");
 assert(typeof SortOrder === "object");
 assert(typeof Status === "object");
+assert(typeof TrustedAccessProgramOptIn === "object");
+assert(typeof TrustedAccessProgramScope === "object");
+assert(typeof TrustedAccessProgramStatus === "object");
 assert(typeof VectorSearchRerankingConfigurationType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof BedrockServiceException);
@@ -1621,6 +1853,8 @@ assert(typeof paginateListModelCopyJobs === "function");
 assert(typeof paginateListModelCustomizationJobs === "function");
 assert(typeof paginateListModelImportJobs === "function");
 assert(typeof paginateListModelInvocationJobs === "function");
+assert(typeof paginateListProjects === "function");
 assert(typeof paginateListPromptRouters === "function");
 assert(typeof paginateListProvisionedModelThroughputs === "function");
+assert(typeof paginateListTrustedAccessPrograms === "function");
 console.log(`Bedrock index test passed.`);

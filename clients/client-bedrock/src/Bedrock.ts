@@ -9,6 +9,11 @@ import type {
 
 import { BedrockClient } from "./BedrockClient";
 import {
+  type ArchiveProjectCommandInput,
+  type ArchiveProjectCommandOutput,
+  ArchiveProjectCommand,
+} from "./commands/ArchiveProjectCommand";
+import {
   type BatchDeleteAdvancedPromptOptimizationJobCommandInput,
   type BatchDeleteAdvancedPromptOptimizationJobCommandOutput,
   BatchDeleteAdvancedPromptOptimizationJobCommand,
@@ -104,6 +109,11 @@ import {
   CreateModelInvocationJobCommand,
 } from "./commands/CreateModelInvocationJobCommand";
 import {
+  type CreateProjectCommandInput,
+  type CreateProjectCommandOutput,
+  CreateProjectCommand,
+} from "./commands/CreateProjectCommand";
+import {
   type CreatePromptRouterCommandInput,
   type CreatePromptRouterCommandOutput,
   CreatePromptRouterCommand,
@@ -113,6 +123,11 @@ import {
   type CreateProvisionedModelThroughputCommandOutput,
   CreateProvisionedModelThroughputCommand,
 } from "./commands/CreateProvisionedModelThroughputCommand";
+import {
+  type DeleteAccountDataRetentionStorageCommandInput,
+  type DeleteAccountDataRetentionStorageCommandOutput,
+  DeleteAccountDataRetentionStorageCommand,
+} from "./commands/DeleteAccountDataRetentionStorageCommand";
 import {
   type DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
   type DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput,
@@ -174,6 +189,16 @@ import {
   DeleteModelInvocationLoggingConfigurationCommand,
 } from "./commands/DeleteModelInvocationLoggingConfigurationCommand";
 import {
+  type DeleteOrganizationDataRetentionStorageCommandInput,
+  type DeleteOrganizationDataRetentionStorageCommandOutput,
+  DeleteOrganizationDataRetentionStorageCommand,
+} from "./commands/DeleteOrganizationDataRetentionStorageCommand";
+import {
+  type DeleteProjectDataRetentionStorageCommandInput,
+  type DeleteProjectDataRetentionStorageCommandOutput,
+  DeleteProjectDataRetentionStorageCommand,
+} from "./commands/DeleteProjectDataRetentionStorageCommand";
+import {
   type DeletePromptRouterCommandInput,
   type DeletePromptRouterCommandOutput,
   DeletePromptRouterCommand,
@@ -203,6 +228,11 @@ import {
   type GetAccountDataRetentionCommandOutput,
   GetAccountDataRetentionCommand,
 } from "./commands/GetAccountDataRetentionCommand";
+import {
+  type GetAccountDataRetentionStorageCommandInput,
+  type GetAccountDataRetentionStorageCommandOutput,
+  GetAccountDataRetentionStorageCommand,
+} from "./commands/GetAccountDataRetentionStorageCommand";
 import {
   type GetAdvancedPromptOptimizationJobCommandInput,
   type GetAdvancedPromptOptimizationJobCommandOutput,
@@ -314,6 +344,21 @@ import {
   GetModelInvocationLoggingConfigurationCommand,
 } from "./commands/GetModelInvocationLoggingConfigurationCommand";
 import {
+  type GetOrganizationDataRetentionStorageCommandInput,
+  type GetOrganizationDataRetentionStorageCommandOutput,
+  GetOrganizationDataRetentionStorageCommand,
+} from "./commands/GetOrganizationDataRetentionStorageCommand";
+import {
+  type GetProjectCommandInput,
+  type GetProjectCommandOutput,
+  GetProjectCommand,
+} from "./commands/GetProjectCommand";
+import {
+  type GetProjectDataRetentionStorageCommandInput,
+  type GetProjectDataRetentionStorageCommandOutput,
+  GetProjectDataRetentionStorageCommand,
+} from "./commands/GetProjectDataRetentionStorageCommand";
+import {
   type GetPromptRouterCommandInput,
   type GetPromptRouterCommandOutput,
   GetPromptRouterCommand,
@@ -328,6 +373,26 @@ import {
   type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
 } from "./commands/GetResourcePolicyCommand";
+import {
+  type GetTrustedAccessProgramAccountEnrollmentCommandInput,
+  type GetTrustedAccessProgramAccountEnrollmentCommandOutput,
+  GetTrustedAccessProgramAccountEnrollmentCommand,
+} from "./commands/GetTrustedAccessProgramAccountEnrollmentCommand";
+import {
+  type GetTrustedAccessProgramCommandInput,
+  type GetTrustedAccessProgramCommandOutput,
+  GetTrustedAccessProgramCommand,
+} from "./commands/GetTrustedAccessProgramCommand";
+import {
+  type GetTrustedAccessProgramOrganizationEnrollmentCommandInput,
+  type GetTrustedAccessProgramOrganizationEnrollmentCommandOutput,
+  GetTrustedAccessProgramOrganizationEnrollmentCommand,
+} from "./commands/GetTrustedAccessProgramOrganizationEnrollmentCommand";
+import {
+  type GetTrustedAccessProgramProjectEnrollmentCommandInput,
+  type GetTrustedAccessProgramProjectEnrollmentCommandOutput,
+  GetTrustedAccessProgramProjectEnrollmentCommand,
+} from "./commands/GetTrustedAccessProgramProjectEnrollmentCommand";
 import {
   type GetUseCaseForModelAccessCommandInput,
   type GetUseCaseForModelAccessCommandOutput,
@@ -429,6 +494,11 @@ import {
   ListModelInvocationJobsCommand,
 } from "./commands/ListModelInvocationJobsCommand";
 import {
+  type ListProjectsCommandInput,
+  type ListProjectsCommandOutput,
+  ListProjectsCommand,
+} from "./commands/ListProjectsCommand";
+import {
   type ListPromptRoutersCommandInput,
   type ListPromptRoutersCommandOutput,
   ListPromptRoutersCommand,
@@ -444,10 +514,20 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTrustedAccessProgramsCommandInput,
+  type ListTrustedAccessProgramsCommandOutput,
+  ListTrustedAccessProgramsCommand,
+} from "./commands/ListTrustedAccessProgramsCommand";
+import {
   type PutAccountDataRetentionCommandInput,
   type PutAccountDataRetentionCommandOutput,
   PutAccountDataRetentionCommand,
 } from "./commands/PutAccountDataRetentionCommand";
+import {
+  type PutAccountDataRetentionStorageCommandInput,
+  type PutAccountDataRetentionStorageCommandOutput,
+  PutAccountDataRetentionStorageCommand,
+} from "./commands/PutAccountDataRetentionStorageCommand";
 import {
   type PutEnforcedGuardrailConfigurationCommandInput,
   type PutEnforcedGuardrailConfigurationCommandOutput,
@@ -459,10 +539,35 @@ import {
   PutModelInvocationLoggingConfigurationCommand,
 } from "./commands/PutModelInvocationLoggingConfigurationCommand";
 import {
+  type PutOrganizationDataRetentionStorageCommandInput,
+  type PutOrganizationDataRetentionStorageCommandOutput,
+  PutOrganizationDataRetentionStorageCommand,
+} from "./commands/PutOrganizationDataRetentionStorageCommand";
+import {
+  type PutProjectDataRetentionStorageCommandInput,
+  type PutProjectDataRetentionStorageCommandOutput,
+  PutProjectDataRetentionStorageCommand,
+} from "./commands/PutProjectDataRetentionStorageCommand";
+import {
   type PutResourcePolicyCommandInput,
   type PutResourcePolicyCommandOutput,
   PutResourcePolicyCommand,
 } from "./commands/PutResourcePolicyCommand";
+import {
+  type PutTrustedAccessProgramAccountEnrollmentCommandInput,
+  type PutTrustedAccessProgramAccountEnrollmentCommandOutput,
+  PutTrustedAccessProgramAccountEnrollmentCommand,
+} from "./commands/PutTrustedAccessProgramAccountEnrollmentCommand";
+import {
+  type PutTrustedAccessProgramOrganizationEnrollmentCommandInput,
+  type PutTrustedAccessProgramOrganizationEnrollmentCommandOutput,
+  PutTrustedAccessProgramOrganizationEnrollmentCommand,
+} from "./commands/PutTrustedAccessProgramOrganizationEnrollmentCommand";
+import {
+  type PutTrustedAccessProgramProjectEnrollmentCommandInput,
+  type PutTrustedAccessProgramProjectEnrollmentCommandOutput,
+  PutTrustedAccessProgramProjectEnrollmentCommand,
+} from "./commands/PutTrustedAccessProgramProjectEnrollmentCommand";
 import {
   type PutUseCaseForModelAccessCommandInput,
   type PutUseCaseForModelAccessCommandOutput,
@@ -483,6 +588,21 @@ import {
   type StartAutomatedReasoningPolicyTestWorkflowCommandOutput,
   StartAutomatedReasoningPolicyTestWorkflowCommand,
 } from "./commands/StartAutomatedReasoningPolicyTestWorkflowCommand";
+import {
+  type StartTrustedAccessProgramAccountApplicationCommandInput,
+  type StartTrustedAccessProgramAccountApplicationCommandOutput,
+  StartTrustedAccessProgramAccountApplicationCommand,
+} from "./commands/StartTrustedAccessProgramAccountApplicationCommand";
+import {
+  type StartTrustedAccessProgramOrganizationApplicationCommandInput,
+  type StartTrustedAccessProgramOrganizationApplicationCommandOutput,
+  StartTrustedAccessProgramOrganizationApplicationCommand,
+} from "./commands/StartTrustedAccessProgramOrganizationApplicationCommand";
+import {
+  type StartTrustedAccessProgramProjectApplicationCommandInput,
+  type StartTrustedAccessProgramProjectApplicationCommandOutput,
+  StartTrustedAccessProgramProjectApplicationCommand,
+} from "./commands/StartTrustedAccessProgramProjectApplicationCommand";
 import {
   type StopAdvancedPromptOptimizationJobCommandInput,
   type StopAdvancedPromptOptimizationJobCommandOutput,
@@ -544,6 +664,11 @@ import {
   UpdateMarketplaceModelEndpointCommand,
 } from "./commands/UpdateMarketplaceModelEndpointCommand";
 import {
+  type UpdateProjectCommandInput,
+  type UpdateProjectCommandOutput,
+  UpdateProjectCommand,
+} from "./commands/UpdateProjectCommand";
+import {
   type UpdateProvisionedModelThroughputCommandInput,
   type UpdateProvisionedModelThroughputCommandOutput,
   UpdateProvisionedModelThroughputCommand,
@@ -571,10 +696,13 @@ import { paginateListModelCopyJobs } from "./pagination/ListModelCopyJobsPaginat
 import { paginateListModelCustomizationJobs } from "./pagination/ListModelCustomizationJobsPaginator";
 import { paginateListModelImportJobs } from "./pagination/ListModelImportJobsPaginator";
 import { paginateListModelInvocationJobs } from "./pagination/ListModelInvocationJobsPaginator";
+import { paginateListProjects } from "./pagination/ListProjectsPaginator";
 import { paginateListPromptRouters } from "./pagination/ListPromptRoutersPaginator";
 import { paginateListProvisionedModelThroughputs } from "./pagination/ListProvisionedModelThroughputsPaginator";
+import { paginateListTrustedAccessPrograms } from "./pagination/ListTrustedAccessProgramsPaginator";
 
 const commands = {
+  ArchiveProjectCommand,
   BatchDeleteAdvancedPromptOptimizationJobCommand,
   BatchDeleteEvaluationJobCommand,
   CancelAutomatedReasoningPolicyBuildWorkflowCommand,
@@ -594,8 +722,10 @@ const commands = {
   CreateModelCustomizationJobCommand,
   CreateModelImportJobCommand,
   CreateModelInvocationJobCommand,
+  CreateProjectCommand,
   CreatePromptRouterCommand,
   CreateProvisionedModelThroughputCommand,
+  DeleteAccountDataRetentionStorageCommand,
   DeleteAutomatedReasoningPolicyCommand,
   DeleteAutomatedReasoningPolicyBuildWorkflowCommand,
   DeleteAutomatedReasoningPolicyTestCaseCommand,
@@ -608,12 +738,15 @@ const commands = {
   DeleteInferenceProfileCommand,
   DeleteMarketplaceModelEndpointCommand,
   DeleteModelInvocationLoggingConfigurationCommand,
+  DeleteOrganizationDataRetentionStorageCommand,
+  DeleteProjectDataRetentionStorageCommand,
   DeletePromptRouterCommand,
   DeleteProvisionedModelThroughputCommand,
   DeleteResourcePolicyCommand,
   DeregisterMarketplaceModelEndpointCommand,
   ExportAutomatedReasoningPolicyVersionCommand,
   GetAccountDataRetentionCommand,
+  GetAccountDataRetentionStorageCommand,
   GetAdvancedPromptOptimizationJobCommand,
   GetAutomatedReasoningPolicyCommand,
   GetAutomatedReasoningPolicyAnnotationsCommand,
@@ -636,9 +769,16 @@ const commands = {
   GetModelImportJobCommand,
   GetModelInvocationJobCommand,
   GetModelInvocationLoggingConfigurationCommand,
+  GetOrganizationDataRetentionStorageCommand,
+  GetProjectCommand,
+  GetProjectDataRetentionStorageCommand,
   GetPromptRouterCommand,
   GetProvisionedModelThroughputCommand,
   GetResourcePolicyCommand,
+  GetTrustedAccessProgramCommand,
+  GetTrustedAccessProgramAccountEnrollmentCommand,
+  GetTrustedAccessProgramOrganizationEnrollmentCommand,
+  GetTrustedAccessProgramProjectEnrollmentCommand,
   GetUseCaseForModelAccessCommand,
   ListAdvancedPromptOptimizationJobsCommand,
   ListAutomatedReasoningPoliciesCommand,
@@ -659,17 +799,28 @@ const commands = {
   ListModelCustomizationJobsCommand,
   ListModelImportJobsCommand,
   ListModelInvocationJobsCommand,
+  ListProjectsCommand,
   ListPromptRoutersCommand,
   ListProvisionedModelThroughputsCommand,
   ListTagsForResourceCommand,
+  ListTrustedAccessProgramsCommand,
   PutAccountDataRetentionCommand,
+  PutAccountDataRetentionStorageCommand,
   PutEnforcedGuardrailConfigurationCommand,
   PutModelInvocationLoggingConfigurationCommand,
+  PutOrganizationDataRetentionStorageCommand,
+  PutProjectDataRetentionStorageCommand,
   PutResourcePolicyCommand,
+  PutTrustedAccessProgramAccountEnrollmentCommand,
+  PutTrustedAccessProgramOrganizationEnrollmentCommand,
+  PutTrustedAccessProgramProjectEnrollmentCommand,
   PutUseCaseForModelAccessCommand,
   RegisterMarketplaceModelEndpointCommand,
   StartAutomatedReasoningPolicyBuildWorkflowCommand,
   StartAutomatedReasoningPolicyTestWorkflowCommand,
+  StartTrustedAccessProgramAccountApplicationCommand,
+  StartTrustedAccessProgramOrganizationApplicationCommand,
+  StartTrustedAccessProgramProjectApplicationCommand,
   StopAdvancedPromptOptimizationJobCommand,
   StopEvaluationJobCommand,
   StopModelCustomizationJobCommand,
@@ -682,6 +833,7 @@ const commands = {
   UpdateCustomModelDeploymentCommand,
   UpdateGuardrailCommand,
   UpdateMarketplaceModelEndpointCommand,
+  UpdateProjectCommand,
   UpdateProvisionedModelThroughputCommand,
 };
 const paginators = {
@@ -702,8 +854,10 @@ const paginators = {
   paginateListModelCustomizationJobs,
   paginateListModelImportJobs,
   paginateListModelInvocationJobs,
+  paginateListProjects,
   paginateListPromptRouters,
   paginateListProvisionedModelThroughputs,
+  paginateListTrustedAccessPrograms,
 };
 
 /**
@@ -714,6 +868,23 @@ export interface BedrockRequestOptions extends __HttpHandlerOptions {
 }
 
 export interface Bedrock {
+  /**
+   * @see {@link ArchiveProjectCommand}
+   */
+  archiveProject(
+    args: ArchiveProjectCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<ArchiveProjectCommandOutput>;
+  archiveProject(
+    args: ArchiveProjectCommandInput,
+    cb: (err: any, data?: ArchiveProjectCommandOutput) => void
+  ): void;
+  archiveProject(
+    args: ArchiveProjectCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: ArchiveProjectCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchDeleteAdvancedPromptOptimizationJobCommand}
    */
@@ -1038,6 +1209,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link CreateProjectCommand}
+   */
+  createProject(
+    args: CreateProjectCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<CreateProjectCommandOutput>;
+  createProject(
+    args: CreateProjectCommandInput,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
+  createProject(
+    args: CreateProjectCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: CreateProjectCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreatePromptRouterCommand}
    */
   createPromptRouter(
@@ -1069,6 +1257,23 @@ export interface Bedrock {
     args: CreateProvisionedModelThroughputCommandInput,
     options: BedrockRequestOptions,
     cb: (err: any, data?: CreateProvisionedModelThroughputCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccountDataRetentionStorageCommand}
+   */
+  deleteAccountDataRetentionStorage(
+    args: DeleteAccountDataRetentionStorageCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<DeleteAccountDataRetentionStorageCommandOutput>;
+  deleteAccountDataRetentionStorage(
+    args: DeleteAccountDataRetentionStorageCommandInput,
+    cb: (err: any, data?: DeleteAccountDataRetentionStorageCommandOutput) => void
+  ): void;
+  deleteAccountDataRetentionStorage(
+    args: DeleteAccountDataRetentionStorageCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: DeleteAccountDataRetentionStorageCommandOutput) => void
   ): void;
 
   /**
@@ -1277,6 +1482,40 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link DeleteOrganizationDataRetentionStorageCommand}
+   */
+  deleteOrganizationDataRetentionStorage(
+    args: DeleteOrganizationDataRetentionStorageCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<DeleteOrganizationDataRetentionStorageCommandOutput>;
+  deleteOrganizationDataRetentionStorage(
+    args: DeleteOrganizationDataRetentionStorageCommandInput,
+    cb: (err: any, data?: DeleteOrganizationDataRetentionStorageCommandOutput) => void
+  ): void;
+  deleteOrganizationDataRetentionStorage(
+    args: DeleteOrganizationDataRetentionStorageCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: DeleteOrganizationDataRetentionStorageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProjectDataRetentionStorageCommand}
+   */
+  deleteProjectDataRetentionStorage(
+    args: DeleteProjectDataRetentionStorageCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<DeleteProjectDataRetentionStorageCommandOutput>;
+  deleteProjectDataRetentionStorage(
+    args: DeleteProjectDataRetentionStorageCommandInput,
+    cb: (err: any, data?: DeleteProjectDataRetentionStorageCommandOutput) => void
+  ): void;
+  deleteProjectDataRetentionStorage(
+    args: DeleteProjectDataRetentionStorageCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: DeleteProjectDataRetentionStorageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeletePromptRouterCommand}
    */
   deletePromptRouter(
@@ -1377,6 +1616,23 @@ export interface Bedrock {
     args: GetAccountDataRetentionCommandInput,
     options: BedrockRequestOptions,
     cb: (err: any, data?: GetAccountDataRetentionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAccountDataRetentionStorageCommand}
+   */
+  getAccountDataRetentionStorage(
+    args: GetAccountDataRetentionStorageCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<GetAccountDataRetentionStorageCommandOutput>;
+  getAccountDataRetentionStorage(
+    args: GetAccountDataRetentionStorageCommandInput,
+    cb: (err: any, data?: GetAccountDataRetentionStorageCommandOutput) => void
+  ): void;
+  getAccountDataRetentionStorage(
+    args: GetAccountDataRetentionStorageCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: GetAccountDataRetentionStorageCommandOutput) => void
   ): void;
 
   /**
@@ -1755,6 +2011,57 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link GetOrganizationDataRetentionStorageCommand}
+   */
+  getOrganizationDataRetentionStorage(
+    args: GetOrganizationDataRetentionStorageCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<GetOrganizationDataRetentionStorageCommandOutput>;
+  getOrganizationDataRetentionStorage(
+    args: GetOrganizationDataRetentionStorageCommandInput,
+    cb: (err: any, data?: GetOrganizationDataRetentionStorageCommandOutput) => void
+  ): void;
+  getOrganizationDataRetentionStorage(
+    args: GetOrganizationDataRetentionStorageCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: GetOrganizationDataRetentionStorageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetProjectCommand}
+   */
+  getProject(
+    args: GetProjectCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<GetProjectCommandOutput>;
+  getProject(
+    args: GetProjectCommandInput,
+    cb: (err: any, data?: GetProjectCommandOutput) => void
+  ): void;
+  getProject(
+    args: GetProjectCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: GetProjectCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetProjectDataRetentionStorageCommand}
+   */
+  getProjectDataRetentionStorage(
+    args: GetProjectDataRetentionStorageCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<GetProjectDataRetentionStorageCommandOutput>;
+  getProjectDataRetentionStorage(
+    args: GetProjectDataRetentionStorageCommandInput,
+    cb: (err: any, data?: GetProjectDataRetentionStorageCommandOutput) => void
+  ): void;
+  getProjectDataRetentionStorage(
+    args: GetProjectDataRetentionStorageCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: GetProjectDataRetentionStorageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPromptRouterCommand}
    */
   getPromptRouter(
@@ -1803,6 +2110,74 @@ export interface Bedrock {
     args: GetResourcePolicyCommandInput,
     options: BedrockRequestOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTrustedAccessProgramCommand}
+   */
+  getTrustedAccessProgram(
+    args: GetTrustedAccessProgramCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<GetTrustedAccessProgramCommandOutput>;
+  getTrustedAccessProgram(
+    args: GetTrustedAccessProgramCommandInput,
+    cb: (err: any, data?: GetTrustedAccessProgramCommandOutput) => void
+  ): void;
+  getTrustedAccessProgram(
+    args: GetTrustedAccessProgramCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: GetTrustedAccessProgramCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTrustedAccessProgramAccountEnrollmentCommand}
+   */
+  getTrustedAccessProgramAccountEnrollment(
+    args: GetTrustedAccessProgramAccountEnrollmentCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<GetTrustedAccessProgramAccountEnrollmentCommandOutput>;
+  getTrustedAccessProgramAccountEnrollment(
+    args: GetTrustedAccessProgramAccountEnrollmentCommandInput,
+    cb: (err: any, data?: GetTrustedAccessProgramAccountEnrollmentCommandOutput) => void
+  ): void;
+  getTrustedAccessProgramAccountEnrollment(
+    args: GetTrustedAccessProgramAccountEnrollmentCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: GetTrustedAccessProgramAccountEnrollmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTrustedAccessProgramOrganizationEnrollmentCommand}
+   */
+  getTrustedAccessProgramOrganizationEnrollment(
+    args: GetTrustedAccessProgramOrganizationEnrollmentCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<GetTrustedAccessProgramOrganizationEnrollmentCommandOutput>;
+  getTrustedAccessProgramOrganizationEnrollment(
+    args: GetTrustedAccessProgramOrganizationEnrollmentCommandInput,
+    cb: (err: any, data?: GetTrustedAccessProgramOrganizationEnrollmentCommandOutput) => void
+  ): void;
+  getTrustedAccessProgramOrganizationEnrollment(
+    args: GetTrustedAccessProgramOrganizationEnrollmentCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: GetTrustedAccessProgramOrganizationEnrollmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTrustedAccessProgramProjectEnrollmentCommand}
+   */
+  getTrustedAccessProgramProjectEnrollment(
+    args: GetTrustedAccessProgramProjectEnrollmentCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<GetTrustedAccessProgramProjectEnrollmentCommandOutput>;
+  getTrustedAccessProgramProjectEnrollment(
+    args: GetTrustedAccessProgramProjectEnrollmentCommandInput,
+    cb: (err: any, data?: GetTrustedAccessProgramProjectEnrollmentCommandOutput) => void
+  ): void;
+  getTrustedAccessProgramProjectEnrollment(
+    args: GetTrustedAccessProgramProjectEnrollmentCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: GetTrustedAccessProgramProjectEnrollmentCommandOutput) => void
   ): void;
 
   /**
@@ -2162,6 +2537,24 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link ListProjectsCommand}
+   */
+  listProjects(): Promise<ListProjectsCommandOutput>;
+  listProjects(
+    args: ListProjectsCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<ListProjectsCommandOutput>;
+  listProjects(
+    args: ListProjectsCommandInput,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
+  listProjects(
+    args: ListProjectsCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPromptRoutersCommand}
    */
   listPromptRouters(): Promise<ListPromptRoutersCommandOutput>;
@@ -2215,6 +2608,24 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link ListTrustedAccessProgramsCommand}
+   */
+  listTrustedAccessPrograms(): Promise<ListTrustedAccessProgramsCommandOutput>;
+  listTrustedAccessPrograms(
+    args: ListTrustedAccessProgramsCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<ListTrustedAccessProgramsCommandOutput>;
+  listTrustedAccessPrograms(
+    args: ListTrustedAccessProgramsCommandInput,
+    cb: (err: any, data?: ListTrustedAccessProgramsCommandOutput) => void
+  ): void;
+  listTrustedAccessPrograms(
+    args: ListTrustedAccessProgramsCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: ListTrustedAccessProgramsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutAccountDataRetentionCommand}
    */
   putAccountDataRetention(
@@ -2229,6 +2640,23 @@ export interface Bedrock {
     args: PutAccountDataRetentionCommandInput,
     options: BedrockRequestOptions,
     cb: (err: any, data?: PutAccountDataRetentionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountDataRetentionStorageCommand}
+   */
+  putAccountDataRetentionStorage(
+    args: PutAccountDataRetentionStorageCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<PutAccountDataRetentionStorageCommandOutput>;
+  putAccountDataRetentionStorage(
+    args: PutAccountDataRetentionStorageCommandInput,
+    cb: (err: any, data?: PutAccountDataRetentionStorageCommandOutput) => void
+  ): void;
+  putAccountDataRetentionStorage(
+    args: PutAccountDataRetentionStorageCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: PutAccountDataRetentionStorageCommandOutput) => void
   ): void;
 
   /**
@@ -2266,6 +2694,40 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link PutOrganizationDataRetentionStorageCommand}
+   */
+  putOrganizationDataRetentionStorage(
+    args: PutOrganizationDataRetentionStorageCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<PutOrganizationDataRetentionStorageCommandOutput>;
+  putOrganizationDataRetentionStorage(
+    args: PutOrganizationDataRetentionStorageCommandInput,
+    cb: (err: any, data?: PutOrganizationDataRetentionStorageCommandOutput) => void
+  ): void;
+  putOrganizationDataRetentionStorage(
+    args: PutOrganizationDataRetentionStorageCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: PutOrganizationDataRetentionStorageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutProjectDataRetentionStorageCommand}
+   */
+  putProjectDataRetentionStorage(
+    args: PutProjectDataRetentionStorageCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<PutProjectDataRetentionStorageCommandOutput>;
+  putProjectDataRetentionStorage(
+    args: PutProjectDataRetentionStorageCommandInput,
+    cb: (err: any, data?: PutProjectDataRetentionStorageCommandOutput) => void
+  ): void;
+  putProjectDataRetentionStorage(
+    args: PutProjectDataRetentionStorageCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: PutProjectDataRetentionStorageCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutResourcePolicyCommand}
    */
   putResourcePolicy(
@@ -2280,6 +2742,57 @@ export interface Bedrock {
     args: PutResourcePolicyCommandInput,
     options: BedrockRequestOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTrustedAccessProgramAccountEnrollmentCommand}
+   */
+  putTrustedAccessProgramAccountEnrollment(
+    args: PutTrustedAccessProgramAccountEnrollmentCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<PutTrustedAccessProgramAccountEnrollmentCommandOutput>;
+  putTrustedAccessProgramAccountEnrollment(
+    args: PutTrustedAccessProgramAccountEnrollmentCommandInput,
+    cb: (err: any, data?: PutTrustedAccessProgramAccountEnrollmentCommandOutput) => void
+  ): void;
+  putTrustedAccessProgramAccountEnrollment(
+    args: PutTrustedAccessProgramAccountEnrollmentCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: PutTrustedAccessProgramAccountEnrollmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTrustedAccessProgramOrganizationEnrollmentCommand}
+   */
+  putTrustedAccessProgramOrganizationEnrollment(
+    args: PutTrustedAccessProgramOrganizationEnrollmentCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<PutTrustedAccessProgramOrganizationEnrollmentCommandOutput>;
+  putTrustedAccessProgramOrganizationEnrollment(
+    args: PutTrustedAccessProgramOrganizationEnrollmentCommandInput,
+    cb: (err: any, data?: PutTrustedAccessProgramOrganizationEnrollmentCommandOutput) => void
+  ): void;
+  putTrustedAccessProgramOrganizationEnrollment(
+    args: PutTrustedAccessProgramOrganizationEnrollmentCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: PutTrustedAccessProgramOrganizationEnrollmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTrustedAccessProgramProjectEnrollmentCommand}
+   */
+  putTrustedAccessProgramProjectEnrollment(
+    args: PutTrustedAccessProgramProjectEnrollmentCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<PutTrustedAccessProgramProjectEnrollmentCommandOutput>;
+  putTrustedAccessProgramProjectEnrollment(
+    args: PutTrustedAccessProgramProjectEnrollmentCommandInput,
+    cb: (err: any, data?: PutTrustedAccessProgramProjectEnrollmentCommandOutput) => void
+  ): void;
+  putTrustedAccessProgramProjectEnrollment(
+    args: PutTrustedAccessProgramProjectEnrollmentCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: PutTrustedAccessProgramProjectEnrollmentCommandOutput) => void
   ): void;
 
   /**
@@ -2348,6 +2861,57 @@ export interface Bedrock {
     args: StartAutomatedReasoningPolicyTestWorkflowCommandInput,
     options: BedrockRequestOptions,
     cb: (err: any, data?: StartAutomatedReasoningPolicyTestWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartTrustedAccessProgramAccountApplicationCommand}
+   */
+  startTrustedAccessProgramAccountApplication(
+    args: StartTrustedAccessProgramAccountApplicationCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<StartTrustedAccessProgramAccountApplicationCommandOutput>;
+  startTrustedAccessProgramAccountApplication(
+    args: StartTrustedAccessProgramAccountApplicationCommandInput,
+    cb: (err: any, data?: StartTrustedAccessProgramAccountApplicationCommandOutput) => void
+  ): void;
+  startTrustedAccessProgramAccountApplication(
+    args: StartTrustedAccessProgramAccountApplicationCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: StartTrustedAccessProgramAccountApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartTrustedAccessProgramOrganizationApplicationCommand}
+   */
+  startTrustedAccessProgramOrganizationApplication(
+    args: StartTrustedAccessProgramOrganizationApplicationCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<StartTrustedAccessProgramOrganizationApplicationCommandOutput>;
+  startTrustedAccessProgramOrganizationApplication(
+    args: StartTrustedAccessProgramOrganizationApplicationCommandInput,
+    cb: (err: any, data?: StartTrustedAccessProgramOrganizationApplicationCommandOutput) => void
+  ): void;
+  startTrustedAccessProgramOrganizationApplication(
+    args: StartTrustedAccessProgramOrganizationApplicationCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: StartTrustedAccessProgramOrganizationApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartTrustedAccessProgramProjectApplicationCommand}
+   */
+  startTrustedAccessProgramProjectApplication(
+    args: StartTrustedAccessProgramProjectApplicationCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<StartTrustedAccessProgramProjectApplicationCommandOutput>;
+  startTrustedAccessProgramProjectApplication(
+    args: StartTrustedAccessProgramProjectApplicationCommandInput,
+    cb: (err: any, data?: StartTrustedAccessProgramProjectApplicationCommandOutput) => void
+  ): void;
+  startTrustedAccessProgramProjectApplication(
+    args: StartTrustedAccessProgramProjectApplicationCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: StartTrustedAccessProgramProjectApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -2555,6 +3119,23 @@ export interface Bedrock {
   ): void;
 
   /**
+   * @see {@link UpdateProjectCommand}
+   */
+  updateProject(
+    args: UpdateProjectCommandInput,
+    options?: BedrockRequestOptions
+  ): Promise<UpdateProjectCommandOutput>;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
+  updateProject(
+    args: UpdateProjectCommandInput,
+    options: BedrockRequestOptions,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateProvisionedModelThroughputCommand}
    */
   updateProvisionedModelThroughput(
@@ -2759,6 +3340,17 @@ export interface Bedrock {
   ): Paginator<ListModelInvocationJobsCommandOutput>;
 
   /**
+   * @see {@link ListProjectsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListProjectsCommandOutput}.
+   */
+  paginateListProjects(
+    args?: ListProjectsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListProjectsCommandOutput>;
+
+  /**
    * @see {@link ListPromptRoutersCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2779,6 +3371,17 @@ export interface Bedrock {
     args?: ListProvisionedModelThroughputsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListProvisionedModelThroughputsCommandOutput>;
+
+  /**
+   * @see {@link ListTrustedAccessProgramsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTrustedAccessProgramsCommandOutput}.
+   */
+  paginateListTrustedAccessPrograms(
+    args?: ListTrustedAccessProgramsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTrustedAccessProgramsCommandOutput>;
 }
 
 /**

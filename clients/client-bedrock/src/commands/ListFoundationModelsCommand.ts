@@ -37,6 +37,7 @@ export interface ListFoundationModelsCommandOutput extends ListFoundationModelsR
  *   byCustomizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
  *   byOutputModality: "TEXT" || "IMAGE" || "EMBEDDING",
  *   byInferenceType: "ON_DEMAND" || "PROVISIONED",
+ *   projectIdentifier: "STRING_VALUE",
  * };
  * const command = new ListFoundationModelsCommand(input);
  * const response = await client.send(command);

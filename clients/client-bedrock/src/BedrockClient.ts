@@ -54,6 +54,7 @@ import {
   defaultBedrockHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import type { ArchiveProjectCommandInput, ArchiveProjectCommandOutput } from "./commands/ArchiveProjectCommand";
 import type {
   BatchDeleteAdvancedPromptOptimizationJobCommandInput,
   BatchDeleteAdvancedPromptOptimizationJobCommandOutput,
@@ -127,6 +128,7 @@ import type {
   CreateModelInvocationJobCommandInput,
   CreateModelInvocationJobCommandOutput,
 } from "./commands/CreateModelInvocationJobCommand";
+import type { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import type {
   CreatePromptRouterCommandInput,
   CreatePromptRouterCommandOutput,
@@ -135,6 +137,10 @@ import type {
   CreateProvisionedModelThroughputCommandInput,
   CreateProvisionedModelThroughputCommandOutput,
 } from "./commands/CreateProvisionedModelThroughputCommand";
+import type {
+  DeleteAccountDataRetentionStorageCommandInput,
+  DeleteAccountDataRetentionStorageCommandOutput,
+} from "./commands/DeleteAccountDataRetentionStorageCommand";
 import type {
   DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput,
   DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput,
@@ -181,6 +187,14 @@ import type {
   DeleteModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/DeleteModelInvocationLoggingConfigurationCommand";
 import type {
+  DeleteOrganizationDataRetentionStorageCommandInput,
+  DeleteOrganizationDataRetentionStorageCommandOutput,
+} from "./commands/DeleteOrganizationDataRetentionStorageCommand";
+import type {
+  DeleteProjectDataRetentionStorageCommandInput,
+  DeleteProjectDataRetentionStorageCommandOutput,
+} from "./commands/DeleteProjectDataRetentionStorageCommand";
+import type {
   DeletePromptRouterCommandInput,
   DeletePromptRouterCommandOutput,
 } from "./commands/DeletePromptRouterCommand";
@@ -204,6 +218,10 @@ import type {
   GetAccountDataRetentionCommandInput,
   GetAccountDataRetentionCommandOutput,
 } from "./commands/GetAccountDataRetentionCommand";
+import type {
+  GetAccountDataRetentionStorageCommandInput,
+  GetAccountDataRetentionStorageCommandOutput,
+} from "./commands/GetAccountDataRetentionStorageCommand";
 import type {
   GetAdvancedPromptOptimizationJobCommandInput,
   GetAdvancedPromptOptimizationJobCommandOutput,
@@ -277,6 +295,15 @@ import type {
   GetModelInvocationLoggingConfigurationCommandInput,
   GetModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/GetModelInvocationLoggingConfigurationCommand";
+import type {
+  GetOrganizationDataRetentionStorageCommandInput,
+  GetOrganizationDataRetentionStorageCommandOutput,
+} from "./commands/GetOrganizationDataRetentionStorageCommand";
+import type { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
+import type {
+  GetProjectDataRetentionStorageCommandInput,
+  GetProjectDataRetentionStorageCommandOutput,
+} from "./commands/GetProjectDataRetentionStorageCommand";
 import type { GetPromptRouterCommandInput, GetPromptRouterCommandOutput } from "./commands/GetPromptRouterCommand";
 import type {
   GetProvisionedModelThroughputCommandInput,
@@ -286,6 +313,22 @@ import type {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
+import type {
+  GetTrustedAccessProgramAccountEnrollmentCommandInput,
+  GetTrustedAccessProgramAccountEnrollmentCommandOutput,
+} from "./commands/GetTrustedAccessProgramAccountEnrollmentCommand";
+import type {
+  GetTrustedAccessProgramCommandInput,
+  GetTrustedAccessProgramCommandOutput,
+} from "./commands/GetTrustedAccessProgramCommand";
+import type {
+  GetTrustedAccessProgramOrganizationEnrollmentCommandInput,
+  GetTrustedAccessProgramOrganizationEnrollmentCommandOutput,
+} from "./commands/GetTrustedAccessProgramOrganizationEnrollmentCommand";
+import type {
+  GetTrustedAccessProgramProjectEnrollmentCommandInput,
+  GetTrustedAccessProgramProjectEnrollmentCommandOutput,
+} from "./commands/GetTrustedAccessProgramProjectEnrollmentCommand";
 import type {
   GetUseCaseForModelAccessCommandInput,
   GetUseCaseForModelAccessCommandOutput,
@@ -360,6 +403,7 @@ import type {
   ListModelInvocationJobsCommandInput,
   ListModelInvocationJobsCommandOutput,
 } from "./commands/ListModelInvocationJobsCommand";
+import type { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
 import type {
   ListPromptRoutersCommandInput,
   ListPromptRoutersCommandOutput,
@@ -373,9 +417,17 @@ import type {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import type {
+  ListTrustedAccessProgramsCommandInput,
+  ListTrustedAccessProgramsCommandOutput,
+} from "./commands/ListTrustedAccessProgramsCommand";
+import type {
   PutAccountDataRetentionCommandInput,
   PutAccountDataRetentionCommandOutput,
 } from "./commands/PutAccountDataRetentionCommand";
+import type {
+  PutAccountDataRetentionStorageCommandInput,
+  PutAccountDataRetentionStorageCommandOutput,
+} from "./commands/PutAccountDataRetentionStorageCommand";
 import type {
   PutEnforcedGuardrailConfigurationCommandInput,
   PutEnforcedGuardrailConfigurationCommandOutput,
@@ -385,9 +437,29 @@ import type {
   PutModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/PutModelInvocationLoggingConfigurationCommand";
 import type {
+  PutOrganizationDataRetentionStorageCommandInput,
+  PutOrganizationDataRetentionStorageCommandOutput,
+} from "./commands/PutOrganizationDataRetentionStorageCommand";
+import type {
+  PutProjectDataRetentionStorageCommandInput,
+  PutProjectDataRetentionStorageCommandOutput,
+} from "./commands/PutProjectDataRetentionStorageCommand";
+import type {
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
+import type {
+  PutTrustedAccessProgramAccountEnrollmentCommandInput,
+  PutTrustedAccessProgramAccountEnrollmentCommandOutput,
+} from "./commands/PutTrustedAccessProgramAccountEnrollmentCommand";
+import type {
+  PutTrustedAccessProgramOrganizationEnrollmentCommandInput,
+  PutTrustedAccessProgramOrganizationEnrollmentCommandOutput,
+} from "./commands/PutTrustedAccessProgramOrganizationEnrollmentCommand";
+import type {
+  PutTrustedAccessProgramProjectEnrollmentCommandInput,
+  PutTrustedAccessProgramProjectEnrollmentCommandOutput,
+} from "./commands/PutTrustedAccessProgramProjectEnrollmentCommand";
 import type {
   PutUseCaseForModelAccessCommandInput,
   PutUseCaseForModelAccessCommandOutput,
@@ -404,6 +476,18 @@ import type {
   StartAutomatedReasoningPolicyTestWorkflowCommandInput,
   StartAutomatedReasoningPolicyTestWorkflowCommandOutput,
 } from "./commands/StartAutomatedReasoningPolicyTestWorkflowCommand";
+import type {
+  StartTrustedAccessProgramAccountApplicationCommandInput,
+  StartTrustedAccessProgramAccountApplicationCommandOutput,
+} from "./commands/StartTrustedAccessProgramAccountApplicationCommand";
+import type {
+  StartTrustedAccessProgramOrganizationApplicationCommandInput,
+  StartTrustedAccessProgramOrganizationApplicationCommandOutput,
+} from "./commands/StartTrustedAccessProgramOrganizationApplicationCommand";
+import type {
+  StartTrustedAccessProgramProjectApplicationCommandInput,
+  StartTrustedAccessProgramProjectApplicationCommandOutput,
+} from "./commands/StartTrustedAccessProgramProjectApplicationCommand";
 import type {
   StopAdvancedPromptOptimizationJobCommandInput,
   StopAdvancedPromptOptimizationJobCommandOutput,
@@ -443,6 +527,7 @@ import type {
   UpdateMarketplaceModelEndpointCommandInput,
   UpdateMarketplaceModelEndpointCommandOutput,
 } from "./commands/UpdateMarketplaceModelEndpointCommand";
+import type { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import type {
   UpdateProvisionedModelThroughputCommandInput,
   UpdateProvisionedModelThroughputCommandOutput,
@@ -462,6 +547,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | ArchiveProjectCommandInput
   | BatchDeleteAdvancedPromptOptimizationJobCommandInput
   | BatchDeleteEvaluationJobCommandInput
   | CancelAutomatedReasoningPolicyBuildWorkflowCommandInput
@@ -481,8 +567,10 @@ export type ServiceInputTypes =
   | CreateModelCustomizationJobCommandInput
   | CreateModelImportJobCommandInput
   | CreateModelInvocationJobCommandInput
+  | CreateProjectCommandInput
   | CreatePromptRouterCommandInput
   | CreateProvisionedModelThroughputCommandInput
+  | DeleteAccountDataRetentionStorageCommandInput
   | DeleteAutomatedReasoningPolicyBuildWorkflowCommandInput
   | DeleteAutomatedReasoningPolicyCommandInput
   | DeleteAutomatedReasoningPolicyTestCaseCommandInput
@@ -495,12 +583,15 @@ export type ServiceInputTypes =
   | DeleteInferenceProfileCommandInput
   | DeleteMarketplaceModelEndpointCommandInput
   | DeleteModelInvocationLoggingConfigurationCommandInput
+  | DeleteOrganizationDataRetentionStorageCommandInput
+  | DeleteProjectDataRetentionStorageCommandInput
   | DeletePromptRouterCommandInput
   | DeleteProvisionedModelThroughputCommandInput
   | DeleteResourcePolicyCommandInput
   | DeregisterMarketplaceModelEndpointCommandInput
   | ExportAutomatedReasoningPolicyVersionCommandInput
   | GetAccountDataRetentionCommandInput
+  | GetAccountDataRetentionStorageCommandInput
   | GetAdvancedPromptOptimizationJobCommandInput
   | GetAutomatedReasoningPolicyAnnotationsCommandInput
   | GetAutomatedReasoningPolicyBuildWorkflowCommandInput
@@ -523,9 +614,16 @@ export type ServiceInputTypes =
   | GetModelImportJobCommandInput
   | GetModelInvocationJobCommandInput
   | GetModelInvocationLoggingConfigurationCommandInput
+  | GetOrganizationDataRetentionStorageCommandInput
+  | GetProjectCommandInput
+  | GetProjectDataRetentionStorageCommandInput
   | GetPromptRouterCommandInput
   | GetProvisionedModelThroughputCommandInput
   | GetResourcePolicyCommandInput
+  | GetTrustedAccessProgramAccountEnrollmentCommandInput
+  | GetTrustedAccessProgramCommandInput
+  | GetTrustedAccessProgramOrganizationEnrollmentCommandInput
+  | GetTrustedAccessProgramProjectEnrollmentCommandInput
   | GetUseCaseForModelAccessCommandInput
   | ListAdvancedPromptOptimizationJobsCommandInput
   | ListAutomatedReasoningPoliciesCommandInput
@@ -546,17 +644,28 @@ export type ServiceInputTypes =
   | ListModelCustomizationJobsCommandInput
   | ListModelImportJobsCommandInput
   | ListModelInvocationJobsCommandInput
+  | ListProjectsCommandInput
   | ListPromptRoutersCommandInput
   | ListProvisionedModelThroughputsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTrustedAccessProgramsCommandInput
   | PutAccountDataRetentionCommandInput
+  | PutAccountDataRetentionStorageCommandInput
   | PutEnforcedGuardrailConfigurationCommandInput
   | PutModelInvocationLoggingConfigurationCommandInput
+  | PutOrganizationDataRetentionStorageCommandInput
+  | PutProjectDataRetentionStorageCommandInput
   | PutResourcePolicyCommandInput
+  | PutTrustedAccessProgramAccountEnrollmentCommandInput
+  | PutTrustedAccessProgramOrganizationEnrollmentCommandInput
+  | PutTrustedAccessProgramProjectEnrollmentCommandInput
   | PutUseCaseForModelAccessCommandInput
   | RegisterMarketplaceModelEndpointCommandInput
   | StartAutomatedReasoningPolicyBuildWorkflowCommandInput
   | StartAutomatedReasoningPolicyTestWorkflowCommandInput
+  | StartTrustedAccessProgramAccountApplicationCommandInput
+  | StartTrustedAccessProgramOrganizationApplicationCommandInput
+  | StartTrustedAccessProgramProjectApplicationCommandInput
   | StopAdvancedPromptOptimizationJobCommandInput
   | StopEvaluationJobCommandInput
   | StopModelCustomizationJobCommandInput
@@ -569,12 +678,14 @@ export type ServiceInputTypes =
   | UpdateCustomModelDeploymentCommandInput
   | UpdateGuardrailCommandInput
   | UpdateMarketplaceModelEndpointCommandInput
+  | UpdateProjectCommandInput
   | UpdateProvisionedModelThroughputCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | ArchiveProjectCommandOutput
   | BatchDeleteAdvancedPromptOptimizationJobCommandOutput
   | BatchDeleteEvaluationJobCommandOutput
   | CancelAutomatedReasoningPolicyBuildWorkflowCommandOutput
@@ -594,8 +705,10 @@ export type ServiceOutputTypes =
   | CreateModelCustomizationJobCommandOutput
   | CreateModelImportJobCommandOutput
   | CreateModelInvocationJobCommandOutput
+  | CreateProjectCommandOutput
   | CreatePromptRouterCommandOutput
   | CreateProvisionedModelThroughputCommandOutput
+  | DeleteAccountDataRetentionStorageCommandOutput
   | DeleteAutomatedReasoningPolicyBuildWorkflowCommandOutput
   | DeleteAutomatedReasoningPolicyCommandOutput
   | DeleteAutomatedReasoningPolicyTestCaseCommandOutput
@@ -608,12 +721,15 @@ export type ServiceOutputTypes =
   | DeleteInferenceProfileCommandOutput
   | DeleteMarketplaceModelEndpointCommandOutput
   | DeleteModelInvocationLoggingConfigurationCommandOutput
+  | DeleteOrganizationDataRetentionStorageCommandOutput
+  | DeleteProjectDataRetentionStorageCommandOutput
   | DeletePromptRouterCommandOutput
   | DeleteProvisionedModelThroughputCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeregisterMarketplaceModelEndpointCommandOutput
   | ExportAutomatedReasoningPolicyVersionCommandOutput
   | GetAccountDataRetentionCommandOutput
+  | GetAccountDataRetentionStorageCommandOutput
   | GetAdvancedPromptOptimizationJobCommandOutput
   | GetAutomatedReasoningPolicyAnnotationsCommandOutput
   | GetAutomatedReasoningPolicyBuildWorkflowCommandOutput
@@ -636,9 +752,16 @@ export type ServiceOutputTypes =
   | GetModelImportJobCommandOutput
   | GetModelInvocationJobCommandOutput
   | GetModelInvocationLoggingConfigurationCommandOutput
+  | GetOrganizationDataRetentionStorageCommandOutput
+  | GetProjectCommandOutput
+  | GetProjectDataRetentionStorageCommandOutput
   | GetPromptRouterCommandOutput
   | GetProvisionedModelThroughputCommandOutput
   | GetResourcePolicyCommandOutput
+  | GetTrustedAccessProgramAccountEnrollmentCommandOutput
+  | GetTrustedAccessProgramCommandOutput
+  | GetTrustedAccessProgramOrganizationEnrollmentCommandOutput
+  | GetTrustedAccessProgramProjectEnrollmentCommandOutput
   | GetUseCaseForModelAccessCommandOutput
   | ListAdvancedPromptOptimizationJobsCommandOutput
   | ListAutomatedReasoningPoliciesCommandOutput
@@ -659,17 +782,28 @@ export type ServiceOutputTypes =
   | ListModelCustomizationJobsCommandOutput
   | ListModelImportJobsCommandOutput
   | ListModelInvocationJobsCommandOutput
+  | ListProjectsCommandOutput
   | ListPromptRoutersCommandOutput
   | ListProvisionedModelThroughputsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTrustedAccessProgramsCommandOutput
   | PutAccountDataRetentionCommandOutput
+  | PutAccountDataRetentionStorageCommandOutput
   | PutEnforcedGuardrailConfigurationCommandOutput
   | PutModelInvocationLoggingConfigurationCommandOutput
+  | PutOrganizationDataRetentionStorageCommandOutput
+  | PutProjectDataRetentionStorageCommandOutput
   | PutResourcePolicyCommandOutput
+  | PutTrustedAccessProgramAccountEnrollmentCommandOutput
+  | PutTrustedAccessProgramOrganizationEnrollmentCommandOutput
+  | PutTrustedAccessProgramProjectEnrollmentCommandOutput
   | PutUseCaseForModelAccessCommandOutput
   | RegisterMarketplaceModelEndpointCommandOutput
   | StartAutomatedReasoningPolicyBuildWorkflowCommandOutput
   | StartAutomatedReasoningPolicyTestWorkflowCommandOutput
+  | StartTrustedAccessProgramAccountApplicationCommandOutput
+  | StartTrustedAccessProgramOrganizationApplicationCommandOutput
+  | StartTrustedAccessProgramProjectApplicationCommandOutput
   | StopAdvancedPromptOptimizationJobCommandOutput
   | StopEvaluationJobCommandOutput
   | StopModelCustomizationJobCommandOutput
@@ -682,6 +816,7 @@ export type ServiceOutputTypes =
   | UpdateCustomModelDeploymentCommandOutput
   | UpdateGuardrailCommandOutput
   | UpdateMarketplaceModelEndpointCommandOutput
+  | UpdateProjectCommandOutput
   | UpdateProvisionedModelThroughputCommandOutput;
 
 /**

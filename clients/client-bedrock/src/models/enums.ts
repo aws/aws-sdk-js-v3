@@ -384,6 +384,93 @@ export type DataRetentionMode = (typeof DataRetentionMode)[keyof typeof DataRete
  * @public
  * @enum
  */
+export const DataRetentionStorageModelProvider = {
+  /**
+   * <p>The Anthropic model provider.</p>
+   */
+  ANTHROPIC: "anthropic",
+  /**
+   * <p>The OpenAI model provider.</p>
+   */
+  OPENAI: "openai",
+} as const;
+/**
+ * @public
+ */
+export type DataRetentionStorageModelProvider =
+  (typeof DataRetentionStorageModelProvider)[keyof typeof DataRetentionStorageModelProvider];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataRetentionStorageResourceStatus = {
+  /**
+   * <p>Access to the destination resource was denied.</p>
+   */
+  ACCESS_DENIED: "access_denied",
+  /**
+   * <p>The destination resource has passed validation.</p>
+   */
+  ACTIVE: "active",
+  /**
+   * <p>Validation of the destination resource is pending.</p>
+   */
+  PENDING: "pending",
+} as const;
+/**
+ * @public
+ */
+export type DataRetentionStorageResourceStatus =
+  (typeof DataRetentionStorageResourceStatus)[keyof typeof DataRetentionStorageResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataRetentionStorageScope = {
+  /**
+   * <p>The calling AWS account.</p>
+   */
+  ACCOUNT: "account",
+  /**
+   * <p>The calling account's organization.</p>
+   */
+  ORGANIZATION: "organization",
+  /**
+   * <p>The named project addressed by the request.</p>
+   */
+  PROJECT: "project",
+} as const;
+/**
+ * @public
+ */
+export type DataRetentionStorageScope = (typeof DataRetentionStorageScope)[keyof typeof DataRetentionStorageScope];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataRetentionStorageDestination = {
+  /**
+   * <p>Retained data uses Amazon-managed storage. Do not provide <code>storageConfiguration</code>.</p>
+   */
+  AMAZON_MANAGED: "amazon_managed",
+  /**
+   * <p>Stores retained data in the Amazon S3 bucket you specify and encrypts it with the AWS KMS key you specify. You must provide <code>storageConfiguration</code>.</p>
+   */
+  CUSTOMER_MANAGED: "customer_managed",
+} as const;
+/**
+ * @public
+ */
+export type DataRetentionStorageDestination =
+  (typeof DataRetentionStorageDestination)[keyof typeof DataRetentionStorageDestination];
+
+/**
+ * @public
+ * @enum
+ */
 export const EvaluationJobStatus = {
   COMPLETED: "Completed",
   DELETING: "Deleting",
@@ -955,6 +1042,25 @@ export type FoundationModelLifecycleStatus =
  * @public
  * @enum
  */
+export const ProjectStatus = {
+  /**
+   * <p>The project has not been archived.</p>
+   */
+  ACTIVE: "active",
+  /**
+   * <p>The project rejects new inference requests and mutations. Its stored data remains readable until it expires.</p>
+   */
+  ARCHIVED: "archived",
+} as const;
+/**
+ * @public
+ */
+export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const PromptRouterStatus = {
   AVAILABLE: "AVAILABLE",
 } as const;
@@ -1117,3 +1223,84 @@ export const FineTuningJobStatus = {
  * @public
  */
 export type FineTuningJobStatus = (typeof FineTuningJobStatus)[keyof typeof FineTuningJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustedAccessProgramScope = {
+  /**
+   * <p>The calling AWS account.</p>
+   */
+  ACCOUNT: "account",
+  /**
+   * <p>The calling account's current organization.</p>
+   */
+  ORGANIZATION: "organization",
+  /**
+   * <p>Program fallback when no stored record decides the status. This is not a writable scope.</p>
+   */
+  PROGRAM_DEFAULT: "program_default",
+  /**
+   * <p>The named project addressed by the request.</p>
+   */
+  PROJECT: "project",
+} as const;
+/**
+ * @public
+ */
+export type TrustedAccessProgramScope = (typeof TrustedAccessProgramScope)[keyof typeof TrustedAccessProgramScope];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustedAccessProgramOptIn = {
+  /**
+   * <p>Explicitly opt out at this scope.</p>
+   */
+  DISABLED: "disabled",
+  /**
+   * <p>Accept the program's terms and opt in at this scope.</p>
+   */
+  ENABLED: "enabled",
+  /**
+   * <p>Defer to a broader scope without accepting or declining the program at this scope.</p>
+   */
+  INHERIT: "inherit",
+} as const;
+/**
+ * @public
+ */
+export type TrustedAccessProgramOptIn = (typeof TrustedAccessProgramOptIn)[keyof typeof TrustedAccessProgramOptIn];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustedAccessProgramStatus = {
+  /**
+   * <p>Approved and explicitly opted out at the deciding enrollment scope.</p>
+   */
+  DISABLED: "disabled",
+  /**
+   * <p>Approved with no resolved enabled or disabled preference, or qualified by a read-only automatic eligibility preview.</p>
+   */
+  ELIGIBLE: "eligible",
+  /**
+   * <p>Approved and opted in for the evaluated context.</p>
+   */
+  ENABLED: "enabled",
+  /**
+   * <p>No applicable approval or revocation exists. The status reason explains how to request access.</p>
+   */
+  REQUESTABLE: "requestable",
+  /**
+   * <p>An applicable revocation removes eligibility. The saved opt-in preference is preserved.</p>
+   */
+  REVOKED: "revoked",
+} as const;
+/**
+ * @public
+ */
+export type TrustedAccessProgramStatus = (typeof TrustedAccessProgramStatus)[keyof typeof TrustedAccessProgramStatus];

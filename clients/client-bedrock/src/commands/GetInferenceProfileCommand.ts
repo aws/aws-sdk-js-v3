@@ -34,6 +34,7 @@ export interface GetInferenceProfileCommandOutput extends GetInferenceProfileRes
  * const client = new BedrockClient(config);
  * const input = { // GetInferenceProfileRequest
  *   inferenceProfileIdentifier: "STRING_VALUE", // required
+ *   projectIdentifier: "STRING_VALUE",
  * };
  * const command = new GetInferenceProfileCommand(input);
  * const response = await client.send(command);

@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetEvaluationJobRequest } from "../models/models_0";
-import type { GetEvaluationJobResponse } from "../models/models_1";
+import type { GetEvaluationJobRequest, GetEvaluationJobResponse } from "../models/models_1";
 import { GetEvaluationJob$ } from "../schemas/schemas_0";
 
 /**

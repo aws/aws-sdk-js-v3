@@ -34,6 +34,7 @@ export interface GetFoundationModelCommandOutput extends GetFoundationModelRespo
  * const client = new BedrockClient(config);
  * const input = { // GetFoundationModelRequest
  *   modelIdentifier: "STRING_VALUE", // required
+ *   projectIdentifier: "STRING_VALUE",
  * };
  * const command = new GetFoundationModelCommand(input);
  * const response = await client.send(command);
