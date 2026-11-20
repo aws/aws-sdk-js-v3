@@ -10,6 +10,7 @@ import type {
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
   CrossAccountFilterOption,
+  GlobalInferenceGatewayStatus,
   HomeEfsFileSystemCreation,
   HubContentSupportStatus,
   HubContentType,
@@ -25,8 +26,11 @@ import type {
   NotebookInstanceAcceleratorType,
   PartnerAppAuthType,
   Processor,
+  Relation,
+  ReservedCapacityInstanceType,
   ResourceType,
   RootAccess,
+  SageMakerResourceName,
   SearchSortOrder,
   TagPropagation,
   ThroughputMode,
@@ -41,15 +45,17 @@ import type {
   CfnUpdateTemplateProvider,
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
-  ClusterOrchestrator,
   CodeEditorAppImageConfig,
   DeploymentConfiguration,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
+  OutputParameter,
   Tag,
+  UserContext,
 } from "./models_0";
 import type {
+  ClusterOrchestrator,
   ClusterRestrictedInstanceGroupsConfig,
   ClusterRestrictedInstanceGroupSpecification,
   ClusterTieredStorageConfig,
@@ -59,12 +65,12 @@ import type {
   DeploymentConfig,
   EdgeOutputConfig,
   FeatureDefinition,
+  GlobalInferenceGatewayRouting,
   InferenceComponentRuntimeConfig,
   InferenceComponentSpecification,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
-  ModelLifeCycle,
-  ModelPackageModelCard,
+  MetadataProperties,
   ModelVariantConfig,
   RoutingTarget,
   SchedulerConfig,
@@ -73,8 +79,11 @@ import type {
 } from "./models_1";
 import type {
   IdcConfigInput,
+  InstanceGroupHealthCheckConfiguration,
   InstanceMetadataServiceConfiguration,
   MemberDefinition,
+  ModelLifeCycle,
+  ModelPackageModelCard,
   MonitoringScheduleConfig,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
@@ -97,21 +106,911 @@ import type {
   DesiredWeightAndCapacity,
   Device,
   DomainSettingsForUpdate,
+  Endpoint,
+  Experiment,
+  FeatureGroup,
+  FeatureMetadata,
   FeatureParameter,
   Filter,
   GitConfigForUpdate,
+  HubContent,
+  HyperParameterTuningJobSearchEntity,
   InferenceComponentDeploymentConfig,
+  SelectiveExecutionConfig,
+  TrialComponentMetricSummary,
+  TrialComponentSource,
+  TrialSource,
   Workforce,
   Workteam,
 } from "./models_3";
 import type {
+  Job,
+  ModelCard,
+  ModelDashboardModel,
+  ModelPackage,
+  ModelPackageGroup,
   NestedFilters,
   OnlineStoreConfigUpdate,
+  Parameter,
+  Parent,
+  Pipeline,
+  PipelineExecution,
+  PipelineVersion,
+  ProcessingJob,
   ProfilerConfigForUpdate,
+  Project,
   RemoteDebugConfigForUpdate,
+  ReservedCapacityOffering,
   ResourceConfigForUpdate,
+  TrainingJob,
+  TransformJob,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * <p>A short summary of a trial component.</p>
+ * @public
+ */
+export interface TrialComponentSimpleSummary {
+  /**
+   * <p>The name of the trial component.</p>
+   * @public
+   */
+  TrialComponentName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
+   * @public
+   */
+  TrialComponentArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
+   * @public
+   */
+  TrialComponentSource?: TrialComponentSource | undefined;
+
+  /**
+   * <p>When the component was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+}
+
+/**
+ * <p>The properties of a trial as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
+ * @public
+ */
+export interface Trial {
+  /**
+   * <p>The name of the trial.</p>
+   * @public
+   */
+  TrialName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial.</p>
+   * @public
+   */
+  TrialArn?: string | undefined;
+
+  /**
+   * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The name of the experiment the trial is part of.</p>
+   * @public
+   */
+  ExperimentName?: string | undefined;
+
+  /**
+   * <p>The source of the trial.</p>
+   * @public
+   */
+  Source?: TrialSource | undefined;
+
+  /**
+   * <p>When the trial was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Who created the trial.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Who last modified the trial.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   * @public
+   */
+  MetadataProperties?: MetadataProperties | undefined;
+
+  /**
+   * <p>The list of tags that are associated with the trial. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A list of the components associated with the trial. For each component, a summary of the component's properties is included.</p>
+   * @public
+   */
+  TrialComponentSummaries?: TrialComponentSimpleSummary[] | undefined;
+}
+
+/**
+ * <p>Detailed information about the source of a trial component. Either <code>ProcessingJob</code> or <code>TrainingJob</code> is returned.</p>
+ * @public
+ */
+export interface TrialComponentSourceDetail {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   * @public
+   */
+  SourceArn?: string | undefined;
+
+  /**
+   * <p>Information about a training job that's the source of a trial component.</p>
+   * @public
+   */
+  TrainingJob?: TrainingJob | undefined;
+
+  /**
+   * <p>Information about a processing job that's the source of a trial component.</p>
+   * @public
+   */
+  ProcessingJob?: ProcessingJob | undefined;
+
+  /**
+   * <p>Information about a transform job that's the source of a trial component.</p>
+   * @public
+   */
+  TransformJob?: TransformJob | undefined;
+}
+
+/**
+ * <p>The properties of a trial component as returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
+ * @public
+ */
+export interface TrialComponent {
+  /**
+   * <p>The name of the trial component.</p>
+   * @public
+   */
+  TrialComponentName?: string | undefined;
+
+  /**
+   * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified, <code>TrialComponentName</code> is displayed.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
+   * @public
+   */
+  TrialComponentArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) and job type of the source of the component.</p>
+   * @public
+   */
+  Source?: TrialComponentSource | undefined;
+
+  /**
+   * <p>The status of the trial component.</p>
+   * @public
+   */
+  Status?: TrialComponentStatus | undefined;
+
+  /**
+   * <p>When the component started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>When the component ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>When the component was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>Who created the trial component.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>When the component was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+
+  /**
+   * <p>The hyperparameters of the component.</p>
+   * @public
+   */
+  Parameters?: Record<string, TrialComponentParameterValue> | undefined;
+
+  /**
+   * <p>The input artifacts of the component.</p>
+   * @public
+   */
+  InputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
+
+  /**
+   * <p>The output artifacts of the component.</p>
+   * @public
+   */
+  OutputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
+
+  /**
+   * <p>The metrics for the component.</p>
+   * @public
+   */
+  Metrics?: TrialComponentMetricSummary[] | undefined;
+
+  /**
+   * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
+   * @public
+   */
+  MetadataProperties?: MetadataProperties | undefined;
+
+  /**
+   * <p>Details of the source of the component.</p>
+   * @public
+   */
+  SourceDetail?: TrialComponentSourceDetail | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lineage group resource.</p>
+   * @public
+   */
+  LineageGroupArn?: string | undefined;
+
+  /**
+   * <p>The list of tags that are associated with the component. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>An array of the parents of the component. A parent is a trial the component is associated with and the experiment the trial is part of. A component might not have any parents.</p>
+   * @public
+   */
+  Parents?: Parent[] | undefined;
+
+  /**
+   * <p>The name of the experiment run.</p>
+   * @public
+   */
+  RunName?: string | undefined;
+}
+
+/**
+ * <p>A single resource returned as part of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API response.</p>
+ * @public
+ */
+export interface SearchRecord {
+  /**
+   * <p>The properties of a training job.</p>
+   * @public
+   */
+  TrainingJob?: TrainingJob | undefined;
+
+  /**
+   * <p>The properties of an experiment.</p>
+   * @public
+   */
+  Experiment?: Experiment | undefined;
+
+  /**
+   * <p>The properties of a trial.</p>
+   * @public
+   */
+  Trial?: Trial | undefined;
+
+  /**
+   * <p>The properties of a trial component.</p>
+   * @public
+   */
+  TrialComponent?: TrialComponent | undefined;
+
+  /**
+   * <p>A hosted endpoint for real-time inference.</p>
+   * @public
+   */
+  Endpoint?: Endpoint | undefined;
+
+  /**
+   * <p>A container for your trained model that can be deployed for SageMaker inference. This can include inference code, artifacts, and metadata. The model package type can be one of the following.</p> <ul> <li> <p>Versioned model: A part of a model package group in Model Registry.</p> </li> <li> <p>Unversioned model: Not part of a model package group and used in Amazon Web Services Marketplace.</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelPackage.html"> <code>CreateModelPackage</code> </a>.</p>
+   * @public
+   */
+  ModelPackage?: ModelPackage | undefined;
+
+  /**
+   * <p>A group of versioned models in the Model Registry.</p>
+   * @public
+   */
+  ModelPackageGroup?: ModelPackageGroup | undefined;
+
+  /**
+   * <p>A SageMaker Model Building Pipeline instance.</p>
+   * @public
+   */
+  Pipeline?: Pipeline | undefined;
+
+  /**
+   * <p>An execution of a pipeline.</p>
+   * @public
+   */
+  PipelineExecution?: PipelineExecution | undefined;
+
+  /**
+   * <p>The version of the pipeline.</p>
+   * @public
+   */
+  PipelineVersion?: PipelineVersion | undefined;
+
+  /**
+   * <p>Amazon SageMaker Feature Store stores features in a collection called Feature Group. A Feature Group can be visualized as a table which has rows, with a unique identifier for each row where each column in the table is a feature. In principle, a Feature Group is composed of features and values per features.</p>
+   * @public
+   */
+  FeatureGroup?: FeatureGroup | undefined;
+
+  /**
+   * <p>The feature metadata used to search through the features.</p>
+   * @public
+   */
+  FeatureMetadata?: FeatureMetadata | undefined;
+
+  /**
+   * <p>The properties of a project.</p>
+   * @public
+   */
+  Project?: Project | undefined;
+
+  /**
+   * <p>The properties of a hyperparameter tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJob?: HyperParameterTuningJobSearchEntity | undefined;
+
+  /**
+   * <p>An Amazon SageMaker Model Card that documents details about a machine learning model.</p>
+   * @public
+   */
+  ModelCard?: ModelCard | undefined;
+
+  /**
+   * <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
+   * @public
+   */
+  Model?: ModelDashboardModel | undefined;
+
+  /**
+   * <p>The properties of a job.</p>
+   * @public
+   */
+  Job?: Job | undefined;
+
+  /**
+   * <p>The properties of a hub content resource.</p>
+   * @public
+   */
+  HubContent?: HubContent | undefined;
+}
+
+/**
+ * <p>Represents the total number of matching results and indicates how accurate that count is.</p> <p>The <code>Value</code> field provides the count, which may be exact or estimated. The <code>Relation</code> field indicates whether it's an exact figure or a lower bound. This helps understand the full scope of search results, especially when dealing with large result sets.</p>
+ * @public
+ */
+export interface TotalHits {
+  /**
+   * <p>The total number of matching results. This value may be exact or an estimate, depending on the <code>Relation</code> field.</p>
+   * @public
+   */
+  Value?: number | undefined;
+
+  /**
+   * <p>Indicates the relationship between the returned <code>Value</code> and the actual total number of matching results. Possible values are:</p> <ul> <li> <p> <code>EqualTo</code>: The <code>Value</code> is the exact count of matching results.</p> </li> <li> <p> <code>GreaterThanOrEqualTo</code>: The <code>Value</code> is a lower bound of the actual count of matching results.</p> </li> </ul>
+   * @public
+   */
+  Relation?: Relation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchResponse {
+  /**
+   * <p>A list of <code>SearchRecord</code> objects.</p>
+   * @public
+   */
+  Results?: SearchRecord[] | undefined;
+
+  /**
+   * <p>If the result of the previous <code>Search</code> request was truncated, the response includes a NextToken. To retrieve the next set of results, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of matching results.</p>
+   * @public
+   */
+  TotalHits?: TotalHits | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchTrainingPlanOfferingsRequest {
+  /**
+   * <p>The type of instance you want to search for in the available training plan offerings. This field allows you to filter the search results based on the specific compute resources you require for your SageMaker training jobs or SageMaker HyperPod clusters. When searching for training plan offerings, specifying the instance type helps you find Reserved Instances that match your computational needs.</p>
+   * @public
+   */
+  InstanceType?: ReservedCapacityInstanceType | undefined;
+
+  /**
+   * <p>The number of instances you want to reserve in the training plan offerings. This allows you to specify the quantity of compute resources needed for your SageMaker training jobs or SageMaker HyperPod clusters, helping you find reserved capacity offerings that match your requirements.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The type of UltraServer to search for, such as ml.u-p6e-gb200x72.</p>
+   * @public
+   */
+  UltraServerType?: string | undefined;
+
+  /**
+   * <p>The number of UltraServers to search for.</p>
+   * @public
+   */
+  UltraServerCount?: number | undefined;
+
+  /**
+   * <p>A filter to search for training plan offerings with a start time after a specified date.</p>
+   * @public
+   */
+  StartTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter to search for reserved capacity offerings with an end time before a specified date.</p>
+   * @public
+   */
+  EndTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The desired duration in hours for the training plan offerings.</p>
+   * @public
+   */
+  DurationHours?: number | undefined;
+
+  /**
+   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints, Studio apps) to search for in the offerings.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> <li> <p>A training plan for Studio apps can be used to launch JupyterLab and Code Editor apps on reserved training plan capacity.</p> </li> </ul>
+   * @public
+   */
+  TargetResources?: SageMakerResourceName[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN); of an existing training plan to search for extension offerings. When specified, the API returns extension offerings that can be used to extend the specified training plan.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+}
+
+/**
+ * <p>Details about an available extension offering for a training plan. Use the offering ID with the <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ExtendTrainingPlan.html">ExtendTrainingPlan</a> </code> API to extend a training plan.</p>
+ * @public
+ */
+export interface TrainingPlanExtensionOffering {
+  /**
+   * <p>The unique identifier for this extension offering.</p>
+   * @public
+   */
+  TrainingPlanExtensionOfferingId: string | undefined;
+
+  /**
+   * <p>The Availability Zone for this extension offering.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The start date of this extension offering.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The end date of this extension offering.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>The duration of this extension offering in hours.</p>
+   * @public
+   */
+  DurationHours?: number | undefined;
+
+  /**
+   * <p>The upfront fee for this extension offering.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency code for the upfront fee (e.g., USD).</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+}
+
+/**
+ * <p>Details about a training plan offering.</p> <p>For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html">CreateTrainingPlan</a> </code>.</p>
+ * @public
+ */
+export interface TrainingPlanOffering {
+  /**
+   * <p>The unique identifier for this training plan offering.</p>
+   * @public
+   */
+  TrainingPlanOfferingId: string | undefined;
+
+  /**
+   * <p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints, Studio apps) for this training plan offering.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> <li> <p>A training plan for Studio apps can be used to launch JupyterLab and Code Editor apps on reserved training plan capacity.</p> </li> </ul>
+   * @public
+   */
+  TargetResources: SageMakerResourceName[] | undefined;
+
+  /**
+   * <p>The requested start time that the user specified when searching for the training plan offering.</p>
+   * @public
+   */
+  RequestedStartTimeAfter?: Date | undefined;
+
+  /**
+   * <p>The requested end time that the user specified when searching for the training plan offering.</p>
+   * @public
+   */
+  RequestedEndTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The number of whole hours in the total duration for this training plan offering.</p>
+   * @public
+   */
+  DurationHours?: number | undefined;
+
+  /**
+   * <p>The additional minutes beyond whole hours in the total duration for this training plan offering.</p>
+   * @public
+   */
+  DurationMinutes?: number | undefined;
+
+  /**
+   * <p>The upfront fee for this training plan offering.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency code for the upfront fee (e.g., USD).</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>A list of reserved capacity offerings associated with this training plan offering.</p>
+   * @public
+   */
+  ReservedCapacityOfferings?: ReservedCapacityOffering[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchTrainingPlanOfferingsResponse {
+  /**
+   * <p>A list of training plan offerings that match the search criteria.</p>
+   * @public
+   */
+  TrainingPlanOfferings: TrainingPlanOffering[] | undefined;
+
+  /**
+   * <p>A list of extension offerings available for the specified training plan. These offerings can be used with the <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ExtendTrainingPlan.html">ExtendTrainingPlan</a> </code> API to extend an existing training plan.</p>
+   * @public
+   */
+  TrainingPlanExtensionOfferings?: TrainingPlanExtensionOffering[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendPipelineExecutionStepFailureRequest {
+  /**
+   * <p>The pipeline generated token from the Amazon SQS queue.</p>
+   * @public
+   */
+  CallbackToken: string | undefined;
+
+  /**
+   * <p>A message describing why the step failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendPipelineExecutionStepFailureResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendPipelineExecutionStepSuccessRequest {
+  /**
+   * <p>The pipeline generated token from the Amazon SQS queue.</p>
+   * @public
+   */
+  CallbackToken: string | undefined;
+
+  /**
+   * <p>A list of the output parameters of the callback step.</p>
+   * @public
+   */
+  OutputParameters?: OutputParameter[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendPipelineExecutionStepSuccessResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartClusterHealthCheckRequest {
+  /**
+   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterName: string | undefined;
+
+  /**
+   * <p>A list of configurations containing instance group names, EC2 instance IDs, and deep health checks to perform.</p>
+   * @public
+   */
+  DeepHealthCheckConfigurations: InstanceGroupHealthCheckConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartClusterHealthCheckResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster on which the deep health checks were initiated.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartEdgeDeploymentStageRequest {
+  /**
+   * <p>The name of the edge deployment plan to start.</p>
+   * @public
+   */
+  EdgeDeploymentPlanName: string | undefined;
+
+  /**
+   * <p>The name of the stage to start.</p>
+   * @public
+   */
+  StageName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartInferenceExperimentRequest {
+  /**
+   * <p>The name of the inference experiment to start.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartInferenceExperimentResponse {
+  /**
+   * <p>The ARN of the started inference experiment to start.</p>
+   * @public
+   */
+  InferenceExperimentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMlflowTrackingServerRequest {
+  /**
+   * <p>The name of the tracking server to start.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMlflowTrackingServerResponse {
+  /**
+   * <p>The ARN of the started tracking server.</p>
+   * @public
+   */
+  TrackingServerArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMonitoringScheduleRequest {
+  /**
+   * <p>The name of the schedule to start.</p>
+   * @public
+   */
+  MonitoringScheduleName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNotebookInstanceInput {
+  /**
+   * <p>The name of the notebook instance to start.</p>
+   * @public
+   */
+  NotebookInstanceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartPipelineExecutionRequest {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionDisplayName?: string | undefined;
+
+  /**
+   * <p>Contains a list of pipeline parameters. This list can be empty. </p>
+   * @public
+   */
+  PipelineParameters?: Parameter[] | undefined;
+
+  /**
+   * <p>The description of the pipeline execution.</p>
+   * @public
+   */
+  PipelineExecutionDescription?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than once.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>This configuration, if specified, overrides the parallelism configuration of the parent pipeline for this specific run.</p>
+   * @public
+   */
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
+
+  /**
+   * <p>The selective execution configuration applied to the pipeline run.</p>
+   * @public
+   */
+  SelectiveExecutionConfig?: SelectiveExecutionConfig | undefined;
+
+  /**
+   * <p>The ID of the pipeline version to start execution from. You can't specify this with <code>PipelineVersionAlias</code>.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
+
+  /**
+   * <p> The MLflow experiment name of the pipeline execution. </p>
+   * @public
+   */
+  MlflowExperimentName?: string | undefined;
+
+  /**
+   * <p>The alias of the pipeline version to start the execution from. You can't specify this with <code>PipelineVersionId</code>. If no version of the pipeline has this alias, the request fails with a <code>ResourceNotFound</code> error.</p>
+   * @public
+   */
+  PipelineVersionAlias?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the execution uses. You must specify this parameter when you start an execution of a pipeline that Amazon Web Services manages. You can't specify it for a pipeline that you create, because its executions use the pipeline's role.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+}
 
 /**
  * @public
@@ -1320,6 +2219,58 @@ export interface UpdateFeatureMetadataRequest {
    * @public
    */
   ParameterRemovals?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGlobalInferenceGatewayRequest {
+  /**
+   * <p>The name, Amazon Resource Name (ARN), or ID of the global inference gateway to update.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The new routing configuration of the global inference gateway.</p>
+   * @public
+   */
+  Routing: GlobalInferenceGatewayRouting | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGlobalInferenceGatewayResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the global inference gateway.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The ID of the global inference gateway.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the global inference gateway.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the global inference gateway.</p>
+   * @public
+   */
+  Status: GlobalInferenceGatewayStatus | undefined;
+
+  /**
+   * <p>The routing configuration that you specified in the request.</p>
+   * @public
+   */
+  Routing?: GlobalInferenceGatewayRouting | undefined;
 }
 
 /**

@@ -20,6 +20,7 @@ import type {
   ClusterInstanceType,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
+  ClusterSlurmConfigStrategy,
   ClusterStatus,
   CollectionType,
   CompilationJobStatus,
@@ -38,6 +39,7 @@ import type {
   FeatureType,
   FlatInvocations,
   Framework,
+  GlobalInferenceGatewayStatus,
   HomeEfsFileSystemCreation,
   HubContentType,
   HyperParameterScalingType,
@@ -150,13 +152,14 @@ import type {
   ChannelSpecification,
   CheckpointConfig,
   ClarifyExplainerConfig,
+  ClusterAccountingDatabase,
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
   ClusterInstanceStorageConfig,
-  ClusterOrchestrator,
+  ClusterOrchestratorEksConfig,
   CodeEditorAppImageConfig,
   ComputeQuotaResourceConfig,
-  FSxLustreConfig,
+  GlobalInferenceGatewayMember,
   InferenceSpecification,
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
@@ -171,6 +174,60 @@ import type {
   Tag,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>The configuration settings for the Slurm orchestrator used with the SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterOrchestratorSlurmConfig {
+  /**
+   * <p>The strategy for managing partitions for the Slurm configuration. Valid values are <code>Managed</code>, <code>Overwrite</code>, and <code>Merge</code>.</p>
+   * @public
+   */
+  SlurmConfigStrategy?: ClusterSlurmConfigStrategy | undefined;
+
+  /**
+   * <p>The external database that stores the Slurm accounting data for the cluster, such as job history, associations, and usage. When you omit this field, Slurm accounting uses a database on the cluster's controller node.</p> <note> <p>This field is only supported for clusters using <code>Continuous</code> as the <code>NodeProvisioningMode</code>.</p> </note>
+   * @public
+   */
+  AccountingDatabase?: ClusterAccountingDatabase | undefined;
+}
+
+/**
+ * <p>The type of orchestrator used for the SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterOrchestrator {
+  /**
+   * <p>The Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  Eks?: ClusterOrchestratorEksConfig | undefined;
+
+  /**
+   * <p>The Slurm orchestrator configuration for the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  Slurm?: ClusterOrchestratorSlurmConfig | undefined;
+}
+
+/**
+ * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
+ * @public
+ */
+export interface FSxLustreConfig {
+  /**
+   * <p>The storage capacity of the Amazon FSx for Lustre file system, specified in gibibytes (GiB).</p>
+   * @public
+   */
+  SizeInGiB: number | undefined;
+
+  /**
+   * <p>The throughput capacity of the Amazon FSx for Lustre file system, measured in MB/s per TiB of storage.</p>
+   * @public
+   */
+  PerUnitStorageThroughput: number | undefined;
+}
 
 /**
  * <p>The configuration details for the restricted instance groups (RIG) environment.</p>
@@ -5306,6 +5363,144 @@ export interface CreateFlowDefinitionResponse {
 }
 
 /**
+ * The relative weights of the four routing signals, each from 0 to 1. Specify all four weights or
+ * none. If you specify them, they must sum to 1.0, within 0.001. If you specify none, the global
+ * inference gateway uses default weights.
+ * @public
+ */
+export interface GlobalInferenceGatewayRoutingWeights {
+  /**
+   * <p>The weight of the free key-value (KV) cache capacity on the cluster.</p>
+   * @public
+   */
+  KVHeadroom?: number | undefined;
+
+  /**
+   * <p>The weight of the number of requests that are waiting on the cluster.</p>
+   * @public
+   */
+  QueueDepth?: number | undefined;
+
+  /**
+   * <p>The weight of how close the cluster is to the caller.</p>
+   * @public
+   */
+  RegionProximity?: number | undefined;
+
+  /**
+   * <p>The weight of the recent error rate of the cluster.</p>
+   * @public
+   */
+  ErrorRate?: number | undefined;
+}
+
+/**
+ * The routing configuration of a global inference gateway. To add or remove in-cluster inference
+ * gateways, use `AddInferenceGateway` and `RemoveInferenceGateway`.
+ * @public
+ */
+export interface GlobalInferenceGatewayRouting {
+  /**
+   * <p>The weights that the global inference gateway applies to each routing signal when it scores the in-cluster inference gateways for a request.</p>
+   * @public
+   */
+  Weights: GlobalInferenceGatewayRoutingWeights | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGlobalInferenceGatewayRequest {
+  /**
+   * <p>The name of the global inference gateway. The name must be unique in your account in the current Region, and is case-sensitive. The name can't be exactly 12 lowercase letters or digits, because the global inference gateway ID uses that format.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The routing configuration of the global inference gateway. If you omit it, the global inference
+   * gateway uses default routing weights.
+   * @public
+   */
+  Routing?: GlobalInferenceGatewayRouting | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the global inference gateway assumes to access your SageMaker HyperPod clusters. The role must be in your account and partition, and you must have <code>iam:PassRole</code> permission for it. You can't change the role after you create the global inference gateway.</p>
+   * @public
+   */
+  ExecutionRoleArn: string | undefined;
+
+  /**
+   * The 1 to 10 in-cluster inference gateways to add to the global inference gateway. A global
+   * inference gateway must always have at least one in-cluster inference gateway, so
+   * `RemoveInferenceGateway` can't remove the last one.
+   * @public
+   */
+  Gateways: GlobalInferenceGatewayMember[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. An idempotent operation completes no more than one time. If you don't specify a client token, the Amazon Web Services SDKs and the Amazon Web Services CLI generate one for you.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Custom tags for managing the global inference gateway as an Amazon Web Services resource. You can add tags to your global inference gateway in the same way you add them in other Amazon Web Services services that support tagging. For more information about tagging Amazon Web Services resources, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging your Amazon Web Services resources</a> in the <i>Tagging Amazon Web Services Resources User Guide</i>.</p> <p>The global inference gateway doesn't return tags in its responses. To read the tags, use <code>ListTags</code>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * Contains the identifiers and status of the new global inference gateway, and the parameters from
+ * the request except `Tags`. To read the tags, use `ListTags`.
+ * @public
+ */
+export interface CreateGlobalInferenceGatewayResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the global inference gateway.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The ID of the global inference gateway.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the global inference gateway.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the global inference gateway. A new global inference gateway starts in the <code>CREATING</code> status.</p>
+   * @public
+   */
+  Status: GlobalInferenceGatewayStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the global inference gateway assumes to access your SageMaker HyperPod clusters.</p>
+   * @public
+   */
+  ExecutionRoleArn?: string | undefined;
+
+  /**
+   * <p>The routing configuration of the global inference gateway.</p>
+   * @public
+   */
+  Routing?: GlobalInferenceGatewayRouting | undefined;
+
+  /**
+   * <p>The in-cluster inference gateways that you specified in the request.</p>
+   * @public
+   */
+  Gateways?: GlobalInferenceGatewayMember[] | undefined;
+}
+
+/**
  * <p>The Amazon S3 storage configuration of a hub.</p>
  * @public
  */
@@ -8335,142 +8530,4 @@ export interface DriftCheckExplainability {
    * @public
    */
   ConfigFile?: FileSource | undefined;
-}
-
-/**
- * <p>Represents the drift check data quality baselines that can be used when the model monitor is set using the model package. </p>
- * @public
- */
-export interface DriftCheckModelDataQuality {
-  /**
-   * <p>The drift check model data quality statistics.</p>
-   * @public
-   */
-  Statistics?: MetricsSource | undefined;
-
-  /**
-   * <p>The drift check model data quality constraints.</p>
-   * @public
-   */
-  Constraints?: MetricsSource | undefined;
-}
-
-/**
- * <p>Represents the drift check model quality baselines that can be used when the model monitor is set using the model package. </p>
- * @public
- */
-export interface DriftCheckModelQuality {
-  /**
-   * <p>The drift check model quality statistics.</p>
-   * @public
-   */
-  Statistics?: MetricsSource | undefined;
-
-  /**
-   * <p>The drift check model quality constraints.</p>
-   * @public
-   */
-  Constraints?: MetricsSource | undefined;
-}
-
-/**
- * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package. </p>
- * @public
- */
-export interface DriftCheckBaselines {
-  /**
-   * <p>Represents the drift check bias baselines that can be used when the model monitor is set using the model package. </p>
-   * @public
-   */
-  Bias?: DriftCheckBias | undefined;
-
-  /**
-   * <p>Represents the drift check explainability baselines that can be used when the model monitor is set using the model package. </p>
-   * @public
-   */
-  Explainability?: DriftCheckExplainability | undefined;
-
-  /**
-   * <p>Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.</p>
-   * @public
-   */
-  ModelQuality?: DriftCheckModelQuality | undefined;
-
-  /**
-   * <p>Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.</p>
-   * @public
-   */
-  ModelDataQuality?: DriftCheckModelDataQuality | undefined;
-}
-
-/**
- * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
- * @public
- */
-export interface ModelPackageModelCard {
-  /**
-   * <p>The content of the model card. The content must follow the schema described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model Package Model Card Schema</a>.</p>
-   * @public
-   */
-  ModelCardContent?: string | undefined;
-
-  /**
-   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p> <ul> <li> <p> <code>Draft</code>: The model card is a work in progress.</p> </li> <li> <p> <code>PendingReview</code>: The model card is pending review.</p> </li> <li> <p> <code>Approved</code>: The model card is approved.</p> </li> <li> <p> <code>Archived</code>: The model card is archived. No more updates can be made to the model card content. If you try to update the model card content, you will receive the message <code>Model Card is in Archived state</code>.</p> </li> </ul>
-   * @public
-   */
-  ModelCardStatus?: ModelCardStatus | undefined;
-}
-
-/**
- * <p> A structure describing the current state of the model in its life cycle. </p>
- * @public
- */
-export interface ModelLifeCycle {
-  /**
-   * <p> The current stage in the model life cycle. </p>
-   * @public
-   */
-  Stage: string | undefined;
-
-  /**
-   * <p> The current status of a stage in model life cycle. </p>
-   * @public
-   */
-  StageStatus: string | undefined;
-
-  /**
-   * <p> Describes the stage related details. </p>
-   * @public
-   */
-  StageDescription?: string | undefined;
-}
-
-/**
- * <p>Contains explainability metrics for a model.</p>
- * @public
- */
-export interface Explainability {
-  /**
-   * <p>The explainability report for a model.</p>
-   * @public
-   */
-  Report?: MetricsSource | undefined;
-}
-
-/**
- * <p>Data quality constraints and statistics for a model.</p>
- * @public
- */
-export interface ModelDataQuality {
-  /**
-   * <p>Data quality statistics for a model.</p>
-   * @public
-   */
-  Statistics?: MetricsSource | undefined;
-
-  /**
-   * <p>Data quality constraints for a model.</p>
-   * @public
-   */
-  Constraints?: MetricsSource | undefined;
 }

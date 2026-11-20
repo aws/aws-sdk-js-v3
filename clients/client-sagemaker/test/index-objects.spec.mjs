@@ -13,6 +13,10 @@ import {
   AddAssociationRequest$,
   AddAssociationResponse$,
   AddClusterNodeSpecification$,
+  AddInferenceGateway$,
+  AddInferenceGatewayCommand,
+  AddInferenceGatewayRequest$,
+  AddInferenceGatewayResponse$,
   AdditionalEnis$,
   AdditionalInferenceSpecificationDefinition$,
   AdditionalModelDataSource$,
@@ -473,6 +477,10 @@ import {
   CreateFlowDefinitionCommand,
   CreateFlowDefinitionRequest$,
   CreateFlowDefinitionResponse$,
+  CreateGlobalInferenceGateway$,
+  CreateGlobalInferenceGatewayCommand,
+  CreateGlobalInferenceGatewayRequest$,
+  CreateGlobalInferenceGatewayResponse$,
   CreateHub$,
   CreateHubCommand,
   CreateHubContentPresignedUrls$,
@@ -784,6 +792,10 @@ import {
   DeleteFlowDefinitionCommand,
   DeleteFlowDefinitionRequest$,
   DeleteFlowDefinitionResponse$,
+  DeleteGlobalInferenceGateway$,
+  DeleteGlobalInferenceGatewayCommand,
+  DeleteGlobalInferenceGatewayRequest$,
+  DeleteGlobalInferenceGatewayResponse$,
   DeleteHub$,
   DeleteHubCommand,
   DeleteHubContent$,
@@ -1054,6 +1066,10 @@ import {
   DescribeFlowDefinitionCommand,
   DescribeFlowDefinitionRequest$,
   DescribeFlowDefinitionResponse$,
+  DescribeGlobalInferenceGateway$,
+  DescribeGlobalInferenceGatewayCommand,
+  DescribeGlobalInferenceGatewayRequest$,
+  DescribeGlobalInferenceGatewayResponse$,
   DescribeHub$,
   DescribeHubCommand,
   DescribeHubContent$,
@@ -1420,6 +1436,17 @@ import {
   GetSearchSuggestionsResponse$,
   GitConfig$,
   GitConfigForUpdate$,
+  GlobalInferenceGatewayFilter$,
+  GlobalInferenceGatewayFilterName,
+  GlobalInferenceGatewayMember$,
+  GlobalInferenceGatewayMemberFilter$,
+  GlobalInferenceGatewayMemberFilterName,
+  GlobalInferenceGatewayMemberStatus,
+  GlobalInferenceGatewayMemberSummary$,
+  GlobalInferenceGatewayRouting$,
+  GlobalInferenceGatewayRoutingWeights$,
+  GlobalInferenceGatewayStatus,
+  GlobalInferenceGatewaySummary$,
   HiddenSageMakerImage$,
   HolidayConfigAttributes$,
   HomeEfsFileSystemCreation,
@@ -1728,6 +1755,10 @@ import {
   ListFlowDefinitionsCommand,
   ListFlowDefinitionsRequest$,
   ListFlowDefinitionsResponse$,
+  ListGlobalInferenceGateways$,
+  ListGlobalInferenceGatewaysCommand,
+  ListGlobalInferenceGatewaysRequest$,
+  ListGlobalInferenceGatewaysResponse$,
   ListHubContents$,
   ListHubContentsCommand,
   ListHubContentsRequest$,
@@ -1764,6 +1795,10 @@ import {
   ListInferenceExperimentsCommand,
   ListInferenceExperimentsRequest$,
   ListInferenceExperimentsResponse$,
+  ListInferenceGateways$,
+  ListInferenceGatewaysCommand,
+  ListInferenceGatewaysRequest$,
+  ListInferenceGatewaysResponse$,
   ListInferenceRecommendationsJobs$,
   ListInferenceRecommendationsJobsCommand,
   ListInferenceRecommendationsJobsRequest$,
@@ -2121,6 +2156,13 @@ import {
   MonitoringStatisticsResource$,
   MonitoringStoppingCondition$,
   MonitoringType,
+  MoveClusterNodeLogicalIdsError$,
+  MoveClusterNodes$,
+  MoveClusterNodesCommand,
+  MoveClusterNodesError$,
+  MoveClusterNodesErrorCode,
+  MoveClusterNodesRequest$,
+  MoveClusterNodesResponse$,
   MultiModelConfig$,
   NeoVpcConfig$,
   NestedFilters$,
@@ -2204,12 +2246,14 @@ import {
   paginateListExperiments,
   paginateListFeatureGroups,
   paginateListFlowDefinitions,
+  paginateListGlobalInferenceGateways,
   paginateListHumanTaskUis,
   paginateListHyperParameterTuningJobs,
   paginateListImages,
   paginateListImageVersions,
   paginateListInferenceComponents,
   paginateListInferenceExperiments,
+  paginateListInferenceGateways,
   paginateListInferenceRecommendationsJobs,
   paginateListInferenceRecommendationsJobSteps,
   paginateListInferenceRouters,
@@ -2392,6 +2436,10 @@ import {
   Relation,
   RemoteDebugConfig$,
   RemoteDebugConfigForUpdate$,
+  RemoveInferenceGateway$,
+  RemoveInferenceGatewayCommand,
+  RemoveInferenceGatewayRequest$,
+  RemoveInferenceGatewayResponse$,
   RenderableTask$,
   RenderingError$,
   RenderUiTemplate$,
@@ -2827,6 +2875,10 @@ import {
   UpdateFeatureMetadata$,
   UpdateFeatureMetadataCommand,
   UpdateFeatureMetadataRequest$,
+  UpdateGlobalInferenceGateway$,
+  UpdateGlobalInferenceGatewayCommand,
+  UpdateGlobalInferenceGatewayRequest$,
+  UpdateGlobalInferenceGatewayResponse$,
   UpdateHub$,
   UpdateHubCommand,
   UpdateHubContent$,
@@ -3004,6 +3056,8 @@ assert(typeof SageMaker === "function");
 // commands
 assert(typeof AddAssociationCommand === "function");
 assert(typeof AddAssociation$ === "object");
+assert(typeof AddInferenceGatewayCommand === "function");
+assert(typeof AddInferenceGateway$ === "object");
 assert(typeof AddTagsCommand === "function");
 assert(typeof AddTags$ === "object");
 assert(typeof AssociateTrialComponentCommand === "function");
@@ -3078,6 +3132,8 @@ assert(typeof CreateFeatureGroupCommand === "function");
 assert(typeof CreateFeatureGroup$ === "object");
 assert(typeof CreateFlowDefinitionCommand === "function");
 assert(typeof CreateFlowDefinition$ === "object");
+assert(typeof CreateGlobalInferenceGatewayCommand === "function");
+assert(typeof CreateGlobalInferenceGateway$ === "object");
 assert(typeof CreateHubCommand === "function");
 assert(typeof CreateHub$ === "object");
 assert(typeof CreateHubContentPresignedUrlsCommand === "function");
@@ -3226,6 +3282,8 @@ assert(typeof DeleteFeatureGroupCommand === "function");
 assert(typeof DeleteFeatureGroup$ === "object");
 assert(typeof DeleteFlowDefinitionCommand === "function");
 assert(typeof DeleteFlowDefinition$ === "object");
+assert(typeof DeleteGlobalInferenceGatewayCommand === "function");
+assert(typeof DeleteGlobalInferenceGateway$ === "object");
 assert(typeof DeleteHubCommand === "function");
 assert(typeof DeleteHub$ === "object");
 assert(typeof DeleteHubContentCommand === "function");
@@ -3370,6 +3428,8 @@ assert(typeof DescribeFeatureMetadataCommand === "function");
 assert(typeof DescribeFeatureMetadata$ === "object");
 assert(typeof DescribeFlowDefinitionCommand === "function");
 assert(typeof DescribeFlowDefinition$ === "object");
+assert(typeof DescribeGlobalInferenceGatewayCommand === "function");
+assert(typeof DescribeGlobalInferenceGateway$ === "object");
 assert(typeof DescribeHubCommand === "function");
 assert(typeof DescribeHub$ === "object");
 assert(typeof DescribeHubContentCommand === "function");
@@ -3560,6 +3620,8 @@ assert(typeof ListFeatureGroupsCommand === "function");
 assert(typeof ListFeatureGroups$ === "object");
 assert(typeof ListFlowDefinitionsCommand === "function");
 assert(typeof ListFlowDefinitions$ === "object");
+assert(typeof ListGlobalInferenceGatewaysCommand === "function");
+assert(typeof ListGlobalInferenceGateways$ === "object");
 assert(typeof ListHubContentsCommand === "function");
 assert(typeof ListHubContents$ === "object");
 assert(typeof ListHubContentVersionsCommand === "function");
@@ -3578,6 +3640,8 @@ assert(typeof ListInferenceComponentsCommand === "function");
 assert(typeof ListInferenceComponents$ === "object");
 assert(typeof ListInferenceExperimentsCommand === "function");
 assert(typeof ListInferenceExperiments$ === "object");
+assert(typeof ListInferenceGatewaysCommand === "function");
+assert(typeof ListInferenceGateways$ === "object");
 assert(typeof ListInferenceRecommendationsJobsCommand === "function");
 assert(typeof ListInferenceRecommendationsJobs$ === "object");
 assert(typeof ListInferenceRecommendationsJobStepsCommand === "function");
@@ -3682,6 +3746,8 @@ assert(typeof ListWorkforcesCommand === "function");
 assert(typeof ListWorkforces$ === "object");
 assert(typeof ListWorkteamsCommand === "function");
 assert(typeof ListWorkteams$ === "object");
+assert(typeof MoveClusterNodesCommand === "function");
+assert(typeof MoveClusterNodes$ === "object");
 assert(typeof PutEndpointPolicyCommand === "function");
 assert(typeof PutEndpointPolicy$ === "object");
 assert(typeof PutModelPackageGroupPolicyCommand === "function");
@@ -3690,6 +3756,8 @@ assert(typeof QueryLineageCommand === "function");
 assert(typeof QueryLineage$ === "object");
 assert(typeof RegisterDevicesCommand === "function");
 assert(typeof RegisterDevices$ === "object");
+assert(typeof RemoveInferenceGatewayCommand === "function");
+assert(typeof RemoveInferenceGateway$ === "object");
 assert(typeof RenderUiTemplateCommand === "function");
 assert(typeof RenderUiTemplate$ === "object");
 assert(typeof RetryPipelineExecutionCommand === "function");
@@ -3794,6 +3862,8 @@ assert(typeof UpdateFeatureGroupCommand === "function");
 assert(typeof UpdateFeatureGroup$ === "object");
 assert(typeof UpdateFeatureMetadataCommand === "function");
 assert(typeof UpdateFeatureMetadata$ === "object");
+assert(typeof UpdateGlobalInferenceGatewayCommand === "function");
+assert(typeof UpdateGlobalInferenceGateway$ === "object");
 assert(typeof UpdateHubCommand === "function");
 assert(typeof UpdateHub$ === "object");
 assert(typeof UpdateHubContentCommand === "function");
@@ -3860,6 +3930,8 @@ assert(typeof ActionSummary$ === "object");
 assert(typeof AddAssociationRequest$ === "object");
 assert(typeof AddAssociationResponse$ === "object");
 assert(typeof AddClusterNodeSpecification$ === "object");
+assert(typeof AddInferenceGatewayRequest$ === "object");
+assert(typeof AddInferenceGatewayResponse$ === "object");
 assert(typeof AdditionalEnis$ === "object");
 assert(typeof AdditionalInferenceSpecificationDefinition$ === "object");
 assert(typeof AdditionalModelDataSource$ === "object");
@@ -4151,6 +4223,8 @@ assert(typeof CreateFeatureGroupRequest$ === "object");
 assert(typeof CreateFeatureGroupResponse$ === "object");
 assert(typeof CreateFlowDefinitionRequest$ === "object");
 assert(typeof CreateFlowDefinitionResponse$ === "object");
+assert(typeof CreateGlobalInferenceGatewayRequest$ === "object");
+assert(typeof CreateGlobalInferenceGatewayResponse$ === "object");
 assert(typeof CreateHubContentPresignedUrlsRequest$ === "object");
 assert(typeof CreateHubContentPresignedUrlsResponse$ === "object");
 assert(typeof CreateHubContentReferenceRequest$ === "object");
@@ -4308,6 +4382,8 @@ assert(typeof DeleteExperimentResponse$ === "object");
 assert(typeof DeleteFeatureGroupRequest$ === "object");
 assert(typeof DeleteFlowDefinitionRequest$ === "object");
 assert(typeof DeleteFlowDefinitionResponse$ === "object");
+assert(typeof DeleteGlobalInferenceGatewayRequest$ === "object");
+assert(typeof DeleteGlobalInferenceGatewayResponse$ === "object");
 assert(typeof DeleteHubContentReferenceRequest$ === "object");
 assert(typeof DeleteHubContentRequest$ === "object");
 assert(typeof DeleteHubRequest$ === "object");
@@ -4434,6 +4510,8 @@ assert(typeof DescribeFeatureMetadataRequest$ === "object");
 assert(typeof DescribeFeatureMetadataResponse$ === "object");
 assert(typeof DescribeFlowDefinitionRequest$ === "object");
 assert(typeof DescribeFlowDefinitionResponse$ === "object");
+assert(typeof DescribeGlobalInferenceGatewayRequest$ === "object");
+assert(typeof DescribeGlobalInferenceGatewayResponse$ === "object");
 assert(typeof DescribeHubContentRequest$ === "object");
 assert(typeof DescribeHubContentResponse$ === "object");
 assert(typeof DescribeHubRequest$ === "object");
@@ -4645,6 +4723,13 @@ assert(typeof GetSearchSuggestionsRequest$ === "object");
 assert(typeof GetSearchSuggestionsResponse$ === "object");
 assert(typeof GitConfig$ === "object");
 assert(typeof GitConfigForUpdate$ === "object");
+assert(typeof GlobalInferenceGatewayFilter$ === "object");
+assert(typeof GlobalInferenceGatewayMember$ === "object");
+assert(typeof GlobalInferenceGatewayMemberFilter$ === "object");
+assert(typeof GlobalInferenceGatewayMemberSummary$ === "object");
+assert(typeof GlobalInferenceGatewayRouting$ === "object");
+assert(typeof GlobalInferenceGatewayRoutingWeights$ === "object");
+assert(typeof GlobalInferenceGatewaySummary$ === "object");
 assert(typeof HiddenSageMakerImage$ === "object");
 assert(typeof HolidayConfigAttributes$ === "object");
 assert(typeof HubAccessConfig$ === "object");
@@ -4830,6 +4915,8 @@ assert(typeof ListFeatureGroupsRequest$ === "object");
 assert(typeof ListFeatureGroupsResponse$ === "object");
 assert(typeof ListFlowDefinitionsRequest$ === "object");
 assert(typeof ListFlowDefinitionsResponse$ === "object");
+assert(typeof ListGlobalInferenceGatewaysRequest$ === "object");
+assert(typeof ListGlobalInferenceGatewaysResponse$ === "object");
 assert(typeof ListHubContentsRequest$ === "object");
 assert(typeof ListHubContentsResponse$ === "object");
 assert(typeof ListHubContentVersionsRequest$ === "object");
@@ -4848,6 +4935,8 @@ assert(typeof ListInferenceComponentsInput$ === "object");
 assert(typeof ListInferenceComponentsOutput$ === "object");
 assert(typeof ListInferenceExperimentsRequest$ === "object");
 assert(typeof ListInferenceExperimentsResponse$ === "object");
+assert(typeof ListInferenceGatewaysRequest$ === "object");
+assert(typeof ListInferenceGatewaysResponse$ === "object");
 assert(typeof ListInferenceRecommendationsJobsRequest$ === "object");
 assert(typeof ListInferenceRecommendationsJobsResponse$ === "object");
 assert(typeof ListInferenceRecommendationsJobStepsRequest$ === "object");
@@ -5055,6 +5144,10 @@ assert(typeof MonitoringScheduleConfig$ === "object");
 assert(typeof MonitoringScheduleSummary$ === "object");
 assert(typeof MonitoringStatisticsResource$ === "object");
 assert(typeof MonitoringStoppingCondition$ === "object");
+assert(typeof MoveClusterNodeLogicalIdsError$ === "object");
+assert(typeof MoveClusterNodesError$ === "object");
+assert(typeof MoveClusterNodesRequest$ === "object");
+assert(typeof MoveClusterNodesResponse$ === "object");
 assert(typeof MultiModelConfig$ === "object");
 assert(typeof NeoVpcConfig$ === "object");
 assert(typeof NestedFilters$ === "object");
@@ -5173,6 +5266,8 @@ assert(typeof RegisterDevicesRequest$ === "object");
 assert(typeof RegisterModelStepMetadata$ === "object");
 assert(typeof RemoteDebugConfig$ === "object");
 assert(typeof RemoteDebugConfigForUpdate$ === "object");
+assert(typeof RemoveInferenceGatewayRequest$ === "object");
+assert(typeof RemoveInferenceGatewayResponse$ === "object");
 assert(typeof RenderableTask$ === "object");
 assert(typeof RenderingError$ === "object");
 assert(typeof RenderUiTemplateRequest$ === "object");
@@ -5405,6 +5500,8 @@ assert(typeof UpdateExperimentResponse$ === "object");
 assert(typeof UpdateFeatureGroupRequest$ === "object");
 assert(typeof UpdateFeatureGroupResponse$ === "object");
 assert(typeof UpdateFeatureMetadataRequest$ === "object");
+assert(typeof UpdateGlobalInferenceGatewayRequest$ === "object");
+assert(typeof UpdateGlobalInferenceGatewayResponse$ === "object");
 assert(typeof UpdateHubContentReferenceRequest$ === "object");
 assert(typeof UpdateHubContentReferenceResponse$ === "object");
 assert(typeof UpdateHubContentRequest$ === "object");
@@ -5620,6 +5717,10 @@ assert(typeof FlatInvocations === "object");
 assert(typeof FlowDefinitionStatus === "object");
 assert(typeof ForEachStatus === "object");
 assert(typeof Framework === "object");
+assert(typeof GlobalInferenceGatewayFilterName === "object");
+assert(typeof GlobalInferenceGatewayMemberFilterName === "object");
+assert(typeof GlobalInferenceGatewayMemberStatus === "object");
+assert(typeof GlobalInferenceGatewayStatus === "object");
 assert(typeof HomeEfsFileSystemCreation === "object");
 assert(typeof HubContentSortBy === "object");
 assert(typeof HubContentStatus === "object");
@@ -5720,6 +5821,7 @@ assert(typeof MonitoringJobDefinitionSortKey === "object");
 assert(typeof MonitoringProblemType === "object");
 assert(typeof MonitoringScheduleSortKey === "object");
 assert(typeof MonitoringType === "object");
+assert(typeof MoveClusterNodesErrorCode === "object");
 assert(typeof NodeUnavailabilityType === "object");
 assert(typeof NotebookInstanceAcceleratorType === "object");
 assert(typeof NotebookInstanceLifecycleConfigSortKey === "object");
@@ -5942,12 +6044,14 @@ assert(typeof paginateListEndpoints === "function");
 assert(typeof paginateListExperiments === "function");
 assert(typeof paginateListFeatureGroups === "function");
 assert(typeof paginateListFlowDefinitions === "function");
+assert(typeof paginateListGlobalInferenceGateways === "function");
 assert(typeof paginateListHumanTaskUis === "function");
 assert(typeof paginateListHyperParameterTuningJobs === "function");
 assert(typeof paginateListImageVersions === "function");
 assert(typeof paginateListImages === "function");
 assert(typeof paginateListInferenceComponents === "function");
 assert(typeof paginateListInferenceExperiments === "function");
+assert(typeof paginateListInferenceGateways === "function");
 assert(typeof paginateListInferenceRecommendationsJobSteps === "function");
 assert(typeof paginateListInferenceRecommendationsJobs === "function");
 assert(typeof paginateListInferenceRouters === "function");

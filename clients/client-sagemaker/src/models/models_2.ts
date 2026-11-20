@@ -17,7 +17,6 @@ import type {
   ClusterOperationStatus,
   ClusterOperationType,
   ClusterStatus,
-  CompilationJobStatus,
   CustomizationTechnique,
   DataDistributionType,
   DeepHealthCheckType,
@@ -34,6 +33,7 @@ import type {
   JoinSource,
   ManagedStorageType,
   ModelApprovalStatus,
+  ModelCardStatus,
   ModelPackageRegistrationType,
   ModelSpeculativeDecodingS3DataType,
   ModelSpeculativeDecodingTechnique,
@@ -58,8 +58,6 @@ import type {
   RetentionType,
   RootAccess,
   RuleEvaluationStatus,
-  SchedulerConfigComponent,
-  SchedulerResourceStatus,
   ServerlessJobType,
   SharingType,
   SkipModelValidation,
@@ -115,7 +113,6 @@ import type {
   ClusterInstanceGroupDetails,
   ClusterNodeDetails,
   ClusterOperationScalingDetails,
-  ClusterOrchestrator,
   CodeEditorAppImageConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -135,6 +132,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  ClusterOrchestrator,
   ClusterRestrictedInstanceGroupDetails,
   ClusterRestrictedInstanceGroupsConfigOutput,
   ClusterTieredStorageConfig,
@@ -143,19 +141,14 @@ import type {
   CognitoMemberDefinition,
   CollectionConfiguration,
   DeviceSelectionConfig,
-  DriftCheckBaselines,
+  DriftCheckBias,
+  DriftCheckExplainability,
   EdgeDeploymentConfig,
   EndpointInput,
-  Explainability,
-  GitConfig,
-  InputConfig,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
-  ModelDataQuality,
   ModelDeployConfig,
-  ModelLifeCycle,
-  ModelPackageModelCard,
   MonitoringConstraintsResource,
   MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
@@ -163,13 +156,148 @@ import type {
   MonitoringResources,
   MonitoringStatisticsResource,
   MonitoringStoppingCondition,
-  NeoVpcConfig,
-  OutputConfig,
   RetryStrategy,
-  SchedulerConfig,
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Represents the drift check data quality baselines that can be used when the model monitor is set using the model package. </p>
+ * @public
+ */
+export interface DriftCheckModelDataQuality {
+  /**
+   * <p>The drift check model data quality statistics.</p>
+   * @public
+   */
+  Statistics?: MetricsSource | undefined;
+
+  /**
+   * <p>The drift check model data quality constraints.</p>
+   * @public
+   */
+  Constraints?: MetricsSource | undefined;
+}
+
+/**
+ * <p>Represents the drift check model quality baselines that can be used when the model monitor is set using the model package. </p>
+ * @public
+ */
+export interface DriftCheckModelQuality {
+  /**
+   * <p>The drift check model quality statistics.</p>
+   * @public
+   */
+  Statistics?: MetricsSource | undefined;
+
+  /**
+   * <p>The drift check model quality constraints.</p>
+   * @public
+   */
+  Constraints?: MetricsSource | undefined;
+}
+
+/**
+ * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package. </p>
+ * @public
+ */
+export interface DriftCheckBaselines {
+  /**
+   * <p>Represents the drift check bias baselines that can be used when the model monitor is set using the model package. </p>
+   * @public
+   */
+  Bias?: DriftCheckBias | undefined;
+
+  /**
+   * <p>Represents the drift check explainability baselines that can be used when the model monitor is set using the model package. </p>
+   * @public
+   */
+  Explainability?: DriftCheckExplainability | undefined;
+
+  /**
+   * <p>Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.</p>
+   * @public
+   */
+  ModelQuality?: DriftCheckModelQuality | undefined;
+
+  /**
+   * <p>Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.</p>
+   * @public
+   */
+  ModelDataQuality?: DriftCheckModelDataQuality | undefined;
+}
+
+/**
+ * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
+ * @public
+ */
+export interface ModelPackageModelCard {
+  /**
+   * <p>The content of the model card. The content must follow the schema described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model Package Model Card Schema</a>.</p>
+   * @public
+   */
+  ModelCardContent?: string | undefined;
+
+  /**
+   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p> <ul> <li> <p> <code>Draft</code>: The model card is a work in progress.</p> </li> <li> <p> <code>PendingReview</code>: The model card is pending review.</p> </li> <li> <p> <code>Approved</code>: The model card is approved.</p> </li> <li> <p> <code>Archived</code>: The model card is archived. No more updates can be made to the model card content. If you try to update the model card content, you will receive the message <code>Model Card is in Archived state</code>.</p> </li> </ul>
+   * @public
+   */
+  ModelCardStatus?: ModelCardStatus | undefined;
+}
+
+/**
+ * <p> A structure describing the current state of the model in its life cycle. </p>
+ * @public
+ */
+export interface ModelLifeCycle {
+  /**
+   * <p> The current stage in the model life cycle. </p>
+   * @public
+   */
+  Stage: string | undefined;
+
+  /**
+   * <p> The current status of a stage in model life cycle. </p>
+   * @public
+   */
+  StageStatus: string | undefined;
+
+  /**
+   * <p> Describes the stage related details. </p>
+   * @public
+   */
+  StageDescription?: string | undefined;
+}
+
+/**
+ * <p>Contains explainability metrics for a model.</p>
+ * @public
+ */
+export interface Explainability {
+  /**
+   * <p>The explainability report for a model.</p>
+   * @public
+   */
+  Report?: MetricsSource | undefined;
+}
+
+/**
+ * <p>Data quality constraints and statistics for a model.</p>
+ * @public
+ */
+export interface ModelDataQuality {
+  /**
+   * <p>Data quality statistics for a model.</p>
+   * @public
+   */
+  Statistics?: MetricsSource | undefined;
+
+  /**
+   * <p>Data quality constraints for a model.</p>
+   * @public
+   */
+  Constraints?: MetricsSource | undefined;
+}
 
 /**
  * <p>Model quality statistics and constraints.</p>
@@ -4874,6 +5002,43 @@ export interface DeleteFlowDefinitionResponse {}
 /**
  * @public
  */
+export interface DeleteGlobalInferenceGatewayRequest {
+  /**
+   * <p>The name, Amazon Resource Name (ARN), or ID of the global inference gateway to delete.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGlobalInferenceGatewayResponse {
+  /**
+   * Set when a global inference gateway was deleted, and for an already-gone one when the Identifier was an
+   * ARN or Id.
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * Set when a global inference gateway was deleted, and for an already-gone one when the Identifier was an
+   * ARN or Id.
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * Set when a global inference gateway was deleted, and for an already-gone one when the Identifier was a
+   * name.
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteHubRequest {
   /**
    * <p>The name of the hub to delete.</p>
@@ -7094,321 +7259,4 @@ export interface DescribeClusterOperationResponse {
    * @public
    */
   DeepHealthCheckDetails?: InstanceGroupHealthCheckConfiguration[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterSchedulerConfigRequest {
-  /**
-   * <p>ID of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigId: string | undefined;
-
-  /**
-   * <p>Version of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigVersion?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterSchedulerConfigResponse {
-  /**
-   * <p>ARN of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigArn: string | undefined;
-
-  /**
-   * <p>ID of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigId: string | undefined;
-
-  /**
-   * <p>Name of the cluster policy.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Version of the cluster policy.</p>
-   * @public
-   */
-  ClusterSchedulerConfigVersion: number | undefined;
-
-  /**
-   * <p>Status of the cluster policy.</p>
-   * @public
-   */
-  Status: SchedulerResourceStatus | undefined;
-
-  /**
-   * <p>Failure reason of the cluster policy.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>Additional details about the status of the cluster policy. This field provides context when the policy is in a non-active state, such as during creation, updates, or if failures occur.</p>
-   * @public
-   */
-  StatusDetails?: Partial<Record<SchedulerConfigComponent, SchedulerResourceStatus>> | undefined;
-
-  /**
-   * <p>ARN of the cluster where the cluster policy is applied.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-
-  /**
-   * <p>Cluster policy configuration. This policy is used for task prioritization and fair-share allocation. This helps prioritize critical workloads and distributes idle compute across entities.</p>
-   * @public
-   */
-  SchedulerConfig?: SchedulerConfig | undefined;
-
-  /**
-   * <p>Description of the cluster policy.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Creation time of the cluster policy.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  CreatedBy?: UserContext | undefined;
-
-  /**
-   * <p>Last modified time of the cluster policy.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>Information about the user who created or modified a SageMaker resource.</p>
-   * @public
-   */
-  LastModifiedBy?: UserContext | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCodeRepositoryInput {
-  /**
-   * <p>The name of the Git repository to describe.</p>
-   * @public
-   */
-  CodeRepositoryName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCodeRepositoryOutput {
-  /**
-   * <p>The name of the Git repository.</p>
-   * @public
-   */
-  CodeRepositoryName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Git repository.</p>
-   * @public
-   */
-  CodeRepositoryArn: string | undefined;
-
-  /**
-   * <p>The date and time that the repository was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the repository was last changed.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>Configuration details about the repository, including the URL where the repository is located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository.</p>
-   * @public
-   */
-  GitConfig?: GitConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCompilationJobRequest {
-  /**
-   * <p>The name of the model compilation job that you want information about.</p>
-   * @public
-   */
-  CompilationJobName: string | undefined;
-}
-
-/**
- * <p>Provides information about the location that is configured for storing model artifacts. </p> <p>Model artifacts are outputs that result from training a model. They typically consist of trained parameters, a model definition that describes how to compute inferences, and other metadata. A SageMaker container stores your trained model artifacts in the <code>/opt/ml/model</code> directory. After training has completed, by default, these artifacts are uploaded to your Amazon S3 bucket as compressed files.</p>
- * @public
- */
-export interface ModelArtifacts {
-  /**
-   * <p>The path of the S3 object that contains the model artifacts. For example, <code>s3://bucket-name/keynameprefix/model.tar.gz</code>.</p>
-   * @public
-   */
-  S3ModelArtifacts: string | undefined;
-}
-
-/**
- * <p>Provides information to verify the integrity of stored model artifacts. </p>
- * @public
- */
-export interface ModelDigests {
-  /**
-   * <p>Provides a hash value that uniquely identifies the stored model artifacts.</p>
-   * @public
-   */
-  ArtifactDigest?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCompilationJobResponse {
-  /**
-   * <p>The name of the model compilation job.</p>
-   * @public
-   */
-  CompilationJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model compilation job.</p>
-   * @public
-   */
-  CompilationJobArn: string | undefined;
-
-  /**
-   * <p>The status of the model compilation job.</p>
-   * @public
-   */
-  CompilationJobStatus: CompilationJobStatus | undefined;
-
-  /**
-   * <p>The time when the model compilation job started the <code>CompilationJob</code> instances. </p> <p>You are billed for the time between this timestamp and the timestamp in the <code>CompilationEndTime</code> field. In Amazon CloudWatch Logs, the start time might be later than this time. That's because it takes time to download the compilation job, which depends on the size of the compilation job container. </p>
-   * @public
-   */
-  CompilationStartTime?: Date | undefined;
-
-  /**
-   * <p>The time when the model compilation job on a compilation job instance ended. For a successful or stopped job, this is when the job's model artifacts have finished uploading. For a failed job, this is when Amazon SageMaker AI detected that the job failed. </p>
-   * @public
-   */
-  CompilationEndTime?: Date | undefined;
-
-  /**
-   * <p>Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker AI ends the compilation job. Use this API to cap model training costs.</p>
-   * @public
-   */
-  StoppingCondition: StoppingCondition | undefined;
-
-  /**
-   * <p>The inference image to use when compiling a model. Specify an image only if the target device is a cloud instance.</p>
-   * @public
-   */
-  InferenceImage?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the versioned model package that was provided to SageMaker Neo when you initiated a compilation job.</p>
-   * @public
-   */
-  ModelPackageVersionArn?: string | undefined;
-
-  /**
-   * <p>The time that the model compilation job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The time that the status of the model compilation job was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>If a model compilation job failed, the reason it failed. </p>
-   * @public
-   */
-  FailureReason: string | undefined;
-
-  /**
-   * <p>Information about the location in Amazon S3 that has been configured for storing the model artifacts used in the compilation job.</p>
-   * @public
-   */
-  ModelArtifacts: ModelArtifacts | undefined;
-
-  /**
-   * <p>Provides a BLAKE2 hash value that identifies the compiled model artifacts in Amazon S3.</p>
-   * @public
-   */
-  ModelDigests?: ModelDigests | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI assumes to perform the model compilation job.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>Information about the location in Amazon S3 of the input model artifacts, the name and shape of the expected data inputs, and the framework in which the model was trained.</p>
-   * @public
-   */
-  InputConfig: InputConfig | undefined;
-
-  /**
-   * <p>Information about the output location for the compiled model and the target device that the model runs on.</p>
-   * @public
-   */
-  OutputConfig: OutputConfig | undefined;
-
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your compilation job to connect to. Control access to your models by configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
-   * @public
-   */
-  VpcConfig?: NeoVpcConfig | undefined;
-
-  /**
-   * <p>Information that SageMaker Neo automatically derived about the model.</p>
-   * @public
-   */
-  DerivedInformation?: DerivedInformation | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeComputeQuotaRequest {
-  /**
-   * <p>ID of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaId: string | undefined;
-
-  /**
-   * <p>Version of the compute allocation definition.</p>
-   * @public
-   */
-  ComputeQuotaVersion?: number | undefined;
 }

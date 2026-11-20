@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type { AddAssociationCommandInput, AddAssociationCommandOutput } from "./commands/AddAssociationCommand";
+import type {
+  AddInferenceGatewayCommandInput,
+  AddInferenceGatewayCommandOutput,
+} from "./commands/AddInferenceGatewayCommand";
 import type { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import type {
   AssociateTrialComponentCommandInput,
@@ -170,6 +174,10 @@ import type {
   CreateFlowDefinitionCommandInput,
   CreateFlowDefinitionCommandOutput,
 } from "./commands/CreateFlowDefinitionCommand";
+import type {
+  CreateGlobalInferenceGatewayCommandInput,
+  CreateGlobalInferenceGatewayCommandOutput,
+} from "./commands/CreateGlobalInferenceGatewayCommand";
 import type { CreateHubCommandInput, CreateHubCommandOutput } from "./commands/CreateHubCommand";
 import type {
   CreateHubContentPresignedUrlsCommandInput,
@@ -400,6 +408,10 @@ import type {
   DeleteFlowDefinitionCommandInput,
   DeleteFlowDefinitionCommandOutput,
 } from "./commands/DeleteFlowDefinitionCommand";
+import type {
+  DeleteGlobalInferenceGatewayCommandInput,
+  DeleteGlobalInferenceGatewayCommandOutput,
+} from "./commands/DeleteGlobalInferenceGatewayCommand";
 import type { DeleteHubCommandInput, DeleteHubCommandOutput } from "./commands/DeleteHubCommand";
 import type { DeleteHubContentCommandInput, DeleteHubContentCommandOutput } from "./commands/DeleteHubContentCommand";
 import type {
@@ -619,6 +631,10 @@ import type {
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput,
 } from "./commands/DescribeFlowDefinitionCommand";
+import type {
+  DescribeGlobalInferenceGatewayCommandInput,
+  DescribeGlobalInferenceGatewayCommandOutput,
+} from "./commands/DescribeGlobalInferenceGatewayCommand";
 import type { DescribeHubCommandInput, DescribeHubCommandOutput } from "./commands/DescribeHubCommand";
 import type {
   DescribeHubContentCommandInput,
@@ -924,6 +940,10 @@ import type {
   ListFlowDefinitionsCommandInput,
   ListFlowDefinitionsCommandOutput,
 } from "./commands/ListFlowDefinitionsCommand";
+import type {
+  ListGlobalInferenceGatewaysCommandInput,
+  ListGlobalInferenceGatewaysCommandOutput,
+} from "./commands/ListGlobalInferenceGatewaysCommand";
 import type { ListHubContentsCommandInput, ListHubContentsCommandOutput } from "./commands/ListHubContentsCommand";
 import type {
   ListHubContentVersionsCommandInput,
@@ -948,6 +968,10 @@ import type {
   ListInferenceExperimentsCommandInput,
   ListInferenceExperimentsCommandOutput,
 } from "./commands/ListInferenceExperimentsCommand";
+import type {
+  ListInferenceGatewaysCommandInput,
+  ListInferenceGatewaysCommandOutput,
+} from "./commands/ListInferenceGatewaysCommand";
 import type {
   ListInferenceRecommendationsJobsCommandInput,
   ListInferenceRecommendationsJobsCommandOutput,
@@ -1108,6 +1132,7 @@ import type {
 import type { ListUserProfilesCommandInput, ListUserProfilesCommandOutput } from "./commands/ListUserProfilesCommand";
 import type { ListWorkforcesCommandInput, ListWorkforcesCommandOutput } from "./commands/ListWorkforcesCommand";
 import type { ListWorkteamsCommandInput, ListWorkteamsCommandOutput } from "./commands/ListWorkteamsCommand";
+import type { MoveClusterNodesCommandInput, MoveClusterNodesCommandOutput } from "./commands/MoveClusterNodesCommand";
 import type {
   PutEndpointPolicyCommandInput,
   PutEndpointPolicyCommandOutput,
@@ -1118,6 +1143,10 @@ import type {
 } from "./commands/PutModelPackageGroupPolicyCommand";
 import type { QueryLineageCommandInput, QueryLineageCommandOutput } from "./commands/QueryLineageCommand";
 import type { RegisterDevicesCommandInput, RegisterDevicesCommandOutput } from "./commands/RegisterDevicesCommand";
+import type {
+  RemoveInferenceGatewayCommandInput,
+  RemoveInferenceGatewayCommandOutput,
+} from "./commands/RemoveInferenceGatewayCommand";
 import type { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "./commands/RenderUiTemplateCommand";
 import type {
   RetryPipelineExecutionCommandInput,
@@ -1278,6 +1307,10 @@ import type {
   UpdateFeatureMetadataCommandInput,
   UpdateFeatureMetadataCommandOutput,
 } from "./commands/UpdateFeatureMetadataCommand";
+import type {
+  UpdateGlobalInferenceGatewayCommandInput,
+  UpdateGlobalInferenceGatewayCommandOutput,
+} from "./commands/UpdateGlobalInferenceGatewayCommand";
 import type { UpdateHubCommandInput, UpdateHubCommandOutput } from "./commands/UpdateHubCommand";
 import type { UpdateHubContentCommandInput, UpdateHubContentCommandOutput } from "./commands/UpdateHubContentCommand";
 import type {
@@ -1374,6 +1407,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddAssociationCommandInput
+  | AddInferenceGatewayCommandInput
   | AddTagsCommandInput
   | AssociateTrialComponentCommandInput
   | AttachClusterNodeNetworkInterfaceCommandInput
@@ -1411,6 +1445,7 @@ export type ServiceInputTypes =
   | CreateExperimentCommandInput
   | CreateFeatureGroupCommandInput
   | CreateFlowDefinitionCommandInput
+  | CreateGlobalInferenceGatewayCommandInput
   | CreateHubCommandInput
   | CreateHubContentPresignedUrlsCommandInput
   | CreateHubContentReferenceCommandInput
@@ -1485,6 +1520,7 @@ export type ServiceInputTypes =
   | DeleteExperimentCommandInput
   | DeleteFeatureGroupCommandInput
   | DeleteFlowDefinitionCommandInput
+  | DeleteGlobalInferenceGatewayCommandInput
   | DeleteHubCommandInput
   | DeleteHubContentCommandInput
   | DeleteHubContentReferenceCommandInput
@@ -1557,6 +1593,7 @@ export type ServiceInputTypes =
   | DescribeFeatureGroupCommandInput
   | DescribeFeatureMetadataCommandInput
   | DescribeFlowDefinitionCommandInput
+  | DescribeGlobalInferenceGatewayCommandInput
   | DescribeHubCommandInput
   | DescribeHubContentCommandInput
   | DescribeHumanTaskUiCommandInput
@@ -1652,6 +1689,7 @@ export type ServiceInputTypes =
   | ListExperimentsCommandInput
   | ListFeatureGroupsCommandInput
   | ListFlowDefinitionsCommandInput
+  | ListGlobalInferenceGatewaysCommandInput
   | ListHubContentVersionsCommandInput
   | ListHubContentsCommandInput
   | ListHubsCommandInput
@@ -1661,6 +1699,7 @@ export type ServiceInputTypes =
   | ListImagesCommandInput
   | ListInferenceComponentsCommandInput
   | ListInferenceExperimentsCommandInput
+  | ListInferenceGatewaysCommandInput
   | ListInferenceRecommendationsJobStepsCommandInput
   | ListInferenceRecommendationsJobsCommandInput
   | ListInferenceRoutersCommandInput
@@ -1713,10 +1752,12 @@ export type ServiceInputTypes =
   | ListUserProfilesCommandInput
   | ListWorkforcesCommandInput
   | ListWorkteamsCommandInput
+  | MoveClusterNodesCommandInput
   | PutEndpointPolicyCommandInput
   | PutModelPackageGroupPolicyCommandInput
   | QueryLineageCommandInput
   | RegisterDevicesCommandInput
+  | RemoveInferenceGatewayCommandInput
   | RenderUiTemplateCommandInput
   | RetryPipelineExecutionCommandInput
   | SearchCommandInput
@@ -1769,6 +1810,7 @@ export type ServiceInputTypes =
   | UpdateExperimentCommandInput
   | UpdateFeatureGroupCommandInput
   | UpdateFeatureMetadataCommandInput
+  | UpdateGlobalInferenceGatewayCommandInput
   | UpdateHubCommandInput
   | UpdateHubContentCommandInput
   | UpdateHubContentReferenceCommandInput
@@ -1804,6 +1846,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddAssociationCommandOutput
+  | AddInferenceGatewayCommandOutput
   | AddTagsCommandOutput
   | AssociateTrialComponentCommandOutput
   | AttachClusterNodeNetworkInterfaceCommandOutput
@@ -1841,6 +1884,7 @@ export type ServiceOutputTypes =
   | CreateExperimentCommandOutput
   | CreateFeatureGroupCommandOutput
   | CreateFlowDefinitionCommandOutput
+  | CreateGlobalInferenceGatewayCommandOutput
   | CreateHubCommandOutput
   | CreateHubContentPresignedUrlsCommandOutput
   | CreateHubContentReferenceCommandOutput
@@ -1915,6 +1959,7 @@ export type ServiceOutputTypes =
   | DeleteExperimentCommandOutput
   | DeleteFeatureGroupCommandOutput
   | DeleteFlowDefinitionCommandOutput
+  | DeleteGlobalInferenceGatewayCommandOutput
   | DeleteHubCommandOutput
   | DeleteHubContentCommandOutput
   | DeleteHubContentReferenceCommandOutput
@@ -1987,6 +2032,7 @@ export type ServiceOutputTypes =
   | DescribeFeatureGroupCommandOutput
   | DescribeFeatureMetadataCommandOutput
   | DescribeFlowDefinitionCommandOutput
+  | DescribeGlobalInferenceGatewayCommandOutput
   | DescribeHubCommandOutput
   | DescribeHubContentCommandOutput
   | DescribeHumanTaskUiCommandOutput
@@ -2082,6 +2128,7 @@ export type ServiceOutputTypes =
   | ListExperimentsCommandOutput
   | ListFeatureGroupsCommandOutput
   | ListFlowDefinitionsCommandOutput
+  | ListGlobalInferenceGatewaysCommandOutput
   | ListHubContentVersionsCommandOutput
   | ListHubContentsCommandOutput
   | ListHubsCommandOutput
@@ -2091,6 +2138,7 @@ export type ServiceOutputTypes =
   | ListImagesCommandOutput
   | ListInferenceComponentsCommandOutput
   | ListInferenceExperimentsCommandOutput
+  | ListInferenceGatewaysCommandOutput
   | ListInferenceRecommendationsJobStepsCommandOutput
   | ListInferenceRecommendationsJobsCommandOutput
   | ListInferenceRoutersCommandOutput
@@ -2143,10 +2191,12 @@ export type ServiceOutputTypes =
   | ListUserProfilesCommandOutput
   | ListWorkforcesCommandOutput
   | ListWorkteamsCommandOutput
+  | MoveClusterNodesCommandOutput
   | PutEndpointPolicyCommandOutput
   | PutModelPackageGroupPolicyCommandOutput
   | QueryLineageCommandOutput
   | RegisterDevicesCommandOutput
+  | RemoveInferenceGatewayCommandOutput
   | RenderUiTemplateCommandOutput
   | RetryPipelineExecutionCommandOutput
   | SearchCommandOutput
@@ -2199,6 +2249,7 @@ export type ServiceOutputTypes =
   | UpdateExperimentCommandOutput
   | UpdateFeatureGroupCommandOutput
   | UpdateFeatureMetadataCommandOutput
+  | UpdateGlobalInferenceGatewayCommandOutput
   | UpdateHubCommandOutput
   | UpdateHubContentCommandOutput
   | UpdateHubContentReferenceCommandOutput

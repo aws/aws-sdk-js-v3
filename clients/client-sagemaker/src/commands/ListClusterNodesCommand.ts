@@ -56,7 +56,7 @@ export interface ListClusterNodesCommandOutput extends ListClusterNodesResponse,
  * //       LaunchTime: new Date("TIMESTAMP"), // required
  * //       LastSoftwareUpdateTime: new Date("TIMESTAMP"),
  * //       InstanceStatus: { // ClusterInstanceStatusDetails
- * //         Status: "Running" || "Failure" || "Pending" || "ShuttingDown" || "SystemUpdating" || "DeepHealthCheckInProgress" || "NotFound", // required
+ * //         Status: "Running" || "Failure" || "Pending" || "ShuttingDown" || "SystemUpdating" || "DeepHealthCheckInProgress" || "NotFound" || "DetachInProgress" || "AttachInProgress", // required
  * //         Message: "STRING_VALUE",
  * //       },
  * //       UltraServerInfo: { // UltraServerInfo

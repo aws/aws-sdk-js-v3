@@ -1,0 +1,156 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Arn": "__Arn__",
+  "Id": "__Id__",
+  "Name": "__Name__",
+  "Status": "__Status__",
+  "ExecutionRoleArn": "__ExecutionRoleArn__",
+  "Routing": {
+    "Weights": {}
+  },
+  "Gateways": [
+    {
+      "Name": "__Name__",
+      "Namespace": "__Namespace__",
+      "ClusterArn": "__ClusterArn__"
+    },
+    {
+      "Name": "__Name__",
+      "Namespace": "__Namespace__",
+      "ClusterArn": "__ClusterArn__"
+    },
+    {
+      "Name": "__Name__",
+      "Namespace": "__Namespace__",
+      "ClusterArn": "__ClusterArn__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  Arn: "__Arn__",
+  Id: "__Id__",
+  Name: "__Name__",
+  Status: "__Status__",
+  ExecutionRoleArn: "__ExecutionRoleArn__",
+  Routing: {
+    Weights: {}
+  },
+  Gateways: [
+    {
+      Name: "__Name__",
+      Namespace: "__Namespace__",
+      ClusterArn: "__ClusterArn__"
+    },
+    {
+      Name: "__Name__",
+      Namespace: "__Namespace__",
+      ClusterArn: "__ClusterArn__"
+    },
+    {
+      Name: "__Name__",
+      Namespace: "__Namespace__",
+      ClusterArn: "__ClusterArn__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Arn": "__Arn__",
+  "Id": "__Id__",
+  "Name": "__Name__",
+  "Status": "__Status__",
+  "ExecutionRoleArn": "__ExecutionRoleArn__",
+  "Routing": {
+    "Weights": {
+      "KVHeadroom": 0,
+      "QueueDepth": 0,
+      "RegionProximity": 0,
+      "ErrorRate": 0
+    }
+  },
+  "Gateways": [
+    {
+      "Name": "__Name__",
+      "Namespace": "__Namespace__",
+      "ClusterArn": "__ClusterArn__"
+    },
+    {
+      "Name": "__Name__",
+      "Namespace": "__Namespace__",
+      "ClusterArn": "__ClusterArn__"
+    },
+    {
+      "Name": "__Name__",
+      "Namespace": "__Namespace__",
+      "ClusterArn": "__ClusterArn__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  Arn: "__Arn__",
+  Id: "__Id__",
+  Name: "__Name__",
+  Status: "__Status__",
+  ExecutionRoleArn: "__ExecutionRoleArn__",
+  Routing: {
+    Weights: {
+      KVHeadroom: (number) 0,
+      QueueDepth: (number) 0,
+      RegionProximity: (number) 0,
+      ErrorRate: (number) 0
+    }
+  },
+  Gateways: [
+    {
+      Name: "__Name__",
+      Namespace: "__Namespace__",
+      ClusterArn: "__ClusterArn__"
+    },
+    {
+      Name: "__Name__",
+      Namespace: "__Namespace__",
+      ClusterArn: "__ClusterArn__"
+    },
+    {
+      Name: "__Name__",
+      Namespace: "__Namespace__",
+      ClusterArn: "__ClusterArn__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

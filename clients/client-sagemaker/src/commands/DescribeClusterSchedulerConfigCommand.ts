@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeClusterSchedulerConfigRequest, DescribeClusterSchedulerConfigResponse } from "../models/models_2";
+import type { DescribeClusterSchedulerConfigRequest, DescribeClusterSchedulerConfigResponse } from "../models/models_3";
 import { DescribeClusterSchedulerConfig$ } from "../schemas/schemas_0";
 
 /**

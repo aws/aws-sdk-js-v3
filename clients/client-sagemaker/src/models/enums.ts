@@ -333,6 +333,34 @@ export type AssociationEdgeType = (typeof AssociationEdgeType)[keyof typeof Asso
  * @public
  * @enum
  */
+export const GlobalInferenceGatewayMemberStatus = {
+  /**
+   * <p>The in-cluster inference gateway is added and receives requests.</p>
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * <p>The in-cluster inference gateway is being added and doesn't receive requests yet.</p>
+   */
+  ADDING: "ADDING",
+  /**
+   * <p>Adding or removing the in-cluster inference gateway failed. For details, see <code>FailureReason</code>. After you fix the cause, remove the in-cluster inference gateway and add it again.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>The in-cluster inference gateway is being removed.</p>
+   */
+  REMOVING: "REMOVING",
+} as const;
+/**
+ * @public
+ */
+export type GlobalInferenceGatewayMemberStatus =
+  (typeof GlobalInferenceGatewayMemberStatus)[keyof typeof GlobalInferenceGatewayMemberStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ModelCompressionType = {
   Gzip: "Gzip",
   None: "None",
@@ -2192,7 +2220,9 @@ export type BatchAddClusterNodesErrorCode =
  * @enum
  */
 export const ClusterInstanceStatus = {
+  ATTACH_IN_PROGRESS: "AttachInProgress",
   DEEP_HEALTH_CHECK_IN_PROGRESS: "DeepHealthCheckInProgress",
+  DETACH_IN_PROGRESS: "DetachInProgress",
   FAILURE: "Failure",
   NOT_FOUND: "NotFound",
   PENDING: "Pending",
@@ -3935,6 +3965,38 @@ export const ThroughputMode = {
  * @public
  */
 export type ThroughputMode = (typeof ThroughputMode)[keyof typeof ThroughputMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalInferenceGatewayStatus = {
+  /**
+   * <p>The global inference gateway is serving requests, and no operation is in progress.</p>
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * <p>The global inference gateway is being created. Don't send inference requests to it yet.</p>
+   */
+  CREATING: "CREATING",
+  /**
+   * <p>The global inference gateway is being deleted.</p>
+   */
+  DELETING: "DELETING",
+  /**
+   * <p>The global inference gateway failed. For details, see <code>FailureReason</code>.</p>
+   */
+  FAILED: "FAILED",
+  /**
+   * <p>An update, add, or remove operation is in progress. The global inference gateway continues to serve requests.</p>
+   */
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type GlobalInferenceGatewayStatus =
+  (typeof GlobalInferenceGatewayStatus)[keyof typeof GlobalInferenceGatewayStatus];
 
 /**
  * @public
@@ -6237,6 +6299,42 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  * @public
  * @enum
  */
+export const GlobalInferenceGatewayFilterName = {
+  /**
+   * <p>Filter by the status of the global inference gateway.</p>
+   */
+  STATUS: "Status",
+} as const;
+/**
+ * @public
+ */
+export type GlobalInferenceGatewayFilterName =
+  (typeof GlobalInferenceGatewayFilterName)[keyof typeof GlobalInferenceGatewayFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalInferenceGatewayMemberFilterName = {
+  /**
+   * <p>Filter by the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
+   */
+  CLUSTER_ARN: "ClusterArn",
+  /**
+   * <p>Filter by the status of the in-cluster inference gateway.</p>
+   */
+  STATUS: "Status",
+} as const;
+/**
+ * @public
+ */
+export type GlobalInferenceGatewayMemberFilterName =
+  (typeof GlobalInferenceGatewayMemberFilterName)[keyof typeof GlobalInferenceGatewayMemberFilterName];
+
+/**
+ * @public
+ * @enum
+ */
 export const HubContentSortBy = {
   CREATION_TIME: "CreationTime",
   HUB_CONTENT_NAME: "HubContentName",
@@ -7265,6 +7363,21 @@ export const ModelVariantAction = {
  * @public
  */
 export type ModelVariantAction = (typeof ModelVariantAction)[keyof typeof ModelVariantAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const MoveClusterNodesErrorCode = {
+  INVALID_NODE_STATUS: "InvalidNodeStatus",
+  NODE_ID_IN_USE: "NodeIdInUse",
+  NODE_ID_NOT_FOUND: "NodeIdNotFound",
+  NODE_INSTANCE_TYPE_MISMATCH: "NodeInstanceTypeMismatch",
+} as const;
+/**
+ * @public
+ */
+export type MoveClusterNodesErrorCode = (typeof MoveClusterNodesErrorCode)[keyof typeof MoveClusterNodesErrorCode];
 
 /**
  * @public

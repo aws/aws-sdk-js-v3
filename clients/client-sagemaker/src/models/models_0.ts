@@ -61,7 +61,6 @@ import type {
   ClusterOperationStatus,
   ClusterOperationType,
   ClusterPatchingStrategy,
-  ClusterSlurmConfigStrategy,
   ClusterSlurmNodeType,
   CompressionType,
   DatabaseConfigurationRollbackStatus,
@@ -72,6 +71,7 @@ import type {
   FileSystemAccessMode,
   FileSystemType,
   FillingType,
+  GlobalInferenceGatewayMemberStatus,
   InstanceGroupStatus,
   LifecycleManagement,
   MetricSetSource,
@@ -316,6 +316,96 @@ export interface AddClusterNodeSpecification {
    * @public
    */
   InstanceTypes?: ClusterInstanceType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AddInferenceGatewayRequest {
+  /**
+   * <p>The name, Amazon Resource Name (ARN), or ID of the global inference gateway.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster that runs the in-cluster inference gateway. The cluster must be in the same account and partition as the global inference gateway. It can be in a different Region, but not in an opt-in Region.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The Kubernetes namespace of the in-cluster inference gateway.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The name of the <code>InferenceGatewayConfig</code> resource that defines the in-cluster inference gateway.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * An in-cluster inference gateway, identified by the SageMaker HyperPod cluster that runs it
+ * (`ClusterArn`), its Kubernetes namespace (`Namespace`), and the name of the `InferenceGatewayConfig`
+ * resource that defines it (`Name`).
+ * @public
+ */
+export interface GlobalInferenceGatewayMember {
+  /**
+   * <p>The name of the <code>InferenceGatewayConfig</code> resource that defines the in-cluster inference gateway.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Kubernetes namespace of the in-cluster inference gateway.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster that runs the in-cluster inference gateway. The cluster must be in the same account and partition as the global inference gateway. It can be in a different Region, but not in an opt-in Region.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AddInferenceGatewayResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the global inference gateway.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The ID of the global inference gateway.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the global inference gateway.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The in-cluster inference gateway that you added.</p>
+   * @public
+   */
+  Gateway: GlobalInferenceGatewayMember | undefined;
+
+  /**
+   * <p>The status of the in-cluster inference gateway in the global inference gateway.</p>
+   * @public
+   */
+  Status?: GlobalInferenceGatewayMemberStatus | undefined;
 }
 
 /**
@@ -8143,58 +8233,4 @@ export interface ClusterOrchestratorEksConfig {
    * @public
    */
   ClusterArn: string | undefined;
-}
-
-/**
- * <p>The configuration settings for the Slurm orchestrator used with the SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ClusterOrchestratorSlurmConfig {
-  /**
-   * <p>The strategy for managing partitions for the Slurm configuration. Valid values are <code>Managed</code>, <code>Overwrite</code>, and <code>Merge</code>.</p>
-   * @public
-   */
-  SlurmConfigStrategy?: ClusterSlurmConfigStrategy | undefined;
-
-  /**
-   * <p>The external database that stores the Slurm accounting data for the cluster, such as job history, associations, and usage. When you omit this field, Slurm accounting uses a database on the cluster's controller node.</p> <note> <p>This field is only supported for clusters using <code>Continuous</code> as the <code>NodeProvisioningMode</code>.</p> </note>
-   * @public
-   */
-  AccountingDatabase?: ClusterAccountingDatabase | undefined;
-}
-
-/**
- * <p>The type of orchestrator used for the SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ClusterOrchestrator {
-  /**
-   * <p>The Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  Eks?: ClusterOrchestratorEksConfig | undefined;
-
-  /**
-   * <p>The Slurm orchestrator configuration for the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  Slurm?: ClusterOrchestratorSlurmConfig | undefined;
-}
-
-/**
- * <p>Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.</p>
- * @public
- */
-export interface FSxLustreConfig {
-  /**
-   * <p>The storage capacity of the Amazon FSx for Lustre file system, specified in gibibytes (GiB).</p>
-   * @public
-   */
-  SizeInGiB: number | undefined;
-
-  /**
-   * <p>The throughput capacity of the Amazon FSx for Lustre file system, measured in MB/s per TiB of storage.</p>
-   * @public
-   */
-  PerUnitStorageThroughput: number | undefined;
 }

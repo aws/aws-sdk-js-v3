@@ -3,14 +3,13 @@ import type {
   _InstanceType,
   AccountDefaultStatus,
   ActivationState,
-  AIBenchmarkJobStatus,
-  AIRecommendationJobStatus,
   AppNetworkAccessType,
   AppSecurityGroupManagement,
   AssociationEdgeType,
   AuthMode,
   BatchStrategy,
   CapacityReservationPreference,
+  CompilationJobStatus,
   DetailedModelPackageStatus,
   DeviceDeploymentStatus,
   DirectInternetAccess,
@@ -26,6 +25,10 @@ import type {
   FeatureType,
   FlowDefinitionStatus,
   ForEachStatus,
+  GlobalInferenceGatewayFilterName,
+  GlobalInferenceGatewayMemberFilterName,
+  GlobalInferenceGatewayMemberStatus,
+  GlobalInferenceGatewayStatus,
   HomeEfsFileSystemCreation,
   HubContentStatus,
   HubContentSupportStatus,
@@ -51,8 +54,6 @@ import type {
   JobType,
   LabelingJobStatus,
   LastUpdateStatusValue,
-  ListAIBenchmarkJobsSortBy,
-  ListAIRecommendationJobsSortBy,
   MaintenanceStatus,
   ManagedStorageType,
   MlflowAppStatus,
@@ -95,12 +96,11 @@ import type {
   RuleEvaluationStatus,
   SageMakerResourceName,
   SagemakerServicecatalogStatus,
+  SchedulerConfigComponent,
   SchedulerResourceStatus,
   ScheduleStatus,
   SecondaryStatus,
   SkipModelValidation,
-  SortActionsBy,
-  SortOrder,
   SpaceStatus,
   StudioLifecycleConfigAppType,
   TagPropagation,
@@ -122,14 +122,11 @@ import type {
 } from "./enums";
 import type {
   AcceleratorPartitionLayout,
-  ActionSummary,
   AdditionalInferenceSpecificationDefinition,
   AgentVersion,
-  AIBenchmarkJobSummary,
   AlgorithmSpecification,
   AmazonQSettings,
   AppSpecification,
-  AssociationInfo,
   AsyncInferenceConfig,
   AutoRollbackConfig,
   Autotune,
@@ -141,7 +138,6 @@ import type {
   CheckpointConfig,
   InferenceSpecification,
   OutputDataConfig,
-  OutputParameter,
   ResourceConfig,
   ResourceSpec,
   StoppingCondition,
@@ -168,13 +164,14 @@ import type {
   DeploymentConfig,
   DockerSettings,
   DomainSettings,
-  DriftCheckBaselines,
   EdgeDeploymentModelConfig,
   EdgeOutputConfig,
   EndpointInfo,
   ExplainerConfig,
   FeatureDefinition,
   FlowDefinitionOutputConfig,
+  GitConfig,
+  GlobalInferenceGatewayRouting,
   HubS3StorageConfig,
   HumanLoopActivationConfig,
   HumanLoopConfig,
@@ -189,6 +186,7 @@ import type {
   InferenceExecutionConfig,
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
+  InputConfig,
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
@@ -204,14 +202,14 @@ import type {
   ModelExplainabilityBaselineConfig,
   ModelExplainabilityJobInput,
   ModelInfrastructureConfig,
-  ModelLifeCycle,
-  ModelPackageModelCard,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
   MonitoringStoppingCondition,
+  NeoVpcConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
+  OutputConfig,
   ProductionVariant,
   ProductionVariantManagedInstanceScaling,
   ProductionVariantRoutingConfig,
@@ -221,6 +219,7 @@ import type {
   ResourceLimits,
   RetryStrategy,
   RoutingTarget,
+  SchedulerConfig,
   ShadowModeConfig,
   TrustedIdentityPropagationSettings,
   UnifiedStudioSettings,
@@ -236,6 +235,8 @@ import type {
   DeployedImage,
   DeploymentRecommendation,
   DeploymentStageStatusSummary,
+  DerivedInformation,
+  DriftCheckBaselines,
   ExperimentConfig,
   InfraCheckConfig,
   InstanceMetadataServiceConfiguration,
@@ -243,10 +244,11 @@ import type {
   ManagedConfiguration,
   MemberDefinition,
   MlflowConfig,
-  ModelArtifacts,
   ModelClientConfig,
+  ModelLifeCycle,
   ModelMetrics,
   ModelPackageConfig,
+  ModelPackageModelCard,
   ModelPackageSecurityConfig,
   ModelPackageValidationSpecification,
   ModelQualityAppSpecification,
@@ -285,6 +287,323 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeClusterSchedulerConfigRequest {
+  /**
+   * <p>ID of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigId: string | undefined;
+
+  /**
+   * <p>Version of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigVersion?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterSchedulerConfigResponse {
+  /**
+   * <p>ARN of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigArn: string | undefined;
+
+  /**
+   * <p>ID of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigId: string | undefined;
+
+  /**
+   * <p>Name of the cluster policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Version of the cluster policy.</p>
+   * @public
+   */
+  ClusterSchedulerConfigVersion: number | undefined;
+
+  /**
+   * <p>Status of the cluster policy.</p>
+   * @public
+   */
+  Status: SchedulerResourceStatus | undefined;
+
+  /**
+   * <p>Failure reason of the cluster policy.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>Additional details about the status of the cluster policy. This field provides context when the policy is in a non-active state, such as during creation, updates, or if failures occur.</p>
+   * @public
+   */
+  StatusDetails?: Partial<Record<SchedulerConfigComponent, SchedulerResourceStatus>> | undefined;
+
+  /**
+   * <p>ARN of the cluster where the cluster policy is applied.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>Cluster policy configuration. This policy is used for task prioritization and fair-share allocation. This helps prioritize critical workloads and distributes idle compute across entities.</p>
+   * @public
+   */
+  SchedulerConfig?: SchedulerConfig | undefined;
+
+  /**
+   * <p>Description of the cluster policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Creation time of the cluster policy.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  CreatedBy?: UserContext | undefined;
+
+  /**
+   * <p>Last modified time of the cluster policy.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>Information about the user who created or modified a SageMaker resource.</p>
+   * @public
+   */
+  LastModifiedBy?: UserContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCodeRepositoryInput {
+  /**
+   * <p>The name of the Git repository to describe.</p>
+   * @public
+   */
+  CodeRepositoryName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCodeRepositoryOutput {
+  /**
+   * <p>The name of the Git repository.</p>
+   * @public
+   */
+  CodeRepositoryName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Git repository.</p>
+   * @public
+   */
+  CodeRepositoryArn: string | undefined;
+
+  /**
+   * <p>The date and time that the repository was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the repository was last changed.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Configuration details about the repository, including the URL where the repository is located, the default branch, and the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the credentials used to access the repository.</p>
+   * @public
+   */
+  GitConfig?: GitConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCompilationJobRequest {
+  /**
+   * <p>The name of the model compilation job that you want information about.</p>
+   * @public
+   */
+  CompilationJobName: string | undefined;
+}
+
+/**
+ * <p>Provides information about the location that is configured for storing model artifacts. </p> <p>Model artifacts are outputs that result from training a model. They typically consist of trained parameters, a model definition that describes how to compute inferences, and other metadata. A SageMaker container stores your trained model artifacts in the <code>/opt/ml/model</code> directory. After training has completed, by default, these artifacts are uploaded to your Amazon S3 bucket as compressed files.</p>
+ * @public
+ */
+export interface ModelArtifacts {
+  /**
+   * <p>The path of the S3 object that contains the model artifacts. For example, <code>s3://bucket-name/keynameprefix/model.tar.gz</code>.</p>
+   * @public
+   */
+  S3ModelArtifacts: string | undefined;
+}
+
+/**
+ * <p>Provides information to verify the integrity of stored model artifacts. </p>
+ * @public
+ */
+export interface ModelDigests {
+  /**
+   * <p>Provides a hash value that uniquely identifies the stored model artifacts.</p>
+   * @public
+   */
+  ArtifactDigest?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCompilationJobResponse {
+  /**
+   * <p>The name of the model compilation job.</p>
+   * @public
+   */
+  CompilationJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model compilation job.</p>
+   * @public
+   */
+  CompilationJobArn: string | undefined;
+
+  /**
+   * <p>The status of the model compilation job.</p>
+   * @public
+   */
+  CompilationJobStatus: CompilationJobStatus | undefined;
+
+  /**
+   * <p>The time when the model compilation job started the <code>CompilationJob</code> instances. </p> <p>You are billed for the time between this timestamp and the timestamp in the <code>CompilationEndTime</code> field. In Amazon CloudWatch Logs, the start time might be later than this time. That's because it takes time to download the compilation job, which depends on the size of the compilation job container. </p>
+   * @public
+   */
+  CompilationStartTime?: Date | undefined;
+
+  /**
+   * <p>The time when the model compilation job on a compilation job instance ended. For a successful or stopped job, this is when the job's model artifacts have finished uploading. For a failed job, this is when Amazon SageMaker AI detected that the job failed. </p>
+   * @public
+   */
+  CompilationEndTime?: Date | undefined;
+
+  /**
+   * <p>Specifies a limit to how long a model compilation job can run. When the job reaches the time limit, Amazon SageMaker AI ends the compilation job. Use this API to cap model training costs.</p>
+   * @public
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * <p>The inference image to use when compiling a model. Specify an image only if the target device is a cloud instance.</p>
+   * @public
+   */
+  InferenceImage?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the versioned model package that was provided to SageMaker Neo when you initiated a compilation job.</p>
+   * @public
+   */
+  ModelPackageVersionArn?: string | undefined;
+
+  /**
+   * <p>The time that the model compilation job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The time that the status of the model compilation job was last modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>If a model compilation job failed, the reason it failed. </p>
+   * @public
+   */
+  FailureReason: string | undefined;
+
+  /**
+   * <p>Information about the location in Amazon S3 that has been configured for storing the model artifacts used in the compilation job.</p>
+   * @public
+   */
+  ModelArtifacts: ModelArtifacts | undefined;
+
+  /**
+   * <p>Provides a BLAKE2 hash value that identifies the compiled model artifacts in Amazon S3.</p>
+   * @public
+   */
+  ModelDigests?: ModelDigests | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI assumes to perform the model compilation job.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>Information about the location in Amazon S3 of the input model artifacts, the name and shape of the expected data inputs, and the framework in which the model was trained.</p>
+   * @public
+   */
+  InputConfig: InputConfig | undefined;
+
+  /**
+   * <p>Information about the output location for the compiled model and the target device that the model runs on.</p>
+   * @public
+   */
+  OutputConfig: OutputConfig | undefined;
+
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that you want your compilation job to connect to. Control access to your models by configuring the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html">Protect Compilation Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
+   * @public
+   */
+  VpcConfig?: NeoVpcConfig | undefined;
+
+  /**
+   * <p>Information that SageMaker Neo automatically derived about the model.</p>
+   * @public
+   */
+  DerivedInformation?: DerivedInformation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeComputeQuotaRequest {
+  /**
+   * <p>ID of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaId: string | undefined;
+
+  /**
+   * <p>Version of the compute allocation definition.</p>
+   * @public
+   */
+  ComputeQuotaVersion?: number | undefined;
+}
 
 /**
  * @public
@@ -2104,6 +2423,87 @@ export interface DescribeFlowDefinitionResponse {
 
   /**
    * <p>The reason your flow definition failed.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeGlobalInferenceGatewayRequest {
+  /**
+   * <p>The name, Amazon Resource Name (ARN), or ID of the global inference gateway.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeGlobalInferenceGatewayResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the global inference gateway.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The ID of the global inference gateway.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the global inference gateway.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the IAM role that the global inference gateway assumes to
+   * access your SageMaker HyperPod clusters. You can't change the role after you create the global
+   * inference gateway.
+   * @public
+   */
+  ExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>The status of the global inference gateway.</p>
+   * @public
+   */
+  Status: GlobalInferenceGatewayStatus | undefined;
+
+  /**
+   * The URL that you use to invoke the global inference gateway. This value is set after the global
+   * inference gateway becomes `ACTIVE`.
+   * @public
+   */
+  EndpointUrl?: string | undefined;
+
+  /**
+   * The name of the VPC endpoint service to create an interface VPC endpoint (AWS PrivateLink) from,
+   * so that you can call `EndpointUrl` without going over the internet. This value is set after the
+   * global inference gateway becomes `ACTIVE`.
+   * @public
+   */
+  VpcEndpointServiceName?: string | undefined;
+
+  /**
+   * <p>The routing configuration of the global inference gateway.</p>
+   * @public
+   */
+  Routing?: GlobalInferenceGatewayRouting | undefined;
+
+  /**
+   * <p>The time when the global inference gateway was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The reason that the global inference gateway failed. SageMaker returns this value only when the status is <code>FAILED</code>.</p>
    * @public
    */
   FailureReason?: string | undefined;
@@ -10614,6 +11014,118 @@ export interface GitConfigForUpdate {
 }
 
 /**
+ * A filter for `ListGlobalInferenceGateways`. The filter matches the global inference gateways whose
+ * attribute named by `Name` equals `Value`.
+ * @public
+ */
+export interface GlobalInferenceGatewayFilter {
+  /**
+   * <p>The attribute to filter global inference gateways on. The only supported value is <code>Status</code>.</p>
+   * @public
+   */
+  Name: GlobalInferenceGatewayFilterName | undefined;
+
+  /**
+   * <p>The value to match. For the <code>Status</code> filter, specify a global inference gateway status.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * A filter for `ListInferenceGateways`. The filter matches the in-cluster inference gateways whose
+ * attribute named by `Name` equals `Value`.
+ * @public
+ */
+export interface GlobalInferenceGatewayMemberFilter {
+  /**
+   * <p>The attribute to filter in-cluster inference gateways on. Supported values are <code>Status</code> and <code>ClusterArn</code>.</p>
+   * @public
+   */
+  Name: GlobalInferenceGatewayMemberFilterName | undefined;
+
+  /**
+   * <p>The value to match. For the <code>Status</code> filter, specify a status of an in-cluster inference gateway. For the <code>ClusterArn</code> filter, specify the Amazon Resource Name (ARN) of a SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * Summary information about an in-cluster inference gateway in a global inference gateway, including
+ * its status.
+ * @public
+ */
+export interface GlobalInferenceGatewayMemberSummary {
+  /**
+   * <p>The name of the <code>InferenceGatewayConfig</code> resource that defines the in-cluster inference gateway.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Kubernetes namespace of the in-cluster inference gateway.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster that runs the in-cluster inference gateway.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The status of the in-cluster inference gateway in the global inference gateway. This status describes the membership in the global inference gateway, not the health of the in-cluster inference gateway.</p>
+   * @public
+   */
+  Status?: GlobalInferenceGatewayMemberStatus | undefined;
+
+  /**
+   * The reason that adding or removing the in-cluster inference gateway failed. This value is set
+   * only when the status is `FAILED`.
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a global inference gateway.</p>
+ * @public
+ */
+export interface GlobalInferenceGatewaySummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the global inference gateway.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The ID of the global inference gateway.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the global inference gateway.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the global inference gateway.</p>
+   * @public
+   */
+  Status: GlobalInferenceGatewayStatus | undefined;
+
+  /**
+   * <p>The time when the global inference gateway was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+}
+
+/**
  * <p>Contains information about a hub content resource, including its name, version, type, associated documents, dependencies, and status, as returned by a search result.</p>
  * @public
  */
@@ -11659,593 +12171,4 @@ export interface IterationContext {
    * @public
    */
   Item?: string | undefined;
-}
-
-/**
- * <p>The properties of a job returned by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API.</p>
- * @public
- */
-export interface Job {
-  /**
-   * <p>The name of the job.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the job.</p>
-   * @public
-   */
-  JobArn?: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role associated with the job.</p>
-   * @public
-   */
-  RoleArn?: string | undefined;
-
-  /**
-   * <p>The category of the job.</p>
-   * @public
-   */
-  JobCategory?: JobCategory | undefined;
-
-  /**
-   * <p>The schema version used for the job configuration document.</p>
-   * @public
-   */
-  JobConfigSchemaVersion?: string | undefined;
-
-  /**
-   * <p>The JSON configuration document for the job.</p>
-   * @public
-   */
-  JobConfigDocument?: string | undefined;
-
-  /**
-   * <p>The date and time that the job was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The date and time that the job was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The date and time that the job ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The current status of the job.</p>
-   * @public
-   */
-  JobStatus?: JobStatus | undefined;
-
-  /**
-   * <p>The detailed secondary status of the job, providing more granular information about the job's progress.</p>
-   * @public
-   */
-  SecondaryStatus?: JobSecondaryStatus | undefined;
-
-  /**
-   * <p>A list of secondary status transitions for the job, with timestamps and optional status messages.</p>
-   * @public
-   */
-  SecondaryStatusTransitions?: JobSecondaryStatusTransition[] | undefined;
-
-  /**
-   * <p>If the job failed, the reason it failed.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The tags associated with the job.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Provides summary information about a job configuration schema version.</p>
- * @public
- */
-export interface JobConfigSchemaVersionSummary {
-  /**
-   * <p>The version of the job configuration schema.</p>
-   * @public
-   */
-  JobConfigSchemaVersion: string | undefined;
-}
-
-/**
- * <p>Metadata for a SageMaker job step.</p>
- * @public
- */
-export interface JobStepMetadata {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SageMaker job that was run by this step execution.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * <p>Provides summary information about a job, returned by the <code>ListJobs</code> operation. Use <code>DescribeJob</code> to get full details for a specific job.</p>
- * @public
- */
-export interface JobSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the job.</p>
-   * @public
-   */
-  JobArn: string | undefined;
-
-  /**
-   * <p>The name of the job.</p>
-   * @public
-   */
-  JobName: string | undefined;
-
-  /**
-   * <p>The category of the job.</p>
-   * @public
-   */
-  JobCategory: JobCategory | undefined;
-
-  /**
-   * <p>The current status of the job.</p>
-   * @public
-   */
-  JobStatus: JobStatus | undefined;
-
-  /**
-   * <p>The secondary status of the job, providing more granular information about the job's progress. Secondary statuses may change between releases.</p>
-   * @public
-   */
-  JobSecondaryStatus: JobSecondaryStatus | undefined;
-
-  /**
-   * <p>The date and time that the job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the job was last modified.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the job ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-}
-
-/**
- * <p>Provides counts for human-labeled tasks in the labeling job.</p>
- * @public
- */
-export interface LabelCountersForWorkteam {
-  /**
-   * <p>The total number of data objects labeled by a human worker.</p>
-   * @public
-   */
-  HumanLabeled?: number | undefined;
-
-  /**
-   * <p>The total number of data objects that need to be labeled by a human worker.</p>
-   * @public
-   */
-  PendingHuman?: number | undefined;
-
-  /**
-   * <p>The total number of tasks in the labeling job.</p>
-   * @public
-   */
-  Total?: number | undefined;
-}
-
-/**
- * <p>Provides summary information for a work team.</p>
- * @public
- */
-export interface LabelingJobForWorkteamSummary {
-  /**
-   * <p>The name of the labeling job that the work team is assigned to.</p>
-   * @public
-   */
-  LabelingJobName?: string | undefined;
-
-  /**
-   * <p>A unique identifier for a labeling job. You can use this to refer to a specific labeling job.</p>
-   * @public
-   */
-  JobReferenceCode: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the account used to start the labeling job.</p>
-   * @public
-   */
-  WorkRequesterAccountId: string | undefined;
-
-  /**
-   * <p>The date and time that the labeling job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Provides information about the progress of a labeling job.</p>
-   * @public
-   */
-  LabelCounters?: LabelCountersForWorkteam | undefined;
-
-  /**
-   * <p>The configured number of workers per data object.</p>
-   * @public
-   */
-  NumberOfHumanWorkersPerDataObject?: number | undefined;
-}
-
-/**
- * <p>Provides summary information about a labeling job.</p>
- * @public
- */
-export interface LabelingJobSummary {
-  /**
-   * <p>The name of the labeling job.</p>
-   * @public
-   */
-  LabelingJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) assigned to the labeling job when it was created.</p>
-   * @public
-   */
-  LabelingJobArn: string | undefined;
-
-  /**
-   * <p>The date and time that the job was created (timestamp).</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the job was last modified (timestamp).</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The current status of the labeling job. </p>
-   * @public
-   */
-  LabelingJobStatus: LabelingJobStatus | undefined;
-
-  /**
-   * <p>Counts showing the progress of the labeling job.</p>
-   * @public
-   */
-  LabelCounters: LabelCounters | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the work team assigned to the job.</p>
-   * @public
-   */
-  WorkteamArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a Lambda function. The function is run before each data object is sent to a worker.</p>
-   * @public
-   */
-  PreHumanTaskLambdaArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function used to consolidate the annotations from individual workers into a label for a data object. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation Consolidation</a>.</p>
-   * @public
-   */
-  AnnotationConsolidationLambdaArn?: string | undefined;
-
-  /**
-   * <p>If the <code>LabelingJobStatus</code> field is <code>Failed</code>, this field contains a description of the error.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The location of the output produced by the labeling job.</p>
-   * @public
-   */
-  LabelingJobOutput?: LabelingJobOutput | undefined;
-
-  /**
-   * <p>Input configuration for the labeling job.</p>
-   * @public
-   */
-  InputConfig?: LabelingJobInputConfig | undefined;
-}
-
-/**
- * <p>Metadata for a Lambda step.</p>
- * @public
- */
-export interface LambdaStepMetadata {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>A list of the output parameters of the Lambda step.</p>
-   * @public
-   */
-  OutputParameters?: OutputParameter[] | undefined;
-}
-
-/**
- * <p>Lists a summary of the properties of a lineage group. A lineage group provides a group of shareable lineage entity resources.</p>
- * @public
- */
-export interface LineageGroupSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lineage group resource.</p>
-   * @public
-   */
-  LineageGroupArn?: string | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the lineage group.</p>
-   * @public
-   */
-  LineageGroupName?: string | undefined;
-
-  /**
-   * <p>The display name of the lineage group summary.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The creation time of the lineage group summary.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The last modified time of the lineage group summary.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * <p> The metadata that tracks relationships between ML artifacts, actions, and contexts. </p>
- * @public
- */
-export interface LineageMetadata {
-  /**
-   * <p> The Amazon Resource Name (ARN) of the lineage action. </p>
-   * @public
-   */
-  ActionArns?: Record<string, string> | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the lineage artifact. </p>
-   * @public
-   */
-  ArtifactArns?: Record<string, string> | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the lineage context. </p>
-   * @public
-   */
-  ContextArns?: Record<string, string> | undefined;
-
-  /**
-   * <p> The lineage associations. </p>
-   * @public
-   */
-  Associations?: AssociationInfo[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListActionsRequest {
-  /**
-   * <p>A filter that returns only actions with the specified source URI.</p>
-   * @public
-   */
-  SourceUri?: string | undefined;
-
-  /**
-   * <p>A filter that returns only actions of the specified type.</p>
-   * @public
-   */
-  ActionType?: string | undefined;
-
-  /**
-   * <p>A filter that returns only actions created on or after the specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only actions created on or before the specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortActionsBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListActions</code> didn't return the full set of actions, the call returns a token for getting the next set of actions.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of actions to return in the response. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListActionsResponse {
-  /**
-   * <p>A list of actions and their properties.</p>
-   * @public
-   */
-  ActionSummaries?: ActionSummary[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of actions, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAIBenchmarkJobsRequest {
-  /**
-   * <p>The maximum number of benchmark jobs to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListAIBenchmarkJobs</code> didn't return the full set of jobs, the call returns a token for getting the next set.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A string in the job name. This filter returns only jobs whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that returns only benchmark jobs with the specified status.</p>
-   * @public
-   */
-  StatusEquals?: AIBenchmarkJobStatus | undefined;
-
-  /**
-   * <p>A filter that returns only jobs created after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only jobs created before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: ListAIBenchmarkJobsSortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAIBenchmarkJobsResponse {
-  /**
-   * <p>An array of <code>AIBenchmarkJobSummary</code> objects, one for each benchmark job that matches the specified filters.</p>
-   * @public
-   */
-  AIBenchmarkJobs: AIBenchmarkJobSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, Amazon SageMaker AI returns this token. To retrieve the next set of jobs, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAIRecommendationJobsRequest {
-  /**
-   * <p>The maximum number of recommendation jobs to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListAIRecommendationJobs</code> didn't return the full set of jobs, the call returns a token for getting the next set.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A string in the job name. This filter returns only jobs whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that returns only recommendation jobs with the specified status.</p>
-   * @public
-   */
-  StatusEquals?: AIRecommendationJobStatus | undefined;
-
-  /**
-   * <p>A filter that returns only jobs created after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only jobs created before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: ListAIRecommendationJobsSortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Descending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
 }

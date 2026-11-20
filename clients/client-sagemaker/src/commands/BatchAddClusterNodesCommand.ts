@@ -55,7 +55,7 @@ export interface BatchAddClusterNodesCommandOutput extends BatchAddClusterNodesR
  * //     { // NodeAdditionResult
  * //       NodeLogicalId: "STRING_VALUE", // required
  * //       InstanceGroupName: "STRING_VALUE", // required
- * //       Status: "Running" || "Failure" || "Pending" || "ShuttingDown" || "SystemUpdating" || "DeepHealthCheckInProgress" || "NotFound", // required
+ * //       Status: "Running" || "Failure" || "Pending" || "ShuttingDown" || "SystemUpdating" || "DeepHealthCheckInProgress" || "NotFound" || "DetachInProgress" || "AttachInProgress", // required
  * //       AvailabilityZones: [ // ClusterAvailabilityZones
  * //         "STRING_VALUE",
  * //       ],

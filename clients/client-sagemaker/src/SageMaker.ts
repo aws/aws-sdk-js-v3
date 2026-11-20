@@ -13,6 +13,11 @@ import {
   type AddAssociationCommandOutput,
   AddAssociationCommand,
 } from "./commands/AddAssociationCommand";
+import {
+  type AddInferenceGatewayCommandInput,
+  type AddInferenceGatewayCommandOutput,
+  AddInferenceGatewayCommand,
+} from "./commands/AddInferenceGatewayCommand";
 import { type AddTagsCommandInput, type AddTagsCommandOutput, AddTagsCommand } from "./commands/AddTagsCommand";
 import {
   type AssociateTrialComponentCommandInput,
@@ -190,6 +195,11 @@ import {
   type CreateFlowDefinitionCommandOutput,
   CreateFlowDefinitionCommand,
 } from "./commands/CreateFlowDefinitionCommand";
+import {
+  type CreateGlobalInferenceGatewayCommandInput,
+  type CreateGlobalInferenceGatewayCommandOutput,
+  CreateGlobalInferenceGatewayCommand,
+} from "./commands/CreateGlobalInferenceGatewayCommand";
 import { type CreateHubCommandInput, type CreateHubCommandOutput, CreateHubCommand } from "./commands/CreateHubCommand";
 import {
   type CreateHubContentPresignedUrlsCommandInput,
@@ -548,6 +558,11 @@ import {
   type DeleteFlowDefinitionCommandOutput,
   DeleteFlowDefinitionCommand,
 } from "./commands/DeleteFlowDefinitionCommand";
+import {
+  type DeleteGlobalInferenceGatewayCommandInput,
+  type DeleteGlobalInferenceGatewayCommandOutput,
+  DeleteGlobalInferenceGatewayCommand,
+} from "./commands/DeleteGlobalInferenceGatewayCommand";
 import { type DeleteHubCommandInput, type DeleteHubCommandOutput, DeleteHubCommand } from "./commands/DeleteHubCommand";
 import {
   type DeleteHubContentCommandInput,
@@ -900,6 +915,11 @@ import {
   type DescribeFlowDefinitionCommandOutput,
   DescribeFlowDefinitionCommand,
 } from "./commands/DescribeFlowDefinitionCommand";
+import {
+  type DescribeGlobalInferenceGatewayCommandInput,
+  type DescribeGlobalInferenceGatewayCommandOutput,
+  DescribeGlobalInferenceGatewayCommand,
+} from "./commands/DescribeGlobalInferenceGatewayCommand";
 import {
   type DescribeHubCommandInput,
   type DescribeHubCommandOutput,
@@ -1372,6 +1392,11 @@ import {
   ListFlowDefinitionsCommand,
 } from "./commands/ListFlowDefinitionsCommand";
 import {
+  type ListGlobalInferenceGatewaysCommandInput,
+  type ListGlobalInferenceGatewaysCommandOutput,
+  ListGlobalInferenceGatewaysCommand,
+} from "./commands/ListGlobalInferenceGatewaysCommand";
+import {
   type ListHubContentsCommandInput,
   type ListHubContentsCommandOutput,
   ListHubContentsCommand,
@@ -1412,6 +1437,11 @@ import {
   type ListInferenceExperimentsCommandOutput,
   ListInferenceExperimentsCommand,
 } from "./commands/ListInferenceExperimentsCommand";
+import {
+  type ListInferenceGatewaysCommandInput,
+  type ListInferenceGatewaysCommandOutput,
+  ListInferenceGatewaysCommand,
+} from "./commands/ListInferenceGatewaysCommand";
 import {
   type ListInferenceRecommendationsJobsCommandInput,
   type ListInferenceRecommendationsJobsCommandOutput,
@@ -1665,6 +1695,11 @@ import {
   ListWorkteamsCommand,
 } from "./commands/ListWorkteamsCommand";
 import {
+  type MoveClusterNodesCommandInput,
+  type MoveClusterNodesCommandOutput,
+  MoveClusterNodesCommand,
+} from "./commands/MoveClusterNodesCommand";
+import {
   type PutEndpointPolicyCommandInput,
   type PutEndpointPolicyCommandOutput,
   PutEndpointPolicyCommand,
@@ -1684,6 +1719,11 @@ import {
   type RegisterDevicesCommandOutput,
   RegisterDevicesCommand,
 } from "./commands/RegisterDevicesCommand";
+import {
+  type RemoveInferenceGatewayCommandInput,
+  type RemoveInferenceGatewayCommandOutput,
+  RemoveInferenceGatewayCommand,
+} from "./commands/RemoveInferenceGatewayCommand";
 import {
   type RenderUiTemplateCommandInput,
   type RenderUiTemplateCommandOutput,
@@ -1936,6 +1976,11 @@ import {
   type UpdateFeatureMetadataCommandOutput,
   UpdateFeatureMetadataCommand,
 } from "./commands/UpdateFeatureMetadataCommand";
+import {
+  type UpdateGlobalInferenceGatewayCommandInput,
+  type UpdateGlobalInferenceGatewayCommandOutput,
+  UpdateGlobalInferenceGatewayCommand,
+} from "./commands/UpdateGlobalInferenceGatewayCommand";
 import { type UpdateHubCommandInput, type UpdateHubCommandOutput, UpdateHubCommand } from "./commands/UpdateHubCommand";
 import {
   type UpdateHubContentCommandInput,
@@ -2117,12 +2162,14 @@ import { paginateListEndpoints } from "./pagination/ListEndpointsPaginator";
 import { paginateListExperiments } from "./pagination/ListExperimentsPaginator";
 import { paginateListFeatureGroups } from "./pagination/ListFeatureGroupsPaginator";
 import { paginateListFlowDefinitions } from "./pagination/ListFlowDefinitionsPaginator";
+import { paginateListGlobalInferenceGateways } from "./pagination/ListGlobalInferenceGatewaysPaginator";
 import { paginateListHumanTaskUis } from "./pagination/ListHumanTaskUisPaginator";
 import { paginateListHyperParameterTuningJobs } from "./pagination/ListHyperParameterTuningJobsPaginator";
 import { paginateListImages } from "./pagination/ListImagesPaginator";
 import { paginateListImageVersions } from "./pagination/ListImageVersionsPaginator";
 import { paginateListInferenceComponents } from "./pagination/ListInferenceComponentsPaginator";
 import { paginateListInferenceExperiments } from "./pagination/ListInferenceExperimentsPaginator";
+import { paginateListInferenceGateways } from "./pagination/ListInferenceGatewaysPaginator";
 import { paginateListInferenceRecommendationsJobs } from "./pagination/ListInferenceRecommendationsJobsPaginator";
 import {
   paginateListInferenceRecommendationsJobSteps,
@@ -2202,6 +2249,7 @@ import { waitUntilTransformJobCompletedOrStopped } from "./waiters/waitForTransf
 
 const commands = {
   AddAssociationCommand,
+  AddInferenceGatewayCommand,
   AddTagsCommand,
   AssociateTrialComponentCommand,
   AttachClusterNodeNetworkInterfaceCommand,
@@ -2239,6 +2287,7 @@ const commands = {
   CreateExperimentCommand,
   CreateFeatureGroupCommand,
   CreateFlowDefinitionCommand,
+  CreateGlobalInferenceGatewayCommand,
   CreateHubCommand,
   CreateHubContentPresignedUrlsCommand,
   CreateHubContentReferenceCommand,
@@ -2313,6 +2362,7 @@ const commands = {
   DeleteExperimentCommand,
   DeleteFeatureGroupCommand,
   DeleteFlowDefinitionCommand,
+  DeleteGlobalInferenceGatewayCommand,
   DeleteHubCommand,
   DeleteHubContentCommand,
   DeleteHubContentReferenceCommand,
@@ -2385,6 +2435,7 @@ const commands = {
   DescribeFeatureGroupCommand,
   DescribeFeatureMetadataCommand,
   DescribeFlowDefinitionCommand,
+  DescribeGlobalInferenceGatewayCommand,
   DescribeHubCommand,
   DescribeHubContentCommand,
   DescribeHumanTaskUiCommand,
@@ -2480,6 +2531,7 @@ const commands = {
   ListExperimentsCommand,
   ListFeatureGroupsCommand,
   ListFlowDefinitionsCommand,
+  ListGlobalInferenceGatewaysCommand,
   ListHubContentsCommand,
   ListHubContentVersionsCommand,
   ListHubsCommand,
@@ -2489,6 +2541,7 @@ const commands = {
   ListImageVersionsCommand,
   ListInferenceComponentsCommand,
   ListInferenceExperimentsCommand,
+  ListInferenceGatewaysCommand,
   ListInferenceRecommendationsJobsCommand,
   ListInferenceRecommendationsJobStepsCommand,
   ListInferenceRoutersCommand,
@@ -2541,10 +2594,12 @@ const commands = {
   ListUserProfilesCommand,
   ListWorkforcesCommand,
   ListWorkteamsCommand,
+  MoveClusterNodesCommand,
   PutEndpointPolicyCommand,
   PutModelPackageGroupPolicyCommand,
   QueryLineageCommand,
   RegisterDevicesCommand,
+  RemoveInferenceGatewayCommand,
   RenderUiTemplateCommand,
   RetryPipelineExecutionCommand,
   SearchCommand,
@@ -2597,6 +2652,7 @@ const commands = {
   UpdateExperimentCommand,
   UpdateFeatureGroupCommand,
   UpdateFeatureMetadataCommand,
+  UpdateGlobalInferenceGatewayCommand,
   UpdateHubCommand,
   UpdateHubContentCommand,
   UpdateHubContentReferenceCommand,
@@ -2664,12 +2720,14 @@ const paginators = {
   paginateListExperiments,
   paginateListFeatureGroups,
   paginateListFlowDefinitions,
+  paginateListGlobalInferenceGateways,
   paginateListHumanTaskUis,
   paginateListHyperParameterTuningJobs,
   paginateListImages,
   paginateListImageVersions,
   paginateListInferenceComponents,
   paginateListInferenceExperiments,
+  paginateListInferenceGateways,
   paginateListInferenceRecommendationsJobs,
   paginateListInferenceRecommendationsJobSteps,
   paginateListInferenceRouters,
@@ -2764,6 +2822,23 @@ export interface SageMaker {
     args: AddAssociationCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: AddAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AddInferenceGatewayCommand}
+   */
+  addInferenceGateway(
+    args: AddInferenceGatewayCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<AddInferenceGatewayCommandOutput>;
+  addInferenceGateway(
+    args: AddInferenceGatewayCommandInput,
+    cb: (err: any, data?: AddInferenceGatewayCommandOutput) => void
+  ): void;
+  addInferenceGateway(
+    args: AddInferenceGatewayCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: AddInferenceGatewayCommandOutput) => void
   ): void;
 
   /**
@@ -3393,6 +3468,23 @@ export interface SageMaker {
     args: CreateFlowDefinitionCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: CreateFlowDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateGlobalInferenceGatewayCommand}
+   */
+  createGlobalInferenceGateway(
+    args: CreateGlobalInferenceGatewayCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<CreateGlobalInferenceGatewayCommandOutput>;
+  createGlobalInferenceGateway(
+    args: CreateGlobalInferenceGatewayCommandInput,
+    cb: (err: any, data?: CreateGlobalInferenceGatewayCommandOutput) => void
+  ): void;
+  createGlobalInferenceGateway(
+    args: CreateGlobalInferenceGatewayCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: CreateGlobalInferenceGatewayCommandOutput) => void
   ): void;
 
   /**
@@ -4656,6 +4748,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DeleteGlobalInferenceGatewayCommand}
+   */
+  deleteGlobalInferenceGateway(
+    args: DeleteGlobalInferenceGatewayCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DeleteGlobalInferenceGatewayCommandOutput>;
+  deleteGlobalInferenceGateway(
+    args: DeleteGlobalInferenceGatewayCommandInput,
+    cb: (err: any, data?: DeleteGlobalInferenceGatewayCommandOutput) => void
+  ): void;
+  deleteGlobalInferenceGateway(
+    args: DeleteGlobalInferenceGatewayCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DeleteGlobalInferenceGatewayCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteHubCommand}
    */
   deleteHub(
@@ -5877,6 +5986,23 @@ export interface SageMaker {
     args: DescribeFlowDefinitionCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: DescribeFlowDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeGlobalInferenceGatewayCommand}
+   */
+  describeGlobalInferenceGateway(
+    args: DescribeGlobalInferenceGatewayCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DescribeGlobalInferenceGatewayCommandOutput>;
+  describeGlobalInferenceGateway(
+    args: DescribeGlobalInferenceGatewayCommandInput,
+    cb: (err: any, data?: DescribeGlobalInferenceGatewayCommandOutput) => void
+  ): void;
+  describeGlobalInferenceGateway(
+    args: DescribeGlobalInferenceGatewayCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DescribeGlobalInferenceGatewayCommandOutput) => void
   ): void;
 
   /**
@@ -7525,6 +7651,24 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListGlobalInferenceGatewaysCommand}
+   */
+  listGlobalInferenceGateways(): Promise<ListGlobalInferenceGatewaysCommandOutput>;
+  listGlobalInferenceGateways(
+    args: ListGlobalInferenceGatewaysCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<ListGlobalInferenceGatewaysCommandOutput>;
+  listGlobalInferenceGateways(
+    args: ListGlobalInferenceGatewaysCommandInput,
+    cb: (err: any, data?: ListGlobalInferenceGatewaysCommandOutput) => void
+  ): void;
+  listGlobalInferenceGateways(
+    args: ListGlobalInferenceGatewaysCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: ListGlobalInferenceGatewaysCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListHubContentsCommand}
    */
   listHubContents(
@@ -7681,6 +7825,23 @@ export interface SageMaker {
     args: ListInferenceExperimentsCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: ListInferenceExperimentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInferenceGatewaysCommand}
+   */
+  listInferenceGateways(
+    args: ListInferenceGatewaysCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<ListInferenceGatewaysCommandOutput>;
+  listInferenceGateways(
+    args: ListInferenceGatewaysCommandInput,
+    cb: (err: any, data?: ListInferenceGatewaysCommandOutput) => void
+  ): void;
+  listInferenceGateways(
+    args: ListInferenceGatewaysCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: ListInferenceGatewaysCommandOutput) => void
   ): void;
 
   /**
@@ -8606,6 +8767,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link MoveClusterNodesCommand}
+   */
+  moveClusterNodes(
+    args: MoveClusterNodesCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<MoveClusterNodesCommandOutput>;
+  moveClusterNodes(
+    args: MoveClusterNodesCommandInput,
+    cb: (err: any, data?: MoveClusterNodesCommandOutput) => void
+  ): void;
+  moveClusterNodes(
+    args: MoveClusterNodesCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: MoveClusterNodesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutEndpointPolicyCommand}
    */
   putEndpointPolicy(
@@ -8672,6 +8850,23 @@ export interface SageMaker {
     args: RegisterDevicesCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: RegisterDevicesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RemoveInferenceGatewayCommand}
+   */
+  removeInferenceGateway(
+    args: RemoveInferenceGatewayCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<RemoveInferenceGatewayCommandOutput>;
+  removeInferenceGateway(
+    args: RemoveInferenceGatewayCommandInput,
+    cb: (err: any, data?: RemoveInferenceGatewayCommandOutput) => void
+  ): void;
+  removeInferenceGateway(
+    args: RemoveInferenceGatewayCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: RemoveInferenceGatewayCommandOutput) => void
   ): void;
 
   /**
@@ -9557,6 +9752,23 @@ export interface SageMaker {
     args: UpdateFeatureMetadataCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: UpdateFeatureMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGlobalInferenceGatewayCommand}
+   */
+  updateGlobalInferenceGateway(
+    args: UpdateGlobalInferenceGatewayCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<UpdateGlobalInferenceGatewayCommandOutput>;
+  updateGlobalInferenceGateway(
+    args: UpdateGlobalInferenceGatewayCommandInput,
+    cb: (err: any, data?: UpdateGlobalInferenceGatewayCommandOutput) => void
+  ): void;
+  updateGlobalInferenceGateway(
+    args: UpdateGlobalInferenceGatewayCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: UpdateGlobalInferenceGatewayCommandOutput) => void
   ): void;
 
   /**
@@ -10449,6 +10661,17 @@ export interface SageMaker {
   ): Paginator<ListFlowDefinitionsCommandOutput>;
 
   /**
+   * @see {@link ListGlobalInferenceGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGlobalInferenceGatewaysCommandOutput}.
+   */
+  paginateListGlobalInferenceGateways(
+    args?: ListGlobalInferenceGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGlobalInferenceGatewaysCommandOutput>;
+
+  /**
    * @see {@link ListHumanTaskUisCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -10513,6 +10736,17 @@ export interface SageMaker {
     args?: ListInferenceExperimentsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListInferenceExperimentsCommandOutput>;
+
+  /**
+   * @see {@link ListInferenceGatewaysCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInferenceGatewaysCommandOutput}.
+   */
+  paginateListInferenceGateways(
+    args: ListInferenceGatewaysCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInferenceGatewaysCommandOutput>;
 
   /**
    * @see {@link ListInferenceRecommendationsJobsCommand}
