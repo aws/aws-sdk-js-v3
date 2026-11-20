@@ -62,13 +62,13 @@ export interface DeleteVpcEndpointAssociationCommandOutput extends DeleteVpcEndp
  * //     ],
  * //   },
  * //   VpcEndpointAssociationStatus: { // VpcEndpointAssociationStatus
- * //     Status: "PROVISIONING" || "DELETING" || "READY" || "FAILED", // required
+ * //     Status: "PROVISIONING" || "DELETING" || "READY" || "FAILED" || "STANDBY", // required
  * //     AssociationSyncState: { // AssociationSyncState
  * //       "<keys>": { // AZSyncState
  * //         Attachment: { // Attachment
  * //           SubnetId: "STRING_VALUE",
  * //           EndpointId: "STRING_VALUE",
- * //           Status: "CREATING" || "DELETING" || "FAILED" || "ERROR" || "SCALING" || "READY",
+ * //           Status: "CREATING" || "DELETING" || "FAILED" || "ERROR" || "SCALING" || "READY" || "STANDBY",
  * //           StatusMessage: "STRING_VALUE",
  * //           DnsName: "STRING_VALUE",
  * //         },

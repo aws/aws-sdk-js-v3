@@ -39,6 +39,7 @@ export interface UpdateFirewallAnalysisSettingsCommandOutput extends UpdateFirew
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",
  *   UpdateToken: "STRING_VALUE",
+ *   FirewallType: "FIREWALL" || "IGW_FIREWALL",
  * };
  * const command = new UpdateFirewallAnalysisSettingsCommand(input);
  * const response = await client.send(command);

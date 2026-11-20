@@ -43,6 +43,7 @@ export interface UpdateFirewallEncryptionConfigurationCommandOutput extends Upda
  *     KeyId: "STRING_VALUE",
  *     Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
  *   },
+ *   FirewallType: "FIREWALL" || "IGW_FIREWALL",
  * };
  * const command = new UpdateFirewallEncryptionConfigurationCommand(input);
  * const response = await client.send(command);

@@ -74,6 +74,9 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  *     },
  *   ],
  *   AvailabilityZoneChangeProtection: true || false,
+ *   IgwFirewallConfiguration: { // IgwFirewallConfiguration
+ *     EnforcementMode: "POLICY_CONTROLLED", // required
+ *   },
  *   NatGatewayCreateMappings: [ // NatGatewayCreateMappingsList
  *     { // NatGatewayCreateMapping
  *       SubnetId: "STRING_VALUE", // required
@@ -147,6 +150,9 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * //       },
  * //     ],
  * //     AvailabilityZoneChangeProtection: true || false,
+ * //     IgwFirewallConfiguration: { // IgwFirewallConfiguration
+ * //       EnforcementMode: "POLICY_CONTROLLED", // required
+ * //     },
  * //     NatGatewayCreateMappings: [ // NatGatewayCreateMappingsList
  * //       { // NatGatewayCreateMapping
  * //         SubnetId: "STRING_VALUE", // required
@@ -182,14 +188,14 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * //     TransparentFilteringNatScope: "NAT_ALL" || "NAT_NONE",
  * //   },
  * //   FirewallStatus: { // FirewallStatus
- * //     Status: "PROVISIONING" || "DELETING" || "READY" || "FAILED", // required
+ * //     Status: "PROVISIONING" || "DELETING" || "READY" || "FAILED" || "STANDBY", // required
  * //     ConfigurationSyncStateSummary: "PENDING" || "IN_SYNC" || "CAPACITY_CONSTRAINED", // required
  * //     SyncStates: { // SyncStates
  * //       "<keys>": { // SyncState
  * //         Attachment: { // Attachment
  * //           SubnetId: "STRING_VALUE",
  * //           EndpointId: "STRING_VALUE",
- * //           Status: "CREATING" || "DELETING" || "FAILED" || "ERROR" || "SCALING" || "READY",
+ * //           Status: "CREATING" || "DELETING" || "FAILED" || "ERROR" || "SCALING" || "READY" || "STANDBY",
  * //           StatusMessage: "STRING_VALUE",
  * //           DnsName: "STRING_VALUE",
  * //         },
@@ -198,6 +204,14 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * //             SyncStatus: "PENDING" || "IN_SYNC" || "CAPACITY_CONSTRAINED" || "NOT_SUBSCRIBED" || "DEPRECATED",
  * //             UpdateToken: "STRING_VALUE",
  * //           },
+ * //         },
+ * //         AddressTranslations: { // AddressTranslations
+ * //           PublicIPv6Addresses: [ // PublicIPv6Addresses
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           PublicIPv4Addresses: [ // PublicIPv4Addresses
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //         NatGatewayAttachments: [ // NatGatewayAttachmentsList
  * //           { // NatGatewayAttachment

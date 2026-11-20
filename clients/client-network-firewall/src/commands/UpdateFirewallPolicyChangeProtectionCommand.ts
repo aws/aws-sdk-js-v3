@@ -42,6 +42,7 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput extends Updat
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",
  *   FirewallPolicyChangeProtection: true || false, // required
+ *   FirewallType: "FIREWALL" || "IGW_FIREWALL",
  * };
  * const command = new UpdateFirewallPolicyChangeProtectionCommand(input);
  * const response = await client.send(command);

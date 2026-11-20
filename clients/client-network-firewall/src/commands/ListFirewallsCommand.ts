@@ -41,6 +41,7 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  *     "STRING_VALUE",
  *   ],
  *   MaxResults: Number("int"),
+ *   FirewallType: "FIREWALL" || "IGW_FIREWALL",
  * };
  * const command = new ListFirewallsCommand(input);
  * const response = await client.send(command);

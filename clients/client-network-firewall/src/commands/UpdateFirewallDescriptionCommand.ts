@@ -38,6 +38,7 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
+ *   FirewallType: "FIREWALL" || "IGW_FIREWALL",
  * };
  * const command = new UpdateFirewallDescriptionCommand(input);
  * const response = await client.send(command);

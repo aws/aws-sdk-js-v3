@@ -40,6 +40,7 @@ export interface UpdateFirewallDeleteProtectionCommandOutput extends UpdateFirew
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",
  *   DeleteProtection: true || false, // required
+ *   FirewallType: "FIREWALL" || "IGW_FIREWALL",
  * };
  * const command = new UpdateFirewallDeleteProtectionCommand(input);
  * const response = await client.send(command);

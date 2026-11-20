@@ -41,6 +41,7 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",
  *   FirewallPolicyArn: "STRING_VALUE", // required
+ *   FirewallType: "FIREWALL" || "IGW_FIREWALL",
  * };
  * const command = new AssociateFirewallPolicyCommand(input);
  * const response = await client.send(command);

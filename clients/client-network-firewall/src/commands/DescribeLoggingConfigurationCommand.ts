@@ -35,6 +35,7 @@ export interface DescribeLoggingConfigurationCommandOutput extends DescribeLoggi
  * const input = { // DescribeLoggingConfigurationRequest
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",
+ *   FirewallType: "FIREWALL" || "IGW_FIREWALL",
  * };
  * const command = new DescribeLoggingConfigurationCommand(input);
  * const response = await client.send(command);

@@ -65,6 +65,19 @@ export type IdentifiedType = (typeof IdentifiedType)[keyof typeof IdentifiedType
  * @public
  * @enum
  */
+export const FirewallType = {
+  FIREWALL: "FIREWALL",
+  IGW_FIREWALL: "IGW_FIREWALL",
+} as const;
+/**
+ * @public
+ */
+export type FirewallType = (typeof FirewallType)[keyof typeof FirewallType];
+
+/**
+ * @public
+ * @enum
+ */
 export const IPAddressType = {
   DUALSTACK: "DUALSTACK",
   IPV4: "IPV4",
@@ -86,6 +99,7 @@ export const AttachmentStatus = {
   FAILED: "FAILED",
   READY: "READY",
   SCALING: "SCALING",
+  STANDBY: "STANDBY",
 } as const;
 /**
  * @public
@@ -211,6 +225,18 @@ export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType
  * @public
  * @enum
  */
+export const EnforcementMode = {
+  POLICY_CONTROLLED: "POLICY_CONTROLLED",
+} as const;
+/**
+ * @public
+ */
+export type EnforcementMode = (typeof EnforcementMode)[keyof typeof EnforcementMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ListenerPropertyType = {
   HTTP: "HTTP",
   HTTPS: "HTTPS",
@@ -243,6 +269,7 @@ export const FirewallStatusValue = {
   FAILED: "FAILED",
   PROVISIONING: "PROVISIONING",
   READY: "READY",
+  STANDBY: "STANDBY",
 } as const;
 /**
  * @public

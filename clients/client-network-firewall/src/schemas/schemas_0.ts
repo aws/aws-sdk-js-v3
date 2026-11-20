@@ -31,8 +31,9 @@ const _ASR = "AssociateSubnetsRequest";
 const _ASRs = "AssociateSubnetsResponse";
 const _ASS = "AssociationSyncState";
 const _ASs = "AssociateSubnets";
-const _AT = "AnalysisType";
+const _AT = "AddressTranslations";
 const _ATRR = "AnalysisTypeReportResult";
+const _ATn = "AnalysisType";
 const _ATt = "AttachmentType";
 const _AZ = "AvailabilityZone";
 const _AZCP = "AvailabilityZoneChangeProtection";
@@ -224,6 +225,7 @@ const _E = "Errors";
 const _EAT = "EnabledAnalysisTypes";
 const _EC = "EncryptionConfiguration";
 const _EI = "EndpointId";
+const _EM = "EnforcementMode";
 const _EMD = "EnableMonitoringDashboard";
 const _ET = "EndTime";
 const _ETLSSH = "EnableTLSSessionHolding";
@@ -272,7 +274,8 @@ const _FRS = "FirewallRulesSource";
 const _FRT = "FlowRequestTimestamp";
 const _FRi = "FirewallRules";
 const _FS = "FirewallStatus";
-const _FT = "FlowTimeouts";
+const _FT = "FirewallType";
+const _FTl = "FlowTimeouts";
 const _Fi = "Firewalls";
 const _Fil = "Filters";
 const _Fl = "Flow";
@@ -286,6 +289,7 @@ const _H = "Hits";
 const _He = "Header";
 const _Ho = "Hook";
 const _ICE = "InsufficientCapacityException";
+const _IFC = "IgwFirewallConfiguration";
 const _IOE = "InvalidOperationException";
 const _IPAT = "IPAddressType";
 const _IPS = "IPSet";
@@ -390,6 +394,8 @@ const _PCA = "ProxyConfigurationArn";
 const _PCN = "ProxyConfigurationName";
 const _PDNSN = "PrivateDNSName";
 const _PI = "ProductId";
+const _PIPA = "PublicIPv6Addresses";
+const _PIPAu = "PublicIPv4Addresses";
 const _PIr = "PrivateIps";
 const _PIu = "PublicId";
 const _PM = "PolicyMode";
@@ -752,9 +758,14 @@ export var Address$: StaticStructureSchema = [3, n0, _A,
   [_ADd],
   [0], 1
 ];
+export var AddressTranslations$: StaticStructureSchema = [3, n0, _AT,
+  0,
+  [_PIPA, _PIPAu],
+  [64 | 0, 64 | 0]
+];
 export var AnalysisReport$: StaticStructureSchema = [3, n0, _AR,
   0,
-  [_ARI, _AT, _RT, _S],
+  [_ARI, _ATn, _RT, _S],
   [0, 0, 4, 0]
 ];
 export var AnalysisResult$: StaticStructureSchema = [3, n0, _ARn,
@@ -769,8 +780,8 @@ export var AnalysisTypeReportResult$: StaticStructureSchema = [3, n0, _ATRR,
 ];
 export var AssociateAvailabilityZonesRequest$: StaticStructureSchema = [3, n0, _AAZR,
   0,
-  [_AZM, _UT, _FAi, _FN],
-  [() => AvailabilityZoneMappings, 0, 0, 0], 1
+  [_AZM, _UT, _FAi, _FN, _FT],
+  [() => AvailabilityZoneMappings, 0, 0, 0, 0], 1
 ];
 export var AssociateAvailabilityZonesResponse$: StaticStructureSchema = [3, n0, _AAZRs,
   0,
@@ -779,8 +790,8 @@ export var AssociateAvailabilityZonesResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var AssociateFirewallPolicyRequest$: StaticStructureSchema = [3, n0, _AFPR,
   0,
-  [_FPA, _UT, _FAi, _FN],
-  [0, 0, 0, 0], 1
+  [_FPA, _UT, _FAi, _FN, _FT],
+  [0, 0, 0, 0, 0], 1
 ];
 export var AssociateFirewallPolicyResponse$: StaticStructureSchema = [3, n0, _AFPRs,
   0,
@@ -899,8 +910,8 @@ export var CreateFirewallPolicyV2Response$: StaticStructureSchema = [3, n0, _CFP
 ];
 export var CreateFirewallRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_FN, _FPA, _VI, _SM, _DP, _SCP, _FPCP, _Des, _Ta, _EC, _EAT, _TGI, _AZM, _AZCP, _NGCM, _PS, _VE, _TFNS],
-  [0, 0, 0, () => SubnetMappings, 2, 2, 2, 0, () => TagList, () => EncryptionConfiguration$, 64 | 0, 0, () => AvailabilityZoneMappings, 2, () => NatGatewayCreateMappingsList, () => ProxySettings$, () => VpcEndpoint$, 0], 2
+  [_FN, _FPA, _VI, _SM, _DP, _SCP, _FPCP, _Des, _Ta, _EC, _EAT, _TGI, _AZM, _AZCP, _IFC, _NGCM, _PS, _VE, _TFNS],
+  [0, 0, 0, () => SubnetMappings, 2, 2, 2, 0, () => TagList, () => EncryptionConfiguration$, 64 | 0, 0, () => AvailabilityZoneMappings, 2, () => IgwFirewallConfiguration$, () => NatGatewayCreateMappingsList, () => ProxySettings$, () => VpcEndpoint$, 0], 2
 ];
 export var CreateFirewallResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -974,8 +985,8 @@ export var DeleteFirewallPolicyV2Response$: StaticStructureSchema = [3, n0, _DFP
 ];
 export var DeleteFirewallRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
-  [_FN, _FAi, _DANG],
-  [0, 0, 2]
+  [_FN, _FAi, _FT, _DANG],
+  [0, 0, 0, 2]
 ];
 export var DeleteFirewallResponse$: StaticStructureSchema = [3, n0, _DFRe,
   0,
@@ -1084,8 +1095,8 @@ export var DescribeFirewallPolicyV2Response$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeFirewallRequest$: StaticStructureSchema = [3, n0, _DFRes,
   0,
-  [_FN, _FAi],
-  [0, 0]
+  [_FN, _FAi, _FT],
+  [0, 0, 0]
 ];
 export var DescribeFirewallResponse$: StaticStructureSchema = [3, n0, _DFResc,
   0,
@@ -1104,8 +1115,8 @@ export var DescribeFlowOperationResponse$: StaticStructureSchema = [3, n0, _DFOR
 ];
 export var DescribeLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _DLCR,
   0,
-  [_FAi, _FN],
-  [0, 0]
+  [_FAi, _FN, _FT],
+  [0, 0, 0]
 ];
 export var DescribeLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _DLCRe,
   0,
@@ -1194,8 +1205,8 @@ export var Dimension$: StaticStructureSchema = [3, n0, _Di,
 ];
 export var DisassociateAvailabilityZonesRequest$: StaticStructureSchema = [3, n0, _DAZR,
   0,
-  [_AZM, _UT, _FAi, _FN],
-  [() => AvailabilityZoneMappings, 0, 0, 0], 1
+  [_AZM, _UT, _FAi, _FN, _FT],
+  [() => AvailabilityZoneMappings, 0, 0, 0, 0], 1
 ];
 export var DisassociateAvailabilityZonesResponse$: StaticStructureSchema = [3, n0, _DAZRi,
   0,
@@ -1224,8 +1235,8 @@ export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var Firewall$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_FPA, _VI, _SM, _FI, _FN, _FAi, _DP, _SCP, _FPCP, _Des, _Ta, _EC, _NOA, _EAT, _TGI, _TGOAI, _AZM, _AZCP, _NGCM, _PS, _VE, _CSI, _CSOAI, _TFNS],
-  [0, 0, () => SubnetMappings, 0, 0, 0, 2, 2, 2, 0, () => TagList, () => EncryptionConfiguration$, 1, 64 | 0, 0, 0, () => AvailabilityZoneMappings, 2, () => NatGatewayCreateMappingsList, () => ProxySettings$, () => VpcEndpoint$, 0, 0, 0], 4
+  [_FPA, _VI, _SM, _FI, _FN, _FAi, _DP, _SCP, _FPCP, _Des, _Ta, _EC, _NOA, _EAT, _TGI, _TGOAI, _AZM, _AZCP, _IFC, _NGCM, _PS, _VE, _CSI, _CSOAI, _TFNS],
+  [0, 0, () => SubnetMappings, 0, 0, 0, 2, 2, 2, 0, () => TagList, () => EncryptionConfiguration$, 1, 64 | 0, 0, 0, () => AvailabilityZoneMappings, 2, () => IgwFirewallConfiguration$, () => NatGatewayCreateMappingsList, () => ProxySettings$, () => VpcEndpoint$, 0, 0, 0], 4
 ];
 export var FirewallMetadata$: StaticStructureSchema = [3, n0, _FMi,
   0,
@@ -1312,7 +1323,7 @@ export var FlowOperationMetadata$: StaticStructureSchema = [3, n0, _FOM,
   [_FOI, _FOT, _FRT, _FOS],
   [0, 0, 4, 0]
 ];
-export var FlowTimeouts$: StaticStructureSchema = [3, n0, _FT,
+export var FlowTimeouts$: StaticStructureSchema = [3, n0, _FTl,
   0,
   [_TITS],
   [1]
@@ -1324,7 +1335,7 @@ export var GetAnalysisReportResultsRequest$: StaticStructureSchema = [3, n0, _GA
 ];
 export var GetAnalysisReportResultsResponse$: StaticStructureSchema = [3, n0, _GARRRe,
   0,
-  [_S, _ST, _ET, _RT, _AT, _NT, _ARR],
+  [_S, _ST, _ET, _RT, _ATn, _NT, _ARR],
   [0, 4, 4, 4, 0, 0, () => AnalysisReportResults]
 ];
 export var Header$: StaticStructureSchema = [3, n0, _He,
@@ -1336,6 +1347,11 @@ export var Hits$: StaticStructureSchema = [3, n0, _H,
   0,
   [_Cou],
   [1]
+];
+export var IgwFirewallConfiguration$: StaticStructureSchema = [3, n0, _IFC,
+  0,
+  [_EM],
+  [0], 1
 ];
 export var IPSet$: StaticStructureSchema = [3, n0, _IPS,
   0,
@@ -1429,8 +1445,8 @@ export var ListFirewallPoliciesV2Response$: StaticStructureSchema = [3, n0, _LFP
 ];
 export var ListFirewallsRequest$: StaticStructureSchema = [3, n0, _LFR,
   0,
-  [_NT, _VIp, _MR],
-  [0, 64 | 0, 1]
+  [_NT, _VIp, _MR, _FT],
+  [0, 64 | 0, 1, 0]
 ];
 export var ListFirewallsResponse$: StaticStructureSchema = [3, n0, _LFRi,
   0,
@@ -1669,7 +1685,7 @@ export var SourceMetadata$: StaticStructureSchema = [3, n0, _SMo,
 ];
 export var StartAnalysisReportRequest$: StaticStructureSchema = [3, n0, _SARR,
   0,
-  [_AT, _FN, _FAi],
+  [_ATn, _FN, _FAi],
   [0, 0, 0], 1
 ];
 export var StartAnalysisReportResponse$: StaticStructureSchema = [3, n0, _SARRt,
@@ -1699,12 +1715,12 @@ export var StartFlowFlushResponse$: StaticStructureSchema = [3, n0, _SFFRt,
 ];
 export var StatefulEngineOptions$: StaticStructureSchema = [3, n0, _SEO,
   0,
-  [_ROul, _SEP, _FT],
+  [_ROul, _SEP, _FTl],
   [0, 0, () => FlowTimeouts$]
 ];
 export var StatefulEngineOptionsV2$: StaticStructureSchema = [3, n0, _SEOV,
   0,
-  [_SEP, _FT],
+  [_SEP, _FTl],
   [0, () => FlowTimeouts$]
 ];
 export var StatefulRule$: StaticStructureSchema = [3, n0, _SRt,
@@ -1759,8 +1775,8 @@ export var SummaryConfiguration$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var SyncState$: StaticStructureSchema = [3, n0, _SSyn,
   0,
-  [_At, _Con, _NGAa],
-  [() => Attachment$, () => SyncStateConfig, () => NatGatewayAttachmentsList]
+  [_At, _Con, _AT, _NGAa],
+  [() => Attachment$, () => SyncStateConfig, () => AddressTranslations$, () => NatGatewayAttachmentsList]
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
@@ -1849,8 +1865,8 @@ export var UpdateContainerAssociationResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateFirewallAnalysisSettingsRequest$: StaticStructureSchema = [3, n0, _UFASR,
   0,
-  [_EAT, _FAi, _FN, _UT],
-  [64 | 0, 0, 0, 0]
+  [_EAT, _FAi, _FN, _UT, _FT],
+  [64 | 0, 0, 0, 0, 0]
 ];
 export var UpdateFirewallAnalysisSettingsResponse$: StaticStructureSchema = [3, n0, _UFASRp,
   0,
@@ -1859,8 +1875,8 @@ export var UpdateFirewallAnalysisSettingsResponse$: StaticStructureSchema = [3, 
 ];
 export var UpdateFirewallDeleteProtectionRequest$: StaticStructureSchema = [3, n0, _UFDPR,
   0,
-  [_DP, _UT, _FAi, _FN],
-  [2, 0, 0, 0], 1
+  [_DP, _UT, _FAi, _FN, _FT],
+  [2, 0, 0, 0, 0], 1
 ];
 export var UpdateFirewallDeleteProtectionResponse$: StaticStructureSchema = [3, n0, _UFDPRp,
   0,
@@ -1869,8 +1885,8 @@ export var UpdateFirewallDeleteProtectionResponse$: StaticStructureSchema = [3, 
 ];
 export var UpdateFirewallDescriptionRequest$: StaticStructureSchema = [3, n0, _UFDR,
   0,
-  [_UT, _FAi, _FN, _Des],
-  [0, 0, 0, 0]
+  [_UT, _FAi, _FN, _Des, _FT],
+  [0, 0, 0, 0, 0]
 ];
 export var UpdateFirewallDescriptionResponse$: StaticStructureSchema = [3, n0, _UFDRp,
   0,
@@ -1879,8 +1895,8 @@ export var UpdateFirewallDescriptionResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var UpdateFirewallEncryptionConfigurationRequest$: StaticStructureSchema = [3, n0, _UFECR,
   0,
-  [_UT, _FAi, _FN, _EC],
-  [0, 0, 0, () => EncryptionConfiguration$]
+  [_UT, _FAi, _FN, _EC, _FT],
+  [0, 0, 0, () => EncryptionConfiguration$, 0]
 ];
 export var UpdateFirewallEncryptionConfigurationResponse$: StaticStructureSchema = [3, n0, _UFECRp,
   0,
@@ -1889,8 +1905,8 @@ export var UpdateFirewallEncryptionConfigurationResponse$: StaticStructureSchema
 ];
 export var UpdateFirewallPolicyChangeProtectionRequest$: StaticStructureSchema = [3, n0, _UFPCPR,
   0,
-  [_FPCP, _UT, _FAi, _FN],
-  [2, 0, 0, 0], 1
+  [_FPCP, _UT, _FAi, _FN, _FT],
+  [2, 0, 0, 0, 0], 1
 ];
 export var UpdateFirewallPolicyChangeProtectionResponse$: StaticStructureSchema = [3, n0, _UFPCPRp,
   0,
@@ -1919,8 +1935,8 @@ export var UpdateFirewallPolicyV2Response$: StaticStructureSchema = [3, n0, _UFP
 ];
 export var UpdateLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _ULCR,
   0,
-  [_FAi, _FN, _LC, _EMD],
-  [0, 0, () => LoggingConfiguration$, 2]
+  [_FAi, _FN, _FT, _LC, _EMD],
+  [0, 0, 0, () => LoggingConfiguration$, 2]
 ];
 export var UpdateLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _ULCRp,
   0,
@@ -2076,6 +2092,8 @@ var PortRanges: StaticListSchema = [1, n0, _PRo,
 ];
 var ProtocolNumbers = 64 | 1;
 var ProtocolStrings = 64 | 0;
+var PublicIPv4Addresses = 64 | 0;
+var PublicIPv6Addresses = 64 | 0;
 var ResourceContexts: StaticListSchema = [1, n0, _RC,
   0, () => ResourceContext$
 ];

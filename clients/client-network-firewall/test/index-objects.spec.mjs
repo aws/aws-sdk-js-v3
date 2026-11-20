@@ -6,6 +6,7 @@ import {
   ActionDefinition$,
   ActionScope,
   Address$,
+  AddressTranslations$,
   AnalysisReport$,
   AnalysisResult$,
   AnalysisTypeReportResult$,
@@ -182,6 +183,7 @@ import {
   EnabledAnalysisType,
   EncryptionConfiguration$,
   EncryptionType,
+  EnforcementMode,
   Firewall$,
   FirewallMetadata$,
   FirewallPolicy$,
@@ -200,6 +202,7 @@ import {
   FirewallRulesSource$,
   FirewallStatus$,
   FirewallStatusValue,
+  FirewallType,
   Flow$,
   FlowFilter$,
   FlowOperation$,
@@ -216,6 +219,7 @@ import {
   Hits$,
   HookKey,
   IdentifiedType,
+  IgwFirewallConfiguration$,
   InsufficientCapacityException,
   InsufficientCapacityException$,
   InternalServerError,
@@ -645,6 +649,7 @@ assert(typeof AcceptNetworkFirewallTransitGatewayAttachmentRequest$ === "object"
 assert(typeof AcceptNetworkFirewallTransitGatewayAttachmentResponse$ === "object");
 assert(typeof ActionDefinition$ === "object");
 assert(typeof Address$ === "object");
+assert(typeof AddressTranslations$ === "object");
 assert(typeof AnalysisReport$ === "object");
 assert(typeof AnalysisResult$ === "object");
 assert(typeof AnalysisTypeReportResult$ === "object");
@@ -762,6 +767,7 @@ assert(typeof GetAnalysisReportResultsRequest$ === "object");
 assert(typeof GetAnalysisReportResultsResponse$ === "object");
 assert(typeof Header$ === "object");
 assert(typeof Hits$ === "object");
+assert(typeof IgwFirewallConfiguration$ === "object");
 assert(typeof IPSet$ === "object");
 assert(typeof IPSetMetadata$ === "object");
 assert(typeof IPSetReference$ === "object");
@@ -904,10 +910,12 @@ assert(typeof DecryptionAction === "object");
 assert(typeof DNSExpiryExceptionPolicy === "object");
 assert(typeof EnabledAnalysisType === "object");
 assert(typeof EncryptionType === "object");
+assert(typeof EnforcementMode === "object");
 assert(typeof FirewallPolicyErrorCode === "object");
 assert(typeof FirewallRuleAction === "object");
 assert(typeof FirewallRuleProtocol === "object");
 assert(typeof FirewallStatusValue === "object");
+assert(typeof FirewallType === "object");
 assert(typeof FlowOperationStatus === "object");
 assert(typeof FlowOperationType === "object");
 assert(typeof GeneratedRulesType === "object");

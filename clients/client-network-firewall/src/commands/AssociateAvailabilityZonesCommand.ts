@@ -42,6 +42,7 @@ export interface AssociateAvailabilityZonesCommandOutput extends AssociateAvaila
  *       AvailabilityZone: "STRING_VALUE", // required
  *     },
  *   ],
+ *   FirewallType: "FIREWALL" || "IGW_FIREWALL",
  * };
  * const command = new AssociateAvailabilityZonesCommand(input);
  * const response = await client.send(command);

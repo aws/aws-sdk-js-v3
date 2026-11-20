@@ -60,6 +60,7 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  * const input = { // UpdateLoggingConfigurationRequest
  *   FirewallArn: "STRING_VALUE",
  *   FirewallName: "STRING_VALUE",
+ *   FirewallType: "FIREWALL" || "IGW_FIREWALL",
  *   LoggingConfiguration: { // LoggingConfiguration
  *     LogDestinationConfigs: [ // LogDestinationConfigs // required
  *       { // LogDestinationConfig

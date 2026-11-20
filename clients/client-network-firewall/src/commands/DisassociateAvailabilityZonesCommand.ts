@@ -45,6 +45,7 @@ export interface DisassociateAvailabilityZonesCommandOutput extends Disassociate
  *       AvailabilityZone: "STRING_VALUE", // required
  *     },
  *   ],
+ *   FirewallType: "FIREWALL" || "IGW_FIREWALL",
  * };
  * const command = new DisassociateAvailabilityZonesCommand(input);
  * const response = await client.send(command);
