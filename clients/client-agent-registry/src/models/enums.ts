@@ -18,12 +18,42 @@ export type BatchGetDiscoverableRegistryRecordErrorCode =
  * @public
  * @enum
  */
+export const BotCategory = {
+  ADVERTISING: "advertising",
+  AI_ASSISTANT: "ai_assistant",
+  AI_CONTENT_OPTIMIZATION: "ai_content_optimization",
+  AI_SEARCH: "ai_search",
+  AI_TRAINING: "ai_training",
+  ARCHIVER: "archiver",
+  CONTENT_FETCHER: "content_fetcher",
+  EMAIL_CLIENT: "email_client",
+  HTTP_LIBRARY: "http_library",
+  LINK_CHECKER: "link_checker",
+  MISCELLANEOUS: "miscellaneous",
+  MONITORING: "monitoring",
+  PAGE_PREVIEW: "page_preview",
+  SCRAPING_FRAMEWORK: "scraping_framework",
+  SEARCH_ENGINE: "search_engine",
+  SECURITY: "security",
+  SEO: "seo",
+  SOCIAL_MEDIA: "social_media",
+} as const;
+/**
+ * @public
+ */
+export type BotCategory = (typeof BotCategory)[keyof typeof BotCategory];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecordType = {
   AGENT: "AGENT",
   CUSTOM: "CUSTOM",
   GATEWAY: "GATEWAY",
   MCP: "MCP",
   SKILL: "SKILL",
+  WEB_BOT: "WEB_BOT",
 } as const;
 /**
  * @public

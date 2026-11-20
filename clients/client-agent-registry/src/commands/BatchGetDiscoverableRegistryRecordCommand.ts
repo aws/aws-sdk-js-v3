@@ -56,7 +56,7 @@ export interface BatchGetDiscoverableRegistryRecordCommandOutput extends BatchGe
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
  * //       displayName: "STRING_VALUE",
- * //       recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY", // required
+ * //       recordType: "MCP" || "AGENT" || "CUSTOM" || "SKILL" || "GATEWAY" || "WEB_BOT", // required
  * //       descriptors: { // Descriptors
  * //         mcpServer: { // McpServerDescriptor
  * //           data: "STRING_VALUE",
@@ -112,6 +112,14 @@ export interface BatchGetDiscoverableRegistryRecordCommandOutput extends BatchGe
  * //             fromUrl: {
  * //               url: "STRING_VALUE", // required
  * //             },
+ * //           },
+ * //         },
+ * //         signatureAgentCard: { // SignatureAgentCardDescriptor
+ * //           data: "STRING_VALUE",
+ * //           dataSchemaVersion: "STRING_VALUE",
+ * //           source: "<DescriptorSource>",
+ * //           additionalData: { // SignatureAgentCardAdditionalData
+ * //             category: "advertising" || "archiver" || "content_fetcher" || "email_client" || "http_library" || "link_checker" || "miscellaneous" || "monitoring" || "page_preview" || "scraping_framework" || "search_engine" || "security" || "seo" || "social_media" || "ai_training" || "ai_search" || "ai_assistant" || "ai_content_optimization",
  * //           },
  * //         },
  * //       },

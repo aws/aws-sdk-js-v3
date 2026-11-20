@@ -3,6 +3,7 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
   BatchGetDiscoverableRegistryRecordErrorCode,
+  BotCategory,
   RecordType,
   RegistryRecordFilterName,
   RegistryRecordStatus,
@@ -291,6 +292,48 @@ export interface McpServerDescriptor {
 }
 
 /**
+ * <p>The additional data for a signature agent card descriptor, such as the bot category of the web bot.</p>
+ * @public
+ */
+export interface SignatureAgentCardAdditionalData {
+  /**
+   * <p>The bot category that describes the purpose of the web bot identified by the signature agent card descriptor.</p>
+   * @public
+   */
+  category?: BotCategory | undefined;
+}
+
+/**
+ * <p> Descriptor that defines the content of a signature agent card, which identifies a web bot and references the JSON Web Key Set (JWKS) used to verify its HTTP message signatures.</p>
+ * @public
+ */
+export interface SignatureAgentCardDescriptor {
+  /**
+   * <p> The signature agent card descriptor content, serialized as descriptor payload data.</p>
+   * @public
+   */
+  data?: string | undefined;
+
+  /**
+   * <p> The schema version of the descriptor payload.</p>
+   * @public
+   */
+  dataSchemaVersion?: string | undefined;
+
+  /**
+   * <p> The source location from which the signature agent card descriptor content was retrieved.</p>
+   * @public
+   */
+  source?: DescriptorSource | undefined;
+
+  /**
+   * <p> Additional data for the signature agent card, such as its AWS WAF bot category.</p>
+   * @public
+   */
+  additionalData?: SignatureAgentCardAdditionalData | undefined;
+}
+
+/**
  * <p> The protocol-specific descriptors that describe how to connect to and use the registry record.</p>
  * @public
  */
@@ -330,6 +373,12 @@ export interface Descriptors {
    * @public
    */
   agui?: AgUiDescriptor | undefined;
+
+  /**
+   * <p> The signature agent card descriptor, populated when the record represents a web bot. It identifies the JSON Web Key Set (JWKS) used to verify the bot's HTTP message signatures.</p>
+   * @public
+   */
+  signatureAgentCard?: SignatureAgentCardDescriptor | undefined;
 }
 
 /**

@@ -15,6 +15,7 @@ import {
   BatchGetDiscoverableRegistryRecordErrorCode,
   BatchGetDiscoverableRegistryRecordRequest$,
   BatchGetDiscoverableRegistryRecordResponse$,
+  BotCategory,
   CustomDescriptor$,
   Descriptors$,
   DescriptorSource$,
@@ -46,6 +47,8 @@ import {
   SearchDiscoverableRegistryRecordsRequest$,
   SearchDiscoverableRegistryRecordsResponse$,
   SearchType,
+  SignatureAgentCardAdditionalData$,
+  SignatureAgentCardDescriptor$,
   ThrottlingException,
   ThrottlingException$,
   UnauthorizedException,
@@ -92,9 +95,12 @@ assert(typeof RegistryRecordsEntry$ === "object");
 assert(typeof RegistryRecordSummary$ === "object");
 assert(typeof SearchDiscoverableRegistryRecordsRequest$ === "object");
 assert(typeof SearchDiscoverableRegistryRecordsResponse$ === "object");
+assert(typeof SignatureAgentCardAdditionalData$ === "object");
+assert(typeof SignatureAgentCardDescriptor$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 // enums
 assert(typeof BatchGetDiscoverableRegistryRecordErrorCode === "object");
+assert(typeof BotCategory === "object");
 assert(typeof RecordType === "object");
 assert(typeof RegistryRecordFilterName === "object");
 assert(typeof RegistryRecordStatus === "object");

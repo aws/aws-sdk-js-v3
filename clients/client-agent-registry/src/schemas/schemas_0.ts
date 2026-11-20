@@ -36,6 +36,8 @@ const _RRF = "RegistryRecordFilter";
 const _RRFL = "RegistryRecordFilterList";
 const _RRS = "RegistryRecordSummary";
 const _RRSL = "RegistryRecordSummaryList";
+const _SACAD = "SignatureAgentCardAdditionalData";
+const _SACD = "SignatureAgentCardDescriptor";
 const _SDRR = "SearchDiscoverableRegistryRecords";
 const _SDRRR = "SearchDiscoverableRegistryRecordsRequest";
 const _SDRRRe = "SearchDiscoverableRegistryRecordsResponse";
@@ -53,6 +55,7 @@ const _ar = "artifact";
 const _c = "client";
 const _cA = "createdAt";
 const _cM = "customMetadata";
+const _ca = "category";
 const _cu = "custom";
 const _d = "data";
 const _dN = "displayName";
@@ -86,6 +89,7 @@ const _rR = "registryRecords";
 const _rT = "recordType";
 const _rV = "recordVersion";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.agentregistry";
+const _sAC = "signatureAgentCard";
 const _sM = "skillMd";
 const _sQ = "searchQuery";
 const _sT = "searchType";
@@ -222,8 +226,8 @@ export var CustomDescriptor$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var Descriptors$: StaticStructureSchema = [3, n0, _De,
   0,
-  [_mS, _aAC, _aSD, _cu, _h, _a],
-  [[() => McpServerDescriptor$, 0], [() => A2aAgentCardDescriptor$, 0], [() => AgentSkillsDefinitionDescriptor$, 0], [() => CustomDescriptor$, 0], () => HttpDescriptor$, () => AgUiDescriptor$]
+  [_mS, _aAC, _aSD, _cu, _h, _a, _sAC],
+  [[() => McpServerDescriptor$, 0], [() => A2aAgentCardDescriptor$, 0], [() => AgentSkillsDefinitionDescriptor$, 0], [() => CustomDescriptor$, 0], () => HttpDescriptor$, () => AgUiDescriptor$, [() => SignatureAgentCardDescriptor$, 0]]
 ];
 export var DescriptorSource$: StaticStructureSchema = [3, n0, _DS,
   0,
@@ -299,6 +303,16 @@ export var SearchDiscoverableRegistryRecordsResponse$: StaticStructureSchema = [
   0,
   [_rR, _sT, _nT],
   [[() => RegistryRecordSummaryList, 0], 0, 0], 1
+];
+export var SignatureAgentCardAdditionalData$: StaticStructureSchema = [3, n0, _SACAD,
+  0,
+  [_ca],
+  [0]
+];
+export var SignatureAgentCardDescriptor$: StaticStructureSchema = [3, n0, _SACD,
+  0,
+  [_d, _dSV, _so, _aD],
+  [[() => DescriptorData, 0], 0, () => DescriptorSource$, () => SignatureAgentCardAdditionalData$]
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
