@@ -2,8 +2,7 @@
  * Where users can read how to install, start and sign in to the credential daemon.
  * @internal
  */
-export const CREDENTIAL_DAEMON_DOC =
-  "https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-credential-daemon.html";
+export const CREDENTIAL_DAEMON_DOC = "https://docs.aws.amazon.com/cli/latest/userguide/cli-authentication-credsd.html";
 
 /**
  * Environment variable holding an absolute path to the credential daemon socket.
