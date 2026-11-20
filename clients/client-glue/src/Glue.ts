@@ -304,11 +304,6 @@ import {
   DeleteAssetCommand,
 } from "./commands/DeleteAssetCommand";
 import {
-  type DeleteAssetTypeCommandInput,
-  type DeleteAssetTypeCommandOutput,
-  DeleteAssetTypeCommand,
-} from "./commands/DeleteAssetTypeCommand";
-import {
   type DeleteAttachmentCommandInput,
   type DeleteAttachmentCommandOutput,
   DeleteAttachmentCommand,
@@ -1136,11 +1131,6 @@ import {
 } from "./commands/PublishDataQualityResultV2Command";
 import { type PutAssetCommandInput, type PutAssetCommandOutput, PutAssetCommand } from "./commands/PutAssetCommand";
 import {
-  type PutAssetTypeCommandInput,
-  type PutAssetTypeCommandOutput,
-  PutAssetTypeCommand,
-} from "./commands/PutAssetTypeCommand";
-import {
   type PutAttachmentCommandInput,
   type PutAttachmentCommandOutput,
   PutAttachmentCommand,
@@ -1642,7 +1632,6 @@ const commands = {
   CreateUserDefinedFunctionCommand,
   CreateWorkflowCommand,
   DeleteAssetCommand,
-  DeleteAssetTypeCommand,
   DeleteAttachmentCommand,
   DeleteBlueprintCommand,
   DeleteCatalogCommand,
@@ -1818,7 +1807,6 @@ const commands = {
   ModifyIntegrationCommand,
   PublishDataQualityResultV2Command,
   PutAssetCommand,
-  PutAssetTypeCommand,
   PutAttachmentCommand,
   PutDataCatalogEncryptionSettingsCommand,
   PutDataCatalogExportConfigurationCommand,
@@ -2982,23 +2970,6 @@ export interface Glue {
     args: DeleteAssetCommandInput,
     options: GlueRequestOptions,
     cb: (err: any, data?: DeleteAssetCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DeleteAssetTypeCommand}
-   */
-  deleteAssetType(
-    args: DeleteAssetTypeCommandInput,
-    options?: GlueRequestOptions
-  ): Promise<DeleteAssetTypeCommandOutput>;
-  deleteAssetType(
-    args: DeleteAssetTypeCommandInput,
-    cb: (err: any, data?: DeleteAssetTypeCommandOutput) => void
-  ): void;
-  deleteAssetType(
-    args: DeleteAssetTypeCommandInput,
-    options: GlueRequestOptions,
-    cb: (err: any, data?: DeleteAssetTypeCommandOutput) => void
   ): void;
 
   /**
@@ -6029,23 +6000,6 @@ export interface Glue {
   ): void;
 
   /**
-   * @see {@link PutAssetTypeCommand}
-   */
-  putAssetType(
-    args: PutAssetTypeCommandInput,
-    options?: GlueRequestOptions
-  ): Promise<PutAssetTypeCommandOutput>;
-  putAssetType(
-    args: PutAssetTypeCommandInput,
-    cb: (err: any, data?: PutAssetTypeCommandOutput) => void
-  ): void;
-  putAssetType(
-    args: PutAssetTypeCommandInput,
-    options: GlueRequestOptions,
-    cb: (err: any, data?: PutAssetTypeCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link PutAttachmentCommand}
    */
   putAttachment(
@@ -6082,6 +6036,7 @@ export interface Glue {
   /**
    * @see {@link PutDataCatalogExportConfigurationCommand}
    */
+  putDataCatalogExportConfiguration(): Promise<PutDataCatalogExportConfigurationCommandOutput>;
   putDataCatalogExportConfiguration(
     args: PutDataCatalogExportConfigurationCommandInput,
     options?: GlueRequestOptions

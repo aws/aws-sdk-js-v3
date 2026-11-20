@@ -38,15 +38,15 @@ export interface PutAttachmentCommandOutput extends PutAttachmentResponse, __Met
  *   ItemIdentifier: "STRING_VALUE",
  *   AttachmentName: "STRING_VALUE", // required
  *   Content: "STRING_VALUE", // required
- *   FormTypeId: "STRING_VALUE", // required
+ *   FormTypeIdentifier: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  * };
  * const command = new PutAttachmentCommand(input);
  * const response = await client.send(command);
  * // { // PutAttachmentResponse
- * //   AssetIdentifier: "STRING_VALUE",
+ * //   AssetId: "STRING_VALUE",
  * //   IterableFormName: "STRING_VALUE",
- * //   ItemIdentifier: "STRING_VALUE",
+ * //   ItemId: "STRING_VALUE",
  * //   AttachmentName: "STRING_VALUE",
  * //   FormTypeId: "STRING_VALUE",
  * // };

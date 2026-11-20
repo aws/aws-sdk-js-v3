@@ -44,7 +44,7 @@ export interface GetAssetCommandOutput extends GetAssetOutput, __MetadataBearer 
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   UpdatedAt: new Date("TIMESTAMP"),
  * //   AssetTypeId: "STRING_VALUE", // required
- * //   GlossaryTerms: [ // GlossaryTermIdList
+ * //   GlossaryTerms: [ // GlossaryTermIdOutputList
  * //     "STRING_VALUE",
  * //   ],
  * //   Forms: { // AssetFormMap

@@ -222,7 +222,6 @@ import type {
 } from "./commands/CreateUserDefinedFunctionCommand";
 import type { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
 import type { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
-import type { DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput } from "./commands/DeleteAssetTypeCommand";
 import type { DeleteAttachmentCommandInput, DeleteAttachmentCommandOutput } from "./commands/DeleteAttachmentCommand";
 import type { DeleteBlueprintCommandInput, DeleteBlueprintCommandOutput } from "./commands/DeleteBlueprintCommand";
 import type { DeleteCatalogCommandInput, DeleteCatalogCommandOutput } from "./commands/DeleteCatalogCommand";
@@ -662,7 +661,6 @@ import type {
   PublishDataQualityResultV2CommandOutput,
 } from "./commands/PublishDataQualityResultV2Command";
 import type { PutAssetCommandInput, PutAssetCommandOutput } from "./commands/PutAssetCommand";
-import type { PutAssetTypeCommandInput, PutAssetTypeCommandOutput } from "./commands/PutAssetTypeCommand";
 import type { PutAttachmentCommandInput, PutAttachmentCommandOutput } from "./commands/PutAttachmentCommand";
 import type {
   PutDataCatalogEncryptionSettingsCommandInput,
@@ -950,7 +948,6 @@ export type ServiceInputTypes =
   | CreateUserDefinedFunctionCommandInput
   | CreateWorkflowCommandInput
   | DeleteAssetCommandInput
-  | DeleteAssetTypeCommandInput
   | DeleteAttachmentCommandInput
   | DeleteBlueprintCommandInput
   | DeleteCatalogCommandInput
@@ -1126,7 +1123,6 @@ export type ServiceInputTypes =
   | ModifyIntegrationCommandInput
   | PublishDataQualityResultV2CommandInput
   | PutAssetCommandInput
-  | PutAssetTypeCommandInput
   | PutAttachmentCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
   | PutDataCatalogExportConfigurationCommandInput
@@ -1269,7 +1265,6 @@ export type ServiceOutputTypes =
   | CreateUserDefinedFunctionCommandOutput
   | CreateWorkflowCommandOutput
   | DeleteAssetCommandOutput
-  | DeleteAssetTypeCommandOutput
   | DeleteAttachmentCommandOutput
   | DeleteBlueprintCommandOutput
   | DeleteCatalogCommandOutput
@@ -1445,7 +1440,6 @@ export type ServiceOutputTypes =
   | ModifyIntegrationCommandOutput
   | PublishDataQualityResultV2CommandOutput
   | PutAssetCommandOutput
-  | PutAssetTypeCommandOutput
   | PutAttachmentCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
   | PutDataCatalogExportConfigurationCommandOutput

@@ -16,8 +16,6 @@ import type {
   DataQualityEvaluationConfigTrigger,
   DataQualityEvaluationRunMode,
   DataQualityModelStatus,
-  ExportSetting,
-  ExportStatus,
   FieldName,
   FilterOperator,
   FunctionType,
@@ -59,8 +57,7 @@ import type {
   WorkerType,
 } from "./enums";
 import type {
-  AssetFormEntry,
-  AssetTypeFormReference,
+  AssetsExportResult,
   AssetTypeItem,
   AuditContext,
   Crawler,
@@ -78,7 +75,6 @@ import type {
   JobRun,
   Partition,
   PartitionValueList,
-  PrincipalPermissions,
   QuerySessionContext,
   SchemaId,
   StatisticAnnotation,
@@ -94,6 +90,7 @@ import type {
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
+  CrawlerMetrics,
   DatabaseIdentifier,
   DataQualityEvaluationConfigAdditionalRunOptions,
   DataQualityEvaluationConfigDataSource,
@@ -105,6 +102,7 @@ import type {
   IcebergSortOrder,
   IntegrationConfig,
   IntegrationError,
+  PrincipalPermissions,
   ProfileConfiguration,
   RegistryId,
   ResourceUri,
@@ -118,6 +116,41 @@ import type {
   TransformEncryption,
   TransformParameters,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetCrawlerMetricsResponse {
+  /**
+   * <p>A list of metrics for the specified crawler.</p>
+   * @public
+   */
+  CrawlerMetricsList?: CrawlerMetrics[] | undefined;
+
+  /**
+   * <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCrawlersRequest {
+  /**
+   * <p>The number of crawlers to return on each call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -487,34 +520,28 @@ export interface ExportEncryptionConfiguration {
 }
 
 /**
+ * <p>The S3 Tables configuration for a data catalog export, including the table bucket that holds the exported catalog metadata.</p>
+ * @public
+ */
+export interface S3TablesConfigurationResult {
+  /**
+   * <p>The ARN of the S3 table bucket that holds the exported catalog metadata.</p>
+   * @public
+   */
+  TableBucketArn?: string | undefined;
+
+  /**
+   * <p>The encryption configuration for the table bucket that holds the exported catalog metadata.</p>
+   * @public
+   */
+  EncryptionConfiguration?: ExportEncryptionConfiguration | undefined;
+}
+
+/**
  * <p>The export configuration returned by the <code>GetDataCatalogExportConfiguration</code> operation.</p>
  * @public
  */
 export interface GetDataCatalogExportConfigurationOutput {
-  /**
-   * <p>The export setting for the data catalog. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
-   * @public
-   */
-  ExportSetting?: ExportSetting | undefined;
-
-  /**
-   * <p>The current status of the export. Valid values are <code>ENABLING</code>, <code>ENABLED</code>, <code>DISABLING</code>, <code>DISABLED</code>, and <code>FAILED</code>.</p>
-   * @public
-   */
-  Status?: ExportStatus | undefined;
-
-  /**
-   * <p>The encryption configuration for the exported data.</p>
-   * @public
-   */
-  EncryptionConfiguration?: ExportEncryptionConfiguration | undefined;
-
-  /**
-   * <p>The ARN of the S3 Tables bucket where catalog metadata is exported.</p>
-   * @public
-   */
-  S3TableBucketArn?: string | undefined;
-
   /**
    * <p>The timestamp at which the export configuration was created.</p>
    * @public
@@ -526,6 +553,18 @@ export interface GetDataCatalogExportConfigurationOutput {
    * @public
    */
   UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The S3 Tables configuration for the export, including the table bucket that holds the exported catalog metadata and its encryption configuration.</p>
+   * @public
+   */
+  S3TablesConfiguration?: S3TablesConfigurationResult | undefined;
+
+  /**
+   * <p>The export setting and current export state for asset metadata.</p>
+   * @public
+   */
+  Assets?: AssetsExportResult | undefined;
 }
 
 /**
@@ -9030,103 +9069,4 @@ export interface PublishDataQualityResultV2Response {
    * @public
    */
   ResultId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutAssetRequest {
-  /**
-   * <p>The identifier of the asset type for the asset.</p>
-   * @public
-   */
-  AssetTypeId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the asset. If an asset with this identifier already exists, it is updated.</p>
-   * @public
-   */
-  Identifier: string | undefined;
-
-  /**
-   * <p>The name of the asset.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The description of the asset.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The forms to set on the asset, keyed by form name. Each entry specifies the form type and its JSON content.</p>
-   * @public
-   */
-  Forms: Record<string, AssetFormEntry> | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutAssetResponse {
-  /**
-   * <p>The unique identifier of the asset.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of the asset.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The description of the asset.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the asset was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The forms attached to the asset, keyed by form name.</p>
-   * @public
-   */
-  Forms?: Record<string, AssetFormEntry> | undefined;
-}
-
-/**
- * @public
- */
-export interface PutAssetTypeRequest {
-  /**
-   * <p>The name of the asset type.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The forms that make up the asset type, keyed by form name. Each entry references the form type that defines the form's schema.</p>
-   * @public
-   */
-  Forms: Record<string, AssetTypeFormReference> | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }

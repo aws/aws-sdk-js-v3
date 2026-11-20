@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetCrawlerMetricsRequest, GetCrawlerMetricsResponse } from "../models/models_1";
+import type { GetCrawlerMetricsRequest } from "../models/models_1";
+import type { GetCrawlerMetricsResponse } from "../models/models_2";
 import { GetCrawlerMetrics$ } from "../schemas/schemas_0";
 
 /**

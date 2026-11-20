@@ -18,7 +18,10 @@ import {
   AnnotationError$,
   ApplyMapping$,
   AssetFormEntry$,
-  AssetTypeFormReference$,
+  AssetFormInput$,
+  AssetsExport$,
+  AssetsExportResult$,
+  AssetTypeFormOutput$,
   AssetTypeItem$,
   AssociateGlossaryTerms$,
   AssociateGlossaryTermsCommand,
@@ -460,10 +463,6 @@ import {
   DeleteAssetCommand,
   DeleteAssetRequest$,
   DeleteAssetResponse$,
-  DeleteAssetType$,
-  DeleteAssetTypeCommand,
-  DeleteAssetTypeRequest$,
-  DeleteAssetTypeResponse$,
   DeleteAttachment$,
   DeleteAttachmentCommand,
   DeleteAttachmentRequest$,
@@ -1510,10 +1509,6 @@ import {
   PutAssetCommand,
   PutAssetRequest$,
   PutAssetResponse$,
-  PutAssetType$,
-  PutAssetTypeCommand,
-  PutAssetTypeRequest$,
-  PutAssetTypeResponse$,
   PutAttachment$,
   PutAttachmentCommand,
   PutAttachmentRequest$,
@@ -1636,6 +1631,9 @@ import {
   S3JsonSource$,
   S3ParquetSource$,
   S3SourceAdditionalOptions$,
+  S3TablesConfiguration$,
+  S3TablesConfigurationResult$,
+  S3TablesExportState$,
   S3Target$,
   Schedule$,
   SchedulerNotRunningException,
@@ -1663,7 +1661,7 @@ import {
   SearchAssetsOutput$,
   SearchAttributeFilter$,
   SearchFilterClause$,
-  SearchFilterOperator,
+  SearchFilterComparator,
   SearchFilterValue$,
   SearchMapFilter$,
   SearchMapFilterValue$,
@@ -2174,8 +2172,6 @@ assert(typeof CreateWorkflowCommand === "function");
 assert(typeof CreateWorkflow$ === "object");
 assert(typeof DeleteAssetCommand === "function");
 assert(typeof DeleteAsset$ === "object");
-assert(typeof DeleteAssetTypeCommand === "function");
-assert(typeof DeleteAssetType$ === "object");
 assert(typeof DeleteAttachmentCommand === "function");
 assert(typeof DeleteAttachment$ === "object");
 assert(typeof DeleteBlueprintCommand === "function");
@@ -2526,8 +2522,6 @@ assert(typeof PublishDataQualityResultV2Command === "function");
 assert(typeof PublishDataQualityResultV2$ === "object");
 assert(typeof PutAssetCommand === "function");
 assert(typeof PutAsset$ === "object");
-assert(typeof PutAssetTypeCommand === "function");
-assert(typeof PutAssetType$ === "object");
 assert(typeof PutAttachmentCommand === "function");
 assert(typeof PutAttachment$ === "object");
 assert(typeof PutDataCatalogEncryptionSettingsCommand === "function");
@@ -2694,7 +2688,10 @@ assert(typeof AmazonRedshiftTarget$ === "object");
 assert(typeof AnnotationError$ === "object");
 assert(typeof ApplyMapping$ === "object");
 assert(typeof AssetFormEntry$ === "object");
-assert(typeof AssetTypeFormReference$ === "object");
+assert(typeof AssetFormInput$ === "object");
+assert(typeof AssetsExport$ === "object");
+assert(typeof AssetsExportResult$ === "object");
+assert(typeof AssetTypeFormOutput$ === "object");
 assert(typeof AssetTypeItem$ === "object");
 assert(typeof AssociateGlossaryTermsRequest$ === "object");
 assert(typeof AssociateGlossaryTermsResponse$ === "object");
@@ -2957,8 +2954,6 @@ assert(typeof DecimalColumnStatisticsData$ === "object");
 assert(typeof DecimalNumber$ === "object");
 assert(typeof DeleteAssetRequest$ === "object");
 assert(typeof DeleteAssetResponse$ === "object");
-assert(typeof DeleteAssetTypeRequest$ === "object");
-assert(typeof DeleteAssetTypeResponse$ === "object");
 assert(typeof DeleteAttachmentRequest$ === "object");
 assert(typeof DeleteAttachmentResponse$ === "object");
 assert(typeof DeleteBlueprintRequest$ === "object");
@@ -3481,8 +3476,6 @@ assert(typeof PublishDataQualityResultV2Request$ === "object");
 assert(typeof PublishDataQualityResultV2Response$ === "object");
 assert(typeof PutAssetRequest$ === "object");
 assert(typeof PutAssetResponse$ === "object");
-assert(typeof PutAssetTypeRequest$ === "object");
-assert(typeof PutAssetTypeResponse$ === "object");
 assert(typeof PutAttachmentRequest$ === "object");
 assert(typeof PutAttachmentResponse$ === "object");
 assert(typeof PutDataCatalogEncryptionSettingsRequest$ === "object");
@@ -3559,6 +3552,9 @@ assert(typeof S3IcebergDirectTarget$ === "object");
 assert(typeof S3JsonSource$ === "object");
 assert(typeof S3ParquetSource$ === "object");
 assert(typeof S3SourceAdditionalOptions$ === "object");
+assert(typeof S3TablesConfiguration$ === "object");
+assert(typeof S3TablesConfigurationResult$ === "object");
+assert(typeof S3TablesExportState$ === "object");
 assert(typeof S3Target$ === "object");
 assert(typeof Schedule$ === "object");
 assert(typeof SchemaChangePolicy$ === "object");
@@ -3913,7 +3909,7 @@ assert(typeof ScheduleType === "object");
 assert(typeof SchemaDiffType === "object");
 assert(typeof SchemaStatus === "object");
 assert(typeof SchemaVersionStatus === "object");
-assert(typeof SearchFilterOperator === "object");
+assert(typeof SearchFilterComparator === "object");
 assert(typeof SearchSortOrder === "object");
 assert(typeof Separator === "object");
 assert(typeof SessionStatus === "object");

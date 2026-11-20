@@ -46,7 +46,7 @@ export interface BatchGetIterableFormsCommandOutput extends BatchGetIterableForm
  * //     { // IterableFormItem
  * //       ItemId: "STRING_VALUE",
  * //       ItemName: "STRING_VALUE",
- * //       GlossaryTerms: [ // GlossaryTermIdList
+ * //       GlossaryTerms: [ // GlossaryTermIdOutputList
  * //         "STRING_VALUE",
  * //       ],
  * //       Forms: { // AssetFormMap

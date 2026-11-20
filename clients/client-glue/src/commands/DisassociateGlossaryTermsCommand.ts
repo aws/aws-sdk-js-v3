@@ -44,10 +44,10 @@ export interface DisassociateGlossaryTermsCommandOutput extends DisassociateGlos
  * const command = new DisassociateGlossaryTermsCommand(input);
  * const response = await client.send(command);
  * // { // DisassociateGlossaryTermsResponse
- * //   AssetIdentifier: "STRING_VALUE",
+ * //   AssetId: "STRING_VALUE",
  * //   IterableFormName: "STRING_VALUE",
- * //   ItemIdentifier: "STRING_VALUE",
- * //   GlossaryTerms: [ // GlossaryTermIdList
+ * //   ItemId: "STRING_VALUE",
+ * //   GlossaryTerms: [ // GlossaryTermIdOutputList
  * //     "STRING_VALUE",
  * //   ],
  * // };

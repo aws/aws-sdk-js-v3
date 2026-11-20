@@ -36,20 +36,28 @@ export interface PutDataCatalogExportConfigurationCommandOutput extends PutDataC
  * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // PutDataCatalogExportConfigurationInput
- *   ExportSetting: "ENABLED" || "DISABLED", // required
- *   EncryptionConfiguration: { // ExportEncryptionConfiguration
- *     SseAlgorithm: "STRING_VALUE",
- *     KmsKeyArn: "STRING_VALUE",
- *   },
  *   ClientToken: "STRING_VALUE",
+ *   S3TablesConfiguration: { // S3TablesConfiguration
+ *     EncryptionConfiguration: { // ExportEncryptionConfiguration
+ *       SseAlgorithm: "STRING_VALUE",
+ *       KmsKeyArn: "STRING_VALUE",
+ *     },
+ *   },
+ *   Assets: { // AssetsExport
+ *     S3TablesExport: "ENABLED" || "DISABLED",
+ *   },
  * };
  * const command = new PutDataCatalogExportConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // PutDataCatalogExportConfigurationOutput
- * //   ExportSetting: "ENABLED" || "DISABLED",
- * //   EncryptionConfiguration: { // ExportEncryptionConfiguration
- * //     SseAlgorithm: "STRING_VALUE",
- * //     KmsKeyArn: "STRING_VALUE",
+ * //   S3TablesConfiguration: { // S3TablesConfiguration
+ * //     EncryptionConfiguration: { // ExportEncryptionConfiguration
+ * //       SseAlgorithm: "STRING_VALUE",
+ * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Assets: { // AssetsExport
+ * //     S3TablesExport: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

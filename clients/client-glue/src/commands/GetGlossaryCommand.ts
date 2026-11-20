@@ -60,6 +60,9 @@ export interface GetGlossaryCommandOutput extends GetGlossaryResponse, __Metadat
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The throttling threshhold was exceeded.</p>
  *

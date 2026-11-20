@@ -17,7 +17,6 @@ const _ACu = "AuditContext";
 const _ACut = "AuthConfiguration";
 const _ACuth = "AuthenticationConfiguration";
 const _ACutho = "AuthorizedColumns";
-const _AD = "AssetDescription";
 const _ADE = "AccessDeniedException";
 const _ADO = "AdditionalDeltaOptions";
 const _ADQ = "AutoDataQuality";
@@ -27,8 +26,12 @@ const _AEB = "AvoidEmptyBatches";
 const _AEC = "AdditionalEncryptionContext";
 const _AEE = "AlreadyExistsException";
 const _AEL = "AnnotationErrorList";
+const _AER = "AssetsExportResult";
+const _AEs = "AssetsExport";
 const _AF = "AggFunc";
 const _AFE = "AssetFormEntry";
+const _AFI = "AssetFormInput";
+const _AFIM = "AssetFormInputMap";
 const _AFM = "AssetFormMap";
 const _AFTEDA = "AllowFullTableExternalDataAccess";
 const _AFt = "AttributeFilter";
@@ -42,6 +45,7 @@ const _AIO = "AdditionalIcebergOptions";
 const _AITBR = "AddIdleTimeBetweenReads";
 const _AIc = "AccountId";
 const _AIn = "AnalysisId";
+const _AIs = "AssetId";
 const _AKKI = "AwsKmsKeyId";
 const _AL = "AverageLength";
 const _ALc = "ActionList";
@@ -51,7 +55,6 @@ const _ALr = "ArtifactLocation";
 const _AM = "ApplyMapping";
 const _AMg = "AggregatedMetrics";
 const _AN = "AttachmentName";
-const _ANs = "AssetName";
 const _AO = "AggregateOperation";
 const _AOFCE = "ApplyOverrideForComputeEnvironment";
 const _AOd = "AdvancedOptions";
@@ -75,12 +78,13 @@ const _AS = "AuthStrategy";
 const _ASC = "AllowSingleColumn";
 const _AT = "AccessToken";
 const _ATET = "AuthTokenExpirationTime";
-const _ATFM = "AssetTypeFormsMap";
-const _ATFR = "AssetTypeFormReference";
+const _ATFO = "AssetTypeFormOutput";
+const _ATFOM = "AssetTypeFormOutputMap";
 const _ATG = "AttributesToGet";
 const _ATI = "AssetTypeItem";
 const _ATIL = "AssetTypeItemList";
 const _ATIs = "AssetTypeId";
+const _ATIss = "AssetTypeIdentifier";
 const _ATc = "AccessType";
 const _ATn = "AnalyzedTime";
 const _ATu = "AuthenticationType";
@@ -100,7 +104,8 @@ const _Al = "Alias";
 const _An = "Annotations";
 const _Ar = "Arguments";
 const _Arg = "Args";
-const _As = "Assign";
+const _As = "Assets";
+const _Ass = "Assign";
 const _At = "Attachments";
 const _Att = "Attempt";
 const _Attr = "Attribute";
@@ -549,9 +554,6 @@ const _DAR = "DeleteAssetRequest";
 const _DARe = "DeleteAssetResponse";
 const _DARel = "DeleteAttachmentRequest";
 const _DARele = "DeleteAttachmentResponse";
-const _DAT = "DeleteAssetType";
-const _DATR = "DeleteAssetTypeRequest";
-const _DATRe = "DeleteAssetTypeResponse";
 const _DAe = "DeleteArguments";
 const _DAel = "DeleteAsset";
 const _DAele = "DeleteAttachment";
@@ -894,7 +896,6 @@ const _ERSP = "ExecutionRoleSessionPolicy";
 const _ES = "ErrorString";
 const _ESO = "ExecutionStartedOn";
 const _ESP = "EnableSamplePath";
-const _ESx = "ExportSetting";
 const _ET = "EndTime";
 const _ETTD = "EntityTypesToDetect";
 const _ETx = "ExecutionTime";
@@ -1346,8 +1347,8 @@ const _IIc = "IcebergInput";
 const _IIn = "IntegrationIdentifier";
 const _IInb = "InboundIntegrations";
 const _IInbo = "InboundIntegration";
-const _IIt = "ItemIdentifiers";
-const _IIte = "ItemId";
+const _IIt = "ItemId";
+const _IIte = "ItemIdentifiers";
 const _IL = "IntegrationsList";
 const _ILTRP = "ImportLabelsTaskRunProperties";
 const _IM = "IcebergMetrics";
@@ -1811,7 +1812,6 @@ const _OT = "OwnerType";
 const _OTE = "OperationTimeoutException";
 const _OTFI = "OpenTableFormatInput";
 const _Op = "Operation";
-const _Ope = "Operator";
 const _Opt = "Option";
 const _Or = "Order";
 const _Ou = "Output";
@@ -1822,9 +1822,6 @@ const _PAR = "PutAssetRequest";
 const _PARu = "PutAssetResponse";
 const _PARut = "PutAttachmentRequest";
 const _PARutt = "PutAttachmentResponse";
-const _PAT = "PutAssetType";
-const _PATR = "PutAssetTypeRequest";
-const _PATRu = "PutAssetTypeResponse";
 const _PAo = "PostAction";
 const _PAr = "PrivateAddress";
 const _PAu = "PublishedAfter";
@@ -2341,9 +2338,12 @@ const _SSt = "StatisticSummary";
 const _SSto = "StopSession";
 const _SSu = "SuccessfulSubmissions";
 const _ST = "SourceType";
-const _STBA = "S3TableBucketArn";
 const _STC = "SourceTableConfig";
+const _STCR = "S3TablesConfigurationResult";
+const _STCa = "S3TablesConfiguration";
 const _STE = "SchedulerTransitioningException";
+const _STES = "S3TablesExportState";
+const _STEa = "S3TablesExport";
 const _STL = "S3TargetList";
 const _STR = "SearchTablesRequest";
 const _STRe = "SearchTablesResponse";
@@ -2410,6 +2410,7 @@ const _T = "Timeout";
 const _TA = "TargetArn";
 const _TAi = "TimeoutActions";
 const _TAo = "TotalActions";
+const _TBA = "TableBucketArn";
 const _TC = "TargetColumn";
 const _TCI = "TestConnectionInput";
 const _TCP = "TransformConfigParameter";
@@ -3227,10 +3228,25 @@ export var AssetFormEntry$: StaticStructureSchema = [3, n0, _AFE,
   [_FTI, _Con],
   [0, 0]
 ];
-export var AssetTypeFormReference$: StaticStructureSchema = [3, n0, _ATFR,
+export var AssetFormInput$: StaticStructureSchema = [3, n0, _AFI,
   0,
-  [_FTIo],
-  [0], 1
+  [_FTIo, _Con],
+  [0, 0]
+];
+export var AssetsExport$: StaticStructureSchema = [3, n0, _AEs,
+  0,
+  [_STEa],
+  [0]
+];
+export var AssetsExportResult$: StaticStructureSchema = [3, n0, _AER,
+  0,
+  [_STEa, _STES],
+  [0, () => S3TablesExportState$]
+];
+export var AssetTypeFormOutput$: StaticStructureSchema = [3, n0, _ATFO,
+  0,
+  [_FTI],
+  [0]
 ];
 export var AssetTypeItem$: StaticStructureSchema = [3, n0, _ATI,
   0,
@@ -3244,7 +3260,7 @@ export var AssociateGlossaryTermsRequest$: StaticStructureSchema = [3, n0, _AGTR
 ];
 export var AssociateGlossaryTermsResponse$: StaticStructureSchema = [3, n0, _AGTRs,
   0,
-  [_AI, _IFN, _II, _GT],
+  [_AIs, _IFN, _IIt, _GT],
   [0, 0, 0, 64 | 0]
 ];
 export var AthenaConnectorSource$: StaticStructureSchema = [3, n0, _ACS,
@@ -3429,7 +3445,7 @@ export var BatchGetDevEndpointsResponse$: StaticStructureSchema = [3, n0, _BGDER
 ];
 export var BatchGetIterableFormsRequest$: StaticStructureSchema = [3, n0, _BGIFR,
   0,
-  [_AI, _IFN, _IIt],
+  [_AI, _IFN, _IIte],
   [[0, 1], [0, 1], 64 | 0], 3
 ];
 export var BatchGetIterableFormsResponse$: StaticStructureSchema = [3, n0, _BGIFRa,
@@ -4542,16 +4558,6 @@ export var DeleteAssetResponse$: StaticStructureSchema = [3, n0, _DARe,
   [],
   []
 ];
-export var DeleteAssetTypeRequest$: StaticStructureSchema = [3, n0, _DATR,
-  0,
-  [_Ide],
-  [[0, 1]], 1
-];
-export var DeleteAssetTypeResponse$: StaticStructureSchema = [3, n0, _DATRe,
-  0,
-  [],
-  []
-];
 export var DeleteAttachmentRequest$: StaticStructureSchema = [3, n0, _DARel,
   0,
   [_AI, _AN, _IFN, _II],
@@ -4559,7 +4565,7 @@ export var DeleteAttachmentRequest$: StaticStructureSchema = [3, n0, _DARel,
 ];
 export var DeleteAttachmentResponse$: StaticStructureSchema = [3, n0, _DARele,
   0,
-  [_AI, _IFN, _II],
+  [_AIs, _IFN, _IIt],
   [0, 0, 0]
 ];
 export var DeleteBlueprintRequest$: StaticStructureSchema = [3, n0, _DBR,
@@ -5024,7 +5030,7 @@ export var DisassociateGlossaryTermsRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DisassociateGlossaryTermsResponse$: StaticStructureSchema = [3, n0, _DGTRis,
   0,
-  [_AI, _IFN, _II, _GT],
+  [_AIs, _IFN, _IIt, _GT],
   [0, 0, 0, 64 | 0]
 ];
 export var DistributionData$: StaticStructureSchema = [3, n0, _DDi,
@@ -5265,7 +5271,7 @@ export var GetAssetTypeRequest$: StaticStructureSchema = [3, n0, _GATR,
 export var GetAssetTypeResponse$: StaticStructureSchema = [3, n0, _GATRe,
   0,
   [_Id, _N, _For],
-  [0, 0, () => AssetTypeFormsMap]
+  [0, 0, () => AssetTypeFormOutputMap]
 ];
 export var GetBlueprintRequest$: StaticStructureSchema = [3, n0, _GBR,
   0,
@@ -5509,8 +5515,8 @@ export var GetDataCatalogExportConfigurationInput$: StaticStructureSchema = [3, 
 ];
 export var GetDataCatalogExportConfigurationOutput$: StaticStructureSchema = [3, n0, _GDCECO,
   0,
-  [_ESx, _St, _ECn, _STBA, _CAr, _UA],
-  [0, 0, () => ExportEncryptionConfiguration$, 0, 4, 4]
+  [_CAr, _UA, _STCa, _As],
+  [4, 4, () => S3TablesConfigurationResult$, () => AssetsExportResult$]
 ];
 export var GetDataflowGraphRequest$: StaticStructureSchema = [3, n0, _GDGR,
   0,
@@ -6399,12 +6405,12 @@ export var IterableFormEntry$: StaticStructureSchema = [3, n0, _IFE,
 ];
 export var IterableFormItem$: StaticStructureSchema = [3, n0, _IFIt,
   0,
-  [_IIte, _INt, _GT, _For, _At],
+  [_IIt, _INt, _GT, _For, _At],
   [0, 0, 64 | 0, () => AssetFormMap, () => AssetFormMap]
 ];
 export var IterableFormListItem$: StaticStructureSchema = [3, n0, _IFLI,
   0,
-  [_IIte, _INt, _D, _GT],
+  [_IIt, _INt, _D, _GT],
   [0, 0, 0, 64 | 0]
 ];
 export var JDBCConnectorOptions$: StaticStructureSchema = [3, n0, _JDBCCO,
@@ -6484,7 +6490,7 @@ export var JWTBearerProperties$: StaticStructureSchema = [3, n0, _JWTBP,
 ];
 export var KafkaStreamingSourceOptions$: StaticStructureSchema = [3, n0, _KSSO,
   0,
-  [_BSo, _SPe, _CNo, _TNo, _As, _SPu, _Clas, _De, _SOta, _EO, _PTM, _NR, _RIM, _MOPT, _MPi, _IH, _ARTd, _ECLM, _STtar],
+  [_BSo, _SPe, _CNo, _TNo, _Ass, _SPu, _Clas, _De, _SOta, _EO, _PTM, _NR, _RIM, _MOPT, _MPi, _IH, _ARTd, _ECLM, _STtar],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 0, 0, 5]
 ];
 export var KeySchemaElement$: StaticStructureSchema = [3, n0, _KSE,
@@ -7154,32 +7160,22 @@ export var PublishDataQualityResultV2Response$: StaticStructureSchema = [3, n0, 
 ];
 export var PutAssetRequest$: StaticStructureSchema = [3, n0, _PAR,
   0,
-  [_ATIs, _Ide, _N, _For, _D, _CTl],
-  [0, 0, 0, () => AssetFormMap, 0, [0, 4]], 4
+  [_Ide, _N, _For, _ATIss, _D, _CTl],
+  [0, 0, () => AssetFormInputMap, 0, 0, [0, 4]], 3
 ];
 export var PutAssetResponse$: StaticStructureSchema = [3, n0, _PARu,
   0,
-  [_Id, _N, _D, _CAr, _For],
-  [0, 0, 0, 4, () => AssetFormMap], 2
-];
-export var PutAssetTypeRequest$: StaticStructureSchema = [3, n0, _PATR,
-  0,
-  [_N, _For, _CTl],
-  [0, () => AssetTypeFormsMap, [0, 4]], 2
-];
-export var PutAssetTypeResponse$: StaticStructureSchema = [3, n0, _PATRu,
-  0,
-  [_Id, _N, _For],
-  [0, 0, () => AssetTypeFormsMap]
+  [_Id, _N, _ATIs, _D, _CAr, _For],
+  [0, 0, 0, 0, 4, () => AssetFormMap], 3
 ];
 export var PutAttachmentRequest$: StaticStructureSchema = [3, n0, _PARut,
   0,
-  [_AI, _AN, _Con, _FTI, _IFN, _II, _CTl],
-  [[0, 1], 0, 0, 0, 0, 0, [0, 4]], 4
+  [_AI, _AN, _Con, _IFN, _II, _FTIo, _CTl],
+  [[0, 1], 0, 0, 0, 0, 0, [0, 4]], 3
 ];
 export var PutAttachmentResponse$: StaticStructureSchema = [3, n0, _PARutt,
   0,
-  [_AI, _IFN, _II, _AN, _FTI],
+  [_AIs, _IFN, _IIt, _AN, _FTI],
   [0, 0, 0, 0, 0]
 ];
 export var PutDataCatalogEncryptionSettingsRequest$: StaticStructureSchema = [3, n0, _PDCESR,
@@ -7194,13 +7190,13 @@ export var PutDataCatalogEncryptionSettingsResponse$: StaticStructureSchema = [3
 ];
 export var PutDataCatalogExportConfigurationInput$: StaticStructureSchema = [3, n0, _PDCECI,
   0,
-  [_ESx, _ECn, _CTl],
-  [0, () => ExportEncryptionConfiguration$, [0, 4]], 1
+  [_CTl, _STCa, _As],
+  [[0, 4], () => S3TablesConfiguration$, () => AssetsExport$]
 ];
 export var PutDataCatalogExportConfigurationOutput$: StaticStructureSchema = [3, n0, _PDCECO,
   0,
-  [_ESx, _ECn],
-  [0, () => ExportEncryptionConfiguration$]
+  [_STCa, _As],
+  [() => S3TablesConfiguration$, () => AssetsExport$]
 ];
 export var PutDataQualityProfileAnnotationRequest$: StaticStructureSchema = [3, n0, _PDQPAR,
   0,
@@ -7552,6 +7548,21 @@ export var S3SourceAdditionalOptions$: StaticStructureSchema = [3, n0, _SSAO,
   [_BSou, _BF],
   [1, 1]
 ];
+export var S3TablesConfiguration$: StaticStructureSchema = [3, n0, _STCa,
+  0,
+  [_ECn],
+  [() => ExportEncryptionConfiguration$]
+];
+export var S3TablesConfigurationResult$: StaticStructureSchema = [3, n0, _STCR,
+  0,
+  [_TBA, _ECn],
+  [0, () => ExportEncryptionConfiguration$]
+];
+export var S3TablesExportState$: StaticStructureSchema = [3, n0, _STES,
+  0,
+  [_St],
+  [0]
+];
 export var S3Target$: StaticStructureSchema = [3, n0, _STar,
   0,
   [_Path, _Exc, _CNo, _SSa, _EQA, _DEQA],
@@ -7614,8 +7625,8 @@ export var SearchAssetsOutput$: StaticStructureSchema = [3, n0, _SAO,
 ];
 export var SearchAttributeFilter$: StaticStructureSchema = [3, n0, _SAF,
   0,
-  [_Attr, _Ope, _V],
-  [0, 0, () => SearchFilterValue$], 2
+  [_Attr, _Compar, _V],
+  [0, 0, () => SearchFilterValue$], 1
 ];
 export var SearchMapFilter$: StaticStructureSchema = [3, n0, _SMF,
   0,
@@ -7624,8 +7635,8 @@ export var SearchMapFilter$: StaticStructureSchema = [3, n0, _SMF,
 ];
 export var SearchResultItem$: StaticStructureSchema = [3, n0, _SRI,
   0,
-  [_Id, _ANs, _AD, _UA, _ATIs],
-  [0, 0, 0, 4, 0]
+  [_Id, _N, _D, _CAr, _UA, _ATIs],
+  [0, 0, 0, 4, 4, 0]
 ];
 export var SearchSort$: StaticStructureSchema = [3, n0, _SSea,
   0,
@@ -8940,6 +8951,7 @@ var GlossaryItemList: StaticListSchema = [1, n0, _GIL,
   0, () => GlossaryItem$
 ];
 var GlossaryTermIdList = 64 | 0;
+var GlossaryTermIdOutputList = 64 | 0;
 var GlossaryTermItemList: StaticListSchema = [1, n0, _GTIL,
   0, () => GlossaryTermItem$
 ];
@@ -9256,11 +9268,14 @@ var Workflows: StaticListSchema = [1, n0, _W,
 var AdditionalContextMap = 128 | 0;
 var AdditionalOptions = 128 | 0;
 var AdditionalPlanOptionsMap = 128 | 0;
+var AssetFormInputMap: StaticMapSchema = [2, n0, _AFIM,
+  0, 0, () => AssetFormInput$
+];
 var AssetFormMap: StaticMapSchema = [2, n0, _AFM,
   0, 0, () => AssetFormEntry$
 ];
-var AssetTypeFormsMap: StaticMapSchema = [2, n0, _ATFM,
-  0, 0, () => AssetTypeFormReference$
+var AssetTypeFormOutputMap: StaticMapSchema = [2, n0, _ATFOM,
+  0, 0, () => AssetTypeFormOutput$
 ];
 var CodeGenConfigurationNodes: StaticMapSchema = [2, n0, _CGCNo,
   8, 0, () => CodeGenConfigurationNode$
@@ -9535,9 +9550,6 @@ export var CreateWorkflow$: StaticOperationSchema = [9, n0, _CWr,
 ];
 export var DeleteAsset$: StaticOperationSchema = [9, n0, _DAel,
   { [_h]: ["DELETE", "/assets/{Identifier}", 200] }, () => DeleteAssetRequest$, () => DeleteAssetResponse$
-];
-export var DeleteAssetType$: StaticOperationSchema = [9, n0, _DAT,
-  { [_h]: ["DELETE", "/asset-types/{Identifier}", 200] }, () => DeleteAssetTypeRequest$, () => DeleteAssetTypeResponse$
 ];
 export var DeleteAttachment$: StaticOperationSchema = [9, n0, _DAele,
   { [_h]: ["DELETE", "/assets/{AssetIdentifier}/attachments/{AttachmentName}", 200] }, () => DeleteAttachmentRequest$, () => DeleteAttachmentResponse$
@@ -10063,9 +10075,6 @@ export var PublishDataQualityResultV2$: StaticOperationSchema = [9, n0, _PDQRV,
 ];
 export var PutAsset$: StaticOperationSchema = [9, n0, _PAut,
   { [_h]: ["PUT", "/assets", 200] }, () => PutAssetRequest$, () => PutAssetResponse$
-];
-export var PutAssetType$: StaticOperationSchema = [9, n0, _PAT,
-  { [_h]: ["PUT", "/asset-types", 200] }, () => PutAssetTypeRequest$, () => PutAssetTypeResponse$
 ];
 export var PutAttachment$: StaticOperationSchema = [9, n0, _PAutt,
   { [_h]: ["POST", "/assets/{AssetIdentifier}/attachment", 200] }, () => PutAttachmentRequest$, () => PutAttachmentResponse$

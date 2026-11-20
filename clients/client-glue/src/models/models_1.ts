@@ -42,6 +42,8 @@ import type {
   MLUserDataEncryptionModeString,
   ObservationConfiguration,
   ObservationMode,
+  OverwriteChildResourcePermissionsWithDefaultEnum,
+  Permission,
   PrincipalType,
   PropertyLocation,
   PropertyType,
@@ -65,28 +67,27 @@ import type {
 import type {
   Action,
   AssetFormEntry,
-  AssetTypeFormReference,
+  AssetTypeFormOutput,
   AuthConfiguration,
   AuthenticationConfiguration,
   AuthenticationConfigurationInput,
   Blueprint,
-  CatalogInput,
+  CatalogProperties,
   Column,
   ConnectionsList,
   Crawler,
   CrawlerTargets,
+  DataLakePrincipal,
   DataQualityRuleResultsOptions,
   DataSource,
   ErrorDetail,
   EventBatchingCondition,
-  FederatedCatalog,
   GlueTable,
   LakeFormationConfiguration,
   LineageConfiguration,
   ObservationResultsOptions,
   PartitionInput,
   Predicate,
-  PrincipalPermissions,
   ProfilingResultsOptions,
   Property,
   RecrawlPolicy,
@@ -96,8 +97,126 @@ import type {
   SchemaId,
   StorageDescriptor,
   TableOptimizerConfiguration,
-  TargetRedshiftCatalog,
 } from "./models_0";
+
+/**
+ * <p>Permissions granted to a principal.</p>
+ * @public
+ */
+export interface PrincipalPermissions {
+  /**
+   * <p>The principal who is granted permissions.</p>
+   * @public
+   */
+  Principal?: DataLakePrincipal | undefined;
+
+  /**
+   * <p>The permissions that are granted to the principal.</p>
+   * @public
+   */
+  Permissions?: Permission[] | undefined;
+}
+
+/**
+ * <p>A catalog that points to an entity outside the Glue Data Catalog.</p>
+ * @public
+ */
+export interface FederatedCatalog {
+  /**
+   * <p>A unique identifier for the federated catalog.</p>
+   * @public
+   */
+  Identifier?: string | undefined;
+
+  /**
+   * <p>The name of the connection to an external data source, for example a Redshift-federated catalog.</p>
+   * @public
+   */
+  ConnectionName?: string | undefined;
+
+  /**
+   * <p>The type of connection used to access the federated catalog, specifying the protocol or method for connection to the
+   *     external data source.</p>
+   * @public
+   */
+  ConnectionType?: string | undefined;
+}
+
+/**
+ * <p>A structure that describes a target catalog for resource linking.</p>
+ * @public
+ */
+export interface TargetRedshiftCatalog {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the catalog resource.</p>
+   * @public
+   */
+  CatalogArn: string | undefined;
+}
+
+/**
+ * <p>A structure that describes catalog properties.</p>
+ * @public
+ */
+export interface CatalogInput {
+  /**
+   * <p>Description string, not more than 2048 bytes long, matching the URI address multi-line string pattern. A description of the catalog.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A <code>FederatedCatalog</code> object. A <code>FederatedCatalog</code> structure that references an entity outside the Glue Data Catalog, for example a Redshift database.</p>
+   * @public
+   */
+  FederatedCatalog?: FederatedCatalog | undefined;
+
+  /**
+   * <p>A map array of key-value pairs that define the parameters and properties of the catalog.</p>
+   * @public
+   */
+  Parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>A <code>TargetRedshiftCatalog</code> object that describes a target catalog for resource linking.</p>
+   * @public
+   */
+  TargetRedshiftCatalog?: TargetRedshiftCatalog | undefined;
+
+  /**
+   * <p>A <code>CatalogProperties</code> object that specifies data lake access properties and other custom properties.</p>
+   * @public
+   */
+  CatalogProperties?: CatalogProperties | undefined;
+
+  /**
+   * <p>An array of <code>PrincipalPermissions</code> objects. Creates a set of default permissions on the table(s) for principals. Used by Amazon Web Services Lake Formation. Typically should be explicitly set as an empty list.</p>
+   * @public
+   */
+  CreateTableDefaultPermissions?: PrincipalPermissions[] | undefined;
+
+  /**
+   * <p>An array of <code>PrincipalPermissions</code> objects. Creates a set of default permissions on the database(s) for principals. Used by Amazon Web Services Lake Formation. Typically should be explicitly set as an empty list.</p>
+   * @public
+   */
+  CreateDatabaseDefaultPermissions?: PrincipalPermissions[] | undefined;
+
+  /**
+   * <p>
+   *       Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
+   *     </p>
+   * @public
+   */
+  AllowFullTableExternalDataAccess?: AllowFullTableExternalDataAccessEnum | undefined;
+
+  /**
+   * <p>
+   *       Overwrites existing Amazon Web Services Lake Formation permissions with <code>CatalogInput$CreateTableDefaultPermissions</code> and <code>CatalogInput$CreateDatabaseDefaultPermissions</code> for all child resources.
+   *     </p>
+   * @public
+   */
+  OverwriteChildResourcePermissionsWithDefault?: OverwriteChildResourcePermissionsWithDefaultEnum | undefined;
+}
 
 /**
  * @public
@@ -4421,22 +4540,6 @@ export interface DeleteAssetResponse {}
 /**
  * @public
  */
-export interface DeleteAssetTypeRequest {
-  /**
-   * <p>The identifier of the asset type to delete.</p>
-   * @public
-   */
-  Identifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAssetTypeResponse {}
-
-/**
- * @public
- */
 export interface DeleteAttachmentRequest {
   /**
    * <p>The unique identifier of the asset from which to delete the attachment.</p>
@@ -4471,7 +4574,7 @@ export interface DeleteAttachmentResponse {
    * <p>The unique identifier of the asset.</p>
    * @public
    */
-  AssetIdentifier?: string | undefined;
+  AssetId?: string | undefined;
 
   /**
    * <p>The name of the iterable form, if the deletion targets an item.</p>
@@ -4483,7 +4586,7 @@ export interface DeleteAttachmentResponse {
    * <p>The identifier of the item within the iterable form, if applicable.</p>
    * @public
    */
-  ItemIdentifier?: string | undefined;
+  ItemId?: string | undefined;
 }
 
 /**
@@ -6621,7 +6724,7 @@ export interface DisassociateGlossaryTermsResponse {
    * <p>The unique identifier of the asset.</p>
    * @public
    */
-  AssetIdentifier?: string | undefined;
+  AssetId?: string | undefined;
 
   /**
    * <p>The name of the iterable form, if the disassociation targets an item.</p>
@@ -6633,7 +6736,7 @@ export interface DisassociateGlossaryTermsResponse {
    * <p>The identifier of the item within the iterable form, if applicable.</p>
    * @public
    */
-  ItemIdentifier?: string | undefined;
+  ItemId?: string | undefined;
 
   /**
    * <p>The remaining glossary terms associated with the asset.</p>
@@ -6762,7 +6865,7 @@ export interface GetAssetTypeResponse {
    * <p>The forms that make up the asset type, keyed by form name.</p>
    * @public
    */
-  Forms?: Record<string, AssetTypeFormReference> | undefined;
+  Forms?: Record<string, AssetTypeFormOutput> | undefined;
 }
 
 /**
@@ -8883,39 +8986,4 @@ export interface CrawlerMetrics {
    * @public
    */
   TablesDeleted?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCrawlerMetricsResponse {
-  /**
-   * <p>A list of metrics for the specified crawler.</p>
-   * @public
-   */
-  CrawlerMetricsList?: CrawlerMetrics[] | undefined;
-
-  /**
-   * <p>A continuation token, if the returned list does not contain the
-   *       last metric available.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCrawlersRequest {
-  /**
-   * <p>The number of crawlers to return on each call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A continuation token, if this is a continuation request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

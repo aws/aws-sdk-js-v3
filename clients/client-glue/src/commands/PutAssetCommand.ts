@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { PutAssetRequest, PutAssetResponse } from "../models/models_2";
+import type { PutAssetRequest, PutAssetResponse } from "../models/models_3";
 import { PutAsset$ } from "../schemas/schemas_0";
 
 /**
@@ -33,13 +33,13 @@ export interface PutAssetCommandOutput extends PutAssetResponse, __MetadataBeare
  * const config = {}; // type is GlueClientConfig
  * const client = new GlueClient(config);
  * const input = { // PutAssetRequest
- *   AssetTypeId: "STRING_VALUE", // required
+ *   AssetTypeIdentifier: "STRING_VALUE",
  *   Identifier: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Forms: { // AssetFormMap // required
- *     "<keys>": { // AssetFormEntry
- *       FormTypeId: "STRING_VALUE",
+ *   Forms: { // AssetFormInputMap // required
+ *     "<keys>": { // AssetFormInput
+ *       FormTypeIdentifier: "STRING_VALUE",
  *       Content: "STRING_VALUE",
  *     },
  *   },
@@ -51,6 +51,7 @@ export interface PutAssetCommandOutput extends PutAssetResponse, __MetadataBeare
  * //   Id: "STRING_VALUE", // required
  * //   Name: "STRING_VALUE", // required
  * //   Description: "STRING_VALUE",
+ * //   AssetTypeId: "STRING_VALUE", // required
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   Forms: { // AssetFormMap
  * //     "<keys>": { // AssetFormEntry

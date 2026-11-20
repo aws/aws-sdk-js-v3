@@ -39,15 +39,21 @@ export interface GetDataCatalogExportConfigurationCommandOutput extends GetDataC
  * const command = new GetDataCatalogExportConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // GetDataCatalogExportConfigurationOutput
- * //   ExportSetting: "ENABLED" || "DISABLED",
- * //   Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "FAILED",
- * //   EncryptionConfiguration: { // ExportEncryptionConfiguration
- * //     SseAlgorithm: "STRING_VALUE",
- * //     KmsKeyArn: "STRING_VALUE",
- * //   },
- * //   S3TableBucketArn: "STRING_VALUE",
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   S3TablesConfiguration: { // S3TablesConfigurationResult
+ * //     TableBucketArn: "STRING_VALUE",
+ * //     EncryptionConfiguration: { // ExportEncryptionConfiguration
+ * //       SseAlgorithm: "STRING_VALUE",
+ * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   Assets: { // AssetsExportResult
+ * //     S3TablesExport: "ENABLED" || "DISABLED",
+ * //     S3TablesExportState: { // S3TablesExportState
+ * //       Status: "ENABLING" || "ENABLED" || "DISABLING" || "DISABLED" || "FAILED",
+ * //     },
+ * //   },
  * // };
  *
  * ```
@@ -57,6 +63,9 @@ export interface GetDataCatalogExportConfigurationCommandOutput extends GetDataC
  * @see {@link GetDataCatalogExportConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetDataCatalogExportConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>

@@ -16,7 +16,6 @@ import type {
   EnableHybridValues,
   ExecutionClass,
   ExistCondition,
-  ExportSetting,
   HTTPMethod,
   IcebergUpdateAction,
   InclusionAnnotationValue,
@@ -28,7 +27,7 @@ import type {
   ResourceShareType,
   ResourceState,
   SchemaVersionStatus,
-  SearchFilterOperator,
+  SearchFilterComparator,
   SearchSortOrder,
   Sort,
   SourceControlAuthStrategy,
@@ -43,7 +42,9 @@ import type {
   Aggregate,
   AmazonRedshiftSource,
   AmazonRedshiftTarget,
-  AssetTypeFormReference,
+  AssetFormEntry,
+  AssetFormInput,
+  AssetsExport,
   AthenaConnectorSource,
   AuthenticationConfigurationInput,
   AutoUpgradeMetadata,
@@ -51,7 +52,6 @@ import type {
   CatalogDeltaSource,
   CatalogHudiSource,
   CatalogIcebergSource,
-  CatalogInput,
   CatalogKafkaSource,
   CatalogKinesisSource,
   CatalogSource,
@@ -145,6 +145,7 @@ import type {
   Union,
 } from "./models_0";
 import type {
+  CatalogInput,
   ColumnStatistics,
   ConnectionInput,
   ConnectorProperty,
@@ -183,24 +184,83 @@ import type {
 /**
  * @public
  */
-export interface PutAssetTypeResponse {
+export interface PutAssetRequest {
   /**
-   * <p>The identifier of the asset type.</p>
+   * <p>The identifier of the asset type for the asset. This field is required.</p>
    * @public
    */
-  Id?: string | undefined;
+  AssetTypeIdentifier?: string | undefined;
 
   /**
-   * <p>The name of the asset type.</p>
+   * <p>The unique identifier of the asset. If an asset with this identifier already exists, it is updated.</p>
    * @public
    */
-  Name?: string | undefined;
+  Identifier: string | undefined;
 
   /**
-   * <p>The forms that make up the asset type, keyed by form name.</p>
+   * <p>The name of the asset.</p>
    * @public
    */
-  Forms?: Record<string, AssetTypeFormReference> | undefined;
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the asset.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The forms to set on the asset, keyed by form name. Each entry specifies the form type and its JSON content.</p>
+   * @public
+   */
+  Forms: Record<string, AssetFormInput> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAssetResponse {
+  /**
+   * <p>The unique identifier of the asset.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the asset.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the asset.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the asset type for this asset.</p>
+   * @public
+   */
+  AssetTypeId: string | undefined;
+
+  /**
+   * <p>The timestamp at which the asset was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The forms attached to the asset, keyed by form name.</p>
+   * @public
+   */
+  Forms?: Record<string, AssetFormEntry> | undefined;
 }
 
 /**
@@ -238,10 +298,10 @@ export interface PutAttachmentRequest {
   Content: string | undefined;
 
   /**
-   * <p>The identifier of the form type for this attachment.</p>
+   * <p>The identifier of the form type for this attachment. This field is required.</p>
    * @public
    */
-  FormTypeId: string | undefined;
+  FormTypeIdentifier?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
@@ -258,7 +318,7 @@ export interface PutAttachmentResponse {
    * <p>The unique identifier of the asset.</p>
    * @public
    */
-  AssetIdentifier?: string | undefined;
+  AssetId?: string | undefined;
 
   /**
    * <p>The name of the iterable form, if the attachment targets an item.</p>
@@ -270,7 +330,7 @@ export interface PutAttachmentResponse {
    * <p>The identifier of the item within the iterable form, if applicable.</p>
    * @public
    */
-  ItemIdentifier?: string | undefined;
+  ItemId?: string | undefined;
 
   /**
    * <p>The name of the attachment.</p>
@@ -309,26 +369,38 @@ export interface PutDataCatalogEncryptionSettingsRequest {
 export interface PutDataCatalogEncryptionSettingsResponse {}
 
 /**
+ * <p>The S3 Tables configuration for a data catalog export.</p>
  * @public
  */
-export interface PutDataCatalogExportConfigurationInput {
+export interface S3TablesConfiguration {
   /**
-   * <p>The export setting for the data catalog. Specify <code>ENABLED</code> to start exporting catalog metadata to S3 Tables, or <code>DISABLED</code> to stop exporting. This field is required.</p>
-   * @public
-   */
-  ExportSetting: ExportSetting | undefined;
-
-  /**
-   * <p>The encryption configuration for the exported data. If not specified, the default encryption settings are used.</p>
+   * <p>The encryption configuration for the table bucket that holds the exported catalog metadata. It applies only when Glue creates the table bucket.</p>
    * @public
    */
   EncryptionConfiguration?: ExportEncryptionConfiguration | undefined;
+}
 
+/**
+ * @public
+ */
+export interface PutDataCatalogExportConfigurationInput {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    * @public
    */
   ClientToken?: string | undefined;
+
+  /**
+   * <p>The S3 Tables configuration for the export. The encryption configuration applies only when Glue creates the table bucket that holds the exported catalog metadata. If not specified, the default encryption settings are used.</p>
+   * @public
+   */
+  S3TablesConfiguration?: S3TablesConfiguration | undefined;
+
+  /**
+   * <p>The export setting for asset metadata. Set <code>S3TablesExport</code> to <code>ENABLED</code> to start exporting asset metadata to S3 Tables, or to <code>DISABLED</code> to stop exporting.</p>
+   * @public
+   */
+  Assets?: AssetsExport | undefined;
 }
 
 /**
@@ -337,16 +409,16 @@ export interface PutDataCatalogExportConfigurationInput {
  */
 export interface PutDataCatalogExportConfigurationOutput {
   /**
-   * <p>The export setting for the data catalog.</p>
+   * <p>The S3 Tables configuration for the export.</p>
    * @public
    */
-  ExportSetting?: ExportSetting | undefined;
+  S3TablesConfiguration?: S3TablesConfiguration | undefined;
 
   /**
-   * <p>The encryption configuration for the exported data.</p>
+   * <p>The export setting for asset metadata.</p>
    * @public
    */
-  EncryptionConfiguration?: ExportEncryptionConfiguration | undefined;
+  Assets?: AssetsExport | undefined;
 }
 
 /**
@@ -1337,10 +1409,10 @@ export interface SearchAttributeFilter {
   Attribute: string | undefined;
 
   /**
-   * <p>The comparison operator. Valid values are <code>equals</code>, <code>greaterThan</code>, <code>greaterThanOrEquals</code>, <code>lessThan</code>, <code>lessThanOrEquals</code>, and <code>notExists</code>.</p>
+   * <p>The comparison operator. Valid values are <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>GREATER_THAN_OR_EQUALS</code>, <code>LESS_THAN</code>, <code>LESS_THAN_OR_EQUALS</code>, and <code>NOT_EXISTS</code>. This field is required.</p>
    * @public
    */
-  Operator: SearchFilterOperator | undefined;
+  Comparator?: SearchFilterComparator | undefined;
 
   /**
    * <p>The value to compare against.</p>
@@ -1445,13 +1517,19 @@ export interface SearchResultItem {
    * <p>The name of the matched asset.</p>
    * @public
    */
-  AssetName?: string | undefined;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the matched asset.</p>
    * @public
    */
-  AssetDescription?: string | undefined;
+  Description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the matched asset was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp at which the matched asset was last updated.</p>
@@ -3674,7 +3752,7 @@ export interface UpdateGlossaryRequest {
   Name?: string | undefined;
 
   /**
-   * <p>The updated description of the glossary.</p>
+   * The new description. Omit it to keep the current description; set it to an empty string to clear it.
    * @public
    */
   Description?: string | undefined;
@@ -3726,13 +3804,13 @@ export interface UpdateGlossaryTermRequest {
   Name?: string | undefined;
 
   /**
-   * <p>The updated short description of the glossary term.</p>
+   * The new short description. Omit it to keep the current one; set it to an empty string to clear it.
    * @public
    */
   ShortDescription?: string | undefined;
 
   /**
-   * <p>The updated long description of the glossary term.</p>
+   * The new long description. Omit it to keep the current one; set it to an empty string to clear it.
    * @public
    */
   LongDescription?: string | undefined;

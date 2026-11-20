@@ -46,7 +46,7 @@ export interface ListIterableFormsCommandOutput extends ListIterableFormsRespons
  * //       ItemId: "STRING_VALUE",
  * //       ItemName: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       GlossaryTerms: [ // GlossaryTermIdList
+ * //       GlossaryTerms: [ // GlossaryTermIdOutputList
  * //         "STRING_VALUE",
  * //       ],
  * //     },

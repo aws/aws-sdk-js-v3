@@ -23,7 +23,7 @@ export interface SearchAssetsCommandInput extends SearchAssetsInput {}
 export interface SearchAssetsCommandOutput extends SearchAssetsOutput, __MetadataBearer {}
 
 /**
- * <p>Searches for assets in Glue Data Catalog using full-text search, filters, sorting, and aggregations. Returns matching assets with relevance-ranked results.</p>
+ * <p>Searches for assets in Glue Data Catalog using full-text search, filters, and sorting. Returns matching assets with relevance-ranked results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,7 +51,7 @@ export interface SearchAssetsCommandOutput extends SearchAssetsOutput, __Metadat
  *         ],
  *         AttributeFilter: { // SearchAttributeFilter
  *           Attribute: "STRING_VALUE", // required
- *           Operator: "equals" || "greaterThan" || "greaterThanOrEquals" || "lessThan" || "lessThanOrEquals" || "notExists", // required
+ *           Comparator: "EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "NOT_EXISTS",
  *           Value: { // SearchFilterValue Union: only one key present
  *             StringValue: "STRING_VALUE",
  *             LongValue: Number("long"),
@@ -71,7 +71,7 @@ export interface SearchAssetsCommandOutput extends SearchAssetsOutput, __Metadat
  *     ],
  *     AttributeFilter: {
  *       Attribute: "STRING_VALUE", // required
- *       Operator: "equals" || "greaterThan" || "greaterThanOrEquals" || "lessThan" || "lessThanOrEquals" || "notExists", // required
+ *       Comparator: "EQUALS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS" || "NOT_EXISTS",
  *       Value: {//  Union: only one key present
  *         StringValue: "STRING_VALUE",
  *         LongValue: Number("long"),
@@ -92,8 +92,9 @@ export interface SearchAssetsCommandOutput extends SearchAssetsOutput, __Metadat
  * //   Items: [ // SearchResultItemList
  * //     { // SearchResultItem
  * //       Id: "STRING_VALUE",
- * //       AssetName: "STRING_VALUE",
- * //       AssetDescription: "STRING_VALUE",
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //       AssetTypeId: "STRING_VALUE",
  * //     },

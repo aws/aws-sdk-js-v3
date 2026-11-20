@@ -602,13 +602,6 @@ DeleteAsset
 </details>
 <details>
 <summary>
-DeleteAssetType
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteAssetTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteAssetTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteAssetTypeCommandOutput/)
-</details>
-<details>
-<summary>
 DeleteAttachment
 </summary>
 
@@ -1831,13 +1824,6 @@ PutAsset
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/PutAssetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutAssetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutAssetCommandOutput/)
-</details>
-<details>
-<summary>
-PutAssetType
-</summary>
-
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/PutAssetTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutAssetTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutAssetTypeCommandOutput/)
 </details>
 <details>
 <summary>

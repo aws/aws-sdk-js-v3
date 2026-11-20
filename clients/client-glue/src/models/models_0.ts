@@ -2,7 +2,6 @@
 import type {
   AdditionalOptionKeys,
   AggFunction,
-  AllowFullTableExternalDataAccessEnum,
   AuthenticationType,
   AutoUpgradeStatus,
   BlueprintStatus,
@@ -23,6 +22,8 @@ import type {
   DQStopJobOnFailureTiming,
   DQTransformOutput,
   ExecutionClass,
+  ExportSetting,
+  ExportStatus,
   FilterLogicalOperator,
   FilterOperation,
   FilterValueType,
@@ -44,10 +45,8 @@ import type {
   OAuth2GrantType,
   ObservationConfiguration,
   ObservationMode,
-  OverwriteChildResourcePermissionsWithDefaultEnum,
   ParamType,
   ParquetCompressionType,
-  Permission,
   PiiType,
   PropertyLocation,
   PropertyType,
@@ -542,15 +541,75 @@ export interface AssetFormEntry {
 }
 
 /**
- * <p>A reference to a form type that is included in an asset type.</p>
+ * <p>A form to set on an asset, consisting of the form type identifier and its JSON content.</p>
  * @public
  */
-export interface AssetTypeFormReference {
+export interface AssetFormInput {
   /**
-   * <p>The identifier of the referenced form type.</p>
+   * <p>The identifier of the form type that defines this form's schema. This field is required.</p>
    * @public
    */
-  FormTypeIdentifier: string | undefined;
+  FormTypeIdentifier?: string | undefined;
+
+  /**
+   * <p>The JSON content of the form, conforming to the schema of the specified form type.</p>
+   * @public
+   */
+  Content?: string | undefined;
+}
+
+/**
+ * <p>The export setting for asset metadata.</p>
+ * @public
+ */
+export interface AssetsExport {
+  /**
+   * <p>Whether asset metadata is exported to S3 Tables. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
+   * @public
+   */
+  S3TablesExport?: ExportSetting | undefined;
+}
+
+/**
+ * <p>The state of an export to S3 Tables. Glue sets this state.</p>
+ * @public
+ */
+export interface S3TablesExportState {
+  /**
+   * <p>The current status of the export. Valid values are <code>ENABLING</code>, <code>ENABLED</code>, <code>DISABLING</code>, <code>DISABLED</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  Status?: ExportStatus | undefined;
+}
+
+/**
+ * <p>The export setting and current export state for asset metadata.</p>
+ * @public
+ */
+export interface AssetsExportResult {
+  /**
+   * <p>Whether asset metadata is exported to S3 Tables. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
+   * @public
+   */
+  S3TablesExport?: ExportSetting | undefined;
+
+  /**
+   * <p>The current state of the asset metadata export to S3 Tables.</p>
+   * @public
+   */
+  S3TablesExportState?: S3TablesExportState | undefined;
+}
+
+/**
+ * <p>A form that is included in an asset type, identified by the form type that defines its schema.</p>
+ * @public
+ */
+export interface AssetTypeFormOutput {
+  /**
+   * <p>The identifier of the form type that defines the form's schema.</p>
+   * @public
+   */
+  FormTypeId?: string | undefined;
 }
 
 /**
@@ -614,7 +673,7 @@ export interface AssociateGlossaryTermsResponse {
    * <p>The unique identifier of the asset.</p>
    * @public
    */
-  AssetIdentifier?: string | undefined;
+  AssetId?: string | undefined;
 
   /**
    * <p>The name of the iterable form, if the association targets an item.</p>
@@ -626,7 +685,7 @@ export interface AssociateGlossaryTermsResponse {
    * <p>The identifier of the item within the iterable form, if applicable.</p>
    * @public
    */
-  ItemIdentifier?: string | undefined;
+  ItemId?: string | undefined;
 
   /**
    * <p>The glossary terms now associated with the asset.</p>
@@ -10344,123 +10403,4 @@ export interface DataLakePrincipal {
    * @public
    */
   DataLakePrincipalIdentifier?: string | undefined;
-}
-
-/**
- * <p>Permissions granted to a principal.</p>
- * @public
- */
-export interface PrincipalPermissions {
-  /**
-   * <p>The principal who is granted permissions.</p>
-   * @public
-   */
-  Principal?: DataLakePrincipal | undefined;
-
-  /**
-   * <p>The permissions that are granted to the principal.</p>
-   * @public
-   */
-  Permissions?: Permission[] | undefined;
-}
-
-/**
- * <p>A catalog that points to an entity outside the Glue Data Catalog.</p>
- * @public
- */
-export interface FederatedCatalog {
-  /**
-   * <p>A unique identifier for the federated catalog.</p>
-   * @public
-   */
-  Identifier?: string | undefined;
-
-  /**
-   * <p>The name of the connection to an external data source, for example a Redshift-federated catalog.</p>
-   * @public
-   */
-  ConnectionName?: string | undefined;
-
-  /**
-   * <p>The type of connection used to access the federated catalog, specifying the protocol or method for connection to the
-   *     external data source.</p>
-   * @public
-   */
-  ConnectionType?: string | undefined;
-}
-
-/**
- * <p>A structure that describes a target catalog for resource linking.</p>
- * @public
- */
-export interface TargetRedshiftCatalog {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the catalog resource.</p>
-   * @public
-   */
-  CatalogArn: string | undefined;
-}
-
-/**
- * <p>A structure that describes catalog properties.</p>
- * @public
- */
-export interface CatalogInput {
-  /**
-   * <p>Description string, not more than 2048 bytes long, matching the URI address multi-line string pattern. A description of the catalog.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A <code>FederatedCatalog</code> object. A <code>FederatedCatalog</code> structure that references an entity outside the Glue Data Catalog, for example a Redshift database.</p>
-   * @public
-   */
-  FederatedCatalog?: FederatedCatalog | undefined;
-
-  /**
-   * <p>A map array of key-value pairs that define the parameters and properties of the catalog.</p>
-   * @public
-   */
-  Parameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>A <code>TargetRedshiftCatalog</code> object that describes a target catalog for resource linking.</p>
-   * @public
-   */
-  TargetRedshiftCatalog?: TargetRedshiftCatalog | undefined;
-
-  /**
-   * <p>A <code>CatalogProperties</code> object that specifies data lake access properties and other custom properties.</p>
-   * @public
-   */
-  CatalogProperties?: CatalogProperties | undefined;
-
-  /**
-   * <p>An array of <code>PrincipalPermissions</code> objects. Creates a set of default permissions on the table(s) for principals. Used by Amazon Web Services Lake Formation. Typically should be explicitly set as an empty list.</p>
-   * @public
-   */
-  CreateTableDefaultPermissions?: PrincipalPermissions[] | undefined;
-
-  /**
-   * <p>An array of <code>PrincipalPermissions</code> objects. Creates a set of default permissions on the database(s) for principals. Used by Amazon Web Services Lake Formation. Typically should be explicitly set as an empty list.</p>
-   * @public
-   */
-  CreateDatabaseDefaultPermissions?: PrincipalPermissions[] | undefined;
-
-  /**
-   * <p>
-   *       Allows third-party engines to access data in Amazon S3 locations that are registered with Lake Formation.
-   *     </p>
-   * @public
-   */
-  AllowFullTableExternalDataAccess?: AllowFullTableExternalDataAccessEnum | undefined;
-
-  /**
-   * <p>
-   *       Overwrites existing Amazon Web Services Lake Formation permissions with <code>CatalogInput$CreateTableDefaultPermissions</code> and <code>CatalogInput$CreateDatabaseDefaultPermissions</code> for all child resources.
-   *     </p>
-   * @public
-   */
-  OverwriteChildResourcePermissionsWithDefault?: OverwriteChildResourcePermissionsWithDefaultEnum | undefined;
 }

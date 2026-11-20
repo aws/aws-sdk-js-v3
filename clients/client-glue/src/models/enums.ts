@@ -82,6 +82,35 @@ export type InclusionAnnotationValue = (typeof InclusionAnnotationValue)[keyof t
  * @public
  * @enum
  */
+export const ExportSetting = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ExportSetting = (typeof ExportSetting)[keyof typeof ExportSetting];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const DataOperation = {
   READ: "READ",
   WRITE: "WRITE",
@@ -1989,35 +2018,6 @@ export type CatalogEncryptionMode = (typeof CatalogEncryptionMode)[keyof typeof 
  * @public
  * @enum
  */
-export const ExportSetting = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-/**
- * @public
- */
-export type ExportSetting = (typeof ExportSetting)[keyof typeof ExportSetting];
-
-/**
- * @public
- * @enum
- */
-export const ExportStatus = {
-  DISABLED: "DISABLED",
-  DISABLING: "DISABLING",
-  ENABLED: "ENABLED",
-  ENABLING: "ENABLING",
-  FAILED: "FAILED",
-} as const;
-/**
- * @public
- */
-export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
-
-/**
- * @public
- * @enum
- */
 export const DataQualityModelStatus = {
   FAILED: "FAILED",
   RUNNING: "RUNNING",
@@ -2440,18 +2440,18 @@ export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationT
  * @public
  * @enum
  */
-export const SearchFilterOperator = {
-  equals: "equals",
-  greaterThan: "greaterThan",
-  greaterThanOrEquals: "greaterThanOrEquals",
-  lessThan: "lessThan",
-  lessThanOrEquals: "lessThanOrEquals",
-  notExists: "notExists",
+export const SearchFilterComparator = {
+  EQUALS: "EQUALS",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUALS: "GREATER_THAN_OR_EQUALS",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUALS: "LESS_THAN_OR_EQUALS",
+  NOT_EXISTS: "NOT_EXISTS",
 } as const;
 /**
  * @public
  */
-export type SearchFilterOperator = (typeof SearchFilterOperator)[keyof typeof SearchFilterOperator];
+export type SearchFilterComparator = (typeof SearchFilterComparator)[keyof typeof SearchFilterComparator];
 
 /**
  * @public

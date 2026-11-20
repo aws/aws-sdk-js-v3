@@ -44,10 +44,10 @@ export interface AssociateGlossaryTermsCommandOutput extends AssociateGlossaryTe
  * const command = new AssociateGlossaryTermsCommand(input);
  * const response = await client.send(command);
  * // { // AssociateGlossaryTermsResponse
- * //   AssetIdentifier: "STRING_VALUE",
+ * //   AssetId: "STRING_VALUE",
  * //   IterableFormName: "STRING_VALUE",
- * //   ItemIdentifier: "STRING_VALUE",
- * //   GlossaryTerms: [ // GlossaryTermIdList
+ * //   ItemId: "STRING_VALUE",
+ * //   GlossaryTerms: [ // GlossaryTermIdOutputList
  * //     "STRING_VALUE",
  * //   ],
  * // };

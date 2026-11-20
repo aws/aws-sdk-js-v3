@@ -40,9 +40,9 @@ export interface GetAssetTypeCommandOutput extends GetAssetTypeResponse, __Metad
  * // { // GetAssetTypeResponse
  * //   Id: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
- * //   Forms: { // AssetTypeFormsMap
- * //     "<keys>": { // AssetTypeFormReference
- * //       FormTypeIdentifier: "STRING_VALUE", // required
+ * //   Forms: { // AssetTypeFormOutputMap
+ * //     "<keys>": { // AssetTypeFormOutput
+ * //       FormTypeId: "STRING_VALUE",
  * //     },
  * //   },
  * // };
