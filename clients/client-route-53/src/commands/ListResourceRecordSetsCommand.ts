@@ -155,6 +155,10 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  * //         },
  * //         Bias: Number("int"),
  * //       },
+ * //       AZAffinity: { // AZAffinity
+ * //         LocationType: "AvailabilityZone" || "AvailabilityZoneGroup" || "Region" || "Partition" || "Global",
+ * //         LocationId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   IsTruncated: true || false, // required

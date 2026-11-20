@@ -178,6 +178,10 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *             },
  *             Bias: Number("int"),
  *           },
+ *           AZAffinity: { // AZAffinity
+ *             LocationType: "AvailabilityZone" || "AvailabilityZoneGroup" || "Region" || "Partition" || "Global",
+ *             LocationId: "STRING_VALUE",
+ *           },
  *         },
  *       },
  *     ],

@@ -1,0 +1,146 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetHostedZoneChangeBatchResponse xmlns="https://placeholder.amazonaws.com">
+    <ChangeBatchSummary>
+        <ChangeId>
+            __ChangeId__
+        </ChangeId>
+        <Operation>
+            __Operation__
+        </Operation>
+        <SubmittedAt>
+            2000-01-01T04:59:59.999Z
+        </SubmittedAt>
+        <ChangeCount>
+            0
+        </ChangeCount>
+        <SubmittedBy>
+            __SubmittedBy__
+        </SubmittedBy>
+        <RequestId>
+            __RequestId__
+        </RequestId>
+        <Comment>
+            __Comment__
+        </Comment>
+    </ChangeBatchSummary>
+    <ChangeBatch>
+        <Changes>
+            <Change/>
+<Change/>
+<Change/>
+        </Changes>
+        <Comment>
+            __Comment__
+        </Comment>
+    </ChangeBatch>
+</GetHostedZoneChangeBatchResponse>
+
+
+--- [output object] ---
+{
+  ChangeBatchSummary: {
+    ChangeId: "__ChangeId__",
+    Operation: "__Operation__",
+    SubmittedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ChangeCount: (number) 0,
+    SubmittedBy: "__SubmittedBy__",
+    RequestId: "__RequestId__",
+    Comment: "__Comment__"
+  },
+  ChangeBatch: {
+    Changes: [
+      {},
+      {},
+      {}
+    ],
+    Comment: "__Comment__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetHostedZoneChangeBatchResponse xmlns="https://placeholder.amazonaws.com">
+    <ChangeBatchSummary>
+        <ChangeId>
+            __ChangeId__
+        </ChangeId>
+        <Operation>
+            __Operation__
+        </Operation>
+        <SubmittedAt>
+            2000-01-01T04:59:59.999Z
+        </SubmittedAt>
+        <ChangeCount>
+            0
+        </ChangeCount>
+        <SubmittedBy>
+            __SubmittedBy__
+        </SubmittedBy>
+        <RequestId>
+            __RequestId__
+        </RequestId>
+        <Comment>
+            __Comment__
+        </Comment>
+    </ChangeBatchSummary>
+    <ChangeBatch>
+        <Changes>
+            <Change/>
+<Change/>
+<Change/>
+        </Changes>
+        <Comment>
+            __Comment__
+        </Comment>
+    </ChangeBatch>
+</GetHostedZoneChangeBatchResponse>
+
+
+--- [output object] ---
+{
+  ChangeBatchSummary: {
+    ChangeId: "__ChangeId__",
+    Operation: "__Operation__",
+    SubmittedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ChangeCount: (number) 0,
+    SubmittedBy: "__SubmittedBy__",
+    RequestId: "__RequestId__",
+    Comment: "__Comment__"
+  },
+  ChangeBatch: {
+    Changes: [
+      {},
+      {},
+      {}
+    ],
+    Comment: "__Comment__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -193,6 +193,22 @@ export type ChangeAction = (typeof ChangeAction)[keyof typeof ChangeAction];
  * @public
  * @enum
  */
+export const AZAffinityLocationType = {
+  AvailabilityZone: "AvailabilityZone",
+  AvailabilityZoneGroup: "AvailabilityZoneGroup",
+  Global: "Global",
+  Partition: "Partition",
+  Region: "Region",
+} as const;
+/**
+ * @public
+ */
+export type AZAffinityLocationType = (typeof AZAffinityLocationType)[keyof typeof AZAffinityLocationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceRecordSetFailover = {
   PRIMARY: "PRIMARY",
   SECONDARY: "SECONDARY",
@@ -414,6 +430,77 @@ export type HealthCheckSourceStatus = (typeof HealthCheckSourceStatus)[keyof typ
  * @public
  * @enum
  */
+export const ChangeGuardrailName = {
+  ACTIVE_DELEGATION_CHECK: "ACTIVE_DELEGATION_CHECK",
+  ACTIVE_RECORD_CHECK: "ACTIVE_RECORD_CHECK",
+  ALIAS_TARGET_CHECK: "ALIAS_TARGET_CHECK",
+  NS_DELEGATION_AUTHORITY_CHECK: "NS_DELEGATION_AUTHORITY_CHECK",
+  NS_FORMAT_CHECK: "NS_FORMAT_CHECK",
+  NS_OCCLUSION_CHECK: "NS_OCCLUSION_CHECK",
+} as const;
+/**
+ * @public
+ */
+export type ChangeGuardrailName = (typeof ChangeGuardrailName)[keyof typeof ChangeGuardrailName];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeGuardrailStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ChangeGuardrailStatus = (typeof ChangeGuardrailStatus)[keyof typeof ChangeGuardrailStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const HostedZoneTier = {
+  ADVANCED: "ADVANCED",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type HostedZoneTier = (typeof HostedZoneTier)[keyof typeof HostedZoneTier];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureEnablement = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type FeatureEnablement = (typeof FeatureEnablement)[keyof typeof FeatureEnablement];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
+/**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const HealthCheckSourceStatusReasonCode = {
   EC2_LIMIT_EXCEEDED: "EC2_LIMIT_EXCEEDED",
   INSUFFICIENT_SUBNET_IPS: "INSUFFICIENT_SUBNET_IPS",
@@ -428,6 +515,20 @@ export const HealthCheckSourceStatusReasonCode = {
  */
 export type HealthCheckSourceStatusReasonCode =
   (typeof HealthCheckSourceStatusReasonCode)[keyof typeof HealthCheckSourceStatusReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeHistoryOperation = {
+  ChangeResourceRecordSets: "ChangeResourceRecordSets",
+  CreateHostedZone: "CreateHostedZone",
+  DeleteHostedZone: "DeleteHostedZone",
+} as const;
+/**
+ * @public
+ */
+export type ChangeHistoryOperation = (typeof ChangeHistoryOperation)[keyof typeof ChangeHistoryOperation];
 
 /**
  * @public
@@ -454,6 +555,19 @@ export const ReusableDelegationSetLimitType = {
  */
 export type ReusableDelegationSetLimitType =
   (typeof ReusableDelegationSetLimitType)[keyof typeof ReusableDelegationSetLimitType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChangeHistorySortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+/**
+ * @public
+ */
+export type ChangeHistorySortOrder = (typeof ChangeHistorySortOrder)[keyof typeof ChangeHistorySortOrder];
 
 /**
  * @public

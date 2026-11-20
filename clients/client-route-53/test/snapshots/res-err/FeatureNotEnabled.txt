@@ -1,0 +1,125 @@
+======================== minimal response ========================
+[status] 403
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            FeatureNotEnabled
+        </Code>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
+
+
+--- [error name & message] ---
+FeatureNotEnabled: UnknownError
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 403,
+    requestId: "00000000-0000-4000-8000-000000000000",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "FeatureNotEnabled",
+  message: "UnknownError",
+  Error: {
+    Type: "Sender",
+    Code: "FeatureNotEnabled"
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
+  xmlns: "https://placeholder.amazonaws.com",
+  Type: "Sender",
+  Code: "FeatureNotEnabled"
+}
+
+======================== w/ optional fields ========================
+[status] 403
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<ErrorResponse xmlns="https://placeholder.amazonaws.com">
+    <Error>
+        <Type>
+            Sender
+        </Type>
+        <Code>
+            FeatureNotEnabled
+        </Code>
+        <message>
+            __message__
+        </message>
+    </Error>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</ErrorResponse>
+
+
+--- [error name & message] ---
+FeatureNotEnabled: __message__
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 403,
+    requestId: "00000000-0000-4000-8000-000000000000",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "FeatureNotEnabled",
+  message: "__message__",
+  Error: {
+    Type: "Sender",
+    Code: "FeatureNotEnabled",
+    message: "__message__"
+  },
+  RequestId: "00000000-0000-4000-8000-000000000000",
+  xmlns: "https://placeholder.amazonaws.com",
+  Type: "Sender",
+  Code: "FeatureNotEnabled"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+Error: @aws-sdk XML parse error: unexpected content.
+  Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
+
+--- [error object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

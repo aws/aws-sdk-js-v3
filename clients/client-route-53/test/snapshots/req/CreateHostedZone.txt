@@ -2,14 +2,14 @@ POST https://route53.amazonaws.com
 /2013-04-01/hostedzone
 
 content-type: application/xml
-content-length: 442
+content-length: 835
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/route-53#_.__ m/E,e
 host: route53.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: a227e766c387c852386f4a4140dd1de601e39898623431510ac1fdc936beec09
+x-amz-content-sha256: 425ed0c1729648e73eb9381df2b282693bc312cabe15215335558fed0eacab6f
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/route53/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (xml)]
@@ -36,8 +36,40 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/route53/aws4_r
         <PrivateZone>
             false
         </PrivateZone>
+        <HostedZoneTier>
+            __HostedZoneTier__
+        </HostedZoneTier>
     </HostedZoneConfig>
     <DelegationSetId>
         __DelegationSetId__
     </DelegationSetId>
+    <EnablePublicDNSFallback>
+        false
+    </EnablePublicDNSFallback>
+    <ChangeGuardrails>
+        <ChangeGuardrail>
+            <Name>
+                __Name__
+            </Name>
+            <Status>
+                __Status__
+            </Status>
+        </ChangeGuardrail>
+        <ChangeGuardrail>
+            <Name>
+                __Name__
+            </Name>
+            <Status>
+                __Status__
+            </Status>
+        </ChangeGuardrail>
+        <ChangeGuardrail>
+            <Name>
+                __Name__
+            </Name>
+            <Status>
+                __Status__
+            </Status>
+        </ChangeGuardrail>
+    </ChangeGuardrails>
 </CreateHostedZoneRequest>

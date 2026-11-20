@@ -12,17 +12,20 @@ const _AVPCWHZ = "AssociateVPCWithHostedZone";
 const _AVPCWHZR = "AssociateVPCWithHostedZoneRequest";
 const _AVPCWHZRs = "AssociateVPCWithHostedZoneResponse";
 const _AWSR = "AWSRegion";
+const _AZA = "AZAffinity";
 const _AZI = "AvailabilityZoneId";
 const _Ar = "Arn";
 const _B = "Bias";
 const _C = "Comment";
 const _CB = "ChangeBatch";
 const _CBIUE = "CidrBlockInUseException";
-const _CBS = "CidrBlockSummary";
-const _CBSi = "CidrBlockSummaries";
+const _CBS = "ChangeBatchSummary";
+const _CBSh = "ChangeBatchSummaries";
+const _CBSi = "CidrBlockSummary";
+const _CBSid = "CidrBlockSummaries";
 const _CBi = "CidrBlock";
 const _CBid = "CidrBlocks";
-const _CC = "CidrCollection";
+const _CC = "ChangeCount";
 const _CCAEE = "CidrCollectionAlreadyExistsException";
 const _CCC = "CidrCollectionChange";
 const _CCCR = "ChangeCidrCollectionRequest";
@@ -34,11 +37,15 @@ const _CCCi = "CidrCollectionChanges";
 const _CCCr = "CreateCidrCollection";
 const _CCIUE = "CidrCollectionInUseException";
 const _CCVME = "CidrCollectionVersionMismatchException";
-const _CCi = "CidrCollections";
+const _CCi = "CidrCollection";
+const _CCid = "CidrCollections";
 const _CCo = "ContinentCode";
 const _CCou = "CountryCode";
 const _CD = "CreatedDate";
 const _CDE = "ConflictingDomainExists";
+const _CG = "ChangeGuardrail";
+const _CGh = "ChangeGuardrails";
+const _CH = "ChangeHistory";
 const _CHC = "ChildHealthChecks";
 const _CHCL = "ChildHealthCheckList";
 const _CHCR = "CreateHealthCheckRequest";
@@ -48,11 +55,13 @@ const _CHCSR = "CreateHealthCheckSourceRequest";
 const _CHCSRr = "CreateHealthCheckSourceResponse";
 const _CHCh = "ChildHealthCheck";
 const _CHCr = "CreateHealthCheck";
+const _CHF = "ChangeHistoryFeature";
 const _CHZ = "CreateHostedZone";
 const _CHZR = "CreateHostedZoneRequest";
 const _CHZRr = "CreateHostedZoneResponse";
 const _CI = "ChangeInfo";
 const _CIR = "CheckerIpRanges";
+const _CIh = "ChangeId";
 const _CIo = "CollectionId";
 const _CKSK = "CreateKeySigningKey";
 const _CKSKR = "CreateKeySigningKeyRequest";
@@ -139,6 +148,7 @@ const _DNSSECS = "DNSSECStatus";
 const _DQLC = "DeleteQueryLoggingConfig";
 const _DQLCR = "DeleteQueryLoggingConfigRequest";
 const _DQLCRe = "DeleteQueryLoggingConfigResponse";
+const _DR = "DryRun";
 const _DRDS = "DeleteReusableDelegationSet";
 const _DRDSR = "DeleteReusableDelegationSetRequest";
 const _DRDSRe = "DeleteReusableDelegationSetResponse";
@@ -181,10 +191,12 @@ const _EHZDNSSECR = "EnableHostedZoneDNSSECRequest";
 const _EHZDNSSECRn = "EnableHostedZoneDNSSECResponse";
 const _EM = "ErrorMessages";
 const _EP = "EvaluationPeriods";
+const _EPDNSF = "EnablePublicDNSFallback";
 const _ESNI = "EnableSNI";
 const _ET = "EndpointType";
 const _ETH = "EvaluateTargetHealth";
 const _F = "Features";
+const _FNE = "FeatureNotEnabled";
 const _FQDN = "FullyQualifiedDomainName";
 const _FR = "FailureReasons";
 const _FT = "FailureThreshold";
@@ -222,6 +234,9 @@ const _GHCSRete = "GetHealthCheckStatusResponse";
 const _GHCSe = "GetHealthCheckStatus";
 const _GHZ = "GetHostedZone";
 const _GHZC = "GetHostedZoneCount";
+const _GHZCB = "GetHostedZoneChangeBatch";
+const _GHZCBR = "GetHostedZoneChangeBatchRequest";
+const _GHZCBRe = "GetHostedZoneChangeBatchResponse";
 const _GHZCR = "GetHostedZoneCountRequest";
 const _GHZCRe = "GetHostedZoneCountResponse";
 const _GHZL = "GetHostedZoneLimit";
@@ -286,7 +301,8 @@ const _HZO = "HostedZoneOwner";
 const _HZPD = "HostedZonePartiallyDelegated";
 const _HZS = "HostedZoneSummary";
 const _HZSo = "HostedZoneSummaries";
-const _HZT = "HostedZoneType";
+const _HZT = "HostedZoneTier";
+const _HZTo = "HostedZoneType";
 const _HZo = "HostedZones";
 const _I = "Id";
 const _IA = "InvalidArgument";
@@ -347,8 +363,12 @@ const _LHZBNRi = "ListHostedZonesByNameResponse";
 const _LHZBVPC = "ListHostedZonesByVPC";
 const _LHZBVPCR = "ListHostedZonesByVPCRequest";
 const _LHZBVPCRi = "ListHostedZonesByVPCResponse";
+const _LHZCB = "ListHostedZoneChangeBatches";
+const _LHZCBR = "ListHostedZoneChangeBatchesRequest";
+const _LHZCBRi = "ListHostedZoneChangeBatchesResponse";
 const _LHZR = "ListHostedZonesRequest";
 const _LHZRi = "ListHostedZonesResponse";
+const _LI = "LocationId";
 const _LMD = "LastModifiedDate";
 const _LN = "LocationName";
 const _LQLC = "ListQueryLoggingConfigs";
@@ -358,6 +378,9 @@ const _LRDS = "ListReusableDelegationSets";
 const _LRDSR = "ListReusableDelegationSetsRequest";
 const _LRDSRi = "ListReusableDelegationSetsResponse";
 const _LRRS = "ListResourceRecordSets";
+const _LRRSC = "ListResourceRecordSetChanges";
+const _LRRSCR = "ListResourceRecordSetChangesRequest";
+const _LRRSCRi = "ListResourceRecordSetChangesResponse";
 const _LRRSP = "ListResourceRecordSetProtections";
 const _LRRSPR = "ListResourceRecordSetProtectionsRequest";
 const _LRRSPRi = "ListResourceRecordSetProtectionsResponse";
@@ -366,6 +389,7 @@ const _LRRSRi = "ListResourceRecordSetsResponse";
 const _LS = "LinkedService";
 const _LSo = "LocationSummary";
 const _LSoc = "LocationSummaries";
+const _LT = "LocationType";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -432,11 +456,13 @@ const _NSa = "NameServer";
 const _NT = "NextToken";
 const _Na = "Namespace";
 const _Nam = "Nameserver";
-const _O = "Owner";
+const _O = "Operation";
 const _OA = "OwningAccount";
 const _OS = "OwningService";
+const _Ow = "Owner";
 const _P = "Period";
 const _PAE = "ProtectionAlreadyExists";
+const _PDNSFS = "PublicDNSFallbackStatus";
 const _PE = "ProtectionError";
 const _PEr = "ProtectionErrors";
 const _PK = "PublicKey";
@@ -458,15 +484,18 @@ const _RDSL = "ReusableDelegationSetLimit";
 const _RE = "ResetElements";
 const _REN = "ResettableElementName";
 const _RENL = "ResettableElementNameList";
-const _RI = "ResourceId";
+const _RI = "RequestId";
 const _RIP = "ResolverIP";
-const _RIe = "RequestInterval";
+const _RIe = "ResourceId";
+const _RIeq = "RequestInterval";
 const _RIes = "ResourceIds";
 const _RN = "RecordName";
 const _RP = "ResourcePath";
 const _RR = "ResourceRecord";
 const _RRS = "ResourceRecordSet";
 const _RRSC = "ResourceRecordSetCount";
+const _RRSCe = "ResourceRecordSetChanges";
+const _RRSCes = "ResourceRecordSetChange";
 const _RRSP = "ResourceRecordSetProtections";
 const _RRSPC = "ResourceRecordSetProtectionConfig";
 const _RRSPCB = "ResourceRecordSetProtectionConfigBatch";
@@ -475,6 +504,7 @@ const _RRSPKB = "ResourceRecordSetProtectionKeyBatch";
 const _RRSPe = "ResourceRecordSetProtection";
 const _RRSe = "ResourceRecordSets";
 const _RRe = "ResourceRecords";
+const _RSA = "RetentionStartsAt";
 const _RT = "ResourceType";
 const _RTK = "RemoveTagKeys";
 const _RTS = "ResourceTagSet";
@@ -484,8 +514,12 @@ const _RTe = "RecordType";
 const _Re = "Regions";
 const _S = "Status";
 const _SA = "SubmittedAt";
+const _SACI = "StartAfterChangeId";
 const _SAM = "SigningAlgorithmMnemonic";
 const _SAT = "SigningAlgorithmType";
+const _SAu = "SubmittedAfter";
+const _SB = "SubmittedBy";
+const _SBu = "SubmittedBefore";
 const _SC = "SubdivisionCode";
 const _SCC = "StartContinentCode";
 const _SCCt = "StartCountryCode";
@@ -497,6 +531,7 @@ const _SI = "SetIdentifier";
 const _SIu = "SubnetId";
 const _SM = "StatusMessage";
 const _SN = "SubdivisionName";
+const _SO = "SortOrder";
 const _SP = "ServicePrincipal";
 const _SR = "StatusReport";
 const _SRC = "StatusReasonCode";
@@ -557,6 +592,9 @@ const _UHZCRp = "UpdateHostedZoneCommentResponse";
 const _UHZF = "UpdateHostedZoneFeatures";
 const _UHZFR = "UpdateHostedZoneFeaturesRequest";
 const _UHZFRp = "UpdateHostedZoneFeaturesResponse";
+const _UHZT = "UpdateHostedZoneTier";
+const _UHZTR = "UpdateHostedZoneTierRequest";
+const _UHZTRp = "UpdateHostedZoneTierResponse";
 const _UTPC = "UpdateTrafficPolicyComment";
 const _UTPCR = "UpdateTrafficPolicyCommentRequest";
 const _UTPCRp = "UpdateTrafficPolicyCommentResponse";
@@ -602,10 +640,14 @@ const _r = "recordname";
 const _re = "recordtype";
 const _res = "resolverip";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.route53";
+const _so = "sortorder";
 const _st = "startcontinentcode";
 const _sta = "startcountrycode";
 const _star = "startsubdivisioncode";
+const _start = "startafterchangeid";
 const _su = "subdivisioncode";
+const _sub = "submittedafter";
+const _subm = "submittedbefore";
 const _t = "type";
 const _tr = "trafficpolicyid";
 const _tra = "trafficpolicyinstancename";
@@ -635,6 +677,7 @@ import {
   DelegationSetNotAvailable,
   DelegationSetNotReusable,
   DNSSECNotFound,
+  FeatureNotEnabled,
   HealthCheckAlreadyExists,
   HealthCheckInUse,
   HealthCheckSourceAlreadyExists,
@@ -782,6 +825,12 @@ export var DNSSECNotFound$: StaticErrorSchema = [-3, n0, _DNSSECNF,
   [0]
 ];
 n0_registry.registerError(DNSSECNotFound$, DNSSECNotFound);
+export var FeatureNotEnabled$: StaticErrorSchema = [-3, n0, _FNE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(FeatureNotEnabled$, FeatureNotEnabled);
 export var HealthCheckAlreadyExists$: StaticErrorSchema = [-3, n0, _HCAE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
@@ -1192,6 +1241,11 @@ export var AssociateVPCWithHostedZoneResponse$: StaticStructureSchema = [3, n0, 
   [_CI],
   [() => ChangeInfo$], 1
 ];
+export var AZAffinity$: StaticStructureSchema = [3, n0, _AZA,
+  0,
+  [_LT, _LI],
+  [0, 0]
+];
 export var Change$: StaticStructureSchema = [3, n0, _Ch,
   0,
   [_A, _RRS],
@@ -1202,6 +1256,11 @@ export var ChangeBatch$: StaticStructureSchema = [3, n0, _CB,
   [_Cha, _C],
   [[() => Changes, 0], 0], 1
 ];
+export var ChangeBatchSummary$: StaticStructureSchema = [3, n0, _CBS,
+  0,
+  [_CIh, _O, _SA, _CC, _SB, _RI, _C],
+  [0, 0, 4, 1, 0, 0, 0], 4
+];
 export var ChangeCidrCollectionRequest$: StaticStructureSchema = [3, n0, _CCCR,
   0,
   [_I, _Cha, _CV],
@@ -1211,6 +1270,16 @@ export var ChangeCidrCollectionResponse$: StaticStructureSchema = [3, n0, _CCCRh
   0,
   [_I],
   [0], 1
+];
+export var ChangeGuardrail$: StaticStructureSchema = [3, n0, _CG,
+  0,
+  [_N, _S],
+  [0, 0], 2
+];
+export var ChangeHistoryFeature$: StaticStructureSchema = [3, n0, _CHF,
+  0,
+  [_S, _RSA],
+  [0, 4]
 ];
 export var ChangeInfo$: StaticStructureSchema = [3, n0, _CI,
   0,
@@ -1229,7 +1298,7 @@ export var ChangeResourceRecordSetsResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var ChangeTagsForResourceRequest$: StaticStructureSchema = [3, n0, _CTFRR,
   0,
-  [_RT, _RI, _ATd, _RTK],
+  [_RT, _RIe, _ATd, _RTK],
   [[0, 1], [0, 1], [() => TagList, 0], [() => TagKeyList, 0]], 2
 ];
 export var ChangeTagsForResourceResponse$: StaticStructureSchema = [3, n0, _CTFRRh,
@@ -1237,12 +1306,12 @@ export var ChangeTagsForResourceResponse$: StaticStructureSchema = [3, n0, _CTFR
   [],
   []
 ];
-export var CidrBlockSummary$: StaticStructureSchema = [3, n0, _CBS,
+export var CidrBlockSummary$: StaticStructureSchema = [3, n0, _CBSi,
   0,
   [_CBi, _LN],
   [0, 0]
 ];
-export var CidrCollection$: StaticStructureSchema = [3, n0, _CC,
+export var CidrCollection$: StaticStructureSchema = [3, n0, _CCi,
   0,
   [_Ar, _I, _N, _Ve],
   [0, 0, 0, 1]
@@ -1304,13 +1373,13 @@ export var CreateHealthCheckSourceResponse$: StaticStructureSchema = [3, n0, _CH
 ];
 export var CreateHostedZoneRequest$: StaticStructureSchema = [3, n0, _CHZR,
   0,
-  [_N, _CR, _VPC, _HZC, _DSI],
-  [0, 0, () => VPC$, () => HostedZoneConfig$, 0], 2
+  [_N, _CR, _VPC, _HZC, _DSI, _EPDNSF, _CGh],
+  [0, 0, () => VPC$, () => HostedZoneConfig$, 0, 2, [() => ChangeGuardrails, 0]], 2
 ];
 export var CreateHostedZoneResponse$: StaticStructureSchema = [3, n0, _CHZRr,
   0,
   [_HZ, _CI, _DS, _Loc, _VPC],
-  [() => HostedZone$, () => ChangeInfo$, [() => DelegationSet$, 0], [0, { [_hH]: _Loc }], () => VPC$], 4
+  [[() => HostedZone$, 0], () => ChangeInfo$, [() => DelegationSet$, 0], [0, { [_hH]: _Loc }], () => VPC$], 4
 ];
 export var CreateKeySigningKeyRequest$: StaticStructureSchema = [3, n0, _CKSKR,
   0,
@@ -1672,6 +1741,16 @@ export var GetHealthCheckStatusResponse$: StaticStructureSchema = [3, n0, _GHCSR
   [_HCO],
   [[() => HealthCheckObservations, 0]], 1
 ];
+export var GetHostedZoneChangeBatchRequest$: StaticStructureSchema = [3, n0, _GHZCBR,
+  0,
+  [_HZI, _CIh],
+  [[0, 1], [0, 1]], 2
+];
+export var GetHostedZoneChangeBatchResponse$: StaticStructureSchema = [3, n0, _GHZCBRe,
+  0,
+  [_CBS, _CB],
+  [() => ChangeBatchSummary$, [() => ChangeBatch$, 0]], 2
+];
 export var GetHostedZoneCountRequest$: StaticStructureSchema = [3, n0, _GHZCR,
   0,
   [],
@@ -1700,7 +1779,7 @@ export var GetHostedZoneRequest$: StaticStructureSchema = [3, n0, _GHZR,
 export var GetHostedZoneResponse$: StaticStructureSchema = [3, n0, _GHZRe,
   0,
   [_HZ, _DS, _VPCs],
-  [() => HostedZone$, [() => DelegationSet$, 0], [() => VPCs, 0]], 1
+  [[() => HostedZone$, 0], [() => DelegationSet$, 0], [() => VPCs, 0]], 1
 ];
 export var GetQueryLoggingConfigRequest$: StaticStructureSchema = [3, n0, _GQLCR,
   0,
@@ -1769,7 +1848,7 @@ export var HealthCheck$: StaticStructureSchema = [3, n0, _HC,
 ];
 export var HealthCheckConfig$: StaticStructureSchema = [3, n0, _HCC,
   0,
-  [_T, _IPA, _Po, _RP, _FQDN, _SSe, _RIe, _FT, _ML, _In, _Dis, _HT, _CHC, _ESNI, _Re, _AI, _IDHS, _RCA, _ET, _HCSI],
+  [_T, _IPA, _Po, _RP, _FQDN, _SSe, _RIeq, _FT, _ML, _In, _Dis, _HT, _CHC, _ESNI, _Re, _AI, _IDHS, _RCA, _ET, _HCSI],
   [0, 0, 1, 0, 0, 0, 1, 1, 2, 2, 2, 1, [() => ChildHealthCheckList, 0], 2, [() => HealthCheckRegionList, 0], () => AlarmIdentifier$, 0, 0, 0, 0], 1
 ];
 export var HealthCheckObservation$: StaticStructureSchema = [3, n0, _HCOe,
@@ -1790,12 +1869,12 @@ export var HealthCheckSourceConfig$: StaticStructureSchema = [3, n0, _HCSC,
 export var HostedZone$: StaticStructureSchema = [3, n0, _HZ,
   0,
   [_I, _N, _CR, _Con, _RRSC, _LS, _F],
-  [0, 0, 0, () => HostedZoneConfig$, 1, () => LinkedService$, () => HostedZoneFeatures$], 3
+  [0, 0, 0, () => HostedZoneConfig$, 1, () => LinkedService$, [() => HostedZoneFeatures$, 0]], 3
 ];
 export var HostedZoneConfig$: StaticStructureSchema = [3, n0, _HZC,
   0,
-  [_C, _PZ],
-  [0, 2]
+  [_C, _PZ, _HZT],
+  [0, 2, 0]
 ];
 export var HostedZoneFailureReasons$: StaticStructureSchema = [3, n0, _HZFR,
   0,
@@ -1804,8 +1883,8 @@ export var HostedZoneFailureReasons$: StaticStructureSchema = [3, n0, _HZFR,
 ];
 export var HostedZoneFeatures$: StaticStructureSchema = [3, n0, _HZF,
   0,
-  [_ARS, _FR],
-  [0, () => HostedZoneFailureReasons$]
+  [_ARS, _PDNSFS, _CH, _FR, _CGh],
+  [0, 0, () => ChangeHistoryFeature$, () => HostedZoneFailureReasons$, [() => ChangeGuardrails, 0]]
 ];
 export var HostedZoneLimit$: StaticStructureSchema = [3, n0, _HZL,
   0,
@@ -1819,7 +1898,7 @@ export var HostedZoneOwner$: StaticStructureSchema = [3, n0, _HZO,
 ];
 export var HostedZoneSummary$: StaticStructureSchema = [3, n0, _HZS,
   0,
-  [_HZI, _N, _O],
+  [_HZI, _N, _Ow],
   [0, 0, () => HostedZoneOwner$], 3
 ];
 export var KeySigningKey$: StaticStructureSchema = [3, n0, _KSK,
@@ -1849,7 +1928,7 @@ export var ListCidrCollectionsRequest$: StaticStructureSchema = [3, n0, _LCCR,
 ];
 export var ListCidrCollectionsResponse$: StaticStructureSchema = [3, n0, _LCCRi,
   0,
-  [_NT, _CCi],
+  [_NT, _CCid],
   [0, () => CollectionSummaries]
 ];
 export var ListCidrLocationsRequest$: StaticStructureSchema = [3, n0, _LCLR,
@@ -1902,6 +1981,16 @@ export var ListHealthChecksResponse$: StaticStructureSchema = [3, n0, _LHCRi,
   [_HCe, _Ma, _IT, _MI, _NM],
   [[() => HealthChecks, 0], 0, 2, 1, 0], 4
 ];
+export var ListHostedZoneChangeBatchesRequest$: StaticStructureSchema = [3, n0, _LHZCBR,
+  0,
+  [_HZI, _SAu, _SBu, _SACI, _SO, _MR, _NT],
+  [[0, 1], [0, { [_hQ]: _sub }], [0, { [_hQ]: _subm }], [0, { [_hQ]: _start }], [0, { [_hQ]: _so }], [1, { [_hQ]: _ma }], [0, { [_hQ]: _n }]], 1
+];
+export var ListHostedZoneChangeBatchesResponse$: StaticStructureSchema = [3, n0, _LHZCBRi,
+  0,
+  [_CBSh, _NT],
+  [[() => ChangeBatchSummaries, 0], 0], 1
+];
 export var ListHostedZonesByNameRequest$: StaticStructureSchema = [3, n0, _LHZBNR,
   0,
   [_DNSN, _HZI, _MI],
@@ -1924,7 +2013,7 @@ export var ListHostedZonesByVPCResponse$: StaticStructureSchema = [3, n0, _LHZBV
 ];
 export var ListHostedZonesRequest$: StaticStructureSchema = [3, n0, _LHZR,
   0,
-  [_Ma, _MI, _DSI, _HZT],
+  [_Ma, _MI, _DSI, _HZTo],
   [[0, { [_hQ]: _mar }], [1, { [_hQ]: _max }], [0, { [_hQ]: _de }], [0, { [_hQ]: _ho }]]
 ];
 export var ListHostedZonesResponse$: StaticStructureSchema = [3, n0, _LHZRi,
@@ -1941,6 +2030,16 @@ export var ListQueryLoggingConfigsResponse$: StaticStructureSchema = [3, n0, _LQ
   0,
   [_QLCu, _NT],
   [[() => QueryLoggingConfigs, 0], 0], 1
+];
+export var ListResourceRecordSetChangesRequest$: StaticStructureSchema = [3, n0, _LRRSCR,
+  0,
+  [_HZI, _RN, _RTe, _SAu, _SBu, _SO, _MR, _NT],
+  [[0, 1], [0, { [_hQ]: _r }], [0, { [_hQ]: _re }], [0, { [_hQ]: _sub }], [0, { [_hQ]: _subm }], [0, { [_hQ]: _so }], [1, { [_hQ]: _ma }], [0, { [_hQ]: _n }]], 1
+];
+export var ListResourceRecordSetChangesResponse$: StaticStructureSchema = [3, n0, _LRRSCRi,
+  0,
+  [_RRSCe, _NT],
+  [[() => ResourceRecordSetChanges, 0], 0], 1
 ];
 export var ListResourceRecordSetProtectionsRequest$: StaticStructureSchema = [3, n0, _LRRSPR,
   0,
@@ -1974,7 +2073,7 @@ export var ListReusableDelegationSetsResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_RT, _RI],
+  [_RT, _RIe],
   [[0, 1], [0, 1]], 2
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
@@ -2074,8 +2173,13 @@ export var ResourceRecord$: StaticStructureSchema = [3, n0, _RR,
 ];
 export var ResourceRecordSet$: StaticStructureSchema = [3, n0, _RRS,
   0,
-  [_N, _T, _SI, _W, _R, _GL, _Fa, _MVA, _TTL, _RRe, _AT, _HCI, _TPII, _CRC, _GPL],
-  [0, 0, 0, 1, 0, () => GeoLocation$, 0, 2, 1, [() => ResourceRecords, 0], () => AliasTarget$, 0, 0, () => CidrRoutingConfig$, () => GeoProximityLocation$], 2
+  [_N, _T, _SI, _W, _R, _GL, _Fa, _MVA, _TTL, _RRe, _AT, _HCI, _TPII, _CRC, _GPL, _AZA],
+  [0, 0, 0, 1, 0, () => GeoLocation$, 0, 2, 1, [() => ResourceRecords, 0], () => AliasTarget$, 0, 0, () => CidrRoutingConfig$, () => GeoProximityLocation$, () => AZAffinity$], 2
+];
+export var ResourceRecordSetChange$: StaticStructureSchema = [3, n0, _RRSCes,
+  0,
+  [_CIh, _O, _SA, _A, _RRS, _SB, _RI],
+  [0, 0, 4, 0, [() => ResourceRecordSet$, 0], 0, 0], 5
 ];
 export var ResourceRecordSetProtection$: StaticStructureSchema = [3, n0, _RRSPe,
   0,
@@ -2094,7 +2198,7 @@ export var ResourceRecordSetProtectionKey$: StaticStructureSchema = [3, n0, _RRS
 ];
 export var ResourceTagSet$: StaticStructureSchema = [3, n0, _RTS,
   0,
-  [_RT, _RI, _Ta],
+  [_RT, _RIe, _Ta],
   [0, 0, [() => TagList, 0]]
 ];
 export var ReusableDelegationSetLimit$: StaticStructureSchema = [3, n0, _RDSL,
@@ -2160,14 +2264,24 @@ export var UpdateHostedZoneCommentRequest$: StaticStructureSchema = [3, n0, _UHZ
 export var UpdateHostedZoneCommentResponse$: StaticStructureSchema = [3, n0, _UHZCRp,
   0,
   [_HZ],
-  [() => HostedZone$], 1
+  [[() => HostedZone$, 0]], 1
 ];
 export var UpdateHostedZoneFeaturesRequest$: StaticStructureSchema = [3, n0, _UHZFR,
   0,
-  [_HZI, _EAR],
-  [[0, 1], 2], 1
+  [_HZI, _EAR, _EPDNSF, _CGh, _DR],
+  [[0, 1], 2, 2, [() => ChangeGuardrails, 0], 2], 1
 ];
 export var UpdateHostedZoneFeaturesResponse$: StaticStructureSchema = [3, n0, _UHZFRp,
+  0,
+  [],
+  []
+];
+export var UpdateHostedZoneTierRequest$: StaticStructureSchema = [3, n0, _UHZTR,
+  0,
+  [_HZI, _HZT, _DR],
+  [[0, 1], 0, 2], 2
+];
+export var UpdateHostedZoneTierResponse$: StaticStructureSchema = [3, n0, _UHZTRp,
   0,
   [],
   []
@@ -2197,6 +2311,14 @@ export var VPC$: StaticStructureSchema = [3, n0, _VPC,
   [_VPCR, _VPCI],
   [0, 0]
 ];
+var ChangeBatchSummaries: StaticListSchema = [1, n0, _CBSh,
+  0, [() => ChangeBatchSummary$,
+    { [_xN]: _CBS }]
+];
+var ChangeGuardrails: StaticListSchema = [1, n0, _CGh,
+  0, [() => ChangeGuardrail$,
+    { [_xN]: _CG }]
+];
 var Changes: StaticListSchema = [1, n0, _Cha,
   0, [() => Change$,
     { [_xN]: _Ch }]
@@ -2206,7 +2328,7 @@ var ChildHealthCheckList: StaticListSchema = [1, n0, _CHCL,
   0, [0,
     { [_xN]: _CHCh }]
 ];
-var CidrBlockSummaries: StaticListSchema = [1, n0, _CBSi,
+var CidrBlockSummaries: StaticListSchema = [1, n0, _CBSid,
   0, () => CidrBlockSummary$
 ];
 var CidrCollectionChanges: StaticListSchema = [1, n0, _CCCi,
@@ -2290,6 +2412,10 @@ var ResourceRecords: StaticListSchema = [1, n0, _RRe,
   0, [() => ResourceRecord$,
     { [_xN]: _RR }]
 ];
+var ResourceRecordSetChanges: StaticListSchema = [1, n0, _RRSCe,
+  0, [() => ResourceRecordSetChange$,
+    { [_xN]: _RRSCes }]
+];
 var ResourceRecordSetProtectionConfigBatch: StaticListSchema = [1, n0, _RRSPCB,
   0, [() => ResourceRecordSetProtectionConfig$,
     { [_xN]: _RRSPC }]
@@ -2328,7 +2454,7 @@ var TagList: StaticListSchema = [1, n0, _TL,
 ];
 var TagResourceIdList: StaticListSchema = [1, n0, _TRIL,
   0, [0,
-    { [_xN]: _RI }]
+    { [_xN]: _RIe }]
 ];
 var TrafficPolicies: StaticListSchema = [1, n0, _TPr,
   0, [() => TrafficPolicy$,
@@ -2475,6 +2601,9 @@ export var GetHealthCheckStatus$: StaticOperationSchema = [9, n0, _GHCSe,
 export var GetHostedZone$: StaticOperationSchema = [9, n0, _GHZ,
   { [_ht]: ["GET", "/2013-04-01/hostedzone/{Id}", 200] }, () => GetHostedZoneRequest$, () => GetHostedZoneResponse$
 ];
+export var GetHostedZoneChangeBatch$: StaticOperationSchema = [9, n0, _GHZCB,
+  { [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/changebatches/{ChangeId}", 200] }, () => GetHostedZoneChangeBatchRequest$, () => GetHostedZoneChangeBatchResponse$
+];
 export var GetHostedZoneCount$: StaticOperationSchema = [9, n0, _GHZC,
   { [_ht]: ["GET", "/2013-04-01/hostedzonecount", 200] }, () => GetHostedZoneCountRequest$, () => GetHostedZoneCountResponse$
 ];
@@ -2520,6 +2649,9 @@ export var ListHealthChecksBySource$: StaticOperationSchema = [9, n0, _LHCBS,
 export var ListHealthCheckSources$: StaticOperationSchema = [9, n0, _LHCS,
   { [_ht]: ["GET", "/2013-04-01/healthchecksource", 200] }, () => ListHealthCheckSourcesRequest$, () => ListHealthCheckSourcesResponse$
 ];
+export var ListHostedZoneChangeBatches$: StaticOperationSchema = [9, n0, _LHZCB,
+  { [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/changebatches", 200] }, () => ListHostedZoneChangeBatchesRequest$, () => ListHostedZoneChangeBatchesResponse$
+];
 export var ListHostedZones$: StaticOperationSchema = [9, n0, _LHZ,
   { [_ht]: ["GET", "/2013-04-01/hostedzone", 200] }, () => ListHostedZonesRequest$, () => ListHostedZonesResponse$
 ];
@@ -2531,6 +2663,9 @@ export var ListHostedZonesByVPC$: StaticOperationSchema = [9, n0, _LHZBVPC,
 ];
 export var ListQueryLoggingConfigs$: StaticOperationSchema = [9, n0, _LQLC,
   { [_ht]: ["GET", "/2013-04-01/queryloggingconfig", 200] }, () => ListQueryLoggingConfigsRequest$, () => ListQueryLoggingConfigsResponse$
+];
+export var ListResourceRecordSetChanges$: StaticOperationSchema = [9, n0, _LRRSC,
+  { [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/rrsetchanges", 200] }, () => ListResourceRecordSetChangesRequest$, () => ListResourceRecordSetChangesResponse$
 ];
 export var ListResourceRecordSetProtections$: StaticOperationSchema = [9, n0, _LRRSP,
   { [_ht]: ["GET", "/2013-04-01/hostedzone/{HostedZoneId}/rrsetprotection", 200] }, () => ListResourceRecordSetProtectionsRequest$, () => ListResourceRecordSetProtectionsResponse$
@@ -2576,6 +2711,9 @@ export var UpdateHostedZoneComment$: StaticOperationSchema = [9, n0, _UHZC,
 ];
 export var UpdateHostedZoneFeatures$: StaticOperationSchema = [9, n0, _UHZF,
   { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/features", 200] }, () => UpdateHostedZoneFeaturesRequest$, () => UpdateHostedZoneFeaturesResponse$
+];
+export var UpdateHostedZoneTier$: StaticOperationSchema = [9, n0, _UHZT,
+  { [_ht]: ["POST", "/2013-04-01/hostedzone/{HostedZoneId}/tier", 200] }, () => UpdateHostedZoneTierRequest$, () => UpdateHostedZoneTierResponse$
 ];
 export var UpdateTrafficPolicyComment$: StaticOperationSchema = [9, n0, _UTPC,
   { [_ht]: ["POST", "/2013-04-01/trafficpolicy/{Id}/{Version}", 200] }, () => UpdateTrafficPolicyCommentRequest$, () => UpdateTrafficPolicyCommentResponse$

@@ -64,6 +64,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 </LocationName>
             </CidrRoutingConfig>
             <GeoProximityLocation/>
+<AZAffinity/>
         </ResourceRecordSet>
         <ResourceRecordSet>
             <Name>
@@ -122,6 +123,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 </LocationName>
             </CidrRoutingConfig>
             <GeoProximityLocation/>
+<AZAffinity/>
         </ResourceRecordSet>
         <ResourceRecordSet>
             <Name>
@@ -180,6 +182,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 </LocationName>
             </CidrRoutingConfig>
             <GeoProximityLocation/>
+<AZAffinity/>
         </ResourceRecordSet>
     </ResourceRecordSets>
     <IsTruncated>
@@ -229,7 +232,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CollectionId: "__CollectionId__",
         LocationName: "__LocationName__"
       },
-      GeoProximityLocation: {}
+      GeoProximityLocation: {},
+      AZAffinity: {}
     },
     {
       Name: "__Name__",
@@ -257,7 +261,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CollectionId: "__CollectionId__",
         LocationName: "__LocationName__"
       },
-      GeoProximityLocation: {}
+      GeoProximityLocation: {},
+      AZAffinity: {}
     },
     {
       Name: "__Name__",
@@ -285,7 +290,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         CollectionId: "__CollectionId__",
         LocationName: "__LocationName__"
       },
-      GeoProximityLocation: {}
+      GeoProximityLocation: {},
+      AZAffinity: {}
     }
   ],
   IsTruncated: (boolean) false,
@@ -397,6 +403,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     0
                 </Bias>
             </GeoProximityLocation>
+            <AZAffinity>
+                <LocationType>
+                    __LocationType__
+                </LocationType>
+                <LocationId>
+                    __LocationId__
+                </LocationId>
+            </AZAffinity>
         </ResourceRecordSet>
         <ResourceRecordSet>
             <Name>
@@ -483,6 +497,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     0
                 </Bias>
             </GeoProximityLocation>
+            <AZAffinity>
+                <LocationType>
+                    __LocationType__
+                </LocationType>
+                <LocationId>
+                    __LocationId__
+                </LocationId>
+            </AZAffinity>
         </ResourceRecordSet>
         <ResourceRecordSet>
             <Name>
@@ -569,6 +591,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     0
                 </Bias>
             </GeoProximityLocation>
+            <AZAffinity>
+                <LocationType>
+                    __LocationType__
+                </LocationType>
+                <LocationId>
+                    __LocationId__
+                </LocationId>
+            </AZAffinity>
         </ResourceRecordSet>
     </ResourceRecordSets>
     <IsTruncated>
@@ -630,6 +660,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Longitude: "__Longitude__"
         },
         Bias: (number) 0
+      },
+      AZAffinity: {
+        LocationType: "__LocationType__",
+        LocationId: "__LocationId__"
       }
     },
     {
@@ -670,6 +704,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Longitude: "__Longitude__"
         },
         Bias: (number) 0
+      },
+      AZAffinity: {
+        LocationType: "__LocationType__",
+        LocationId: "__LocationId__"
       }
     },
     {
@@ -710,6 +748,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Longitude: "__Longitude__"
         },
         Bias: (number) 0
+      },
+      AZAffinity: {
+        LocationType: "__LocationType__",
+        LocationId: "__LocationId__"
       }
     }
   ],

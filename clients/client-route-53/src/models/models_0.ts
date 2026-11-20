@@ -2,17 +2,25 @@
 import type {
   AcceleratedRecoveryStatus,
   AccountLimitType,
+  AZAffinityLocationType,
   ChangeAction,
+  ChangeGuardrailName,
+  ChangeGuardrailStatus,
+  ChangeHistoryOperation,
+  ChangeHistorySortOrder,
   ChangeStatus,
   CidrCollectionChangeAction,
   CloudWatchRegion,
   ComparisonOperator,
   EndpointType,
+  FeatureEnablement,
+  FeatureStatus,
   HealthCheckRegion,
   HealthCheckSourceStatus,
   HealthCheckSourceStatusReasonCode,
   HealthCheckType,
   HostedZoneLimitType,
+  HostedZoneTier,
   HostedZoneType,
   InsufficientDataHealthStatus,
   ResettableElementName,
@@ -41,7 +49,7 @@ export interface AccountLimit {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>MAX_HEALTH_CHECK_SOURCES_BY_OWNER</b> The maximum
+   *                   <b>MAX_HEALTH_CHECK_SOURCES_BY_OWNER</b>: The maximum
    * 					number of health check sources that you can create using the current account.</p>
    *             </li>
    *             <li>
@@ -519,8 +527,8 @@ export interface AliasTarget {
 
   /**
    * <p>
-   *             <i>Applies only to alias, failover alias, geolocation alias, latency alias, and
-   * 				weighted alias resource record sets:</i> When
+   *             <i>Applies only to alias, az-affinity alias, failover alias, geolocation
+   * 				alias, latency alias, and weighted alias resource record sets:</i> When
    * 				<code>EvaluateTargetHealth</code> is <code>true</code>, an alias resource record set
    * 			inherits the health of the referenced Amazon Web Services resource, such as an ELB load
    * 			balancer or another resource record set in the hosted zone.</p>
@@ -786,6 +794,65 @@ export interface ChangeCidrCollectionResponse {
    * @public
    */
   Id: string | undefined;
+}
+
+/**
+ * <p>Specifies the location that an AZ-affinity resource record set answers DNS queries from. For the location types, from most to least specific, see <code>LocationType</code>. A query matches a location when Route 53 VPC Resolver reports that the query came from an Availability Zone (AZ) in that location. If Route 53 doesn't know which AZ a query came from, the query matches only the record for the <code>Global</code> location type. AZ-affinity routing chooses which record to return. It doesn't restrict which clients can get a record. You must specify both <code>LocationType</code> and <code>LocationId</code>.</p>
+ *          <p>To have Route 53 fall back to a less specific location when a resource is unhealthy, associate a health check with each record, or set <code>EvaluateTargetHealth</code> to <code>true</code> for alias records. If every record that matches a query is unhealthy, Route 53 responds with the most specific one.</p>
+ * @public
+ */
+export interface AZAffinity {
+  /**
+   * <p>The level of the location that <code>LocationId</code> identifies. Valid values, from most to least specific:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityZone</code>: A single Availability Zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityZoneGroup</code>: A Zone Group, which is a group of Availability Zones in an Amazon Web Services Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Region</code>: An entire Amazon Web Services Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Partition</code>: An entire Amazon Web Services partition.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Global</code>: All locations.</p>
+   *             </li>
+   *          </ul>
+   *          <p>We recommend that you create a record for the <code>Global</code> location type so that every query gets an answer. Route 53 responds with it when a query matches no more specific record, or when it's the only healthy record that matches. Without a <code>Global</code> record, Route 53 returns a "no answer" response to queries that don't match any other record.</p>
+   * @public
+   */
+  LocationType?: AZAffinityLocationType | undefined;
+
+  /**
+   * <p>The ID of the location. You can specify only generally available Availability Zones and Zone Groups. Zone Group, Region, and partition IDs must belong to a partition that you can use. Specify the ID in lowercase, in the format that corresponds to <code>LocationType</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>AvailabilityZone</code>, the Availability Zone ID (not the Availability Zone name or a Local Zone ID), such as <code>use1-az1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>AvailabilityZoneGroup</code>, the Zone Group that an Availability Zone belongs to (not a Local Zone group), such as <code>us-east-1-zg-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>Region</code>, the Region code, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>Partition</code>, the partition name, such as <code>aws</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>Global</code>, the value <code>global</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LocationId?: string | undefined;
 }
 
 /**
@@ -1599,6 +1666,14 @@ export interface ResourceRecordSet {
    * @public
    */
   GeoProximityLocation?: GeoProximityLocation | undefined;
+
+  /**
+   * <p>
+   *             <i>AZ-affinity resource record sets only:</i> The location that this resource record set answers DNS queries from, such as an Availability Zone (AZ) or an Amazon Web Services Region. For each query, Route 53 starts with the most specific location that the query matches and falls back to a less specific location when there's no record for that location or the record is unhealthy (its health check fails or, for an alias record that has <code>EvaluateTargetHealth</code> set to <code>true</code>, its target is unhealthy). You must also specify <code>SetIdentifier</code>, and you can't specify another routing policy element, such as <code>Weight</code>, in the same resource record set.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-azaffinity.html">AZ-affinity routing</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+   * @public
+   */
+  AZAffinity?: AZAffinity | undefined;
 }
 
 /**
@@ -1787,7 +1862,7 @@ export interface ChangeTagsForResourceRequest {
 
   /**
    * <p>A complex type that contains a list of the tags that you want to add to the specified
-   * 			health check or hosted zone and/or the tags that you want to edit <code>Value</code>
+   * 			health check, health check source, or hosted zone and/or the tags that you want to edit <code>Value</code>
    * 			for.</p>
    *          <p>You can add a maximum of 10 tags to a health check, a health check source, or a hosted zone.</p>
    * @public
@@ -2675,6 +2750,66 @@ export interface CreateHealthCheckSourceResponse {
 }
 
 /**
+ * <p>A Change Guardrail and its status. A Change Guardrail checks each change to the records in a hosted zone, and rejects the change if the check fails.</p>
+ *          <p>When you submit a <code>ChangeResourceRecordSets</code> request, Route 53 checks each change against every guardrail that is turned on. If a check fails, Route 53 rejects the whole request and returns an error that identifies the guardrail. If every check passes, Route 53 applies the changes.</p>
+ *          <p>For example, suppose that <code>ALIAS_TARGET_CHECK</code> is turned on, and an alias record points to <code>www.example.com</code>. If you try to delete <code>www.example.com</code>, Route 53 rejects the request. To delete the record, first delete or change the alias record.</p>
+ * @public
+ */
+export interface ChangeGuardrail {
+  /**
+   * <p>The name of the guardrail. Valid values are the following:</p>
+   *          <dl>
+   *             <dt>NS_FORMAT_CHECK</dt>
+   *             <dd>
+   *                <p>This guardrail rejects an NS record whose value looks like a Route 53 name server but isn't one.</p>
+   *             </dd>
+   *             <dt>NS_DELEGATION_AUTHORITY_CHECK</dt>
+   *             <dd>
+   *                <p>This guardrail rejects an NS record that delegates a subdomain to Route 53 name servers that don't host it.</p>
+   *                <p>This guardrail applies only to public hosted zones.</p>
+   *             </dd>
+   *             <dt>NS_OCCLUSION_CHECK</dt>
+   *             <dd>
+   *                <p>This guardrail rejects a change that leaves records under a delegated subdomain, where resolvers never use them.</p>
+   *             </dd>
+   *             <dt>ALIAS_TARGET_CHECK</dt>
+   *             <dd>
+   *                <p>This guardrail rejects deleting a record that an alias record in the same hosted zone points to.</p>
+   *             </dd>
+   *             <dt>ACTIVE_RECORD_CHECK</dt>
+   *             <dd>
+   *                <p>This guardrail rejects deleting a record that still receives DNS queries, if no other record with the same name and type remains to answer them.</p>
+   *             </dd>
+   *             <dt>ACTIVE_DELEGATION_CHECK</dt>
+   *             <dd>
+   *                <p>This guardrail rejects deleting the NS record for a subdomain while resolvers are still referred to it.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>The tier of the hosted zone determines which guardrails it includes and which ones you can turn on.</p>
+   * @public
+   */
+  Name: ChangeGuardrailName | undefined;
+
+  /**
+   * <p>The status of the guardrail. Valid values are the following:</p>
+   *          <dl>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>ENABLED</code> means that the guardrail is turned on.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>DISABLED</code> means that the guardrail is turned off.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  Status: ChangeGuardrailStatus | undefined;
+}
+
+/**
  * <p>A complex type that contains an optional comment about your hosted zone. If you don't
  * 			want to specify a comment, omit both the <code>HostedZoneConfig</code> and
  * 				<code>Comment</code> elements.</p>
@@ -2692,6 +2827,25 @@ export interface HostedZoneConfig {
    * @public
    */
   PrivateZone?: boolean | undefined;
+
+  /**
+   * <p>The tier of the hosted zone. The tier controls which features you get and which optional features you can turn on. Valid values are the following:</p>
+   *          <dl>
+   *             <dt>STANDARD</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>STANDARD</code> is the default tier for new hosted zones.</p>
+   *             </dd>
+   *             <dt>ADVANCED</dt>
+   *             <dd>
+   *                <p>
+   *                   <code>ADVANCED</code> is a tier that includes Change History and offers more optional features.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>If you don't specify a tier when you create a hosted zone, Route 53 uses <code>STANDARD</code>. Route 53 always returns this value. For pricing information, see Amazon Route 53 pricing on the <a href="https://aws.amazon.com/route53/pricing/">AWS website</a>.</p>
+   * @public
+   */
+  HostedZoneTier?: HostedZoneTier | undefined;
 }
 
 /**
@@ -2763,6 +2917,21 @@ export interface CreateHostedZoneRequest {
    * @public
    */
   DelegationSetId?: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable public DNS fallback for the hosted zone. When public DNS fallback is enabled and a query for a domain name in the private hosted zone matches no existing name (<code>NXDOMAIN</code>), Route 53 retries the query against public DNS instead of returning a negative response. Fallback does not occur when the name exists but has no record of the requested type.</p>
+   *          <p>Set to <code>true</code> to enable public DNS fallback, or <code>false</code> to disable it. The default is <code>false</code>.</p>
+   *          <p>Public DNS fallback is supported only for private hosted zones. If you specify <code>true</code> for a public hosted zone, the request fails with an <code>InvalidInput</code> error.</p>
+   * @public
+   */
+  EnablePublicDNSFallback?: boolean | undefined;
+
+  /**
+   * <p>Specify the optional Change Guardrails to turn on for the hosted zone. Each entry specifies the name and status of a guardrail. For the guardrail names and statuses, see <code>ChangeGuardrail</code>.</p>
+   *          <p>Route 53 turns on the guardrails that the tier of the hosted zone includes, so you don't need to specify them. If you turn on a guardrail that the tier doesn't offer, Route 53 returns an <code>InvalidInput</code> error.</p>
+   * @public
+   */
+  ChangeGuardrails?: ChangeGuardrail[] | undefined;
 }
 
 /**
@@ -2793,6 +2962,35 @@ export interface DelegationSet {
 }
 
 /**
+ * <p>The status of Change History for the hosted zone.</p>
+ * @public
+ */
+export interface ChangeHistoryFeature {
+  /**
+   * <p>Indicates whether Change History is turned on for the hosted zone. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: Change History is turned on for the hosted zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: Change History is turned off for the hosted zone.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Route 53 turns Change History on or off when the hosted zone moves to or from a tier that includes it.</p>
+   * @public
+   */
+  Status?: FeatureEnablement | undefined;
+
+  /**
+   * <p>The earliest date and time from which you can read the change history of the hosted zone. Route 53 returns this value only when <code>Status</code> is <code>ENABLED</code>.</p>
+   * @public
+   */
+  RetentionStartsAt?: Date | undefined;
+}
+
+/**
  * <p>Contains information about why certain features failed to be enabled or configured for the hosted zone.</p>
  * @public
  */
@@ -2816,10 +3014,46 @@ export interface HostedZoneFeatures {
   AcceleratedRecoveryStatus?: AcceleratedRecoveryStatus | undefined;
 
   /**
+   * <p>The current status of public DNS fallback for the hosted zone. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: Public DNS fallback is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: Public DNS fallback is disabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLING</code>: A request to enable public DNS fallback is still propagating.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLING</code>: A request to disable public DNS fallback is still propagating.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PublicDNSFallbackStatus?: FeatureStatus | undefined;
+
+  /**
+   * <p>The status of Change History for the hosted zone, and the earliest time from which you can read its change history.</p>
+   * @public
+   */
+  ChangeHistory?: ChangeHistoryFeature | undefined;
+
+  /**
    * <p>Information about any failures that occurred when attempting to enable or configure features for the hosted zone.</p>
    * @public
    */
   FailureReasons?: HostedZoneFailureReasons | undefined;
+
+  /**
+   * <p>The name and status of each Change Guardrail for the hosted zone. For the guardrail names and statuses, see <code>ChangeGuardrail</code>.</p>
+   * @public
+   */
+  ChangeGuardrails?: ChangeGuardrail[] | undefined;
 }
 
 /**
@@ -4142,7 +4376,7 @@ export interface GetAccountLimitRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>MAX_HEALTH_CHECK_SOURCES_BY_OWNER</b> The maximum
+   *                   <b>MAX_HEALTH_CHECK_SOURCES_BY_OWNER</b>: The maximum
    * 					number of health check sources that you can create using the current account.</p>
    *             </li>
    *             <li>
@@ -4774,6 +5008,88 @@ export interface GetHostedZoneResponse {
    * @public
    */
   VPCs?: VPC[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHostedZoneChangeBatchRequest {
+  /**
+   * <p>The ID of the hosted zone that contains the change batch.</p>
+   * @public
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>The ID of the change batch that you want to get. This is the ID that <code>ChangeResourceRecordSets</code> returns in <code>ChangeInfo/Id</code>. You can specify the ID with or without the <code>/change/</code> prefix.</p>
+   * @public
+   */
+  ChangeId: string | undefined;
+}
+
+/**
+ * <p>A summary of one change batch in the change history of a hosted zone.</p>
+ * @public
+ */
+export interface ChangeBatchSummary {
+  /**
+   * <p>The ID of the change batch. This is the same ID that <code>ChangeResourceRecordSets</code> returns in <code>ChangeInfo/Id</code> and that you pass to <code>GetChange</code>.</p>
+   * @public
+   */
+  ChangeId: string | undefined;
+
+  /**
+   * <p>The Route 53 API operation that submitted the change batch: <code>ChangeResourceRecordSets</code> or <code>CreateHostedZone</code>. New values might be added, so ignore values that your code doesn't recognize.</p>
+   * @public
+   */
+  Operation: ChangeHistoryOperation | undefined;
+
+  /**
+   * <p>The date and time, in UTC, when the change batch was submitted.</p>
+   * @public
+   */
+  SubmittedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name of the principal that submitted the request, for example, <code>arn:aws:sts::111122223333:assumed-role/Admin/my-session</code>. This element is absent when Route 53 has no principal to record for the change.</p>
+   * @public
+   */
+  SubmittedBy?: string | undefined;
+
+  /**
+   * <p>The request ID of the call that submitted the change batch. CloudTrail records the same value in <code>requestID</code>, so you can use it to find the CloudTrail event for the change. This element is absent when there was no request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The comment that was submitted with the change batch, if any.</p>
+   * @public
+   */
+  Comment?: string | undefined;
+
+  /**
+   * <p>The number of changes in the change batch. For <code>CreateHostedZone</code>, the value is 0.</p>
+   * @public
+   */
+  ChangeCount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHostedZoneChangeBatchResponse {
+  /**
+   * <p>A summary of the change batch, including who submitted it and when.</p>
+   * @public
+   */
+  ChangeBatchSummary: ChangeBatchSummary | undefined;
+
+  /**
+   * <p>The changes in the change batch. Each resource record set is in the same form that <code>ListResourceRecordSets</code> returns. For example, the name is in lowercase and ends with a dot.</p>
+   * @public
+   */
+  ChangeBatch: ChangeBatch | undefined;
 }
 
 /**
@@ -5551,6 +5867,86 @@ export interface ListHealthCheckSourcesResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListHostedZoneChangeBatchesRequest {
+  /**
+   * <p>The ID of the hosted zone that you want to list change batches for.</p>
+   * @public
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>The start of the time range, in ISO 8601 format with a UTC offset, for example <code>2026-12-01T00:00:00Z</code> or <code>2026-12-01T05:30:00.123+05:30</code>. You can specify up to nine fractional digits. Route 53 rounds a value with more than millisecond precision up to the next millisecond. The range includes <code>SubmittedAfter</code>.</p>
+   *          <p>If you don't specify a value, the range starts at <code>RetentionStartsAt</code>. If you specify a value that's earlier than <code>RetentionStartsAt</code>, Route 53 returns an <code>InvalidInput</code> error that includes the earliest time that you can specify.</p>
+   *          <p>Because submit times can be slightly out of order, a returned <code>SubmittedAt</code> can fall just outside the range that you requested.</p>
+   * @public
+   */
+  SubmittedAfter?: string | undefined;
+
+  /**
+   * <p>The end of the time range, in ISO 8601 format with a UTC offset, for example <code>2026-12-02T00:00:00Z</code> or <code>2026-12-02T05:30:00.123+05:30</code>. You can specify up to nine fractional digits. Route 53 rounds a value with more than millisecond precision up to the next millisecond. The range excludes <code>SubmittedBefore</code>. The value must be at least one millisecond later than <code>SubmittedAfter</code>, or later than <code>RetentionStartsAt</code> if you omit <code>SubmittedAfter</code>.</p>
+   *          <p>If the range ends within a few seconds of the current time, a later request for the same range might return more change batches.</p>
+   * @public
+   */
+  SubmittedBefore?: string | undefined;
+
+  /**
+   * <p>Returns the change batches after the specified change batch, not including it. Use this to read new change batches since the last change batch that you processed.</p>
+   *          <p>If you specify <code>StartAfterChangeId</code>, you must also specify <code>SortOrder</code>
+   *             <code>ASCENDING</code>, and you can't specify <code>SubmittedAfter</code> or <code>SubmittedBefore</code>. If the change batch has expired, is from before <code>RetentionStartsAt</code>, or isn't in the hosted zone, Route 53 returns an <code>InvalidInput</code> error.</p>
+   * @public
+   */
+  StartAfterChangeId?: string | undefined;
+
+  /**
+   * <p>The order in which you want Route 53 to return change batches. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DESCENDING</code> – Newest first. This is the default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ASCENDING</code> – Oldest first.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SortOrder?: ChangeHistorySortOrder | undefined;
+
+  /**
+   * <p>The maximum number of change batches that you want Route 53 to return in this response. Specify a value from 1 to 1,000. If you don't specify a value, Route 53 returns up to 100 change batches.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the response to a previous <code>ListHostedZoneChangeBatches</code> request included a <code>NextToken</code> element, specify that value here to get the next page of results. If the previous request included any of the following parameters, include them with exactly the same values: <code>SubmittedAfter</code>, <code>SubmittedBefore</code>, <code>SortOrder</code>, and <code>StartAfterChangeId</code>. If you don't, Route 53 returns an <code>InvalidInput</code> error. If you don't specify <code>NextToken</code>, Route 53 returns the first page of results.</p>
+   *          <p>A <code>NextToken</code> expires 24 hours after Route 53 returns it, and you can use it only with the hosted zone that it was returned for.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHostedZoneChangeBatchesResponse {
+  /**
+   * <p>A summary of each change batch on this page of results. The list is empty if there are no change batches in the range that you specified.</p>
+   * @public
+   */
+  ChangeBatchSummaries: ChangeBatchSummary[] | undefined;
+
+  /**
+   * <p>If there might be more change batches to list, a token that you can specify in the <code>NextToken</code> parameter of another request to get the next page of results. If there are no more change batches to list, the response doesn't include <code>NextToken</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>A request to retrieve a list of the public and private hosted zones that are
  * 			associated with the current Amazon Web Services account.</p>
  * @public
@@ -5935,6 +6331,138 @@ export interface ListQueryLoggingConfigsResponse {
    * 			configurations by submitting another <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html">ListQueryLoggingConfigs</a> request. Get the value of <code>NextToken</code>
    * 			that Amazon Route 53 returned in the previous response and include it in
    * 				<code>NextToken</code> in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceRecordSetChangesRequest {
+  /**
+   * <p>The ID of the hosted zone that you want to list changes for.</p>
+   * @public
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>The name of the resource record sets that you want to list changes for, for example, <code>www.example.com</code>. The name must be the name of the hosted zone or a subdomain of it. If you specify <code>RecordName</code>, you must also specify <code>RecordType</code>. If you specify neither, the results include every change in the hosted zone.</p>
+   * @public
+   */
+  RecordName?: string | undefined;
+
+  /**
+   * <p>The DNS record type of the resource record sets that you want to list changes for. If you specify <code>RecordType</code>, you must also specify <code>RecordName</code>.</p>
+   * @public
+   */
+  RecordType?: RRType | undefined;
+
+  /**
+   * <p>The start of the time range, in ISO 8601 format with a UTC offset, for example <code>2026-12-01T00:00:00Z</code> or <code>2026-12-01T05:30:00.123+05:30</code>. You can specify up to nine fractional digits. Route 53 rounds a value with more than millisecond precision up to the next millisecond. The range includes <code>SubmittedAfter</code>.</p>
+   *          <p>If you don't specify a value, the range starts at <code>RetentionStartsAt</code>. If you specify a value that's earlier than <code>RetentionStartsAt</code>, Route 53 returns an <code>InvalidInput</code> error that includes the earliest time that you can specify.</p>
+   *          <p>Because submit times can be slightly out of order, a returned <code>SubmittedAt</code> can fall just outside the range that you requested.</p>
+   * @public
+   */
+  SubmittedAfter?: string | undefined;
+
+  /**
+   * <p>The end of the time range, in ISO 8601 format with a UTC offset, for example <code>2026-12-02T00:00:00Z</code> or <code>2026-12-02T05:30:00.123+05:30</code>. You can specify up to nine fractional digits. Route 53 rounds a value with more than millisecond precision up to the next millisecond. The range excludes <code>SubmittedBefore</code>. The value must be at least one millisecond later than <code>SubmittedAfter</code>, or later than <code>RetentionStartsAt</code> if you omit <code>SubmittedAfter</code>.</p>
+   *          <p>If the range ends within a few seconds of the current time, a later request for the same range might return more changes.</p>
+   * @public
+   */
+  SubmittedBefore?: string | undefined;
+
+  /**
+   * <p>The order in which you want Route 53 to return changes. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DESCENDING</code> – Newest first. This is the default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ASCENDING</code> – Oldest first.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SortOrder?: ChangeHistorySortOrder | undefined;
+
+  /**
+   * <p>The maximum number of changes that you want Route 53 to return in this response. Specify a value from 1 to 100. If you don't specify a value, Route 53 returns up to 100 changes.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the response to a previous <code>ListResourceRecordSetChanges</code> request included a <code>NextToken</code> element, specify that value here to get the next page of results. If the previous request included any of the following parameters, include them with exactly the same values: <code>SubmittedAfter</code>, <code>SubmittedBefore</code>, <code>SortOrder</code>, <code>RecordName</code>, and <code>RecordType</code>. If you don't, Route 53 returns an <code>InvalidInput</code> error. If you don't specify <code>NextToken</code>, Route 53 returns the first page of results.</p>
+   *          <p>A <code>NextToken</code> expires 24 hours after Route 53 returns it, and you can use it only with the hosted zone that it was returned for.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>One change to a resource record set in the change history of a hosted zone, with the resource record set that the change wrote or deleted.</p>
+ * @public
+ */
+export interface ResourceRecordSetChange {
+  /**
+   * <p>The ID of the change batch that contains the change. To get every change in the change batch, specify this ID in <code>GetHostedZoneChangeBatch</code>.</p>
+   * @public
+   */
+  ChangeId: string | undefined;
+
+  /**
+   * <p>The Route 53 API operation that submitted the change. New values might be added, so ignore values that your code doesn't recognize.</p>
+   * @public
+   */
+  Operation: ChangeHistoryOperation | undefined;
+
+  /**
+   * <p>The date and time, in UTC, when the change batch that contains the change was submitted.</p>
+   * @public
+   */
+  SubmittedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name of the principal that submitted the request. This element is absent when Route 53 has no principal to record for the change.</p>
+   * @public
+   */
+  SubmittedBy?: string | undefined;
+
+  /**
+   * <p>The request ID of the call that submitted the change. CloudTrail records the same value in <code>requestID</code>. This element is absent when there was no request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The action in the change: <code>CREATE</code>, <code>DELETE</code>, or <code>UPSERT</code>.</p>
+   * @public
+   */
+  Action: ChangeAction | undefined;
+
+  /**
+   * <p>The resource record set that the change wrote or deleted, in the same form that <code>ListResourceRecordSets</code> returns. For example, the name is in lowercase and ends with a dot. For an <code>UPSERT</code> or a <code>DELETE</code>, the response doesn't contain the values that the resource record set had before the change.</p>
+   * @public
+   */
+  ResourceRecordSet: ResourceRecordSet | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceRecordSetChangesResponse {
+  /**
+   * <p>The changes on this page of results. The list is empty if there are no changes that match the request.</p>
+   * @public
+   */
+  ResourceRecordSetChanges: ResourceRecordSetChange[] | undefined;
+
+  /**
+   * <p>If there might be more changes to list, a token that you can specify in the <code>NextToken</code> parameter of another request to get the next page of results. If there are no more changes to list, the response doesn't include <code>NextToken</code>.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -7561,12 +8089,82 @@ export interface UpdateHostedZoneFeaturesRequest {
    * @public
    */
   EnableAcceleratedRecovery?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable public DNS fallback for the hosted zone. Set to <code>true</code> to enable public DNS fallback, or <code>false</code> to disable it.</p>
+   *          <p>Public DNS fallback applies to the entire hosted zone and to all VPCs that are associated with it. To check whether a change has propagated, call <code>GetHostedZone</code> and review <code>PublicDNSFallbackStatus</code> in the response.</p>
+   *          <p>Public DNS fallback is supported only for private hosted zones.</p>
+   * @public
+   */
+  EnablePublicDNSFallback?: boolean | undefined;
+
+  /**
+   * <p>Specify the Change Guardrails to turn on or off for the hosted zone. Each entry specifies the name of a guardrail and one of the following statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: Turns on the guardrail.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: Turns off the guardrail.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Guardrails that aren't in the request keep their current status.</p>
+   *          <p>You can turn on an optional guardrail only if the tier of the hosted zone offers it. You can't turn off a guardrail that the tier includes, such as <code>NS_FORMAT_CHECK</code>. In either case, Route 53 returns an <code>InvalidInput</code> error.</p>
+   * @public
+   */
+  ChangeGuardrails?: ChangeGuardrail[] | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without changing any features. Route 53 returns the same errors as for a real request, but doesn't change the hosted zone. The default is <code>false</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
 }
 
 /**
  * @public
  */
 export interface UpdateHostedZoneFeaturesResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateHostedZoneTierRequest {
+  /**
+   * <p>Specify the ID of the hosted zone whose tier you want to change.</p>
+   * @public
+   */
+  HostedZoneId: string | undefined;
+
+  /**
+   * <p>Specify the tier to move the hosted zone to. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STANDARD</code>: The default tier for new hosted zones.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADVANCED</code>: A tier that includes Change History and offers more optional features.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HostedZoneTier: HostedZoneTier | undefined;
+
+  /**
+   * <p>Specifies whether to validate the request without changing the tier. Route 53 returns the same errors as for a real request, but doesn't change the hosted zone. The default is <code>false</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHostedZoneTierResponse {}
 
 /**
  * <p>A complex type that contains information about the traffic policy that you want to

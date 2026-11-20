@@ -199,8 +199,6 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  * 				<i>Amazon Route 53 Developer Guide</i>.</p>
  *          <p>For information about how to get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
  * 			Center.</p>
- *          <p>You have reached the maximum number of active health checks for an Amazon Web Services account. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
- * 			Center.</p>
  *
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>

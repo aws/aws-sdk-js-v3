@@ -12,13 +12,22 @@ import {
   AssociateVPCWithHostedZoneCommand,
   AssociateVPCWithHostedZoneRequest$,
   AssociateVPCWithHostedZoneResponse$,
+  AZAffinity$,
+  AZAffinityLocationType,
   Change$,
   ChangeAction,
   ChangeBatch$,
+  ChangeBatchSummary$,
   ChangeCidrCollection$,
   ChangeCidrCollectionCommand,
   ChangeCidrCollectionRequest$,
   ChangeCidrCollectionResponse$,
+  ChangeGuardrail$,
+  ChangeGuardrailName,
+  ChangeGuardrailStatus,
+  ChangeHistoryFeature$,
+  ChangeHistoryOperation,
+  ChangeHistorySortOrder,
   ChangeInfo$,
   ChangeResourceRecordSets$,
   ChangeResourceRecordSetsCommand,
@@ -177,6 +186,10 @@ import {
   EnableHostedZoneDNSSECRequest$,
   EnableHostedZoneDNSSECResponse$,
   EndpointType,
+  FeatureEnablement,
+  FeatureNotEnabled,
+  FeatureNotEnabled$,
+  FeatureStatus,
   GeoLocation$,
   GeoLocationDetails$,
   GeoProximityLocation$,
@@ -221,6 +234,10 @@ import {
   GetHealthCheckStatusRequest$,
   GetHealthCheckStatusResponse$,
   GetHostedZone$,
+  GetHostedZoneChangeBatch$,
+  GetHostedZoneChangeBatchCommand,
+  GetHostedZoneChangeBatchRequest$,
+  GetHostedZoneChangeBatchResponse$,
   GetHostedZoneCommand,
   GetHostedZoneCount$,
   GetHostedZoneCountCommand,
@@ -291,6 +308,7 @@ import {
   HostedZonePartiallyDelegated,
   HostedZonePartiallyDelegated$,
   HostedZoneSummary$,
+  HostedZoneTier,
   HostedZoneType,
   IncompatibleVersion,
   IncompatibleVersion$,
@@ -363,6 +381,10 @@ import {
   ListHealthCheckSourcesResponse$,
   ListHealthChecksRequest$,
   ListHealthChecksResponse$,
+  ListHostedZoneChangeBatches$,
+  ListHostedZoneChangeBatchesCommand,
+  ListHostedZoneChangeBatchesRequest$,
+  ListHostedZoneChangeBatchesResponse$,
   ListHostedZones$,
   ListHostedZonesByName$,
   ListHostedZonesByNameCommand,
@@ -379,6 +401,10 @@ import {
   ListQueryLoggingConfigsCommand,
   ListQueryLoggingConfigsRequest$,
   ListQueryLoggingConfigsResponse$,
+  ListResourceRecordSetChanges$,
+  ListResourceRecordSetChangesCommand,
+  ListResourceRecordSetChangesRequest$,
+  ListResourceRecordSetChangesResponse$,
   ListResourceRecordSetProtections$,
   ListResourceRecordSetProtectionsCommand,
   ListResourceRecordSetProtectionsRequest$,
@@ -458,8 +484,10 @@ import {
   paginateListHealthChecks,
   paginateListHealthChecksBySource,
   paginateListHealthCheckSources,
+  paginateListHostedZoneChangeBatches,
   paginateListHostedZones,
   paginateListQueryLoggingConfigs,
+  paginateListResourceRecordSetChanges,
   paginateListResourceRecordSetProtections,
   PriorRequestNotComplete,
   PriorRequestNotComplete$,
@@ -474,6 +502,7 @@ import {
   ResettableElementName,
   ResourceRecord$,
   ResourceRecordSet$,
+  ResourceRecordSetChange$,
   ResourceRecordSetFailover,
   ResourceRecordSetProtection$,
   ResourceRecordSetProtectionConfig$,
@@ -534,6 +563,10 @@ import {
   UpdateHostedZoneFeaturesCommand,
   UpdateHostedZoneFeaturesRequest$,
   UpdateHostedZoneFeaturesResponse$,
+  UpdateHostedZoneTier$,
+  UpdateHostedZoneTierCommand,
+  UpdateHostedZoneTierRequest$,
+  UpdateHostedZoneTierResponse$,
   UpdateTrafficPolicyComment$,
   UpdateTrafficPolicyCommentCommand,
   UpdateTrafficPolicyCommentRequest$,
@@ -646,6 +679,8 @@ assert(typeof GetHealthCheckStatusCommand === "function");
 assert(typeof GetHealthCheckStatus$ === "object");
 assert(typeof GetHostedZoneCommand === "function");
 assert(typeof GetHostedZone$ === "object");
+assert(typeof GetHostedZoneChangeBatchCommand === "function");
+assert(typeof GetHostedZoneChangeBatch$ === "object");
 assert(typeof GetHostedZoneCountCommand === "function");
 assert(typeof GetHostedZoneCount$ === "object");
 assert(typeof GetHostedZoneLimitCommand === "function");
@@ -676,6 +711,8 @@ assert(typeof ListHealthChecksBySourceCommand === "function");
 assert(typeof ListHealthChecksBySource$ === "object");
 assert(typeof ListHealthCheckSourcesCommand === "function");
 assert(typeof ListHealthCheckSources$ === "object");
+assert(typeof ListHostedZoneChangeBatchesCommand === "function");
+assert(typeof ListHostedZoneChangeBatches$ === "object");
 assert(typeof ListHostedZonesCommand === "function");
 assert(typeof ListHostedZones$ === "object");
 assert(typeof ListHostedZonesByNameCommand === "function");
@@ -684,6 +721,8 @@ assert(typeof ListHostedZonesByVPCCommand === "function");
 assert(typeof ListHostedZonesByVPC$ === "object");
 assert(typeof ListQueryLoggingConfigsCommand === "function");
 assert(typeof ListQueryLoggingConfigs$ === "object");
+assert(typeof ListResourceRecordSetChangesCommand === "function");
+assert(typeof ListResourceRecordSetChanges$ === "object");
 assert(typeof ListResourceRecordSetProtectionsCommand === "function");
 assert(typeof ListResourceRecordSetProtections$ === "object");
 assert(typeof ListResourceRecordSetsCommand === "function");
@@ -714,6 +753,8 @@ assert(typeof UpdateHostedZoneCommentCommand === "function");
 assert(typeof UpdateHostedZoneComment$ === "object");
 assert(typeof UpdateHostedZoneFeaturesCommand === "function");
 assert(typeof UpdateHostedZoneFeatures$ === "object");
+assert(typeof UpdateHostedZoneTierCommand === "function");
+assert(typeof UpdateHostedZoneTier$ === "object");
 assert(typeof UpdateTrafficPolicyCommentCommand === "function");
 assert(typeof UpdateTrafficPolicyComment$ === "object");
 assert(typeof UpdateTrafficPolicyInstanceCommand === "function");
@@ -726,10 +767,14 @@ assert(typeof AlarmIdentifier$ === "object");
 assert(typeof AliasTarget$ === "object");
 assert(typeof AssociateVPCWithHostedZoneRequest$ === "object");
 assert(typeof AssociateVPCWithHostedZoneResponse$ === "object");
+assert(typeof AZAffinity$ === "object");
 assert(typeof Change$ === "object");
 assert(typeof ChangeBatch$ === "object");
+assert(typeof ChangeBatchSummary$ === "object");
 assert(typeof ChangeCidrCollectionRequest$ === "object");
 assert(typeof ChangeCidrCollectionResponse$ === "object");
+assert(typeof ChangeGuardrail$ === "object");
+assert(typeof ChangeHistoryFeature$ === "object");
 assert(typeof ChangeInfo$ === "object");
 assert(typeof ChangeResourceRecordSetsRequest$ === "object");
 assert(typeof ChangeResourceRecordSetsResponse$ === "object");
@@ -822,6 +867,8 @@ assert(typeof GetHealthCheckSourceRequest$ === "object");
 assert(typeof GetHealthCheckSourceResponse$ === "object");
 assert(typeof GetHealthCheckStatusRequest$ === "object");
 assert(typeof GetHealthCheckStatusResponse$ === "object");
+assert(typeof GetHostedZoneChangeBatchRequest$ === "object");
+assert(typeof GetHostedZoneChangeBatchResponse$ === "object");
 assert(typeof GetHostedZoneCountRequest$ === "object");
 assert(typeof GetHostedZoneCountResponse$ === "object");
 assert(typeof GetHostedZoneLimitRequest$ === "object");
@@ -868,6 +915,8 @@ assert(typeof ListHealthCheckSourcesRequest$ === "object");
 assert(typeof ListHealthCheckSourcesResponse$ === "object");
 assert(typeof ListHealthChecksRequest$ === "object");
 assert(typeof ListHealthChecksResponse$ === "object");
+assert(typeof ListHostedZoneChangeBatchesRequest$ === "object");
+assert(typeof ListHostedZoneChangeBatchesResponse$ === "object");
 assert(typeof ListHostedZonesByNameRequest$ === "object");
 assert(typeof ListHostedZonesByNameResponse$ === "object");
 assert(typeof ListHostedZonesByVPCRequest$ === "object");
@@ -876,6 +925,8 @@ assert(typeof ListHostedZonesRequest$ === "object");
 assert(typeof ListHostedZonesResponse$ === "object");
 assert(typeof ListQueryLoggingConfigsRequest$ === "object");
 assert(typeof ListQueryLoggingConfigsResponse$ === "object");
+assert(typeof ListResourceRecordSetChangesRequest$ === "object");
+assert(typeof ListResourceRecordSetChangesResponse$ === "object");
 assert(typeof ListResourceRecordSetProtectionsRequest$ === "object");
 assert(typeof ListResourceRecordSetProtectionsResponse$ === "object");
 assert(typeof ListResourceRecordSetsRequest$ === "object");
@@ -903,6 +954,7 @@ assert(typeof ProtectionError$ === "object");
 assert(typeof QueryLoggingConfig$ === "object");
 assert(typeof ResourceRecord$ === "object");
 assert(typeof ResourceRecordSet$ === "object");
+assert(typeof ResourceRecordSetChange$ === "object");
 assert(typeof ResourceRecordSetProtection$ === "object");
 assert(typeof ResourceRecordSetProtectionConfig$ === "object");
 assert(typeof ResourceRecordSetProtectionKey$ === "object");
@@ -922,6 +974,8 @@ assert(typeof UpdateHostedZoneCommentRequest$ === "object");
 assert(typeof UpdateHostedZoneCommentResponse$ === "object");
 assert(typeof UpdateHostedZoneFeaturesRequest$ === "object");
 assert(typeof UpdateHostedZoneFeaturesResponse$ === "object");
+assert(typeof UpdateHostedZoneTierRequest$ === "object");
+assert(typeof UpdateHostedZoneTierResponse$ === "object");
 assert(typeof UpdateTrafficPolicyCommentRequest$ === "object");
 assert(typeof UpdateTrafficPolicyCommentResponse$ === "object");
 assert(typeof UpdateTrafficPolicyInstanceRequest$ === "object");
@@ -930,17 +984,25 @@ assert(typeof VPC$ === "object");
 // enums
 assert(typeof AcceleratedRecoveryStatus === "object");
 assert(typeof AccountLimitType === "object");
+assert(typeof AZAffinityLocationType === "object");
 assert(typeof ChangeAction === "object");
+assert(typeof ChangeGuardrailName === "object");
+assert(typeof ChangeGuardrailStatus === "object");
+assert(typeof ChangeHistoryOperation === "object");
+assert(typeof ChangeHistorySortOrder === "object");
 assert(typeof ChangeStatus === "object");
 assert(typeof CidrCollectionChangeAction === "object");
 assert(typeof CloudWatchRegion === "object");
 assert(typeof ComparisonOperator === "object");
 assert(typeof EndpointType === "object");
+assert(typeof FeatureEnablement === "object");
+assert(typeof FeatureStatus === "object");
 assert(typeof HealthCheckRegion === "object");
 assert(typeof HealthCheckSourceStatus === "object");
 assert(typeof HealthCheckSourceStatusReasonCode === "object");
 assert(typeof HealthCheckType === "object");
 assert(typeof HostedZoneLimitType === "object");
+assert(typeof HostedZoneTier === "object");
 assert(typeof HostedZoneType === "object");
 assert(typeof InsufficientDataHealthStatus === "object");
 assert(typeof ResettableElementName === "object");
@@ -978,6 +1040,8 @@ assert(DelegationSetNotReusable.prototype instanceof Route53ServiceException);
 assert(typeof DelegationSetNotReusable$ === "object");
 assert(DNSSECNotFound.prototype instanceof Route53ServiceException);
 assert(typeof DNSSECNotFound$ === "object");
+assert(FeatureNotEnabled.prototype instanceof Route53ServiceException);
+assert(typeof FeatureNotEnabled$ === "object");
 assert(HealthCheckAlreadyExists.prototype instanceof Route53ServiceException);
 assert(typeof HealthCheckAlreadyExists$ === "object");
 assert(HealthCheckInUse.prototype instanceof Route53ServiceException);
@@ -1115,7 +1179,9 @@ assert(typeof paginateListCidrLocations === "function");
 assert(typeof paginateListHealthCheckSources === "function");
 assert(typeof paginateListHealthChecks === "function");
 assert(typeof paginateListHealthChecksBySource === "function");
+assert(typeof paginateListHostedZoneChangeBatches === "function");
 assert(typeof paginateListHostedZones === "function");
 assert(typeof paginateListQueryLoggingConfigs === "function");
+assert(typeof paginateListResourceRecordSetChanges === "function");
 assert(typeof paginateListResourceRecordSetProtections === "function");
 console.log(`Route53 index test passed.`);

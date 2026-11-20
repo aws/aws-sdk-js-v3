@@ -546,8 +546,6 @@ export class HealthCheckAlreadyExists extends __BaseException {
  * 				<i>Amazon Route 53 Developer Guide</i>.</p>
  *          <p>For information about how to get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
  * 			Center.</p>
- *          <p>You have reached the maximum number of active health checks for an Amazon Web Services account. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
- * 			Center.</p>
  * @public
  */
 export class TooManyHealthChecks extends __BaseException {
@@ -1636,6 +1634,27 @@ export class IncompatibleVersion extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, IncompatibleVersion.prototype);
+  }
+}
+
+/**
+ * <p>This error occurs when a feature that the operation requires isn't turned on for the hosted zone. For example, the tier of the hosted zone doesn't include Change History. To resolve this error, turn on the feature, or move the hosted zone to a tier that includes it.</p>
+ * @public
+ */
+export class FeatureNotEnabled extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.route53#FeatureNotEnabled";
+  readonly name = "FeatureNotEnabled" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FeatureNotEnabled, __BaseException>) {
+    super({
+      name: "FeatureNotEnabled",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FeatureNotEnabled.prototype);
   }
 }
 

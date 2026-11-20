@@ -125,6 +125,9 @@ Location: __Location__
             <PrivateZone>
                 false
             </PrivateZone>
+            <HostedZoneTier>
+                __HostedZoneTier__
+            </HostedZoneTier>
         </Config>
         <ResourceRecordSetCount>
             0
@@ -141,11 +144,48 @@ Location: __Location__
             <AcceleratedRecoveryStatus>
                 __AcceleratedRecoveryStatus__
             </AcceleratedRecoveryStatus>
+            <PublicDNSFallbackStatus>
+                __PublicDNSFallbackStatus__
+            </PublicDNSFallbackStatus>
+            <ChangeHistory>
+                <Status>
+                    __Status__
+                </Status>
+                <RetentionStartsAt>
+                    2000-01-01T04:59:59.999Z
+                </RetentionStartsAt>
+            </ChangeHistory>
             <FailureReasons>
                 <AcceleratedRecovery>
                     __AcceleratedRecovery__
                 </AcceleratedRecovery>
             </FailureReasons>
+            <ChangeGuardrails>
+                <ChangeGuardrail>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Status>
+                        __Status__
+                    </Status>
+                </ChangeGuardrail>
+                <ChangeGuardrail>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Status>
+                        __Status__
+                    </Status>
+                </ChangeGuardrail>
+                <ChangeGuardrail>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Status>
+                        __Status__
+                    </Status>
+                </ChangeGuardrail>
+            </ChangeGuardrails>
         </Features>
     </HostedZone>
     <ChangeInfo>
@@ -201,7 +241,8 @@ Location: __Location__
     CallerReference: "__CallerReference__",
     Config: {
       Comment: "__Comment__",
-      PrivateZone: (boolean) false
+      PrivateZone: (boolean) false,
+      HostedZoneTier: "__HostedZoneTier__"
     },
     ResourceRecordSetCount: (number) 0,
     LinkedService: {
@@ -210,9 +251,28 @@ Location: __Location__
     },
     Features: {
       AcceleratedRecoveryStatus: "__AcceleratedRecoveryStatus__",
+      PublicDNSFallbackStatus: "__PublicDNSFallbackStatus__",
+      ChangeHistory: {
+        Status: "__Status__",
+        RetentionStartsAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      },
       FailureReasons: {
         AcceleratedRecovery: "__AcceleratedRecovery__"
-      }
+      },
+      ChangeGuardrails: [
+        {
+          Name: "__Name__",
+          Status: "__Status__"
+        },
+        {
+          Name: "__Name__",
+          Status: "__Status__"
+        },
+        {
+          Name: "__Name__",
+          Status: "__Status__"
+        }
+      ]
     }
   },
   ChangeInfo: {

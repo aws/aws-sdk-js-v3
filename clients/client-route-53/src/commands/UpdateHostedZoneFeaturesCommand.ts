@@ -23,8 +23,9 @@ export interface UpdateHostedZoneFeaturesCommandInput extends UpdateHostedZoneFe
 export interface UpdateHostedZoneFeaturesCommandOutput extends UpdateHostedZoneFeaturesResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the features configuration for a hosted zone. This operation allows you to enable or disable specific features for your hosted zone, such as accelerated recovery.</p>
+ * <p>Updates the features configuration for a hosted zone. This operation allows you to enable or disable specific features for your hosted zone, such as accelerated recovery and public DNS fallback.</p>
  *          <p>Accelerated recovery enables you to update DNS records in your public hosted zone even when the us-east-1 region is unavailable.</p>
+ *          <p>Public DNS fallback enables Route 53 to retry a query against public DNS when a query for a domain name in a private hosted zone matches no existing name (<code>NXDOMAIN</code>). Fallback does not occur when the name exists but has no record of the requested type. Public DNS fallback is supported only for private hosted zones.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -36,6 +37,14 @@ export interface UpdateHostedZoneFeaturesCommandOutput extends UpdateHostedZoneF
  * const input = { // UpdateHostedZoneFeaturesRequest
  *   HostedZoneId: "STRING_VALUE", // required
  *   EnableAcceleratedRecovery: true || false,
+ *   EnablePublicDNSFallback: true || false,
+ *   ChangeGuardrails: [ // ChangeGuardrails
+ *     { // ChangeGuardrail
+ *       Name: "NS_FORMAT_CHECK" || "NS_DELEGATION_AUTHORITY_CHECK" || "NS_OCCLUSION_CHECK" || "ALIAS_TARGET_CHECK" || "ACTIVE_RECORD_CHECK" || "ACTIVE_DELEGATION_CHECK", // required
+ *       Status: "ENABLED" || "DISABLED", // required
+ *     },
+ *   ],
+ *   DryRun: true || false,
  * };
  * const command = new UpdateHostedZoneFeaturesCommand(input);
  * const response = await client.send(command);

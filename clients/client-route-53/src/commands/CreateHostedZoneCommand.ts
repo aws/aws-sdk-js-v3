@@ -104,8 +104,16 @@ export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse,
  *   HostedZoneConfig: { // HostedZoneConfig
  *     Comment: "STRING_VALUE",
  *     PrivateZone: true || false,
+ *     HostedZoneTier: "STANDARD" || "ADVANCED",
  *   },
  *   DelegationSetId: "STRING_VALUE",
+ *   EnablePublicDNSFallback: true || false,
+ *   ChangeGuardrails: [ // ChangeGuardrails
+ *     { // ChangeGuardrail
+ *       Name: "NS_FORMAT_CHECK" || "NS_DELEGATION_AUTHORITY_CHECK" || "NS_OCCLUSION_CHECK" || "ALIAS_TARGET_CHECK" || "ACTIVE_RECORD_CHECK" || "ACTIVE_DELEGATION_CHECK", // required
+ *       Status: "ENABLED" || "DISABLED", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateHostedZoneCommand(input);
  * const response = await client.send(command);
@@ -117,6 +125,7 @@ export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse,
  * //     Config: { // HostedZoneConfig
  * //       Comment: "STRING_VALUE",
  * //       PrivateZone: true || false,
+ * //       HostedZoneTier: "STANDARD" || "ADVANCED",
  * //     },
  * //     ResourceRecordSetCount: Number("long"),
  * //     LinkedService: { // LinkedService
@@ -125,9 +134,20 @@ export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse,
  * //     },
  * //     Features: { // HostedZoneFeatures
  * //       AcceleratedRecoveryStatus: "ENABLING" || "ENABLE_FAILED" || "ENABLING_HOSTED_ZONE_LOCKED" || "ENABLED" || "DISABLING" || "DISABLE_FAILED" || "DISABLED" || "DISABLING_HOSTED_ZONE_LOCKED",
+ * //       PublicDNSFallbackStatus: "ENABLED" || "DISABLED" || "ENABLING" || "DISABLING",
+ * //       ChangeHistory: { // ChangeHistoryFeature
+ * //         Status: "ENABLED" || "DISABLED",
+ * //         RetentionStartsAt: new Date("TIMESTAMP"),
+ * //       },
  * //       FailureReasons: { // HostedZoneFailureReasons
  * //         AcceleratedRecovery: "STRING_VALUE",
  * //       },
+ * //       ChangeGuardrails: [ // ChangeGuardrails
+ * //         { // ChangeGuardrail
+ * //           Name: "NS_FORMAT_CHECK" || "NS_DELEGATION_AUTHORITY_CHECK" || "NS_OCCLUSION_CHECK" || "ALIAS_TARGET_CHECK" || "ACTIVE_RECORD_CHECK" || "ACTIVE_DELEGATION_CHECK", // required
+ * //           Status: "ENABLED" || "DISABLED", // required
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   ChangeInfo: { // ChangeInfo
