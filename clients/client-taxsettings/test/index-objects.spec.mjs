@@ -97,6 +97,9 @@ import {
   MalaysiaServiceTaxCode,
   MexicoAdditionalInfo$,
   MonacoAdditionalInfo$,
+  NewZealandAdditionalInfo$,
+  NorwayAdditionalInfo$,
+  NorwayTaxRegistrationNumberType,
   paginateListSupplementalTaxRegistrations,
   paginateListTaxExemptions,
   paginateListTaxRegistrations,
@@ -151,8 +154,10 @@ import {
   TaxSettingsClient,
   TaxSettingsServiceException,
   TurkeyAdditionalInfo$,
+  UaeTaxRegistrationNumberType,
   UkraineAdditionalInfo$,
   UkraineTrnType,
+  UnitedArabEmiratesAdditionalInfo$,
   UzbekistanAdditionalInfo$,
   UzbekistanTaxRegistrationNumberType,
   ValidationException,
@@ -254,6 +259,8 @@ assert(typeof ListTaxRegistrationsResponse$ === "object");
 assert(typeof MalaysiaAdditionalInfo$ === "object");
 assert(typeof MexicoAdditionalInfo$ === "object");
 assert(typeof MonacoAdditionalInfo$ === "object");
+assert(typeof NewZealandAdditionalInfo$ === "object");
+assert(typeof NorwayAdditionalInfo$ === "object");
 assert(typeof PhilippinesAdditionalInfo$ === "object");
 assert(typeof PolandAdditionalInfo$ === "object");
 assert(typeof PutSupplementalTaxRegistrationRequest$ === "object");
@@ -284,6 +291,7 @@ assert(typeof TaxRegistrationStatusReason$ === "object");
 assert(typeof TaxRegistrationWithJurisdiction$ === "object");
 assert(typeof TurkeyAdditionalInfo$ === "object");
 assert(typeof UkraineAdditionalInfo$ === "object");
+assert(typeof UnitedArabEmiratesAdditionalInfo$ === "object");
 assert(typeof UzbekistanAdditionalInfo$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof VerificationDetails$ === "object");
@@ -299,6 +307,7 @@ assert(typeof Industries === "object");
 assert(typeof IsraelCustomerType === "object");
 assert(typeof IsraelDealerType === "object");
 assert(typeof MalaysiaServiceTaxCode === "object");
+assert(typeof NorwayTaxRegistrationNumberType === "object");
 assert(typeof PersonType === "object");
 assert(typeof PolandTaxRegistrationNumberType === "object");
 assert(typeof RegistrationType === "object");
@@ -308,6 +317,7 @@ assert(typeof SupplementalTaxRegistrationType === "object");
 assert(typeof TaxRegistrationNumberType === "object");
 assert(typeof TaxRegistrationStatus === "object");
 assert(typeof TaxRegistrationType === "object");
+assert(typeof UaeTaxRegistrationNumberType === "object");
 assert(typeof UkraineTrnType === "object");
 assert(typeof UzbekistanTaxRegistrationNumberType === "object");
 assert(typeof ValidationExceptionErrorCode === "object");

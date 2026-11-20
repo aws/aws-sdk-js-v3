@@ -130,6 +130,7 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * //         electronicTransactionCodeNumber: "STRING_VALUE",
  * //         paymentVoucherNumber: "STRING_VALUE",
  * //         paymentVoucherNumberDate: "STRING_VALUE",
+ * //         vatCreditMethod: true || false,
  * //       },
  * //       egyptAdditionalInfo: { // EgyptAdditionalInfo
  * //         uniqueIdentificationNumber: "STRING_VALUE",
@@ -175,6 +176,19 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  * //         ],
  * //         taxpayerTypeCode: "STRING_VALUE",
  * //         issueDate: "STRING_VALUE",
+ * //       },
+ * //       unitedArabEmiratesAdditionalInfo: { // UnitedArabEmiratesAdditionalInfo
+ * //         taxRegistrationNumberType: "VATTaxRegistrationNumber" || "LocalTaxRegistrationNumber",
+ * //         peppolId: "STRING_VALUE",
+ * //         tradeLicenseNumber: "STRING_VALUE",
+ * //         emiratesId: "STRING_VALUE",
+ * //       },
+ * //       norwayAdditionalInfo: { // NorwayAdditionalInfo
+ * //         taxRegistrationNumberType: "TaxRegistrationNumber" || "LocalRegistrationNumber",
+ * //         peppolId: "STRING_VALUE",
+ * //       },
+ * //       newZealandAdditionalInfo: { // NewZealandAdditionalInfo
+ * //         peppolId: "STRING_VALUE",
  * //       },
  * //     },
  * //     statusReason: { // TaxRegistrationStatusReason

@@ -10,6 +10,7 @@ import type {
   IsraelCustomerType,
   IsraelDealerType,
   MalaysiaServiceTaxCode,
+  NorwayTaxRegistrationNumberType,
   PersonType,
   PolandTaxRegistrationNumberType,
   RegistrationType,
@@ -19,6 +20,7 @@ import type {
   TaxRegistrationNumberType,
   TaxRegistrationStatus,
   TaxRegistrationType,
+  UaeTaxRegistrationNumberType,
   UkraineTrnType,
   UzbekistanTaxRegistrationNumberType,
 } from "./enums";
@@ -510,6 +512,36 @@ export interface MonacoAdditionalInfo {
 }
 
 /**
+ * <p>Contains additional tax information associated with your Tax Registration Number (TRN) in New Zealand, such as the Peppol ID used for electronic invoicing (e-invoicing).</p>
+ * @public
+ */
+export interface NewZealandAdditionalInfo {
+  /**
+   * <p>The Peppol ID used for electronic invoicing (e-invoicing) in New Zealand. Must be your 13-digit New Zealand Business Number (NZBN), without the <code>0088</code> scheme prefix. Only accepted when the <code>sector</code> is <code>Government</code>.</p>
+   * @public
+   */
+  peppolId?: string | undefined;
+}
+
+/**
+ * <p>Contains additional tax information associated with your Tax Registration Number (TRN) in Norway, such as the tax registration number type and the Peppol ID used for electronic invoicing (e-invoicing).</p>
+ * @public
+ */
+export interface NorwayAdditionalInfo {
+  /**
+   * Treated as TaxRegistrationNumber when absent.
+   * @public
+   */
+  taxRegistrationNumberType?: NorwayTaxRegistrationNumberType | undefined;
+
+  /**
+   * <p>The Peppol ID used for electronic invoicing (e-invoicing) in Norway. Must be a valid 9-digit Norwegian Organisation Number, without the <code>0192</code> scheme prefix.</p>
+   * @public
+   */
+  peppolId?: string | undefined;
+}
+
+/**
  * <p>Additional tax information associated with your TRN in the Philippines.</p>
  * @public
  */
@@ -648,6 +680,36 @@ export interface UkraineAdditionalInfo {
 }
 
 /**
+ * <p>Contains additional tax information associated with your Tax Registration Number (TRN) in the United Arab Emirates, such as the TRN type and the Peppol ID used for electronic invoicing (e-invoicing).</p>
+ * @public
+ */
+export interface UnitedArabEmiratesAdditionalInfo {
+  /**
+   * <p>The type of your TRN in the United Arab Emirates. Valid values are <code>VATTaxRegistrationNumber</code> and <code>LocalTaxRegistrationNumber</code> (Corporate Tax). This field must be provided.</p>
+   * @public
+   */
+  taxRegistrationNumberType?: UaeTaxRegistrationNumberType | undefined;
+
+  /**
+   * <p>The Peppol ID used for electronic invoicing (e-invoicing) in the United Arab Emirates. Optional. Must be a 10-digit number.</p>
+   * @public
+   */
+  peppolId?: string | undefined;
+
+  /**
+   * <p>Your trade license number in the United Arab Emirates. Optional. Must be a 10-digit number.</p>
+   * @public
+   */
+  tradeLicenseNumber?: string | undefined;
+
+  /**
+   * <p>Your Emirates ID. Optional. Must be in the format <code>784-YYYY-NNNNNNN-N</code>.</p>
+   * @public
+   */
+  emiratesId?: string | undefined;
+}
+
+/**
  * <p> Additional tax information to specify for a TRN in Uzbekistan. </p>
  * @public
  */
@@ -671,28 +733,34 @@ export interface UzbekistanAdditionalInfo {
  */
 export interface VietnamAdditionalInfo {
   /**
-   * <p>The enterprise identification number for tax registration. This field must be provided for successful API operation.</p>
+   * <p>The enterprise identification number for tax registration. Required when <code>vatCreditMethod</code> is <code>true</code>; must not be specified when it is <code>false</code>.</p>
    * @public
    */
   enterpriseIdentificationNumber?: string | undefined;
 
   /**
-   * <p>The electronic transaction code number on the tax return document. This field must be provided for successful API operation.</p>
+   * <p>The electronic transaction code number on the tax return document. Required when <code>vatCreditMethod</code> is <code>true</code>; must not be specified when it is <code>false</code>.</p>
    * @public
    */
   electronicTransactionCodeNumber?: string | undefined;
 
   /**
-   * <p>The payment voucher number on the tax return payment document. This field must be provided for successful API operation.</p>
+   * <p>The payment voucher number on the tax return payment document. Required when <code>vatCreditMethod</code> is <code>true</code>; must not be specified when it is <code>false</code>.</p>
    * @public
    */
   paymentVoucherNumber?: string | undefined;
 
   /**
-   * <p>The date on the tax return payment document. This field must be provided for successful API operation.</p>
+   * <p>The date on the tax return payment document. Required when <code>vatCreditMethod</code> is <code>true</code>; must not be specified when it is <code>false</code>.</p>
    * @public
    */
   paymentVoucherNumberDate?: string | undefined;
+
+  /**
+   * <p>Whether your business applies the VAT credit method in Vietnam. Specify <code>true</code> for a business (sector <code>Business</code>) or <code>false</code> for an individual (sector <code>Individual</code>).</p>
+   * @public
+   */
+  vatCreditMethod?: boolean | undefined;
 }
 
 /**
@@ -873,6 +941,24 @@ export interface AdditionalInfoResponse {
    * @public
    */
   colombiaAdditionalInfo?: ColombiaAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information associated with your Tax Registration Number (TRN) in the United Arab Emirates.</p>
+   * @public
+   */
+  unitedArabEmiratesAdditionalInfo?: UnitedArabEmiratesAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information associated with your Tax Registration Number (TRN) in Norway.</p>
+   * @public
+   */
+  norwayAdditionalInfo?: NorwayAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information associated with your Tax Registration Number (TRN) in New Zealand.</p>
+   * @public
+   */
+  newZealandAdditionalInfo?: NewZealandAdditionalInfo | undefined;
 }
 
 /**
@@ -1167,6 +1253,24 @@ export interface AdditionalInfoRequest {
    * @public
    */
   mexicoAdditionalInfo?: MexicoAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a Tax Registration Number (TRN) in the United Arab Emirates.</p>
+   * @public
+   */
+  unitedArabEmiratesAdditionalInfo?: UnitedArabEmiratesAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a Tax Registration Number (TRN) in Norway.</p>
+   * @public
+   */
+  norwayAdditionalInfo?: NorwayAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a Tax Registration Number (TRN) in New Zealand.</p>
+   * @public
+   */
+  newZealandAdditionalInfo?: NewZealandAdditionalInfo | undefined;
 }
 
 /**

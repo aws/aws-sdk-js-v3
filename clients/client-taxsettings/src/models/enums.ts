@@ -114,6 +114,26 @@ export type MalaysiaServiceTaxCode = (typeof MalaysiaServiceTaxCode)[keyof typeo
  * @public
  * @enum
  */
+export const NorwayTaxRegistrationNumberType = {
+  /**
+   * Norwegian Organisation Number of a non-VAT registered business.
+   */
+  LOCAL_REGISTRATION_NUMBER: "LocalRegistrationNumber",
+  /**
+   * VAT registration number (MVA).
+   */
+  TAX_REGISTRATION_NUMBER: "TaxRegistrationNumber",
+} as const;
+/**
+ * @public
+ */
+export type NorwayTaxRegistrationNumberType =
+  (typeof NorwayTaxRegistrationNumberType)[keyof typeof NorwayTaxRegistrationNumberType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PolandTaxRegistrationNumberType = {
   EU_TAX_REGISTRATION_NUMBER: "EUTaxRegistrationNumber",
   LOCAL_REGISTRATION_NUMBER: "LocalRegistrationNumber",
@@ -195,6 +215,23 @@ export const UkraineTrnType = {
  * @public
  */
 export type UkraineTrnType = (typeof UkraineTrnType)[keyof typeof UkraineTrnType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UaeTaxRegistrationNumberType = {
+  /**
+   * Corporate Income Tax (CIT).
+   */
+  LOCAL_TAX_REGISTRATION_NUMBER: "LocalTaxRegistrationNumber",
+  VAT_TAX_REGISTRATION_NUMBER: "VATTaxRegistrationNumber",
+} as const;
+/**
+ * @public
+ */
+export type UaeTaxRegistrationNumberType =
+  (typeof UaeTaxRegistrationNumberType)[keyof typeof UaeTaxRegistrationNumberType];
 
 /**
  * @public
