@@ -180,6 +180,7 @@ export type {
   AzureEventHubTier,
   AzureTelemetryType,
   CentralizationFailureReason,
+  CentralizeWithDataProtection,
   ConnectorProvider,
   ContextGraphStatus,
   DeletionProtection,

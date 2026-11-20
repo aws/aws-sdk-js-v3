@@ -47,6 +47,7 @@ export interface UpdateCentralizationRuleForOrganizationCommandOutput extends Up
  *         LogGroupSelectionCriteria: "STRING_VALUE",
  *         DataSourceSelectionCriteria: "STRING_VALUE",
  *         EncryptedLogGroupStrategy: "ALLOW" || "SKIP", // required
+ *         CentralizeWithDataProtection: "ENABLED" || "DISABLED",
  *       },
  *       SourceMetricsConfiguration: { // SourceMetricsConfiguration
  *         MetricsSelectionCriteria: "STRING_VALUE",

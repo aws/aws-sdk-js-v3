@@ -101,6 +101,7 @@ const _CTRI = "CreateTelemetryRuleInput";
 const _CTRO = "CreateTelemetryRuleOutput";
 const _CTS = "CreatedTimeStamp";
 const _CTo = "ContentType";
+const _CWDP = "CentralizeWithDataProtection";
 const _Co = "Connector";
 const _Con = "Configuration";
 const _Cond = "Conditions";
@@ -1229,8 +1230,8 @@ export var SourceContextGraphConfiguration$: StaticStructureSchema = [3, n0, _SC
 ];
 export var SourceLogsConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
-  [_ELGS, _LGSC, _DSSC],
-  [0, 0, 0], 1
+  [_ELGS, _LGSC, _DSSC, _CWDP],
+  [0, 0, 0, 0], 1
 ];
 export var SourceMetricsConfiguration$: StaticStructureSchema = [3, n0, _SMC,
   0,

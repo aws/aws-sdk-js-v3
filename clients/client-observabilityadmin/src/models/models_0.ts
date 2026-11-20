@@ -4,6 +4,7 @@ import type {
   AzureEventHubTier,
   AzureTelemetryType,
   CentralizationFailureReason,
+  CentralizeWithDataProtection,
   ConnectorProvider,
   ContextGraphStatus,
   DeletionProtection,
@@ -1186,6 +1187,12 @@ export interface SourceLogsConfiguration {
    * @public
    */
   EncryptedLogGroupStrategy: EncryptedLogGroupStrategy | undefined;
+
+  /**
+   * <p>Specifies whether this centralization rule centralizes log events with data protection applied. If you don't specify this setting, or you set it to <code>DISABLED</code>, the rule centralizes the original log events, including any sensitive data that a data protection policy on the source log group masks.</p> <p>When you set this to <code>ENABLED</code>, the rule centralizes the same masked data that anyone in the source account without the <code>logs:Unmask</code> permission sees. The rule doesn't copy the original values to the destination, so you can't unmask them in the destination account. The rule centralizes log events from source log groups that don't have a data protection policy without changes.</p> <p>The setting applies only to log events that the rule centralizes after you enable it. It doesn't change log events that the rule already centralized.</p>
+   * @public
+   */
+  CentralizeWithDataProtection?: CentralizeWithDataProtection | undefined;
 }
 
 /**
@@ -1374,7 +1381,7 @@ export interface CloudtrailParameters {
  */
 export interface LabelNameCondition {
   /**
-   * <p> The label name to match, supporting alphanumeric characters, underscores, hyphens, and colons. </p>
+   * <p> The label name to match, supporting alphanumeric characters, underscores, hyphens, colons, and periods. </p>
    * @public
    */
   LabelName?: string | undefined;
@@ -1920,7 +1927,7 @@ export interface ELBLoadBalancerLoggingParameters {
 }
 
 /**
- * <p>The configuration parameters for log delivery, including <code>logType</code> settings. Applies to resource types that support configurable log delivery, such as Amazon Bedrock Knowledge Bases, Amazon Bedrock AgentCore payment managers, and Elastic Load Balancing Application Load Balancers.</p>
+ * <p>The configuration parameters for log delivery, including <code>logType</code> settings. Applies to resource types that support configurable log delivery, such as Amazon Bedrock Knowledge Bases, Amazon Bedrock AgentCore payment managers, Amazon Web Services Network Firewall firewalls, and Elastic Load Balancing Application Load Balancers.</p>
  * @public
  */
 export interface LogDeliveryParameters {
@@ -2123,7 +2130,7 @@ export interface TelemetryDestinationConfiguration {
   WAFLoggingParameters?: WAFLoggingParameters | undefined;
 
   /**
-   * <p>The configuration parameters for log delivery when the resource type supports configurable log types, such as Amazon Bedrock Knowledge Bases, Amazon Bedrock AgentCore payment managers, or Elastic Load Balancing Application Load Balancers.</p>
+   * <p>The configuration parameters for log delivery when the resource type supports configurable log types, such as Amazon Bedrock Knowledge Bases, Amazon Bedrock AgentCore payment managers, Amazon Web Services Network Firewall firewalls, or Elastic Load Balancing Application Load Balancers.</p>
    * @public
    */
   LogDeliveryParameters?: LogDeliveryParameters | undefined;
@@ -2147,7 +2154,7 @@ export interface TelemetryDestinationConfiguration {
  */
 export interface TelemetryRule {
   /**
-   * <p> The type of Amazon Web Services resource to configure telemetry for (for example, <code>AWS::EC2::VPC</code>, <code>AWS::EKS::Cluster</code>, <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::Bedrock::KnowledgeBase</code>, <code>AWS::BedrockAgentCore::PaymentManager</code>, or <code>AWS::XRay::TransactionSearchConfig</code>). </p>
+   * <p> The type of Amazon Web Services resource to configure telemetry for (for example, <code>AWS::EC2::VPC</code>, <code>AWS::EKS::Cluster</code>, <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::Bedrock::KnowledgeBase</code>, <code>AWS::BedrockAgentCore::PaymentManager</code>, <code>AWS::XRay::TransactionSearchConfig</code>, <code>AWS::CloudWatchOmni</code>, or <code>AWS::NetworkFirewall::Firewall</code>). </p>
    * @public
    */
   ResourceType?: ResourceType | undefined;

@@ -40,6 +40,7 @@ import {
   CentralizationRuleDestination$,
   CentralizationRuleSource$,
   CentralizationRuleSummary$,
+  CentralizeWithDataProtection,
   CloudtrailParameters$,
   Condition$,
   ConfigurationSummary$,
@@ -688,6 +689,7 @@ assert(typeof Action === "object");
 assert(typeof AzureEventHubTier === "object");
 assert(typeof AzureTelemetryType === "object");
 assert(typeof CentralizationFailureReason === "object");
+assert(typeof CentralizeWithDataProtection === "object");
 assert(typeof ConnectorProvider === "object");
 assert(typeof ContextGraphStatus === "object");
 assert(typeof DeletionProtection === "object");

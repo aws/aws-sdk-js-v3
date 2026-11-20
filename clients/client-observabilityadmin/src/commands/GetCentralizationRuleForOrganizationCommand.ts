@@ -62,6 +62,7 @@ export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCe
  * //         LogGroupSelectionCriteria: "STRING_VALUE",
  * //         DataSourceSelectionCriteria: "STRING_VALUE",
  * //         EncryptedLogGroupStrategy: "ALLOW" || "SKIP", // required
+ * //         CentralizeWithDataProtection: "ENABLED" || "DISABLED",
  * //       },
  * //       SourceMetricsConfiguration: { // SourceMetricsConfiguration
  * //         MetricsSelectionCriteria: "STRING_VALUE",

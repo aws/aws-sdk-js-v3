@@ -135,6 +135,20 @@ export type TagConflictResolutionStrategy =
  * @public
  * @enum
  */
+export const CentralizeWithDataProtection = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type CentralizeWithDataProtection =
+  (typeof CentralizeWithDataProtection)[keyof typeof CentralizeWithDataProtection];
+
+/**
+ * @public
+ * @enum
+ */
 export const EncryptedLogGroupStrategy = {
   ALLOW: "ALLOW",
   SKIP: "SKIP",
@@ -258,10 +272,13 @@ export const LogType = {
   ALB_ACCESS: "ALB_ACCESS_LOGS",
   ALB_CONNECTION: "ALB_CONNECTION_LOGS",
   ALB_HEALTH_CHECK: "ALB_HEALTH_CHECK_LOGS",
+  ALERT: "ALERT_LOGS",
   APPLICATION: "APPLICATION_LOGS",
   CONNECTION: "CONNECTION_LOGS",
+  FLOW: "FLOW_LOGS",
   S3_SERVER_ACCESS: "S3_SERVER_ACCESS_LOGS",
   SECURITY_FINDING: "SECURITY_FINDING_LOGS",
+  TLS: "TLS_LOGS",
   USAGE: "USAGE_LOGS",
 } as const;
 /**
@@ -337,12 +354,14 @@ export const ResourceType = {
   AWS_BEDROCK_KNOWLEDGEBASE: "AWS::Bedrock::KnowledgeBase",
   AWS_CLOUDFRONT_DISTRIBUTION: "AWS::CloudFront::Distribution",
   AWS_CLOUDTRAIL: "AWS::CloudTrail",
+  AWS_CLOUDWATCH_OMNI: "AWS::CloudWatchOmni",
   AWS_EC2_INSTANCE: "AWS::EC2::Instance",
   AWS_EC2_VPC: "AWS::EC2::VPC",
   AWS_EKS_CLUSTER: "AWS::EKS::Cluster",
   AWS_ELB_LOADBALANCER: "AWS::ElasticLoadBalancingV2::LoadBalancer",
   AWS_LAMDBA_FUNCTION: "AWS::Lambda::Function",
   AWS_MSK_CLUSTER: "AWS::MSK::Cluster",
+  AWS_NETWORK_FIREWALL_FIREWALL: "AWS::NetworkFirewall::Firewall",
   AWS_OTEL_ENRICHMENT: "AWS::CloudWatch::OTelEnrichment",
   AWS_ROUTE53_RESOLVER_RESOLVER_ENDPOINT: "AWS::Route53Resolver::ResolverEndpoint",
   AWS_S3_BUCKET: "AWS::S3::Bucket",
