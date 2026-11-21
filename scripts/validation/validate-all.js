@@ -45,7 +45,7 @@ const BUS_VALIDATIONS = [
 const SUBPROCESS_VALIDATIONS = [
   {
     name: "built",
-    label: "all packages have build artifacts",
+    label: "all packages have build artifacts and unnested downlevel types",
     script: "built.js",
     inspects: ["dist-cjs", "dist-es", "dist-types"],
   },
