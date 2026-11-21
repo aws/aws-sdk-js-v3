@@ -377,7 +377,7 @@ Output types having this feature will be indicated by the `WithSdkStreamMixin<T,
 and `StreamKey` is the output property key having a stream type specific to
 the runtime environment.
 
-[serde-code-url]: https://github.com/aws/aws-sdk-js-v3/blob/main/packages/types/src/serde.ts
+[serde-code-url]: https://github.com/aws/aws-sdk-js-v3/blob/main/packages-internal/types/src/serde.ts
 
 Here is an example using `S3::GetObject`.
 
