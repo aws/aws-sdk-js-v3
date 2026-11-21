@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteDefaultQBusinessApplicationRequest,
   DeleteDefaultQBusinessApplicationResponse,
-} from "../models/models_3";
+} from "../models/models_4";
 import { DeleteDefaultQBusinessApplication$ } from "../schemas/schemas_0";
 
 /**

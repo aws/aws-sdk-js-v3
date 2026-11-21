@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteGroupMembershipRequest, DeleteGroupMembershipResponse } from "../models/models_3";
+import type { DeleteGroupMembershipRequest, DeleteGroupMembershipResponse } from "../models/models_4";
 import { DeleteGroupMembership$ } from "../schemas/schemas_0";
 
 /**

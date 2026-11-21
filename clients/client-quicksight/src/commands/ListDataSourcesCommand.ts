@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListDataSourcesRequest, ListDataSourcesResponse } from "../models/models_4";
+import type { ListDataSourcesRequest, ListDataSourcesResponse } from "../models/models_5";
 import { ListDataSources$ } from "../schemas/schemas_0";
 
 /**
@@ -111,6 +111,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //           Host: "STRING_VALUE",
  * //           Port: Number("int"),
  * //           Database: "STRING_VALUE", // required
+ * //           FederatedCatalog: "STRING_VALUE",
  * //           ClusterId: "STRING_VALUE",
  * //           IAMParameters: { // RedshiftIAMParameters
  * //             RoleArn: "STRING_VALUE", // required
@@ -333,6 +334,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //             Host: "STRING_VALUE",
  * //             Port: Number("int"),
  * //             Database: "STRING_VALUE", // required
+ * //             FederatedCatalog: "STRING_VALUE",
  * //             ClusterId: "STRING_VALUE",
  * //             IAMParameters: {
  * //               RoleArn: "STRING_VALUE", // required

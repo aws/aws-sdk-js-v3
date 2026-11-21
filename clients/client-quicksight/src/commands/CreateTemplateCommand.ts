@@ -3,7 +3,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTemplateResponse } from "../models/models_3";
-import type { CreateTemplateRequest } from "../models/models_5";
+import type { CreateTemplateRequest } from "../models/models_6";
 import { CreateTemplate$ } from "../schemas/schemas_0";
 
 /**

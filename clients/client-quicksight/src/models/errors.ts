@@ -2,6 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import type { ExceptionResourceType } from "./enums";
+import type { ValidationExceptionField } from "./models_2";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
 
 /**
@@ -250,6 +251,42 @@ export class PreconditionNotMetException extends __BaseException {
     Object.setPrototypeOf(this, PreconditionNotMetException.prototype);
     this.Message = opts.Message;
     this.RequestId = opts.RequestId;
+  }
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by the service.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.quicksight#ValidationException";
+  readonly name = "ValidationException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>A list of the request fields that failed validation.</p>
+   * @public
+   */
+  FieldList?: ValidationExceptionField[] | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+    this.FieldList = opts.FieldList;
   }
 }
 

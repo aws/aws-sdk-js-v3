@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteDataSourceRequest, DeleteDataSourceResponse } from "../models/models_3";
+import type { DeleteDataSourceRequest } from "../models/models_3";
+import type { DeleteDataSourceResponse } from "../models/models_4";
 import { DeleteDataSource$ } from "../schemas/schemas_0";
 
 /**

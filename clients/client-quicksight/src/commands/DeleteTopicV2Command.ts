@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteTopicV2Request, DeleteTopicV2Response } from "../models/models_3";
+import type { DeleteTopicV2Request, DeleteTopicV2Response } from "../models/models_4";
 import { DeleteTopicV2$ } from "../schemas/schemas_0";
 
 /**

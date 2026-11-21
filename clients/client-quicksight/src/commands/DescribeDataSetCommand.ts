@@ -744,6 +744,15 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  * //         },
  * //       ],
  * //     },
+ * //     UnmaterializedCalculatedColumns: [ // UnmaterializedCalculatedColumnList
+ * //       { // UnmaterializedCalculatedColumn
+ * //         ColumnId: "STRING_VALUE", // required
+ * //         ColumnName: "STRING_VALUE", // required
+ * //         Expression: "STRING_VALUE", // required
+ * //         Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME",
+ * //         SubType: "FLOAT" || "FIXED",
+ * //       },
+ * //     ],
  * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),

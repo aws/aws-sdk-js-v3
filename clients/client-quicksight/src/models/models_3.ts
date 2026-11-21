@@ -2,6 +2,9 @@
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
+  AgentLifecycle,
+  AgentStatus,
+  AssetType,
   AssignmentStatus,
   AuthorSpecifiedAggregation,
   CategoryFilterFunction,
@@ -12,8 +15,10 @@ import type {
   ColumnTagName,
   ConstantType,
   CredentialStatus,
+  DashboardBehavior,
   DashboardErrorType,
   DashboardFilterAttribute,
+  DashboardUIState,
   DataSetDateComparisonFilterOperator,
   DataSetFilterAttribute,
   DataSetImportMode,
@@ -28,6 +33,7 @@ import type {
   DataSourceType,
   DayOfWeek,
   DefaultAggregation,
+  DefaultCategoryEffect,
   DisplayFormat,
   DlpAction,
   DlpProviderType,
@@ -35,14 +41,19 @@ import type {
   FilterClass,
   FilterOperator,
   FolderType,
+  GovernedAction,
   HorizontalTextAlignment,
   IdentityStore,
   ImageExtractionStatus,
+  InboundConnectorStatus,
+  InboundConnectorType,
   IngestionStatus,
   IngestionType,
   InputColumnDataType,
   JoinOperationType,
   JoinType,
+  KbDayOfWeek,
+  KbRefreshInterval,
   LimitUnit,
   MemberType,
   NamedEntityAggType,
@@ -59,7 +70,7 @@ import type {
   Role,
   RowLevelPermissionFormatVersion,
   RowLevelPermissionPolicy,
-  ServiceType,
+  ScheduleState,
   SharingModel,
   Status,
   TextQualifier,
@@ -70,6 +81,7 @@ import type {
   TopicSortDirection,
   TopicTimeGranularity,
   TopicUserExperienceVersion,
+  ValidationStrategyMode,
   VideoExtractionStatus,
   VideoExtractionType,
   VPCConnectionAvailabilityStatus,
@@ -77,6 +89,7 @@ import type {
 } from "./enums";
 import type {
   AccessControlConfiguration,
+  AdHocFilteringOption,
   AggregateOperation,
   DataPrepAggregationFunction,
   DataSetColumnIdMapping,
@@ -84,11 +97,17 @@ import type {
   FontConfiguration,
   Sheet,
   TransformOperationSource,
+  VisualMenuOption,
 } from "./models_0";
 import type {
   AppendOperation,
+  ApplicableTo,
+  ApprovalPolicy,
   AudioExtractionConfiguration,
   BorderStyle,
+  BrandDefinition,
+  BrandDetail,
+  CalculatedColumn,
   Capabilities,
   CastColumnTypeOperation,
   CastColumnTypesOperation,
@@ -103,17 +122,945 @@ import type {
   ColumnToUnpivot,
   ComparativeOrder,
   ControlTitleFontConfiguration,
-  CreateColumnsOperation,
   DataSetReference,
   DataSourceParameters,
   DisplayFormatOptions,
-  Governance,
   ResourcePermission,
   SslProperties,
   Tag,
   TopicReference,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>A reference to an existing custom prompt profile.</p>
+ * @public
+ */
+export interface CustomPromptProfile {
+  /**
+   * <p>The identifier of the model profile.</p>
+   * @public
+   */
+  ModelProfileId: string | undefined;
+
+  /**
+   * <p>The subscription identifier.</p>
+   * @public
+   */
+  SubscriptionId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID for the Q Business service.</p>
+   * @public
+   */
+  QbsAwsAccountId: string | undefined;
+}
+
+/**
+ * <p>The parameters for configuring a custom prompt for an agent.</p>
+ * @public
+ */
+export interface CustomPromptInputParameters {
+  /**
+   * <p>Instructions for the desired response length.</p>
+   * @public
+   */
+  ResponseLength?: string | undefined;
+
+  /**
+   * <p>Instructions for the desired output style.</p>
+   * @public
+   */
+  OutputStyle?: string | undefined;
+
+  /**
+   * <p>Instructions that define the agent's identity and persona.</p>
+   * @public
+   */
+  Identity?: string | undefined;
+
+  /**
+   * <p>Instructions for the desired tone of responses.</p>
+   * @public
+   */
+  Tone?: string | undefined;
+
+  /**
+   * <p>Custom instructions for the agent's behavior.</p>
+   * @public
+   */
+  CustomInstructions?: string | undefined;
+}
+
+/**
+ * <p>The custom prompt input for an agent. This is a union type that can be either an existing prompt profile or new prompt parameters.</p>
+ * @public
+ */
+export type CustomPromptInput =
+  | CustomPromptInput.ExistingPromptMember
+  | CustomPromptInput.NewPromptMember
+  | CustomPromptInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CustomPromptInput {
+  /**
+   * <p>An existing custom prompt profile to use for the agent.</p>
+   * @public
+   */
+  export interface ExistingPromptMember {
+    ExistingPrompt: CustomPromptProfile;
+    NewPrompt?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>New custom prompt parameters to configure for the agent.</p>
+   * @public
+   */
+  export interface NewPromptMember {
+    ExistingPrompt?: never;
+    NewPrompt: CustomPromptInputParameters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ExistingPrompt?: never;
+    NewPrompt?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ExistingPrompt: (value: CustomPromptProfile) => T;
+    NewPrompt: (value: CustomPromptInputParameters) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateAgentRequest {
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the spaces to attach to the agent.</p>
+   * @public
+   */
+  Spaces?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the action connectors to attach to the agent.</p>
+   * @public
+   */
+  ActionConnectors?: string[] | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the agent.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The name of the agent.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the agent.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The icon identifier for the agent.</p>
+   * @public
+   */
+  IconId?: string | undefined;
+
+  /**
+   * <p>A list of starter prompts that are displayed to users when they begin interacting with the agent.</p>
+   * @public
+   */
+  StarterPrompts?: string[] | undefined;
+
+  /**
+   * <p>The welcome message that is displayed when a user starts a conversation with the agent.</p>
+   * @public
+   */
+  WelcomeMessage?: string | undefined;
+
+  /**
+   * <p>The lifecycle state of the agent. Valid values are <code>PREVIEW</code> and <code>PUBLISHED</code>.</p>
+   * @public
+   */
+  AgentLifecycle?: AgentLifecycle | undefined;
+
+  /**
+   * <p>The custom prompt configuration for the agent.</p>
+   * @public
+   */
+  CustomPromptInput?: CustomPromptInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAgentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the agent.</p>
+   * @public
+   */
+  AgentId: string | undefined;
+
+  /**
+   * <p>The status of the agent.</p>
+   * @public
+   */
+  AgentStatus: AgentStatus | undefined;
+
+  /**
+   * <p>The name of the agent.</p>
+   * @public
+   */
+  AgentName: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * <p>A date-time parameter.</p>
+ * @public
+ */
+export interface DateTimeParameter {
+  /**
+   * <p>A display name for the date-time parameter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values for the date-time parameter.</p>
+   * @public
+   */
+  Values: Date[] | undefined;
+}
+
+/**
+ * <p>A decimal parameter.</p>
+ * @public
+ */
+export interface DecimalParameter {
+  /**
+   * <p>A display name for the decimal parameter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values for the decimal parameter.</p>
+   * @public
+   */
+  Values: number[] | undefined;
+}
+
+/**
+ * <p>An integer parameter.</p>
+ * @public
+ */
+export interface IntegerParameter {
+  /**
+   * <p>The name of the integer parameter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values for the integer parameter.</p>
+   * @public
+   */
+  Values: number[] | undefined;
+}
+
+/**
+ * <p>A string parameter.</p>
+ * @public
+ */
+export interface StringParameter {
+  /**
+   * <p>A display name for a string parameter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The values of a string parameter.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>A list of Quick Sight parameters and the list's override values.</p>
+ * @public
+ */
+export interface _Parameters {
+  /**
+   * <p>The parameters that have a data type of string.</p>
+   * @public
+   */
+  StringParameters?: StringParameter[] | undefined;
+
+  /**
+   * <p>The parameters that have a data type of integer.</p>
+   * @public
+   */
+  IntegerParameters?: IntegerParameter[] | undefined;
+
+  /**
+   * <p>The parameters that have a data type of decimal.</p>
+   * @public
+   */
+  DecimalParameters?: DecimalParameter[] | undefined;
+
+  /**
+   * <p>The parameters that have a data type of date-time.</p>
+   * @public
+   */
+  DateTimeParameters?: DateTimeParameter[] | undefined;
+}
+
+/**
+ * <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+ * @public
+ */
+export interface ValidationStrategy {
+  /**
+   * <p>The mode of validation for the asset to be created or updated. When you set this value to <code>STRICT</code>, strict validation for every error is enforced. When you set this value to <code>LENIENT</code>, validation is skipped for specific UI errors.</p>
+   * @public
+   */
+  Mode: ValidationStrategyMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAnalysisResponse {
+  /**
+   * <p>The ARN for the analysis.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the analysis.</p>
+   * @public
+   */
+  AnalysisId?: string | undefined;
+
+  /**
+   * <p>The status of the creation of the analysis. </p>
+   * @public
+   */
+  CreationStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateApprovalPolicyRequest {
+  /**
+   * <p>The unique identifier to assign to the approval policy. You cannot change this value after you create the policy.</p>
+   * @public
+   */
+  PolicyId: string | undefined;
+
+  /**
+   * <p>The name of the approval policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the approval policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The list of governed actions that trigger the approval workflow.</p>
+   * @public
+   */
+  Actions: GovernedAction[] | undefined;
+
+  /**
+   * <p>The list of asset types that the approval policy applies to.</p>
+   * @public
+   */
+  AssetTypes: AssetType[] | undefined;
+
+  /**
+   * <p>The scoping configuration that determines who the approval policy applies to.</p>
+   * @public
+   */
+  ApplicableTo: ApplicableTo | undefined;
+
+  /**
+   * <p>The list of group ARNs whose members can approve requests.</p>
+   * @public
+   */
+  ApprovalGroups: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateApprovalPolicyResponse {
+  /**
+   * <p>The approval policy that was created.</p>
+   * @public
+   */
+  Policy: ApprovalPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBrandRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the Quick brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+
+  /**
+   * <p>A map of the key-value pairs that are assigned to the brand.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBrandResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The details of the brand.</p>
+   * @public
+   */
+  BrandDetail?: BrandDetail | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+}
+
+/**
+ * <p>A transform operation that creates calculated columns. Columns created in one such
+ *             operation form a lexical closure.</p>
+ * @public
+ */
+export interface CreateColumnsOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias?: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for creating new calculated columns.</p>
+   * @public
+   */
+  Source?: TransformOperationSource | undefined;
+
+  /**
+   * <p>Calculated columns to create.</p>
+   * @public
+   */
+  Columns: CalculatedColumn[] | undefined;
+}
+
+/**
+ * <p>Contains the governance configuration for a custom permissions profile. When governance controls are defined for a category, any capabilities in that category not explicitly set to <code>ALLOW</code> in <code>Capabilities</code> are denied. Even newly added capabilities in the category are implicitly disabled when Amazon Quick releases them.</p>
+ * @public
+ */
+export interface Governance {
+  /**
+   * <p>A map of <code>DefaultCategoryEffects</code>.</p>
+   * @public
+   */
+  DefaultCategoryEffects?: Record<string, DefaultCategoryEffect> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that you want to create the custom permissions profile in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the custom permissions profile that you want to create.</p>
+   * @public
+   */
+  CustomPermissionsName: string | undefined;
+
+  /**
+   * <p>A set of actions to include in the custom permissions profile.</p>
+   * @public
+   */
+  Capabilities?: Capabilities | undefined;
+
+  /**
+   * <p>The governance configuration for the custom permissions profile. When governance controls are defined for a category, any capabilities in that category not explicitly set to <code>ALLOW</code> in <code>Capabilities</code> are denied. Even newly added capabilities in the category are implicitly disabled when Amazon Quick releases them.</p>
+   * @public
+   */
+  Governance?: Governance | undefined;
+
+  /**
+   * <p>The tags to associate with the custom permissions profile.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomPermissionsResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom permissions profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * <p>The drill down options for data points in a dashbaord.</p>
+ * @public
+ */
+export interface DataPointDrillUpDownOption {
+  /**
+   * <p>The status of the drill down options of data points.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>The data point menu options of a dashboard.</p>
+ * @public
+ */
+export interface DataPointMenuLabelOption {
+  /**
+   * <p>The status of the data point menu options.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>The data point tooltip options.</p>
+ * @public
+ */
+export interface DataPointTooltipOption {
+  /**
+   * <p>The status of the data point tool tip options.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
+ * @public
+ */
+export interface DataQAEnabledOption {
+  /**
+   * <p>The status of the Data Q&A option on the dashboard.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>Executive summary option.</p>
+ * @public
+ */
+export interface DataStoriesSharingOption {
+  /**
+   * <p>Availability status.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>Data stories sharing option.</p>
+ * @public
+ */
+export interface ExecutiveSummaryOption {
+  /**
+   * <p>Availability status.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>Export to .csv option.</p>
+ * @public
+ */
+export interface ExportToCSVOption {
+  /**
+   * <p>Availability status.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
+ * @public
+ */
+export interface ExportWithHiddenFieldsOption {
+  /**
+   * <p>The status of the export with hidden fields options.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>Determines if Actions in Amazon Quick Suite are enabled in a dashboard..</p>
+ * @public
+ */
+export interface QuickSuiteActionsOption {
+  /**
+   * <p>Availability status.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>Sheet controls option.</p>
+ * @public
+ */
+export interface SheetControlsOption {
+  /**
+   * <p>Visibility state.</p>
+   * @public
+   */
+  VisibilityState?: DashboardUIState | undefined;
+}
+
+/**
+ * <p>The sheet layout maximization options of a dashbaord.</p>
+ * @public
+ */
+export interface SheetLayoutElementMaximizationOption {
+  /**
+   * <p>The status of the sheet layout maximization options of a dashbaord.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>The axis sort options for a visual.</p>
+ * @public
+ */
+export interface VisualAxisSortOption {
+  /**
+   * <p>The availaiblity status of a visual's axis sort options.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>Determines if hidden fields are included in an exported dashboard.</p>
+ * @public
+ */
+export interface ExportHiddenFieldsOption {
+  /**
+   * <p>The status of the export hidden fields options of a dashbaord.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>The visual publish options of a visual in a dashboard</p>
+ * @public
+ */
+export interface DashboardVisualPublishOptions {
+  /**
+   * <p>Determines if hidden fields are included in an exported dashboard.</p>
+   * @public
+   */
+  ExportHiddenFieldsOption?: ExportHiddenFieldsOption | undefined;
+}
+
+/**
+ * <p>Dashboard publish options.</p>
+ * @public
+ */
+export interface DashboardPublishOptions {
+  /**
+   * <p>Ad hoc (one-time) filtering option.</p>
+   * @public
+   */
+  AdHocFilteringOption?: AdHocFilteringOption | undefined;
+
+  /**
+   * <p>Export to .csv option.</p>
+   * @public
+   */
+  ExportToCSVOption?: ExportToCSVOption | undefined;
+
+  /**
+   * <p>Sheet controls option.</p>
+   * @public
+   */
+  SheetControlsOption?: SheetControlsOption | undefined;
+
+  /**
+   * <p>The visual publish options of a visual in a dashboard.</p>
+   *
+   * @deprecated VisualPublishOptions property will reach its end of standard support in a future release. To perform this action, use ExportWithHiddenFields.
+   * @public
+   */
+  VisualPublishOptions?: DashboardVisualPublishOptions | undefined;
+
+  /**
+   * <p>The sheet layout maximization options of a dashbaord.</p>
+   * @public
+   */
+  SheetLayoutElementMaximizationOption?: SheetLayoutElementMaximizationOption | undefined;
+
+  /**
+   * <p>The menu options of a visual in a dashboard.</p>
+   * @public
+   */
+  VisualMenuOption?: VisualMenuOption | undefined;
+
+  /**
+   * <p>The axis sort options of a dashboard.</p>
+   * @public
+   */
+  VisualAxisSortOption?: VisualAxisSortOption | undefined;
+
+  /**
+   * <p>Determines if hidden fields are exported with a dashboard.</p>
+   * @public
+   */
+  ExportWithHiddenFieldsOption?: ExportWithHiddenFieldsOption | undefined;
+
+  /**
+   * <p>The drill-down options of data points in a dashboard.</p>
+   * @public
+   */
+  DataPointDrillUpDownOption?: DataPointDrillUpDownOption | undefined;
+
+  /**
+   * <p>The data point menu label options of a dashboard.</p>
+   * @public
+   */
+  DataPointMenuLabelOption?: DataPointMenuLabelOption | undefined;
+
+  /**
+   * <p>The data point tool tip options of a dashboard.</p>
+   * @public
+   */
+  DataPointTooltipOption?: DataPointTooltipOption | undefined;
+
+  /**
+   * <p>Adds Q&A capabilities to an Quick Sight dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is used.</p>
+   * @public
+   */
+  DataQAEnabledOption?: DataQAEnabledOption | undefined;
+
+  /**
+   * <p>Determines if Actions in Amazon Quick Suite are enabled in a dashboard.</p>
+   * @public
+   */
+  QuickSuiteActionsOption?: QuickSuiteActionsOption | undefined;
+
+  /**
+   * <p>Executive summary option.</p>
+   * @public
+   */
+  ExecutiveSummaryOption?: ExecutiveSummaryOption | undefined;
+
+  /**
+   * <p>Data stories sharing option.</p>
+   * @public
+   */
+  DataStoriesSharingOption?: DataStoriesSharingOption | undefined;
+}
+
+/**
+ * <p>A structure that contains the configuration of a shareable link to the
+ *             dashboard.</p>
+ * @public
+ */
+export interface LinkSharingConfiguration {
+  /**
+   * <p>A structure that contains the permissions of a shareable link.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+}
+
+/**
+ * <p>Dashboard source template.</p>
+ * @public
+ */
+export interface DashboardSourceTemplate {
+  /**
+   * <p>Dataset references.</p>
+   * @public
+   */
+  DataSetReferences: DataSetReference[] | undefined;
+
+  /**
+   * <p>The topic references for the source template of a dashboard.</p>
+   * @public
+   */
+  TopicReferences?: TopicReference[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * <p>Dashboard source entity.</p>
+ * @public
+ */
+export interface DashboardSourceEntity {
+  /**
+   * <p>Source template.</p>
+   * @public
+   */
+  SourceTemplate?: DashboardSourceTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDashboardResponse {
+  /**
+   * <p>The ARN of the dashboard.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ARN of the dashboard, including the version number of the first version that is
+   *             created.</p>
+   * @public
+   */
+  VersionArn?: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   * @public
+   */
+  DashboardId?: string | undefined;
+
+  /**
+   * <p>The status of the dashboard creation request.</p>
+   * @public
+   */
+  CreationStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
 
 /**
  * <p>Specifies the source of data for a destination table, including the transform operation and column mappings.</p>
@@ -2183,6 +3130,43 @@ export interface SemanticModelConfiguration {
 }
 
 /**
+ * <p>A calculated column that is not materialized in the prepared data. The column is computed
+ *            at analysis time and can use aggregate expressions.</p>
+ * @public
+ */
+export interface UnmaterializedCalculatedColumn {
+  /**
+   * <p>A unique ID to identify the unmaterialized calculated column.</p>
+   * @public
+   */
+  ColumnId: string | undefined;
+
+  /**
+   * <p>The name of the unmaterialized calculated column.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>An expression that defines the unmaterialized calculated column.</p>
+   * @public
+   */
+  Expression: string | undefined;
+
+  /**
+   * <p>The data type of the unmaterialized calculated column.</p>
+   * @public
+   */
+  Type?: ColumnDataType | undefined;
+
+  /**
+   * <p>The sub data type of the unmaterialized calculated column.</p>
+   * @public
+   */
+  SubType?: ColumnDataSubType | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateDataSetRequest {
@@ -2326,6 +3310,14 @@ export interface CreateDataSetRequest {
    * @public
    */
   SemanticModelConfiguration?: SemanticModelConfiguration | undefined;
+
+  /**
+   * <p>A list of unmaterialized calculated columns for the dataset. These columns are computed
+   * 			at analysis time and are not stored in the prepared data.
+   * 			You can only use this with the new data preparation experience.</p>
+   * @public
+   */
+  UnmaterializedCalculatedColumns?: UnmaterializedCalculatedColumn[] | undefined;
 }
 
 /**
@@ -2977,7 +3969,7 @@ export interface Permission {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the principal.
-   *             This can be an Amazon Quick user, group or namespace associated with the flow.
+   *             This can be an Quick user, group or namespace associated with the flow.
    *             Namespace principal can only be set as a viewer and will grant everyone in the same namespace viewer permissions.</p>
    * @public
    */
@@ -3503,6 +4495,107 @@ export interface CreateIAMPolicyAssignmentResponse {
 }
 
 /**
+ * <p>The configuration of an inbound connector, including its type.</p>
+ * @public
+ */
+export interface InboundConnectorConfig {
+  /**
+   * <p>The type of the inbound connector. You can't change the type after the connector is created.</p>
+   * @public
+   */
+  InboundConnectorType: InboundConnectorType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInboundConnectorRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the inbound connector. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   *          <p>For a <code>QUICK_DESKTOP</code> inbound connector, the ID must be <code>ibc-desktop-</code> followed by your Amazon Web Services account ID and the Region that you call, separated by a hyphen. For example, <code>ibc-desktop-111122223333-us-east-1</code>. Quick Sight reserves IDs that start with <code>ibc-desktop-</code> for <code>QUICK_DESKTOP</code> inbound connectors.</p>
+   * @public
+   */
+  InboundConnectorId: string | undefined;
+
+  /**
+   * <p>The name of the inbound connector.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the inbound connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration of the inbound connector.</p>
+   * @public
+   */
+  InboundConnectorConfiguration: InboundConnectorConfig | undefined;
+
+  /**
+   * <p>The tags to assign to the inbound connector.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInboundConnectorResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
+
+  /**
+   * <p>The ID of the inbound connector.</p>
+   * @public
+   */
+  InboundConnectorId: string | undefined;
+
+  /**
+   * <p>The ARN of the inbound connector.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The endpoint URL that clients use to reach Quick Sight through the inbound connector.</p>
+   * @public
+   */
+  TenantUrl: string | undefined;
+
+  /**
+   * <p>The status of the inbound connector. A new connector is always <code>ENABLED</code>.</p>
+   * @public
+   */
+  InboundConnectorStatus: InboundConnectorStatus | undefined;
+
+  /**
+   * <p>The time when the inbound connector was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateIngestionRequest {
@@ -3838,6 +4931,151 @@ export interface CreateKnowledgeBaseResponse {
    * @public
    */
   CreationStatus: DataSetStatus | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * <p>The day on which the refresh runs. Specify one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>DayOfWeek</code> – For a weekly schedule.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DayOfMonth</code> – For a monthly schedule.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface KnowledgeBaseScheduleRefreshOnEntity {
+  /**
+   * <p>The day of the week on which a weekly refresh runs.</p>
+   * @public
+   */
+  DayOfWeek?: KbDayOfWeek | undefined;
+
+  /**
+   * <p>The day of the month on which a monthly refresh runs. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>1</code> through <code>28</code> – The refresh runs on that day of each month.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LAST_DAY_OF_MONTH</code> – The refresh runs on the last day of each month.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DayOfMonth?: string | undefined;
+}
+
+/**
+ * <p>Specifies how often a knowledge base refresh schedule runs and, for weekly or monthly schedules, which day the refresh runs.</p>
+ * @public
+ */
+export interface KnowledgeBaseRefreshFrequency {
+  /**
+   * <p>The interval at which the schedule refreshes the knowledge base. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DAILY</code> – The schedule refreshes the knowledge base once each day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WEEKLY</code> – The schedule refreshes the knowledge base once each week, on the day that you specify in <code>RefreshOnDay.DayOfWeek</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MONTHLY</code> – The schedule refreshes the knowledge base once each month, on the day that you specify in <code>RefreshOnDay.DayOfMonth</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOURLY</code> – The schedule refreshes the knowledge base once each hour. Available only if your account is enabled for hourly refresh. Otherwise, the request fails with an <code>InvalidParameterValueException</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For <code>DAILY</code>, <code>WEEKLY</code>, and <code>MONTHLY</code> intervals, the service chooses the time of day at which the refresh runs. You can't specify the time of day.</p>
+   * @public
+   */
+  Interval: KbRefreshInterval | undefined;
+
+  /**
+   * <p>The day on which the refresh runs. This parameter is required for a <code>WEEKLY</code> or <code>MONTHLY</code> interval: specify the day of the week for <code>WEEKLY</code> or the day of the month for <code>MONTHLY</code>. If you don't specify it for one of these intervals, the request fails. This parameter isn't used for a <code>DAILY</code> or <code>HOURLY</code> interval.</p>
+   * @public
+   */
+  RefreshOnDay?: KnowledgeBaseScheduleRefreshOnEntity | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateKnowledgeBaseRefreshScheduleRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the knowledge base refresh schedule.</p>
+   * @public
+   */
+  ScheduleId: string | undefined;
+
+  /**
+   * <p>The frequency configuration for the refresh schedule. The frequency configuration specifies how often the schedule runs and, for weekly or monthly schedules, the day on which it runs.</p>
+   * @public
+   */
+  ScheduleFrequency: KnowledgeBaseRefreshFrequency | undefined;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, after which the schedule can start refreshing the knowledge base. The first refresh runs at the next scheduled time after this date and time. If you don't specify a value, the schedule becomes active immediately, and the first refresh runs at the next scheduled time.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The state that you want the refresh schedule to have when you create it. If you don't specify a state, the schedule is created in the <code>ENABLED</code> state. A schedule that isn't <code>ENABLED</code> doesn't run refreshes.</p>
+   * @public
+   */
+  State?: ScheduleState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateKnowledgeBaseRefreshScheduleResponse {
+  /**
+   * <p>The unique identifier for the refresh schedule.</p>
+   * @public
+   */
+  ScheduleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base that the schedule applies to.</p>
+   * @public
+   */
+  KnowledgeBaseArn: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -7213,6 +8451,13 @@ export interface DataSet {
    * @public
    */
   SemanticModelConfiguration?: SemanticModelConfiguration | undefined;
+
+  /**
+   * <p>The unmaterialized calculated columns associated with this dataset.
+   *            You can only use this with the new data preparation experience.</p>
+   * @public
+   */
+  UnmaterializedCalculatedColumns?: UnmaterializedCalculatedColumn[] | undefined;
 }
 
 /**
@@ -7573,6 +8818,92 @@ export interface DataSourceSummary {
    * @public
    */
   LastUpdatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccessControlApplicationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the access control application to delete.</p>
+   * @public
+   */
+  ApplicationId?: string | undefined;
+
+  /**
+   * <p>The ARN of an IAM Identity Center application that Quick Sight created for an access control application that has already been deleted. Provide this ARN to clean up the IAM Identity Center application.</p>
+   * @public
+   */
+  IdcApplicationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccessControlApplicationResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
+
+  /**
+   * <p>The ID of the deleted access control application.</p>
+   * @public
+   */
+  ApplicationId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccessControlApplicationSecretRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the access control application.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The ID of the client secret.</p>
+   * @public
+   */
+  ClientSecretId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccessControlApplicationSecretResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
 }
 
 /**
@@ -8091,1157 +9422,4 @@ export interface DeleteDataSourceRequest {
    * @public
    */
   DataSourceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataSourceResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data source that you deleted.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
-   * 				Amazon Web Services account.</p>
-   * @public
-   */
-  DataSourceId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDefaultQBusinessApplicationRequest {
-  /**
-   * <p>The ID of the Quick Sight account that you want to disconnect from a Amazon Q Business application.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Quick Sight namespace that you want to delete a linked Amazon Q Business application from. If this field is left blank, the Amazon Q Business application is deleted from the default namespace. Currently, the default namespace is the only valid value for this parameter.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDefaultQBusinessApplicationResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDlpSettingRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the DLP setting that you want to delete.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the DLP setting that you want to delete.</p>
-   * @public
-   */
-  DlpSettingId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDlpSettingResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deleted DLP setting.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The ID of the deleted DLP setting.</p>
-   * @public
-   */
-  DlpSettingId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFlowRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the flow that you are deleting.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the flow to delete.</p>
-   * @public
-   */
-  FlowId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFlowResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFolderRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFolderResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name of the deleted folder.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFolderMembershipRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Folder ID.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The ID of the asset that you want to delete.</p>
-   * @public
-   */
-  MemberId: string | undefined;
-
-  /**
-   * <p>The member type of the asset that you want to delete from a folder.</p>
-   * @public
-   */
-  MemberType: MemberType | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFolderMembershipResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupRequest {
-  /**
-   * <p>The name of the group that you want to delete.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the group that you want to delete.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupMembershipRequest {
-  /**
-   * <p>The name of the user that you want to delete from the group membership.</p>
-   * @public
-   */
-  MemberName: string | undefined;
-
-  /**
-   * <p>The name of the group that you want to delete the user from.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the group that you want to remove a user from.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGroupMembershipResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIAMPolicyAssignmentRequest {
-  /**
-   * <p>The Amazon Web Services account ID where you want to delete the IAM
-   * 			policy assignment.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the assignment. </p>
-   * @public
-   */
-  AssignmentName: string | undefined;
-
-  /**
-   * <p>The namespace that contains the assignment.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIAMPolicyAssignmentResponse {
-  /**
-   * <p>The name of the assignment. </p>
-   * @public
-   */
-  AssignmentName?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIdentityPropagationConfigRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that you want to delete an identity propagation configuration from.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the Amazon Web Services service that you want to delete the associated access scopes and authorized targets from.</p>
-   * @public
-   */
-  Service: ServiceType | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIdentityPropagationConfigResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteKnowledgeBaseRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the knowledge base.</p>
-   * @public
-   */
-  KnowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteKnowledgeBaseResponse {
-  /**
-   * <p>The ARN of the deleted knowledge base.</p>
-   * @public
-   */
-  KnowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The ID of the deleted knowledge base.</p>
-   * @public
-   */
-  KnowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLimitsProfileRequest {
-  /**
-   * <p>The unique identifier for the limits profile to delete.</p>
-   * @public
-   */
-  profileId: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the limits profile.</p>
-   * @public
-   */
-  accountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLimitsProfileResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deleted limits profile.</p>
-   * @public
-   */
-  arn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNamespaceRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to delete the Quick Sight namespace from.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that you want to delete.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNamespaceResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteOAuthClientApplicationRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the OAuthClientApplication that you want to delete.</p>
-   * @public
-   */
-  OAuthClientApplicationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteOAuthClientApplicationResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the OAuthClientApplication that you deleted.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the OAuthClientApplication. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  OAuthClientApplicationId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRefreshScheduleRequest {
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the refresh schedule.</p>
-   * @public
-   */
-  ScheduleId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRefreshScheduleResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The ID of the refresh schedule.</p>
-   * @public
-   */
-  ScheduleId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRoleCustomPermissionRequest {
-  /**
-   * <p>The role that you want to remove permissions from.</p>
-   * @public
-   */
-  Role: Role | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   *             Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that includes the role.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRoleCustomPermissionResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRoleMembershipRequest {
-  /**
-   * <p>The name of the group.</p>
-   * @public
-   */
-  MemberName: string | undefined;
-
-  /**
-   * <p>The role that you want to remove permissions from.</p>
-   * @public
-   */
-  Role: Role | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that contains the role.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRoleMembershipResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSpaceRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the space.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the space that you want to delete.</p>
-   * @public
-   */
-  SpaceId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSpaceResponse {
-  /**
-   * <p>The ID of the space.</p>
-   * @public
-   */
-  spaceId: string | undefined;
-
-  /**
-   * <p>The ARN of the space.</p>
-   * @public
-   */
-  spaceArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTemplateRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template that you're deleting.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the template you want to delete.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>Specifies the version of the template that you want to delete.
-   * 			If you don't provide a version number, <code>DeleteTemplate</code> deletes all versions of the template.
-   * 	 </p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTemplateResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>An ID for the template.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTemplateAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the item to delete.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template that the specified alias is for.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The name for the template alias. To delete a specific alias, you delete the version that the
-   * 			alias points to. You can specify the alias name, or specify the latest version of the
-   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			parameter. </p>
-   * @public
-   */
-  AliasName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTemplateAliasResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>An ID for the template associated with the deletion.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>The name for the template alias.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template you want to delete.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteThemeRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme that you're deleting.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the theme that you want to delete.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The version of the theme that you want to delete. </p>
-   *          <p>
-   *             <b>Note:</b> If you don't provide a version number, you're
-   * 			using this call to <code>DeleteTheme</code> to delete all versions of the theme.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteThemeResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>An ID for the theme.</p>
-   * @public
-   */
-  ThemeId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteThemeAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme alias to delete.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme that the specified alias is for.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The unique name for the theme alias to delete.</p>
-   * @public
-   */
-  AliasName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteThemeAliasResponse {
-  /**
-   * <p>The name for the theme alias.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme resource using the deleted alias.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>An ID for the theme associated with the deletion.</p>
-   * @public
-   */
-  ThemeId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
-   *          delete.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicRefreshScheduleRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DatasetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicRefreshScheduleResponse {
-  /**
-   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  TopicArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   * @public
-   */
-  DatasetArn?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicV2Request {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
-   *          delete.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTopicV2Response {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserRequest {
-  /**
-   * <p>The name of the user that you want to delete.</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteUserResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
 }

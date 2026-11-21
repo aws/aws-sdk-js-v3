@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListCustomPermissionsRequest, ListCustomPermissionsResponse } from "../models/models_4";
+import type { ListCustomPermissionsRequest, ListCustomPermissionsResponse } from "../models/models_5";
 import { ListCustomPermissions$ } from "../schemas/schemas_0";
 
 /**
@@ -243,6 +243,9 @@ export interface ListCustomPermissionsCommandOutput extends ListCustomPermission
  * //         CreateAndUpdateMCPAction: "DENY" || "ALLOW",
  * //         ShareMCPAction: "DENY" || "ALLOW",
  * //         UseMCPAction: "DENY" || "ALLOW",
+ * //         LocalMCPAction: "DENY" || "ALLOW",
+ * //         CreateAndUpdateLocalMCPAction: "DENY" || "ALLOW",
+ * //         UseLocalMCPAction: "DENY" || "ALLOW",
  * //         OpenAPIAction: "DENY" || "ALLOW",
  * //         CreateAndUpdateOpenAPIAction: "DENY" || "ALLOW",
  * //         ShareOpenAPIAction: "DENY" || "ALLOW",

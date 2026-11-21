@@ -49,10 +49,10 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding Analytics
- *                 Using GetDashboardEmbedUrl</a> in the <i>Amazon Quick User
+ *                 Using GetDashboardEmbedUrl</a> in the <i>Quick User
  *                 Guide</i>.</p>
  *          <p>For more information about the high-level steps for embedding and for an interactive
- *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon Quick
+ *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Quick
  *                 Developer Portal</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

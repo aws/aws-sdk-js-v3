@@ -18,6 +18,11 @@ import {
   BatchDeleteKnowledgeBaseCommand,
 } from "./commands/BatchDeleteKnowledgeBaseCommand";
 import {
+  type BatchDeletePolicyAssignmentByPolicyCommandInput,
+  type BatchDeletePolicyAssignmentByPolicyCommandOutput,
+  BatchDeletePolicyAssignmentByPolicyCommand,
+} from "./commands/BatchDeletePolicyAssignmentByPolicyCommand";
+import {
   type BatchDeleteTopicReviewedAnswerCommandInput,
   type BatchDeleteTopicReviewedAnswerCommandOutput,
   BatchDeleteTopicReviewedAnswerCommand,
@@ -28,10 +33,25 @@ import {
   BatchDescribeUserLimitsCommand,
 } from "./commands/BatchDescribeUserLimitsCommand";
 import {
+  type BatchPutPolicyAssignmentByPolicyCommandInput,
+  type BatchPutPolicyAssignmentByPolicyCommandOutput,
+  BatchPutPolicyAssignmentByPolicyCommand,
+} from "./commands/BatchPutPolicyAssignmentByPolicyCommand";
+import {
   type CancelIngestionCommandInput,
   type CancelIngestionCommandOutput,
   CancelIngestionCommand,
 } from "./commands/CancelIngestionCommand";
+import {
+  type CreateAccessControlApplicationCommandInput,
+  type CreateAccessControlApplicationCommandOutput,
+  CreateAccessControlApplicationCommand,
+} from "./commands/CreateAccessControlApplicationCommand";
+import {
+  type CreateAccessControlApplicationSecretCommandInput,
+  type CreateAccessControlApplicationSecretCommandOutput,
+  CreateAccessControlApplicationSecretCommand,
+} from "./commands/CreateAccessControlApplicationSecretCommand";
 import {
   type CreateAccountCustomizationCommandInput,
   type CreateAccountCustomizationCommandOutput,
@@ -123,6 +143,11 @@ import {
   CreateIAMPolicyAssignmentCommand,
 } from "./commands/CreateIAMPolicyAssignmentCommand";
 import {
+  type CreateInboundConnectorCommandInput,
+  type CreateInboundConnectorCommandOutput,
+  CreateInboundConnectorCommand,
+} from "./commands/CreateInboundConnectorCommand";
+import {
   type CreateIngestionCommandInput,
   type CreateIngestionCommandOutput,
   CreateIngestionCommand,
@@ -132,6 +157,11 @@ import {
   type CreateKnowledgeBaseCommandOutput,
   CreateKnowledgeBaseCommand,
 } from "./commands/CreateKnowledgeBaseCommand";
+import {
+  type CreateKnowledgeBaseRefreshScheduleCommandInput,
+  type CreateKnowledgeBaseRefreshScheduleCommandOutput,
+  CreateKnowledgeBaseRefreshScheduleCommand,
+} from "./commands/CreateKnowledgeBaseRefreshScheduleCommand";
 import {
   type CreateLimitsProfileCommandInput,
   type CreateLimitsProfileCommandOutput,
@@ -202,6 +232,16 @@ import {
   type CreateVPCConnectionCommandOutput,
   CreateVPCConnectionCommand,
 } from "./commands/CreateVPCConnectionCommand";
+import {
+  type DeleteAccessControlApplicationCommandInput,
+  type DeleteAccessControlApplicationCommandOutput,
+  DeleteAccessControlApplicationCommand,
+} from "./commands/DeleteAccessControlApplicationCommand";
+import {
+  type DeleteAccessControlApplicationSecretCommandInput,
+  type DeleteAccessControlApplicationSecretCommandOutput,
+  DeleteAccessControlApplicationSecretCommand,
+} from "./commands/DeleteAccessControlApplicationSecretCommand";
 import {
   type DeleteAccountCustomizationCommandInput,
   type DeleteAccountCustomizationCommandOutput,
@@ -319,10 +359,20 @@ import {
   DeleteIdentityPropagationConfigCommand,
 } from "./commands/DeleteIdentityPropagationConfigCommand";
 import {
+  type DeleteInboundConnectorCommandInput,
+  type DeleteInboundConnectorCommandOutput,
+  DeleteInboundConnectorCommand,
+} from "./commands/DeleteInboundConnectorCommand";
+import {
   type DeleteKnowledgeBaseCommandInput,
   type DeleteKnowledgeBaseCommandOutput,
   DeleteKnowledgeBaseCommand,
 } from "./commands/DeleteKnowledgeBaseCommand";
+import {
+  type DeleteKnowledgeBaseRefreshScheduleCommandInput,
+  type DeleteKnowledgeBaseRefreshScheduleCommandOutput,
+  DeleteKnowledgeBaseRefreshScheduleCommand,
+} from "./commands/DeleteKnowledgeBaseRefreshScheduleCommand";
 import {
   type DeleteLimitsProfileCommandInput,
   type DeleteLimitsProfileCommandOutput,
@@ -338,6 +388,11 @@ import {
   type DeleteOAuthClientApplicationCommandOutput,
   DeleteOAuthClientApplicationCommand,
 } from "./commands/DeleteOAuthClientApplicationCommand";
+import {
+  type DeletePolicyAssignmentCommandInput,
+  type DeletePolicyAssignmentCommandOutput,
+  DeletePolicyAssignmentCommand,
+} from "./commands/DeletePolicyAssignmentCommand";
 import {
   type DeleteRefreshScheduleCommandInput,
   type DeleteRefreshScheduleCommandOutput,
@@ -413,6 +468,11 @@ import {
   type DeleteVPCConnectionCommandOutput,
   DeleteVPCConnectionCommand,
 } from "./commands/DeleteVPCConnectionCommand";
+import {
+  type DescribeAccessControlApplicationCommandInput,
+  type DescribeAccessControlApplicationCommandOutput,
+  DescribeAccessControlApplicationCommand,
+} from "./commands/DescribeAccessControlApplicationCommand";
 import {
   type DescribeAccountCustomizationCommandInput,
   type DescribeAccountCustomizationCommandOutput,
@@ -619,6 +679,11 @@ import {
   DescribeIAMPolicyAssignmentCommand,
 } from "./commands/DescribeIAMPolicyAssignmentCommand";
 import {
+  type DescribeInboundConnectorCommandInput,
+  type DescribeInboundConnectorCommandOutput,
+  DescribeInboundConnectorCommand,
+} from "./commands/DescribeInboundConnectorCommand";
+import {
   type DescribeIngestionCommandInput,
   type DescribeIngestionCommandOutput,
   DescribeIngestionCommand,
@@ -643,6 +708,11 @@ import {
   type DescribeKnowledgeBasePermissionsCommandOutput,
   DescribeKnowledgeBasePermissionsCommand,
 } from "./commands/DescribeKnowledgeBasePermissionsCommand";
+import {
+  type DescribeKnowledgeBaseRefreshScheduleCommandInput,
+  type DescribeKnowledgeBaseRefreshScheduleCommandOutput,
+  DescribeKnowledgeBaseRefreshScheduleCommand,
+} from "./commands/DescribeKnowledgeBaseRefreshScheduleCommand";
 import {
   type DescribeLimitsProfileCommandInput,
   type DescribeLimitsProfileCommandOutput,
@@ -809,10 +879,20 @@ import {
   GetIdentityContextCommand,
 } from "./commands/GetIdentityContextCommand";
 import {
+  type GetPolicyAssignmentCommandInput,
+  type GetPolicyAssignmentCommandOutput,
+  GetPolicyAssignmentCommand,
+} from "./commands/GetPolicyAssignmentCommand";
+import {
   type GetSessionEmbedUrlCommandInput,
   type GetSessionEmbedUrlCommandOutput,
   GetSessionEmbedUrlCommand,
 } from "./commands/GetSessionEmbedUrlCommand";
+import {
+  type ListAccessControlApplicationsCommandInput,
+  type ListAccessControlApplicationsCommandOutput,
+  ListAccessControlApplicationsCommand,
+} from "./commands/ListAccessControlApplicationsCommand";
 import {
   type ListActionConnectorsCommandInput,
   type ListActionConnectorsCommandOutput,
@@ -921,10 +1001,25 @@ import {
   ListIdentityPropagationConfigsCommand,
 } from "./commands/ListIdentityPropagationConfigsCommand";
 import {
+  type ListInboundConnectorApplicationAssociationsCommandInput,
+  type ListInboundConnectorApplicationAssociationsCommandOutput,
+  ListInboundConnectorApplicationAssociationsCommand,
+} from "./commands/ListInboundConnectorApplicationAssociationsCommand";
+import {
+  type ListInboundConnectorsCommandInput,
+  type ListInboundConnectorsCommandOutput,
+  ListInboundConnectorsCommand,
+} from "./commands/ListInboundConnectorsCommand";
+import {
   type ListIngestionsCommandInput,
   type ListIngestionsCommandOutput,
   ListIngestionsCommand,
 } from "./commands/ListIngestionsCommand";
+import {
+  type ListKnowledgeBaseRefreshSchedulesCommandInput,
+  type ListKnowledgeBaseRefreshSchedulesCommandOutput,
+  ListKnowledgeBaseRefreshSchedulesCommand,
+} from "./commands/ListKnowledgeBaseRefreshSchedulesCommand";
 import {
   type ListKnowledgeBasesCommandInput,
   type ListKnowledgeBasesCommandOutput,
@@ -945,6 +1040,11 @@ import {
   type ListOAuthClientApplicationsCommandOutput,
   ListOAuthClientApplicationsCommand,
 } from "./commands/ListOAuthClientApplicationsCommand";
+import {
+  type ListPrincipalsForPolicyCommandInput,
+  type ListPrincipalsForPolicyCommandOutput,
+  ListPrincipalsForPolicyCommand,
+} from "./commands/ListPrincipalsForPolicyCommand";
 import {
   type ListRefreshSchedulesCommandInput,
   type ListRefreshSchedulesCommandOutput,
@@ -1051,6 +1151,11 @@ import {
   type PutDataSetRefreshPropertiesCommandOutput,
   PutDataSetRefreshPropertiesCommand,
 } from "./commands/PutDataSetRefreshPropertiesCommand";
+import {
+  type PutPolicyAssignmentCommandInput,
+  type PutPolicyAssignmentCommandOutput,
+  PutPolicyAssignmentCommand,
+} from "./commands/PutPolicyAssignmentCommand";
 import {
   type RegisterUserCommandInput,
   type RegisterUserCommandOutput,
@@ -1166,6 +1271,16 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import {
+  type UpdateAccessControlApplicationCommandInput,
+  type UpdateAccessControlApplicationCommandOutput,
+  UpdateAccessControlApplicationCommand,
+} from "./commands/UpdateAccessControlApplicationCommand";
+import {
+  type UpdateAccessControlApplicationSecretCommandInput,
+  type UpdateAccessControlApplicationSecretCommandOutput,
+  UpdateAccessControlApplicationSecretCommand,
+} from "./commands/UpdateAccessControlApplicationSecretCommand";
 import {
   type UpdateAccountCustomizationCommandInput,
   type UpdateAccountCustomizationCommandOutput,
@@ -1337,6 +1452,16 @@ import {
   UpdateIdentityPropagationConfigCommand,
 } from "./commands/UpdateIdentityPropagationConfigCommand";
 import {
+  type UpdateInboundConnectorApplicationAssociationsCommandInput,
+  type UpdateInboundConnectorApplicationAssociationsCommandOutput,
+  UpdateInboundConnectorApplicationAssociationsCommand,
+} from "./commands/UpdateInboundConnectorApplicationAssociationsCommand";
+import {
+  type UpdateInboundConnectorCommandInput,
+  type UpdateInboundConnectorCommandOutput,
+  UpdateInboundConnectorCommand,
+} from "./commands/UpdateInboundConnectorCommand";
+import {
   type UpdateIpRestrictionCommandInput,
   type UpdateIpRestrictionCommandOutput,
   UpdateIpRestrictionCommand,
@@ -1356,6 +1481,11 @@ import {
   type UpdateKnowledgeBasePermissionsCommandOutput,
   UpdateKnowledgeBasePermissionsCommand,
 } from "./commands/UpdateKnowledgeBasePermissionsCommand";
+import {
+  type UpdateKnowledgeBaseRefreshScheduleCommandInput,
+  type UpdateKnowledgeBaseRefreshScheduleCommandOutput,
+  UpdateKnowledgeBaseRefreshScheduleCommand,
+} from "./commands/UpdateKnowledgeBaseRefreshScheduleCommand";
 import {
   type UpdateLimitsProfileCommandInput,
   type UpdateLimitsProfileCommandOutput,
@@ -1498,6 +1628,7 @@ import {
 } from "./commands/UpdateVPCConnectionCommand";
 import { paginateDescribeFolderPermissions } from "./pagination/DescribeFolderPermissionsPaginator";
 import { paginateDescribeFolderResolvedPermissions } from "./pagination/DescribeFolderResolvedPermissionsPaginator";
+import { paginateListAccessControlApplications } from "./pagination/ListAccessControlApplicationsPaginator";
 import { paginateListActionConnectors } from "./pagination/ListActionConnectorsPaginator";
 import { paginateListAnalyses } from "./pagination/ListAnalysesPaginator";
 import { paginateListApprovalPolicies } from "./pagination/ListApprovalPoliciesPaginator";
@@ -1519,11 +1650,17 @@ import { paginateListGroupMemberships } from "./pagination/ListGroupMembershipsP
 import { paginateListGroups } from "./pagination/ListGroupsPaginator";
 import { paginateListIAMPolicyAssignmentsForUser } from "./pagination/ListIAMPolicyAssignmentsForUserPaginator";
 import { paginateListIAMPolicyAssignments } from "./pagination/ListIAMPolicyAssignmentsPaginator";
+import {
+  paginateListInboundConnectorApplicationAssociations,
+} from "./pagination/ListInboundConnectorApplicationAssociationsPaginator";
+import { paginateListInboundConnectors } from "./pagination/ListInboundConnectorsPaginator";
 import { paginateListIngestions } from "./pagination/ListIngestionsPaginator";
+import { paginateListKnowledgeBaseRefreshSchedules } from "./pagination/ListKnowledgeBaseRefreshSchedulesPaginator";
 import { paginateListKnowledgeBases } from "./pagination/ListKnowledgeBasesPaginator";
 import { paginateListLimitsProfiles } from "./pagination/ListLimitsProfilesPaginator";
 import { paginateListNamespaces } from "./pagination/ListNamespacesPaginator";
 import { paginateListOAuthClientApplications } from "./pagination/ListOAuthClientApplicationsPaginator";
+import { paginateListPrincipalsForPolicy } from "./pagination/ListPrincipalsForPolicyPaginator";
 import { paginateListRoleMemberships } from "./pagination/ListRoleMembershipsPaginator";
 import { paginateListTemplateAliases } from "./pagination/ListTemplateAliasesPaginator";
 import { paginateListTemplates } from "./pagination/ListTemplatesPaginator";
@@ -1552,9 +1689,13 @@ import { QuickSightClient } from "./QuickSightClient";
 const commands = {
   BatchCreateTopicReviewedAnswerCommand,
   BatchDeleteKnowledgeBaseCommand,
+  BatchDeletePolicyAssignmentByPolicyCommand,
   BatchDeleteTopicReviewedAnswerCommand,
   BatchDescribeUserLimitsCommand,
+  BatchPutPolicyAssignmentByPolicyCommand,
   CancelIngestionCommand,
+  CreateAccessControlApplicationCommand,
+  CreateAccessControlApplicationSecretCommand,
   CreateAccountCustomizationCommand,
   CreateAccountSubscriptionCommand,
   CreateActionConnectorCommand,
@@ -1573,8 +1714,10 @@ const commands = {
   CreateGroupCommand,
   CreateGroupMembershipCommand,
   CreateIAMPolicyAssignmentCommand,
+  CreateInboundConnectorCommand,
   CreateIngestionCommand,
   CreateKnowledgeBaseCommand,
+  CreateKnowledgeBaseRefreshScheduleCommand,
   CreateLimitsProfileCommand,
   CreateNamespaceCommand,
   CreateOAuthClientApplicationCommand,
@@ -1589,6 +1732,8 @@ const commands = {
   CreateTopicRefreshScheduleCommand,
   CreateTopicV2Command,
   CreateVPCConnectionCommand,
+  DeleteAccessControlApplicationCommand,
+  DeleteAccessControlApplicationSecretCommand,
   DeleteAccountCustomizationCommand,
   DeleteAccountCustomPermissionCommand,
   DeleteAccountSubscriptionCommand,
@@ -1613,10 +1758,13 @@ const commands = {
   DeleteGroupMembershipCommand,
   DeleteIAMPolicyAssignmentCommand,
   DeleteIdentityPropagationConfigCommand,
+  DeleteInboundConnectorCommand,
   DeleteKnowledgeBaseCommand,
+  DeleteKnowledgeBaseRefreshScheduleCommand,
   DeleteLimitsProfileCommand,
   DeleteNamespaceCommand,
   DeleteOAuthClientApplicationCommand,
+  DeletePolicyAssignmentCommand,
   DeleteRefreshScheduleCommand,
   DeleteRoleCustomPermissionCommand,
   DeleteRoleMembershipCommand,
@@ -1632,6 +1780,7 @@ const commands = {
   DeleteUserByPrincipalIdCommand,
   DeleteUserCustomPermissionCommand,
   DeleteVPCConnectionCommand,
+  DescribeAccessControlApplicationCommand,
   DescribeAccountCustomizationCommand,
   DescribeAccountCustomPermissionCommand,
   DescribeAccountSettingsCommand,
@@ -1673,11 +1822,13 @@ const commands = {
   DescribeGroupCommand,
   DescribeGroupMembershipCommand,
   DescribeIAMPolicyAssignmentCommand,
+  DescribeInboundConnectorCommand,
   DescribeIngestionCommand,
   DescribeIpRestrictionCommand,
   DescribeKeyRegistrationCommand,
   DescribeKnowledgeBaseCommand,
   DescribeKnowledgeBasePermissionsCommand,
+  DescribeKnowledgeBaseRefreshScheduleCommand,
   DescribeLimitsProfileCommand,
   DescribeNamespaceCommand,
   DescribeOAuthClientApplicationCommand,
@@ -1711,7 +1862,9 @@ const commands = {
   GetFlowMetadataCommand,
   GetFlowPermissionsCommand,
   GetIdentityContextCommand,
+  GetPolicyAssignmentCommand,
   GetSessionEmbedUrlCommand,
+  ListAccessControlApplicationsCommand,
   ListActionConnectorsCommand,
   ListAgentsCommand,
   ListAnalysesCommand,
@@ -1735,11 +1888,15 @@ const commands = {
   ListIAMPolicyAssignmentsCommand,
   ListIAMPolicyAssignmentsForUserCommand,
   ListIdentityPropagationConfigsCommand,
+  ListInboundConnectorApplicationAssociationsCommand,
+  ListInboundConnectorsCommand,
   ListIngestionsCommand,
+  ListKnowledgeBaseRefreshSchedulesCommand,
   ListKnowledgeBasesCommand,
   ListLimitsProfilesCommand,
   ListNamespacesCommand,
   ListOAuthClientApplicationsCommand,
+  ListPrincipalsForPolicyCommand,
   ListRefreshSchedulesCommand,
   ListRoleMembershipsCommand,
   ListSelfUpgradesCommand,
@@ -1762,6 +1919,7 @@ const commands = {
   ListVPCConnectionsCommand,
   PredictQAResultsCommand,
   PutDataSetRefreshPropertiesCommand,
+  PutPolicyAssignmentCommand,
   RegisterUserCommand,
   RestoreAnalysisCommand,
   SearchActionConnectorsCommand,
@@ -1785,6 +1943,8 @@ const commands = {
   StartDashboardSnapshotJobScheduleCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAccessControlApplicationCommand,
+  UpdateAccessControlApplicationSecretCommand,
   UpdateAccountCustomizationCommand,
   UpdateAccountCustomPermissionCommand,
   UpdateAccountSettingsCommand,
@@ -1819,10 +1979,13 @@ const commands = {
   UpdateGroupCommand,
   UpdateIAMPolicyAssignmentCommand,
   UpdateIdentityPropagationConfigCommand,
+  UpdateInboundConnectorCommand,
+  UpdateInboundConnectorApplicationAssociationsCommand,
   UpdateIpRestrictionCommand,
   UpdateKeyRegistrationCommand,
   UpdateKnowledgeBaseCommand,
   UpdateKnowledgeBasePermissionsCommand,
+  UpdateKnowledgeBaseRefreshScheduleCommand,
   UpdateLimitsProfileCommand,
   UpdateOAuthClientApplicationCommand,
   UpdatePublicSharingSettingsCommand,
@@ -1855,6 +2018,7 @@ const commands = {
 const paginators = {
   paginateDescribeFolderPermissions,
   paginateDescribeFolderResolvedPermissions,
+  paginateListAccessControlApplications,
   paginateListActionConnectors,
   paginateListAnalyses,
   paginateListApprovalPolicies,
@@ -1876,11 +2040,15 @@ const paginators = {
   paginateListGroups,
   paginateListIAMPolicyAssignments,
   paginateListIAMPolicyAssignmentsForUser,
+  paginateListInboundConnectorApplicationAssociations,
+  paginateListInboundConnectors,
   paginateListIngestions,
+  paginateListKnowledgeBaseRefreshSchedules,
   paginateListKnowledgeBases,
   paginateListLimitsProfiles,
   paginateListNamespaces,
   paginateListOAuthClientApplications,
+  paginateListPrincipalsForPolicy,
   paginateListRoleMemberships,
   paginateListTemplateAliases,
   paginateListTemplates,
@@ -1949,6 +2117,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link BatchDeletePolicyAssignmentByPolicyCommand}
+   */
+  batchDeletePolicyAssignmentByPolicy(
+    args: BatchDeletePolicyAssignmentByPolicyCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<BatchDeletePolicyAssignmentByPolicyCommandOutput>;
+  batchDeletePolicyAssignmentByPolicy(
+    args: BatchDeletePolicyAssignmentByPolicyCommandInput,
+    cb: (err: any, data?: BatchDeletePolicyAssignmentByPolicyCommandOutput) => void
+  ): void;
+  batchDeletePolicyAssignmentByPolicy(
+    args: BatchDeletePolicyAssignmentByPolicyCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: BatchDeletePolicyAssignmentByPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchDeleteTopicReviewedAnswerCommand}
    */
   batchDeleteTopicReviewedAnswer(
@@ -1983,6 +2168,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link BatchPutPolicyAssignmentByPolicyCommand}
+   */
+  batchPutPolicyAssignmentByPolicy(
+    args: BatchPutPolicyAssignmentByPolicyCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<BatchPutPolicyAssignmentByPolicyCommandOutput>;
+  batchPutPolicyAssignmentByPolicy(
+    args: BatchPutPolicyAssignmentByPolicyCommandInput,
+    cb: (err: any, data?: BatchPutPolicyAssignmentByPolicyCommandOutput) => void
+  ): void;
+  batchPutPolicyAssignmentByPolicy(
+    args: BatchPutPolicyAssignmentByPolicyCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: BatchPutPolicyAssignmentByPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CancelIngestionCommand}
    */
   cancelIngestion(
@@ -1997,6 +2199,40 @@ export interface QuickSight {
     args: CancelIngestionCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: CancelIngestionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAccessControlApplicationCommand}
+   */
+  createAccessControlApplication(
+    args: CreateAccessControlApplicationCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<CreateAccessControlApplicationCommandOutput>;
+  createAccessControlApplication(
+    args: CreateAccessControlApplicationCommandInput,
+    cb: (err: any, data?: CreateAccessControlApplicationCommandOutput) => void
+  ): void;
+  createAccessControlApplication(
+    args: CreateAccessControlApplicationCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: CreateAccessControlApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAccessControlApplicationSecretCommand}
+   */
+  createAccessControlApplicationSecret(
+    args: CreateAccessControlApplicationSecretCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<CreateAccessControlApplicationSecretCommandOutput>;
+  createAccessControlApplicationSecret(
+    args: CreateAccessControlApplicationSecretCommandInput,
+    cb: (err: any, data?: CreateAccessControlApplicationSecretCommandOutput) => void
+  ): void;
+  createAccessControlApplicationSecret(
+    args: CreateAccessControlApplicationSecretCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: CreateAccessControlApplicationSecretCommandOutput) => void
   ): void;
 
   /**
@@ -2306,6 +2542,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link CreateInboundConnectorCommand}
+   */
+  createInboundConnector(
+    args: CreateInboundConnectorCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<CreateInboundConnectorCommandOutput>;
+  createInboundConnector(
+    args: CreateInboundConnectorCommandInput,
+    cb: (err: any, data?: CreateInboundConnectorCommandOutput) => void
+  ): void;
+  createInboundConnector(
+    args: CreateInboundConnectorCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: CreateInboundConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateIngestionCommand}
    */
   createIngestion(
@@ -2337,6 +2590,23 @@ export interface QuickSight {
     args: CreateKnowledgeBaseCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateKnowledgeBaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateKnowledgeBaseRefreshScheduleCommand}
+   */
+  createKnowledgeBaseRefreshSchedule(
+    args: CreateKnowledgeBaseRefreshScheduleCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<CreateKnowledgeBaseRefreshScheduleCommandOutput>;
+  createKnowledgeBaseRefreshSchedule(
+    args: CreateKnowledgeBaseRefreshScheduleCommandInput,
+    cb: (err: any, data?: CreateKnowledgeBaseRefreshScheduleCommandOutput) => void
+  ): void;
+  createKnowledgeBaseRefreshSchedule(
+    args: CreateKnowledgeBaseRefreshScheduleCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: CreateKnowledgeBaseRefreshScheduleCommandOutput) => void
   ): void;
 
   /**
@@ -2575,6 +2845,40 @@ export interface QuickSight {
     args: CreateVPCConnectionCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: CreateVPCConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccessControlApplicationCommand}
+   */
+  deleteAccessControlApplication(
+    args: DeleteAccessControlApplicationCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<DeleteAccessControlApplicationCommandOutput>;
+  deleteAccessControlApplication(
+    args: DeleteAccessControlApplicationCommandInput,
+    cb: (err: any, data?: DeleteAccessControlApplicationCommandOutput) => void
+  ): void;
+  deleteAccessControlApplication(
+    args: DeleteAccessControlApplicationCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: DeleteAccessControlApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccessControlApplicationSecretCommand}
+   */
+  deleteAccessControlApplicationSecret(
+    args: DeleteAccessControlApplicationSecretCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<DeleteAccessControlApplicationSecretCommandOutput>;
+  deleteAccessControlApplicationSecret(
+    args: DeleteAccessControlApplicationSecretCommandInput,
+    cb: (err: any, data?: DeleteAccessControlApplicationSecretCommandOutput) => void
+  ): void;
+  deleteAccessControlApplicationSecret(
+    args: DeleteAccessControlApplicationSecretCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: DeleteAccessControlApplicationSecretCommandOutput) => void
   ): void;
 
   /**
@@ -2986,6 +3290,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DeleteInboundConnectorCommand}
+   */
+  deleteInboundConnector(
+    args: DeleteInboundConnectorCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<DeleteInboundConnectorCommandOutput>;
+  deleteInboundConnector(
+    args: DeleteInboundConnectorCommandInput,
+    cb: (err: any, data?: DeleteInboundConnectorCommandOutput) => void
+  ): void;
+  deleteInboundConnector(
+    args: DeleteInboundConnectorCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: DeleteInboundConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteKnowledgeBaseCommand}
    */
   deleteKnowledgeBase(
@@ -3000,6 +3321,23 @@ export interface QuickSight {
     args: DeleteKnowledgeBaseCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteKnowledgeBaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteKnowledgeBaseRefreshScheduleCommand}
+   */
+  deleteKnowledgeBaseRefreshSchedule(
+    args: DeleteKnowledgeBaseRefreshScheduleCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<DeleteKnowledgeBaseRefreshScheduleCommandOutput>;
+  deleteKnowledgeBaseRefreshSchedule(
+    args: DeleteKnowledgeBaseRefreshScheduleCommandInput,
+    cb: (err: any, data?: DeleteKnowledgeBaseRefreshScheduleCommandOutput) => void
+  ): void;
+  deleteKnowledgeBaseRefreshSchedule(
+    args: DeleteKnowledgeBaseRefreshScheduleCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: DeleteKnowledgeBaseRefreshScheduleCommandOutput) => void
   ): void;
 
   /**
@@ -3051,6 +3389,23 @@ export interface QuickSight {
     args: DeleteOAuthClientApplicationCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteOAuthClientApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePolicyAssignmentCommand}
+   */
+  deletePolicyAssignment(
+    args: DeletePolicyAssignmentCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<DeletePolicyAssignmentCommandOutput>;
+  deletePolicyAssignment(
+    args: DeletePolicyAssignmentCommandInput,
+    cb: (err: any, data?: DeletePolicyAssignmentCommandOutput) => void
+  ): void;
+  deletePolicyAssignment(
+    args: DeletePolicyAssignmentCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: DeletePolicyAssignmentCommandOutput) => void
   ): void;
 
   /**
@@ -3306,6 +3661,23 @@ export interface QuickSight {
     args: DeleteVPCConnectionCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: DeleteVPCConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAccessControlApplicationCommand}
+   */
+  describeAccessControlApplication(
+    args: DescribeAccessControlApplicationCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<DescribeAccessControlApplicationCommandOutput>;
+  describeAccessControlApplication(
+    args: DescribeAccessControlApplicationCommandInput,
+    cb: (err: any, data?: DescribeAccessControlApplicationCommandOutput) => void
+  ): void;
+  describeAccessControlApplication(
+    args: DescribeAccessControlApplicationCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: DescribeAccessControlApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -4006,6 +4378,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeInboundConnectorCommand}
+   */
+  describeInboundConnector(
+    args: DescribeInboundConnectorCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<DescribeInboundConnectorCommandOutput>;
+  describeInboundConnector(
+    args: DescribeInboundConnectorCommandInput,
+    cb: (err: any, data?: DescribeInboundConnectorCommandOutput) => void
+  ): void;
+  describeInboundConnector(
+    args: DescribeInboundConnectorCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: DescribeInboundConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeIngestionCommand}
    */
   describeIngestion(
@@ -4088,6 +4477,23 @@ export interface QuickSight {
     args: DescribeKnowledgeBasePermissionsCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: DescribeKnowledgeBasePermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeKnowledgeBaseRefreshScheduleCommand}
+   */
+  describeKnowledgeBaseRefreshSchedule(
+    args: DescribeKnowledgeBaseRefreshScheduleCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<DescribeKnowledgeBaseRefreshScheduleCommandOutput>;
+  describeKnowledgeBaseRefreshSchedule(
+    args: DescribeKnowledgeBaseRefreshScheduleCommandInput,
+    cb: (err: any, data?: DescribeKnowledgeBaseRefreshScheduleCommandOutput) => void
+  ): void;
+  describeKnowledgeBaseRefreshSchedule(
+    args: DescribeKnowledgeBaseRefreshScheduleCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: DescribeKnowledgeBaseRefreshScheduleCommandOutput) => void
   ): void;
 
   /**
@@ -4652,6 +5058,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link GetPolicyAssignmentCommand}
+   */
+  getPolicyAssignment(
+    args: GetPolicyAssignmentCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<GetPolicyAssignmentCommandOutput>;
+  getPolicyAssignment(
+    args: GetPolicyAssignmentCommandInput,
+    cb: (err: any, data?: GetPolicyAssignmentCommandOutput) => void
+  ): void;
+  getPolicyAssignment(
+    args: GetPolicyAssignmentCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: GetPolicyAssignmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSessionEmbedUrlCommand}
    */
   getSessionEmbedUrl(
@@ -4666,6 +5089,23 @@ export interface QuickSight {
     args: GetSessionEmbedUrlCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: GetSessionEmbedUrlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAccessControlApplicationsCommand}
+   */
+  listAccessControlApplications(
+    args: ListAccessControlApplicationsCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<ListAccessControlApplicationsCommandOutput>;
+  listAccessControlApplications(
+    args: ListAccessControlApplicationsCommandInput,
+    cb: (err: any, data?: ListAccessControlApplicationsCommandOutput) => void
+  ): void;
+  listAccessControlApplications(
+    args: ListAccessControlApplicationsCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: ListAccessControlApplicationsCommandOutput) => void
   ): void;
 
   /**
@@ -5061,6 +5501,40 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link ListInboundConnectorApplicationAssociationsCommand}
+   */
+  listInboundConnectorApplicationAssociations(
+    args: ListInboundConnectorApplicationAssociationsCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<ListInboundConnectorApplicationAssociationsCommandOutput>;
+  listInboundConnectorApplicationAssociations(
+    args: ListInboundConnectorApplicationAssociationsCommandInput,
+    cb: (err: any, data?: ListInboundConnectorApplicationAssociationsCommandOutput) => void
+  ): void;
+  listInboundConnectorApplicationAssociations(
+    args: ListInboundConnectorApplicationAssociationsCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: ListInboundConnectorApplicationAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInboundConnectorsCommand}
+   */
+  listInboundConnectors(
+    args: ListInboundConnectorsCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<ListInboundConnectorsCommandOutput>;
+  listInboundConnectors(
+    args: ListInboundConnectorsCommandInput,
+    cb: (err: any, data?: ListInboundConnectorsCommandOutput) => void
+  ): void;
+  listInboundConnectors(
+    args: ListInboundConnectorsCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: ListInboundConnectorsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListIngestionsCommand}
    */
   listIngestions(
@@ -5075,6 +5549,23 @@ export interface QuickSight {
     args: ListIngestionsCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: ListIngestionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListKnowledgeBaseRefreshSchedulesCommand}
+   */
+  listKnowledgeBaseRefreshSchedules(
+    args: ListKnowledgeBaseRefreshSchedulesCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<ListKnowledgeBaseRefreshSchedulesCommandOutput>;
+  listKnowledgeBaseRefreshSchedules(
+    args: ListKnowledgeBaseRefreshSchedulesCommandInput,
+    cb: (err: any, data?: ListKnowledgeBaseRefreshSchedulesCommandOutput) => void
+  ): void;
+  listKnowledgeBaseRefreshSchedules(
+    args: ListKnowledgeBaseRefreshSchedulesCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: ListKnowledgeBaseRefreshSchedulesCommandOutput) => void
   ): void;
 
   /**
@@ -5143,6 +5634,23 @@ export interface QuickSight {
     args: ListOAuthClientApplicationsCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: ListOAuthClientApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPrincipalsForPolicyCommand}
+   */
+  listPrincipalsForPolicy(
+    args: ListPrincipalsForPolicyCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<ListPrincipalsForPolicyCommandOutput>;
+  listPrincipalsForPolicy(
+    args: ListPrincipalsForPolicyCommandInput,
+    cb: (err: any, data?: ListPrincipalsForPolicyCommandOutput) => void
+  ): void;
+  listPrincipalsForPolicy(
+    args: ListPrincipalsForPolicyCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: ListPrincipalsForPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -5517,6 +6025,23 @@ export interface QuickSight {
     args: PutDataSetRefreshPropertiesCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: PutDataSetRefreshPropertiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutPolicyAssignmentCommand}
+   */
+  putPolicyAssignment(
+    args: PutPolicyAssignmentCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<PutPolicyAssignmentCommandOutput>;
+  putPolicyAssignment(
+    args: PutPolicyAssignmentCommandInput,
+    cb: (err: any, data?: PutPolicyAssignmentCommandOutput) => void
+  ): void;
+  putPolicyAssignment(
+    args: PutPolicyAssignmentCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: PutPolicyAssignmentCommandOutput) => void
   ): void;
 
   /**
@@ -5908,6 +6433,40 @@ export interface QuickSight {
     args: UntagResourceCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccessControlApplicationCommand}
+   */
+  updateAccessControlApplication(
+    args: UpdateAccessControlApplicationCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<UpdateAccessControlApplicationCommandOutput>;
+  updateAccessControlApplication(
+    args: UpdateAccessControlApplicationCommandInput,
+    cb: (err: any, data?: UpdateAccessControlApplicationCommandOutput) => void
+  ): void;
+  updateAccessControlApplication(
+    args: UpdateAccessControlApplicationCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: UpdateAccessControlApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAccessControlApplicationSecretCommand}
+   */
+  updateAccessControlApplicationSecret(
+    args: UpdateAccessControlApplicationSecretCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<UpdateAccessControlApplicationSecretCommandOutput>;
+  updateAccessControlApplicationSecret(
+    args: UpdateAccessControlApplicationSecretCommandInput,
+    cb: (err: any, data?: UpdateAccessControlApplicationSecretCommandOutput) => void
+  ): void;
+  updateAccessControlApplicationSecret(
+    args: UpdateAccessControlApplicationSecretCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: UpdateAccessControlApplicationSecretCommandOutput) => void
   ): void;
 
   /**
@@ -6489,6 +7048,40 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateInboundConnectorCommand}
+   */
+  updateInboundConnector(
+    args: UpdateInboundConnectorCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<UpdateInboundConnectorCommandOutput>;
+  updateInboundConnector(
+    args: UpdateInboundConnectorCommandInput,
+    cb: (err: any, data?: UpdateInboundConnectorCommandOutput) => void
+  ): void;
+  updateInboundConnector(
+    args: UpdateInboundConnectorCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: UpdateInboundConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateInboundConnectorApplicationAssociationsCommand}
+   */
+  updateInboundConnectorApplicationAssociations(
+    args: UpdateInboundConnectorApplicationAssociationsCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<UpdateInboundConnectorApplicationAssociationsCommandOutput>;
+  updateInboundConnectorApplicationAssociations(
+    args: UpdateInboundConnectorApplicationAssociationsCommandInput,
+    cb: (err: any, data?: UpdateInboundConnectorApplicationAssociationsCommandOutput) => void
+  ): void;
+  updateInboundConnectorApplicationAssociations(
+    args: UpdateInboundConnectorApplicationAssociationsCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: UpdateInboundConnectorApplicationAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateIpRestrictionCommand}
    */
   updateIpRestriction(
@@ -6554,6 +7147,23 @@ export interface QuickSight {
     args: UpdateKnowledgeBasePermissionsCommandInput,
     options: QuickSightRequestOptions,
     cb: (err: any, data?: UpdateKnowledgeBasePermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateKnowledgeBaseRefreshScheduleCommand}
+   */
+  updateKnowledgeBaseRefreshSchedule(
+    args: UpdateKnowledgeBaseRefreshScheduleCommandInput,
+    options?: QuickSightRequestOptions
+  ): Promise<UpdateKnowledgeBaseRefreshScheduleCommandOutput>;
+  updateKnowledgeBaseRefreshSchedule(
+    args: UpdateKnowledgeBaseRefreshScheduleCommandInput,
+    cb: (err: any, data?: UpdateKnowledgeBaseRefreshScheduleCommandOutput) => void
+  ): void;
+  updateKnowledgeBaseRefreshSchedule(
+    args: UpdateKnowledgeBaseRefreshScheduleCommandInput,
+    options: QuickSightRequestOptions,
+    cb: (err: any, data?: UpdateKnowledgeBaseRefreshScheduleCommandOutput) => void
   ): void;
 
   /**
@@ -7055,6 +7665,17 @@ export interface QuickSight {
   ): Paginator<DescribeFolderResolvedPermissionsCommandOutput>;
 
   /**
+   * @see {@link ListAccessControlApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAccessControlApplicationsCommandOutput}.
+   */
+  paginateListAccessControlApplications(
+    args: ListAccessControlApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAccessControlApplicationsCommandOutput>;
+
+  /**
    * @see {@link ListActionConnectorsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -7286,6 +7907,28 @@ export interface QuickSight {
   ): Paginator<ListIAMPolicyAssignmentsForUserCommandOutput>;
 
   /**
+   * @see {@link ListInboundConnectorApplicationAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInboundConnectorApplicationAssociationsCommandOutput}.
+   */
+  paginateListInboundConnectorApplicationAssociations(
+    args: ListInboundConnectorApplicationAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInboundConnectorApplicationAssociationsCommandOutput>;
+
+  /**
+   * @see {@link ListInboundConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListInboundConnectorsCommandOutput}.
+   */
+  paginateListInboundConnectors(
+    args: ListInboundConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListInboundConnectorsCommandOutput>;
+
+  /**
    * @see {@link ListIngestionsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -7295,6 +7938,17 @@ export interface QuickSight {
     args: ListIngestionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListIngestionsCommandOutput>;
+
+  /**
+   * @see {@link ListKnowledgeBaseRefreshSchedulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListKnowledgeBaseRefreshSchedulesCommandOutput}.
+   */
+  paginateListKnowledgeBaseRefreshSchedules(
+    args: ListKnowledgeBaseRefreshSchedulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListKnowledgeBaseRefreshSchedulesCommandOutput>;
 
   /**
    * @see {@link ListKnowledgeBasesCommand}
@@ -7339,6 +7993,17 @@ export interface QuickSight {
     args: ListOAuthClientApplicationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListOAuthClientApplicationsCommandOutput>;
+
+  /**
+   * @see {@link ListPrincipalsForPolicyCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPrincipalsForPolicyCommandOutput}.
+   */
+  paginateListPrincipalsForPolicy(
+    args: ListPrincipalsForPolicyCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPrincipalsForPolicyCommandOutput>;
 
   /**
    * @see {@link ListRoleMembershipsCommand}
@@ -7595,7 +8260,7 @@ export interface QuickSight {
 }
 
 /**
- * <fullname>Amazon Quick API Reference</fullname>
+ * <fullname>Quick API Reference</fullname>
  *          <p>Amazon Quick Sight is a fully managed, serverless business intelligence service for the
  *             Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your
  *             organization. This API reference contains documentation for a programming interface that

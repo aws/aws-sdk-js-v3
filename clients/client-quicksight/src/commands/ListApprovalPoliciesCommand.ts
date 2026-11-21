@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListApprovalPoliciesRequest, ListApprovalPoliciesResponse } from "../models/models_4";
+import type { ListApprovalPoliciesRequest, ListApprovalPoliciesResponse } from "../models/models_5";
 import { ListApprovalPolicies$ } from "../schemas/schemas_0";
 
 /**
@@ -48,10 +48,10 @@ export interface ListApprovalPoliciesCommandOutput extends ListApprovalPoliciesR
  * //       Name: "STRING_VALUE", // required
  * //       Description: "STRING_VALUE",
  * //       Actions: [ // GovernedActionList // required
- * //         "SHARE",
+ * //         "SHARE" || "PUBLISH",
  * //       ],
  * //       AssetTypes: [ // AssetTypeList // required
- * //         "AGENT" || "SPACE" || "KNOWLEDGE_BASE",
+ * //         "AGENT" || "SPACE" || "KNOWLEDGE_BASE" || "FLOW",
  * //       ],
  * //       ApplicableTo: { // ApplicableTo
  * //         Type: "GROUP", // required

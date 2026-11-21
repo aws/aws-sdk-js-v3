@@ -27,6 +27,7 @@ import type {
   KPISparklineType,
   KPIVisualStandardLayoutType,
   LayerCustomActionTrigger,
+  LegendPosition,
   LineChartLineStyle,
   LineChartMarkerShape,
   LineChartType,
@@ -46,19 +47,21 @@ import type {
   PrimaryValueDisplayType,
   RadarChartAxesRangeScale,
   RadarChartShape,
+  ReferenceLineLabelHorizontalPosition,
+  ReferenceLineLabelVerticalPosition,
+  ReferenceLinePatternType,
+  ReferenceLineSeriesType,
+  ReferenceLineValueLabelRelativePosition,
   SelectedTooltipType,
   SimpleTotalAggregationFunction,
   SingleYAxisOption,
   SmallMultiplesAxisPlacement,
   SmallMultiplesAxisScale,
   SortDirection,
-  SparklineAxisBehavior,
-  SparklineVisualType,
   StyledCellType,
   TableBorderStyle,
   TableCellImageScalingConfiguration,
   TableFieldIconSetType,
-  TableOrientation,
   TableTotalsPlacement,
   TableTotalsScrollStatus,
   TextWrap,
@@ -67,7 +70,6 @@ import type {
   TooltipTitleType,
   TopBottomComputationType,
   TopBottomSortOrder,
-  TransposedColumnType,
   URLTargetConfiguration,
   VerticalTextAlignment,
   Visibility,
@@ -78,11 +80,11 @@ import type {
   AxisDisplayOptions,
   BarChartDefaultSeriesSettings,
   BarChartFieldWells,
-  BarSeriesItem,
   BorderSettings,
   ChartAxisLabelOptions,
   ColumnIdentifier,
   ColumnSort,
+  ContextMenuOption,
   ContributionAnalysisDefault,
   CustomActionFilterOperation,
   CustomActionNavigationOperation,
@@ -93,14 +95,460 @@ import type {
   DimensionField,
   FontConfiguration,
   FormatConfiguration,
-  LegendOptions,
+  LabelOptions,
   MeasureField,
   NumberDisplayFormatConfiguration,
+  NumericalAggregationFunction,
+  NumericFormatConfiguration,
   PercentageDisplayFormatConfiguration,
-  ReferenceLine,
   VisualCustomAction,
-  VisualInteractionOptions,
+  VisualMenuOption,
 } from "./models_0";
+
+/**
+ * <p>The general visual interactions setup for visual publish options</p>
+ * @public
+ */
+export interface VisualInteractionOptions {
+  /**
+   * <p>The on-visual menu options for a visual.</p>
+   * @public
+   */
+  VisualMenuOption?: VisualMenuOption | undefined;
+
+  /**
+   * <p>The context menu options for a visual.</p>
+   * @public
+   */
+  ContextMenuOption?: ContextMenuOption | undefined;
+}
+
+/**
+ * <p>The options for the legend setup of a visual.</p>
+ * @public
+ */
+export interface LegendOptions {
+  /**
+   * <p>Determines whether or not the legend is visible.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The custom title for the legend.</p>
+   * @public
+   */
+  Title?: LabelOptions | undefined;
+
+  /**
+   * <p>The positions for the legend. Choose one of the following
+   *             options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RIGHT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BOTTOM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LEFT</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Position?: LegendPosition | undefined;
+
+  /**
+   * <p>The width of the legend. If this value is omitted, a default width is used when rendering.</p>
+   * @public
+   */
+  Width?: string | undefined;
+
+  /**
+   * <p>The height of the legend. If this value is omitted, a default height is used when
+   *             rendering.</p>
+   * @public
+   */
+  Height?: string | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  ValueFontConfiguration?: FontConfiguration | undefined;
+}
+
+/**
+ * <p>The dynamic configuration of the reference line data configuration.</p>
+ * @public
+ */
+export interface ReferenceLineDynamicDataConfiguration {
+  /**
+   * <p>The column that the dynamic data targets.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The aggregation function that is used in the dynamic data.</p>
+   * @public
+   */
+  MeasureAggregationFunction?: AggregationFunction | undefined;
+
+  /**
+   * <p>The calculation that is used in the dynamic data.</p>
+   * @public
+   */
+  Calculation: NumericalAggregationFunction | undefined;
+}
+
+/**
+ * <p>The static data configuration of the reference line data configuration.</p>
+ * @public
+ */
+export interface ReferenceLineStaticDataConfiguration {
+  /**
+   * <p>The double input of the static data.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
+
+/**
+ * <p>The data configuration of the reference line.</p>
+ * @public
+ */
+export interface ReferenceLineDataConfiguration {
+  /**
+   * <p>The static data configuration of the reference line data configuration.</p>
+   * @public
+   */
+  StaticConfiguration?: ReferenceLineStaticDataConfiguration | undefined;
+
+  /**
+   * <p>The dynamic configuration of the reference line data configuration.</p>
+   * @public
+   */
+  DynamicConfiguration?: ReferenceLineDynamicDataConfiguration | undefined;
+
+  /**
+   * <p>The axis binding type of the reference line. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PrimaryY</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SecondaryY</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AxisBinding?: AxisBinding | undefined;
+
+  /**
+   * <p>The series type of the reference line data configuration. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BAR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LINE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SeriesType?: ReferenceLineSeriesType | undefined;
+}
+
+/**
+ * <p>The configuration for a custom label on a <code>ReferenceLine</code>.</p>
+ * @public
+ */
+export interface ReferenceLineCustomLabelConfiguration {
+  /**
+   * <p>The string text of the custom label.</p>
+   * @public
+   */
+  CustomLabel: string | undefined;
+}
+
+/**
+ * <p>The value label configuration of the label in a reference line.</p>
+ * @public
+ */
+export interface ReferenceLineValueLabelConfiguration {
+  /**
+   * <p>The relative position of the value label. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BEFORE_CUSTOM_LABEL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AFTER_CUSTOM_LABEL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RelativePosition?: ReferenceLineValueLabelRelativePosition | undefined;
+
+  /**
+   * <p>The format configuration of the value label.</p>
+   * @public
+   */
+  FormatConfiguration?: NumericFormatConfiguration | undefined;
+}
+
+/**
+ * <p>The label configuration of a reference line.</p>
+ * @public
+ */
+export interface ReferenceLineLabelConfiguration {
+  /**
+   * <p>The value label configuration of the label in a reference line.</p>
+   * @public
+   */
+  ValueLabelConfiguration?: ReferenceLineValueLabelConfiguration | undefined;
+
+  /**
+   * <p>The custom label configuration of the label in a reference line.</p>
+   * @public
+   */
+  CustomLabelConfiguration?: ReferenceLineCustomLabelConfiguration | undefined;
+
+  /**
+   * <p>The font configuration of the label in a reference line.</p>
+   * @public
+   */
+  FontConfiguration?: FontConfiguration | undefined;
+
+  /**
+   * <p>The font color configuration of the label in a reference line.</p>
+   * @public
+   */
+  FontColor?: string | undefined;
+
+  /**
+   * <p>The horizontal position configuration of the label in a reference line. Choose one of
+   *             the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LEFT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CENTER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RIGHT</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HorizontalPosition?: ReferenceLineLabelHorizontalPosition | undefined;
+
+  /**
+   * <p>The vertical position configuration of the label in a reference line. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ABOVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BELOW</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  VerticalPosition?: ReferenceLineLabelVerticalPosition | undefined;
+}
+
+/**
+ * <p>The style configuration of the reference
+ *             line.</p>
+ * @public
+ */
+export interface ReferenceLineStyleConfiguration {
+  /**
+   * <p>The pattern type of the line style. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SOLID</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DASHED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DOTTED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Pattern?: ReferenceLinePatternType | undefined;
+
+  /**
+   * <p>The hex color of the reference line.</p>
+   * @public
+   */
+  Color?: string | undefined;
+}
+
+/**
+ * <p>The reference line visual display options.</p>
+ * @public
+ */
+export interface ReferenceLine {
+  /**
+   * <p>The status of the reference line. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: WidgetStatus | undefined;
+
+  /**
+   * <p>The data configuration of the reference line.</p>
+   * @public
+   */
+  DataConfiguration: ReferenceLineDataConfiguration | undefined;
+
+  /**
+   * <p>The style configuration of the reference line.</p>
+   * @public
+   */
+  StyleConfiguration?: ReferenceLineStyleConfiguration | undefined;
+
+  /**
+   * <p>The label configuration of the reference line.</p>
+   * @public
+   */
+  LabelConfiguration?: ReferenceLineLabelConfiguration | undefined;
+}
+
+/**
+ * <p>Options that determine the presentation of a bar series in the visual.</p>
+ * @public
+ */
+export interface BarChartSeriesSettings {
+  /**
+   * <p>Decal settings for the bar series.</p>
+   * @public
+   */
+  DecalSettings?: DecalSettings | undefined;
+
+  /**
+   * <p>Border settings for the bar series.</p>
+   * @public
+   */
+  BorderSettings?: BorderSettings | undefined;
+}
+
+/**
+ * <p>The data field series item configuration of a  <code>BarChartVisual</code>.</p>
+ * @public
+ */
+export interface DataFieldBarSeriesItem {
+  /**
+   * <p>Field ID of the field that you are setting the series configuration for.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>Field value of the field that you are setting the series configuration for.</p>
+   * @public
+   */
+  FieldValue?: string | undefined;
+
+  /**
+   * <p>Options that determine the presentation of bar series associated to the field.</p>
+   * @public
+   */
+  Settings?: BarChartSeriesSettings | undefined;
+}
+
+/**
+ * <p>The field series item configuration of a  <code>BarChartVisual</code>.</p>
+ * @public
+ */
+export interface FieldBarSeriesItem {
+  /**
+   * <p>Field ID of the field for which you are setting the series configuration.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>Options that determine the presentation of bar series associated to the field.</p>
+   * @public
+   */
+  Settings?: BarChartSeriesSettings | undefined;
+}
+
+/**
+ * <p>The series item configuration of a  <code>BarChartVisual</code>.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface BarSeriesItem {
+  /**
+   * <p>The field series item configuration of a  <code>BarChartVisual</code>.</p>
+   * @public
+   */
+  FieldBarSeriesItem?: FieldBarSeriesItem | undefined;
+
+  /**
+   * <p>The data field series item configuration of a  <code>BarChartVisual</code>.</p>
+   * @public
+   */
+  DataFieldBarSeriesItem?: DataFieldBarSeriesItem | undefined;
+}
 
 /**
  * <p>The options that determine the title styles for each small multiples
@@ -8123,411 +8571,4 @@ export interface TableFieldOption {
    * @public
    */
   URLStyling?: TableFieldURLConfiguration | undefined;
-}
-
-/**
- * <p>The column option of the transposed table.</p>
- * @public
- */
-export interface TransposedTableOption {
-  /**
-   * <p>The index of a columns in a transposed table. The index range is 0-9999.</p>
-   * @public
-   */
-  ColumnIndex?: number | undefined;
-
-  /**
-   * <p>The width of a column in a transposed table.</p>
-   * @public
-   */
-  ColumnWidth?: string | undefined;
-
-  /**
-   * <p>The column type of the column in a transposed table. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ROW_HEADER_COLUMN</code>: Refers to the leftmost column of the row header in the transposed table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VALUE_COLUMN</code>: Refers to all value columns in the transposed table.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ColumnType: TransposedColumnType | undefined;
-}
-
-/**
- * <p>The field options of a table visual.</p>
- * @public
- */
-export interface TableFieldOptions {
-  /**
-   * <p>The field options to be configured to a table.</p>
-   * @public
-   */
-  SelectedFieldOptions?: TableFieldOption[] | undefined;
-
-  /**
-   * <p>The order of the field IDs that are configured as field options for a table visual.</p>
-   * @public
-   */
-  Order?: string[] | undefined;
-
-  /**
-   * <p>The settings for the pinned columns of a table visual.</p>
-   * @public
-   */
-  PinnedFieldOptions?: TablePinnedFieldOptions | undefined;
-
-  /**
-   * <p>The <code>TableOptions</code> of a transposed table.</p>
-   * @public
-   */
-  TransposedTableOptions?: TransposedTableOption[] | undefined;
-}
-
-/**
- * <p>The aggregated field well for the table.</p>
- * @public
- */
-export interface TableAggregatedFieldWells {
-  /**
-   * <p>The group by field well for a pivot table. Values are grouped by group by fields.</p>
-   * @public
-   */
-  GroupBy?: DimensionField[] | undefined;
-
-  /**
-   * <p>The values field well for a pivot table. Values are aggregated based on group by fields.</p>
-   * @public
-   */
-  Values?: MeasureField[] | undefined;
-}
-
-/**
- * <p>The unaggregated field well for the table.</p>
- * @public
- */
-export interface TableUnaggregatedFieldWells {
-  /**
-   * <p>The values field well for a pivot table. Values are unaggregated for an unaggregated table.</p>
-   * @public
-   */
-  Values?: UnaggregatedField[] | undefined;
-}
-
-/**
- * <p>The field wells for a table visual.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface TableFieldWells {
-  /**
-   * <p>The aggregated field well for the table.</p>
-   * @public
-   */
-  TableAggregatedFieldWells?: TableAggregatedFieldWells | undefined;
-
-  /**
-   * <p>The unaggregated field well for the table.</p>
-   * @public
-   */
-  TableUnaggregatedFieldWells?: TableUnaggregatedFieldWells | undefined;
-}
-
-/**
- * <p>The paginated report options for a table visual.</p>
- * @public
- */
-export interface TablePaginatedReportOptions {
-  /**
-   * <p>The visibility of printing table overflow across pages.</p>
-   * @public
-   */
-  VerticalOverflowVisibility?: Visibility | undefined;
-
-  /**
-   * <p>The visibility of repeating header rows on each page.</p>
-   * @public
-   */
-  OverflowColumnHeaderVisibility?: Visibility | undefined;
-}
-
-/**
- * <p>The sort configuration for a <code>TableVisual</code>.</p>
- * @public
- */
-export interface TableSortConfiguration {
-  /**
-   * <p>The field sort options for rows in the table.</p>
-   * @public
-   */
-  RowSort?: FieldSortOptions[] | undefined;
-
-  /**
-   * <p>The pagination configuration (page size, page number) for the table.</p>
-   * @public
-   */
-  PaginationConfiguration?: PaginationConfiguration | undefined;
-}
-
-/**
- * <p>The options for data bars.</p>
- * @public
- */
-export interface DataBarsOptions {
-  /**
-   * <p>The field ID for the data bars options.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The color of the positive data bar.</p>
-   * @public
-   */
-  PositiveColor?: string | undefined;
-
-  /**
-   * <p>The color of the negative data bar.</p>
-   * @public
-   */
-  NegativeColor?: string | undefined;
-}
-
-/**
- * <p>The options for sparklines in a table.</p>
- * @public
- */
-export interface SparklinesOptions {
-  /**
-   * <p>The field ID of the value column that the sparkline is applied to.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The dimension type field.</p>
-   * @public
-   */
-  XAxisField: DimensionField | undefined;
-
-  /**
-   * <p>Determines whether the Y axis is shared across all sparklines or independent for each sparkline.</p>
-   * @public
-   */
-  YAxisBehavior?: SparklineAxisBehavior | undefined;
-
-  /**
-   * <p>The type of the sparkline. Valid values are <code>LINE</code> and <code>AREA_LINE</code>.</p>
-   * @public
-   */
-  VisualType?: SparklineVisualType | undefined;
-
-  /**
-   * <p>The color of the sparkline line.</p>
-   * @public
-   */
-  LineColor?: string | undefined;
-
-  /**
-   * <p>The interpolation style for the sparkline line.</p>
-   * @public
-   */
-  LineInterpolation?: LineInterpolation | undefined;
-
-  /**
-   * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
-   * @public
-   */
-  AllPointsMarker?: LineChartMarkerStyleSettings | undefined;
-
-  /**
-   * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
-   * @public
-   */
-  MaxValueMarker?: LineChartMarkerStyleSettings | undefined;
-
-  /**
-   * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
-   * @public
-   */
-  MinValueMarker?: LineChartMarkerStyleSettings | undefined;
-}
-
-/**
- * <p>The inline visualization of a specific type to display within a chart.</p>
- * @public
- */
-export interface TableInlineVisualization {
-  /**
-   * <p>The configuration of the inline visualization of the data bars within a chart.</p>
-   * @public
-   */
-  DataBars?: DataBarsOptions | undefined;
-
-  /**
-   * <p>The configuration of the inline visualization of the sparklines within a chart.</p>
-   * @public
-   */
-  Sparklines?: SparklinesOptions | undefined;
-}
-
-/**
- * <p>The table options for a table visual.</p>
- * @public
- */
-export interface TableOptions {
-  /**
-   * <p>The orientation (vertical, horizontal) for a table.</p>
-   * @public
-   */
-  Orientation?: TableOrientation | undefined;
-
-  /**
-   * <p>The table cell style of a table header.</p>
-   * @public
-   */
-  HeaderStyle?: TableCellStyle | undefined;
-
-  /**
-   * <p>The table cell style of table cells.</p>
-   * @public
-   */
-  CellStyle?: TableCellStyle | undefined;
-
-  /**
-   * <p>The row alternate color options (widget status, row alternate colors) for a table.</p>
-   * @public
-   */
-  RowAlternateColorOptions?: RowAlternateColorOptions | undefined;
-}
-
-/**
- * <p>The total options for a table visual.</p>
- * @public
- */
-export interface TotalOptions {
-  /**
-   * <p>The visibility configuration for the total cells.</p>
-   * @public
-   */
-  TotalsVisibility?: Visibility | undefined;
-
-  /**
-   * <p>The placement (start, end) for the total cells.</p>
-   * @public
-   */
-  Placement?: TableTotalsPlacement | undefined;
-
-  /**
-   * <p>The scroll status (pinned, scrolled) for the total cells.</p>
-   * @public
-   */
-  ScrollStatus?: TableTotalsScrollStatus | undefined;
-
-  /**
-   * <p>The custom label string for the total cells.</p>
-   * @public
-   */
-  CustomLabel?: string | undefined;
-
-  /**
-   * <p>Cell styling options for the total cells.</p>
-   * @public
-   */
-  TotalCellStyle?: TableCellStyle | undefined;
-
-  /**
-   * <p>The total aggregation settings for each value field.</p>
-   * @public
-   */
-  TotalAggregationOptions?: TotalAggregationOption[] | undefined;
-}
-
-/**
- * <p>The configuration for a <code>TableVisual</code>.</p>
- * @public
- */
-export interface TableConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   * @public
-   */
-  FieldWells?: TableFieldWells | undefined;
-
-  /**
-   * <p>The sort configuration for a <code>TableVisual</code>.</p>
-   * @public
-   */
-  SortConfiguration?: TableSortConfiguration | undefined;
-
-  /**
-   * <p>The table options for a table visual.</p>
-   * @public
-   */
-  TableOptions?: TableOptions | undefined;
-
-  /**
-   * <p>The total options for a table visual.</p>
-   * @public
-   */
-  TotalOptions?: TotalOptions | undefined;
-
-  /**
-   * <p>The field options for a table visual.</p>
-   * @public
-   */
-  FieldOptions?: TableFieldOptions | undefined;
-
-  /**
-   * <p>The paginated report options for a table visual.</p>
-   * @public
-   */
-  PaginatedReportOptions?: TablePaginatedReportOptions | undefined;
-
-  /**
-   * <p>A collection of inline visualizations to display within a chart.</p>
-   * @public
-   */
-  TableInlineVisualizations?: TableInlineVisualization[] | undefined;
-
-  /**
-   * <p>The display options for the visual tooltip.</p>
-   * @public
-   */
-  Tooltip?: TooltipOptions | undefined;
-
-  /**
-   * <p>The options that define customizations available to dashboard readers for a specific visual</p>
-   * @public
-   */
-  DashboardCustomizationVisualOptions?: DashboardCustomizationVisualOptions | undefined;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions | undefined;
-}
-
-/**
- * <p>The cell conditional formatting option for a table.</p>
- * @public
- */
-export interface TableCellConditionalFormatting {
-  /**
-   * <p>The field ID of the cell for conditional formatting.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>The text format of the cell for conditional formatting.</p>
-   * @public
-   */
-  TextFormat?: TextConditionalFormat | undefined;
 }

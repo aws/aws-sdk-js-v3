@@ -724,6 +724,15 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *       },
  *     ],
  *   },
+ *   UnmaterializedCalculatedColumns: [ // UnmaterializedCalculatedColumnList
+ *     { // UnmaterializedCalculatedColumn
+ *       ColumnId: "STRING_VALUE", // required
+ *       ColumnName: "STRING_VALUE", // required
+ *       Expression: "STRING_VALUE", // required
+ *       Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME",
+ *       SubType: "FLOAT" || "FIXED",
+ *     },
+ *   ],
  * };
  * const command = new UpdateDataSetCommand(input);
  * const response = await client.send(command);

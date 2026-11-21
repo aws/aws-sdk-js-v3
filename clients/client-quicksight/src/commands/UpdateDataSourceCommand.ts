@@ -98,6 +98,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *       Host: "STRING_VALUE",
  *       Port: Number("int"),
  *       Database: "STRING_VALUE", // required
+ *       FederatedCatalog: "STRING_VALUE",
  *       ClusterId: "STRING_VALUE",
  *       IAMParameters: { // RedshiftIAMParameters
  *         RoleArn: "STRING_VALUE", // required
@@ -324,6 +325,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *             Host: "STRING_VALUE",
  *             Port: Number("int"),
  *             Database: "STRING_VALUE", // required
+ *             FederatedCatalog: "STRING_VALUE",
  *             ClusterId: "STRING_VALUE",
  *             IAMParameters: {
  *               RoleArn: "STRING_VALUE", // required

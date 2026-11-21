@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListSpacesRequest } from "../models/models_4";
-import type { ListSpacesResponse } from "../models/models_5";
+import type { ListSpacesRequest, ListSpacesResponse } from "../models/models_5";
 import { ListSpaces$ } from "../schemas/schemas_0";
 
 /**

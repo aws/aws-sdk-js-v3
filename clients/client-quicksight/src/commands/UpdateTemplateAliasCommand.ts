@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateTemplateAliasRequest, UpdateTemplateAliasResponse } from "../models/models_5";
+import type { UpdateTemplateAliasRequest } from "../models/models_5";
+import type { UpdateTemplateAliasResponse } from "../models/models_6";
 import { UpdateTemplateAlias$ } from "../schemas/schemas_0";
 
 /**

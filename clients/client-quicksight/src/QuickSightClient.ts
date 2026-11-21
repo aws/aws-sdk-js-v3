@@ -63,6 +63,10 @@ import type {
   BatchDeleteKnowledgeBaseCommandOutput,
 } from "./commands/BatchDeleteKnowledgeBaseCommand";
 import type {
+  BatchDeletePolicyAssignmentByPolicyCommandInput,
+  BatchDeletePolicyAssignmentByPolicyCommandOutput,
+} from "./commands/BatchDeletePolicyAssignmentByPolicyCommand";
+import type {
   BatchDeleteTopicReviewedAnswerCommandInput,
   BatchDeleteTopicReviewedAnswerCommandOutput,
 } from "./commands/BatchDeleteTopicReviewedAnswerCommand";
@@ -70,7 +74,19 @@ import type {
   BatchDescribeUserLimitsCommandInput,
   BatchDescribeUserLimitsCommandOutput,
 } from "./commands/BatchDescribeUserLimitsCommand";
+import type {
+  BatchPutPolicyAssignmentByPolicyCommandInput,
+  BatchPutPolicyAssignmentByPolicyCommandOutput,
+} from "./commands/BatchPutPolicyAssignmentByPolicyCommand";
 import type { CancelIngestionCommandInput, CancelIngestionCommandOutput } from "./commands/CancelIngestionCommand";
+import type {
+  CreateAccessControlApplicationCommandInput,
+  CreateAccessControlApplicationCommandOutput,
+} from "./commands/CreateAccessControlApplicationCommand";
+import type {
+  CreateAccessControlApplicationSecretCommandInput,
+  CreateAccessControlApplicationSecretCommandOutput,
+} from "./commands/CreateAccessControlApplicationSecretCommand";
 import type {
   CreateAccountCustomizationCommandInput,
   CreateAccountCustomizationCommandOutput,
@@ -113,11 +129,19 @@ import type {
   CreateIAMPolicyAssignmentCommandInput,
   CreateIAMPolicyAssignmentCommandOutput,
 } from "./commands/CreateIAMPolicyAssignmentCommand";
+import type {
+  CreateInboundConnectorCommandInput,
+  CreateInboundConnectorCommandOutput,
+} from "./commands/CreateInboundConnectorCommand";
 import type { CreateIngestionCommandInput, CreateIngestionCommandOutput } from "./commands/CreateIngestionCommand";
 import type {
   CreateKnowledgeBaseCommandInput,
   CreateKnowledgeBaseCommandOutput,
 } from "./commands/CreateKnowledgeBaseCommand";
+import type {
+  CreateKnowledgeBaseRefreshScheduleCommandInput,
+  CreateKnowledgeBaseRefreshScheduleCommandOutput,
+} from "./commands/CreateKnowledgeBaseRefreshScheduleCommand";
 import type {
   CreateLimitsProfileCommandInput,
   CreateLimitsProfileCommandOutput,
@@ -153,6 +177,14 @@ import type {
   CreateVPCConnectionCommandInput,
   CreateVPCConnectionCommandOutput,
 } from "./commands/CreateVPCConnectionCommand";
+import type {
+  DeleteAccessControlApplicationCommandInput,
+  DeleteAccessControlApplicationCommandOutput,
+} from "./commands/DeleteAccessControlApplicationCommand";
+import type {
+  DeleteAccessControlApplicationSecretCommandInput,
+  DeleteAccessControlApplicationSecretCommandOutput,
+} from "./commands/DeleteAccessControlApplicationSecretCommand";
 import type {
   DeleteAccountCustomizationCommandInput,
   DeleteAccountCustomizationCommandOutput,
@@ -217,9 +249,17 @@ import type {
   DeleteIdentityPropagationConfigCommandOutput,
 } from "./commands/DeleteIdentityPropagationConfigCommand";
 import type {
+  DeleteInboundConnectorCommandInput,
+  DeleteInboundConnectorCommandOutput,
+} from "./commands/DeleteInboundConnectorCommand";
+import type {
   DeleteKnowledgeBaseCommandInput,
   DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
+import type {
+  DeleteKnowledgeBaseRefreshScheduleCommandInput,
+  DeleteKnowledgeBaseRefreshScheduleCommandOutput,
+} from "./commands/DeleteKnowledgeBaseRefreshScheduleCommand";
 import type {
   DeleteLimitsProfileCommandInput,
   DeleteLimitsProfileCommandOutput,
@@ -229,6 +269,10 @@ import type {
   DeleteOAuthClientApplicationCommandInput,
   DeleteOAuthClientApplicationCommandOutput,
 } from "./commands/DeleteOAuthClientApplicationCommand";
+import type {
+  DeletePolicyAssignmentCommandInput,
+  DeletePolicyAssignmentCommandOutput,
+} from "./commands/DeletePolicyAssignmentCommand";
 import type {
   DeleteRefreshScheduleCommandInput,
   DeleteRefreshScheduleCommandOutput,
@@ -268,6 +312,10 @@ import type {
   DeleteVPCConnectionCommandInput,
   DeleteVPCConnectionCommandOutput,
 } from "./commands/DeleteVPCConnectionCommand";
+import type {
+  DescribeAccessControlApplicationCommandInput,
+  DescribeAccessControlApplicationCommandOutput,
+} from "./commands/DescribeAccessControlApplicationCommand";
 import type {
   DescribeAccountCustomizationCommandInput,
   DescribeAccountCustomizationCommandOutput,
@@ -409,6 +457,10 @@ import type {
   DescribeIAMPolicyAssignmentCommandOutput,
 } from "./commands/DescribeIAMPolicyAssignmentCommand";
 import type {
+  DescribeInboundConnectorCommandInput,
+  DescribeInboundConnectorCommandOutput,
+} from "./commands/DescribeInboundConnectorCommand";
+import type {
   DescribeIngestionCommandInput,
   DescribeIngestionCommandOutput,
 } from "./commands/DescribeIngestionCommand";
@@ -428,6 +480,10 @@ import type {
   DescribeKnowledgeBasePermissionsCommandInput,
   DescribeKnowledgeBasePermissionsCommandOutput,
 } from "./commands/DescribeKnowledgeBasePermissionsCommand";
+import type {
+  DescribeKnowledgeBaseRefreshScheduleCommandInput,
+  DescribeKnowledgeBaseRefreshScheduleCommandOutput,
+} from "./commands/DescribeKnowledgeBaseRefreshScheduleCommand";
 import type {
   DescribeLimitsProfileCommandInput,
   DescribeLimitsProfileCommandOutput,
@@ -540,9 +596,17 @@ import type {
   GetIdentityContextCommandOutput,
 } from "./commands/GetIdentityContextCommand";
 import type {
+  GetPolicyAssignmentCommandInput,
+  GetPolicyAssignmentCommandOutput,
+} from "./commands/GetPolicyAssignmentCommand";
+import type {
   GetSessionEmbedUrlCommandInput,
   GetSessionEmbedUrlCommandOutput,
 } from "./commands/GetSessionEmbedUrlCommand";
+import type {
+  ListAccessControlApplicationsCommandInput,
+  ListAccessControlApplicationsCommandOutput,
+} from "./commands/ListAccessControlApplicationsCommand";
 import type {
   ListActionConnectorsCommandInput,
   ListActionConnectorsCommandOutput,
@@ -602,7 +666,19 @@ import type {
   ListIdentityPropagationConfigsCommandInput,
   ListIdentityPropagationConfigsCommandOutput,
 } from "./commands/ListIdentityPropagationConfigsCommand";
+import type {
+  ListInboundConnectorApplicationAssociationsCommandInput,
+  ListInboundConnectorApplicationAssociationsCommandOutput,
+} from "./commands/ListInboundConnectorApplicationAssociationsCommand";
+import type {
+  ListInboundConnectorsCommandInput,
+  ListInboundConnectorsCommandOutput,
+} from "./commands/ListInboundConnectorsCommand";
 import type { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "./commands/ListIngestionsCommand";
+import type {
+  ListKnowledgeBaseRefreshSchedulesCommandInput,
+  ListKnowledgeBaseRefreshSchedulesCommandOutput,
+} from "./commands/ListKnowledgeBaseRefreshSchedulesCommand";
 import type {
   ListKnowledgeBasesCommandInput,
   ListKnowledgeBasesCommandOutput,
@@ -616,6 +692,10 @@ import type {
   ListOAuthClientApplicationsCommandInput,
   ListOAuthClientApplicationsCommandOutput,
 } from "./commands/ListOAuthClientApplicationsCommand";
+import type {
+  ListPrincipalsForPolicyCommandInput,
+  ListPrincipalsForPolicyCommandOutput,
+} from "./commands/ListPrincipalsForPolicyCommand";
 import type {
   ListRefreshSchedulesCommandInput,
   ListRefreshSchedulesCommandOutput,
@@ -674,6 +754,10 @@ import type {
   PutDataSetRefreshPropertiesCommandInput,
   PutDataSetRefreshPropertiesCommandOutput,
 } from "./commands/PutDataSetRefreshPropertiesCommand";
+import type {
+  PutPolicyAssignmentCommandInput,
+  PutPolicyAssignmentCommandOutput,
+} from "./commands/PutPolicyAssignmentCommand";
 import type { RegisterUserCommandInput, RegisterUserCommandOutput } from "./commands/RegisterUserCommand";
 import type { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "./commands/RestoreAnalysisCommand";
 import type {
@@ -721,6 +805,14 @@ import type {
 } from "./commands/StartDashboardSnapshotJobScheduleCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateAccessControlApplicationCommandInput,
+  UpdateAccessControlApplicationCommandOutput,
+} from "./commands/UpdateAccessControlApplicationCommand";
+import type {
+  UpdateAccessControlApplicationSecretCommandInput,
+  UpdateAccessControlApplicationSecretCommandOutput,
+} from "./commands/UpdateAccessControlApplicationSecretCommand";
 import type {
   UpdateAccountCustomizationCommandInput,
   UpdateAccountCustomizationCommandOutput,
@@ -828,6 +920,14 @@ import type {
   UpdateIdentityPropagationConfigCommandOutput,
 } from "./commands/UpdateIdentityPropagationConfigCommand";
 import type {
+  UpdateInboundConnectorApplicationAssociationsCommandInput,
+  UpdateInboundConnectorApplicationAssociationsCommandOutput,
+} from "./commands/UpdateInboundConnectorApplicationAssociationsCommand";
+import type {
+  UpdateInboundConnectorCommandInput,
+  UpdateInboundConnectorCommandOutput,
+} from "./commands/UpdateInboundConnectorCommand";
+import type {
   UpdateIpRestrictionCommandInput,
   UpdateIpRestrictionCommandOutput,
 } from "./commands/UpdateIpRestrictionCommand";
@@ -843,6 +943,10 @@ import type {
   UpdateKnowledgeBasePermissionsCommandInput,
   UpdateKnowledgeBasePermissionsCommandOutput,
 } from "./commands/UpdateKnowledgeBasePermissionsCommand";
+import type {
+  UpdateKnowledgeBaseRefreshScheduleCommandInput,
+  UpdateKnowledgeBaseRefreshScheduleCommandOutput,
+} from "./commands/UpdateKnowledgeBaseRefreshScheduleCommand";
 import type {
   UpdateLimitsProfileCommandInput,
   UpdateLimitsProfileCommandOutput,
@@ -951,9 +1055,13 @@ export { __Client };
 export type ServiceInputTypes =
   | BatchCreateTopicReviewedAnswerCommandInput
   | BatchDeleteKnowledgeBaseCommandInput
+  | BatchDeletePolicyAssignmentByPolicyCommandInput
   | BatchDeleteTopicReviewedAnswerCommandInput
   | BatchDescribeUserLimitsCommandInput
+  | BatchPutPolicyAssignmentByPolicyCommandInput
   | CancelIngestionCommandInput
+  | CreateAccessControlApplicationCommandInput
+  | CreateAccessControlApplicationSecretCommandInput
   | CreateAccountCustomizationCommandInput
   | CreateAccountSubscriptionCommandInput
   | CreateActionConnectorCommandInput
@@ -972,8 +1080,10 @@ export type ServiceInputTypes =
   | CreateGroupCommandInput
   | CreateGroupMembershipCommandInput
   | CreateIAMPolicyAssignmentCommandInput
+  | CreateInboundConnectorCommandInput
   | CreateIngestionCommandInput
   | CreateKnowledgeBaseCommandInput
+  | CreateKnowledgeBaseRefreshScheduleCommandInput
   | CreateLimitsProfileCommandInput
   | CreateNamespaceCommandInput
   | CreateOAuthClientApplicationCommandInput
@@ -988,6 +1098,8 @@ export type ServiceInputTypes =
   | CreateTopicRefreshScheduleCommandInput
   | CreateTopicV2CommandInput
   | CreateVPCConnectionCommandInput
+  | DeleteAccessControlApplicationCommandInput
+  | DeleteAccessControlApplicationSecretCommandInput
   | DeleteAccountCustomPermissionCommandInput
   | DeleteAccountCustomizationCommandInput
   | DeleteAccountSubscriptionCommandInput
@@ -1012,10 +1124,13 @@ export type ServiceInputTypes =
   | DeleteGroupMembershipCommandInput
   | DeleteIAMPolicyAssignmentCommandInput
   | DeleteIdentityPropagationConfigCommandInput
+  | DeleteInboundConnectorCommandInput
   | DeleteKnowledgeBaseCommandInput
+  | DeleteKnowledgeBaseRefreshScheduleCommandInput
   | DeleteLimitsProfileCommandInput
   | DeleteNamespaceCommandInput
   | DeleteOAuthClientApplicationCommandInput
+  | DeletePolicyAssignmentCommandInput
   | DeleteRefreshScheduleCommandInput
   | DeleteRoleCustomPermissionCommandInput
   | DeleteRoleMembershipCommandInput
@@ -1031,6 +1146,7 @@ export type ServiceInputTypes =
   | DeleteUserCommandInput
   | DeleteUserCustomPermissionCommandInput
   | DeleteVPCConnectionCommandInput
+  | DescribeAccessControlApplicationCommandInput
   | DescribeAccountCustomPermissionCommandInput
   | DescribeAccountCustomizationCommandInput
   | DescribeAccountSettingsCommandInput
@@ -1072,11 +1188,13 @@ export type ServiceInputTypes =
   | DescribeGroupCommandInput
   | DescribeGroupMembershipCommandInput
   | DescribeIAMPolicyAssignmentCommandInput
+  | DescribeInboundConnectorCommandInput
   | DescribeIngestionCommandInput
   | DescribeIpRestrictionCommandInput
   | DescribeKeyRegistrationCommandInput
   | DescribeKnowledgeBaseCommandInput
   | DescribeKnowledgeBasePermissionsCommandInput
+  | DescribeKnowledgeBaseRefreshScheduleCommandInput
   | DescribeLimitsProfileCommandInput
   | DescribeNamespaceCommandInput
   | DescribeOAuthClientApplicationCommandInput
@@ -1110,7 +1228,9 @@ export type ServiceInputTypes =
   | GetFlowMetadataCommandInput
   | GetFlowPermissionsCommandInput
   | GetIdentityContextCommandInput
+  | GetPolicyAssignmentCommandInput
   | GetSessionEmbedUrlCommandInput
+  | ListAccessControlApplicationsCommandInput
   | ListActionConnectorsCommandInput
   | ListAgentsCommandInput
   | ListAnalysesCommandInput
@@ -1134,11 +1254,15 @@ export type ServiceInputTypes =
   | ListIAMPolicyAssignmentsCommandInput
   | ListIAMPolicyAssignmentsForUserCommandInput
   | ListIdentityPropagationConfigsCommandInput
+  | ListInboundConnectorApplicationAssociationsCommandInput
+  | ListInboundConnectorsCommandInput
   | ListIngestionsCommandInput
+  | ListKnowledgeBaseRefreshSchedulesCommandInput
   | ListKnowledgeBasesCommandInput
   | ListLimitsProfilesCommandInput
   | ListNamespacesCommandInput
   | ListOAuthClientApplicationsCommandInput
+  | ListPrincipalsForPolicyCommandInput
   | ListRefreshSchedulesCommandInput
   | ListRoleMembershipsCommandInput
   | ListSelfUpgradesCommandInput
@@ -1161,6 +1285,7 @@ export type ServiceInputTypes =
   | ListVPCConnectionsCommandInput
   | PredictQAResultsCommandInput
   | PutDataSetRefreshPropertiesCommandInput
+  | PutPolicyAssignmentCommandInput
   | RegisterUserCommandInput
   | RestoreAnalysisCommandInput
   | SearchActionConnectorsCommandInput
@@ -1184,6 +1309,8 @@ export type ServiceInputTypes =
   | StartDashboardSnapshotJobScheduleCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAccessControlApplicationCommandInput
+  | UpdateAccessControlApplicationSecretCommandInput
   | UpdateAccountCustomPermissionCommandInput
   | UpdateAccountCustomizationCommandInput
   | UpdateAccountSettingsCommandInput
@@ -1218,10 +1345,13 @@ export type ServiceInputTypes =
   | UpdateGroupCommandInput
   | UpdateIAMPolicyAssignmentCommandInput
   | UpdateIdentityPropagationConfigCommandInput
+  | UpdateInboundConnectorApplicationAssociationsCommandInput
+  | UpdateInboundConnectorCommandInput
   | UpdateIpRestrictionCommandInput
   | UpdateKeyRegistrationCommandInput
   | UpdateKnowledgeBaseCommandInput
   | UpdateKnowledgeBasePermissionsCommandInput
+  | UpdateKnowledgeBaseRefreshScheduleCommandInput
   | UpdateLimitsProfileCommandInput
   | UpdateOAuthClientApplicationCommandInput
   | UpdatePublicSharingSettingsCommandInput
@@ -1257,9 +1387,13 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | BatchCreateTopicReviewedAnswerCommandOutput
   | BatchDeleteKnowledgeBaseCommandOutput
+  | BatchDeletePolicyAssignmentByPolicyCommandOutput
   | BatchDeleteTopicReviewedAnswerCommandOutput
   | BatchDescribeUserLimitsCommandOutput
+  | BatchPutPolicyAssignmentByPolicyCommandOutput
   | CancelIngestionCommandOutput
+  | CreateAccessControlApplicationCommandOutput
+  | CreateAccessControlApplicationSecretCommandOutput
   | CreateAccountCustomizationCommandOutput
   | CreateAccountSubscriptionCommandOutput
   | CreateActionConnectorCommandOutput
@@ -1278,8 +1412,10 @@ export type ServiceOutputTypes =
   | CreateGroupCommandOutput
   | CreateGroupMembershipCommandOutput
   | CreateIAMPolicyAssignmentCommandOutput
+  | CreateInboundConnectorCommandOutput
   | CreateIngestionCommandOutput
   | CreateKnowledgeBaseCommandOutput
+  | CreateKnowledgeBaseRefreshScheduleCommandOutput
   | CreateLimitsProfileCommandOutput
   | CreateNamespaceCommandOutput
   | CreateOAuthClientApplicationCommandOutput
@@ -1294,6 +1430,8 @@ export type ServiceOutputTypes =
   | CreateTopicRefreshScheduleCommandOutput
   | CreateTopicV2CommandOutput
   | CreateVPCConnectionCommandOutput
+  | DeleteAccessControlApplicationCommandOutput
+  | DeleteAccessControlApplicationSecretCommandOutput
   | DeleteAccountCustomPermissionCommandOutput
   | DeleteAccountCustomizationCommandOutput
   | DeleteAccountSubscriptionCommandOutput
@@ -1318,10 +1456,13 @@ export type ServiceOutputTypes =
   | DeleteGroupMembershipCommandOutput
   | DeleteIAMPolicyAssignmentCommandOutput
   | DeleteIdentityPropagationConfigCommandOutput
+  | DeleteInboundConnectorCommandOutput
   | DeleteKnowledgeBaseCommandOutput
+  | DeleteKnowledgeBaseRefreshScheduleCommandOutput
   | DeleteLimitsProfileCommandOutput
   | DeleteNamespaceCommandOutput
   | DeleteOAuthClientApplicationCommandOutput
+  | DeletePolicyAssignmentCommandOutput
   | DeleteRefreshScheduleCommandOutput
   | DeleteRoleCustomPermissionCommandOutput
   | DeleteRoleMembershipCommandOutput
@@ -1337,6 +1478,7 @@ export type ServiceOutputTypes =
   | DeleteUserCommandOutput
   | DeleteUserCustomPermissionCommandOutput
   | DeleteVPCConnectionCommandOutput
+  | DescribeAccessControlApplicationCommandOutput
   | DescribeAccountCustomPermissionCommandOutput
   | DescribeAccountCustomizationCommandOutput
   | DescribeAccountSettingsCommandOutput
@@ -1378,11 +1520,13 @@ export type ServiceOutputTypes =
   | DescribeGroupCommandOutput
   | DescribeGroupMembershipCommandOutput
   | DescribeIAMPolicyAssignmentCommandOutput
+  | DescribeInboundConnectorCommandOutput
   | DescribeIngestionCommandOutput
   | DescribeIpRestrictionCommandOutput
   | DescribeKeyRegistrationCommandOutput
   | DescribeKnowledgeBaseCommandOutput
   | DescribeKnowledgeBasePermissionsCommandOutput
+  | DescribeKnowledgeBaseRefreshScheduleCommandOutput
   | DescribeLimitsProfileCommandOutput
   | DescribeNamespaceCommandOutput
   | DescribeOAuthClientApplicationCommandOutput
@@ -1416,7 +1560,9 @@ export type ServiceOutputTypes =
   | GetFlowMetadataCommandOutput
   | GetFlowPermissionsCommandOutput
   | GetIdentityContextCommandOutput
+  | GetPolicyAssignmentCommandOutput
   | GetSessionEmbedUrlCommandOutput
+  | ListAccessControlApplicationsCommandOutput
   | ListActionConnectorsCommandOutput
   | ListAgentsCommandOutput
   | ListAnalysesCommandOutput
@@ -1440,11 +1586,15 @@ export type ServiceOutputTypes =
   | ListIAMPolicyAssignmentsCommandOutput
   | ListIAMPolicyAssignmentsForUserCommandOutput
   | ListIdentityPropagationConfigsCommandOutput
+  | ListInboundConnectorApplicationAssociationsCommandOutput
+  | ListInboundConnectorsCommandOutput
   | ListIngestionsCommandOutput
+  | ListKnowledgeBaseRefreshSchedulesCommandOutput
   | ListKnowledgeBasesCommandOutput
   | ListLimitsProfilesCommandOutput
   | ListNamespacesCommandOutput
   | ListOAuthClientApplicationsCommandOutput
+  | ListPrincipalsForPolicyCommandOutput
   | ListRefreshSchedulesCommandOutput
   | ListRoleMembershipsCommandOutput
   | ListSelfUpgradesCommandOutput
@@ -1467,6 +1617,7 @@ export type ServiceOutputTypes =
   | ListVPCConnectionsCommandOutput
   | PredictQAResultsCommandOutput
   | PutDataSetRefreshPropertiesCommandOutput
+  | PutPolicyAssignmentCommandOutput
   | RegisterUserCommandOutput
   | RestoreAnalysisCommandOutput
   | SearchActionConnectorsCommandOutput
@@ -1490,6 +1641,8 @@ export type ServiceOutputTypes =
   | StartDashboardSnapshotJobScheduleCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAccessControlApplicationCommandOutput
+  | UpdateAccessControlApplicationSecretCommandOutput
   | UpdateAccountCustomPermissionCommandOutput
   | UpdateAccountCustomizationCommandOutput
   | UpdateAccountSettingsCommandOutput
@@ -1524,10 +1677,13 @@ export type ServiceOutputTypes =
   | UpdateGroupCommandOutput
   | UpdateIAMPolicyAssignmentCommandOutput
   | UpdateIdentityPropagationConfigCommandOutput
+  | UpdateInboundConnectorApplicationAssociationsCommandOutput
+  | UpdateInboundConnectorCommandOutput
   | UpdateIpRestrictionCommandOutput
   | UpdateKeyRegistrationCommandOutput
   | UpdateKnowledgeBaseCommandOutput
   | UpdateKnowledgeBasePermissionsCommandOutput
+  | UpdateKnowledgeBaseRefreshScheduleCommandOutput
   | UpdateLimitsProfileCommandOutput
   | UpdateOAuthClientApplicationCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
@@ -1749,7 +1905,7 @@ export type QuickSightClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface QuickSightClientResolvedConfig extends QuickSightClientResolvedConfigType {}
 
 /**
- * <fullname>Amazon Quick API Reference</fullname>
+ * <fullname>Quick API Reference</fullname>
  *          <p>Amazon Quick Sight is a fully managed, serverless business intelligence service for the
  *             Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your
  *             organization. This API reference contains documentation for a programming interface that

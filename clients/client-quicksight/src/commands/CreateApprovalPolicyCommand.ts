@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateApprovalPolicyRequest, CreateApprovalPolicyResponse } from "../models/models_2";
+import type { CreateApprovalPolicyRequest, CreateApprovalPolicyResponse } from "../models/models_3";
 import { CreateApprovalPolicy$ } from "../schemas/schemas_0";
 
 /**
@@ -37,10 +37,10 @@ export interface CreateApprovalPolicyCommandOutput extends CreateApprovalPolicyR
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   Actions: [ // GovernedActionList // required
- *     "SHARE",
+ *     "SHARE" || "PUBLISH",
  *   ],
  *   AssetTypes: [ // AssetTypeList // required
- *     "AGENT" || "SPACE" || "KNOWLEDGE_BASE",
+ *     "AGENT" || "SPACE" || "KNOWLEDGE_BASE" || "FLOW",
  *   ],
  *   ApplicableTo: { // ApplicableTo
  *     Type: "GROUP", // required
@@ -61,10 +61,10 @@ export interface CreateApprovalPolicyCommandOutput extends CreateApprovalPolicyR
  * //     Name: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
  * //     Actions: [ // GovernedActionList // required
- * //       "SHARE",
+ * //       "SHARE" || "PUBLISH",
  * //     ],
  * //     AssetTypes: [ // AssetTypeList // required
- * //       "AGENT" || "SPACE" || "KNOWLEDGE_BASE",
+ * //       "AGENT" || "SPACE" || "KNOWLEDGE_BASE" || "FLOW",
  * //     ],
  * //     ApplicableTo: { // ApplicableTo
  * //       Type: "GROUP", // required

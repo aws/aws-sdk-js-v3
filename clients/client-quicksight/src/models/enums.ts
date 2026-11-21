@@ -3,6 +3,60 @@
  * @public
  * @enum
  */
+export const AccessControlApplicationAuthenticationType = {
+  OIDC: "OIDC",
+} as const;
+/**
+ * @public
+ */
+export type AccessControlApplicationAuthenticationType =
+  (typeof AccessControlApplicationAuthenticationType)[keyof typeof AccessControlApplicationAuthenticationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IdpAuthorizingType = {
+  EXTERNAL_IDP_CONFIDENTIAL_AUTH_CODE: "EXTERNAL_IDP_CONFIDENTIAL_AUTH_CODE",
+  EXTERNAL_IDP_PUBLIC_AUTH_CODE: "EXTERNAL_IDP_PUBLIC_AUTH_CODE",
+  IDC_AUTH_CODE: "IDC_AUTH_CODE",
+  QUICK_MANAGED_AUTH_CODE: "QUICK_MANAGED_AUTH_CODE",
+} as const;
+/**
+ * @public
+ */
+export type IdpAuthorizingType = (typeof IdpAuthorizingType)[keyof typeof IdpAuthorizingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const QuickAuthenticationType = {
+  QUICK_MANAGED_PUBLIC_AUTH_CODE: "QUICK_MANAGED_PUBLIC_AUTH_CODE",
+} as const;
+/**
+ * @public
+ */
+export type QuickAuthenticationType = (typeof QuickAuthenticationType)[keyof typeof QuickAuthenticationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AccessControlApplicationStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type AccessControlApplicationStatus =
+  (typeof AccessControlApplicationStatus)[keyof typeof AccessControlApplicationStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const Edition = {
   ENTERPRISE: "ENTERPRISE",
   ENTERPRISE_AND_Q: "ENTERPRISE_AND_Q",
@@ -2350,6 +2404,7 @@ export type ApplicableToType = (typeof ApplicableToType)[keyof typeof Applicable
  * @enum
  */
 export const GovernedAction = {
+  PUBLISH: "PUBLISH",
   SHARE: "SHARE",
 } as const;
 /**
@@ -2363,6 +2418,7 @@ export type GovernedAction = (typeof GovernedAction)[keyof typeof GovernedAction
  */
 export const AssetType = {
   AGENT: "AGENT",
+  FLOW: "FLOW",
   KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
   SPACE: "SPACE",
 } as const;
@@ -3143,6 +3199,18 @@ export type CategoryFilterType = (typeof CategoryFilterType)[keyof typeof Catego
  * @public
  * @enum
  */
+export const ClientSecretSourceType = {
+  IDP_PROVIDED: "IDP_PROVIDED",
+} as const;
+/**
+ * @public
+ */
+export type ClientSecretSourceType = (typeof ClientSecretSourceType)[keyof typeof ClientSecretSourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ColumnDataRole = {
   DIMENSION: "DIMENSION",
   MEASURE: "MEASURE",
@@ -3605,6 +3673,31 @@ export type MemberType = (typeof MemberType)[keyof typeof MemberType];
  * @public
  * @enum
  */
+export const InboundConnectorType = {
+  QUICK_DESKTOP: "QUICK_DESKTOP",
+} as const;
+/**
+ * @public
+ */
+export type InboundConnectorType = (typeof InboundConnectorType)[keyof typeof InboundConnectorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InboundConnectorStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type InboundConnectorStatus = (typeof InboundConnectorStatus)[keyof typeof InboundConnectorStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const IngestionType = {
   FULL_REFRESH: "FULL_REFRESH",
   INCREMENTAL_REFRESH: "INCREMENTAL_REFRESH",
@@ -3685,6 +3778,52 @@ export const DataSetStatus = {
  * @public
  */
 export type DataSetStatus = (typeof DataSetStatus)[keyof typeof DataSetStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const KbRefreshInterval = {
+  DAILY: "DAILY",
+  HOURLY: "HOURLY",
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
+} as const;
+/**
+ * @public
+ */
+export type KbRefreshInterval = (typeof KbRefreshInterval)[keyof typeof KbRefreshInterval];
+
+/**
+ * @public
+ * @enum
+ */
+export const KbDayOfWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+/**
+ * @public
+ */
+export type KbDayOfWeek = (typeof KbDayOfWeek)[keyof typeof KbDayOfWeek];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScheduleState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ScheduleState = (typeof ScheduleState)[keyof typeof ScheduleState];
 
 /**
  * @public
@@ -4547,6 +4686,19 @@ export type GeneratedAnswerStatus = (typeof GeneratedAnswerStatus)[keyof typeof 
  * @public
  * @enum
  */
+export const PolicyType = {
+  CUSTOM_PERMISSIONS: "CUSTOM_PERMISSIONS",
+  LIMITS_PROFILE: "LIMITS_PROFILE",
+} as const;
+/**
+ * @public
+ */
+export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+/**
+ * @public
+ * @enum
+ */
 export const GroupFilterAttribute = {
   GROUP_NAME: "GROUP_NAME",
 } as const;
@@ -4654,6 +4806,20 @@ export const SortOrder = {
  * @public
  */
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const PrincipalType = {
+  ACCOUNT: "ACCOUNT",
+  GROUP: "GROUP",
+  USER: "USER",
+} as const;
+/**
+ * @public
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 /**
  * @public

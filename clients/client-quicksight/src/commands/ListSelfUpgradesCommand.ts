@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListSelfUpgradesRequest, ListSelfUpgradesResponse } from "../models/models_4";
+import type { ListSelfUpgradesRequest, ListSelfUpgradesResponse } from "../models/models_5";
 import { ListSelfUpgrades$ } from "../schemas/schemas_0";
 
 /**

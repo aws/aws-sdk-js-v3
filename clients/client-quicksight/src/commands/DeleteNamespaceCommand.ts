@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_3";
+import type { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_4";
 import { DeleteNamespace$ } from "../schemas/schemas_0";
 
 /**

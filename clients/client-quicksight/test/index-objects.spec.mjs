@@ -1,5 +1,9 @@
 import {
   _Parameters$,
+  AccessControlApplication$,
+  AccessControlApplicationAuthenticationType,
+  AccessControlApplicationStatus,
+  AccessControlApplicationSummary$,
   AccessControlConfiguration$,
   AccessDeniedException,
   AccessDeniedException$,
@@ -194,6 +198,12 @@ import {
   BatchDeleteKnowledgeBaseRequest$,
   BatchDeleteKnowledgeBaseResponse$,
   BatchDeleteKnowledgeBaseSuccess$,
+  BatchDeletePolicyAssignmentByPolicy$,
+  BatchDeletePolicyAssignmentByPolicyCommand,
+  BatchDeletePolicyAssignmentByPolicyRequest$,
+  BatchDeletePolicyAssignmentByPolicyResponse$,
+  BatchDeletePolicyAssignmentError$,
+  BatchDeletePolicyAssignmentSuccess$,
   BatchDeleteTopicReviewedAnswer$,
   BatchDeleteTopicReviewedAnswerCommand,
   BatchDeleteTopicReviewedAnswerRequest$,
@@ -203,6 +213,12 @@ import {
   BatchDescribeUserLimitsError$,
   BatchDescribeUserLimitsRequest$,
   BatchDescribeUserLimitsResponse$,
+  BatchPutPolicyAssignmentByPolicy$,
+  BatchPutPolicyAssignmentByPolicyCommand,
+  BatchPutPolicyAssignmentByPolicyRequest$,
+  BatchPutPolicyAssignmentByPolicyResponse$,
+  BatchPutPolicyAssignmentError$,
+  BatchPutPolicyAssignmentSuccess$,
   BigQueryParameters$,
   BinCountOptions$,
   BinWidthOptions$,
@@ -262,6 +278,9 @@ import {
   ClientCredentialsGrantDetails$,
   ClientCredentialsGrantMetadata$,
   ClientCredentialsSource,
+  ClientSecretConfiguration$,
+  ClientSecretConfigurationDetail$,
+  ClientSecretSourceType,
   ClusterMarker$,
   ClusterMarkerConfiguration$,
   CollectiveConstant$,
@@ -335,6 +354,14 @@ import {
   ControlTitleFontConfiguration$,
   ControlTitleFormatText$,
   Coordinate$,
+  CreateAccessControlApplication$,
+  CreateAccessControlApplicationCommand,
+  CreateAccessControlApplicationRequest$,
+  CreateAccessControlApplicationResponse$,
+  CreateAccessControlApplicationSecret$,
+  CreateAccessControlApplicationSecretCommand,
+  CreateAccessControlApplicationSecretRequest$,
+  CreateAccessControlApplicationSecretResponse$,
   CreateAccountCustomization$,
   CreateAccountCustomizationCommand,
   CreateAccountCustomizationRequest$,
@@ -408,12 +435,20 @@ import {
   CreateIAMPolicyAssignmentCommand,
   CreateIAMPolicyAssignmentRequest$,
   CreateIAMPolicyAssignmentResponse$,
+  CreateInboundConnector$,
+  CreateInboundConnectorCommand,
+  CreateInboundConnectorRequest$,
+  CreateInboundConnectorResponse$,
   CreateIngestion$,
   CreateIngestionCommand,
   CreateIngestionRequest$,
   CreateIngestionResponse$,
   CreateKnowledgeBase$,
   CreateKnowledgeBaseCommand,
+  CreateKnowledgeBaseRefreshSchedule$,
+  CreateKnowledgeBaseRefreshScheduleCommand,
+  CreateKnowledgeBaseRefreshScheduleRequest$,
+  CreateKnowledgeBaseRefreshScheduleResponse$,
   CreateKnowledgeBaseRequest$,
   CreateKnowledgeBaseResponse$,
   CreateLimitsProfile$,
@@ -644,6 +679,14 @@ import {
   DefaultSliderControlOptions$,
   DefaultTextAreaControlOptions$,
   DefaultTextFieldControlOptions$,
+  DeleteAccessControlApplication$,
+  DeleteAccessControlApplicationCommand,
+  DeleteAccessControlApplicationRequest$,
+  DeleteAccessControlApplicationResponse$,
+  DeleteAccessControlApplicationSecret$,
+  DeleteAccessControlApplicationSecretCommand,
+  DeleteAccessControlApplicationSecretRequest$,
+  DeleteAccessControlApplicationSecretResponse$,
   DeleteAccountCustomization$,
   DeleteAccountCustomizationCommand,
   DeleteAccountCustomizationRequest$,
@@ -740,8 +783,16 @@ import {
   DeleteIdentityPropagationConfigCommand,
   DeleteIdentityPropagationConfigRequest$,
   DeleteIdentityPropagationConfigResponse$,
+  DeleteInboundConnector$,
+  DeleteInboundConnectorCommand,
+  DeleteInboundConnectorRequest$,
+  DeleteInboundConnectorResponse$,
   DeleteKnowledgeBase$,
   DeleteKnowledgeBaseCommand,
+  DeleteKnowledgeBaseRefreshSchedule$,
+  DeleteKnowledgeBaseRefreshScheduleCommand,
+  DeleteKnowledgeBaseRefreshScheduleRequest$,
+  DeleteKnowledgeBaseRefreshScheduleResponse$,
   DeleteKnowledgeBaseRequest$,
   DeleteKnowledgeBaseResponse$,
   DeleteLimitsProfile$,
@@ -756,6 +807,10 @@ import {
   DeleteOAuthClientApplicationCommand,
   DeleteOAuthClientApplicationRequest$,
   DeleteOAuthClientApplicationResponse$,
+  DeletePolicyAssignment$,
+  DeletePolicyAssignmentCommand,
+  DeletePolicyAssignmentRequest$,
+  DeletePolicyAssignmentResponse$,
   DeleteRefreshSchedule$,
   DeleteRefreshScheduleCommand,
   DeleteRefreshScheduleRequest$,
@@ -816,6 +871,10 @@ import {
   DeleteVPCConnectionCommand,
   DeleteVPCConnectionRequest$,
   DeleteVPCConnectionResponse$,
+  DescribeAccessControlApplication$,
+  DescribeAccessControlApplicationCommand,
+  DescribeAccessControlApplicationRequest$,
+  DescribeAccessControlApplicationResponse$,
   DescribeAccountCustomization$,
   DescribeAccountCustomizationCommand,
   DescribeAccountCustomizationRequest$,
@@ -980,6 +1039,10 @@ import {
   DescribeIAMPolicyAssignmentCommand,
   DescribeIAMPolicyAssignmentRequest$,
   DescribeIAMPolicyAssignmentResponse$,
+  DescribeInboundConnector$,
+  DescribeInboundConnectorCommand,
+  DescribeInboundConnectorRequest$,
+  DescribeInboundConnectorResponse$,
   DescribeIngestion$,
   DescribeIngestionCommand,
   DescribeIngestionRequest$,
@@ -998,6 +1061,10 @@ import {
   DescribeKnowledgeBasePermissionsCommand,
   DescribeKnowledgeBasePermissionsRequest$,
   DescribeKnowledgeBasePermissionsResponse$,
+  DescribeKnowledgeBaseRefreshSchedule$,
+  DescribeKnowledgeBaseRefreshScheduleCommand,
+  DescribeKnowledgeBaseRefreshScheduleRequest$,
+  DescribeKnowledgeBaseRefreshScheduleResponse$,
   DescribeKnowledgeBaseRequest$,
   DescribeKnowledgeBaseResponse$,
   DescribeLimitsProfile$,
@@ -1138,6 +1205,12 @@ import {
   ExportHiddenFieldsOption$,
   ExportToCSVOption$,
   ExportWithHiddenFieldsOption$,
+  ExternalIdpConfidentialAuthCodeAuthorizingConfig$,
+  ExternalIdpConfidentialAuthCodeAuthorizingConfigInput$,
+  ExternalIdpConfidentialAuthCodeAuthorizingConfigSummary$,
+  ExternalIdpConfidentialAuthCodeAuthorizingConfigUpdateInput$,
+  ExternalIdpConfidentialClientSecret$,
+  ExternalIdpPublicAuthCodeAuthorizingConfig$,
   FailedKeyRegistrationEntry$,
   FailedSpaceResourceOperation$,
   FailedToUpdateAssociation$,
@@ -1309,6 +1382,10 @@ import {
   GetIdentityContextCommand,
   GetIdentityContextRequest$,
   GetIdentityContextResponse$,
+  GetPolicyAssignment$,
+  GetPolicyAssignmentCommand,
+  GetPolicyAssignmentRequest$,
+  GetPolicyAssignmentResponse$,
   GetSessionEmbedUrl$,
   GetSessionEmbedUrlCommand,
   GetSessionEmbedUrlRequest$,
@@ -1358,12 +1435,23 @@ import {
   IAMPolicyAssignment$,
   IAMPolicyAssignmentSummary$,
   Icon,
+  IdcTrustedTokenIssuerConfig$,
   Identifier$,
   IdentityCenterConfiguration$,
   IdentityStore,
   IdentityType,
   IdentityTypeNotSupportedException,
   IdentityTypeNotSupportedException$,
+  IdpAuthorizingConfig$,
+  IdpAuthorizingConfigInput$,
+  IdpAuthorizingConfigSummary$,
+  IdpAuthorizingConfigUpdateInput$,
+  IdpAuthorizingConfigurationDetail$,
+  IdpAuthorizingConfigurationDetailInput$,
+  IdpAuthorizingConfigurationDetailUpdateInput$,
+  IdpAuthorizingConfigurationSummaryDetail$,
+  IdpAuthorizingType,
+  IdpClientSecretInput$,
   Image$,
   ImageConfiguration$,
   ImageCustomAction$,
@@ -1380,6 +1468,12 @@ import {
   ImpalaParameters$,
   ImportTableOperation$,
   ImportTableOperationSource$,
+  InboundConnector$,
+  InboundConnectorApplicationAssociationSummary$,
+  InboundConnectorConfig$,
+  InboundConnectorStatus,
+  InboundConnectorSummary$,
+  InboundConnectorType,
   IncludeFolderMembers,
   IncludeGeneratedAnswer,
   IncludeQuickSightQIndex,
@@ -1425,12 +1519,17 @@ import {
   JoinOperation$,
   JoinOperationType,
   JoinType,
+  KbDayOfWeek,
   KbIngestionStatus,
+  KbRefreshInterval,
   KbTemplateConfiguration$,
   KeyPairCredentials$,
   KnowledgeBase$,
   KnowledgeBaseConfiguration$,
   KnowledgeBaseIngestionSummary$,
+  KnowledgeBaseRefreshFrequency$,
+  KnowledgeBaseRefreshScheduleSummary$,
+  KnowledgeBaseScheduleRefreshOnEntity$,
   KnowledgeBaseSearchFilter$,
   KnowledgeBaseSearchFilterName,
   KnowledgeBaseSearchOperator,
@@ -1484,6 +1583,10 @@ import {
   LineInterpolation,
   LineSeriesAxisDisplayOptions$,
   LinkSharingConfiguration$,
+  ListAccessControlApplications$,
+  ListAccessControlApplicationsCommand,
+  ListAccessControlApplicationsRequest$,
+  ListAccessControlApplicationsResponse$,
   ListActionConnectors$,
   ListActionConnectorsCommand,
   ListActionConnectorsRequest$,
@@ -1579,10 +1682,22 @@ import {
   ListIdentityPropagationConfigsCommand,
   ListIdentityPropagationConfigsRequest$,
   ListIdentityPropagationConfigsResponse$,
+  ListInboundConnectorApplicationAssociations$,
+  ListInboundConnectorApplicationAssociationsCommand,
+  ListInboundConnectorApplicationAssociationsRequest$,
+  ListInboundConnectorApplicationAssociationsResponse$,
+  ListInboundConnectors$,
+  ListInboundConnectorsCommand,
+  ListInboundConnectorsRequest$,
+  ListInboundConnectorsResponse$,
   ListIngestions$,
   ListIngestionsCommand,
   ListIngestionsRequest$,
   ListIngestionsResponse$,
+  ListKnowledgeBaseRefreshSchedules$,
+  ListKnowledgeBaseRefreshSchedulesCommand,
+  ListKnowledgeBaseRefreshSchedulesRequest$,
+  ListKnowledgeBaseRefreshSchedulesResponse$,
   ListKnowledgeBases$,
   ListKnowledgeBasesCommand,
   ListKnowledgeBasesRequest$,
@@ -1599,6 +1714,10 @@ import {
   ListOAuthClientApplicationsCommand,
   ListOAuthClientApplicationsRequest$,
   ListOAuthClientApplicationsResponse$,
+  ListPrincipalsForPolicy$,
+  ListPrincipalsForPolicyCommand,
+  ListPrincipalsForPolicyRequest$,
+  ListPrincipalsForPolicyResponse$,
   ListRefreshSchedules$,
   ListRefreshSchedulesCommand,
   ListRefreshSchedulesRequest$,
@@ -1762,6 +1881,7 @@ import {
   OverrideDatasetParameterOperation$,
   paginateDescribeFolderPermissions,
   paginateDescribeFolderResolvedPermissions,
+  paginateListAccessControlApplications,
   paginateListActionConnectors,
   paginateListAnalyses,
   paginateListApprovalPolicies,
@@ -1783,11 +1903,15 @@ import {
   paginateListGroups,
   paginateListIAMPolicyAssignments,
   paginateListIAMPolicyAssignmentsForUser,
+  paginateListInboundConnectorApplicationAssociations,
+  paginateListInboundConnectors,
   paginateListIngestions,
+  paginateListKnowledgeBaseRefreshSchedules,
   paginateListKnowledgeBases,
   paginateListLimitsProfiles,
   paginateListNamespaces,
   paginateListOAuthClientApplications,
+  paginateListPrincipalsForPolicy,
   paginateListRoleMemberships,
   paginateListTemplateAliases,
   paginateListTemplates,
@@ -1883,6 +2007,8 @@ import {
   PluginVisualProperty$,
   PluginVisualSortConfiguration$,
   PluginVisualTableQuerySort$,
+  PolicyPrincipal$,
+  PolicyType,
   PostgreSqlParameters$,
   PreconditionNotMetException,
   PreconditionNotMetException$,
@@ -1893,6 +2019,7 @@ import {
   PredictQAResultsResponse$,
   PrestoParameters$,
   PrimaryValueDisplayType,
+  PrincipalType,
   ProfileLimitValue$,
   ProgressBarOptions$,
   ProjectOperation$,
@@ -1900,10 +2027,15 @@ import {
   PropertyUsage,
   ProviderConfig$,
   PurchaseMode,
+  PutAssignmentEntry$,
   PutDataSetRefreshProperties$,
   PutDataSetRefreshPropertiesCommand,
   PutDataSetRefreshPropertiesRequest$,
   PutDataSetRefreshPropertiesResponse$,
+  PutPolicyAssignment$,
+  PutPolicyAssignmentCommand,
+  PutPolicyAssignmentRequest$,
+  PutPolicyAssignmentResponse$,
   QAResult$,
   QAResultType,
   QBusinessInsightsStatus,
@@ -1914,6 +2046,15 @@ import {
   QueryExecutionMode,
   QueryExecutionOptions$,
   QueueInfo$,
+  QuickAuthenticationConfig$,
+  QuickAuthenticationConfigCreateOutput$,
+  QuickAuthenticationConfigInput$,
+  QuickAuthenticationConfigurationDetail$,
+  QuickAuthenticationConfigurationDetailCreateOutput$,
+  QuickAuthenticationConfigurationDetailInput$,
+  QuickAuthenticationType,
+  QuickManagedAuthCodeQuickAuthenticationConfigInput$,
+  QuickManagedPublicAuthCodeQuickAuthenticationConfig$,
   QuickSight,
   QuickSightClient,
   QuickSightServiceException,
@@ -2034,6 +2175,7 @@ import {
   ScatterPlotVisual$,
   ScheduleRefreshOnEntity$,
   SchedulesConfigurations$,
+  ScheduleState,
   ScrollBarOptions$,
   SearchActionConnectors$,
   SearchActionConnectorsCommand,
@@ -2425,6 +2567,7 @@ import {
   UndefinedSpecifiedValueType,
   UniqueKey$,
   UniqueValuesComputation$,
+  UnmaterializedCalculatedColumn$,
   UnpivotOperation$,
   UnsupportedPricingPlanException,
   UnsupportedPricingPlanException$,
@@ -2435,6 +2578,14 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateAccessControlApplication$,
+  UpdateAccessControlApplicationCommand,
+  UpdateAccessControlApplicationRequest$,
+  UpdateAccessControlApplicationResponse$,
+  UpdateAccessControlApplicationSecret$,
+  UpdateAccessControlApplicationSecretCommand,
+  UpdateAccessControlApplicationSecretRequest$,
+  UpdateAccessControlApplicationSecretResponse$,
   UpdateAccountCustomization$,
   UpdateAccountCustomizationCommand,
   UpdateAccountCustomizationRequest$,
@@ -2571,6 +2722,14 @@ import {
   UpdateIdentityPropagationConfigCommand,
   UpdateIdentityPropagationConfigRequest$,
   UpdateIdentityPropagationConfigResponse$,
+  UpdateInboundConnector$,
+  UpdateInboundConnectorApplicationAssociations$,
+  UpdateInboundConnectorApplicationAssociationsCommand,
+  UpdateInboundConnectorApplicationAssociationsRequest$,
+  UpdateInboundConnectorApplicationAssociationsResponse$,
+  UpdateInboundConnectorCommand,
+  UpdateInboundConnectorRequest$,
+  UpdateInboundConnectorResponse$,
   UpdateIpRestriction$,
   UpdateIpRestrictionCommand,
   UpdateIpRestrictionRequest$,
@@ -2585,6 +2744,10 @@ import {
   UpdateKnowledgeBasePermissionsCommand,
   UpdateKnowledgeBasePermissionsRequest$,
   UpdateKnowledgeBasePermissionsResponse$,
+  UpdateKnowledgeBaseRefreshSchedule$,
+  UpdateKnowledgeBaseRefreshScheduleCommand,
+  UpdateKnowledgeBaseRefreshScheduleRequest$,
+  UpdateKnowledgeBaseRefreshScheduleResponse$,
   UpdateKnowledgeBaseRequest$,
   UpdateKnowledgeBaseResponse$,
   UpdateLimitsProfile$,
@@ -2712,6 +2875,9 @@ import {
   UserLimitsEntry$,
   UserNameOrEmailFilter$,
   UserRole,
+  ValidationException,
+  ValidationException$,
+  ValidationExceptionField$,
   ValidationStrategy$,
   ValidationStrategyMode,
   ValueColumnConfiguration$,
@@ -2783,12 +2949,20 @@ assert(typeof BatchCreateTopicReviewedAnswerCommand === "function");
 assert(typeof BatchCreateTopicReviewedAnswer$ === "object");
 assert(typeof BatchDeleteKnowledgeBaseCommand === "function");
 assert(typeof BatchDeleteKnowledgeBase$ === "object");
+assert(typeof BatchDeletePolicyAssignmentByPolicyCommand === "function");
+assert(typeof BatchDeletePolicyAssignmentByPolicy$ === "object");
 assert(typeof BatchDeleteTopicReviewedAnswerCommand === "function");
 assert(typeof BatchDeleteTopicReviewedAnswer$ === "object");
 assert(typeof BatchDescribeUserLimitsCommand === "function");
 assert(typeof BatchDescribeUserLimits$ === "object");
+assert(typeof BatchPutPolicyAssignmentByPolicyCommand === "function");
+assert(typeof BatchPutPolicyAssignmentByPolicy$ === "object");
 assert(typeof CancelIngestionCommand === "function");
 assert(typeof CancelIngestion$ === "object");
+assert(typeof CreateAccessControlApplicationCommand === "function");
+assert(typeof CreateAccessControlApplication$ === "object");
+assert(typeof CreateAccessControlApplicationSecretCommand === "function");
+assert(typeof CreateAccessControlApplicationSecret$ === "object");
 assert(typeof CreateAccountCustomizationCommand === "function");
 assert(typeof CreateAccountCustomization$ === "object");
 assert(typeof CreateAccountSubscriptionCommand === "function");
@@ -2825,10 +2999,14 @@ assert(typeof CreateGroupMembershipCommand === "function");
 assert(typeof CreateGroupMembership$ === "object");
 assert(typeof CreateIAMPolicyAssignmentCommand === "function");
 assert(typeof CreateIAMPolicyAssignment$ === "object");
+assert(typeof CreateInboundConnectorCommand === "function");
+assert(typeof CreateInboundConnector$ === "object");
 assert(typeof CreateIngestionCommand === "function");
 assert(typeof CreateIngestion$ === "object");
 assert(typeof CreateKnowledgeBaseCommand === "function");
 assert(typeof CreateKnowledgeBase$ === "object");
+assert(typeof CreateKnowledgeBaseRefreshScheduleCommand === "function");
+assert(typeof CreateKnowledgeBaseRefreshSchedule$ === "object");
 assert(typeof CreateLimitsProfileCommand === "function");
 assert(typeof CreateLimitsProfile$ === "object");
 assert(typeof CreateNamespaceCommand === "function");
@@ -2857,6 +3035,10 @@ assert(typeof CreateTopicV2Command === "function");
 assert(typeof CreateTopicV2$ === "object");
 assert(typeof CreateVPCConnectionCommand === "function");
 assert(typeof CreateVPCConnection$ === "object");
+assert(typeof DeleteAccessControlApplicationCommand === "function");
+assert(typeof DeleteAccessControlApplication$ === "object");
+assert(typeof DeleteAccessControlApplicationSecretCommand === "function");
+assert(typeof DeleteAccessControlApplicationSecret$ === "object");
 assert(typeof DeleteAccountCustomizationCommand === "function");
 assert(typeof DeleteAccountCustomization$ === "object");
 assert(typeof DeleteAccountCustomPermissionCommand === "function");
@@ -2905,14 +3087,20 @@ assert(typeof DeleteIAMPolicyAssignmentCommand === "function");
 assert(typeof DeleteIAMPolicyAssignment$ === "object");
 assert(typeof DeleteIdentityPropagationConfigCommand === "function");
 assert(typeof DeleteIdentityPropagationConfig$ === "object");
+assert(typeof DeleteInboundConnectorCommand === "function");
+assert(typeof DeleteInboundConnector$ === "object");
 assert(typeof DeleteKnowledgeBaseCommand === "function");
 assert(typeof DeleteKnowledgeBase$ === "object");
+assert(typeof DeleteKnowledgeBaseRefreshScheduleCommand === "function");
+assert(typeof DeleteKnowledgeBaseRefreshSchedule$ === "object");
 assert(typeof DeleteLimitsProfileCommand === "function");
 assert(typeof DeleteLimitsProfile$ === "object");
 assert(typeof DeleteNamespaceCommand === "function");
 assert(typeof DeleteNamespace$ === "object");
 assert(typeof DeleteOAuthClientApplicationCommand === "function");
 assert(typeof DeleteOAuthClientApplication$ === "object");
+assert(typeof DeletePolicyAssignmentCommand === "function");
+assert(typeof DeletePolicyAssignment$ === "object");
 assert(typeof DeleteRefreshScheduleCommand === "function");
 assert(typeof DeleteRefreshSchedule$ === "object");
 assert(typeof DeleteRoleCustomPermissionCommand === "function");
@@ -2943,6 +3131,8 @@ assert(typeof DeleteUserCustomPermissionCommand === "function");
 assert(typeof DeleteUserCustomPermission$ === "object");
 assert(typeof DeleteVPCConnectionCommand === "function");
 assert(typeof DeleteVPCConnection$ === "object");
+assert(typeof DescribeAccessControlApplicationCommand === "function");
+assert(typeof DescribeAccessControlApplication$ === "object");
 assert(typeof DescribeAccountCustomizationCommand === "function");
 assert(typeof DescribeAccountCustomization$ === "object");
 assert(typeof DescribeAccountCustomPermissionCommand === "function");
@@ -3025,6 +3215,8 @@ assert(typeof DescribeGroupMembershipCommand === "function");
 assert(typeof DescribeGroupMembership$ === "object");
 assert(typeof DescribeIAMPolicyAssignmentCommand === "function");
 assert(typeof DescribeIAMPolicyAssignment$ === "object");
+assert(typeof DescribeInboundConnectorCommand === "function");
+assert(typeof DescribeInboundConnector$ === "object");
 assert(typeof DescribeIngestionCommand === "function");
 assert(typeof DescribeIngestion$ === "object");
 assert(typeof DescribeIpRestrictionCommand === "function");
@@ -3035,6 +3227,8 @@ assert(typeof DescribeKnowledgeBaseCommand === "function");
 assert(typeof DescribeKnowledgeBase$ === "object");
 assert(typeof DescribeKnowledgeBasePermissionsCommand === "function");
 assert(typeof DescribeKnowledgeBasePermissions$ === "object");
+assert(typeof DescribeKnowledgeBaseRefreshScheduleCommand === "function");
+assert(typeof DescribeKnowledgeBaseRefreshSchedule$ === "object");
 assert(typeof DescribeLimitsProfileCommand === "function");
 assert(typeof DescribeLimitsProfile$ === "object");
 assert(typeof DescribeNamespaceCommand === "function");
@@ -3101,8 +3295,12 @@ assert(typeof GetFlowPermissionsCommand === "function");
 assert(typeof GetFlowPermissions$ === "object");
 assert(typeof GetIdentityContextCommand === "function");
 assert(typeof GetIdentityContext$ === "object");
+assert(typeof GetPolicyAssignmentCommand === "function");
+assert(typeof GetPolicyAssignment$ === "object");
 assert(typeof GetSessionEmbedUrlCommand === "function");
 assert(typeof GetSessionEmbedUrl$ === "object");
+assert(typeof ListAccessControlApplicationsCommand === "function");
+assert(typeof ListAccessControlApplications$ === "object");
 assert(typeof ListActionConnectorsCommand === "function");
 assert(typeof ListActionConnectors$ === "object");
 assert(typeof ListAgentsCommand === "function");
@@ -3149,8 +3347,14 @@ assert(typeof ListIAMPolicyAssignmentsForUserCommand === "function");
 assert(typeof ListIAMPolicyAssignmentsForUser$ === "object");
 assert(typeof ListIdentityPropagationConfigsCommand === "function");
 assert(typeof ListIdentityPropagationConfigs$ === "object");
+assert(typeof ListInboundConnectorApplicationAssociationsCommand === "function");
+assert(typeof ListInboundConnectorApplicationAssociations$ === "object");
+assert(typeof ListInboundConnectorsCommand === "function");
+assert(typeof ListInboundConnectors$ === "object");
 assert(typeof ListIngestionsCommand === "function");
 assert(typeof ListIngestions$ === "object");
+assert(typeof ListKnowledgeBaseRefreshSchedulesCommand === "function");
+assert(typeof ListKnowledgeBaseRefreshSchedules$ === "object");
 assert(typeof ListKnowledgeBasesCommand === "function");
 assert(typeof ListKnowledgeBases$ === "object");
 assert(typeof ListLimitsProfilesCommand === "function");
@@ -3159,6 +3363,8 @@ assert(typeof ListNamespacesCommand === "function");
 assert(typeof ListNamespaces$ === "object");
 assert(typeof ListOAuthClientApplicationsCommand === "function");
 assert(typeof ListOAuthClientApplications$ === "object");
+assert(typeof ListPrincipalsForPolicyCommand === "function");
+assert(typeof ListPrincipalsForPolicy$ === "object");
 assert(typeof ListRefreshSchedulesCommand === "function");
 assert(typeof ListRefreshSchedules$ === "object");
 assert(typeof ListRoleMembershipsCommand === "function");
@@ -3203,6 +3409,8 @@ assert(typeof PredictQAResultsCommand === "function");
 assert(typeof PredictQAResults$ === "object");
 assert(typeof PutDataSetRefreshPropertiesCommand === "function");
 assert(typeof PutDataSetRefreshProperties$ === "object");
+assert(typeof PutPolicyAssignmentCommand === "function");
+assert(typeof PutPolicyAssignment$ === "object");
 assert(typeof RegisterUserCommand === "function");
 assert(typeof RegisterUser$ === "object");
 assert(typeof RestoreAnalysisCommand === "function");
@@ -3249,6 +3457,10 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateAccessControlApplicationCommand === "function");
+assert(typeof UpdateAccessControlApplication$ === "object");
+assert(typeof UpdateAccessControlApplicationSecretCommand === "function");
+assert(typeof UpdateAccessControlApplicationSecret$ === "object");
 assert(typeof UpdateAccountCustomizationCommand === "function");
 assert(typeof UpdateAccountCustomization$ === "object");
 assert(typeof UpdateAccountCustomPermissionCommand === "function");
@@ -3317,6 +3529,10 @@ assert(typeof UpdateIAMPolicyAssignmentCommand === "function");
 assert(typeof UpdateIAMPolicyAssignment$ === "object");
 assert(typeof UpdateIdentityPropagationConfigCommand === "function");
 assert(typeof UpdateIdentityPropagationConfig$ === "object");
+assert(typeof UpdateInboundConnectorCommand === "function");
+assert(typeof UpdateInboundConnector$ === "object");
+assert(typeof UpdateInboundConnectorApplicationAssociationsCommand === "function");
+assert(typeof UpdateInboundConnectorApplicationAssociations$ === "object");
 assert(typeof UpdateIpRestrictionCommand === "function");
 assert(typeof UpdateIpRestriction$ === "object");
 assert(typeof UpdateKeyRegistrationCommand === "function");
@@ -3325,6 +3541,8 @@ assert(typeof UpdateKnowledgeBaseCommand === "function");
 assert(typeof UpdateKnowledgeBase$ === "object");
 assert(typeof UpdateKnowledgeBasePermissionsCommand === "function");
 assert(typeof UpdateKnowledgeBasePermissions$ === "object");
+assert(typeof UpdateKnowledgeBaseRefreshScheduleCommand === "function");
+assert(typeof UpdateKnowledgeBaseRefreshSchedule$ === "object");
 assert(typeof UpdateLimitsProfileCommand === "function");
 assert(typeof UpdateLimitsProfile$ === "object");
 assert(typeof UpdateOAuthClientApplicationCommand === "function");
@@ -3382,6 +3600,8 @@ assert(typeof UpdateUserCustomPermission$ === "object");
 assert(typeof UpdateVPCConnectionCommand === "function");
 assert(typeof UpdateVPCConnection$ === "object");
 // structural schemas
+assert(typeof AccessControlApplication$ === "object");
+assert(typeof AccessControlApplicationSummary$ === "object");
 assert(typeof AccessControlConfiguration$ === "object");
 assert(typeof AccountCustomization$ === "object");
 assert(typeof AccountInfo$ === "object");
@@ -3527,11 +3747,19 @@ assert(typeof BatchDeleteKnowledgeBaseFailure$ === "object");
 assert(typeof BatchDeleteKnowledgeBaseRequest$ === "object");
 assert(typeof BatchDeleteKnowledgeBaseResponse$ === "object");
 assert(typeof BatchDeleteKnowledgeBaseSuccess$ === "object");
+assert(typeof BatchDeletePolicyAssignmentByPolicyRequest$ === "object");
+assert(typeof BatchDeletePolicyAssignmentByPolicyResponse$ === "object");
+assert(typeof BatchDeletePolicyAssignmentError$ === "object");
+assert(typeof BatchDeletePolicyAssignmentSuccess$ === "object");
 assert(typeof BatchDeleteTopicReviewedAnswerRequest$ === "object");
 assert(typeof BatchDeleteTopicReviewedAnswerResponse$ === "object");
 assert(typeof BatchDescribeUserLimitsError$ === "object");
 assert(typeof BatchDescribeUserLimitsRequest$ === "object");
 assert(typeof BatchDescribeUserLimitsResponse$ === "object");
+assert(typeof BatchPutPolicyAssignmentByPolicyRequest$ === "object");
+assert(typeof BatchPutPolicyAssignmentByPolicyResponse$ === "object");
+assert(typeof BatchPutPolicyAssignmentError$ === "object");
+assert(typeof BatchPutPolicyAssignmentSuccess$ === "object");
 assert(typeof BigQueryParameters$ === "object");
 assert(typeof BinCountOptions$ === "object");
 assert(typeof BinWidthOptions$ === "object");
@@ -3579,6 +3807,8 @@ assert(typeof ChartAxisLabelOptions$ === "object");
 assert(typeof ClientCredentialsDetails$ === "object");
 assert(typeof ClientCredentialsGrantDetails$ === "object");
 assert(typeof ClientCredentialsGrantMetadata$ === "object");
+assert(typeof ClientSecretConfiguration$ === "object");
+assert(typeof ClientSecretConfigurationDetail$ === "object");
 assert(typeof ClusterMarker$ === "object");
 assert(typeof ClusterMarkerConfiguration$ === "object");
 assert(typeof CollectiveConstant$ === "object");
@@ -3630,6 +3860,10 @@ assert(typeof ControlSortConfiguration$ === "object");
 assert(typeof ControlTitleFontConfiguration$ === "object");
 assert(typeof ControlTitleFormatText$ === "object");
 assert(typeof Coordinate$ === "object");
+assert(typeof CreateAccessControlApplicationRequest$ === "object");
+assert(typeof CreateAccessControlApplicationResponse$ === "object");
+assert(typeof CreateAccessControlApplicationSecretRequest$ === "object");
+assert(typeof CreateAccessControlApplicationSecretResponse$ === "object");
 assert(typeof CreateAccountCustomizationRequest$ === "object");
 assert(typeof CreateAccountCustomizationResponse$ === "object");
 assert(typeof CreateAccountSubscriptionRequest$ === "object");
@@ -3667,8 +3901,12 @@ assert(typeof CreateGroupRequest$ === "object");
 assert(typeof CreateGroupResponse$ === "object");
 assert(typeof CreateIAMPolicyAssignmentRequest$ === "object");
 assert(typeof CreateIAMPolicyAssignmentResponse$ === "object");
+assert(typeof CreateInboundConnectorRequest$ === "object");
+assert(typeof CreateInboundConnectorResponse$ === "object");
 assert(typeof CreateIngestionRequest$ === "object");
 assert(typeof CreateIngestionResponse$ === "object");
+assert(typeof CreateKnowledgeBaseRefreshScheduleRequest$ === "object");
+assert(typeof CreateKnowledgeBaseRefreshScheduleResponse$ === "object");
 assert(typeof CreateKnowledgeBaseRequest$ === "object");
 assert(typeof CreateKnowledgeBaseResponse$ === "object");
 assert(typeof CreateLimitsProfileRequest$ === "object");
@@ -3836,6 +4074,10 @@ assert(typeof DefaultSectionBasedLayoutConfiguration$ === "object");
 assert(typeof DefaultSliderControlOptions$ === "object");
 assert(typeof DefaultTextAreaControlOptions$ === "object");
 assert(typeof DefaultTextFieldControlOptions$ === "object");
+assert(typeof DeleteAccessControlApplicationRequest$ === "object");
+assert(typeof DeleteAccessControlApplicationResponse$ === "object");
+assert(typeof DeleteAccessControlApplicationSecretRequest$ === "object");
+assert(typeof DeleteAccessControlApplicationSecretResponse$ === "object");
 assert(typeof DeleteAccountCustomizationRequest$ === "object");
 assert(typeof DeleteAccountCustomizationResponse$ === "object");
 assert(typeof DeleteAccountCustomPermissionRequest$ === "object");
@@ -3884,6 +4126,10 @@ assert(typeof DeleteIAMPolicyAssignmentRequest$ === "object");
 assert(typeof DeleteIAMPolicyAssignmentResponse$ === "object");
 assert(typeof DeleteIdentityPropagationConfigRequest$ === "object");
 assert(typeof DeleteIdentityPropagationConfigResponse$ === "object");
+assert(typeof DeleteInboundConnectorRequest$ === "object");
+assert(typeof DeleteInboundConnectorResponse$ === "object");
+assert(typeof DeleteKnowledgeBaseRefreshScheduleRequest$ === "object");
+assert(typeof DeleteKnowledgeBaseRefreshScheduleResponse$ === "object");
 assert(typeof DeleteKnowledgeBaseRequest$ === "object");
 assert(typeof DeleteKnowledgeBaseResponse$ === "object");
 assert(typeof DeleteLimitsProfileRequest$ === "object");
@@ -3892,6 +4138,8 @@ assert(typeof DeleteNamespaceRequest$ === "object");
 assert(typeof DeleteNamespaceResponse$ === "object");
 assert(typeof DeleteOAuthClientApplicationRequest$ === "object");
 assert(typeof DeleteOAuthClientApplicationResponse$ === "object");
+assert(typeof DeletePolicyAssignmentRequest$ === "object");
+assert(typeof DeletePolicyAssignmentResponse$ === "object");
 assert(typeof DeleteRefreshScheduleRequest$ === "object");
 assert(typeof DeleteRefreshScheduleResponse$ === "object");
 assert(typeof DeleteRoleCustomPermissionRequest$ === "object");
@@ -3922,6 +4170,8 @@ assert(typeof DeleteUserRequest$ === "object");
 assert(typeof DeleteUserResponse$ === "object");
 assert(typeof DeleteVPCConnectionRequest$ === "object");
 assert(typeof DeleteVPCConnectionResponse$ === "object");
+assert(typeof DescribeAccessControlApplicationRequest$ === "object");
+assert(typeof DescribeAccessControlApplicationResponse$ === "object");
 assert(typeof DescribeAccountCustomizationRequest$ === "object");
 assert(typeof DescribeAccountCustomizationResponse$ === "object");
 assert(typeof DescribeAccountCustomPermissionRequest$ === "object");
@@ -4004,6 +4254,8 @@ assert(typeof DescribeGroupRequest$ === "object");
 assert(typeof DescribeGroupResponse$ === "object");
 assert(typeof DescribeIAMPolicyAssignmentRequest$ === "object");
 assert(typeof DescribeIAMPolicyAssignmentResponse$ === "object");
+assert(typeof DescribeInboundConnectorRequest$ === "object");
+assert(typeof DescribeInboundConnectorResponse$ === "object");
 assert(typeof DescribeIngestionRequest$ === "object");
 assert(typeof DescribeIngestionResponse$ === "object");
 assert(typeof DescribeIpRestrictionRequest$ === "object");
@@ -4012,6 +4264,8 @@ assert(typeof DescribeKeyRegistrationRequest$ === "object");
 assert(typeof DescribeKeyRegistrationResponse$ === "object");
 assert(typeof DescribeKnowledgeBasePermissionsRequest$ === "object");
 assert(typeof DescribeKnowledgeBasePermissionsResponse$ === "object");
+assert(typeof DescribeKnowledgeBaseRefreshScheduleRequest$ === "object");
+assert(typeof DescribeKnowledgeBaseRefreshScheduleResponse$ === "object");
 assert(typeof DescribeKnowledgeBaseRequest$ === "object");
 assert(typeof DescribeKnowledgeBaseResponse$ === "object");
 assert(typeof DescribeLimitsProfileRequest$ === "object");
@@ -4090,6 +4344,12 @@ assert(typeof ExplicitHierarchy$ === "object");
 assert(typeof ExportHiddenFieldsOption$ === "object");
 assert(typeof ExportToCSVOption$ === "object");
 assert(typeof ExportWithHiddenFieldsOption$ === "object");
+assert(typeof ExternalIdpConfidentialAuthCodeAuthorizingConfig$ === "object");
+assert(typeof ExternalIdpConfidentialAuthCodeAuthorizingConfigInput$ === "object");
+assert(typeof ExternalIdpConfidentialAuthCodeAuthorizingConfigSummary$ === "object");
+assert(typeof ExternalIdpConfidentialAuthCodeAuthorizingConfigUpdateInput$ === "object");
+assert(typeof ExternalIdpConfidentialClientSecret$ === "object");
+assert(typeof ExternalIdpPublicAuthCodeAuthorizingConfig$ === "object");
 assert(typeof FailedKeyRegistrationEntry$ === "object");
 assert(typeof FailedSpaceResourceOperation$ === "object");
 assert(typeof FailedToUpdateAssociation$ === "object");
@@ -4226,6 +4486,8 @@ assert(typeof GetFlowPermissionsInput$ === "object");
 assert(typeof GetFlowPermissionsOutput$ === "object");
 assert(typeof GetIdentityContextRequest$ === "object");
 assert(typeof GetIdentityContextResponse$ === "object");
+assert(typeof GetPolicyAssignmentRequest$ === "object");
+assert(typeof GetPolicyAssignmentResponse$ === "object");
 assert(typeof GetSessionEmbedUrlRequest$ === "object");
 assert(typeof GetSessionEmbedUrlResponse$ === "object");
 assert(typeof GlobalTableBorderOptions$ === "object");
@@ -4266,8 +4528,18 @@ assert(typeof HistogramVisual$ === "object");
 assert(typeof IAMConnectionMetadata$ === "object");
 assert(typeof IAMPolicyAssignment$ === "object");
 assert(typeof IAMPolicyAssignmentSummary$ === "object");
+assert(typeof IdcTrustedTokenIssuerConfig$ === "object");
 assert(typeof Identifier$ === "object");
 assert(typeof IdentityCenterConfiguration$ === "object");
+assert(typeof IdpAuthorizingConfig$ === "object");
+assert(typeof IdpAuthorizingConfigInput$ === "object");
+assert(typeof IdpAuthorizingConfigSummary$ === "object");
+assert(typeof IdpAuthorizingConfigUpdateInput$ === "object");
+assert(typeof IdpAuthorizingConfigurationDetail$ === "object");
+assert(typeof IdpAuthorizingConfigurationDetailInput$ === "object");
+assert(typeof IdpAuthorizingConfigurationDetailUpdateInput$ === "object");
+assert(typeof IdpAuthorizingConfigurationSummaryDetail$ === "object");
+assert(typeof IdpClientSecretInput$ === "object");
 assert(typeof Image$ === "object");
 assert(typeof ImageConfiguration$ === "object");
 assert(typeof ImageCustomAction$ === "object");
@@ -4282,6 +4554,10 @@ assert(typeof ImageStaticFile$ === "object");
 assert(typeof ImpalaParameters$ === "object");
 assert(typeof ImportTableOperation$ === "object");
 assert(typeof ImportTableOperationSource$ === "object");
+assert(typeof InboundConnector$ === "object");
+assert(typeof InboundConnectorApplicationAssociationSummary$ === "object");
+assert(typeof InboundConnectorConfig$ === "object");
+assert(typeof InboundConnectorSummary$ === "object");
 assert(typeof IncrementalRefresh$ === "object");
 assert(typeof Ingestion$ === "object");
 assert(typeof InlineCustomInstruction$ === "object");
@@ -4307,6 +4583,9 @@ assert(typeof KeyPairCredentials$ === "object");
 assert(typeof KnowledgeBase$ === "object");
 assert(typeof KnowledgeBaseConfiguration$ === "object");
 assert(typeof KnowledgeBaseIngestionSummary$ === "object");
+assert(typeof KnowledgeBaseRefreshFrequency$ === "object");
+assert(typeof KnowledgeBaseRefreshScheduleSummary$ === "object");
+assert(typeof KnowledgeBaseScheduleRefreshOnEntity$ === "object");
 assert(typeof KnowledgeBaseSearchFilter$ === "object");
 assert(typeof KnowledgeBaseSortBy$ === "object");
 assert(typeof KnowledgeBaseSummary$ === "object");
@@ -4344,6 +4623,8 @@ assert(typeof LineChartSortConfiguration$ === "object");
 assert(typeof LineChartVisual$ === "object");
 assert(typeof LineSeriesAxisDisplayOptions$ === "object");
 assert(typeof LinkSharingConfiguration$ === "object");
+assert(typeof ListAccessControlApplicationsRequest$ === "object");
+assert(typeof ListAccessControlApplicationsResponse$ === "object");
 assert(typeof ListActionConnectorsRequest$ === "object");
 assert(typeof ListActionConnectorsResponse$ === "object");
 assert(typeof ListAgentsRequest$ === "object");
@@ -4393,8 +4674,14 @@ assert(typeof ListIAMPolicyAssignmentsRequest$ === "object");
 assert(typeof ListIAMPolicyAssignmentsResponse$ === "object");
 assert(typeof ListIdentityPropagationConfigsRequest$ === "object");
 assert(typeof ListIdentityPropagationConfigsResponse$ === "object");
+assert(typeof ListInboundConnectorApplicationAssociationsRequest$ === "object");
+assert(typeof ListInboundConnectorApplicationAssociationsResponse$ === "object");
+assert(typeof ListInboundConnectorsRequest$ === "object");
+assert(typeof ListInboundConnectorsResponse$ === "object");
 assert(typeof ListIngestionsRequest$ === "object");
 assert(typeof ListIngestionsResponse$ === "object");
+assert(typeof ListKnowledgeBaseRefreshSchedulesRequest$ === "object");
+assert(typeof ListKnowledgeBaseRefreshSchedulesResponse$ === "object");
 assert(typeof ListKnowledgeBasesRequest$ === "object");
 assert(typeof ListKnowledgeBasesResponse$ === "object");
 assert(typeof ListLimitsProfilesRequest$ === "object");
@@ -4403,6 +4690,8 @@ assert(typeof ListNamespacesRequest$ === "object");
 assert(typeof ListNamespacesResponse$ === "object");
 assert(typeof ListOAuthClientApplicationsRequest$ === "object");
 assert(typeof ListOAuthClientApplicationsResponse$ === "object");
+assert(typeof ListPrincipalsForPolicyRequest$ === "object");
+assert(typeof ListPrincipalsForPolicyResponse$ === "object");
 assert(typeof ListRefreshSchedulesRequest$ === "object");
 assert(typeof ListRefreshSchedulesResponse$ === "object");
 assert(typeof ListRoleMembershipsRequest$ === "object");
@@ -4565,6 +4854,7 @@ assert(typeof PluginVisualOptions$ === "object");
 assert(typeof PluginVisualProperty$ === "object");
 assert(typeof PluginVisualSortConfiguration$ === "object");
 assert(typeof PluginVisualTableQuerySort$ === "object");
+assert(typeof PolicyPrincipal$ === "object");
 assert(typeof PostgreSqlParameters$ === "object");
 assert(typeof PredefinedHierarchy$ === "object");
 assert(typeof PredictQAResultsRequest$ === "object");
@@ -4574,13 +4864,24 @@ assert(typeof ProfileLimitValue$ === "object");
 assert(typeof ProgressBarOptions$ === "object");
 assert(typeof ProjectOperation$ === "object");
 assert(typeof ProviderConfig$ === "object");
+assert(typeof PutAssignmentEntry$ === "object");
 assert(typeof PutDataSetRefreshPropertiesRequest$ === "object");
 assert(typeof PutDataSetRefreshPropertiesResponse$ === "object");
+assert(typeof PutPolicyAssignmentRequest$ === "object");
+assert(typeof PutPolicyAssignmentResponse$ === "object");
 assert(typeof QAResult$ === "object");
 assert(typeof QBusinessParameters$ === "object");
 assert(typeof QDataKey$ === "object");
 assert(typeof QueryExecutionOptions$ === "object");
 assert(typeof QueueInfo$ === "object");
+assert(typeof QuickAuthenticationConfig$ === "object");
+assert(typeof QuickAuthenticationConfigCreateOutput$ === "object");
+assert(typeof QuickAuthenticationConfigInput$ === "object");
+assert(typeof QuickAuthenticationConfigurationDetail$ === "object");
+assert(typeof QuickAuthenticationConfigurationDetailCreateOutput$ === "object");
+assert(typeof QuickAuthenticationConfigurationDetailInput$ === "object");
+assert(typeof QuickManagedAuthCodeQuickAuthenticationConfigInput$ === "object");
+assert(typeof QuickManagedPublicAuthCodeQuickAuthenticationConfig$ === "object");
 assert(typeof QuickSuiteActionsOption$ === "object");
 assert(typeof RadarChartAggregatedFieldWells$ === "object");
 assert(typeof RadarChartAreaStyleSettings$ === "object");
@@ -4945,10 +5246,15 @@ assert(typeof UIColorPalette$ === "object");
 assert(typeof UnaggregatedField$ === "object");
 assert(typeof UniqueKey$ === "object");
 assert(typeof UniqueValuesComputation$ === "object");
+assert(typeof UnmaterializedCalculatedColumn$ === "object");
 assert(typeof UnpivotOperation$ === "object");
 assert(typeof UntagColumnOperation$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdateAccessControlApplicationRequest$ === "object");
+assert(typeof UpdateAccessControlApplicationResponse$ === "object");
+assert(typeof UpdateAccessControlApplicationSecretRequest$ === "object");
+assert(typeof UpdateAccessControlApplicationSecretResponse$ === "object");
 assert(typeof UpdateAccountCustomizationRequest$ === "object");
 assert(typeof UpdateAccountCustomizationResponse$ === "object");
 assert(typeof UpdateAccountCustomPermissionRequest$ === "object");
@@ -5017,12 +5323,18 @@ assert(typeof UpdateIAMPolicyAssignmentRequest$ === "object");
 assert(typeof UpdateIAMPolicyAssignmentResponse$ === "object");
 assert(typeof UpdateIdentityPropagationConfigRequest$ === "object");
 assert(typeof UpdateIdentityPropagationConfigResponse$ === "object");
+assert(typeof UpdateInboundConnectorApplicationAssociationsRequest$ === "object");
+assert(typeof UpdateInboundConnectorApplicationAssociationsResponse$ === "object");
+assert(typeof UpdateInboundConnectorRequest$ === "object");
+assert(typeof UpdateInboundConnectorResponse$ === "object");
 assert(typeof UpdateIpRestrictionRequest$ === "object");
 assert(typeof UpdateIpRestrictionResponse$ === "object");
 assert(typeof UpdateKeyRegistrationRequest$ === "object");
 assert(typeof UpdateKeyRegistrationResponse$ === "object");
 assert(typeof UpdateKnowledgeBasePermissionsRequest$ === "object");
 assert(typeof UpdateKnowledgeBasePermissionsResponse$ === "object");
+assert(typeof UpdateKnowledgeBaseRefreshScheduleRequest$ === "object");
+assert(typeof UpdateKnowledgeBaseRefreshScheduleResponse$ === "object");
 assert(typeof UpdateKnowledgeBaseRequest$ === "object");
 assert(typeof UpdateKnowledgeBaseResponse$ === "object");
 assert(typeof UpdateLimitsProfileRequest$ === "object");
@@ -5090,6 +5402,7 @@ assert(typeof UserIndexCapacityFilter$ === "object");
 assert(typeof UserLimits$ === "object");
 assert(typeof UserLimitsEntry$ === "object");
 assert(typeof UserNameOrEmailFilter$ === "object");
+assert(typeof ValidationExceptionField$ === "object");
 assert(typeof ValidationStrategy$ === "object");
 assert(typeof ValueColumnConfiguration$ === "object");
 assert(typeof VideoExtractionConfiguration$ === "object");
@@ -5134,6 +5447,8 @@ assert(typeof WordCloudSortConfiguration$ === "object");
 assert(typeof WordCloudVisual$ === "object");
 assert(typeof YAxisOptions$ === "object");
 // enums
+assert(typeof AccessControlApplicationAuthenticationType === "object");
+assert(typeof AccessControlApplicationStatus === "object");
 assert(typeof ActionConnectorErrorType === "object");
 assert(typeof ActionConnectorSearchFilterNameEnum === "object");
 assert(typeof ActionConnectorType === "object");
@@ -5187,6 +5502,7 @@ assert(typeof CategoryFilterMatchOperator === "object");
 assert(typeof CategoryFilterSelectAllOptions === "object");
 assert(typeof CategoryFilterType === "object");
 assert(typeof ClientCredentialsSource === "object");
+assert(typeof ClientSecretSourceType === "object");
 assert(typeof ColorFillType === "object");
 assert(typeof ColumnDataRole === "object");
 assert(typeof ColumnDataSubType === "object");
@@ -5276,8 +5592,11 @@ assert(typeof HorizontalTextAlignment === "object");
 assert(typeof Icon === "object");
 assert(typeof IdentityStore === "object");
 assert(typeof IdentityType === "object");
+assert(typeof IdpAuthorizingType === "object");
 assert(typeof ImageCustomActionTrigger === "object");
 assert(typeof ImageExtractionStatus === "object");
+assert(typeof InboundConnectorStatus === "object");
+assert(typeof InboundConnectorType === "object");
 assert(typeof IncludeFolderMembers === "object");
 assert(typeof IncludeGeneratedAnswer === "object");
 assert(typeof IncludeQuickSightQIndex === "object");
@@ -5289,7 +5608,9 @@ assert(typeof IngestionType === "object");
 assert(typeof InputColumnDataType === "object");
 assert(typeof JoinOperationType === "object");
 assert(typeof JoinType === "object");
+assert(typeof KbDayOfWeek === "object");
 assert(typeof KbIngestionStatus === "object");
+assert(typeof KbRefreshInterval === "object");
 assert(typeof KnowledgeBaseSearchFilterName === "object");
 assert(typeof KnowledgeBaseSearchOperator === "object");
 assert(typeof KnowledgeBaseSortByField === "object");
@@ -5336,7 +5657,9 @@ assert(typeof PivotTableMetricPlacement === "object");
 assert(typeof PivotTableRowsLayout === "object");
 assert(typeof PivotTableSubtotalLevel === "object");
 assert(typeof PluginVisualAxisName === "object");
+assert(typeof PolicyType === "object");
 assert(typeof PrimaryValueDisplayType === "object");
+assert(typeof PrincipalType === "object");
 assert(typeof PropertyRole === "object");
 assert(typeof PropertyUsage === "object");
 assert(typeof PurchaseMode === "object");
@@ -5345,6 +5668,7 @@ assert(typeof QBusinessInsightsStatus === "object");
 assert(typeof QDataKeyType === "object");
 assert(typeof QSearchStatus === "object");
 assert(typeof QueryExecutionMode === "object");
+assert(typeof QuickAuthenticationType === "object");
 assert(typeof RadarChartAxesRangeScale === "object");
 assert(typeof RadarChartShape === "object");
 assert(typeof ReferenceLineLabelHorizontalPosition === "object");
@@ -5363,6 +5687,7 @@ assert(typeof ReviewedAnswerErrorCode === "object");
 assert(typeof Role === "object");
 assert(typeof RowLevelPermissionFormatVersion === "object");
 assert(typeof RowLevelPermissionPolicy === "object");
+assert(typeof ScheduleState === "object");
 assert(typeof SearchAppsFilterName === "object");
 assert(typeof SearchFilterOperator === "object");
 assert(typeof SectionPageBreakStatus === "object");
@@ -5502,10 +5827,13 @@ assert(UnsupportedPricingPlanException.prototype instanceof QuickSightServiceExc
 assert(typeof UnsupportedPricingPlanException$ === "object");
 assert(UnsupportedUserEditionException.prototype instanceof QuickSightServiceException);
 assert(typeof UnsupportedUserEditionException$ === "object");
+assert(ValidationException.prototype instanceof QuickSightServiceException);
+assert(typeof ValidationException$ === "object");
 assert(QuickSightServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeFolderPermissions === "function");
 assert(typeof paginateDescribeFolderResolvedPermissions === "function");
+assert(typeof paginateListAccessControlApplications === "function");
 assert(typeof paginateListActionConnectors === "function");
 assert(typeof paginateListAnalyses === "function");
 assert(typeof paginateListApprovalPolicies === "function");
@@ -5527,11 +5855,15 @@ assert(typeof paginateListGroupMemberships === "function");
 assert(typeof paginateListGroups === "function");
 assert(typeof paginateListIAMPolicyAssignments === "function");
 assert(typeof paginateListIAMPolicyAssignmentsForUser === "function");
+assert(typeof paginateListInboundConnectorApplicationAssociations === "function");
+assert(typeof paginateListInboundConnectors === "function");
 assert(typeof paginateListIngestions === "function");
+assert(typeof paginateListKnowledgeBaseRefreshSchedules === "function");
 assert(typeof paginateListKnowledgeBases === "function");
 assert(typeof paginateListLimitsProfiles === "function");
 assert(typeof paginateListNamespaces === "function");
 assert(typeof paginateListOAuthClientApplications === "function");
+assert(typeof paginateListPrincipalsForPolicy === "function");
 assert(typeof paginateListRoleMemberships === "function");
 assert(typeof paginateListTemplateAliases === "function");
 assert(typeof paginateListTemplateVersions === "function");

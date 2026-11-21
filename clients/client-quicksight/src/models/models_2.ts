@@ -1,8 +1,8 @@
 // smithy-typescript generated code
 import type {
+  AccessControlApplicationAuthenticationType,
+  AccessControlApplicationStatus,
   ActionConnectorType,
-  AgentLifecycle,
-  AgentStatus,
   AggType,
   AnalysisFilterAttribute,
   AnchorType,
@@ -33,6 +33,7 @@ import type {
   BrandVersionStatus,
   CapabilityState,
   ClientCredentialsSource,
+  ClientSecretSourceType,
   ColumnDataSubType,
   ColumnDataType,
   ColumnOrderingType,
@@ -41,9 +42,6 @@ import type {
   ConstantType,
   ContributionAnalysisDirection,
   ContributionAnalysisSortType,
-  DashboardBehavior,
-  DashboardUIState,
-  DefaultCategoryEffect,
   DisplayFormat,
   Edition,
   FilterClass,
@@ -52,11 +50,14 @@ import type {
   GeoSpatialDataRole,
   GovernedAction,
   HorizontalTextAlignment,
+  IdpAuthorizingType,
   LimitSource,
   LimitUnit,
+  LineInterpolation,
   LookbackWindowSizeUnit,
   NullFilterOption,
   NumberScale,
+  QuickAuthenticationType,
   RefreshFailureAlertStatus,
   ResourceStatus,
   ResourceType,
@@ -65,15 +66,21 @@ import type {
   SheetContentType,
   SnapshotFileFormatType,
   SnapshotFileSheetSelectionScope,
+  SparklineAxisBehavior,
+  SparklineVisualType,
   StarburstProductType,
+  TableOrientation,
+  TableTotalsPlacement,
+  TableTotalsScrollStatus,
   TimeGranularity,
   TopicIRFilterFunction,
   TopicIRFilterType,
   TopicNumericSeparatorSymbol,
   TopicSortDirection,
   TopicTimeGranularity,
+  TransposedColumnType,
   UndefinedSpecifiedValueType,
-  ValidationStrategyMode,
+  Visibility,
   WebCrawlerAuthType,
   WordCloudCloudLayout,
   WordCloudWordCasing,
@@ -84,7 +91,6 @@ import type {
 import type {
   AccountCustomization,
   AdditionalNotes,
-  AdHocFilteringOption,
   AggFunction,
   AggregationPartitionBy,
   AmazonElasticsearchParameters,
@@ -93,20 +99,20 @@ import type {
   ChartAxisLabelOptions,
   DataLabelOptions,
   DimensionField,
+  ExternalIdpPublicAuthCodeAuthorizingConfig,
   FilterControl,
   FontConfiguration,
+  IdcTrustedTokenIssuerConfig,
   Layout,
-  LegendOptions,
   MeasureField,
   ParameterControl,
+  QuickManagedPublicAuthCodeQuickAuthenticationConfig,
   SheetControlLayout,
   SheetImage,
   SheetTextBox,
   TransformOperationSource,
   VisualCustomAction,
   VisualCustomActionDefaults,
-  VisualInteractionOptions,
-  VisualMenuOption,
 } from "./models_0";
 import type {
   BarChartVisual,
@@ -116,6 +122,7 @@ import type {
   ComboChartVisual,
   ConditionalFormattingColor,
   CustomContentVisual,
+  DashboardCustomizationVisualOptions,
   EmptyVisual,
   FieldSortOptions,
   FilledMapVisual,
@@ -128,20 +135,436 @@ import type {
   ItemsLimitConfiguration,
   KPIVisual,
   LayerMapVisual,
+  LegendOptions,
+  LineChartMarkerStyleSettings,
   LineChartVisual,
+  PaginationConfiguration,
   PieChartVisual,
   PivotTableVisual,
   PluginVisual,
   RadarChartVisual,
+  RowAlternateColorOptions,
   SankeyDiagramVisual,
   ScatterPlotVisual,
-  TableCellConditionalFormatting,
-  TableConfiguration,
+  TableCellStyle,
+  TableFieldOption,
+  TablePinnedFieldOptions,
+  TextConditionalFormat,
   TooltipOptions,
+  TotalAggregationOption,
+  UnaggregatedField,
+  VisualInteractionOptions,
   VisualPalette,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
 } from "./models_1";
+
+/**
+ * <p>The column option of the transposed table.</p>
+ * @public
+ */
+export interface TransposedTableOption {
+  /**
+   * <p>The index of a columns in a transposed table. The index range is 0-9999.</p>
+   * @public
+   */
+  ColumnIndex?: number | undefined;
+
+  /**
+   * <p>The width of a column in a transposed table.</p>
+   * @public
+   */
+  ColumnWidth?: string | undefined;
+
+  /**
+   * <p>The column type of the column in a transposed table. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ROW_HEADER_COLUMN</code>: Refers to the leftmost column of the row header in the transposed table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VALUE_COLUMN</code>: Refers to all value columns in the transposed table.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ColumnType: TransposedColumnType | undefined;
+}
+
+/**
+ * <p>The field options of a table visual.</p>
+ * @public
+ */
+export interface TableFieldOptions {
+  /**
+   * <p>The field options to be configured to a table.</p>
+   * @public
+   */
+  SelectedFieldOptions?: TableFieldOption[] | undefined;
+
+  /**
+   * <p>The order of the field IDs that are configured as field options for a table visual.</p>
+   * @public
+   */
+  Order?: string[] | undefined;
+
+  /**
+   * <p>The settings for the pinned columns of a table visual.</p>
+   * @public
+   */
+  PinnedFieldOptions?: TablePinnedFieldOptions | undefined;
+
+  /**
+   * <p>The <code>TableOptions</code> of a transposed table.</p>
+   * @public
+   */
+  TransposedTableOptions?: TransposedTableOption[] | undefined;
+}
+
+/**
+ * <p>The aggregated field well for the table.</p>
+ * @public
+ */
+export interface TableAggregatedFieldWells {
+  /**
+   * <p>The group by field well for a pivot table. Values are grouped by group by fields.</p>
+   * @public
+   */
+  GroupBy?: DimensionField[] | undefined;
+
+  /**
+   * <p>The values field well for a pivot table. Values are aggregated based on group by fields.</p>
+   * @public
+   */
+  Values?: MeasureField[] | undefined;
+}
+
+/**
+ * <p>The unaggregated field well for the table.</p>
+ * @public
+ */
+export interface TableUnaggregatedFieldWells {
+  /**
+   * <p>The values field well for a pivot table. Values are unaggregated for an unaggregated table.</p>
+   * @public
+   */
+  Values?: UnaggregatedField[] | undefined;
+}
+
+/**
+ * <p>The field wells for a table visual.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface TableFieldWells {
+  /**
+   * <p>The aggregated field well for the table.</p>
+   * @public
+   */
+  TableAggregatedFieldWells?: TableAggregatedFieldWells | undefined;
+
+  /**
+   * <p>The unaggregated field well for the table.</p>
+   * @public
+   */
+  TableUnaggregatedFieldWells?: TableUnaggregatedFieldWells | undefined;
+}
+
+/**
+ * <p>The paginated report options for a table visual.</p>
+ * @public
+ */
+export interface TablePaginatedReportOptions {
+  /**
+   * <p>The visibility of printing table overflow across pages.</p>
+   * @public
+   */
+  VerticalOverflowVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The visibility of repeating header rows on each page.</p>
+   * @public
+   */
+  OverflowColumnHeaderVisibility?: Visibility | undefined;
+}
+
+/**
+ * <p>The sort configuration for a <code>TableVisual</code>.</p>
+ * @public
+ */
+export interface TableSortConfiguration {
+  /**
+   * <p>The field sort options for rows in the table.</p>
+   * @public
+   */
+  RowSort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The pagination configuration (page size, page number) for the table.</p>
+   * @public
+   */
+  PaginationConfiguration?: PaginationConfiguration | undefined;
+}
+
+/**
+ * <p>The options for data bars.</p>
+ * @public
+ */
+export interface DataBarsOptions {
+  /**
+   * <p>The field ID for the data bars options.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The color of the positive data bar.</p>
+   * @public
+   */
+  PositiveColor?: string | undefined;
+
+  /**
+   * <p>The color of the negative data bar.</p>
+   * @public
+   */
+  NegativeColor?: string | undefined;
+}
+
+/**
+ * <p>The options for sparklines in a table.</p>
+ * @public
+ */
+export interface SparklinesOptions {
+  /**
+   * <p>The field ID of the value column that the sparkline is applied to.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The dimension type field.</p>
+   * @public
+   */
+  XAxisField: DimensionField | undefined;
+
+  /**
+   * <p>Determines whether the Y axis is shared across all sparklines or independent for each sparkline.</p>
+   * @public
+   */
+  YAxisBehavior?: SparklineAxisBehavior | undefined;
+
+  /**
+   * <p>The type of the sparkline. Valid values are <code>LINE</code> and <code>AREA_LINE</code>.</p>
+   * @public
+   */
+  VisualType?: SparklineVisualType | undefined;
+
+  /**
+   * <p>The color of the sparkline line.</p>
+   * @public
+   */
+  LineColor?: string | undefined;
+
+  /**
+   * <p>The interpolation style for the sparkline line.</p>
+   * @public
+   */
+  LineInterpolation?: LineInterpolation | undefined;
+
+  /**
+   * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
+   * @public
+   */
+  AllPointsMarker?: LineChartMarkerStyleSettings | undefined;
+
+  /**
+   * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
+   * @public
+   */
+  MaxValueMarker?: LineChartMarkerStyleSettings | undefined;
+
+  /**
+   * <p>Marker styles options for a line series in <code>LineChartVisual</code>.</p>
+   * @public
+   */
+  MinValueMarker?: LineChartMarkerStyleSettings | undefined;
+}
+
+/**
+ * <p>The inline visualization of a specific type to display within a chart.</p>
+ * @public
+ */
+export interface TableInlineVisualization {
+  /**
+   * <p>The configuration of the inline visualization of the data bars within a chart.</p>
+   * @public
+   */
+  DataBars?: DataBarsOptions | undefined;
+
+  /**
+   * <p>The configuration of the inline visualization of the sparklines within a chart.</p>
+   * @public
+   */
+  Sparklines?: SparklinesOptions | undefined;
+}
+
+/**
+ * <p>The table options for a table visual.</p>
+ * @public
+ */
+export interface TableOptions {
+  /**
+   * <p>The orientation (vertical, horizontal) for a table.</p>
+   * @public
+   */
+  Orientation?: TableOrientation | undefined;
+
+  /**
+   * <p>The table cell style of a table header.</p>
+   * @public
+   */
+  HeaderStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The table cell style of table cells.</p>
+   * @public
+   */
+  CellStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The row alternate color options (widget status, row alternate colors) for a table.</p>
+   * @public
+   */
+  RowAlternateColorOptions?: RowAlternateColorOptions | undefined;
+}
+
+/**
+ * <p>The total options for a table visual.</p>
+ * @public
+ */
+export interface TotalOptions {
+  /**
+   * <p>The visibility configuration for the total cells.</p>
+   * @public
+   */
+  TotalsVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The placement (start, end) for the total cells.</p>
+   * @public
+   */
+  Placement?: TableTotalsPlacement | undefined;
+
+  /**
+   * <p>The scroll status (pinned, scrolled) for the total cells.</p>
+   * @public
+   */
+  ScrollStatus?: TableTotalsScrollStatus | undefined;
+
+  /**
+   * <p>The custom label string for the total cells.</p>
+   * @public
+   */
+  CustomLabel?: string | undefined;
+
+  /**
+   * <p>Cell styling options for the total cells.</p>
+   * @public
+   */
+  TotalCellStyle?: TableCellStyle | undefined;
+
+  /**
+   * <p>The total aggregation settings for each value field.</p>
+   * @public
+   */
+  TotalAggregationOptions?: TotalAggregationOption[] | undefined;
+}
+
+/**
+ * <p>The configuration for a <code>TableVisual</code>.</p>
+ * @public
+ */
+export interface TableConfiguration {
+  /**
+   * <p>The field wells of the visual.</p>
+   * @public
+   */
+  FieldWells?: TableFieldWells | undefined;
+
+  /**
+   * <p>The sort configuration for a <code>TableVisual</code>.</p>
+   * @public
+   */
+  SortConfiguration?: TableSortConfiguration | undefined;
+
+  /**
+   * <p>The table options for a table visual.</p>
+   * @public
+   */
+  TableOptions?: TableOptions | undefined;
+
+  /**
+   * <p>The total options for a table visual.</p>
+   * @public
+   */
+  TotalOptions?: TotalOptions | undefined;
+
+  /**
+   * <p>The field options for a table visual.</p>
+   * @public
+   */
+  FieldOptions?: TableFieldOptions | undefined;
+
+  /**
+   * <p>The paginated report options for a table visual.</p>
+   * @public
+   */
+  PaginatedReportOptions?: TablePaginatedReportOptions | undefined;
+
+  /**
+   * <p>A collection of inline visualizations to display within a chart.</p>
+   * @public
+   */
+  TableInlineVisualizations?: TableInlineVisualization[] | undefined;
+
+  /**
+   * <p>The display options for the visual tooltip.</p>
+   * @public
+   */
+  Tooltip?: TooltipOptions | undefined;
+
+  /**
+   * <p>The options that define customizations available to dashboard readers for a specific visual</p>
+   * @public
+   */
+  DashboardCustomizationVisualOptions?: DashboardCustomizationVisualOptions | undefined;
+
+  /**
+   * <p>The general visual interactions setup for a visual.</p>
+   * @public
+   */
+  Interactions?: VisualInteractionOptions | undefined;
+}
+
+/**
+ * <p>The cell conditional formatting option for a table.</p>
+ * @public
+ */
+export interface TableCellConditionalFormatting {
+  /**
+   * <p>The field ID of the cell for conditional formatting.</p>
+   * @public
+   */
+  FieldId: string | undefined;
+
+  /**
+   * <p>The text format of the cell for conditional formatting.</p>
+   * @public
+   */
+  TextFormat?: TextConditionalFormat | undefined;
+}
 
 /**
  * <p>The conditional formatting of a table row.</p>
@@ -3507,6 +3930,17 @@ export interface RedshiftParameters {
    * @public
    */
   Database: string | undefined;
+
+  /**
+   * <p>The federated database to use for table and schema discovery. Specify the exact database
+   *             name returned by <code>SHOW DATABASES</code>, such as
+   *             <code>producer_database@catalog_name</code>. This value must differ from <code>Database</code>,
+   *             which specifies the database used for the connection.</p>
+   *          <p>For <code>UpdateDataSource</code>, omit this parameter to keep the current catalog, or
+   *             specify an empty string to clear the configured catalog.</p>
+   * @public
+   */
+  FederatedCatalog?: string | undefined;
 
   /**
    * <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
@@ -7682,6 +8116,135 @@ export interface BatchDeleteKnowledgeBaseResponse {
 /**
  * @public
  */
+export interface BatchDeletePolicyAssignmentByPolicyRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the policy and the principals.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The ARN of the policy to remove. For each principal, the operation removes the assignment only if the
+   *          principal currently has this policy.</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>A list of 1–50 principal ARNs to remove the policy from. Each ARN must be unique within the
+   *          request.</p>
+   * @public
+   */
+  PrincipalArns: string[] | undefined;
+}
+
+/**
+ * <p>A principal that a <code>BatchDeletePolicyAssignmentByPolicy</code> request couldn't remove the
+ *          policy from.</p>
+ * @public
+ */
+export interface BatchDeletePolicyAssignmentError {
+  /**
+   * <p>The ARN of the principal.</p>
+   * @public
+   */
+  PrincipalArn: string | undefined;
+
+  /**
+   * <p>The reason the entry failed. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ValidationException</code> – The entry is not valid.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceNotFoundException</code> – The principal doesn't exist.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConflictException</code> – The principal has a different policy of the same
+   *             type, or the assignment changed while this request was being processed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ThrottlingException</code> – The entry was throttled. You can retry this
+   *             entry.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InternalFailureException</code> – An internal error occurred.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>A description of the error.</p>
+   * @public
+   */
+  ErrorMessage: string | undefined;
+}
+
+/**
+ * <p>A principal that no longer has the policy after a <code>BatchDeletePolicyAssignmentByPolicy</code>
+ *          request, including a principal that didn't have the policy.</p>
+ * @public
+ */
+export interface BatchDeletePolicyAssignmentSuccess {
+  /**
+   * <p>The ARN of the principal.</p>
+   * @public
+   */
+  PrincipalArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeletePolicyAssignmentByPolicyResponse {
+  /**
+   * <p>The ARN of the policy from the request.</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>A list of principals that no longer have the policy.</p>
+   * @public
+   */
+  Success: BatchDeletePolicyAssignmentSuccess[] | undefined;
+
+  /**
+   * <p>A list of principals that the operation couldn't remove the policy from, with the reason for each
+   *          failure.</p>
+   * @public
+   */
+  Errors: BatchDeletePolicyAssignmentError[] | undefined;
+}
+
+/**
+ * <p>A request field that failed validation.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The name of the field that failed validation.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A message that describes why the field failed validation.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface BatchDeleteTopicReviewedAnswerRequest {
   /**
    * <p>The ID of the Amazon Web Services account that you want to delete a reviewed answers in.</p>
@@ -7917,6 +8480,156 @@ export interface BatchDescribeUserLimitsResponse {
    * @public
    */
   errors: BatchDescribeUserLimitsError[] | undefined;
+}
+
+/**
+ * <p>A principal to assign a policy to in a <code>BatchPutPolicyAssignmentByPolicy</code> request.</p>
+ * @public
+ */
+export interface PutAssignmentEntry {
+  /**
+   * <p>The ARN of the user, group, or account to assign the policy to.</p>
+   * @public
+   */
+  PrincipalArn: string | undefined;
+
+  /**
+   * <p>The ARN of the policy that you expect the principal to have before this request. If the principal has
+   *          a different policy of the same type, or no policy of that type, this entry fails with a
+   *          <code>ConflictException</code> error code and makes no change.</p>
+   * @public
+   */
+  ExistingPolicyArn?: string | undefined;
+
+  /**
+   * <p>The revision of the assignment from your most recent read. If the assignment has changed since that
+   *          revision, this entry fails with a <code>ConflictException</code> error code.</p>
+   * @public
+   */
+  Revision?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutPolicyAssignmentByPolicyRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the policy and the principals.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The ARN of the policy to assign.</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>A list of 1–50 principals to assign the policy to. Each principal ARN must be unique within the
+   *          request.</p>
+   * @public
+   */
+  Assignments: PutAssignmentEntry[] | undefined;
+}
+
+/**
+ * <p>A principal that a <code>BatchPutPolicyAssignmentByPolicy</code> request couldn't assign the policy
+ *          to.</p>
+ * @public
+ */
+export interface BatchPutPolicyAssignmentError {
+  /**
+   * <p>The ARN of the principal.</p>
+   * @public
+   */
+  PrincipalArn: string | undefined;
+
+  /**
+   * <p>The reason the entry failed. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ValidationException</code> – The entry is not valid.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ResourceNotFoundException</code> – The principal doesn't exist, or the policy was
+   *             deleted while the request was being processed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConflictException</code> – The principal doesn't have the existing policy that you
+   *             specified, or the assignment changed since the revision that you specified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ThrottlingException</code> – The entry was throttled. You can retry this
+   *             entry.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InternalFailureException</code> – An internal error occurred.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>A description of the error.</p>
+   * @public
+   */
+  ErrorMessage: string | undefined;
+}
+
+/**
+ * <p>A principal that a <code>BatchPutPolicyAssignmentByPolicy</code> request assigned the policy
+ *          to.</p>
+ * @public
+ */
+export interface BatchPutPolicyAssignmentSuccess {
+  /**
+   * <p>The ARN of the principal.</p>
+   * @public
+   */
+  PrincipalArn: string | undefined;
+
+  /**
+   * <p>The ARN of the policy that this assignment replaced. This value is absent if the principal had no
+   *          policy of this type before the request.</p>
+   * @public
+   */
+  ReplacedPolicyArn?: string | undefined;
+
+  /**
+   * <p>The revision of the assignment after this request.</p>
+   * @public
+   */
+  Revision: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutPolicyAssignmentByPolicyResponse {
+  /**
+   * <p>The ARN of the policy from the request.</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>A list of principals that the policy was assigned to.</p>
+   * @public
+   */
+  Success: BatchPutPolicyAssignmentSuccess[] | undefined;
+
+  /**
+   * <p>A list of principals that the policy couldn't be assigned to, with the reason for each failure.</p>
+   * @public
+   */
+  Errors: BatchPutPolicyAssignmentError[] | undefined;
 }
 
 /**
@@ -9970,6 +10683,24 @@ export interface Capabilities {
    * @public
    */
   UseMCPAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, and use local Model Context Protocol (MCP) actions. This capability includes <code>CreateAndUpdateLocalMCPAction</code> and <code>UseLocalMCPAction</code>.</p>
+   * @public
+   */
+  LocalMCPAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update local Model Context Protocol (MCP) server configurations. Denying this capability does not by itself deny use of previously configured local MCP servers.</p>
+   * @public
+   */
+  CreateAndUpdateLocalMCPAction?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to start local Model Context Protocol (MCP) servers and use their actions, including actions from previously configured local MCP servers.</p>
+   * @public
+   */
+  UseLocalMCPAction?: CapabilityState | undefined;
 
   /**
    * <p>The ability to perform actions using OpenAPI Specification connectors.</p>
@@ -12334,6 +13065,75 @@ export interface CellValueSynonym {
 }
 
 /**
+ * <p>An IdP-provided client secret that you store in Amazon Web Services Secrets Manager.</p>
+ * @public
+ */
+export interface IdpClientSecretInput {
+  /**
+   * <p>The ARN of the Amazon Web Services Secrets Manager secret that holds the client secret, for each Region.</p>
+   * @public
+   */
+  RegionalSecretManagerArns: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The details of an IdP-provided client secret. Required when <code>ClientSecretSourceType</code> is <code>IDP_PROVIDED</code>.</p>
+ * @public
+ */
+export type ClientSecretConfigurationDetail =
+  | ClientSecretConfigurationDetail.IdpMember
+  | ClientSecretConfigurationDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ClientSecretConfigurationDetail {
+  /**
+   * <p>An IdP-provided client secret, with the Amazon Web Services Secrets Manager secret ARN for each Region.</p>
+   * @public
+   */
+  export interface IdpMember {
+    Idp: IdpClientSecretInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Idp?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Idp: (value: IdpClientSecretInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration of a new client secret that your IdP provides.</p>
+ * @public
+ */
+export interface ClientSecretConfiguration {
+  /**
+   * <p>The source of the client secret. The only valid value is <code>IDP_PROVIDED</code>: your IdP issued the secret value.</p>
+   * @public
+   */
+  ClientSecretSourceType: ClientSecretSourceType | undefined;
+
+  /**
+   * <p>The details of the client secret. This is required when the <code>ClientSecretSourceType</code> is <code>IDP_PROVIDED</code>.</p>
+   * @public
+   */
+  ClientSecretConfigurationDetail?: ClientSecretConfigurationDetail | undefined;
+}
+
+/**
  * <p>A structure that represents a collective constant.</p>
  * @public
  */
@@ -12590,6 +13390,411 @@ export interface ControlTitleFontConfiguration {
    * @public
    */
   TextAlignment?: HorizontalTextAlignment | undefined;
+}
+
+/**
+ * <p>The configuration for an external OpenID Connect IdP that uses a confidential client. Provide the first client secret here. To add or remove client secrets later, use <code>CreateAccessControlApplicationSecret</code> and <code>DeleteAccessControlApplicationSecret</code>.</p>
+ * @public
+ */
+export interface ExternalIdpConfidentialAuthCodeAuthorizingConfigInput {
+  /**
+   * <p>The OAuth 2.0 client ID.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The issuer URL of the external OpenID Connect IdP.</p>
+   * @public
+   */
+  IssuerUrl: string | undefined;
+
+  /**
+   * <p>The first client secret of the confidential client.</p>
+   * @public
+   */
+  ClientSecret: IdpClientSecretInput | undefined;
+}
+
+/**
+ * <p>The details of the identity provider configuration.</p>
+ * @public
+ */
+export type IdpAuthorizingConfigurationDetailInput =
+  | IdpAuthorizingConfigurationDetailInput.ExternalIdpConfidentialAuthCodeMember
+  | IdpAuthorizingConfigurationDetailInput.ExternalIdpPublicAuthCodeMember
+  | IdpAuthorizingConfigurationDetailInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IdpAuthorizingConfigurationDetailInput {
+  /**
+   * <p>The configuration for an external IdP with a public client.</p>
+   * @public
+   */
+  export interface ExternalIdpPublicAuthCodeMember {
+    ExternalIdpPublicAuthCode: ExternalIdpPublicAuthCodeAuthorizingConfig;
+    ExternalIdpConfidentialAuthCode?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for an external IdP with a confidential client.</p>
+   * @public
+   */
+  export interface ExternalIdpConfidentialAuthCodeMember {
+    ExternalIdpPublicAuthCode?: never;
+    ExternalIdpConfidentialAuthCode: ExternalIdpConfidentialAuthCodeAuthorizingConfigInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ExternalIdpPublicAuthCode?: never;
+    ExternalIdpConfidentialAuthCode?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ExternalIdpPublicAuthCode: (value: ExternalIdpPublicAuthCodeAuthorizingConfig) => T;
+    ExternalIdpConfidentialAuthCode: (value: ExternalIdpConfidentialAuthCodeAuthorizingConfigInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The identity provider configuration for a new access control application.</p>
+ * @public
+ */
+export interface IdpAuthorizingConfigInput {
+  /**
+   * <p>How users of the access control application are authenticated.</p>
+   * @public
+   */
+  IdpAuthorizingType: IdpAuthorizingType | undefined;
+
+  /**
+   * <p>The details of the external IdP configuration. This is present when the <code>IdpAuthorizingType</code> is <code>EXTERNAL_IDP_PUBLIC_AUTH_CODE</code> or <code>EXTERNAL_IDP_CONFIDENTIAL_AUTH_CODE</code>.</p>
+   * @public
+   */
+  IdpAuthorizingConfigurationDetailInput?: IdpAuthorizingConfigurationDetailInput | undefined;
+
+  /**
+   * <p>A trusted token issuer configuration. When you provide it, Quick Sight authenticates the user with the external IdP and then exchanges the token with IAM Identity Center through the specified trusted token issuer. You can't change it after the application is created.</p>
+   *          <p>This is required when the application uses an external IdP and its namespace uses IAM Identity Center.</p>
+   * @public
+   */
+  IdcTrustedTokenIssuerConfiguration?: IdcTrustedTokenIssuerConfig | undefined;
+}
+
+/**
+ * <p>The configuration for a Quick Sight-managed client. You provide the redirect URIs, and Quick Sight generates the client ID.</p>
+ * @public
+ */
+export interface QuickManagedAuthCodeQuickAuthenticationConfigInput {
+  /**
+   * <p>The OAuth 2.0 redirect URIs of the client.</p>
+   * @public
+   */
+  RedirectUris: string[] | undefined;
+}
+
+/**
+ * <p>The details of the Quick Sight authentication configuration. Provide redirect URIs.</p>
+ * @public
+ */
+export type QuickAuthenticationConfigurationDetailInput =
+  | QuickAuthenticationConfigurationDetailInput.QuickManagedPublicAuthCodeMember
+  | QuickAuthenticationConfigurationDetailInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QuickAuthenticationConfigurationDetailInput {
+  /**
+   * <p>The configuration of a Quick Sight-managed public client.</p>
+   * @public
+   */
+  export interface QuickManagedPublicAuthCodeMember {
+    QuickManagedPublicAuthCode: QuickManagedAuthCodeQuickAuthenticationConfigInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    QuickManagedPublicAuthCode?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    QuickManagedPublicAuthCode: (value: QuickManagedAuthCodeQuickAuthenticationConfigInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The Quick Sight authentication configuration for an access control application.</p>
+ * @public
+ */
+export interface QuickAuthenticationConfigInput {
+  /**
+   * <p>How the external client authenticates to Quick Sight.</p>
+   * @public
+   */
+  QuickAuthenticationType: QuickAuthenticationType | undefined;
+
+  /**
+   * <p>The details of the Quick Sight authentication configuration.</p>
+   * @public
+   */
+  QuickAuthenticationConfigurationDetailInput?: QuickAuthenticationConfigurationDetailInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAccessControlApplicationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the access control application. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   *          <p>Quick Sight reserves IDs that start with <code>quick-aca-</code> for the access control application of the Quick Sight desktop application. To create one, the ID must be <code>quick-aca-</code> followed by your Amazon Web Services account ID and the namespace, separated by a hyphen. For example, <code>quick-aca-111122223333-default</code>. In addition, <code>QuickAuthenticationType</code> must be <code>QUICK_MANAGED_PUBLIC_AUTH_CODE</code> with <code>http://localhost:18080</code> as the only redirect URI, and <code>IdpAuthorizingType</code> must be <code>IDC_AUTH_CODE</code> or <code>QUICK_MANAGED_AUTH_CODE</code>.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The name of the access control application.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the access control application.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Quick Sight namespace for the access control application.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The authentication protocol that the access control application uses.</p>
+   * @public
+   */
+  AuthenticationType: AccessControlApplicationAuthenticationType | undefined;
+
+  /**
+   * <p>The identity provider configuration of the access control application.</p>
+   * @public
+   */
+  IdpAuthorizingConfiguration: IdpAuthorizingConfigInput | undefined;
+
+  /**
+   * <p>The Quick Sight authentication configuration of the access control application. You provide redirect URIs, and Quick Sight generates the client ID.</p>
+   * @public
+   */
+  QuickAuthenticationConfiguration: QuickAuthenticationConfigInput | undefined;
+
+  /**
+   * <p>The tags to assign to the access control application.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>The details of the Quick Sight authentication configuration that is returned when an access control application is created.</p>
+ * @public
+ */
+export type QuickAuthenticationConfigurationDetailCreateOutput =
+  | QuickAuthenticationConfigurationDetailCreateOutput.QuickManagedPublicAuthCodeMember
+  | QuickAuthenticationConfigurationDetailCreateOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QuickAuthenticationConfigurationDetailCreateOutput {
+  /**
+   * <p>The configuration of a Quick Sight-managed public client.</p>
+   * @public
+   */
+  export interface QuickManagedPublicAuthCodeMember {
+    QuickManagedPublicAuthCode: QuickManagedPublicAuthCodeQuickAuthenticationConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    QuickManagedPublicAuthCode?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    QuickManagedPublicAuthCode: (value: QuickManagedPublicAuthCodeQuickAuthenticationConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The Quick Sight authentication configuration that is returned when an access control application is created.</p>
+ * @public
+ */
+export interface QuickAuthenticationConfigCreateOutput {
+  /**
+   * <p>How the external client authenticates to Quick Sight.</p>
+   * @public
+   */
+  QuickAuthenticationType: QuickAuthenticationType | undefined;
+
+  /**
+   * <p>The details of the Quick Sight authentication configuration.</p>
+   * @public
+   */
+  QuickAuthenticationConfigurationDetailCreateOutput?: QuickAuthenticationConfigurationDetailCreateOutput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAccessControlApplicationResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
+
+  /**
+   * <p>The ID of the access control application.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The ARN of the access control application.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The status of the access control application. A new application is always <code>ENABLED</code>.</p>
+   * @public
+   */
+  AccessControlApplicationStatus: AccessControlApplicationStatus | undefined;
+
+  /**
+   * <p>The time when the access control application was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The tenant URL of the access control application.</p>
+   * @public
+   */
+  TenantUrl: string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Web Services IAM Identity Center application that Quick Sight manages for this access control application. This value is present when the <code>IdpAuthorizingType</code> is <code>IDC_AUTH_CODE</code>, or when a trusted token issuer is configured.</p>
+   * @public
+   */
+  IdcApplicationArn?: string | undefined;
+
+  /**
+   * <p>The generated Quick Sight authentication configuration. It contains the generated client ID.</p>
+   * @public
+   */
+  QuickAuthenticationConfiguration?: QuickAuthenticationConfigCreateOutput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAccessControlApplicationSecretRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the access control application.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>A description of the client secret, for example <code>rotation-june-2026</code>. If you don't provide a description, the client secret has no description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The source of the client secret, which is your IdP, and the Amazon Web Services Secrets Manager ARNs of the secret.</p>
+   * @public
+   */
+  ClientSecretConfiguration: ClientSecretConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAccessControlApplicationSecretResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
+
+  /**
+   * <p>The ID of the client secret.</p>
+   * @public
+   */
+  ClientSecretId: string | undefined;
+
+  /**
+   * <p>The time when the client secret was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
 }
 
 /**
@@ -13015,934 +14220,4 @@ export interface CreateActionConnectorResponse {
    * @public
    */
   Status?: number | undefined;
-}
-
-/**
- * <p>A reference to an existing custom prompt profile.</p>
- * @public
- */
-export interface CustomPromptProfile {
-  /**
-   * <p>The identifier of the model profile.</p>
-   * @public
-   */
-  ModelProfileId: string | undefined;
-
-  /**
-   * <p>The subscription identifier.</p>
-   * @public
-   */
-  SubscriptionId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID for the Q Business service.</p>
-   * @public
-   */
-  QbsAwsAccountId: string | undefined;
-}
-
-/**
- * <p>The parameters for configuring a custom prompt for an agent.</p>
- * @public
- */
-export interface CustomPromptInputParameters {
-  /**
-   * <p>Instructions for the desired response length.</p>
-   * @public
-   */
-  ResponseLength?: string | undefined;
-
-  /**
-   * <p>Instructions for the desired output style.</p>
-   * @public
-   */
-  OutputStyle?: string | undefined;
-
-  /**
-   * <p>Instructions that define the agent's identity and persona.</p>
-   * @public
-   */
-  Identity?: string | undefined;
-
-  /**
-   * <p>Instructions for the desired tone of responses.</p>
-   * @public
-   */
-  Tone?: string | undefined;
-
-  /**
-   * <p>Custom instructions for the agent's behavior.</p>
-   * @public
-   */
-  CustomInstructions?: string | undefined;
-}
-
-/**
- * <p>The custom prompt input for an agent. This is a union type that can be either an existing prompt profile or new prompt parameters.</p>
- * @public
- */
-export type CustomPromptInput =
-  | CustomPromptInput.ExistingPromptMember
-  | CustomPromptInput.NewPromptMember
-  | CustomPromptInput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CustomPromptInput {
-  /**
-   * <p>An existing custom prompt profile to use for the agent.</p>
-   * @public
-   */
-  export interface ExistingPromptMember {
-    ExistingPrompt: CustomPromptProfile;
-    NewPrompt?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>New custom prompt parameters to configure for the agent.</p>
-   * @public
-   */
-  export interface NewPromptMember {
-    ExistingPrompt?: never;
-    NewPrompt: CustomPromptInputParameters;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    ExistingPrompt?: never;
-    NewPrompt?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    ExistingPrompt: (value: CustomPromptProfile) => T;
-    NewPrompt: (value: CustomPromptInputParameters) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateAgentRequest {
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the spaces to attach to the agent.</p>
-   * @public
-   */
-  Spaces?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the action connectors to attach to the agent.</p>
-   * @public
-   */
-  ActionConnectors?: string[] | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the agent.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the agent.</p>
-   * @public
-   */
-  AgentId: string | undefined;
-
-  /**
-   * <p>The name of the agent.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the agent.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The icon identifier for the agent.</p>
-   * @public
-   */
-  IconId?: string | undefined;
-
-  /**
-   * <p>A list of starter prompts that are displayed to users when they begin interacting with the agent.</p>
-   * @public
-   */
-  StarterPrompts?: string[] | undefined;
-
-  /**
-   * <p>The welcome message that is displayed when a user starts a conversation with the agent.</p>
-   * @public
-   */
-  WelcomeMessage?: string | undefined;
-
-  /**
-   * <p>The lifecycle state of the agent. Valid values are <code>PREVIEW</code> and <code>PUBLISHED</code>.</p>
-   * @public
-   */
-  AgentLifecycle?: AgentLifecycle | undefined;
-
-  /**
-   * <p>The custom prompt configuration for the agent.</p>
-   * @public
-   */
-  CustomPromptInput?: CustomPromptInput | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateAgentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the agent.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The unique identifier for the agent.</p>
-   * @public
-   */
-  AgentId: string | undefined;
-
-  /**
-   * <p>The status of the agent.</p>
-   * @public
-   */
-  AgentStatus: AgentStatus | undefined;
-
-  /**
-   * <p>The name of the agent.</p>
-   * @public
-   */
-  AgentName: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * <p>A date-time parameter.</p>
- * @public
- */
-export interface DateTimeParameter {
-  /**
-   * <p>A display name for the date-time parameter.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values for the date-time parameter.</p>
-   * @public
-   */
-  Values: Date[] | undefined;
-}
-
-/**
- * <p>A decimal parameter.</p>
- * @public
- */
-export interface DecimalParameter {
-  /**
-   * <p>A display name for the decimal parameter.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values for the decimal parameter.</p>
-   * @public
-   */
-  Values: number[] | undefined;
-}
-
-/**
- * <p>An integer parameter.</p>
- * @public
- */
-export interface IntegerParameter {
-  /**
-   * <p>The name of the integer parameter.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values for the integer parameter.</p>
-   * @public
-   */
-  Values: number[] | undefined;
-}
-
-/**
- * <p>A string parameter.</p>
- * @public
- */
-export interface StringParameter {
-  /**
-   * <p>A display name for a string parameter.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The values of a string parameter.</p>
-   * @public
-   */
-  Values: string[] | undefined;
-}
-
-/**
- * <p>A list of Quick Sight parameters and the list's override values.</p>
- * @public
- */
-export interface _Parameters {
-  /**
-   * <p>The parameters that have a data type of string.</p>
-   * @public
-   */
-  StringParameters?: StringParameter[] | undefined;
-
-  /**
-   * <p>The parameters that have a data type of integer.</p>
-   * @public
-   */
-  IntegerParameters?: IntegerParameter[] | undefined;
-
-  /**
-   * <p>The parameters that have a data type of decimal.</p>
-   * @public
-   */
-  DecimalParameters?: DecimalParameter[] | undefined;
-
-  /**
-   * <p>The parameters that have a data type of date-time.</p>
-   * @public
-   */
-  DateTimeParameters?: DateTimeParameter[] | undefined;
-}
-
-/**
- * <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
- * @public
- */
-export interface ValidationStrategy {
-  /**
-   * <p>The mode of validation for the asset to be created or updated. When you set this value to <code>STRICT</code>, strict validation for every error is enforced. When you set this value to <code>LENIENT</code>, validation is skipped for specific UI errors.</p>
-   * @public
-   */
-  Mode: ValidationStrategyMode | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateAnalysisResponse {
-  /**
-   * <p>The ARN for the analysis.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the analysis.</p>
-   * @public
-   */
-  AnalysisId?: string | undefined;
-
-  /**
-   * <p>The status of the creation of the analysis. </p>
-   * @public
-   */
-  CreationStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateApprovalPolicyRequest {
-  /**
-   * <p>The unique identifier to assign to the approval policy. You cannot change this value after you create the policy.</p>
-   * @public
-   */
-  PolicyId: string | undefined;
-
-  /**
-   * <p>The name of the approval policy.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the approval policy.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The list of governed actions that trigger the approval workflow.</p>
-   * @public
-   */
-  Actions: GovernedAction[] | undefined;
-
-  /**
-   * <p>The list of asset types that the approval policy applies to.</p>
-   * @public
-   */
-  AssetTypes: AssetType[] | undefined;
-
-  /**
-   * <p>The scoping configuration that determines who the approval policy applies to.</p>
-   * @public
-   */
-  ApplicableTo: ApplicableTo | undefined;
-
-  /**
-   * <p>The list of group ARNs whose members can approve requests.</p>
-   * @public
-   */
-  ApprovalGroups: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateApprovalPolicyResponse {
-  /**
-   * <p>The approval policy that was created.</p>
-   * @public
-   */
-  Policy: ApprovalPolicy | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateBrandRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the Quick brand.</p>
-   * @public
-   */
-  BrandId: string | undefined;
-
-  /**
-   * <p>The definition of the brand.</p>
-   * @public
-   */
-  BrandDefinition?: BrandDefinition | undefined;
-
-  /**
-   * <p>A map of the key-value pairs that are assigned to the brand.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateBrandResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The details of the brand.</p>
-   * @public
-   */
-  BrandDetail?: BrandDetail | undefined;
-
-  /**
-   * <p>The definition of the brand.</p>
-   * @public
-   */
-  BrandDefinition?: BrandDefinition | undefined;
-}
-
-/**
- * <p>A transform operation that creates calculated columns. Columns created in one such
- *             operation form a lexical closure.</p>
- * @public
- */
-export interface CreateColumnsOperation {
-  /**
-   * <p>Alias for this operation.</p>
-   * @public
-   */
-  Alias?: string | undefined;
-
-  /**
-   * <p>The source transform operation that provides input data for creating new calculated columns.</p>
-   * @public
-   */
-  Source?: TransformOperationSource | undefined;
-
-  /**
-   * <p>Calculated columns to create.</p>
-   * @public
-   */
-  Columns: CalculatedColumn[] | undefined;
-}
-
-/**
- * <p>Contains the governance configuration for a custom permissions profile. When governance controls are defined for a category, any capabilities in that category not explicitly set to <code>ALLOW</code> in <code>Capabilities</code> are denied. Even newly added capabilities in the category are implicitly disabled when Amazon Quick releases them.</p>
- * @public
- */
-export interface Governance {
-  /**
-   * <p>A map of <code>DefaultCategoryEffects</code>.</p>
-   * @public
-   */
-  DefaultCategoryEffects?: Record<string, DefaultCategoryEffect> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCustomPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that you want to create the custom permissions profile in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the custom permissions profile that you want to create.</p>
-   * @public
-   */
-  CustomPermissionsName: string | undefined;
-
-  /**
-   * <p>A set of actions to include in the custom permissions profile.</p>
-   * @public
-   */
-  Capabilities?: Capabilities | undefined;
-
-  /**
-   * <p>The governance configuration for the custom permissions profile. When governance controls are defined for a category, any capabilities in that category not explicitly set to <code>ALLOW</code> in <code>Capabilities</code> are denied. Even newly added capabilities in the category are implicitly disabled when Amazon Quick releases them.</p>
-   * @public
-   */
-  Governance?: Governance | undefined;
-
-  /**
-   * <p>The tags to associate with the custom permissions profile.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCustomPermissionsResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the custom permissions profile.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * <p>The drill down options for data points in a dashbaord.</p>
- * @public
- */
-export interface DataPointDrillUpDownOption {
-  /**
-   * <p>The status of the drill down options of data points.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>The data point menu options of a dashboard.</p>
- * @public
- */
-export interface DataPointMenuLabelOption {
-  /**
-   * <p>The status of the data point menu options.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>The data point tooltip options.</p>
- * @public
- */
-export interface DataPointTooltipOption {
-  /**
-   * <p>The status of the data point tool tip options.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>Adds Q&A capabilities to a dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is enabled.</p>
- * @public
- */
-export interface DataQAEnabledOption {
-  /**
-   * <p>The status of the Data Q&A option on the dashboard.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>Executive summary option.</p>
- * @public
- */
-export interface DataStoriesSharingOption {
-  /**
-   * <p>Availability status.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>Data stories sharing option.</p>
- * @public
- */
-export interface ExecutiveSummaryOption {
-  /**
-   * <p>Availability status.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>Export to .csv option.</p>
- * @public
- */
-export interface ExportToCSVOption {
-  /**
-   * <p>Availability status.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
- * @public
- */
-export interface ExportWithHiddenFieldsOption {
-  /**
-   * <p>The status of the export with hidden fields options.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>Determines if Actions in Amazon Quick Suite are enabled in a dashboard..</p>
- * @public
- */
-export interface QuickSuiteActionsOption {
-  /**
-   * <p>Availability status.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>Sheet controls option.</p>
- * @public
- */
-export interface SheetControlsOption {
-  /**
-   * <p>Visibility state.</p>
-   * @public
-   */
-  VisibilityState?: DashboardUIState | undefined;
-}
-
-/**
- * <p>The sheet layout maximization options of a dashbaord.</p>
- * @public
- */
-export interface SheetLayoutElementMaximizationOption {
-  /**
-   * <p>The status of the sheet layout maximization options of a dashbaord.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>The axis sort options for a visual.</p>
- * @public
- */
-export interface VisualAxisSortOption {
-  /**
-   * <p>The availaiblity status of a visual's axis sort options.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>Determines if hidden fields are included in an exported dashboard.</p>
- * @public
- */
-export interface ExportHiddenFieldsOption {
-  /**
-   * <p>The status of the export hidden fields options of a dashbaord.</p>
-   * @public
-   */
-  AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>The visual publish options of a visual in a dashboard</p>
- * @public
- */
-export interface DashboardVisualPublishOptions {
-  /**
-   * <p>Determines if hidden fields are included in an exported dashboard.</p>
-   * @public
-   */
-  ExportHiddenFieldsOption?: ExportHiddenFieldsOption | undefined;
-}
-
-/**
- * <p>Dashboard publish options.</p>
- * @public
- */
-export interface DashboardPublishOptions {
-  /**
-   * <p>Ad hoc (one-time) filtering option.</p>
-   * @public
-   */
-  AdHocFilteringOption?: AdHocFilteringOption | undefined;
-
-  /**
-   * <p>Export to .csv option.</p>
-   * @public
-   */
-  ExportToCSVOption?: ExportToCSVOption | undefined;
-
-  /**
-   * <p>Sheet controls option.</p>
-   * @public
-   */
-  SheetControlsOption?: SheetControlsOption | undefined;
-
-  /**
-   * <p>The visual publish options of a visual in a dashboard.</p>
-   *
-   * @deprecated VisualPublishOptions property will reach its end of standard support in a future release. To perform this action, use ExportWithHiddenFields.
-   * @public
-   */
-  VisualPublishOptions?: DashboardVisualPublishOptions | undefined;
-
-  /**
-   * <p>The sheet layout maximization options of a dashbaord.</p>
-   * @public
-   */
-  SheetLayoutElementMaximizationOption?: SheetLayoutElementMaximizationOption | undefined;
-
-  /**
-   * <p>The menu options of a visual in a dashboard.</p>
-   * @public
-   */
-  VisualMenuOption?: VisualMenuOption | undefined;
-
-  /**
-   * <p>The axis sort options of a dashboard.</p>
-   * @public
-   */
-  VisualAxisSortOption?: VisualAxisSortOption | undefined;
-
-  /**
-   * <p>Determines if hidden fields are exported with a dashboard.</p>
-   * @public
-   */
-  ExportWithHiddenFieldsOption?: ExportWithHiddenFieldsOption | undefined;
-
-  /**
-   * <p>The drill-down options of data points in a dashboard.</p>
-   * @public
-   */
-  DataPointDrillUpDownOption?: DataPointDrillUpDownOption | undefined;
-
-  /**
-   * <p>The data point menu label options of a dashboard.</p>
-   * @public
-   */
-  DataPointMenuLabelOption?: DataPointMenuLabelOption | undefined;
-
-  /**
-   * <p>The data point tool tip options of a dashboard.</p>
-   * @public
-   */
-  DataPointTooltipOption?: DataPointTooltipOption | undefined;
-
-  /**
-   * <p>Adds Q&A capabilities to an Quick Sight dashboard. If no topic is linked, Dashboard Q&A uses the data values that are rendered on the dashboard. End users can use Dashboard Q&A to ask for different slices of the data that they see on the dashboard. If a topic is linked, Topic Q&A is used.</p>
-   * @public
-   */
-  DataQAEnabledOption?: DataQAEnabledOption | undefined;
-
-  /**
-   * <p>Determines if Actions in Amazon Quick Suite are enabled in a dashboard.</p>
-   * @public
-   */
-  QuickSuiteActionsOption?: QuickSuiteActionsOption | undefined;
-
-  /**
-   * <p>Executive summary option.</p>
-   * @public
-   */
-  ExecutiveSummaryOption?: ExecutiveSummaryOption | undefined;
-
-  /**
-   * <p>Data stories sharing option.</p>
-   * @public
-   */
-  DataStoriesSharingOption?: DataStoriesSharingOption | undefined;
-}
-
-/**
- * <p>A structure that contains the configuration of a shareable link to the
- *             dashboard.</p>
- * @public
- */
-export interface LinkSharingConfiguration {
-  /**
-   * <p>A structure that contains the permissions of a shareable link.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-}
-
-/**
- * <p>Dashboard source template.</p>
- * @public
- */
-export interface DashboardSourceTemplate {
-  /**
-   * <p>Dataset references.</p>
-   * @public
-   */
-  DataSetReferences: DataSetReference[] | undefined;
-
-  /**
-   * <p>The topic references for the source template of a dashboard.</p>
-   * @public
-   */
-  TopicReferences?: TopicReference[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn: string | undefined;
-}
-
-/**
- * <p>Dashboard source entity.</p>
- * @public
- */
-export interface DashboardSourceEntity {
-  /**
-   * <p>Source template.</p>
-   * @public
-   */
-  SourceTemplate?: DashboardSourceTemplate | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDashboardResponse {
-  /**
-   * <p>The ARN of the dashboard.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ARN of the dashboard, including the version number of the first version that is
-   *             created.</p>
-   * @public
-   */
-  VersionArn?: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>The status of the dashboard creation request.</p>
-   * @public
-   */
-  CreationStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
 }

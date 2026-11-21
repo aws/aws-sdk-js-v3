@@ -37,10 +37,10 @@ export interface UpdateApprovalPolicyCommandOutput extends UpdateApprovalPolicyR
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Actions: [ // GovernedActionList
- *     "SHARE",
+ *     "SHARE" || "PUBLISH",
  *   ],
  *   AssetTypes: [ // AssetTypeList
- *     "AGENT" || "SPACE" || "KNOWLEDGE_BASE",
+ *     "AGENT" || "SPACE" || "KNOWLEDGE_BASE" || "FLOW",
  *   ],
  *   ApplicableTo: { // ApplicableTo
  *     Type: "GROUP", // required
@@ -61,10 +61,10 @@ export interface UpdateApprovalPolicyCommandOutput extends UpdateApprovalPolicyR
  * //     Name: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
  * //     Actions: [ // GovernedActionList // required
- * //       "SHARE",
+ * //       "SHARE" || "PUBLISH",
  * //     ],
  * //     AssetTypes: [ // AssetTypeList // required
- * //       "AGENT" || "SPACE" || "KNOWLEDGE_BASE",
+ * //       "AGENT" || "SPACE" || "KNOWLEDGE_BASE" || "FLOW",
  * //     ],
  * //     ApplicableTo: { // ApplicableTo
  * //       Type: "GROUP", // required

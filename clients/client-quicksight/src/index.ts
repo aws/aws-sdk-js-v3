@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <fullname>Amazon Quick API Reference</fullname>
+ * <fullname>Quick API Reference</fullname>
  *          <p>Amazon Quick Sight is a fully managed, serverless business intelligence service for the
  *             Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your
  *             organization. This API reference contains documentation for a programming interface that
@@ -27,5 +27,6 @@ export * from "./models/models_2";
 export * from "./models/models_3";
 export * from "./models/models_4";
 export * from "./models/models_5";
+export * from "./models/models_6";
 
 export { QuickSightServiceException } from "./models/QuickSightServiceException";

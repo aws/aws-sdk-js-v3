@@ -24,31 +24,32 @@ import type {
   GroupFilterOperator,
   IdentityStore,
   IdentityType,
+  IdpAuthorizingType,
+  InboundConnectorStatus,
   IncludeFolderMembers,
   IngestionErrorType,
   IngestionRequestSource,
   IngestionRequestType,
   IngestionStatus,
   KbIngestionStatus,
-  KnowledgeBaseSearchFilterName,
-  KnowledgeBaseSearchOperator,
-  KnowledgeBaseSortByField,
+  MemberType,
   NamespaceErrorType,
   NamespaceStatus,
   NetworkInterfaceStatus,
   OAuthClientAuthenticationType,
   PersonalizationMode,
+  PolicyType,
   QDataKeyType,
   QSearchStatus,
   ResourceStatus,
   ResourceType,
   Role,
-  SelfUpgradeRequestStatus,
+  ScheduleState,
   SelfUpgradeStatus,
   ServiceRoleType,
+  ServiceType,
   SharingModel,
   SnapshotJobStatus,
-  SortOrder,
   SpaceQuickSightResourceType,
   TemplateErrorType,
   ThemeErrorType,
@@ -59,31 +60,28 @@ import type {
   VPCConnectionResourceStatus,
 } from "./enums";
 import type {
+  AccessControlApplication,
   AccessControlConfiguration,
   AccountCustomization,
   AccountInfo,
   AccountSettings,
   ActionConnector,
-  ActionConnectorSummary,
-  ActiveIAMPolicyAssignment,
   Agent,
-  AgentSummary,
   AmazonQInQuickSightConsoleConfigurations,
   AmazonQInQuickSightDashboardConfigurations,
   Analysis,
   Entity,
+  ExternalIdpPublicAuthCodeAuthorizingConfig,
+  IdcTrustedTokenIssuerConfig,
   Sheet,
 } from "./models_0";
 import type {
-  _Parameters,
-  AnalysisSummary,
   AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserSnapshotJobResult,
   ApprovalPolicy,
   AppSummary,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobError,
-  AssetBundleExportJobSummary,
   AssetBundleExportJobValidationStrategy,
   AssetBundleExportJobWarning,
   AssetBundleImportJobError,
@@ -91,17 +89,13 @@ import type {
   AssetBundleImportJobOverridePermissions,
   AssetBundleImportJobOverrideTags,
   AssetBundleImportJobOverrideValidationStrategy,
-  AssetBundleImportJobSummary,
   AssetBundleImportJobWarning,
   AssetBundleImportSourceDescription,
-  AuthorizedTargetsByService,
   BookmarksConfigurations,
   BrandDefinition,
   BrandDetail,
-  BrandSummary,
   DashboardVisualId,
   DataSetRefreshProperties,
-  LinkSharingConfiguration,
   ResourcePermission,
   SharedViewConfigurations,
   SnapshotFile,
@@ -110,19 +104,20 @@ import type {
   VpcConnectionProperties,
 } from "./models_2";
 import type {
+  _Parameters,
   CustomInstructions,
   CustomPermissions,
   Dashboard,
   DashboardCustomizationSummaryConfigurations,
-  DashboardSummary,
-  DashboardVersionSummary,
   DataSet,
   DataSetConfiguration,
-  DataSetSummary,
   DataSource,
   Group,
   GroupMember,
+  InboundConnectorConfig,
   KnowledgeBaseConfiguration,
+  KnowledgeBaseRefreshFrequency,
+  LinkSharingConfiguration,
   MediaExtractionConfiguration,
   Permission,
   ProfileLimitValue,
@@ -136,6 +131,1288 @@ import type {
   TopicRefreshSchedule,
   TopicV2Details,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DeleteDataSourceResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data source that you deleted.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each
+   * 				Amazon Web Services account.</p>
+   * @public
+   */
+  DataSourceId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDefaultQBusinessApplicationRequest {
+  /**
+   * <p>The ID of the Quick Sight account that you want to disconnect from a Amazon Q Business application.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Quick Sight namespace that you want to delete a linked Amazon Q Business application from. If this field is left blank, the Amazon Q Business application is deleted from the default namespace. Currently, the default namespace is the only valid value for this parameter.</p>
+   * @public
+   */
+  Namespace?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDefaultQBusinessApplicationResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDlpSettingRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the DLP setting that you want to delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the DLP setting that you want to delete.</p>
+   * @public
+   */
+  DlpSettingId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDlpSettingResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted DLP setting.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The ID of the deleted DLP setting.</p>
+   * @public
+   */
+  DlpSettingId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFlowRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the flow that you are deleting.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the flow to delete.</p>
+   * @public
+   */
+  FlowId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFlowResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFolderRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the folder.</p>
+   * @public
+   */
+  FolderId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFolderResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name of the deleted folder.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the folder.</p>
+   * @public
+   */
+  FolderId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFolderMembershipRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Folder ID.</p>
+   * @public
+   */
+  FolderId: string | undefined;
+
+  /**
+   * <p>The ID of the asset that you want to delete.</p>
+   * @public
+   */
+  MemberId: string | undefined;
+
+  /**
+   * <p>The member type of the asset that you want to delete from a folder.</p>
+   * @public
+   */
+  MemberType: MemberType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFolderMembershipResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGroupRequest {
+  /**
+   * <p>The name of the group that you want to delete.</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the group that you want to delete.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGroupResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGroupMembershipRequest {
+  /**
+   * <p>The name of the user that you want to delete from the group membership.</p>
+   * @public
+   */
+  MemberName: string | undefined;
+
+  /**
+   * <p>The name of the group that you want to delete the user from.</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace of the group that you want to remove a user from.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGroupMembershipResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIAMPolicyAssignmentRequest {
+  /**
+   * <p>The Amazon Web Services account ID where you want to delete the IAM
+   * 			policy assignment.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the assignment. </p>
+   * @public
+   */
+  AssignmentName: string | undefined;
+
+  /**
+   * <p>The namespace that contains the assignment.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIAMPolicyAssignmentResponse {
+  /**
+   * <p>The name of the assignment. </p>
+   * @public
+   */
+  AssignmentName?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIdentityPropagationConfigRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that you want to delete an identity propagation configuration from.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services service that you want to delete the associated access scopes and authorized targets from.</p>
+   * @public
+   */
+  Service: ServiceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIdentityPropagationConfigResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInboundConnectorRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the inbound connector.</p>
+   * @public
+   */
+  InboundConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInboundConnectorResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
+
+  /**
+   * <p>The ID of the deleted inbound connector.</p>
+   * @public
+   */
+  InboundConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseResponse {
+  /**
+   * <p>The ARN of the deleted knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The ID of the deleted knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseRefreshScheduleRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the refresh schedule to delete.</p>
+   * @public
+   */
+  ScheduleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKnowledgeBaseRefreshScheduleResponse {
+  /**
+   * <p>The unique identifier for the deleted refresh schedule.</p>
+   * @public
+   */
+  ScheduleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base that the schedule applied to.</p>
+   * @public
+   */
+  KnowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLimitsProfileRequest {
+  /**
+   * <p>The unique identifier for the limits profile to delete.</p>
+   * @public
+   */
+  profileId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the limits profile.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLimitsProfileResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted limits profile.</p>
+   * @public
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNamespaceRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to delete the Quick Sight namespace from.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that you want to delete.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNamespaceResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOAuthClientApplicationRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the OAuthClientApplication that you want to delete.</p>
+   * @public
+   */
+  OAuthClientApplicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteOAuthClientApplicationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the OAuthClientApplication that you deleted.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the OAuthClientApplication. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  OAuthClientApplicationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePolicyAssignmentRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the principal.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The ARN of the policy to remove. The operation removes the assignment only if the principal currently
+   *          has this policy.</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>The ARN of the user, group, or account to remove the policy from.</p>
+   * @public
+   */
+  PrincipalArn: string | undefined;
+
+  /**
+   * <p>The revision of the assignment from your most recent read. If the assignment has changed since that
+   *          revision, the request fails with a <code>ConflictException</code>. If you don't specify a value, the
+   *          operation doesn't check the revision.</p>
+   * @public
+   */
+  Revision?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeletePolicyAssignmentResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteRefreshScheduleRequest {
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the refresh schedule.</p>
+   * @public
+   */
+  ScheduleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRefreshScheduleResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The ID of the refresh schedule.</p>
+   * @public
+   */
+  ScheduleId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoleCustomPermissionRequest {
+  /**
+   * <p>The role that you want to remove permissions from.</p>
+   * @public
+   */
+  Role: Role | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
+   *             Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that includes the role.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoleCustomPermissionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoleMembershipRequest {
+  /**
+   * <p>The name of the group.</p>
+   * @public
+   */
+  MemberName: string | undefined;
+
+  /**
+   * <p>The role that you want to remove permissions from.</p>
+   * @public
+   */
+  Role: Role | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that contains the role.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRoleMembershipResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSpaceRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the space.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the space that you want to delete.</p>
+   * @public
+   */
+  SpaceId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSpaceResponse {
+  /**
+   * <p>The ID of the space.</p>
+   * @public
+   */
+  spaceId: string | undefined;
+
+  /**
+   * <p>The ARN of the space.</p>
+   * @public
+   */
+  spaceArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTemplateRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template that you're deleting.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>An ID for the template you want to delete.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>Specifies the version of the template that you want to delete.
+   * 			If you don't provide a version number, <code>DeleteTemplate</code> deletes all versions of the template.
+   * 	 </p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTemplateResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>An ID for the template.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTemplateAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the item to delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template that the specified alias is for.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The name for the template alias. To delete a specific alias, you delete the version that the
+   * 			alias points to. You can specify the alias name, or specify the latest version of the
+   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			parameter. </p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTemplateAliasResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>An ID for the template associated with the deletion.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The name for the template alias.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template you want to delete.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteThemeRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're deleting.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>An ID for the theme that you want to delete.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The version of the theme that you want to delete. </p>
+   *          <p>
+   *             <b>Note:</b> If you don't provide a version number, you're
+   * 			using this call to <code>DeleteTheme</code> to delete all versions of the theme.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteThemeResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>An ID for the theme.</p>
+   * @public
+   */
+  ThemeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteThemeAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme alias to delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme that the specified alias is for.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The unique name for the theme alias to delete.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteThemeAliasResponse {
+  /**
+   * <p>The name for the theme alias.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme resource using the deleted alias.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>An ID for the theme associated with the deletion.</p>
+   * @public
+   */
+  ThemeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
+   *          delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicRefreshScheduleRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DatasetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicRefreshScheduleResponse {
+  /**
+   * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * @public
+   */
+  DatasetArn?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicV2Request {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
+   *          delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicV2Response {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserRequest {
+  /**
+   * <p>The name of the user that you want to delete.</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
 
 /**
  * <p></p>
@@ -279,6 +1556,46 @@ export interface DeleteVPCConnectionResponse {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccessControlApplicationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the access control application.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAccessControlApplicationResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
+
+  /**
+   * <p>The access control application.</p>
+   * @public
+   */
+  AccessControlApplication: AccessControlApplication | undefined;
 }
 
 /**
@@ -2870,6 +4187,106 @@ export interface DescribeIAMPolicyAssignmentResponse {
 /**
  * @public
  */
+export interface DescribeInboundConnectorRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the inbound connector.</p>
+   * @public
+   */
+  InboundConnectorId: string | undefined;
+}
+
+/**
+ * <p>An inbound connector. To read or change the access control applications that are associated with the connector, use <code>ListInboundConnectorApplicationAssociations</code> and <code>UpdateInboundConnectorApplicationAssociations</code>.</p>
+ * @public
+ */
+export interface InboundConnector {
+  /**
+   * <p>The ID of the inbound connector.</p>
+   * @public
+   */
+  InboundConnectorId: string | undefined;
+
+  /**
+   * <p>The ARN of the inbound connector.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the inbound connector.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the inbound connector.</p>
+   * @public
+   */
+  Status: InboundConnectorStatus | undefined;
+
+  /**
+   * <p>The endpoint URL that clients use to reach Quick Sight through the inbound connector.</p>
+   * @public
+   */
+  TenantUrl: string | undefined;
+
+  /**
+   * <p>The time when the inbound connector was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The time when the inbound connector was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The configuration of the inbound connector.</p>
+   * @public
+   */
+  InboundConnectorConfiguration: InboundConnectorConfig | undefined;
+
+  /**
+   * <p>The description of the inbound connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeInboundConnectorResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
+
+  /**
+   * <p>The inbound connector.</p>
+   * @public
+   */
+  InboundConnector: InboundConnector | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeIngestionRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -3437,6 +4854,88 @@ export interface DescribeKnowledgeBasePermissionsResponse {
    * @public
    */
   Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeKnowledgeBaseRefreshScheduleRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the refresh schedule.</p>
+   * @public
+   */
+  ScheduleId: string | undefined;
+}
+
+/**
+ * <p>A summary of a knowledge base refresh schedule, including its identifier, frequency, start time, and state. The <code>DescribeKnowledgeBaseRefreshSchedule</code> and <code>ListKnowledgeBaseRefreshSchedules</code> operations return this summary.</p>
+ * @public
+ */
+export interface KnowledgeBaseRefreshScheduleSummary {
+  /**
+   * <p>The unique identifier for the refresh schedule.</p>
+   * @public
+   */
+  ScheduleId: string | undefined;
+
+  /**
+   * <p>The frequency configuration for the refresh schedule. The frequency configuration specifies how often the schedule runs and, for weekly or monthly schedules, the day on which it runs.</p>
+   * @public
+   */
+  ScheduleFrequency: KnowledgeBaseRefreshFrequency | undefined;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, after which the schedule can start refreshing the knowledge base.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The current state of the refresh schedule. A schedule that isn't <code>ENABLED</code> doesn't run refreshes.</p>
+   * @public
+   */
+  State?: ScheduleState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeKnowledgeBaseRefreshScheduleResponse {
+  /**
+   * <p>The refresh schedule for the knowledge base.</p>
+   * @public
+   */
+  Schedule: KnowledgeBaseRefreshScheduleSummary | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base that the schedule applies to.</p>
+   * @public
+   */
+  KnowledgeBaseArn: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -5665,6 +7164,24 @@ export interface DlpSettingSummary {
 }
 
 /**
+ * <p>The external IdP settings to update for a confidential client.</p>
+ * @public
+ */
+export interface ExternalIdpConfidentialAuthCodeAuthorizingConfigUpdateInput {
+  /**
+   * <p>The OAuth 2.0 client ID.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The issuer URL of the external OpenID Connect IdP.</p>
+   * @public
+   */
+  IssuerUrl: string | undefined;
+}
+
+/**
  * <p>An entry that appears when a <code>KeyRegistration</code> update to Quick Sight fails.</p>
  * @public
  */
@@ -6043,7 +7560,7 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
 
   /**
    * <p>The Amazon Quick Sight namespace that the anonymous user virtually belongs to. If you
-   *             are not using an Amazon Quick custom namespace, set this to
+   *             are not using an Quick custom namespace, set this to
    *                 <code>default</code>.</p>
    * @public
    */
@@ -6070,7 +7587,7 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
    *             </li>
    *          </ul>
    *          <p>Besides, these are not the tags used for the Amazon Web Services resource tagging feature.
-   *             For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a> in the <i>Amazon Quick User Guide</i>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a> in the <i>Quick User Guide</i>.</p>
    * @public
    */
   SessionTags?: SessionTag[] | undefined;
@@ -6130,7 +7647,7 @@ export interface GenerateEmbedUrlForAnonymousUserResponse {
   RequestId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) to use for the anonymous Amazon Quick
+   * <p>The Amazon Resource Name (ARN) to use for the anonymous Quick
    *             user.</p>
    * @public
    */
@@ -6445,7 +7962,7 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    * <p>The configuration details for providing each Amazon Quick Sight console embedding
    *             experience. This can be used along with custom permissions to restrict access to certain
    *             features. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon Quick Sight Console</a> in the
-   *                     <i>Amazon Quick User Guide</i>.</p>
+   *                     <i>Quick User Guide</i>.</p>
    *          <p>Use <code>
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html">GenerateEmbedUrlForRegisteredUser</a>
    *             </code> where you want to provide an
@@ -6458,7 +7975,7 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a>
    *             </code> API operation to add a new user with a custom
    *             permission profile attached. For more information, see the following sections in the
-   *                     <i>Amazon Quick User Guide</i>:</p>
+   *                     <i>Quick User Guide</i>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -6468,12 +7985,12 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon Quick Console</a>
+   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Quick Console</a>
    *                </p>
    *             </li>
    *          </ul>
    *          <p>For more information about the high-level steps for embedding and for an interactive
-   *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon Quick
+   *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Quick
    *                 Developer Portal</a>.</p>
    * @public
    */
@@ -6691,8 +8208,8 @@ export interface GetDashboardEmbedUrlRequest {
   StatePersistenceEnabled?: boolean | undefined;
 
   /**
-   * <p>The Amazon Quick user's Amazon Resource Name (ARN), for use with
-   *                 <code>QUICKSIGHT</code> identity type. You can use this for any Amazon Quick users in your account (readers, authors, or admins) authenticated as one of the
+   * <p>The Quick user's Amazon Resource Name (ARN), for use with
+   *                 <code>QUICKSIGHT</code> identity type. You can use this for any Quick users in your account (readers, authors, or admins) authenticated as one of the
    *             following:</p>
    *          <ul>
    *             <li>
@@ -6969,8 +8486,7 @@ export namespace UserIdentifier {
 }
 
 /**
- * <p>/////////////////////////
- * /////////////////////////</p>
+ * <p></p>
  * @public
  */
 export interface GetIdentityContextRequest {
@@ -7046,6 +8562,73 @@ export interface GetIdentityContextResponse {
 /**
  * @public
  */
+export interface GetPolicyAssignmentRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the principal.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The type of policy to describe. Choose one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LIMITS_PROFILE</code> – A limits profile that sets resource usage
+   *             limits.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_PERMISSIONS</code> – A custom permissions profile that restricts the
+   *             capabilities available to a principal.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyType: PolicyType | undefined;
+
+  /**
+   * <p>The ARN of the user, group, or account.</p>
+   * @public
+   */
+  PrincipalArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPolicyAssignmentResponse {
+  /**
+   * <p>The ARN of the policy that the principal has. The response doesn't include this value if the
+   *          principal has no policy of the requested type.</p>
+   * @public
+   */
+  PolicyArn?: string | undefined;
+
+  /**
+   * <p>The display name of the assigned policy. This value is absent if the policy has no name or the name
+   *          can't be retrieved.</p>
+   * @public
+   */
+  PolicyName?: string | undefined;
+
+  /**
+   * <p>The date and time that the assignment was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The current revision of the assignment. Pass this value in a later <code>PutPolicyAssignment</code> or
+   *          <code>DeletePolicyAssignment</code> request to make sure that the assignment hasn't changed.</p>
+   * @public
+   */
+  Revision?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetSessionEmbedUrlRequest {
   /**
    * <p>The ID for the Amazon Web Services account associated with your Amazon Quick Sight
@@ -7105,8 +8688,8 @@ export interface GetSessionEmbedUrlRequest {
   SessionLifetimeInMinutes?: number | undefined;
 
   /**
-   * <p>The Amazon Quick user's Amazon Resource Name (ARN), for use with
-   *                 <code>QUICKSIGHT</code> identity type. You can use this for any type of Amazon Quick users in your account (readers, authors, or admins). They need to be
+   * <p>The Quick user's Amazon Resource Name (ARN), for use with
+   *                 <code>QUICKSIGHT</code> identity type. You can use this for any type of Quick users in your account (readers, authors, or admins). They need to be
    *             authenticated as one of the following:</p>
    *          <ol>
    *             <li>
@@ -7199,1976 +8782,96 @@ export interface IAMPolicyAssignmentSummary {
 }
 
 /**
- * <p>A filter to apply when searching knowledge bases.</p>
+ * <p>The identity provider details to update.</p>
  * @public
  */
-export interface KnowledgeBaseSearchFilter {
-  /**
-   * <p>The name of the field to filter on.</p>
-   * @public
-   */
-  name: KnowledgeBaseSearchFilterName | undefined;
-
-  /**
-   * <p>The comparison operator to use for the filter.</p>
-   * @public
-   */
-  operator: KnowledgeBaseSearchOperator | undefined;
-
-  /**
-   * <p>The value to filter on.</p>
-   * @public
-   */
-  value: string | undefined;
-}
-
-/**
- * <p>The sort configuration for searching knowledge bases.</p>
- * @public
- */
-export interface KnowledgeBaseSortBy {
-  /**
-   * <p>The field to sort by.</p>
-   * @public
-   */
-  sortByField: KnowledgeBaseSortByField | undefined;
-
-  /**
-   * <p>The sort order (ascending or descending).</p>
-   * @public
-   */
-  sortOrder: SortOrder | undefined;
-}
-
-/**
- * <p>A summary of a knowledge base, including its identifier, name, status, and metadata.</p>
- * @public
- */
-export interface KnowledgeBaseSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  KnowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The unique identifier for the knowledge base.</p>
-   * @public
-   */
-  KnowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the knowledge base.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The status of the knowledge base.</p>
-   * @public
-   */
-  Status: DataSetStatus | undefined;
-
-  /**
-   * <p>The ARN of the data source associated with the knowledge base.</p>
-   * @public
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>The type of the knowledge base.</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>The date and time that the knowledge base was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The date and time that the knowledge base was last updated.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The size of the knowledge base in bytes.</p>
-   * @public
-   */
-  KnowledgeBaseSizeBytes?: number | undefined;
-
-  /**
-   * <p>The number of documents in the knowledge base.</p>
-   * @public
-   */
-  DocumentCount?: number | undefined;
-
-  /**
-   * <p>The ARN of the primary owner of the knowledge base.</p>
-   * @public
-   */
-  PrimaryOwnerArn?: string | undefined;
-
-  /**
-   * <p>The username of the primary owner of the knowledge base.</p>
-   * @public
-   */
-  PrimaryOwnerUsername?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListActionConnectorsRequest {
-  /**
-   * <p>The Amazon Web Services account ID for which to list action connectors.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of action connectors to return in a single response. Valid range is 1 to 100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A pagination token to retrieve the next set of results. Use the token returned from a previous call to continue listing action connectors.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListActionConnectorsResponse {
-  /**
-   * <p>A list of action connector summaries containing basic information about each connector.</p>
-   * @public
-   */
-  ActionConnectorSummaries: ActionConnectorSummary[] | undefined;
-
-  /**
-   * <p>A pagination token to retrieve the next set of results. If null, there are no more results to retrieve.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status code of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAgentsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the agents.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAgentsResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>A list of agent summaries.</p>
-   * @public
-   */
-  AgentSummaries: AgentSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAnalysesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analyses.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAnalysesResponse {
-  /**
-   * <p>Metadata describing each of the analyses that are listed.</p>
-   * @public
-   */
-  AnalysisSummaryList?: AnalysisSummary[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListApprovalPoliciesRequest {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. If you don't specify a value, the
-   *          service returns a default number of results. Use the <code>NextToken</code> value in the response
-   *          to retrieve additional results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListApprovalPoliciesResponse {
-  /**
-   * <p>The list of approval policies.</p>
-   * @public
-   */
-  Policies: ApprovalPolicy[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAppsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the apps.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single request. Valid range is 1 to 100. If you don't specify a value, the default is 20.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAppsResponse {
-  /**
-   * <p>A list of app summaries.</p>
-   * @public
-   */
-  AppSummaryList: AppSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetBundleExportJobsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that the export jobs were executed in. </p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetBundleExportJobsResponse {
-  /**
-   * <p>A list of export job summaries.</p>
-   * @public
-   */
-  AssetBundleExportJobSummaryList?: AssetBundleExportJobSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetBundleImportJobsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that the import jobs were executed in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetBundleImportJobsResponse {
-  /**
-   * <p>A list of import job summaries.</p>
-   * @public
-   */
-  AssetBundleImportJobSummaryList?: AssetBundleImportJobSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the response.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListBrandsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the brands that you want to list.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned in a single request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListBrandsResponse {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of all brands in your Amazon Web Services account. This structure provides basic
-   * 	          information about each brand.</p>
-   * @public
-   */
-  Brands?: BrandSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCustomPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the custom permissions profiles that you want to list.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCustomPermissionsResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>A list of custom permissions profiles.</p>
-   * @public
-   */
-  CustomPermissionsList?: CustomPermissions[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDashboardsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboards that you're
-   *             listing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDashboardsResponse {
-  /**
-   * <p>A structure that contains all of the dashboards in your Amazon Web Services account.
-   *             This structure provides basic information about the dashboards.</p>
-   * @public
-   */
-  DashboardSummaryList?: DashboardSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDashboardVersionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             listing versions for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDashboardVersionsResponse {
-  /**
-   * <p>A structure that contains information about each version of the dashboard.</p>
-   * @public
-   */
-  DashboardVersionSummaryList?: DashboardVersionSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataSetsRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataSetsResponse {
-  /**
-   * <p>The list of dataset summaries.</p>
-   * @public
-   */
-  DataSetSummaries?: DataSetSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataSourcesRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDataSourcesResponse {
-  /**
-   * <p>A list of data sources.</p>
-   * @public
-   */
-  DataSources?: DataSource[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDlpSettingsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the DLP settings that you want to list.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDlpSettingsResponse {
-  /**
-   * <p>A list of <code>DlpSettingSummary</code> objects for the DLP settings in the account. The list is empty if no DLP settings have been configured.</p>
-   * @public
-   */
-  DlpSettingSummaries: DlpSettingSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFlowsInput {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the flow list that you are getting.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token to request the next set of results, or null if you want to retrieve the first set.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFlowsOutput {
-  /**
-   * <p>A structure that contains all of the flows in your Amazon Web Services account. This structure
-   *             provides basic information about the flows.</p>
-   * @public
-   */
-  FlowSummaryList?: FlowSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFolderMembersRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the folder.</p>
-   * @public
-   */
-  FolderId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFolderMembersResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>A structure that contains all of the folder members (dashboards, analyses, and datasets) in the folder.</p>
-   * @public
-   */
-  FolderMemberList?: MemberIdArnPair[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFoldersRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFoldersResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
-   * @public
-   */
-  FolderSummaryList?: FolderSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFoldersForResourceRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the resource.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) the resource whose folders you need to list.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFoldersForResourceResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>A list that contains the Amazon Resource Names (ARNs) of all folders that the resource is a member of.</p>
-   * @public
-   */
-  Folders?: string[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGroupMembershipsRequest {
-  /**
-   * <p>The name of the group that you want to see a membership list of.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return from this request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace of the group that you want a list of users from.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGroupMembershipsResponse {
-  /**
-   * <p>The list of the members of the group.</p>
-   * @public
-   */
-  GroupMemberList?: GroupMember[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGroupsRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The namespace that you want a list of groups from.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGroupsResponse {
-  /**
-   * <p>The list of the groups.</p>
-   * @public
-   */
-  GroupList?: Group[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIAMPolicyAssignmentsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains these IAM policy
-   * 			assignments.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The status of the assignments.</p>
-   * @public
-   */
-  AssignmentStatus?: AssignmentStatus | undefined;
-
-  /**
-   * <p>The namespace for the assignments.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIAMPolicyAssignmentsResponse {
-  /**
-   * <p>Information describing the IAM policy assignments.</p>
-   * @public
-   */
-  IAMPolicyAssignments?: IAMPolicyAssignmentSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIAMPolicyAssignmentsForUserRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the assignments.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the user.</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The namespace of the assignment.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIAMPolicyAssignmentsForUserResponse {
-  /**
-   * <p>The active assignments for this user.</p>
-   * @public
-   */
-  ActiveAssignments?: ActiveIAMPolicyAssignment[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIdentityPropagationConfigsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contain the identity propagation configurations of.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIdentityPropagationConfigsResponse {
-  /**
-   * <p>A list of services and their authorized targets that the Quick Sight IAM Identity Center application can access.</p>
-   * @public
-   */
-  Services?: AuthorizedTargetsByService[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIngestionsRequest {
-  /**
-   * <p>The ID of the dataset used in the ingestion.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIngestionsResponse {
-  /**
-   * <p>A list of the ingestions.</p>
-   * @public
-   */
-  Ingestions?: Ingestion[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBasesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListKnowledgeBasesResponse {
-  /**
-   * <p>A list of knowledge base summaries.</p>
-   * @public
-   */
-  KnowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListLimitsProfilesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the limits profiles.</p>
-   * @public
-   */
-  accountId: string | undefined;
-
-  /**
-   * <p>An optional filter that limits the results to profiles that contain the specified resource type. If you don't specify a value, the operation returns all profiles.</p>
-   * @public
-   */
-  resourceType?: ResourceType | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. If you don't specify a value, the service uses the default maximum.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListLimitsProfilesResponse {
-  /**
-   * <p>A list of limits profiles.</p>
-   * @public
-   */
-  profiles: LimitsProfile[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListNamespacesRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the Quick Sight namespaces that you want to list.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A unique pagination token that can be used in a subsequent request. You will receive a pagination token in the response body of a previous <code>ListNameSpaces</code> API call if there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListNamespacesResponse {
-  /**
-   * <p>The information about the namespaces in this Amazon Web Services account. The response includes
-   *         the namespace ARN, name, Amazon Web Services Region, notification email address, creation status, and
-   *         identity store.</p>
-   * @public
-   */
-  Namespaces?: NamespaceInfoV2[] | undefined;
-
-  /**
-   * <p>A unique pagination token that can be used in a subsequent request. Receiving <code>NextToken</code> in your response inticates that there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOAuthClientApplicationsRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>A summary of an OAuthClientApplication.</p>
- * @public
- */
-export interface OAuthClientApplicationSummary {
-  /**
-   * <p>The ID of the OAuthClientApplication. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  OAuthClientApplicationId?: string | undefined;
-
-  /**
-   * <p>The display name of the OAuthClientApplication.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The OAuth client authentication type used by the OAuthClientApplication. Valid values are <code>TOKEN</code>.</p>
-   * @public
-   */
-  OAuthClientAuthenticationType?: OAuthClientAuthenticationType | undefined;
-
-  /**
-   * <p>The type of data source that the OAuthClientApplication is used with. Valid values are <code>SNOWFLAKE</code>.</p>
-   * @public
-   */
-  DataSourceType?: DataSourceType | undefined;
-
-  /**
-   * <p>VPC connection properties.</p>
-   * @public
-   */
-  IdentityProviderVpcConnectionProperties?: VpcConnectionProperties | undefined;
-
-  /**
-   * <p>The time that the OAuthClientApplication was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The time that the OAuthClientApplication was last updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the OAuthClientApplication.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListOAuthClientApplicationsResponse {
-  /**
-   * <p>A list of OAuthClientApplication summaries.</p>
-   * @public
-   */
-  OAuthClientApplications?: OAuthClientApplicationSummary[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRefreshSchedulesRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRefreshSchedulesResponse {
-  /**
-   * <p>The list of refresh schedules for the dataset.</p>
-   * @public
-   */
-  RefreshSchedules?: RefreshSchedule[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRoleMembershipsRequest {
-  /**
-   * <p>The name of the role.</p>
-   * @public
-   */
-  Role: Role | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that includes the role.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRoleMembershipsResponse {
-  /**
-   * <p>The list of groups associated with a role</p>
-   * @public
-   */
-  MembersList?: string[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSelfUpgradesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the self-upgrade requests.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Quick namespace for the self-upgrade requests.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Details of a self-upgrade request.</p>
- * @public
- */
-export interface SelfUpgradeRequestDetail {
-  /**
-   * <p>The ID of the self-upgrade request.</p>
-   * @public
-   */
-  UpgradeRequestId?: string | undefined;
-
-  /**
-   * <p>The username of the user who initiated the self-upgrade request.</p>
-   * @public
-   */
-  UserName?: string | undefined;
-
-  /**
-   * <p>The original role of the user before the upgrade.</p>
-   * @public
-   */
-  OriginalRole?: UserRole | undefined;
-
-  /**
-   * <p>The role that the user is requesting to upgrade to.</p>
-   * @public
-   */
-  RequestedRole?: UserRole | undefined;
-
-  /**
-   * <p>An optional note explaining the reason for the self-upgrade request.</p>
-   * @public
-   */
-  RequestNote?: string | undefined;
-
-  /**
-   * <p>The time when the self-upgrade request was created.</p>
-   * @public
-   */
-  CreationTime?: number | undefined;
-
-  /**
-   * <p>The status of the self-upgrade request.</p>
-   * @public
-   */
-  RequestStatus?: SelfUpgradeRequestStatus | undefined;
-
-  /**
-   * <p>The time of the last update attempt for the self-upgrade request.</p>
-   * @public
-   */
-  lastUpdateAttemptTime?: number | undefined;
-
-  /**
-   * <p>The reason for the last update failure, if applicable.</p>
-   * @public
-   */
-  lastUpdateFailureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSelfUpgradesResponse {
-  /**
-   * <p>A list of self-upgrade request details.</p>
-   * @public
-   */
-  SelfUpgradeRequestDetails?: SelfUpgradeRequestDetail[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListSpaceResourcesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the space.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the space that you want to list resources for.</p>
-   * @public
-   */
-  SpaceId: string | undefined;
-}
+export type IdpAuthorizingConfigurationDetailUpdateInput =
+  | IdpAuthorizingConfigurationDetailUpdateInput.ExternalIdpConfidentialAuthCodeMember
+  | IdpAuthorizingConfigurationDetailUpdateInput.ExternalIdpPublicAuthCodeMember
+  | IdpAuthorizingConfigurationDetailUpdateInput.$UnknownMember;
 
 /**
- * <p>A summary of a resource in a space.</p>
  * @public
  */
-export interface SpaceResourceSummary {
+export namespace IdpAuthorizingConfigurationDetailUpdateInput {
   /**
-   * <p>The type of the resource.</p>
+   * <p>The configuration for an external IdP with a public client.</p>
    * @public
    */
-  ResourceType: SpaceQuickSightResourceType | undefined;
+  export interface ExternalIdpPublicAuthCodeMember {
+    ExternalIdpPublicAuthCode: ExternalIdpPublicAuthCodeAuthorizingConfig;
+    ExternalIdpConfidentialAuthCode?: never;
+    $unknown?: never;
+  }
 
   /**
-   * <p>The details of the resource.</p>
+   * <p>The configuration for an external IdP with a confidential client.</p>
    * @public
    */
-  ResourceDetails: SpaceQuickSightResourceDetails | undefined;
+  export interface ExternalIdpConfidentialAuthCodeMember {
+    ExternalIdpPublicAuthCode?: never;
+    ExternalIdpConfidentialAuthCode: ExternalIdpConfidentialAuthCodeAuthorizingConfigUpdateInput;
+    $unknown?: never;
+  }
 
   /**
-   * <p>The name of the resource.</p>
    * @public
    */
-  ResourceName?: string | undefined;
+  export interface $UnknownMember {
+    ExternalIdpPublicAuthCode?: never;
+    ExternalIdpConfidentialAuthCode?: never;
+    $unknown: [string, any];
+  }
 
   /**
-   * <p>The date and time that the resource was last updated.</p>
-   * @public
+   * @deprecated unused in schema-serde mode.
+   *
    */
-  UpdatedAt?: Date | undefined;
+  export interface Visitor<T> {
+    ExternalIdpPublicAuthCode: (value: ExternalIdpPublicAuthCodeAuthorizingConfig) => T;
+    ExternalIdpConfidentialAuthCode: (value: ExternalIdpConfidentialAuthCodeAuthorizingConfigUpdateInput) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
+ * <p>The identity provider settings to update. To manage client secrets, use the client secret operations instead.</p>
  * @public
  */
-export interface ListSpaceResourcesResponse {
-  /**
-   * <p>The ID of the space.</p>
-   * @public
-   */
-  spaceId: string | undefined;
-
+export interface IdpAuthorizingConfigUpdateInput {
   /**
-   * <p>The ARN of the space.</p>
+   * <p>How users of the access control application are authenticated.</p>
    * @public
    */
-  spaceArn?: string | undefined;
+  IdpAuthorizingType: IdpAuthorizingType | undefined;
 
   /**
-   * <p>A list of resource summaries in the space.</p>
+   * <p>The details of the external IdP configuration. This is present when the <code>IdpAuthorizingType</code> is <code>EXTERNAL_IDP_PUBLIC_AUTH_CODE</code> or <code>EXTERNAL_IDP_CONFIDENTIAL_AUTH_CODE</code>.</p>
    * @public
    */
-  SpaceResources: SpaceResourceSummary[] | undefined;
+  IdpAuthorizingConfigurationDetailInput?: IdpAuthorizingConfigurationDetailUpdateInput | undefined;
 
   /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
+   * <p>A trusted token issuer configuration. When you provide it, Quick Sight authenticates the user with the external IdP and then exchanges the token with IAM Identity Center through the specified trusted token issuer. You can't change it after the application is created.</p>
    * @public
    */
-  RequestId?: string | undefined;
+  IdcTrustedTokenIssuerConfiguration?: IdcTrustedTokenIssuerConfig | undefined;
 }
 
 /**
+ * <p>An association between an inbound connector and an access control application.</p>
  * @public
  */
-export interface ListSpacesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the spaces.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
+export interface InboundConnectorApplicationAssociationSummary {
   /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * <p>The ARN of the associated access control application.</p>
    * @public
    */
-  NextToken?: string | undefined;
+  AccessControlApplicationArn: string | undefined;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * <p>The time when the association was created.</p>
    * @public
    */
-  MaxResults?: number | undefined;
+  CreatedTime: Date | undefined;
 }

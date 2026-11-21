@@ -1,5 +1,7 @@
 // smithy-typescript generated code
 import type {
+  AccessControlApplicationAuthenticationType,
+  AccessControlApplicationStatus,
   ActionConnectorErrorType,
   ActionConnectorSearchFilterNameEnum,
   ActionConnectorType,
@@ -10,7 +12,6 @@ import type {
   AnalysisErrorType,
   AnchorOption,
   AuthorizationCodeGrantCredentialsSource,
-  AxisBinding,
   CategoricalAggregationFunction,
   CategoryFilterMatchOperator,
   CategoryFilterSelectAllOptions,
@@ -37,9 +38,9 @@ import type {
   FontDecoration,
   FontStyle,
   FontWeightName,
+  IdpAuthorizingType,
   ImageCustomActionTrigger,
   LayoutElementType,
-  LegendPosition,
   NegativeValueDisplayMode,
   NumberScale,
   NumericEqualityMatchOperator,
@@ -50,11 +51,7 @@ import type {
   ParameterValueType,
   QBusinessInsightsStatus,
   QueryExecutionMode,
-  ReferenceLineLabelHorizontalPosition,
-  ReferenceLineLabelVerticalPosition,
-  ReferenceLinePatternType,
-  ReferenceLineSeriesType,
-  ReferenceLineValueLabelRelativePosition,
+  QuickAuthenticationType,
   RelativeDateType,
   RelativeFontSize,
   ResizeOption,
@@ -82,6 +79,505 @@ import type {
   VisualHighlightTrigger,
   WidgetStatus,
 } from "./enums";
+
+/**
+ * <p>A trusted token issuer configuration. When you provide it, Quick Sight authenticates the user with the external IdP and then exchanges the token with IAM Identity Center through the specified trusted token issuer.</p>
+ * @public
+ */
+export interface IdcTrustedTokenIssuerConfig {
+  /**
+   * <p>The ARN of the trusted token issuer in IAM Identity Center.</p>
+   * @public
+   */
+  IdcTrustedTokenIssuerArn: string | undefined;
+}
+
+/**
+ * <p>A client secret of a confidential external IdP client. Secret values are never included.</p>
+ * @public
+ */
+export interface ExternalIdpConfidentialClientSecret {
+  /**
+   * <p>The ID of the client secret.</p>
+   * @public
+   */
+  ClientSecretId: string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Web Services Secrets Manager secret that holds the client secret, for each Region.</p>
+   * @public
+   */
+  RegionalSecretManagerArns?: Record<string, string> | undefined;
+
+  /**
+   * <p>The time when the client secret was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The time when the secret's Region ARNs were last updated. This value is present only after you call <code>UpdateAccessControlApplicationSecret</code>.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The description of the client secret.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * <p>The configuration for an external OpenID Connect IdP that uses the authorization code flow with a confidential client. Client secret values are never included.</p>
+ * @public
+ */
+export interface ExternalIdpConfidentialAuthCodeAuthorizingConfig {
+  /**
+   * <p>The OAuth 2.0 client ID.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The issuer URL of the external OpenID Connect IdP.</p>
+   * @public
+   */
+  IssuerUrl: string | undefined;
+
+  /**
+   * <p>The client secrets of the confidential client, with the Amazon Web Services Secrets Manager ARN for each Region. Secret values are never included.</p>
+   * @public
+   */
+  ClientSecrets?: ExternalIdpConfidentialClientSecret[] | undefined;
+}
+
+/**
+ * <p>The configuration for an external OpenID Connect IdP that uses the authorization code flow with PKCE and a public client.</p>
+ * @public
+ */
+export interface ExternalIdpPublicAuthCodeAuthorizingConfig {
+  /**
+   * <p>The OAuth 2.0 client ID.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The issuer URL of the external OpenID Connect IdP.</p>
+   * @public
+   */
+  IssuerUrl: string | undefined;
+}
+
+/**
+ * <p>The details of the identity provider configuration.</p>
+ * @public
+ */
+export type IdpAuthorizingConfigurationDetail =
+  | IdpAuthorizingConfigurationDetail.ExternalIdpConfidentialAuthCodeMember
+  | IdpAuthorizingConfigurationDetail.ExternalIdpPublicAuthCodeMember
+  | IdpAuthorizingConfigurationDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IdpAuthorizingConfigurationDetail {
+  /**
+   * <p>The configuration for an external IdP with a public client.</p>
+   * @public
+   */
+  export interface ExternalIdpPublicAuthCodeMember {
+    ExternalIdpPublicAuthCode: ExternalIdpPublicAuthCodeAuthorizingConfig;
+    ExternalIdpConfidentialAuthCode?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for an external IdP with a confidential client.</p>
+   * @public
+   */
+  export interface ExternalIdpConfidentialAuthCodeMember {
+    ExternalIdpPublicAuthCode?: never;
+    ExternalIdpConfidentialAuthCode: ExternalIdpConfidentialAuthCodeAuthorizingConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ExternalIdpPublicAuthCode?: never;
+    ExternalIdpConfidentialAuthCode?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ExternalIdpPublicAuthCode: (value: ExternalIdpPublicAuthCodeAuthorizingConfig) => T;
+    ExternalIdpConfidentialAuthCode: (value: ExternalIdpConfidentialAuthCodeAuthorizingConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The identity provider configuration of an access control application.</p>
+ * @public
+ */
+export interface IdpAuthorizingConfig {
+  /**
+   * <p>How users of the access control application are authenticated.</p>
+   * @public
+   */
+  IdpAuthorizingType: IdpAuthorizingType | undefined;
+
+  /**
+   * <p>The details of the external IdP configuration. This is present when the <code>IdpAuthorizingType</code> is <code>EXTERNAL_IDP_PUBLIC_AUTH_CODE</code> or <code>EXTERNAL_IDP_CONFIDENTIAL_AUTH_CODE</code>.</p>
+   * @public
+   */
+  IdpAuthorizingConfigurationDetail?: IdpAuthorizingConfigurationDetail | undefined;
+
+  /**
+   * <p>A trusted token issuer configuration. When you provide it, Quick Sight authenticates the user with the external IdP and then exchanges the token with IAM Identity Center through the specified trusted token issuer. You can't change it after the application is created.</p>
+   * @public
+   */
+  IdcTrustedTokenIssuerConfiguration?: IdcTrustedTokenIssuerConfig | undefined;
+}
+
+/**
+ * <p>The configuration of a Quick Sight-managed public client that uses PKCE.</p>
+ * @public
+ */
+export interface QuickManagedPublicAuthCodeQuickAuthenticationConfig {
+  /**
+   * <p>The OAuth 2.0 redirect URIs of the client.</p>
+   * @public
+   */
+  RedirectUris: string[] | undefined;
+
+  /**
+   * <p>The OAuth 2.0 client ID.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+}
+
+/**
+ * <p>The details of the Quick Sight authentication configuration.</p>
+ * @public
+ */
+export type QuickAuthenticationConfigurationDetail =
+  | QuickAuthenticationConfigurationDetail.QuickManagedPublicAuthCodeMember
+  | QuickAuthenticationConfigurationDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace QuickAuthenticationConfigurationDetail {
+  /**
+   * <p>The configuration of a Quick Sight-managed public client.</p>
+   * @public
+   */
+  export interface QuickManagedPublicAuthCodeMember {
+    QuickManagedPublicAuthCode: QuickManagedPublicAuthCodeQuickAuthenticationConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    QuickManagedPublicAuthCode?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    QuickManagedPublicAuthCode: (value: QuickManagedPublicAuthCodeQuickAuthenticationConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The Quick Sight authentication configuration of an access control application.</p>
+ * @public
+ */
+export interface QuickAuthenticationConfig {
+  /**
+   * <p>How the external client authenticates to Quick Sight.</p>
+   * @public
+   */
+  QuickAuthenticationType: QuickAuthenticationType | undefined;
+
+  /**
+   * <p>The details of the Quick Sight authentication configuration.</p>
+   * @public
+   */
+  QuickAuthenticationConfigurationDetail?: QuickAuthenticationConfigurationDetail | undefined;
+}
+
+/**
+ * <p>An access control application. It defines how an external client signs in to Quick Sight with OAuth 2.0. Client secret values are never included.</p>
+ * @public
+ */
+export interface AccessControlApplication {
+  /**
+   * <p>The ID of the access control application.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The ARN of the access control application.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the access control application.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Quick Sight namespace that the access control application belongs to.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The authentication protocol that the access control application uses.</p>
+   * @public
+   */
+  AuthenticationType: AccessControlApplicationAuthenticationType | undefined;
+
+  /**
+   * <p>The status of the access control application.</p>
+   * @public
+   */
+  Status: AccessControlApplicationStatus | undefined;
+
+  /**
+   * <p>The time when the access control application was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The time when the access control application was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The tenant URL of the access control application. This URL hosts the OAuth 2.0 and OpenID Connect endpoints for the application, such as <code>/authorize</code>, <code>/token</code>, <code>/.well-known/openid-configuration</code>, and <code>/jwks</code>.</p>
+   * @public
+   */
+  TenantUrl: string | undefined;
+
+  /**
+   * <p>The description of the access control application.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Web Services IAM Identity Center application that Quick Sight manages for this access control application. This value is present when the <code>IdpAuthorizingType</code> is <code>IDC_AUTH_CODE</code>, or when a trusted token issuer is configured.</p>
+   * @public
+   */
+  IdcApplicationArn?: string | undefined;
+
+  /**
+   * <p>The identity provider configuration of the access control application. Client secret values are never included.</p>
+   * @public
+   */
+  IdpAuthorizingConfiguration?: IdpAuthorizingConfig | undefined;
+
+  /**
+   * <p>The Quick Sight authentication configuration of the access control application. Client secret values are never included.</p>
+   * @public
+   */
+  QuickAuthenticationConfiguration?: QuickAuthenticationConfig | undefined;
+}
+
+/**
+ * <p>A summary of the configuration for an external OpenID Connect IdP that uses a confidential client.</p>
+ * @public
+ */
+export interface ExternalIdpConfidentialAuthCodeAuthorizingConfigSummary {
+  /**
+   * <p>The OAuth 2.0 client ID.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>The issuer URL of the external OpenID Connect IdP.</p>
+   * @public
+   */
+  IssuerUrl: string | undefined;
+}
+
+/**
+ * <p>A summary of the identity provider configuration details.</p>
+ * @public
+ */
+export type IdpAuthorizingConfigurationSummaryDetail =
+  | IdpAuthorizingConfigurationSummaryDetail.ExternalIdpConfidentialAuthCodeMember
+  | IdpAuthorizingConfigurationSummaryDetail.ExternalIdpPublicAuthCodeMember
+  | IdpAuthorizingConfigurationSummaryDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IdpAuthorizingConfigurationSummaryDetail {
+  /**
+   * <p>The configuration for an external IdP with a public client.</p>
+   * @public
+   */
+  export interface ExternalIdpPublicAuthCodeMember {
+    ExternalIdpPublicAuthCode: ExternalIdpPublicAuthCodeAuthorizingConfig;
+    ExternalIdpConfidentialAuthCode?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for an external IdP with a confidential client.</p>
+   * @public
+   */
+  export interface ExternalIdpConfidentialAuthCodeMember {
+    ExternalIdpPublicAuthCode?: never;
+    ExternalIdpConfidentialAuthCode: ExternalIdpConfidentialAuthCodeAuthorizingConfigSummary;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ExternalIdpPublicAuthCode?: never;
+    ExternalIdpConfidentialAuthCode?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ExternalIdpPublicAuthCode: (value: ExternalIdpPublicAuthCodeAuthorizingConfig) => T;
+    ExternalIdpConfidentialAuthCode: (value: ExternalIdpConfidentialAuthCodeAuthorizingConfigSummary) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A summary of the identity provider configuration of an access control application.</p>
+ * @public
+ */
+export interface IdpAuthorizingConfigSummary {
+  /**
+   * <p>How users of the access control application are authenticated.</p>
+   * @public
+   */
+  IdpAuthorizingType: IdpAuthorizingType | undefined;
+
+  /**
+   * <p>The details of the external IdP configuration. This is present when the <code>IdpAuthorizingType</code> is <code>EXTERNAL_IDP_PUBLIC_AUTH_CODE</code> or <code>EXTERNAL_IDP_CONFIDENTIAL_AUTH_CODE</code>.</p>
+   * @public
+   */
+  IdpAuthorizingConfigurationSummaryDetail?: IdpAuthorizingConfigurationSummaryDetail | undefined;
+
+  /**
+   * <p>A trusted token issuer configuration. When you provide it, Quick Sight authenticates the user with the external IdP and then exchanges the token with IAM Identity Center through the specified trusted token issuer. You can't change it after the application is created.</p>
+   * @public
+   */
+  IdcTrustedTokenIssuerConfiguration?: IdcTrustedTokenIssuerConfig | undefined;
+}
+
+/**
+ * <p>A summary of an access control application, including its ID, ARN, name, namespace, authentication type, status, and timestamps.</p>
+ * @public
+ */
+export interface AccessControlApplicationSummary {
+  /**
+   * <p>The ID of the access control application.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The ARN of the access control application.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the access control application.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Quick Sight namespace that the access control application belongs to.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The authentication protocol that the access control application uses.</p>
+   * @public
+   */
+  AuthenticationType: AccessControlApplicationAuthenticationType | undefined;
+
+  /**
+   * <p>The status of the access control application.</p>
+   * @public
+   */
+  Status: AccessControlApplicationStatus | undefined;
+
+  /**
+   * <p>The time when the access control application was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The time when the access control application was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The tenant URL of the access control application. This URL hosts the OAuth 2.0 and OpenID Connect endpoints for the application, such as <code>/authorize</code>, <code>/token</code>, <code>/.well-known/openid-configuration</code>, and <code>/jwks</code>.</p>
+   * @public
+   */
+  TenantUrl: string | undefined;
+
+  /**
+   * <p>A summary of the identity provider configuration of the access control application, without client secret information.</p>
+   * @public
+   */
+  IdpAuthorizingConfiguration?: IdpAuthorizingConfigSummary | undefined;
+
+  /**
+   * <p>The Quick Sight authentication configuration of the access control application. Client secret values are never included.</p>
+   * @public
+   */
+  QuickAuthenticationConfiguration?: QuickAuthenticationConfig | undefined;
+
+  /**
+   * <p>The description of the access control application.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
 
 /**
  * <p>The access control settings for a knowledge base. Use this structure to enable or disable document-level access control lists (ACLs) that filter query results based on the permissions from the source data connector.</p>
@@ -8239,449 +8735,4 @@ export interface VisualMenuOption {
    * @public
    */
   AvailabilityStatus?: DashboardBehavior | undefined;
-}
-
-/**
- * <p>The general visual interactions setup for visual publish options</p>
- * @public
- */
-export interface VisualInteractionOptions {
-  /**
-   * <p>The on-visual menu options for a visual.</p>
-   * @public
-   */
-  VisualMenuOption?: VisualMenuOption | undefined;
-
-  /**
-   * <p>The context menu options for a visual.</p>
-   * @public
-   */
-  ContextMenuOption?: ContextMenuOption | undefined;
-}
-
-/**
- * <p>The options for the legend setup of a visual.</p>
- * @public
- */
-export interface LegendOptions {
-  /**
-   * <p>Determines whether or not the legend is visible.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-
-  /**
-   * <p>The custom title for the legend.</p>
-   * @public
-   */
-  Title?: LabelOptions | undefined;
-
-  /**
-   * <p>The positions for the legend. Choose one of the following
-   *             options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AUTO</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RIGHT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BOTTOM</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LEFT</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Position?: LegendPosition | undefined;
-
-  /**
-   * <p>The width of the legend. If this value is omitted, a default width is used when rendering.</p>
-   * @public
-   */
-  Width?: string | undefined;
-
-  /**
-   * <p>The height of the legend. If this value is omitted, a default height is used when
-   *             rendering.</p>
-   * @public
-   */
-  Height?: string | undefined;
-
-  /**
-   * <p>Configures the display properties of the given text.</p>
-   * @public
-   */
-  ValueFontConfiguration?: FontConfiguration | undefined;
-}
-
-/**
- * <p>The dynamic configuration of the reference line data configuration.</p>
- * @public
- */
-export interface ReferenceLineDynamicDataConfiguration {
-  /**
-   * <p>The column that the dynamic data targets.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The aggregation function that is used in the dynamic data.</p>
-   * @public
-   */
-  MeasureAggregationFunction?: AggregationFunction | undefined;
-
-  /**
-   * <p>The calculation that is used in the dynamic data.</p>
-   * @public
-   */
-  Calculation: NumericalAggregationFunction | undefined;
-}
-
-/**
- * <p>The static data configuration of the reference line data configuration.</p>
- * @public
- */
-export interface ReferenceLineStaticDataConfiguration {
-  /**
-   * <p>The double input of the static data.</p>
-   * @public
-   */
-  Value: number | undefined;
-}
-
-/**
- * <p>The data configuration of the reference line.</p>
- * @public
- */
-export interface ReferenceLineDataConfiguration {
-  /**
-   * <p>The static data configuration of the reference line data configuration.</p>
-   * @public
-   */
-  StaticConfiguration?: ReferenceLineStaticDataConfiguration | undefined;
-
-  /**
-   * <p>The dynamic configuration of the reference line data configuration.</p>
-   * @public
-   */
-  DynamicConfiguration?: ReferenceLineDynamicDataConfiguration | undefined;
-
-  /**
-   * <p>The axis binding type of the reference line. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PrimaryY</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SecondaryY</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  AxisBinding?: AxisBinding | undefined;
-
-  /**
-   * <p>The series type of the reference line data configuration. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BAR</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LINE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SeriesType?: ReferenceLineSeriesType | undefined;
-}
-
-/**
- * <p>The configuration for a custom label on a <code>ReferenceLine</code>.</p>
- * @public
- */
-export interface ReferenceLineCustomLabelConfiguration {
-  /**
-   * <p>The string text of the custom label.</p>
-   * @public
-   */
-  CustomLabel: string | undefined;
-}
-
-/**
- * <p>The value label configuration of the label in a reference line.</p>
- * @public
- */
-export interface ReferenceLineValueLabelConfiguration {
-  /**
-   * <p>The relative position of the value label. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BEFORE_CUSTOM_LABEL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AFTER_CUSTOM_LABEL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  RelativePosition?: ReferenceLineValueLabelRelativePosition | undefined;
-
-  /**
-   * <p>The format configuration of the value label.</p>
-   * @public
-   */
-  FormatConfiguration?: NumericFormatConfiguration | undefined;
-}
-
-/**
- * <p>The label configuration of a reference line.</p>
- * @public
- */
-export interface ReferenceLineLabelConfiguration {
-  /**
-   * <p>The value label configuration of the label in a reference line.</p>
-   * @public
-   */
-  ValueLabelConfiguration?: ReferenceLineValueLabelConfiguration | undefined;
-
-  /**
-   * <p>The custom label configuration of the label in a reference line.</p>
-   * @public
-   */
-  CustomLabelConfiguration?: ReferenceLineCustomLabelConfiguration | undefined;
-
-  /**
-   * <p>The font configuration of the label in a reference line.</p>
-   * @public
-   */
-  FontConfiguration?: FontConfiguration | undefined;
-
-  /**
-   * <p>The font color configuration of the label in a reference line.</p>
-   * @public
-   */
-  FontColor?: string | undefined;
-
-  /**
-   * <p>The horizontal position configuration of the label in a reference line. Choose one of
-   *             the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LEFT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CENTER</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RIGHT</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  HorizontalPosition?: ReferenceLineLabelHorizontalPosition | undefined;
-
-  /**
-   * <p>The vertical position configuration of the label in a reference line. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ABOVE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BELOW</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  VerticalPosition?: ReferenceLineLabelVerticalPosition | undefined;
-}
-
-/**
- * <p>The style configuration of the reference
- *             line.</p>
- * @public
- */
-export interface ReferenceLineStyleConfiguration {
-  /**
-   * <p>The pattern type of the line style. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SOLID</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DASHED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DOTTED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Pattern?: ReferenceLinePatternType | undefined;
-
-  /**
-   * <p>The hex color of the reference line.</p>
-   * @public
-   */
-  Color?: string | undefined;
-}
-
-/**
- * <p>The reference line visual display options.</p>
- * @public
- */
-export interface ReferenceLine {
-  /**
-   * <p>The status of the reference line. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: WidgetStatus | undefined;
-
-  /**
-   * <p>The data configuration of the reference line.</p>
-   * @public
-   */
-  DataConfiguration: ReferenceLineDataConfiguration | undefined;
-
-  /**
-   * <p>The style configuration of the reference line.</p>
-   * @public
-   */
-  StyleConfiguration?: ReferenceLineStyleConfiguration | undefined;
-
-  /**
-   * <p>The label configuration of the reference line.</p>
-   * @public
-   */
-  LabelConfiguration?: ReferenceLineLabelConfiguration | undefined;
-}
-
-/**
- * <p>Options that determine the presentation of a bar series in the visual.</p>
- * @public
- */
-export interface BarChartSeriesSettings {
-  /**
-   * <p>Decal settings for the bar series.</p>
-   * @public
-   */
-  DecalSettings?: DecalSettings | undefined;
-
-  /**
-   * <p>Border settings for the bar series.</p>
-   * @public
-   */
-  BorderSettings?: BorderSettings | undefined;
-}
-
-/**
- * <p>The data field series item configuration of a  <code>BarChartVisual</code>.</p>
- * @public
- */
-export interface DataFieldBarSeriesItem {
-  /**
-   * <p>Field ID of the field that you are setting the series configuration for.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>Field value of the field that you are setting the series configuration for.</p>
-   * @public
-   */
-  FieldValue?: string | undefined;
-
-  /**
-   * <p>Options that determine the presentation of bar series associated to the field.</p>
-   * @public
-   */
-  Settings?: BarChartSeriesSettings | undefined;
-}
-
-/**
- * <p>The field series item configuration of a  <code>BarChartVisual</code>.</p>
- * @public
- */
-export interface FieldBarSeriesItem {
-  /**
-   * <p>Field ID of the field for which you are setting the series configuration.</p>
-   * @public
-   */
-  FieldId: string | undefined;
-
-  /**
-   * <p>Options that determine the presentation of bar series associated to the field.</p>
-   * @public
-   */
-  Settings?: BarChartSeriesSettings | undefined;
-}
-
-/**
- * <p>The series item configuration of a  <code>BarChartVisual</code>.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface BarSeriesItem {
-  /**
-   * <p>The field series item configuration of a  <code>BarChartVisual</code>.</p>
-   * @public
-   */
-  FieldBarSeriesItem?: FieldBarSeriesItem | undefined;
-
-  /**
-   * <p>The data field series item configuration of a  <code>BarChartVisual</code>.</p>
-   * @public
-   */
-  DataFieldBarSeriesItem?: DataFieldBarSeriesItem | undefined;
 }

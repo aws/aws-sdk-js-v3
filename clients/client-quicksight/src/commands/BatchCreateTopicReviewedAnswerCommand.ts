@@ -3,7 +3,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchCreateTopicReviewedAnswerResponse } from "../models/models_2";
-import type { BatchCreateTopicReviewedAnswerRequest } from "../models/models_5";
+import type { BatchCreateTopicReviewedAnswerRequest } from "../models/models_6";
 import { BatchCreateTopicReviewedAnswer$ } from "../schemas/schemas_0";
 
 /**

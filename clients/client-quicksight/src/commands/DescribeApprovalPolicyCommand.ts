@@ -44,10 +44,10 @@ export interface DescribeApprovalPolicyCommandOutput extends DescribeApprovalPol
  * //     Name: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
  * //     Actions: [ // GovernedActionList // required
- * //       "SHARE",
+ * //       "SHARE" || "PUBLISH",
  * //     ],
  * //     AssetTypes: [ // AssetTypeList // required
- * //       "AGENT" || "SPACE" || "KNOWLEDGE_BASE",
+ * //       "AGENT" || "SPACE" || "KNOWLEDGE_BASE" || "FLOW",
  * //     ],
  * //     ApplicableTo: { // ApplicableTo
  * //       Type: "GROUP", // required
