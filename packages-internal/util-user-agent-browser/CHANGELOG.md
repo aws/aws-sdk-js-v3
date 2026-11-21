@@ -62,6 +62,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.60 (2026-11-21)
+### Chores
+* **util-user-agent-browser:** update dependencies.
+
+
+
 # 3.972.59 (2026-11-10)
 ### Chores
 * **util-user-agent-browser:** update dependencies.

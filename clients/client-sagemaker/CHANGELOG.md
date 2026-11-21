@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1175.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1174.0...v3.1175.0) (2026-11-21)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker AI adds APIs to view capacity reservations and their usage. ([eddc9ef](https://github.com/aws/aws-sdk-js-v3/commit/eddc9ef74175b1d04df59d8a503b262400d761df))
+
+
+
+
+
 # [3.1174.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1173.0...v3.1174.0) (2026-11-20)
 
 

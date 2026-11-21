@@ -100,6 +100,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.98 (2026-11-21)
+### Chores
+* **credential-provider-node:** update dependencies.
+
+
+
 # 3.972.97 (2026-11-11)
 ### Bug Fixes
 * **credential-provider-login:** refresh in the cached sign-in region ([#8416](https://github.com/aws/aws-sdk-js-v3/issues/8416)) ([2e6bf67](https://github.com/aws/aws-sdk-js-v3/commit/2e6bf67db25456ea7afa6a6d0ab9369e0272fccc))

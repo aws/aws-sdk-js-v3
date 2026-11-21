@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1175.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1174.0...v3.1175.0) (2026-11-21)
+
+
+### Bug Fixes
+
+* **core/client:** skip object traversal when NoOpLogger is present ([#8433](https://github.com/aws/aws-sdk-js-v3/issues/8433)) ([6588aa0](https://github.com/aws/aws-sdk-js-v3/commit/6588aa0b025ad04c83de984799271a25d34c438e))
+
+
+### Features
+
+* **client-quicksight:** Quicksight public SDK release for November 20 ([2d90f50](https://github.com/aws/aws-sdk-js-v3/commit/2d90f5028fd99703ced8b709c7c9b6aa5896ebf7))
+* **client-sagemaker:** Amazon SageMaker AI adds APIs to view capacity reservations and their usage. ([eddc9ef](https://github.com/aws/aws-sdk-js-v3/commit/eddc9ef74175b1d04df59d8a503b262400d761df))
+
+
+
+
+
 # [3.1174.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1173.0...v3.1174.0) (2026-11-20)
 
 

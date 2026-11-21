@@ -90,6 +90,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.981.1 (2026-11-20)
+### Bug Fixes
+* **core/client:** skip object traversal when NoOpLogger is present ([#8433](https://github.com/aws/aws-sdk-js-v3/issues/8433)) ([6588aa0](https://github.com/aws/aws-sdk-js-v3/commit/6588aa0b025ad04c83de984799271a25d34c438e))
+
+
+
 # 3.981.0 (2026-11-10)
 ### Features
 * **clients:** enable 2026 new retry behavior by default ([#8413](https://github.com/aws/aws-sdk-js-v3/issues/8413)) ([4123c92](https://github.com/aws/aws-sdk-js-v3/commit/4123c92b58b4f92bda6075e762fd12260289b8be))

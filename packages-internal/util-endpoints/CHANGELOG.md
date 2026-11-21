@@ -60,6 +60,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.58 (2026-11-21)
+### Chores
+* **util-endpoints:** update dependencies.
+
+
+
 # 3.996.57 (2026-11-10)
 ### Chores
 * **codegen:** sync for 2026 retry defaults ([#8415](https://github.com/aws/aws-sdk-js-v3/issues/8415)) ([4fd26c2](https://github.com/aws/aws-sdk-js-v3/commit/4fd26c205f8b01b7755b426c7149e4038690563f))

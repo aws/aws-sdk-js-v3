@@ -93,6 +93,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.91 (2026-11-21)
+### Chores
+* **middleware-sdk-s3:** update dependencies.
+
+
+
 # 3.972.90 (2026-11-18)
 ### Tests
 * **middleware-sdk-s3:** count retried commands once in s3 express e2e recorder ([#8428](https://github.com/aws/aws-sdk-js-v3/issues/8428)) ([08770cf](https://github.com/aws/aws-sdk-js-v3/commit/08770cfdf768c02fc68280e9719cf1241326216f))
