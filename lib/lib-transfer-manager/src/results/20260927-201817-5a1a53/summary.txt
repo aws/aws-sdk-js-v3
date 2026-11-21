@@ -1,0 +1,23 @@
+Run: 20260927-201817-5a1a53
+
+  Engine:     js-tm  node v20.20.2
+  Instance:   m8ib.48xlarge (us-west-2b)
+  Workload:   s3-tm-benchmarks/download/1TiB-1x/1 (download, disk)
+  Mode:       O_DIRECT (TM_O_DIRECT=1)  concurrency=1024  partSize=8MiB  uvpool=256  cores=192
+  Dest:       /mnt/raid0/1TiB-download
+
+  Iter      Steady St.            Peak       Effective    Duration    Peak Mem     Avg CPU
+     1    136.54 Gbps     186.59 Gbps     95.47 Gbps     92.13s    40.7 GiB    9066%
+     2    135.89 Gbps     234.17 Gbps    100.78 Gbps     87.28s    41.1 GiB   10199%
+     3    135.45 Gbps     179.47 Gbps    101.21 Gbps     86.91s    40.7 GiB   10115%
+
+  Throughput:
+    Median steady state: 135.89 Gbps
+    Median peak:         186.59 Gbps
+    Median effective:    101.00 Gbps  [bytes/duration]
+    Cold iteration 1:    95.47 Gbps effective, 92.13s
+
+  Disk I/O:
+    Write:  12.39 GB/s (mean)
+
+  Results: /home/ec2-user/aws-sdk-js-v3/lib/lib-transfer-manager/src/results/20260927-201817-5a1a53

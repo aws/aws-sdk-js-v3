@@ -1,0 +1,52 @@
+{
+  "runId": "20260927-204111-211a21",
+  "engine": "js-tm v20.20.2",
+  "instance": {
+    "type": "m8ib.48xlarge",
+    "az": "us-west-2b"
+  },
+  "workload": "s3-tm-benchmarks/download/1TiB-1x/1",
+  "mode": "o_direct",
+  "concurrency": 2048,
+  "partSize": 8388608,
+  "uvThreadpoolSize": "256",
+  "cores": 192,
+  "iterations": [
+    {
+      "run": 1,
+      "ok": true,
+      "bytes": 1099511627776,
+      "secs": 76.54839567500001,
+      "steadyGbps": 132.07279849534348,
+      "peakGbps": 413.09596289234867,
+      "effectiveGbps": 114.90891408819849,
+      "peakMem": 54479249408,
+      "avgCpuPct": 6392.602867571462,
+      "writeGBs": 14.36361426102481
+    },
+    {
+      "run": 2,
+      "ok": true,
+      "bytes": 1099511627776,
+      "secs": 74.06100139200001,
+      "steadyGbps": 139.5370072599303,
+      "peakGbps": 223.00753824933605,
+      "effectiveGbps": 118.76821615806757,
+      "peakMem": 54874845184,
+      "avgCpuPct": 7564.986320324314,
+      "writeGBs": 14.846027019758447
+    },
+    {
+      "run": 3,
+      "ok": true,
+      "bytes": 1099511627776,
+      "secs": 76.16872353699998,
+      "steadyGbps": 135.49752628098318,
+      "peakGbps": 204.52535446168713,
+      "effectiveGbps": 115.48169135242473,
+      "peakMem": 54258753536,
+      "avgCpuPct": 8241.406241960563,
+      "writeGBs": 14.435211419053092
+    }
+  ]
+}
