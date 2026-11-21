@@ -1,0 +1,44 @@
+name: publish
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'aws/aws-sdk-js-v3'
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - name: Check out main
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '20'
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Load credentials
+        run: |
+          # TODO: stub. How NPM credentials are granted is undecided.
+          # This step must export NODE_AUTH_TOKEN through $GITHUB_ENV.
+          echo "No credentials loaded."
+
+      - name: Publish
+        run: make publish CONFIRM=1
