@@ -1336,6 +1336,13 @@ DescribeAutoMLJobV2
 </details>
 <details>
 <summary>
+DescribeCapacityReservation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/DescribeCapacityReservationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeCapacityReservationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeCapacityReservationCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeCluster
 </summary>
 
@@ -1742,6 +1749,13 @@ DescribeReservedCapacity
 </details>
 <details>
 <summary>
+DescribeResourceAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/DescribeResourceAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeResourceAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeResourceAssociationsCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeSpace
 </summary>
 
@@ -1865,6 +1879,13 @@ ExtendTrainingPlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/ExtendTrainingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ExtendTrainingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ExtendTrainingPlanCommandOutput/)
+</details>
+<details>
+<summary>
+GetCapacityReservationUsage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/GetCapacityReservationUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/GetCapacityReservationUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/GetCapacityReservationUsageCommandOutput/)
 </details>
 <details>
 <summary>
@@ -2005,6 +2026,13 @@ ListCandidatesForAutoMLJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/ListCandidatesForAutoMLJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ListCandidatesForAutoMLJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ListCandidatesForAutoMLJobCommandOutput/)
+</details>
+<details>
+<summary>
+ListCapacityReservations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/ListCapacityReservationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ListCapacityReservationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ListCapacityReservationsCommandOutput/)
 </details>
 <details>
 <summary>

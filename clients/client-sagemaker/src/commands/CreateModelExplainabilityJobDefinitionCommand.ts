@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateModelExplainabilityJobDefinitionRequest,
   CreateModelExplainabilityJobDefinitionResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import { CreateModelExplainabilityJobDefinition$ } from "../schemas/schemas_0";
 
 /**

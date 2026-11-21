@@ -2437,6 +2437,90 @@ export type CapacityReservationType = (typeof CapacityReservationType)[keyof typ
  * @public
  * @enum
  */
+export const CapacityReservationStatus = {
+  ACTIVE: "Active",
+  EXPIRED: "Expired",
+  SCHEDULED: "Scheduled",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationStatus = (typeof CapacityReservationStatus)[keyof typeof CapacityReservationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationEndpointSharing = {
+  MULTIPLE_ENDPOINTS: "MultipleEndpoints",
+  SINGLE_ENDPOINT: "SingleEndpoint",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationEndpointSharing =
+  (typeof CapacityReservationEndpointSharing)[keyof typeof CapacityReservationEndpointSharing];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationMatchCriteria = {
+  OPEN: "Open",
+  TARGETED: "Targeted",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationMatchCriteria =
+  (typeof CapacityReservationMatchCriteria)[keyof typeof CapacityReservationMatchCriteria];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationOptInStatus = {
+  ACTIVE: "Active",
+  INACTIVE: "Inactive",
+  PENDING: "Pending",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationOptInStatus =
+  (typeof CapacityReservationOptInStatus)[keyof typeof CapacityReservationOptInStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationFilterName = {
+  STATUS: "Status",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationFilterName =
+  (typeof CapacityReservationFilterName)[keyof typeof CapacityReservationFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationResourceType = {
+  ENDPOINTS: "Endpoints",
+  HYPERPOD_CLUSTERS: "HyperPodClusters",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationResourceType =
+  (typeof CapacityReservationResourceType)[keyof typeof CapacityReservationResourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityReservationPreference = {
   CAPACITY_RESERVATIONS_ONLY: "capacity-reservations-only",
 } as const;
@@ -2865,6 +2949,7 @@ export type ClusterSlurmNodeType = (typeof ClusterSlurmNodeType)[keyof typeof Cl
 export const SoftwareUpdateStatus = {
   FAILED: "Failed",
   IN_PROGRESS: "InProgress",
+  PARTIALLY_SUCCEEDED: "PartiallySucceeded",
   PENDING: "Pending",
   ROLLBACK_COMPLETE: "RollbackComplete",
   ROLLBACK_IN_PROGRESS: "RollbackInProgress",

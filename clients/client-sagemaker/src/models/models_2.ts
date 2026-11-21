@@ -14,8 +14,6 @@ import type {
   CaptureStatus,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
-  ClusterOperationStatus,
-  ClusterOperationType,
   ClusterStatus,
   CustomizationTechnique,
   DataDistributionType,
@@ -23,8 +21,6 @@ import type {
   DirectInternetAccess,
   EnabledOrDisabled,
   EvaluationType,
-  ExtensionHealthIssueCode,
-  ExtensionStatus,
   FeatureStatus,
   HubContentType,
   InputMode,
@@ -105,14 +101,13 @@ import type {
   BatchDataCaptureConfig,
   BatchTransformInput,
   Bias,
+  CapacityReservationDetail,
   CfnCreateTemplateProvider,
   Channel,
   CheckpointConfig,
   ClusterAutoScalingConfigOutput,
   ClusterEventDetail,
   ClusterInstanceGroupDetails,
-  ClusterNodeDetails,
-  ClusterOperationScalingDetails,
   CodeEditorAppImageConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -141,8 +136,6 @@ import type {
   CognitoMemberDefinition,
   CollectionConfiguration,
   DeviceSelectionConfig,
-  DriftCheckBias,
-  DriftCheckExplainability,
   EdgeDeploymentConfig,
   EndpointInput,
   JupyterServerAppSettings,
@@ -160,6 +153,208 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * <p>Docker container image configuration object for the model explainability job.</p>
+ * @public
+ */
+export interface ModelExplainabilityAppSpecification {
+  /**
+   * <p>The container image to be run by the model explainability job.</p>
+   * @public
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>JSON formatted Amazon S3 file that defines explainability parameters. For more information on this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-model-explainability-parameters.html">Configure model explainability parameters</a>.</p>
+   * @public
+   */
+  ConfigUri: string | undefined;
+
+  /**
+   * <p>Sets the environment variables in the Docker container.</p>
+   * @public
+   */
+  Environment?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The configuration for a baseline model explainability job.</p>
+ * @public
+ */
+export interface ModelExplainabilityBaselineConfig {
+  /**
+   * <p>The name of the baseline model explainability job.</p>
+   * @public
+   */
+  BaseliningJobName?: string | undefined;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   * @public
+   */
+  ConstraintsResource?: MonitoringConstraintsResource | undefined;
+}
+
+/**
+ * <p>Inputs for the model explainability job.</p>
+ * @public
+ */
+export interface ModelExplainabilityJobInput {
+  /**
+   * <p>Input object for the endpoint</p>
+   * @public
+   */
+  EndpointInput?: EndpointInput | undefined;
+
+  /**
+   * <p>Input object for the batch transform job.</p>
+   * @public
+   */
+  BatchTransformInput?: BatchTransformInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelExplainabilityJobDefinitionRequest {
+  /**
+   * <p> The name of the model explainability job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
+   * @public
+   */
+  JobDefinitionName: string | undefined;
+
+  /**
+   * <p>The baseline configuration for a model explainability job.</p>
+   * @public
+   */
+  ModelExplainabilityBaselineConfig?: ModelExplainabilityBaselineConfig | undefined;
+
+  /**
+   * <p>Configures the model explainability job to run a specified Docker container image.</p>
+   * @public
+   */
+  ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
+
+  /**
+   * <p>Inputs for the model explainability job.</p>
+   * @public
+   */
+  ModelExplainabilityJobInput: ModelExplainabilityJobInput | undefined;
+
+  /**
+   * <p>The output configuration for monitoring jobs.</p>
+   * @public
+   */
+  ModelExplainabilityJobOutputConfig: MonitoringOutputConfig | undefined;
+
+  /**
+   * <p>Identifies the resources to deploy for a monitoring job.</p>
+   * @public
+   */
+  JobResources: MonitoringResources | undefined;
+
+  /**
+   * <p>Networking options for a model explainability job.</p>
+   * @public
+   */
+  NetworkConfig?: MonitoringNetworkConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
+   * @public
+   */
+  StoppingCondition?: MonitoringStoppingCondition | undefined;
+
+  /**
+   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateModelExplainabilityJobDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
+   * @public
+   */
+  JobDefinitionArn: string | undefined;
+}
+
+/**
+ * <p>Contains details regarding the file source.</p>
+ * @public
+ */
+export interface FileSource {
+  /**
+   * <p>The type of content stored in the file source.</p>
+   * @public
+   */
+  ContentType?: string | undefined;
+
+  /**
+   * <p>The digest of the file source.</p>
+   * @public
+   */
+  ContentDigest?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 URI for the file source.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+}
+
+/**
+ * <p>Represents the drift check bias baselines that can be used when the model monitor is set using the model package.</p>
+ * @public
+ */
+export interface DriftCheckBias {
+  /**
+   * <p>The bias config file for a model.</p>
+   * @public
+   */
+  ConfigFile?: FileSource | undefined;
+
+  /**
+   * <p>The pre-training constraints.</p>
+   * @public
+   */
+  PreTrainingConstraints?: MetricsSource | undefined;
+
+  /**
+   * <p>The post-training constraints.</p>
+   * @public
+   */
+  PostTrainingConstraints?: MetricsSource | undefined;
+}
+
+/**
+ * <p>Represents the drift check explainability baselines that can be used when the model monitor is set using the model package. </p>
+ * @public
+ */
+export interface DriftCheckExplainability {
+  /**
+   * <p>The drift check explainability constraints.</p>
+   * @public
+   */
+  Constraints?: MetricsSource | undefined;
+
+  /**
+   * <p>The explainability config file for the model.</p>
+   * @public
+   */
+  ConfigFile?: FileSource | undefined;
+}
 
 /**
  * <p>Represents the drift check data quality baselines that can be used when the model monitor is set using the model package. </p>
@@ -6884,6 +7079,28 @@ export interface DescribeAutoMLJobV2Response {
 /**
  * @public
  */
+export interface DescribeCapacityReservationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker Capacity Reservation. The ARN has the format <code>arn:aws:sagemaker:region:account-id:sm-capacity-reservation/smcr-id</code>.</p>
+   * @public
+   */
+  SMCapacityReservationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityReservationResponse {
+  /**
+   * <p>Details about the SageMaker Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservation: CapacityReservationDetail | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeClusterRequest {
   /**
    * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster.</p>
@@ -7013,250 +7230,4 @@ export interface DescribeClusterEventResponse {
    * @public
    */
   EventDetails?: ClusterEventDetail | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterExtensionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster on which the extension is installed.</p>
-   * @public
-   */
-  ClusterArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the extension to describe. <code>CreateClusterExtension</code> returns this ARN, and <code>ListClusterExtensions</code> lists it. If you delete an extension and create it again, the new extension has a new ARN.</p>
-   * @public
-   */
-  ExtensionArn: string | undefined;
-}
-
-/**
- * <p>Details of an extension installed on a SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ExtensionDetails {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster on which the extension is installed.</p>
-   * @public
-   */
-  ClusterArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the extension.</p>
-   * @public
-   */
-  ExtensionArn: string | undefined;
-
-  /**
-   * <p>The name of the extension.</p>
-   * @public
-   */
-  ExtensionName: string | undefined;
-
-  /**
-   * <p>The version of the extension. While SageMaker HyperPod creates or updates the extension, some nodes might still run a different version. To see how many nodes run this version, see <code>NodeSummary</code>.</p>
-   * @public
-   */
-  ExtensionVersion: string | undefined;
-
-  /**
-   * <p>The status of the extension can be one of the following values:</p> <dl> <dt>Creating</dt> <dd> <p>SageMaker HyperPod is installing the extension on the cluster's nodes.</p> </dd> <dt>Active</dt> <dd> <p>The extension runs its current version and configuration on all of the cluster's nodes.</p> </dd> <dt>Updating</dt> <dd> <p>SageMaker HyperPod is applying a configuration change or version update to the cluster's nodes.</p> </dd> <dt>Degraded</dt> <dd> <p>The extension runs its current version and configuration on some of the cluster's nodes but not all of them. Or, at least one node recently reported that the extension is unhealthy.</p> </dd> <dt>CreateFailed</dt> <dd> <p>SageMaker HyperPod couldn't install the extension on any of the cluster's nodes.</p> </dd> <dt>UpdateFailed</dt> <dd> <p>SageMaker HyperPod couldn't apply the update on any of the cluster's nodes.</p> </dd> <dt>Deleting</dt> <dd> <p>SageMaker HyperPod is removing the extension from the cluster's nodes.</p> </dd> <dt>DeleteFailed</dt> <dd> <p>SageMaker HyperPod couldn't remove the extension from any of the cluster's nodes.</p> </dd> </dl>
-   * @public
-   */
-  Status: ExtensionStatus | undefined;
-
-  /**
-   * <p>The configuration of the extension, as a JSON object serialized as a string. The configuration includes the default value of every setting that you didn't specify.</p>
-   * @public
-   */
-  ConfigurationValues?: string | undefined;
-
-  /**
-   * <p>The time when the extension was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The time when the extension was last updated.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-}
-
-/**
- * <p>Information about a problem that affects an extension on one or more nodes of a SageMaker HyperPod cluster, including the number of nodes that it affects.</p>
- * @public
- */
-export interface ExtensionHealthIssue {
-  /**
-   * <p>A code that describes the type of issue.</p>
-   * @public
-   */
-  Code: ExtensionHealthIssueCode | undefined;
-
-  /**
-   * <p>A description of the problem, for example the setting or component to check. Every node with the same problem has the same message.</p>
-   * @public
-   */
-  Message: string | undefined;
-
-  /**
-   * <p>The number of nodes that have this problem.</p>
-   * @public
-   */
-  NodeCount: number | undefined;
-}
-
-/**
- * <p>Contains information about the problems that affect an extension on the nodes of a SageMaker HyperPod cluster, including how many nodes each problem affects. <code>DescribeClusterExtension</code> returns <code>ExtensionHealth</code> only when at least one node has a problem.</p>
- * @public
- */
-export interface ExtensionHealth {
-  /**
-   * <p>The problems that affect the extension, grouped by cause, from the problem that affects the most nodes to the one that affects the fewest. SageMaker HyperPod counts each node in at most one issue. The list contains at most 20 issues. If more than 20 different problems exist, the list shows the 19 that affect the most nodes, and the 20th issue has the code <code>Other</code> and counts the nodes that the remaining problems affect.</p>
-   * @public
-   */
-  Issues: ExtensionHealthIssue[] | undefined;
-}
-
-/**
- * <p>A summary of an extension's installation across the nodes of a SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ExtensionNodeSummary {
-  /**
-   * <p>The number of nodes in your cluster that the extension targets. SageMaker HyperPod targets every running node in your cluster, including nodes that you add after you create the extension.</p>
-   * @public
-   */
-  TotalCount: number | undefined;
-
-  /**
-   * <p>The number of nodes that are running the extension's current version and configuration. Nodes that report the extension as unhealthy aren't counted. While SageMaker HyperPod creates or updates the extension, <code>ActiveCount</code> is lower than <code>TotalCount</code>. To see why nodes aren't counted, see <code>Health</code> in <code>DescribeClusterExtension</code>.</p>
-   * @public
-   */
-  ActiveCount: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterExtensionResponse {
-  /**
-   * <p>The details of the extension.</p>
-   * @public
-   */
-  ExtensionDetails: ExtensionDetails | undefined;
-
-  /**
-   * <p>A summary of how many nodes in your cluster the extension targets, and how many of them run the extension's current version and configuration.</p>
-   * @public
-   */
-  NodeSummary?: ExtensionNodeSummary | undefined;
-
-  /**
-   * <p>The problems that affect the extension on the cluster's nodes, grouped by cause, with the number of nodes that each problem affects. Use it to find out why <code>ActiveCount</code> is lower than <code>TotalCount</code>, or why the status is <code>Degraded</code>, <code>CreateFailed</code>, or <code>UpdateFailed</code>. SageMaker HyperPod omits <code>Health</code> when no node has a problem. Nodes where SageMaker HyperPod hasn't finished installing or updating the extension aren't counted in any issue, unless an earlier attempt failed on them.</p>
-   * @public
-   */
-  Health?: ExtensionHealth | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterNodeRequest {
-  /**
-   * <p>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster in which the node is.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>The ID of the SageMaker HyperPod cluster node.</p>
-   * @public
-   */
-  NodeId?: string | undefined;
-
-  /**
-   * <p>The logical identifier of the node to describe. You can specify either <code>NodeLogicalId</code> or <code>InstanceId</code>, but not both. <code>NodeLogicalId</code> can be used to describe nodes that are still being provisioned and don't yet have an <code>InstanceId</code> assigned.</p>
-   * @public
-   */
-  NodeLogicalId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterNodeResponse {
-  /**
-   * <p>The details of the SageMaker HyperPod cluster node.</p>
-   * @public
-   */
-  NodeDetails: ClusterNodeDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterOperationRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the HyperPod cluster associated with the operation.</p>
-   * @public
-   */
-  ClusterName: string | undefined;
-
-  /**
-   * <p>The unique identifier (UUID) of the operation to describe. This ID can be obtained from the <code>ListClusterOperations</code> operation.</p>
-   * @public
-   */
-  OperationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeClusterOperationResponse {
-  /**
-   * <p>The unique identifier (UUID) of the operation.</p>
-   * @public
-   */
-  OperationId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the HyperPod cluster associated with the operation.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-
-  /**
-   * <p>The type of the operation. Valid values are <code>Scaling</code> or <code>DeepHealthCheck</code>.</p>
-   * @public
-   */
-  Type?: ClusterOperationType | undefined;
-
-  /**
-   * <p>The current status of the operation. Valid values are <code>InProgress</code>, <code>Superseded</code>, or <code>Done</code>.</p>
-   * @public
-   */
-  Status?: ClusterOperationStatus | undefined;
-
-  /**
-   * <p>The timestamp when the operation was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The per-instance-group scaling details for the operation. This field is populated when the operation <code>Type</code> is <code>Scaling</code>.</p>
-   * @public
-   */
-  ScalingDetails?: ClusterOperationScalingDetails[] | undefined;
-
-  /**
-   * <p>The deep health check details for the operation. This field is populated when the operation <code>Type</code> is <code>DeepHealthCheck</code>.</p>
-   * @public
-   */
-  DeepHealthCheckDetails?: InstanceGroupHealthCheckConfiguration[] | undefined;
 }

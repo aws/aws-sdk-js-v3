@@ -558,6 +558,10 @@ import type {
   DescribeAutoMLJobV2CommandInput,
   DescribeAutoMLJobV2CommandOutput,
 } from "./commands/DescribeAutoMLJobV2Command";
+import type {
+  DescribeCapacityReservationCommandInput,
+  DescribeCapacityReservationCommandOutput,
+} from "./commands/DescribeCapacityReservationCommand";
 import type { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import type {
   DescribeClusterEventCommandInput,
@@ -757,6 +761,10 @@ import type {
   DescribeReservedCapacityCommandInput,
   DescribeReservedCapacityCommandOutput,
 } from "./commands/DescribeReservedCapacityCommand";
+import type {
+  DescribeResourceAssociationsCommandInput,
+  DescribeResourceAssociationsCommandOutput,
+} from "./commands/DescribeResourceAssociationsCommand";
 import type { DescribeSpaceCommandInput, DescribeSpaceCommandOutput } from "./commands/DescribeSpaceCommand";
 import type {
   DescribeStudioLifecycleConfigCommandInput,
@@ -821,6 +829,10 @@ import type {
   ExtendTrainingPlanCommandOutput,
 } from "./commands/ExtendTrainingPlanCommand";
 import type {
+  GetCapacityReservationUsageCommandInput,
+  GetCapacityReservationUsageCommandOutput,
+} from "./commands/GetCapacityReservationUsageCommand";
+import type {
   GetDeviceFleetReportCommandInput,
   GetDeviceFleetReportCommandOutput,
 } from "./commands/GetDeviceFleetReportCommand";
@@ -876,6 +888,10 @@ import type {
   ListCandidatesForAutoMLJobCommandInput,
   ListCandidatesForAutoMLJobCommandOutput,
 } from "./commands/ListCandidatesForAutoMLJobCommand";
+import type {
+  ListCapacityReservationsCommandInput,
+  ListCapacityReservationsCommandOutput,
+} from "./commands/ListCapacityReservationsCommand";
 import type {
   ListClusterEventsCommandInput,
   ListClusterEventsCommandOutput,
@@ -1571,6 +1587,7 @@ export type ServiceInputTypes =
   | DescribeArtifactCommandInput
   | DescribeAutoMLJobCommandInput
   | DescribeAutoMLJobV2CommandInput
+  | DescribeCapacityReservationCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterEventCommandInput
   | DescribeClusterExtensionCommandInput
@@ -1629,6 +1646,7 @@ export type ServiceInputTypes =
   | DescribeProcessingJobCommandInput
   | DescribeProjectCommandInput
   | DescribeReservedCapacityCommandInput
+  | DescribeResourceAssociationsCommandInput
   | DescribeSpaceCommandInput
   | DescribeStudioLifecycleConfigCommandInput
   | DescribeSubscribedWorkteamCommandInput
@@ -1647,6 +1665,7 @@ export type ServiceInputTypes =
   | DisassociateTrialComponentCommandInput
   | EnableSagemakerServicecatalogPortfolioCommandInput
   | ExtendTrainingPlanCommandInput
+  | GetCapacityReservationUsageCommandInput
   | GetDeviceFleetReportCommandInput
   | GetEndpointPolicyCommandInput
   | GetLineageGroupPolicyCommandInput
@@ -1667,6 +1686,7 @@ export type ServiceInputTypes =
   | ListAssociationsCommandInput
   | ListAutoMLJobsCommandInput
   | ListCandidatesForAutoMLJobCommandInput
+  | ListCapacityReservationsCommandInput
   | ListClusterEventsCommandInput
   | ListClusterExtensionVersionsCommandInput
   | ListClusterExtensionsCommandInput
@@ -2010,6 +2030,7 @@ export type ServiceOutputTypes =
   | DescribeArtifactCommandOutput
   | DescribeAutoMLJobCommandOutput
   | DescribeAutoMLJobV2CommandOutput
+  | DescribeCapacityReservationCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterEventCommandOutput
   | DescribeClusterExtensionCommandOutput
@@ -2068,6 +2089,7 @@ export type ServiceOutputTypes =
   | DescribeProcessingJobCommandOutput
   | DescribeProjectCommandOutput
   | DescribeReservedCapacityCommandOutput
+  | DescribeResourceAssociationsCommandOutput
   | DescribeSpaceCommandOutput
   | DescribeStudioLifecycleConfigCommandOutput
   | DescribeSubscribedWorkteamCommandOutput
@@ -2086,6 +2108,7 @@ export type ServiceOutputTypes =
   | DisassociateTrialComponentCommandOutput
   | EnableSagemakerServicecatalogPortfolioCommandOutput
   | ExtendTrainingPlanCommandOutput
+  | GetCapacityReservationUsageCommandOutput
   | GetDeviceFleetReportCommandOutput
   | GetEndpointPolicyCommandOutput
   | GetLineageGroupPolicyCommandOutput
@@ -2106,6 +2129,7 @@ export type ServiceOutputTypes =
   | ListAssociationsCommandOutput
   | ListAutoMLJobsCommandOutput
   | ListCandidatesForAutoMLJobCommandOutput
+  | ListCapacityReservationsCommandOutput
   | ListClusterEventsCommandOutput
   | ListClusterExtensionVersionsCommandOutput
   | ListClusterExtensionsCommandOutput

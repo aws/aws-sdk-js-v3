@@ -125,6 +125,7 @@ const _AIWDS = "AIWorkloadDataSource";
 const _AIWIDC = "AIWorkloadInputDataConfig";
 const _AIWIDCL = "AIWorkloadInputDataConfigList";
 const _AIWSDS = "AIWorkloadS3DataSource";
+const _AIc = "AccountId";
 const _AIp = "ApplicationId";
 const _AIs = "AssociationInfo";
 const _AIt = "AttachmentId";
@@ -247,6 +248,7 @@ const _ATd = "AddTags";
 const _ATp = "AppType";
 const _ATr = "ArtifactType";
 const _ATs = "AssociationType";
+const _ATss = "AssociatedTime";
 const _ATt = "AttachTime";
 const _ATu = "AuthType";
 const _AU = "AuthorizedUrl";
@@ -728,17 +730,30 @@ const _CR = "CapacityReservation";
 const _CRA = "CodeRepositoryArn";
 const _CRAl = "ClusterRoleArn";
 const _CRC = "CapacityReservationConfig";
+const _CRD = "CapacityReservationDetail";
+const _CREA = "CapacityReservationEndpointsAssociation";
+const _CRF = "CapacityReservationFilter";
+const _CRFa = "CapacityReservationFilters";
+const _CRHPCA = "CapacityReservationHyperPodClustersAssociation";
 const _CRIGC = "ClusterRestrictedInstanceGroupsConfig";
 const _CRIGCO = "ClusterRestrictedInstanceGroupsConfigOutput";
 const _CRIGD = "ClusterRestrictedInstanceGroupDetails";
 const _CRIGDL = "ClusterRestrictedInstanceGroupDetailsList";
 const _CRIGS = "ClusterRestrictedInstanceGroupSpecification";
 const _CRIGSl = "ClusterRestrictedInstanceGroupSpecifications";
+const _CRIU = "CapacityReservationInstanceUsage";
+const _CRIUS = "CapacityReservationInstanceUsageSet";
 const _CRN = "CodeRepositoryName";
 const _CRP = "CapacityReservationPreference";
 const _CRR = "ComputeResourceRequirements";
-const _CRS = "CodeRepositorySummary";
+const _CRRA = "CapacityReservationResourceAssociations";
+const _CRRAa = "CapacityReservationResourceAssociation";
+const _CRRU = "CapacityReservationResourceUsage";
+const _CRRUS = "CapacityReservationResourceUsageSet";
+const _CRS = "CapacityReservationSummary";
 const _CRSL = "CodeRepositorySummaryList";
+const _CRSa = "CapacityReservationSummaries";
+const _CRSo = "CodeRepositorySummary";
 const _CRT = "ClientRequestToken";
 const _CRTC = "CrossRegionTrafficConfig";
 const _CRa = "CapacityRequirements";
@@ -994,6 +1009,8 @@ const _DCRC = "DefaultCodeRepositoryContains";
 const _DCRI = "DeleteCodeRepositoryInput";
 const _DCRIe = "DescribeCodeRepositoryInput";
 const _DCRO = "DescribeCodeRepositoryOutput";
+const _DCRR = "DescribeCapacityReservationRequest";
+const _DCRRe = "DescribeCapacityReservationResponse";
 const _DCRe = "DeleteClusterRequest";
 const _DCRel = "DeleteClusterResponse";
 const _DCRele = "DeleteContextRequest";
@@ -1003,7 +1020,8 @@ const _DCRes = "DescribeClusterRequest";
 const _DCResc = "DescribeClusterResponse";
 const _DCRescr = "DescribeContextRequest";
 const _DCRescri = "DescribeContextResponse";
-const _DCRescrib = "DescribeCodeRepository";
+const _DCRescrib = "DescribeCapacityReservation";
+const _DCRescribe = "DescribeCodeRepository";
 const _DCSC = "DeleteClusterSchedulerConfig";
 const _DCSCR = "DeleteClusterSchedulerConfigRequest";
 const _DCSCRe = "DescribeClusterSchedulerConfigRequest";
@@ -1325,6 +1343,9 @@ const _DQBC = "DataQualityBaselineConfig";
 const _DQJI = "DataQualityJobInput";
 const _DQJOC = "DataQualityJobOutputConfig";
 const _DR = "DeploymentRecommendation";
+const _DRA = "DescribeResourceAssociations";
+const _DRAR = "DescribeResourceAssociationsRequest";
+const _DRARe = "DescribeResourceAssociationsResponse";
 const _DRC = "DebugRuleConfigurations";
 const _DRCR = "DescribeReservedCapacityRequest";
 const _DRCRe = "DescribeReservedCapacityResponse";
@@ -1583,7 +1604,7 @@ const _ERSNM = "ExecutionRoleSessionNameMode";
 const _ERVP = "ExcludeRetainedVariantProperties";
 const _ERr = "ErrorRate";
 const _ERx = "ExecutionRole";
-const _ES = "EndpointStatus";
+const _ES = "EndpointSharing";
 const _ESCC = "EmrServerlessComputeConfig";
 const _ESL = "EndpointSummaryList";
 const _ESM = "EndpointStepMetadata";
@@ -1598,7 +1619,8 @@ const _EST = "ExtensionStartTime";
 const _ESTC = "EnableSessionTagChaining";
 const _ESU = "ExpectedS3Url";
 const _ESm = "EmrSettings";
-const _ESn = "EndpointSummary";
+const _ESn = "EndpointStatus";
+const _ESnd = "EndpointSummary";
 const _ESx = "ExperimentSource";
 const _ESxp = "ExperimentSummary";
 const _ESxpe = "ExperimentSummaries";
@@ -1717,6 +1739,9 @@ const _GB = "GeneratedBy";
 const _GC = "GitConfig";
 const _GCDO = "GenerateCandidateDefinitionsOnly";
 const _GCFU = "GitConfigForUpdate";
+const _GCRU = "GetCapacityReservationUsage";
+const _GCRUR = "GetCapacityReservationUsageRequest";
+const _GCRURe = "GetCapacityReservationUsageResponse";
 const _GDFR = "GetDeviceFleetReport";
 const _GDFRR = "GetDeviceFleetReportRequest";
 const _GDFRRe = "GetDeviceFleetReportResponse";
@@ -1801,6 +1826,7 @@ const _HMT = "HiddenMlTools";
 const _HN = "HubName";
 const _HP = "HyperParameters";
 const _HPAS = "HyperParameterAlgorithmSpecification";
+const _HPC = "HyperPodClusters";
 const _HPR = "HyperParameterRanges";
 const _HPS = "HyperParameterSpecification";
 const _HPSy = "HyperParameterSpecifications";
@@ -2003,6 +2029,7 @@ const _ITnt = "InterfaceType";
 const _ITs = "IsTunable";
 const _IU = "ImageUri";
 const _IUIC = "InUseInstanceCount";
+const _IUS = "InstanceUsageSet";
 const _IV = "ImageVersion";
 const _IVA = "ImageVersionArn";
 const _IVN = "ImageVersionNumber";
@@ -2137,9 +2164,12 @@ const _LCQRi = "ListComputeQuotasResponse";
 const _LCR = "ListClustersRequest";
 const _LCRI = "ListCodeRepositoriesInput";
 const _LCRO = "ListCodeRepositoriesOutput";
+const _LCRR = "ListCapacityReservationsRequest";
+const _LCRRi = "ListCapacityReservationsResponse";
 const _LCRi = "ListClustersResponse";
 const _LCRis = "ListContextsRequest";
 const _LCRist = "ListContextsResponse";
+const _LCRista = "ListCapacityReservations";
 const _LCRisto = "ListCodeRepositories";
 const _LCSC = "ListClusterSchedulerConfigs";
 const _LCSCR = "ListClusterSchedulerConfigsRequest";
@@ -2371,6 +2401,7 @@ const _LRCR = "ListResourceCatalogsRequest";
 const _LRCRi = "ListResourceCatalogsResponse";
 const _LRSN = "LastReceivedSequenceNumber";
 const _LRT = "LastRunTime";
+const _LRTa = "LastRefreshTime";
 const _LS = "ListSpaces";
 const _LSD = "ListStageDevices";
 const _LSDR = "ListStageDevicesRequest";
@@ -2505,6 +2536,7 @@ const _MCVSL = "ModelCardVersionSummaryList";
 const _MCa = "MaxCandidates";
 const _MCai = "MaintenanceConfig";
 const _MCan = "ManagedConfiguration";
+const _MCat = "MatchCriteria";
 const _MCax = "MaxCapacity";
 const _MCaxo = "MaxConcurrency";
 const _MCe = "MetricsConfig";
@@ -2675,8 +2707,9 @@ const _MRAa = "MaximumRetryAttempts";
 const _MRAl = "MlflowResourceArn";
 const _MRAle = "MlReservationArn";
 const _MRC = "MaxRecordCount";
-const _MRI = "MlflowRunId";
+const _MRI = "MlReservationId";
 const _MRIS = "MaxRuntimeInSeconds";
+const _MRIl = "MlflowRunId";
 const _MRM = "ModelRegistrationMode";
 const _MRN = "MlflowRunName";
 const _MRPTJIS = "MaxRuntimePerTrainingJobInSeconds";
@@ -2797,7 +2830,7 @@ const _NTe = "NextToken";
 const _NV = "NumberValue";
 const _NVC = "NeoVpcConfig";
 const _Na = "Name";
-const _O = "Original";
+const _O = "Owner";
 const _OA = "OutputArtifacts";
 const _OATR = "OutputArtifactsToRemove";
 const _OBTJ = "OverallBestTrainingJob";
@@ -2863,7 +2896,8 @@ const _OUPN = "OwnerUserProfileName";
 const _OVC = "OverrideVpcConfig";
 const _OVCp = "OptimizationVpcConfig";
 const _Op = "Operator";
-const _Or = "Orchestrator";
+const _Or = "Original";
+const _Orc = "Orchestrator";
 const _Os = "Os";
 const _Ou = "Outcome";
 const _Out = "Outputs";
@@ -3085,6 +3119,7 @@ const _RARN = "RoleARN";
 const _RAVP = "RetainAllVariantProperties";
 const _RAe = "ResolvedAttributes";
 const _RAem = "RemoteAccess";
+const _RAes = "ResourceAssociations";
 const _RAo = "RoleArn";
 const _RAoo = "RootAccess";
 const _RBJ = "ReusedByJob";
@@ -3205,11 +3240,12 @@ const _RTeg = "RegistrationTime";
 const _RTen = "RenderableTask";
 const _RTo = "RoutingTargets";
 const _RTou = "RoutingTarget";
-const _RU = "RepositoryUrl";
+const _RU = "ResourcesUsage";
 const _RUP = "RollingUpdatePolicy";
 const _RUT = "RenderUiTemplate";
 const _RUTR = "RenderUiTemplateRequest";
 const _RUTRe = "RenderUiTemplateResponse";
+const _RUe = "RepositoryUrl";
 const _RV = "RootVolume";
 const _RWT = "RecordWrapperType";
 const _Ra = "Range";
@@ -3374,6 +3410,8 @@ const _SLp = "SpaceList";
 const _SM = "StatusMessage";
 const _SMA = "S3ModelArtifacts";
 const _SMC = "ShadowModeConfig";
+const _SMCRA = "SMCapacityReservationArn";
+const _SMCRI = "SMCapacityReservationId";
 const _SMDS = "S3ModelDataSource";
 const _SMIA = "SageMakerImageArn";
 const _SMIN = "SageMakerImageName";
@@ -4781,6 +4819,41 @@ export var CapacityReservation$: StaticStructureSchema = [3, n0, _CR,
   [_A, _T],
   [0, 0]
 ];
+export var CapacityReservationDetail$: StaticStructureSchema = [3, n0, _CRD,
+  0,
+  [_SMCRA, _SMCRI, _O, _St, _ITn, _AZI, _TICo, _STt, _CT, _AZv, _ETn],
+  [0, 0, 0, 0, 0, 0, 1, 4, 4, 0, 4], 9
+];
+export var CapacityReservationEndpointsAssociation$: StaticStructureSchema = [3, n0, _CREA,
+  0,
+  [_St, _ATss, _MRI, _MCat, _ES, _MRAle, _FR],
+  [0, 4, 0, 0, 0, 0, 0], 2
+];
+export var CapacityReservationFilter$: StaticStructureSchema = [3, n0, _CRF,
+  0,
+  [_Na, _Val],
+  [0, 64 | 0], 2
+];
+export var CapacityReservationHyperPodClustersAssociation$: StaticStructureSchema = [3, n0, _CRHPCA,
+  0,
+  [_St, _ATss, _FR],
+  [0, 4, 0], 2
+];
+export var CapacityReservationInstanceUsage$: StaticStructureSchema = [3, n0, _CRIU,
+  0,
+  [_AIc, _IUIC, _RU],
+  [0, 1, () => CapacityReservationResourceUsageSet], 3
+];
+export var CapacityReservationResourceUsage$: StaticStructureSchema = [3, n0, _CRRU,
+  0,
+  [_RT, _IUIC],
+  [0, 1], 2
+];
+export var CapacityReservationSummary$: StaticStructureSchema = [3, n0, _CRS,
+  0,
+  [_SMCRA, _SMCRI, _O, _St, _ITn, _AZI, _TICo, _STt, _CT, _AZv, _ETn],
+  [0, 0, 0, 0, 0, 0, 1, 4, 4, 0, 4], 9
+];
 export var CapacitySize$: StaticStructureSchema = [3, n0, _CSap,
   0,
   [_T, _Va],
@@ -5063,7 +5136,7 @@ export var ClusterOperationScalingConfiguration$: StaticStructureSchema = [3, n0
 ];
 export var ClusterOperationScalingDetails$: StaticStructureSchema = [3, n0, _COSD,
   0,
-  [_IGN, _St, _O, _De],
+  [_IGN, _St, _Or, _De],
   [0, 0, () => ClusterOperationScalingConfiguration$, () => ClusterOperationScalingConfiguration$]
 ];
 export var ClusterOperationSummary$: StaticStructureSchema = [3, n0, _COS,
@@ -5168,10 +5241,10 @@ export var CodeEditorAppSettings$: StaticStructureSchema = [3, n0, _CEAS,
 ];
 export var CodeRepository$: StaticStructureSchema = [3, n0, _CRo,
   0,
-  [_RU],
+  [_RUe],
   [0], 1
 ];
-export var CodeRepositorySummary$: StaticStructureSchema = [3, n0, _CRS,
+export var CodeRepositorySummary$: StaticStructureSchema = [3, n0, _CRSo,
   0,
   [_CRN, _CRA, _CT, _LMT, _GC],
   [0, 0, 4, 4, () => GitConfig$], 4
@@ -5373,7 +5446,7 @@ export var CreateClusterExtensionResponse$: StaticStructureSchema = [3, n0, _CCE
 ];
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_CNl, _IG, _RIG, _RIGC, _VC, _Ta, _Or, _NR, _TSCi, _NPM, _CRl, _ASu],
+  [_CNl, _IG, _RIG, _RIGC, _VC, _Ta, _Orc, _NR, _TSCi, _NPM, _CRl, _ASu],
   [0, () => ClusterInstanceGroupSpecifications, () => ClusterRestrictedInstanceGroupSpecifications, () => ClusterRestrictedInstanceGroupsConfig$, () => VpcConfig$, () => TagList, () => ClusterOrchestrator$, 0, () => ClusterTieredStorageConfig$, 0, 0, () => ClusterAutoScalingConfig$], 1
 ];
 export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRre,
@@ -6731,6 +6804,16 @@ export var DescribeAutoMLJobV2Response$: StaticStructureSchema = [3, n0, _DAMLJV
   [_AMLJN, _AMLJAu, _AMLJIDC, _ODC, _RAo, _CT, _LMT, _AMLJSu, _AMLJSS, _AMLJO, _AMLPTC, _AMLPTCN, _ETn, _FR, _PFR, _BC, _AMLJA, _RAe, _MDC, _MDR, _DSC, _SC, _AMLCC],
   [0, 0, () => AutoMLJobInputDataConfig, () => AutoMLOutputDataConfig$, 0, 4, 4, 0, 0, () => AutoMLJobObjective$, () => AutoMLProblemTypeConfig$, 0, 4, 0, () => AutoMLPartialFailureReasons, () => AutoMLCandidate$, () => AutoMLJobArtifacts$, () => AutoMLResolvedAttributes$, () => ModelDeployConfig$, () => ModelDeployResult$, () => AutoMLDataSplitConfig$, () => AutoMLSecurityConfig$, () => AutoMLComputeConfig$], 9
 ];
+export var DescribeCapacityReservationRequest$: StaticStructureSchema = [3, n0, _DCRR,
+  0,
+  [_SMCRA],
+  [0], 1
+];
+export var DescribeCapacityReservationResponse$: StaticStructureSchema = [3, n0, _DCRRe,
+  0,
+  [_CR],
+  [() => CapacityReservationDetail$], 1
+];
 export var DescribeClusterEventRequest$: StaticStructureSchema = [3, n0, _DCERes,
   0,
   [_EI, _CNl],
@@ -6778,7 +6861,7 @@ export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRes,
 ];
 export var DescribeClusterResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
-  [_CA, _CSlus, _IG, _CNl, _CT, _FM, _RIG, _RIGC, _VC, _Or, _TSCi, _NR, _NPM, _CRl, _ASu],
+  [_CA, _CSlus, _IG, _CNl, _CT, _FM, _RIG, _RIGC, _VC, _Orc, _TSCi, _NR, _NPM, _CRl, _ASu],
   [0, 0, () => ClusterInstanceGroupDetailsList, 0, 4, 0, () => ClusterRestrictedInstanceGroupDetailsList, () => ClusterRestrictedInstanceGroupsConfigOutput$, () => VpcConfig$, () => ClusterOrchestrator$, () => ClusterTieredStorageConfig$, 0, 0, 0, () => ClusterAutoScalingConfigOutput$], 3
 ];
 export var DescribeClusterSchedulerConfigRequest$: StaticStructureSchema = [3, n0, _DCSCRe,
@@ -6908,7 +6991,7 @@ export var DescribeEndpointInput$: StaticStructureSchema = [3, n0, _DEIe,
 ];
 export var DescribeEndpointOutput$: StaticStructureSchema = [3, n0, _DEO,
   0,
-  [_ENn, _EAn, _ES, _CT, _LMT, _ECN, _PV, _DCC, _FR, _LDC, _AIC, _PDS, _ECx, _SPV, _MCe, _CRTC],
+  [_ENn, _EAn, _ESn, _CT, _LMT, _ECN, _PV, _DCC, _FR, _LDC, _AIC, _PDS, _ECx, _SPV, _MCe, _CRTC],
   [0, 0, 0, 4, 4, 0, () => ProductionVariantSummaryList, () => DataCaptureConfigSummary$, 0, () => DeploymentConfig$, () => AsyncInferenceConfig$, () => PendingDeploymentSummary$, () => ExplainerConfig$, () => ProductionVariantSummaryList, () => MetricsConfig$, () => CrossRegionTrafficConfig$], 5
 ];
 export var DescribeExperimentRequest$: StaticStructureSchema = [3, n0, _DERes,
@@ -7311,6 +7394,16 @@ export var DescribeReservedCapacityResponse$: StaticStructureSchema = [3, n0, _D
   [_RCA, _ITn, _TICo, _RCT, _St, _AZv, _DH, _DM, _STt, _ETn, _AICv, _IUIC, _USS],
   [0, 0, 1, 0, 0, 0, 1, 1, 4, 4, 1, 1, () => UltraServerSummary$], 3
 ];
+export var DescribeResourceAssociationsRequest$: StaticStructureSchema = [3, n0, _DRAR,
+  0,
+  [_SMCRA, _MR, _NTe],
+  [0, 1, 0], 1
+];
+export var DescribeResourceAssociationsResponse$: StaticStructureSchema = [3, n0, _DRARe,
+  0,
+  [_SMCRA, _SMCRI, _RAes, _NTe],
+  [0, 0, () => CapacityReservationResourceAssociations, 0], 3
+];
 export var DescribeSpaceRequest$: StaticStructureSchema = [3, n0, _DSRe,
   0,
   [_DI, _SN],
@@ -7678,7 +7771,7 @@ export var EnableSagemakerServicecatalogPortfolioOutput$: StaticStructureSchema 
 ];
 export var Endpoint$: StaticStructureSchema = [3, n0, _En,
   0,
-  [_ENn, _EAn, _ECN, _ES, _CT, _LMT, _PV, _DCC, _FR, _MSon, _Ta, _SPV],
+  [_ENn, _EAn, _ECN, _ESn, _CT, _LMT, _PV, _DCC, _FR, _MSon, _Ta, _SPV],
   [0, 0, 0, 0, 4, 4, () => ProductionVariantSummaryList, () => DataCaptureConfigSummary$, 0, () => MonitoringScheduleList, () => TagList, () => ProductionVariantSummaryList], 6
 ];
 export var EndpointConfigStepMetadata$: StaticStructureSchema = [3, n0, _ECSM,
@@ -7708,7 +7801,7 @@ export var EndpointInputConfiguration$: StaticStructureSchema = [3, n0, _EIC,
 ];
 export var EndpointMetadata$: StaticStructureSchema = [3, n0, _EMn,
   0,
-  [_ENn, _ECN, _ES, _FR],
+  [_ENn, _ECN, _ESn, _FR],
   [0, 0, 0, 0], 1
 ];
 export var EndpointOutputConfiguration$: StaticStructureSchema = [3, n0, _EOCn,
@@ -7726,9 +7819,9 @@ export var EndpointStepMetadata$: StaticStructureSchema = [3, n0, _ESM,
   [_A],
   [0]
 ];
-export var EndpointSummary$: StaticStructureSchema = [3, n0, _ESn,
+export var EndpointSummary$: StaticStructureSchema = [3, n0, _ESnd,
   0,
-  [_ENn, _EAn, _CT, _LMT, _ES],
+  [_ENn, _EAn, _CT, _LMT, _ESn],
   [0, 0, 4, 4, 0], 5
 ];
 export var EnvironmentConfig$: StaticStructureSchema = [3, n0, _ECn,
@@ -7931,6 +8024,16 @@ export var GenerativeAiSettings$: StaticStructureSchema = [3, n0, _GAS,
   [_ABRA],
   [0]
 ];
+export var GetCapacityReservationUsageRequest$: StaticStructureSchema = [3, n0, _GCRUR,
+  0,
+  [_SMCRA, _MR, _NTe],
+  [0, 1, 0], 1
+];
+export var GetCapacityReservationUsageResponse$: StaticStructureSchema = [3, n0, _GCRURe,
+  0,
+  [_SMCRI, _TICo, _AICv, _LRTa, _IUS, _NTe],
+  [0, 1, 1, 4, () => CapacityReservationInstanceUsageSet, 0], 5
+];
 export var GetDeviceFleetReportRequest$: StaticStructureSchema = [3, n0, _GDFRR,
   0,
   [_DFN],
@@ -8003,7 +8106,7 @@ export var GetSearchSuggestionsResponse$: StaticStructureSchema = [3, n0, _GSSRe
 ];
 export var GitConfig$: StaticStructureSchema = [3, n0, _GC,
   0,
-  [_RU, _Br, _SAe],
+  [_RUe, _Br, _SAe],
   [0, 0, 0], 1
 ];
 export var GitConfigForUpdate$: StaticStructureSchema = [3, n0, _GCFU,
@@ -8750,6 +8853,16 @@ export var ListCandidatesForAutoMLJobResponse$: StaticStructureSchema = [3, n0, 
   0,
   [_Can, _NTe],
   [() => AutoMLCandidates, 0], 1
+];
+export var ListCapacityReservationsRequest$: StaticStructureSchema = [3, n0, _LCRR,
+  0,
+  [_MR, _NTe, _Fil],
+  [1, 0, () => CapacityReservationFilters]
+];
+export var ListCapacityReservationsResponse$: StaticStructureSchema = [3, n0, _LCRRi,
+  0,
+  [_CRSa, _NTe],
+  [() => CapacityReservationSummaries, 0], 1
 ];
 export var ListClusterEventsRequest$: StaticStructureSchema = [3, n0, _LCER,
   0,
@@ -9668,7 +9781,7 @@ export var MLflowConfiguration$: StaticStructureSchema = [3, n0, _MLCfl,
 ];
 export var MlflowDetails$: StaticStructureSchema = [3, n0, _MDl,
   0,
-  [_MEI, _MRI],
+  [_MEI, _MRIl],
   [0, 0]
 ];
 export var Model$: StaticStructureSchema = [3, n0, _Mode,
@@ -9753,7 +9866,7 @@ export var ModelConfiguration$: StaticStructureSchema = [3, n0, _MCodel,
 ];
 export var ModelDashboardEndpoint$: StaticStructureSchema = [3, n0, _MDE,
   0,
-  [_ENn, _EAn, _CT, _LMT, _ES],
+  [_ENn, _EAn, _CT, _LMT, _ESn],
   [0, 0, 4, 4, 0], 5
 ];
 export var ModelDashboardIndicatorAction$: StaticStructureSchema = [3, n0, _MDIA,
@@ -11748,7 +11861,7 @@ export var UpdateClusterExtensionResponse$: StaticStructureSchema = [3, n0, _UCE
 ];
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_CNl, _IG, _RIG, _RIGC, _TSCi, _NR, _IGTD, _NPM, _CRl, _ASu, _Or],
+  [_CNl, _IG, _RIG, _RIGC, _TSCi, _NR, _IGTD, _NPM, _CRl, _ASu, _Orc],
   [0, () => ClusterInstanceGroupSpecifications, () => ClusterRestrictedInstanceGroupSpecifications, () => ClusterRestrictedInstanceGroupsConfig$, () => ClusterTieredStorageConfig$, 0, 64 | 0, 0, 0, () => ClusterAutoScalingConfig$, () => ClusterOrchestrator$], 1
 ];
 export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
@@ -12414,6 +12527,22 @@ var BatchReplaceClusterNodesErrors: StaticListSchema = [1, n0, _BRCNEatc,
 ];
 var CandidateSteps: StaticListSchema = [1, n0, _CSa,
   0, () => AutoMLCandidateStep$
+];
+var CapacityReservationFilters: StaticListSchema = [1, n0, _CRFa,
+  0, () => CapacityReservationFilter$
+];
+var CapacityReservationFilterValues = 64 | 0;
+var CapacityReservationInstanceUsageSet: StaticListSchema = [1, n0, _CRIUS,
+  0, () => CapacityReservationInstanceUsage$
+];
+var CapacityReservationResourceAssociations: StaticListSchema = [1, n0, _CRRA,
+  0, () => CapacityReservationResourceAssociation$
+];
+var CapacityReservationResourceUsageSet: StaticListSchema = [1, n0, _CRRUS,
+  0, () => CapacityReservationResourceUsage$
+];
+var CapacityReservationSummaries: StaticListSchema = [1, n0, _CRSa,
+  0, () => CapacityReservationSummary$
 ];
 var CaptureOptionList: StaticListSchema = [1, n0, _COL,
   0, () => CaptureOption$
@@ -13249,6 +13378,11 @@ export var AutoMLProblemTypeResolvedAttributes$: StaticUnionSchema = [4, n0, _AM
   [_TRA, _TGRA],
   [() => TabularResolvedAttributes$, () => TextGenerationResolvedAttributes$]
 ];
+export var CapacityReservationResourceAssociation$: StaticUnionSchema = [4, n0, _CRRAa,
+  0,
+  [_HPC, _End],
+  [() => CapacityReservationHyperPodClustersAssociation$, () => CapacityReservationEndpointsAssociation$]
+];
 export var ClusterInstanceStorageConfig$: StaticUnionSchema = [4, n0, _CISCl,
   0,
   [_EVC, _FLC, _FOZC],
@@ -13794,6 +13928,9 @@ export var DescribeAutoMLJob$: StaticOperationSchema = [9, n0, _DAMLJ,
 export var DescribeAutoMLJobV2$: StaticOperationSchema = [9, n0, _DAMLJV,
   0, () => DescribeAutoMLJobV2Request$, () => DescribeAutoMLJobV2Response$
 ];
+export var DescribeCapacityReservation$: StaticOperationSchema = [9, n0, _DCRescrib,
+  0, () => DescribeCapacityReservationRequest$, () => DescribeCapacityReservationResponse$
+];
 export var DescribeCluster$: StaticOperationSchema = [9, n0, _DCes,
   0, () => DescribeClusterRequest$, () => DescribeClusterResponse$
 ];
@@ -13812,7 +13949,7 @@ export var DescribeClusterOperation$: StaticOperationSchema = [9, n0, _DCO,
 export var DescribeClusterSchedulerConfig$: StaticOperationSchema = [9, n0, _DCSCe,
   0, () => DescribeClusterSchedulerConfigRequest$, () => DescribeClusterSchedulerConfigResponse$
 ];
-export var DescribeCodeRepository$: StaticOperationSchema = [9, n0, _DCRescrib,
+export var DescribeCodeRepository$: StaticOperationSchema = [9, n0, _DCRescribe,
   0, () => DescribeCodeRepositoryInput$, () => DescribeCodeRepositoryOutput$
 ];
 export var DescribeCompilationJob$: StaticOperationSchema = [9, n0, _DCJe,
@@ -13968,6 +14105,9 @@ export var DescribeProject$: StaticOperationSchema = [9, n0, _DPesc,
 export var DescribeReservedCapacity$: StaticOperationSchema = [9, n0, _DRCesc,
   0, () => DescribeReservedCapacityRequest$, () => DescribeReservedCapacityResponse$
 ];
+export var DescribeResourceAssociations$: StaticOperationSchema = [9, n0, _DRA,
+  0, () => DescribeResourceAssociationsRequest$, () => DescribeResourceAssociationsResponse$
+];
 export var DescribeSpace$: StaticOperationSchema = [9, n0, _DSesc,
   0, () => DescribeSpaceRequest$, () => DescribeSpaceResponse$
 ];
@@ -14021,6 +14161,9 @@ export var EnableSagemakerServicecatalogPortfolio$: StaticOperationSchema = [9, 
 ];
 export var ExtendTrainingPlan$: StaticOperationSchema = [9, n0, _ETP,
   0, () => ExtendTrainingPlanRequest$, () => ExtendTrainingPlanResponse$
+];
+export var GetCapacityReservationUsage$: StaticOperationSchema = [9, n0, _GCRU,
+  0, () => GetCapacityReservationUsageRequest$, () => GetCapacityReservationUsageResponse$
 ];
 export var GetDeviceFleetReport$: StaticOperationSchema = [9, n0, _GDFR,
   0, () => GetDeviceFleetReportRequest$, () => GetDeviceFleetReportResponse$
@@ -14081,6 +14224,9 @@ export var ListAutoMLJobs$: StaticOperationSchema = [9, n0, _LAMLJ,
 ];
 export var ListCandidatesForAutoMLJob$: StaticOperationSchema = [9, n0, _LCFAMLJ,
   0, () => ListCandidatesForAutoMLJobRequest$, () => ListCandidatesForAutoMLJobResponse$
+];
+export var ListCapacityReservations$: StaticOperationSchema = [9, n0, _LCRista,
+  0, () => ListCapacityReservationsRequest$, () => ListCapacityReservationsResponse$
 ];
 export var ListClusterEvents$: StaticOperationSchema = [9, n0, _LCE,
   0, () => ListClusterEventsRequest$, () => ListClusterEventsResponse$

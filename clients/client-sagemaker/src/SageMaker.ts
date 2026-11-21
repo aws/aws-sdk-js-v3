@@ -806,6 +806,11 @@ import {
   DescribeAutoMLJobV2Command,
 } from "./commands/DescribeAutoMLJobV2Command";
 import {
+  type DescribeCapacityReservationCommandInput,
+  type DescribeCapacityReservationCommandOutput,
+  DescribeCapacityReservationCommand,
+} from "./commands/DescribeCapacityReservationCommand";
+import {
   type DescribeClusterCommandInput,
   type DescribeClusterCommandOutput,
   DescribeClusterCommand,
@@ -1096,6 +1101,11 @@ import {
   DescribeReservedCapacityCommand,
 } from "./commands/DescribeReservedCapacityCommand";
 import {
+  type DescribeResourceAssociationsCommandInput,
+  type DescribeResourceAssociationsCommandOutput,
+  DescribeResourceAssociationsCommand,
+} from "./commands/DescribeResourceAssociationsCommand";
+import {
   type DescribeSpaceCommandInput,
   type DescribeSpaceCommandOutput,
   DescribeSpaceCommand,
@@ -1185,6 +1195,11 @@ import {
   type ExtendTrainingPlanCommandOutput,
   ExtendTrainingPlanCommand,
 } from "./commands/ExtendTrainingPlanCommand";
+import {
+  type GetCapacityReservationUsageCommandInput,
+  type GetCapacityReservationUsageCommandOutput,
+  GetCapacityReservationUsageCommand,
+} from "./commands/GetCapacityReservationUsageCommand";
 import {
   type GetDeviceFleetReportCommandInput,
   type GetDeviceFleetReportCommandOutput,
@@ -1281,6 +1296,11 @@ import {
   type ListCandidatesForAutoMLJobCommandOutput,
   ListCandidatesForAutoMLJobCommand,
 } from "./commands/ListCandidatesForAutoMLJobCommand";
+import {
+  type ListCapacityReservationsCommandInput,
+  type ListCapacityReservationsCommandOutput,
+  ListCapacityReservationsCommand,
+} from "./commands/ListCapacityReservationsCommand";
 import {
   type ListClusterEventsCommandInput,
   type ListClusterEventsCommandOutput,
@@ -2125,9 +2145,11 @@ import {
 import type { ResourceNotFound } from "./models/errors";
 import type { SageMakerServiceException } from "./models/SageMakerServiceException";
 import { paginateCreateHubContentPresignedUrls } from "./pagination/CreateHubContentPresignedUrlsPaginator";
+import { paginateDescribeResourceAssociations } from "./pagination/DescribeResourceAssociationsPaginator";
 import {
   paginateDescribeTrainingPlanExtensionHistory,
 } from "./pagination/DescribeTrainingPlanExtensionHistoryPaginator";
+import { paginateGetCapacityReservationUsage } from "./pagination/GetCapacityReservationUsagePaginator";
 import { paginateListActions } from "./pagination/ListActionsPaginator";
 import { paginateListAIBenchmarkJobs } from "./pagination/ListAIBenchmarkJobsPaginator";
 import { paginateListAIRecommendationJobs } from "./pagination/ListAIRecommendationJobsPaginator";
@@ -2140,6 +2162,7 @@ import { paginateListArtifacts } from "./pagination/ListArtifactsPaginator";
 import { paginateListAssociations } from "./pagination/ListAssociationsPaginator";
 import { paginateListAutoMLJobs } from "./pagination/ListAutoMLJobsPaginator";
 import { paginateListCandidatesForAutoMLJob } from "./pagination/ListCandidatesForAutoMLJobPaginator";
+import { paginateListCapacityReservations } from "./pagination/ListCapacityReservationsPaginator";
 import { paginateListClusterEvents } from "./pagination/ListClusterEventsPaginator";
 import { paginateListClusterExtensions } from "./pagination/ListClusterExtensionsPaginator";
 import { paginateListClusterExtensionVersions } from "./pagination/ListClusterExtensionVersionsPaginator";
@@ -2413,6 +2436,7 @@ const commands = {
   DescribeArtifactCommand,
   DescribeAutoMLJobCommand,
   DescribeAutoMLJobV2Command,
+  DescribeCapacityReservationCommand,
   DescribeClusterCommand,
   DescribeClusterEventCommand,
   DescribeClusterExtensionCommand,
@@ -2471,6 +2495,7 @@ const commands = {
   DescribeProcessingJobCommand,
   DescribeProjectCommand,
   DescribeReservedCapacityCommand,
+  DescribeResourceAssociationsCommand,
   DescribeSpaceCommand,
   DescribeStudioLifecycleConfigCommand,
   DescribeSubscribedWorkteamCommand,
@@ -2489,6 +2514,7 @@ const commands = {
   DisassociateTrialComponentCommand,
   EnableSagemakerServicecatalogPortfolioCommand,
   ExtendTrainingPlanCommand,
+  GetCapacityReservationUsageCommand,
   GetDeviceFleetReportCommand,
   GetEndpointPolicyCommand,
   GetLineageGroupPolicyCommand,
@@ -2509,6 +2535,7 @@ const commands = {
   ListAssociationsCommand,
   ListAutoMLJobsCommand,
   ListCandidatesForAutoMLJobCommand,
+  ListCapacityReservationsCommand,
   ListClusterEventsCommand,
   ListClusterExtensionsCommand,
   ListClusterExtensionVersionsCommand,
@@ -2685,7 +2712,9 @@ const commands = {
 };
 const paginators = {
   paginateCreateHubContentPresignedUrls,
+  paginateDescribeResourceAssociations,
   paginateDescribeTrainingPlanExtensionHistory,
+  paginateGetCapacityReservationUsage,
   paginateListActions,
   paginateListAIBenchmarkJobs,
   paginateListAIRecommendationJobs,
@@ -2698,6 +2727,7 @@ const paginators = {
   paginateListAssociations,
   paginateListAutoMLJobs,
   paginateListCandidatesForAutoMLJob,
+  paginateListCapacityReservations,
   paginateListClusterEvents,
   paginateListClusterExtensions,
   paginateListClusterExtensionVersions,
@@ -5615,6 +5645,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeCapacityReservationCommand}
+   */
+  describeCapacityReservation(
+    args: DescribeCapacityReservationCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DescribeCapacityReservationCommandOutput>;
+  describeCapacityReservation(
+    args: DescribeCapacityReservationCommandInput,
+    cb: (err: any, data?: DescribeCapacityReservationCommandOutput) => void
+  ): void;
+  describeCapacityReservation(
+    args: DescribeCapacityReservationCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DescribeCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeClusterCommand}
    */
   describeCluster(
@@ -6601,6 +6648,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeResourceAssociationsCommand}
+   */
+  describeResourceAssociations(
+    args: DescribeResourceAssociationsCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<DescribeResourceAssociationsCommandOutput>;
+  describeResourceAssociations(
+    args: DescribeResourceAssociationsCommandInput,
+    cb: (err: any, data?: DescribeResourceAssociationsCommandOutput) => void
+  ): void;
+  describeResourceAssociations(
+    args: DescribeResourceAssociationsCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: DescribeResourceAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeSpaceCommand}
    */
   describeSpace(
@@ -6906,6 +6970,23 @@ export interface SageMaker {
     args: ExtendTrainingPlanCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: ExtendTrainingPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCapacityReservationUsageCommand}
+   */
+  getCapacityReservationUsage(
+    args: GetCapacityReservationUsageCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<GetCapacityReservationUsageCommandOutput>;
+  getCapacityReservationUsage(
+    args: GetCapacityReservationUsageCommandInput,
+    cb: (err: any, data?: GetCapacityReservationUsageCommandOutput) => void
+  ): void;
+  getCapacityReservationUsage(
+    args: GetCapacityReservationUsageCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: GetCapacityReservationUsageCommandOutput) => void
   ): void;
 
   /**
@@ -7257,6 +7338,24 @@ export interface SageMaker {
     args: ListCandidatesForAutoMLJobCommandInput,
     options: SageMakerRequestOptions,
     cb: (err: any, data?: ListCandidatesForAutoMLJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCapacityReservationsCommand}
+   */
+  listCapacityReservations(): Promise<ListCapacityReservationsCommandOutput>;
+  listCapacityReservations(
+    args: ListCapacityReservationsCommandInput,
+    options?: SageMakerRequestOptions
+  ): Promise<ListCapacityReservationsCommandOutput>;
+  listCapacityReservations(
+    args: ListCapacityReservationsCommandInput,
+    cb: (err: any, data?: ListCapacityReservationsCommandOutput) => void
+  ): void;
+  listCapacityReservations(
+    args: ListCapacityReservationsCommandInput,
+    options: SageMakerRequestOptions,
+    cb: (err: any, data?: ListCapacityReservationsCommandOutput) => void
   ): void;
 
   /**
@@ -10276,6 +10375,17 @@ export interface SageMaker {
   ): Paginator<CreateHubContentPresignedUrlsCommandOutput>;
 
   /**
+   * @see {@link DescribeResourceAssociationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeResourceAssociationsCommandOutput}.
+   */
+  paginateDescribeResourceAssociations(
+    args: DescribeResourceAssociationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeResourceAssociationsCommandOutput>;
+
+  /**
    * @see {@link DescribeTrainingPlanExtensionHistoryCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -10285,6 +10395,17 @@ export interface SageMaker {
     args: DescribeTrainingPlanExtensionHistoryCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeTrainingPlanExtensionHistoryCommandOutput>;
+
+  /**
+   * @see {@link GetCapacityReservationUsageCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCapacityReservationUsageCommandOutput}.
+   */
+  paginateGetCapacityReservationUsage(
+    args: GetCapacityReservationUsageCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCapacityReservationUsageCommandOutput>;
 
   /**
    * @see {@link ListActionsCommand}
@@ -10417,6 +10538,17 @@ export interface SageMaker {
     args: ListCandidatesForAutoMLJobCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListCandidatesForAutoMLJobCommandOutput>;
+
+  /**
+   * @see {@link ListCapacityReservationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCapacityReservationsCommandOutput}.
+   */
+  paginateListCapacityReservations(
+    args?: ListCapacityReservationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCapacityReservationsCommandOutput>;
 
   /**
    * @see {@link ListClusterEventsCommand}

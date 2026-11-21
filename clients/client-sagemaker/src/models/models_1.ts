@@ -14,12 +14,15 @@ import type {
   AvailabilityZoneBalanceEnforcementMode,
   AwsManagedHumanLoopRequestSource,
   CapacityReservationPreference,
+  ClusterCapacityType,
   ClusterConfigMode,
   ClusterFSxLustreDeletionPolicy,
   ClusterImageVersionStatus,
   ClusterInstanceType,
   ClusterNodeProvisioningMode,
   ClusterNodeRecovery,
+  ClusterOperationStatus,
+  ClusterOperationType,
   ClusterSlurmConfigStrategy,
   ClusterStatus,
   CollectionType,
@@ -155,8 +158,12 @@ import type {
   ClusterAccountingDatabase,
   ClusterAutoScalingConfig,
   ClusterInstanceGroupSpecification,
+  ClusterInstancePlacement,
+  ClusterInstanceStatusDetails,
   ClusterInstanceStorageConfig,
-  ClusterOrchestratorEksConfig,
+  ClusterKubernetesTaint,
+  ClusterLifeCycleConfig,
+  ClusterNetworkInterfaceDetails,
   CodeEditorAppImageConfig,
   ComputeQuotaResourceConfig,
   GlobalInferenceGatewayMember,
@@ -164,7 +171,6 @@ import type {
   JupyterLabAppImageConfig,
   KernelGatewayImageConfig,
   MetricDefinition,
-  MetricsSource,
   ModelDataSource,
   OutputDataConfig,
   ResourceConfig,
@@ -174,6 +180,378 @@ import type {
   Tag,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Node-specific Kubernetes configuration showing both current and desired state of labels and taints for an individual cluster node. </p>
+ * @public
+ */
+export interface ClusterKubernetesConfigNodeDetails {
+  /**
+   * <p>The current labels applied to the cluster node.</p>
+   * @public
+   */
+  CurrentLabels?: Record<string, string> | undefined;
+
+  /**
+   * <p>The desired labels to be applied to the cluster node.</p>
+   * @public
+   */
+  DesiredLabels?: Record<string, string> | undefined;
+
+  /**
+   * <p>The current taints applied to the cluster node.</p>
+   * @public
+   */
+  CurrentTaints?: ClusterKubernetesTaint[] | undefined;
+
+  /**
+   * <p>The desired taints to be applied to the cluster node.</p>
+   * @public
+   */
+  DesiredTaints?: ClusterKubernetesTaint[] | undefined;
+}
+
+/**
+ * <p>Contains information about the UltraServer object.</p>
+ * @public
+ */
+export interface UltraServerInfo {
+  /**
+   * <p>The unique identifier of the UltraServer.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The type of the UltraServer.</p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>Details of an instance (also called a <i>node</i> interchangeably) in a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterNodeDetails {
+  /**
+   * <p>The instance group name in which the instance is.</p>
+   * @public
+   */
+  InstanceGroupName?: string | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the node that persists throughout its lifecycle, from provisioning request to termination. This identifier can be used to track the node even before it has an assigned <code>InstanceId</code>.</p>
+   * @public
+   */
+  NodeLogicalId?: string | undefined;
+
+  /**
+   * <p>The status of the instance.</p>
+   * @public
+   */
+  InstanceStatus?: ClusterInstanceStatusDetails | undefined;
+
+  /**
+   * <p>The type of the instance.</p>
+   * @public
+   */
+  InstanceType?: ClusterInstanceType | undefined;
+
+  /**
+   * <p>The time when the instance is launched.</p>
+   * @public
+   */
+  LaunchTime?: Date | undefined;
+
+  /**
+   * <p>The time when the cluster was last updated.</p>
+   * @public
+   */
+  LastSoftwareUpdateTime?: Date | undefined;
+
+  /**
+   * <p>The LifeCycle configuration applied to the instance.</p>
+   * @public
+   */
+  LifeCycleConfig?: ClusterLifeCycleConfig | undefined;
+
+  /**
+   * <p>The customized Amazon VPC configuration at the instance group level that overrides the default Amazon VPC configuration of the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
+
+  /**
+   * <p>The number of threads per CPU core you specified under <code>CreateCluster</code>.</p>
+   * @public
+   */
+  ThreadsPerCore?: number | undefined;
+
+  /**
+   * <p>The configurations of additional storage specified to the instance group where the instance (node) is launched.</p>
+   * @public
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
+
+  /**
+   * <p>The private primary IP address of the SageMaker HyperPod cluster node.</p>
+   * @public
+   */
+  PrivatePrimaryIp?: string | undefined;
+
+  /**
+   * <p>The private primary IPv6 address of the SageMaker HyperPod cluster node when configured with an Amazon VPC that supports IPv6 and includes subnets with IPv6 addressing enabled in either the cluster Amazon VPC configuration or the instance group Amazon VPC configuration.</p>
+   * @public
+   */
+  PrivatePrimaryIpv6?: string | undefined;
+
+  /**
+   * <p>The private DNS hostname of the SageMaker HyperPod cluster node.</p>
+   * @public
+   */
+  PrivateDnsHostname?: string | undefined;
+
+  /**
+   * <p>The placement details of the SageMaker HyperPod cluster node.</p>
+   * @public
+   */
+  Placement?: ClusterInstancePlacement | undefined;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) currently in use by the node.</p>
+   * @public
+   */
+  CurrentImageId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) desired for the node.</p>
+   * @public
+   */
+  DesiredImageId?: string | undefined;
+
+  /**
+   * <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+   * @public
+   */
+  CurrentImageReleaseVersion?: string | undefined;
+
+  /**
+   * <p>The desired version of the HyperPod-managed AMI for the node. This may differ from the current version when an update is pending.</p>
+   * @public
+   */
+  DesiredImageReleaseVersion?: string | undefined;
+
+  /**
+   * <p>The status of the image version for the cluster node.</p>
+   * @public
+   */
+  ImageVersionStatus?: ClusterImageVersionStatus | undefined;
+
+  /**
+   * <p>Contains information about the UltraServer.</p>
+   * @public
+   */
+  UltraServerInfo?: UltraServerInfo | undefined;
+
+  /**
+   * <p>The Kubernetes configuration applied to this node, showing both the current and desired state of labels and taints. The cluster works to reconcile the actual state with the declared state. </p>
+   * @public
+   */
+  KubernetesConfig?: ClusterKubernetesConfigNodeDetails | undefined;
+
+  /**
+   * <p>The capacity type of the node. Valid values are <code>OnDemand</code> and <code>Spot</code>. When set to <code>OnDemand</code>, the node is launched as an On-Demand instance. When set to <code>Spot</code>, the node is launched as a Spot instance. </p>
+   * @public
+   */
+  CapacityType?: ClusterCapacityType | undefined;
+
+  /**
+   * <p>The network interface configuration for the cluster node.</p>
+   * @public
+   */
+  NetworkInterface?: ClusterNetworkInterfaceDetails | undefined;
+}
+
+/**
+ * <p>Lists a summary of the properties of an instance (also called a <i>node</i> interchangeably) of a SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterNodeSummary {
+  /**
+   * <p>The name of the instance group in which the instance is.</p>
+   * @public
+   */
+  InstanceGroupName: string | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the node that persists throughout its lifecycle, from provisioning request to termination. This identifier can be used to track the node even before it has an assigned <code>InstanceId</code>. This field is only included when <code>IncludeNodeLogicalIds</code> is set to <code>True</code> in the <code>ListClusterNodes</code> request.</p>
+   * @public
+   */
+  NodeLogicalId?: string | undefined;
+
+  /**
+   * <p>The type of the instance.</p>
+   * @public
+   */
+  InstanceType: ClusterInstanceType | undefined;
+
+  /**
+   * <p>The time when the instance is launched.</p>
+   * @public
+   */
+  LaunchTime: Date | undefined;
+
+  /**
+   * <p>The time when SageMaker last updated the software of the instances in the cluster.</p>
+   * @public
+   */
+  LastSoftwareUpdateTime?: Date | undefined;
+
+  /**
+   * <p>The status of the instance.</p>
+   * @public
+   */
+  InstanceStatus: ClusterInstanceStatusDetails | undefined;
+
+  /**
+   * <p>Contains information about the UltraServer.</p>
+   * @public
+   */
+  UltraServerInfo?: UltraServerInfo | undefined;
+
+  /**
+   * <p>The private DNS hostname of the SageMaker HyperPod cluster node.</p>
+   * @public
+   */
+  PrivateDnsHostname?: string | undefined;
+
+  /**
+   * <p>The version of the HyperPod-managed AMI currently running on the node.</p>
+   * @public
+   */
+  CurrentImageReleaseVersion?: string | undefined;
+
+  /**
+   * <p>The status of the image version for the cluster node.</p>
+   * @public
+   */
+  ImageVersionStatus?: ClusterImageVersionStatus | undefined;
+}
+
+/**
+ * <p>A point-in-time snapshot of an instance group's scaling configuration. This structure represents both the original configuration before the operation and the desired configuration requested by the operation.</p>
+ * @public
+ */
+export interface ClusterOperationScalingConfiguration {
+  /**
+   * <p>The number of instances that were in the instance group at the time of the operation.</p>
+   * @public
+   */
+  CurrentCount?: number | undefined;
+
+  /**
+   * <p>The target number of instances for the instance group.</p>
+   * @public
+   */
+  TargetCount?: number | undefined;
+
+  /**
+   * <p>The minimum number of instances that must be available in the instance group of a HyperPod cluster before it transitions to <code>InService</code> status. </p>
+   * @public
+   */
+  MinCount?: number | undefined;
+}
+
+/**
+ * <p>The scaling details for a single instance group that is affected by a cluster operation.</p>
+ * @public
+ */
+export interface ClusterOperationScalingDetails {
+  /**
+   * <p>The name of the instance group being scaled.</p>
+   * @public
+   */
+  InstanceGroupName?: string | undefined;
+
+  /**
+   * <p>The status of the scaling operation for this instance group. Valid values are <code>InProgress</code>, <code>Superseded</code>, or <code>Done</code>.</p>
+   * @public
+   */
+  Status?: ClusterOperationStatus | undefined;
+
+  /**
+   * <p>The scaling configuration of the instance group before the scaling operation was applied, including its current, target, and minimum instance counts.</p>
+   * @public
+   */
+  Original?: ClusterOperationScalingConfiguration | undefined;
+
+  /**
+   * <p>The desired scaling configuration of the instance group for the scaling operation, including its target and minimum instance counts.</p>
+   * @public
+   */
+  Desired?: ClusterOperationScalingConfiguration | undefined;
+}
+
+/**
+ * <p>A summary of an operation performed on a HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterOperationSummary {
+  /**
+   * <p>The unique identifier (UUID) of the operation.</p>
+   * @public
+   */
+  OperationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the HyperPod cluster associated with the operation.</p>
+   * @public
+   */
+  ClusterArn?: string | undefined;
+
+  /**
+   * <p>The type of the operation. Valid values are <code>Scaling</code> or <code>DeepHealthCheck</code>.</p>
+   * @public
+   */
+  Type?: ClusterOperationType | undefined;
+
+  /**
+   * <p>The current status of the operation. Valid values are <code>InProgress</code>, <code>Superseded</code>, or <code>Done</code>.</p>
+   * @public
+   */
+  Status?: ClusterOperationStatus | undefined;
+
+  /**
+   * <p>The timestamp when the operation was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+}
+
+/**
+ * <p>The configuration settings for the Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
+ * @public
+ */
+export interface ClusterOrchestratorEksConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster associated with the SageMaker HyperPod cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
 
 /**
  * <p>The configuration settings for the Slurm orchestrator used with the SageMaker HyperPod cluster.</p>
@@ -8328,206 +8706,4 @@ export interface CreateModelCardExportJobResponse {
    * @public
    */
   ModelCardExportJobArn: string | undefined;
-}
-
-/**
- * <p>Docker container image configuration object for the model explainability job.</p>
- * @public
- */
-export interface ModelExplainabilityAppSpecification {
-  /**
-   * <p>The container image to be run by the model explainability job.</p>
-   * @public
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>JSON formatted Amazon S3 file that defines explainability parameters. For more information on this JSON configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-config-json-monitor-model-explainability-parameters.html">Configure model explainability parameters</a>.</p>
-   * @public
-   */
-  ConfigUri: string | undefined;
-
-  /**
-   * <p>Sets the environment variables in the Docker container.</p>
-   * @public
-   */
-  Environment?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The configuration for a baseline model explainability job.</p>
- * @public
- */
-export interface ModelExplainabilityBaselineConfig {
-  /**
-   * <p>The name of the baseline model explainability job.</p>
-   * @public
-   */
-  BaseliningJobName?: string | undefined;
-
-  /**
-   * <p>The constraints resource for a monitoring job.</p>
-   * @public
-   */
-  ConstraintsResource?: MonitoringConstraintsResource | undefined;
-}
-
-/**
- * <p>Inputs for the model explainability job.</p>
- * @public
- */
-export interface ModelExplainabilityJobInput {
-  /**
-   * <p>Input object for the endpoint</p>
-   * @public
-   */
-  EndpointInput?: EndpointInput | undefined;
-
-  /**
-   * <p>Input object for the batch transform job.</p>
-   * @public
-   */
-  BatchTransformInput?: BatchTransformInput | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelExplainabilityJobDefinitionRequest {
-  /**
-   * <p> The name of the model explainability job definition. The name must be unique within an Amazon Web Services Region in the Amazon Web Services account.</p>
-   * @public
-   */
-  JobDefinitionName: string | undefined;
-
-  /**
-   * <p>The baseline configuration for a model explainability job.</p>
-   * @public
-   */
-  ModelExplainabilityBaselineConfig?: ModelExplainabilityBaselineConfig | undefined;
-
-  /**
-   * <p>Configures the model explainability job to run a specified Docker container image.</p>
-   * @public
-   */
-  ModelExplainabilityAppSpecification: ModelExplainabilityAppSpecification | undefined;
-
-  /**
-   * <p>Inputs for the model explainability job.</p>
-   * @public
-   */
-  ModelExplainabilityJobInput: ModelExplainabilityJobInput | undefined;
-
-  /**
-   * <p>The output configuration for monitoring jobs.</p>
-   * @public
-   */
-  ModelExplainabilityJobOutputConfig: MonitoringOutputConfig | undefined;
-
-  /**
-   * <p>Identifies the resources to deploy for a monitoring job.</p>
-   * @public
-   */
-  JobResources: MonitoringResources | undefined;
-
-  /**
-   * <p>Networking options for a model explainability job.</p>
-   * @public
-   */
-  NetworkConfig?: MonitoringNetworkConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>A time limit for how long the monitoring job is allowed to run before stopping.</p>
-   * @public
-   */
-  StoppingCondition?: MonitoringStoppingCondition | undefined;
-
-  /**
-   * <p>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL"> Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateModelExplainabilityJobDefinitionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model explainability job.</p>
-   * @public
-   */
-  JobDefinitionArn: string | undefined;
-}
-
-/**
- * <p>Contains details regarding the file source.</p>
- * @public
- */
-export interface FileSource {
-  /**
-   * <p>The type of content stored in the file source.</p>
-   * @public
-   */
-  ContentType?: string | undefined;
-
-  /**
-   * <p>The digest of the file source.</p>
-   * @public
-   */
-  ContentDigest?: string | undefined;
-
-  /**
-   * <p>The Amazon S3 URI for the file source.</p>
-   * @public
-   */
-  S3Uri: string | undefined;
-}
-
-/**
- * <p>Represents the drift check bias baselines that can be used when the model monitor is set using the model package.</p>
- * @public
- */
-export interface DriftCheckBias {
-  /**
-   * <p>The bias config file for a model.</p>
-   * @public
-   */
-  ConfigFile?: FileSource | undefined;
-
-  /**
-   * <p>The pre-training constraints.</p>
-   * @public
-   */
-  PreTrainingConstraints?: MetricsSource | undefined;
-
-  /**
-   * <p>The post-training constraints.</p>
-   * @public
-   */
-  PostTrainingConstraints?: MetricsSource | undefined;
-}
-
-/**
- * <p>Represents the drift check explainability baselines that can be used when the model monitor is set using the model package. </p>
- * @public
- */
-export interface DriftCheckExplainability {
-  /**
-   * <p>The drift check explainability constraints.</p>
-   * @public
-   */
-  Constraints?: MetricsSource | undefined;
-
-  /**
-   * <p>The explainability config file for the model.</p>
-   * @public
-   */
-  ConfigFile?: FileSource | undefined;
 }

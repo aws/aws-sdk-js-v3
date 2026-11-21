@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./CreateHubContentPresignedUrlsPaginator";
+export * from "./DescribeResourceAssociationsPaginator";
 export * from "./DescribeTrainingPlanExtensionHistoryPaginator";
+export * from "./GetCapacityReservationUsagePaginator";
 export * from "./ListActionsPaginator";
 export * from "./ListAIBenchmarkJobsPaginator";
 export * from "./ListAIRecommendationJobsPaginator";
@@ -14,6 +16,7 @@ export * from "./ListArtifactsPaginator";
 export * from "./ListAssociationsPaginator";
 export * from "./ListAutoMLJobsPaginator";
 export * from "./ListCandidatesForAutoMLJobPaginator";
+export * from "./ListCapacityReservationsPaginator";
 export * from "./ListClusterEventsPaginator";
 export * from "./ListClusterExtensionsPaginator";
 export * from "./ListClusterExtensionVersionsPaginator";

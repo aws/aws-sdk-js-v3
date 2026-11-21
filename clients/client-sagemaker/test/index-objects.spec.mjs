@@ -226,7 +226,21 @@ import {
   CandidateStepType,
   CanvasAppSettings$,
   CapacityReservation$,
+  CapacityReservationDetail$,
+  CapacityReservationEndpointsAssociation$,
+  CapacityReservationEndpointSharing,
+  CapacityReservationFilter$,
+  CapacityReservationFilterName,
+  CapacityReservationHyperPodClustersAssociation$,
+  CapacityReservationInstanceUsage$,
+  CapacityReservationMatchCriteria,
+  CapacityReservationOptInStatus,
   CapacityReservationPreference,
+  CapacityReservationResourceAssociation$,
+  CapacityReservationResourceType,
+  CapacityReservationResourceUsage$,
+  CapacityReservationStatus,
+  CapacityReservationSummary$,
   CapacityReservationType,
   CapacitySize$,
   CapacitySizeConfig$,
@@ -978,6 +992,10 @@ import {
   DescribeAutoMLJobV2Command,
   DescribeAutoMLJobV2Request$,
   DescribeAutoMLJobV2Response$,
+  DescribeCapacityReservation$,
+  DescribeCapacityReservationCommand,
+  DescribeCapacityReservationRequest$,
+  DescribeCapacityReservationResponse$,
   DescribeCluster$,
   DescribeClusterCommand,
   DescribeClusterEvent$,
@@ -1210,6 +1228,10 @@ import {
   DescribeReservedCapacityCommand,
   DescribeReservedCapacityRequest$,
   DescribeReservedCapacityResponse$,
+  DescribeResourceAssociations$,
+  DescribeResourceAssociationsCommand,
+  DescribeResourceAssociationsRequest$,
+  DescribeResourceAssociationsResponse$,
   DescribeSpace$,
   DescribeSpaceCommand,
   DescribeSpaceRequest$,
@@ -1406,6 +1428,10 @@ import {
   FSxLustreFileSystem$,
   FSxLustreFileSystemConfig$,
   GenerativeAiSettings$,
+  GetCapacityReservationUsage$,
+  GetCapacityReservationUsageCommand,
+  GetCapacityReservationUsageRequest$,
+  GetCapacityReservationUsageResponse$,
   GetDeviceFleetReport$,
   GetDeviceFleetReportCommand,
   GetDeviceFleetReportRequest$,
@@ -1663,6 +1689,10 @@ import {
   ListCandidatesForAutoMLJobCommand,
   ListCandidatesForAutoMLJobRequest$,
   ListCandidatesForAutoMLJobResponse$,
+  ListCapacityReservations$,
+  ListCapacityReservationsCommand,
+  ListCapacityReservationsRequest$,
+  ListCapacityReservationsResponse$,
   ListClusterEvents$,
   ListClusterEventsCommand,
   ListClusterEventsRequest$,
@@ -2211,7 +2241,9 @@ import {
   OwnershipSettings$,
   OwnershipSettingsSummary$,
   paginateCreateHubContentPresignedUrls,
+  paginateDescribeResourceAssociations,
   paginateDescribeTrainingPlanExtensionHistory,
+  paginateGetCapacityReservationUsage,
   paginateListActions,
   paginateListAIBenchmarkJobs,
   paginateListAIRecommendationJobs,
@@ -2224,6 +2256,7 @@ import {
   paginateListAssociations,
   paginateListAutoMLJobs,
   paginateListCandidatesForAutoMLJob,
+  paginateListCapacityReservations,
   paginateListClusterEvents,
   paginateListClusterExtensions,
   paginateListClusterExtensionVersions,
@@ -3384,6 +3417,8 @@ assert(typeof DescribeAutoMLJobCommand === "function");
 assert(typeof DescribeAutoMLJob$ === "object");
 assert(typeof DescribeAutoMLJobV2Command === "function");
 assert(typeof DescribeAutoMLJobV2$ === "object");
+assert(typeof DescribeCapacityReservationCommand === "function");
+assert(typeof DescribeCapacityReservation$ === "object");
 assert(typeof DescribeClusterCommand === "function");
 assert(typeof DescribeCluster$ === "object");
 assert(typeof DescribeClusterEventCommand === "function");
@@ -3500,6 +3535,8 @@ assert(typeof DescribeProjectCommand === "function");
 assert(typeof DescribeProject$ === "object");
 assert(typeof DescribeReservedCapacityCommand === "function");
 assert(typeof DescribeReservedCapacity$ === "object");
+assert(typeof DescribeResourceAssociationsCommand === "function");
+assert(typeof DescribeResourceAssociations$ === "object");
 assert(typeof DescribeSpaceCommand === "function");
 assert(typeof DescribeSpace$ === "object");
 assert(typeof DescribeStudioLifecycleConfigCommand === "function");
@@ -3536,6 +3573,8 @@ assert(typeof EnableSagemakerServicecatalogPortfolioCommand === "function");
 assert(typeof EnableSagemakerServicecatalogPortfolio$ === "object");
 assert(typeof ExtendTrainingPlanCommand === "function");
 assert(typeof ExtendTrainingPlan$ === "object");
+assert(typeof GetCapacityReservationUsageCommand === "function");
+assert(typeof GetCapacityReservationUsage$ === "object");
 assert(typeof GetDeviceFleetReportCommand === "function");
 assert(typeof GetDeviceFleetReport$ === "object");
 assert(typeof GetEndpointPolicyCommand === "function");
@@ -3576,6 +3615,8 @@ assert(typeof ListAutoMLJobsCommand === "function");
 assert(typeof ListAutoMLJobs$ === "object");
 assert(typeof ListCandidatesForAutoMLJobCommand === "function");
 assert(typeof ListCandidatesForAutoMLJob$ === "object");
+assert(typeof ListCapacityReservationsCommand === "function");
+assert(typeof ListCapacityReservations$ === "object");
 assert(typeof ListClusterEventsCommand === "function");
 assert(typeof ListClusterEvents$ === "object");
 assert(typeof ListClusterExtensionsCommand === "function");
@@ -4072,6 +4113,14 @@ assert(typeof CandidateGenerationConfig$ === "object");
 assert(typeof CandidateProperties$ === "object");
 assert(typeof CanvasAppSettings$ === "object");
 assert(typeof CapacityReservation$ === "object");
+assert(typeof CapacityReservationDetail$ === "object");
+assert(typeof CapacityReservationEndpointsAssociation$ === "object");
+assert(typeof CapacityReservationFilter$ === "object");
+assert(typeof CapacityReservationHyperPodClustersAssociation$ === "object");
+assert(typeof CapacityReservationInstanceUsage$ === "object");
+assert(typeof CapacityReservationResourceAssociation$ === "object");
+assert(typeof CapacityReservationResourceUsage$ === "object");
+assert(typeof CapacityReservationSummary$ === "object");
 assert(typeof CapacitySize$ === "object");
 assert(typeof CapacitySizeConfig$ === "object");
 assert(typeof CaptureContentTypeHeader$ === "object");
@@ -4466,6 +4515,8 @@ assert(typeof DescribeAutoMLJobRequest$ === "object");
 assert(typeof DescribeAutoMLJobResponse$ === "object");
 assert(typeof DescribeAutoMLJobV2Request$ === "object");
 assert(typeof DescribeAutoMLJobV2Response$ === "object");
+assert(typeof DescribeCapacityReservationRequest$ === "object");
+assert(typeof DescribeCapacityReservationResponse$ === "object");
 assert(typeof DescribeClusterEventRequest$ === "object");
 assert(typeof DescribeClusterEventResponse$ === "object");
 assert(typeof DescribeClusterExtensionRequest$ === "object");
@@ -4582,6 +4633,8 @@ assert(typeof DescribeProjectInput$ === "object");
 assert(typeof DescribeProjectOutput$ === "object");
 assert(typeof DescribeReservedCapacityRequest$ === "object");
 assert(typeof DescribeReservedCapacityResponse$ === "object");
+assert(typeof DescribeResourceAssociationsRequest$ === "object");
+assert(typeof DescribeResourceAssociationsResponse$ === "object");
 assert(typeof DescribeSpaceRequest$ === "object");
 assert(typeof DescribeSpaceResponse$ === "object");
 assert(typeof DescribeStudioLifecycleConfigRequest$ === "object");
@@ -4707,6 +4760,8 @@ assert(typeof FSxLustreConfig$ === "object");
 assert(typeof FSxLustreFileSystem$ === "object");
 assert(typeof FSxLustreFileSystemConfig$ === "object");
 assert(typeof GenerativeAiSettings$ === "object");
+assert(typeof GetCapacityReservationUsageRequest$ === "object");
+assert(typeof GetCapacityReservationUsageResponse$ === "object");
 assert(typeof GetDeviceFleetReportRequest$ === "object");
 assert(typeof GetDeviceFleetReportResponse$ === "object");
 assert(typeof GetEndpointPolicyRequest$ === "object");
@@ -4871,6 +4926,8 @@ assert(typeof ListAutoMLJobsRequest$ === "object");
 assert(typeof ListAutoMLJobsResponse$ === "object");
 assert(typeof ListCandidatesForAutoMLJobRequest$ === "object");
 assert(typeof ListCandidatesForAutoMLJobResponse$ === "object");
+assert(typeof ListCapacityReservationsRequest$ === "object");
+assert(typeof ListCapacityReservationsResponse$ === "object");
 assert(typeof ListClusterEventsRequest$ === "object");
 assert(typeof ListClusterEventsResponse$ === "object");
 assert(typeof ListClusterExtensionsRequest$ === "object");
@@ -5634,7 +5691,13 @@ assert(typeof BooleanOperator === "object");
 assert(typeof CandidateSortBy === "object");
 assert(typeof CandidateStatus === "object");
 assert(typeof CandidateStepType === "object");
+assert(typeof CapacityReservationEndpointSharing === "object");
+assert(typeof CapacityReservationFilterName === "object");
+assert(typeof CapacityReservationMatchCriteria === "object");
+assert(typeof CapacityReservationOptInStatus === "object");
 assert(typeof CapacityReservationPreference === "object");
+assert(typeof CapacityReservationResourceType === "object");
+assert(typeof CapacityReservationStatus === "object");
 assert(typeof CapacityReservationType === "object");
 assert(typeof CapacitySizeType === "object");
 assert(typeof CaptureMode === "object");
@@ -6009,7 +6072,9 @@ assert(typeof waitUntilTrainingJobCompletedOrStopped === "function");
 assert(typeof waitUntilTransformJobCompletedOrStopped === "function");
 // paginators
 assert(typeof paginateCreateHubContentPresignedUrls === "function");
+assert(typeof paginateDescribeResourceAssociations === "function");
 assert(typeof paginateDescribeTrainingPlanExtensionHistory === "function");
+assert(typeof paginateGetCapacityReservationUsage === "function");
 assert(typeof paginateListAIBenchmarkJobs === "function");
 assert(typeof paginateListAIRecommendationJobs === "function");
 assert(typeof paginateListAIWorkloadConfigs === "function");
@@ -6022,6 +6087,7 @@ assert(typeof paginateListArtifacts === "function");
 assert(typeof paginateListAssociations === "function");
 assert(typeof paginateListAutoMLJobs === "function");
 assert(typeof paginateListCandidatesForAutoMLJob === "function");
+assert(typeof paginateListCapacityReservations === "function");
 assert(typeof paginateListClusterEvents === "function");
 assert(typeof paginateListClusterExtensionVersions === "function");
 assert(typeof paginateListClusterExtensions === "function");

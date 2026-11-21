@@ -192,7 +192,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //         OnDemand: {},
  * //       },
  * //       TargetStateCount: Number("int"),
- * //       SoftwareUpdateStatus: "Pending" || "InProgress" || "Succeeded" || "Failed" || "RollbackInProgress" || "RollbackComplete",
+ * //       SoftwareUpdateStatus: "Pending" || "InProgress" || "Succeeded" || "Failed" || "RollbackInProgress" || "RollbackComplete" || "PartiallySucceeded",
  * //       ActiveSoftwareUpdateConfig: {
  * //         RollingUpdatePolicy: {
  * //           MaximumBatchSize: {

@@ -39,6 +39,12 @@ import type {
   BatchStrategy,
   CandidateStatus,
   CandidateStepType,
+  CapacityReservationEndpointSharing,
+  CapacityReservationFilterName,
+  CapacityReservationMatchCriteria,
+  CapacityReservationOptInStatus,
+  CapacityReservationResourceType,
+  CapacityReservationStatus,
   CapacityReservationType,
   CapacitySizeType,
   CaptureMode,
@@ -49,7 +55,6 @@ import type {
   ClusterAutoScalerType,
   ClusterAutoScalingMode,
   ClusterAutoScalingStatus,
-  ClusterCapacityType,
   ClusterEventLevel,
   ClusterEventResourceType,
   ClusterImageVersionStatus,
@@ -58,8 +63,6 @@ import type {
   ClusterInterfaceType,
   ClusterKubernetesTaintEffect,
   ClusterOnDrainTimeout,
-  ClusterOperationStatus,
-  ClusterOperationType,
   ClusterPatchingStrategy,
   ClusterSlurmNodeType,
   CompressionType,
@@ -5788,6 +5791,335 @@ export interface CapacityReservation {
 }
 
 /**
+ * <p>Details about a SageMaker Capacity Reservation. A SageMaker Capacity Reservation reserves a number of instances of one instance type in one Availability Zone for a period of time.</p>
+ * @public
+ */
+export interface CapacityReservationDetail {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker Capacity Reservation.</p>
+   * @public
+   */
+  SMCapacityReservationArn: string | undefined;
+
+  /**
+   * <p>The ID of the SageMaker Capacity Reservation. The ID is the last part of the ARN and starts with <code>smcr-</code>.</p>
+   * @public
+   */
+  SMCapacityReservationId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the SageMaker Capacity Reservation.</p>
+   * @public
+   */
+  Owner: string | undefined;
+
+  /**
+   * <p>The status of the SageMaker Capacity Reservation. SageMaker AI sets the status from the start and end times of the reservation. Valid values:</p> <dl> <dt>Scheduled</dt> <dd> <p>The current time is before <code>StartTime</code>.</p> </dd> <dt>Active</dt> <dd> <p>The current time is between <code>StartTime</code> and <code>EndTime</code>. You can use the reserved instances.</p> </dd> <dt>Expired</dt> <dd> <p>The current time is at or after <code>EndTime</code>.</p> </dd> </dl>
+   * @public
+   */
+  Status: CapacityReservationStatus | undefined;
+
+  /**
+   * <p>The SageMaker AI instance type of the reserved instances, for example <code>ml.p5.48xlarge</code>.</p>
+   * @public
+   */
+  InstanceType: string | undefined;
+
+  /**
+   * <p>The name of the Availability Zone of the reserved instances, for example <code>us-east-1a</code>. Availability Zone names can map to different physical zones in different accounts. To identify the same zone across accounts, use <code>AvailabilityZoneId</code>.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone of the reserved instances, for example <code>use1-az1</code>. An Availability Zone ID identifies the same physical zone in every account.</p>
+   * @public
+   */
+  AvailabilityZoneId: string | undefined;
+
+  /**
+   * <p>The number of instances in the SageMaker Capacity Reservation.</p>
+   * @public
+   */
+  TotalInstanceCount: number | undefined;
+
+  /**
+   * <p>The time when the reserved instances become available.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The time when the SageMaker Capacity Reservation ends. This value is not returned if the reservation has no end time.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The time when the SageMaker Capacity Reservation was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+}
+
+/**
+ * <p>The association between the SageMaker AI endpoints in your account and a SageMaker Capacity Reservation, through one ML capacity reservation. To use the reserved instances for an endpoint, specify the ML capacity reservation ARN in the <code>MlReservationArn</code> field of <code>ProductionVariantCapacityReservationConfig</code> when you call <code>CreateEndpointConfig</code>.</p>
+ * @public
+ */
+export interface CapacityReservationEndpointsAssociation {
+  /**
+   * <p>The name of the ML capacity reservation. The name is the last part of the ML capacity reservation ARN.</p>
+   * @public
+   */
+  MlReservationId?: string | undefined;
+
+  /**
+   * <p>The status of the association. Valid values:</p> <dl> <dt>Pending</dt> <dd> <p>SageMaker AI is adding or removing the association.</p> </dd> <dt>Active</dt> <dd> <p>The resources are associated with the SageMaker Capacity Reservation and can use its instances.</p> </dd> <dt>Inactive</dt> <dd> <p>The resources are not associated with the SageMaker Capacity Reservation.</p> </dd> </dl>
+   * @public
+   */
+  Status: CapacityReservationOptInStatus | undefined;
+
+  /**
+   * <p>How endpoints in your account match the ML capacity reservation. Valid values:</p> <dl> <dt>Open</dt> <dd> <p>Endpoints in your account use the ML capacity reservation automatically when their instance type matches. You don't specify the ML capacity reservation ARN when you create the endpoint.</p> </dd> <dt>Targeted</dt> <dd> <p>An endpoint uses the ML capacity reservation only when you specify its ARN when you create or update the endpoint.</p> </dd> </dl>
+   * @public
+   */
+  MatchCriteria?: CapacityReservationMatchCriteria | undefined;
+
+  /**
+   * <p>Whether one endpoint or multiple endpoints can use the ML capacity reservation. Valid values:</p> <dl> <dt>SingleEndpoint</dt> <dd> <p>Only one endpoint can use the ML capacity reservation.</p> </dd> <dt>MultipleEndpoints</dt> <dd> <p>Multiple endpoints can use the ML capacity reservation.</p> </dd> </dl>
+   * @public
+   */
+  EndpointSharing?: CapacityReservationEndpointSharing | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ML capacity reservation. Specify this ARN in <code>CreateEndpointConfig</code> to use the reserved instances for an endpoint. For a new ML capacity reservation, this value is returned when the status is <code>Active</code>.</p>
+   * @public
+   */
+  MlReservationArn?: string | undefined;
+
+  /**
+   * <p>The reason that the most recent attempt to add or remove the association failed. This value is returned only when the most recent attempt failed. After a failure to add the association, the status is <code>Inactive</code>. After a failure to remove the association, the status is <code>Active</code>.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The time when SageMaker AI started the current association. This time resets when you add the association again after it was removed or after it failed.</p>
+   * @public
+   */
+  AssociatedTime: Date | undefined;
+}
+
+/**
+ * <p>A filter for the <code>ListCapacityReservations</code> operation. A reservation matches the filter when its value for <code>Name</code> equals any of the values in <code>Values</code>.</p>
+ * @public
+ */
+export interface CapacityReservationFilter {
+  /**
+   * <p>The name of the field to filter on. The only supported value is <code>Status</code>.</p>
+   * @public
+   */
+  Name: CapacityReservationFilterName | undefined;
+
+  /**
+   * <p>The values to match. For the <code>Status</code> filter, valid values are <code>Scheduled</code>, <code>Active</code>, and <code>Expired</code>. Values are case sensitive. You can specify up to 10 values.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>The association between the SageMaker AI HyperPod clusters in your account and a SageMaker Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationHyperPodClustersAssociation {
+  /**
+   * <p>The status of the association. Valid values:</p> <dl> <dt>Pending</dt> <dd> <p>SageMaker AI is adding or removing the association.</p> </dd> <dt>Active</dt> <dd> <p>The resources are associated with the SageMaker Capacity Reservation and can use its instances.</p> </dd> <dt>Inactive</dt> <dd> <p>The resources are not associated with the SageMaker Capacity Reservation.</p> </dd> </dl>
+   * @public
+   */
+  Status: CapacityReservationOptInStatus | undefined;
+
+  /**
+   * <p>The reason that the most recent attempt to add or remove the association failed. This value is returned only when the most recent attempt failed. After a failure to add the association, the status is <code>Inactive</code>. After a failure to remove the association, the status is <code>Active</code>.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The time when SageMaker AI started the current association. This time resets when you add the association again after it was removed or after it failed.</p>
+   * @public
+   */
+  AssociatedTime: Date | undefined;
+}
+
+/**
+ * <p>The instances from a SageMaker Capacity Reservation that one resource type uses in an account.</p>
+ * @public
+ */
+export interface CapacityReservationResourceUsage {
+  /**
+   * <p>The type of resource that uses the instances. Valid values:</p> <dl> <dt>HyperPodClusters</dt> <dd> <p>SageMaker AI HyperPod clusters.</p> </dd> <dt>Endpoints</dt> <dd> <p>SageMaker AI endpoints.</p> </dd> </dl>
+   * @public
+   */
+  ResourceType: CapacityReservationResourceType | undefined;
+
+  /**
+   * <p>The number of instances from the SageMaker Capacity Reservation that are in use.</p>
+   * @public
+   */
+  InUseInstanceCount: number | undefined;
+}
+
+/**
+ * <p>The instances from a SageMaker Capacity Reservation that one account uses.</p>
+ * @public
+ */
+export interface CapacityReservationInstanceUsage {
+  /**
+   * <p>The ID of the Amazon Web Services account that uses the instances.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The number of instances that the account uses, across all resource types.</p>
+   * @public
+   */
+  InUseInstanceCount: number | undefined;
+
+  /**
+   * <p>The instance usage for each resource type that has instances in use in the account.</p>
+   * @public
+   */
+  ResourcesUsage: CapacityReservationResourceUsage[] | undefined;
+}
+
+/**
+ * <p>An association between one type of resource in your account and a SageMaker Capacity Reservation. Each item contains exactly one member.</p>
+ * @public
+ */
+export type CapacityReservationResourceAssociation =
+  | CapacityReservationResourceAssociation.EndpointsMember
+  | CapacityReservationResourceAssociation.HyperPodClustersMember
+  | CapacityReservationResourceAssociation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CapacityReservationResourceAssociation {
+  /**
+   * <p>The association between the SageMaker AI HyperPod clusters in your account and the SageMaker Capacity Reservation. The association applies to all HyperPod clusters in your account.</p>
+   * @public
+   */
+  export interface HyperPodClustersMember {
+    HyperPodClusters: CapacityReservationHyperPodClustersAssociation;
+    Endpoints?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The association between the SageMaker AI endpoints in your account and the SageMaker Capacity Reservation, through one ML capacity reservation. The response includes one item for each ML capacity reservation.</p>
+   * @public
+   */
+  export interface EndpointsMember {
+    HyperPodClusters?: never;
+    Endpoints: CapacityReservationEndpointsAssociation;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    HyperPodClusters?: never;
+    Endpoints?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    HyperPodClusters: (value: CapacityReservationHyperPodClustersAssociation) => T;
+    Endpoints: (value: CapacityReservationEndpointsAssociation) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Summary information about a SageMaker Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SageMaker Capacity Reservation.</p>
+   * @public
+   */
+  SMCapacityReservationArn: string | undefined;
+
+  /**
+   * <p>The ID of the SageMaker Capacity Reservation. The ID is the last part of the ARN and starts with <code>smcr-</code>.</p>
+   * @public
+   */
+  SMCapacityReservationId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the SageMaker Capacity Reservation.</p>
+   * @public
+   */
+  Owner: string | undefined;
+
+  /**
+   * <p>The status of the SageMaker Capacity Reservation. SageMaker AI sets the status from the start and end times of the reservation. Valid values:</p> <dl> <dt>Scheduled</dt> <dd> <p>The current time is before <code>StartTime</code>.</p> </dd> <dt>Active</dt> <dd> <p>The current time is between <code>StartTime</code> and <code>EndTime</code>. You can use the reserved instances.</p> </dd> <dt>Expired</dt> <dd> <p>The current time is at or after <code>EndTime</code>.</p> </dd> </dl>
+   * @public
+   */
+  Status: CapacityReservationStatus | undefined;
+
+  /**
+   * <p>The SageMaker AI instance type of the reserved instances, for example <code>ml.p5.48xlarge</code>.</p>
+   * @public
+   */
+  InstanceType: string | undefined;
+
+  /**
+   * <p>The name of the Availability Zone of the reserved instances, for example <code>us-east-1a</code>. Availability Zone names can map to different physical zones in different accounts. To identify the same zone across accounts, use <code>AvailabilityZoneId</code>.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone of the reserved instances, for example <code>use1-az1</code>. An Availability Zone ID identifies the same physical zone in every account.</p>
+   * @public
+   */
+  AvailabilityZoneId: string | undefined;
+
+  /**
+   * <p>The number of instances in the SageMaker Capacity Reservation.</p>
+   * @public
+   */
+  TotalInstanceCount: number | undefined;
+
+  /**
+   * <p>The time when the reserved instances become available.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The time when the SageMaker Capacity Reservation ends. This value is not returned if the reservation has no end time.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The time when the SageMaker Capacity Reservation was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+}
+
+/**
  * <p>The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.</p>
  * @public
  */
@@ -7861,376 +8193,4 @@ export interface ClusterInstanceStatusDetails {
    * @public
    */
   Message?: string | undefined;
-}
-
-/**
- * <p>Node-specific Kubernetes configuration showing both current and desired state of labels and taints for an individual cluster node. </p>
- * @public
- */
-export interface ClusterKubernetesConfigNodeDetails {
-  /**
-   * <p>The current labels applied to the cluster node.</p>
-   * @public
-   */
-  CurrentLabels?: Record<string, string> | undefined;
-
-  /**
-   * <p>The desired labels to be applied to the cluster node.</p>
-   * @public
-   */
-  DesiredLabels?: Record<string, string> | undefined;
-
-  /**
-   * <p>The current taints applied to the cluster node.</p>
-   * @public
-   */
-  CurrentTaints?: ClusterKubernetesTaint[] | undefined;
-
-  /**
-   * <p>The desired taints to be applied to the cluster node.</p>
-   * @public
-   */
-  DesiredTaints?: ClusterKubernetesTaint[] | undefined;
-}
-
-/**
- * <p>Contains information about the UltraServer object.</p>
- * @public
- */
-export interface UltraServerInfo {
-  /**
-   * <p>The unique identifier of the UltraServer.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The type of the UltraServer.</p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Details of an instance (also called a <i>node</i> interchangeably) in a SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ClusterNodeDetails {
-  /**
-   * <p>The instance group name in which the instance is.</p>
-   * @public
-   */
-  InstanceGroupName?: string | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>A unique identifier for the node that persists throughout its lifecycle, from provisioning request to termination. This identifier can be used to track the node even before it has an assigned <code>InstanceId</code>.</p>
-   * @public
-   */
-  NodeLogicalId?: string | undefined;
-
-  /**
-   * <p>The status of the instance.</p>
-   * @public
-   */
-  InstanceStatus?: ClusterInstanceStatusDetails | undefined;
-
-  /**
-   * <p>The type of the instance.</p>
-   * @public
-   */
-  InstanceType?: ClusterInstanceType | undefined;
-
-  /**
-   * <p>The time when the instance is launched.</p>
-   * @public
-   */
-  LaunchTime?: Date | undefined;
-
-  /**
-   * <p>The time when the cluster was last updated.</p>
-   * @public
-   */
-  LastSoftwareUpdateTime?: Date | undefined;
-
-  /**
-   * <p>The LifeCycle configuration applied to the instance.</p>
-   * @public
-   */
-  LifeCycleConfig?: ClusterLifeCycleConfig | undefined;
-
-  /**
-   * <p>The customized Amazon VPC configuration at the instance group level that overrides the default Amazon VPC configuration of the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  OverrideVpcConfig?: VpcConfig | undefined;
-
-  /**
-   * <p>The number of threads per CPU core you specified under <code>CreateCluster</code>.</p>
-   * @public
-   */
-  ThreadsPerCore?: number | undefined;
-
-  /**
-   * <p>The configurations of additional storage specified to the instance group where the instance (node) is launched.</p>
-   * @public
-   */
-  InstanceStorageConfigs?: ClusterInstanceStorageConfig[] | undefined;
-
-  /**
-   * <p>The private primary IP address of the SageMaker HyperPod cluster node.</p>
-   * @public
-   */
-  PrivatePrimaryIp?: string | undefined;
-
-  /**
-   * <p>The private primary IPv6 address of the SageMaker HyperPod cluster node when configured with an Amazon VPC that supports IPv6 and includes subnets with IPv6 addressing enabled in either the cluster Amazon VPC configuration or the instance group Amazon VPC configuration.</p>
-   * @public
-   */
-  PrivatePrimaryIpv6?: string | undefined;
-
-  /**
-   * <p>The private DNS hostname of the SageMaker HyperPod cluster node.</p>
-   * @public
-   */
-  PrivateDnsHostname?: string | undefined;
-
-  /**
-   * <p>The placement details of the SageMaker HyperPod cluster node.</p>
-   * @public
-   */
-  Placement?: ClusterInstancePlacement | undefined;
-
-  /**
-   * <p>The ID of the Amazon Machine Image (AMI) currently in use by the node.</p>
-   * @public
-   */
-  CurrentImageId?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Machine Image (AMI) desired for the node.</p>
-   * @public
-   */
-  DesiredImageId?: string | undefined;
-
-  /**
-   * <p>The version of the HyperPod-managed AMI currently running on the node.</p>
-   * @public
-   */
-  CurrentImageReleaseVersion?: string | undefined;
-
-  /**
-   * <p>The desired version of the HyperPod-managed AMI for the node. This may differ from the current version when an update is pending.</p>
-   * @public
-   */
-  DesiredImageReleaseVersion?: string | undefined;
-
-  /**
-   * <p>The status of the image version for the cluster node.</p>
-   * @public
-   */
-  ImageVersionStatus?: ClusterImageVersionStatus | undefined;
-
-  /**
-   * <p>Contains information about the UltraServer.</p>
-   * @public
-   */
-  UltraServerInfo?: UltraServerInfo | undefined;
-
-  /**
-   * <p>The Kubernetes configuration applied to this node, showing both the current and desired state of labels and taints. The cluster works to reconcile the actual state with the declared state. </p>
-   * @public
-   */
-  KubernetesConfig?: ClusterKubernetesConfigNodeDetails | undefined;
-
-  /**
-   * <p>The capacity type of the node. Valid values are <code>OnDemand</code> and <code>Spot</code>. When set to <code>OnDemand</code>, the node is launched as an On-Demand instance. When set to <code>Spot</code>, the node is launched as a Spot instance. </p>
-   * @public
-   */
-  CapacityType?: ClusterCapacityType | undefined;
-
-  /**
-   * <p>The network interface configuration for the cluster node.</p>
-   * @public
-   */
-  NetworkInterface?: ClusterNetworkInterfaceDetails | undefined;
-}
-
-/**
- * <p>Lists a summary of the properties of an instance (also called a <i>node</i> interchangeably) of a SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ClusterNodeSummary {
-  /**
-   * <p>The name of the instance group in which the instance is.</p>
-   * @public
-   */
-  InstanceGroupName: string | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique identifier for the node that persists throughout its lifecycle, from provisioning request to termination. This identifier can be used to track the node even before it has an assigned <code>InstanceId</code>. This field is only included when <code>IncludeNodeLogicalIds</code> is set to <code>True</code> in the <code>ListClusterNodes</code> request.</p>
-   * @public
-   */
-  NodeLogicalId?: string | undefined;
-
-  /**
-   * <p>The type of the instance.</p>
-   * @public
-   */
-  InstanceType: ClusterInstanceType | undefined;
-
-  /**
-   * <p>The time when the instance is launched.</p>
-   * @public
-   */
-  LaunchTime: Date | undefined;
-
-  /**
-   * <p>The time when SageMaker last updated the software of the instances in the cluster.</p>
-   * @public
-   */
-  LastSoftwareUpdateTime?: Date | undefined;
-
-  /**
-   * <p>The status of the instance.</p>
-   * @public
-   */
-  InstanceStatus: ClusterInstanceStatusDetails | undefined;
-
-  /**
-   * <p>Contains information about the UltraServer.</p>
-   * @public
-   */
-  UltraServerInfo?: UltraServerInfo | undefined;
-
-  /**
-   * <p>The private DNS hostname of the SageMaker HyperPod cluster node.</p>
-   * @public
-   */
-  PrivateDnsHostname?: string | undefined;
-
-  /**
-   * <p>The version of the HyperPod-managed AMI currently running on the node.</p>
-   * @public
-   */
-  CurrentImageReleaseVersion?: string | undefined;
-
-  /**
-   * <p>The status of the image version for the cluster node.</p>
-   * @public
-   */
-  ImageVersionStatus?: ClusterImageVersionStatus | undefined;
-}
-
-/**
- * <p>A point-in-time snapshot of an instance group's scaling configuration. This structure represents both the original configuration before the operation and the desired configuration requested by the operation.</p>
- * @public
- */
-export interface ClusterOperationScalingConfiguration {
-  /**
-   * <p>The number of instances that were in the instance group at the time of the operation.</p>
-   * @public
-   */
-  CurrentCount?: number | undefined;
-
-  /**
-   * <p>The target number of instances for the instance group.</p>
-   * @public
-   */
-  TargetCount?: number | undefined;
-
-  /**
-   * <p>The minimum number of instances that must be available in the instance group of a HyperPod cluster before it transitions to <code>InService</code> status. </p>
-   * @public
-   */
-  MinCount?: number | undefined;
-}
-
-/**
- * <p>The scaling details for a single instance group that is affected by a cluster operation.</p>
- * @public
- */
-export interface ClusterOperationScalingDetails {
-  /**
-   * <p>The name of the instance group being scaled.</p>
-   * @public
-   */
-  InstanceGroupName?: string | undefined;
-
-  /**
-   * <p>The status of the scaling operation for this instance group. Valid values are <code>InProgress</code>, <code>Superseded</code>, or <code>Done</code>.</p>
-   * @public
-   */
-  Status?: ClusterOperationStatus | undefined;
-
-  /**
-   * <p>The scaling configuration of the instance group before the scaling operation was applied, including its current, target, and minimum instance counts.</p>
-   * @public
-   */
-  Original?: ClusterOperationScalingConfiguration | undefined;
-
-  /**
-   * <p>The desired scaling configuration of the instance group for the scaling operation, including its target and minimum instance counts.</p>
-   * @public
-   */
-  Desired?: ClusterOperationScalingConfiguration | undefined;
-}
-
-/**
- * <p>A summary of an operation performed on a HyperPod cluster.</p>
- * @public
- */
-export interface ClusterOperationSummary {
-  /**
-   * <p>The unique identifier (UUID) of the operation.</p>
-   * @public
-   */
-  OperationId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the HyperPod cluster associated with the operation.</p>
-   * @public
-   */
-  ClusterArn?: string | undefined;
-
-  /**
-   * <p>The type of the operation. Valid values are <code>Scaling</code> or <code>DeepHealthCheck</code>.</p>
-   * @public
-   */
-  Type?: ClusterOperationType | undefined;
-
-  /**
-   * <p>The current status of the operation. Valid values are <code>InProgress</code>, <code>Superseded</code>, or <code>Done</code>.</p>
-   * @public
-   */
-  Status?: ClusterOperationStatus | undefined;
-
-  /**
-   * <p>The timestamp when the operation was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-}
-
-/**
- * <p>The configuration settings for the Amazon EKS cluster used as the orchestrator for the SageMaker HyperPod cluster.</p>
- * @public
- */
-export interface ClusterOrchestratorEksConfig {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon EKS cluster associated with the SageMaker HyperPod cluster.</p>
-   * @public
-   */
-  ClusterArn: string | undefined;
 }
