@@ -2,6 +2,8 @@
 
 /**
  * Validates that all packages have been built (dist artifacts exist).
+ * Also validates that dist-types holds at most one ts3.4 directory, located at
+ * dist-types/ts3.4 (running downlevel-dts twice nests them).
  *
  * Usage: node built.js
  */
@@ -17,6 +19,21 @@ const SKIP = new Set([
   "@aws-sdk/aws-client-retry-test",
   "@aws-sdk/aws-middleware-test",
 ]);
+
+function findDownlevelDirs(dir, relative = "") {
+  const found = [];
+  for (const entry of fs.readdirSync(path.join(dir, relative), { withFileTypes: true })) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+    const entryPath = path.join(relative, entry.name);
+    if (entry.name === "ts3.4") {
+      found.push(entryPath);
+    }
+    found.push(...findDownlevelDirs(dir, entryPath));
+  }
+  return found;
+}
 
 function main() {
   const packages = getPackageDirs();
@@ -36,6 +53,15 @@ function main() {
       if (!fs.existsSync(path.join(dir, file))) {
         errors.push(`${pkgJson.name} missing ${file}`);
       }
+    }
+
+    const typesDir = path.join(dir, "dist-types");
+    if (!fs.existsSync(typesDir)) {
+      continue;
+    }
+    const downlevelDirs = findDownlevelDirs(typesDir);
+    if (downlevelDirs.length > 1 || (downlevelDirs.length === 1 && downlevelDirs[0] !== "ts3.4")) {
+      errors.push(`${pkgJson.name} has nested or misplaced downlevel types: ${downlevelDirs.join(", ")}`);
     }
   }
   if (errors.length) {
