@@ -1,5 +1,6 @@
 import type { CompleteMultipartUploadCommandOutput } from "@aws-sdk/client-s3";
 import {
+  AbortMultipartUploadCommand,
   CompleteMultipartUploadCommand,
   CreateMultipartUploadCommand,
   PutObjectCommand,
@@ -9,7 +10,7 @@ import {
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
 import { AbortController as AbortControllerPolyfill } from "@smithy/abort-controller";
-import { EventEmitter, Readable } from "node:stream";
+import { EventEmitter, PassThrough, Readable } from "node:stream";
 import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import type { Progress } from "./index";
@@ -1023,6 +1024,68 @@ describe(Upload.name, () => {
 
   describe("Upload Part and parts count validation", () => {
     const MOCK_PART_SIZE = 1024 * 1024 * 5; // 5MB
+
+    it("settles and aborts when an upload part fails before the body ends", async () => {
+      const partError = new Error("UploadPart 2 failed");
+      const createCommand = { type: "create" };
+      const abortCommand = { type: "abort" };
+
+      vi.mocked(CreateMultipartUploadCommand).mockReset();
+      vi.mocked(UploadPartCommand).mockReset();
+      vi.mocked(AbortMultipartUploadCommand).mockReset();
+      vi.mocked(CreateMultipartUploadCommand).mockImplementation(function () {
+        return createCommand as any;
+      });
+      vi.mocked(UploadPartCommand).mockImplementation(function (input) {
+        return { type: "part", input } as any;
+      });
+      vi.mocked(AbortMultipartUploadCommand).mockImplementation(function () {
+        return abortCommand as any;
+      });
+
+      const client = new S3({});
+      client.send = vi.fn().mockImplementation(async (command: any) => {
+        if (command.type === "create") {
+          return { UploadId: "mockuploadId" };
+        }
+        if (command.type === "part") {
+          if (command.input.PartNumber === 2) {
+            throw partError;
+          }
+          return { ETag: `etag-${command.input.PartNumber}` };
+        }
+        return {};
+      });
+
+      const body = new PassThrough();
+      body.write(Buffer.alloc(MOCK_PART_SIZE * 2 + 1));
+      const upload = new Upload({
+        params: { ...params, Body: body },
+        client,
+      });
+
+      const outcome = await Promise.race([
+        upload.done().then(
+          () => ({ status: "resolved" as const }),
+          (error) => ({ status: "rejected" as const, error })
+        ),
+        new Promise<{ status: "timeout" }>((resolve) => {
+          setTimeout(() => resolve({ status: "timeout" }), 1000);
+        }),
+      ]);
+
+      body.destroy();
+
+      if (outcome.status === "timeout") {
+        throw new Error("Upload.done() did not settle after an UploadPart failure");
+      }
+
+      expect(outcome.status).toBe("rejected");
+      if (outcome.status === "rejected") {
+        expect(outcome.error).toBe(partError);
+      }
+      expect(client.send).toHaveBeenCalledWith(abortCommand);
+    });
 
     it("should throw error when uploaded parts count doesn't match expected parts count", async () => {
       const largeBuffer = Buffer.from("#".repeat(MOCK_PART_SIZE * 2 + 100));
