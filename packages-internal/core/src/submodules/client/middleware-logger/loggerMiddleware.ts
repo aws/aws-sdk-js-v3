@@ -1,3 +1,4 @@
+import { NoOpLogger } from "@smithy/core/client";
 import type {
   AbsoluteLocation,
   HandlerExecutionContext,
@@ -22,8 +23,12 @@ export const bindLoggerMiddleware =
     try {
       const response = await next(args);
       const { clientName, commandName, logger } = context;
+      if (!logger || logger instanceof NoOpLogger) {
+        return response;
+      }
 
-      logger?.info?.(
+      // filters run only if the logger reads input or output, e.g. not for a level-filtered info().
+      logger.info?.(
         lazyLog({
           clientName,
           commandName,
@@ -49,10 +54,13 @@ export const bindLoggerMiddleware =
       return response;
     } catch (error) {
       const { clientName, commandName, logger, dynamoDbDocumentClientOptions = {} } = context;
+      if (!logger || logger instanceof NoOpLogger) {
+        throw error;
+      }
       const inputFilterSensitiveLog =
         dynamoDbDocumentClientOptions.overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
 
-      logger?.error?.({
+      logger.error?.({
         clientName,
         commandName,
         input: inputFilterSensitiveLog(args.input),

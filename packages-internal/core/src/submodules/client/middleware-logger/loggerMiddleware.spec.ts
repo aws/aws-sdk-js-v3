@@ -231,6 +231,79 @@ describe("loggerMiddleware", () => {
     expect(outputFilterSensitiveLog).not.toHaveBeenCalled();
   });
 
+  describe("NoOpLogger", () => {
+    it("skips the sensitive log filters on success", async () => {
+      mockNext.mockResolvedValueOnce(mockResponse);
+      const logger = new NoOpLogger();
+      const infoSpy = vi.spyOn(logger, "info");
+      const inputFilterSensitiveLog = vi.fn();
+      const outputFilterSensitiveLog = vi.fn();
+
+      const response = await loggerMiddleware()(mockNext, {
+        logger,
+        inputFilterSensitiveLog,
+        outputFilterSensitiveLog,
+      })(mockArgs);
+
+      expect(response).toStrictEqual(mockResponse);
+      expect(inputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(outputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(infoSpy).not.toHaveBeenCalled();
+    });
+
+    it("skips the override log filters on success", async () => {
+      mockNext.mockResolvedValueOnce(mockResponse);
+      const overrideInputFilterSensitiveLog = vi.fn();
+      const overrideOutputFilterSensitiveLog = vi.fn();
+
+      await loggerMiddleware()(mockNext, {
+        logger: new NoOpLogger(),
+        dynamoDbDocumentClientOptions: { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog },
+      })(mockArgs);
+
+      expect(overrideInputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(overrideOutputFilterSensitiveLog).not.toHaveBeenCalled();
+    });
+
+    it("skips the input log filter on error", async () => {
+      const nextError = new Error("next error");
+      mockNext.mockRejectedValueOnce(nextError);
+      const logger = new NoOpLogger();
+      const errorSpy = vi.spyOn(logger, "error");
+      const inputFilterSensitiveLog = vi.fn();
+
+      await expect(loggerMiddleware()(mockNext, { logger, inputFilterSensitiveLog })(mockArgs)).rejects.toBe(nextError);
+      expect(inputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(errorSpy).not.toHaveBeenCalled();
+    });
+
+    it("skips the filters for a custom logger whose info() ignores the entry", async () => {
+      mockNext.mockResolvedValueOnce(mockResponse);
+      const logger = { info: vi.fn() } as unknown as Logger;
+      const inputFilterSensitiveLog = vi.fn();
+      const outputFilterSensitiveLog = vi.fn();
+
+      await loggerMiddleware()(mockNext, { logger, inputFilterSensitiveLog, outputFilterSensitiveLog })(mockArgs);
+
+      expect(logger.info).toHaveBeenCalledTimes(1);
+      expect(inputFilterSensitiveLog).not.toHaveBeenCalled();
+      expect(outputFilterSensitiveLog).not.toHaveBeenCalled();
+    });
+
+    it("still runs the filters for a custom logger that reads the entry", async () => {
+      mockNext.mockResolvedValueOnce(mockResponse);
+      const logger = { info: vi.fn((entry) => JSON.stringify(entry)) } as unknown as Logger;
+      const inputFilterSensitiveLog = vi.fn().mockReturnValue({});
+      const outputFilterSensitiveLog = vi.fn().mockReturnValue({});
+
+      await loggerMiddleware()(mockNext, { logger, inputFilterSensitiveLog, outputFilterSensitiveLog })(mockArgs);
+
+      expect(inputFilterSensitiveLog).toHaveBeenCalledTimes(1);
+      expect(outputFilterSensitiveLog).toHaveBeenCalledTimes(1);
+      expect(logger.info).toHaveBeenCalledTimes(1);
+    });
+  });
+
   describe("logs if context.logger has error function", () => {
     it("should reject if next throws synchronously", async () => {
       const { $metadata } = mockOutput;
