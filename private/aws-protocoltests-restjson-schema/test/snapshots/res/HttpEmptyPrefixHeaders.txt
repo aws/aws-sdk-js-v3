@@ -43,12 +43,12 @@ hello: __specificHeader__
 
 --- [output object] ---
 {
+  specificHeader: "__specificHeader__",
   prefixHeaders: {
     content-type: "application/json",
     x-amzn-requestid: "1111amzn-requ-stid-uuid-000000001111",
     hello: "__specificHeader__"
   },
-  specificHeader: "__specificHeader__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

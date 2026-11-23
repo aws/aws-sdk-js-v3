@@ -305,12 +305,6 @@ Cg==
 
 --- [output object] ---
 {
-  RequestId: "__RequestId__",
-  LanguageCode: "__LanguageCode__",
-  MediaSampleRateHertz: (number) 0,
-  MediaEncoding: "__MediaEncoding__",
-  VocabularyName: "__VocabularyName__",
-  SessionId: "__SessionId__",
   CallAnalyticsTranscriptResultStream: async_it[
     {
       UtteranceEvent: {
@@ -528,6 +522,12 @@ Cg==
       }
     }
   ],
+  RequestId: "__RequestId__",
+  LanguageCode: "__LanguageCode__",
+  MediaSampleRateHertz: (number) 0,
+  MediaEncoding: "__MediaEncoding__",
+  VocabularyName: "__VocabularyName__",
+  SessionId: "__SessionId__",
   VocabularyFilterName: "__VocabularyFilterName__",
   VocabularyFilterMethod: "__VocabularyFilterMethod__",
   LanguageModelName: "__LanguageModelName__",

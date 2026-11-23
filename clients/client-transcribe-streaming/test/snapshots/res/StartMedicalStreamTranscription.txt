@@ -134,15 +134,6 @@ Cg==
 
 --- [output object] ---
 {
-  RequestId: "__RequestId__",
-  LanguageCode: "__LanguageCode__",
-  MediaSampleRateHertz: (number) 0,
-  MediaEncoding: "__MediaEncoding__",
-  VocabularyName: "__VocabularyName__",
-  Specialty: "__Specialty__",
-  Type: "__Type__",
-  ShowSpeakerLabel: (boolean) false,
-  SessionId: "__SessionId__",
   TranscriptResultStream: async_it[
     {
       TranscriptEvent: {
@@ -205,6 +196,15 @@ Cg==
       }
     }
   ],
+  RequestId: "__RequestId__",
+  LanguageCode: "__LanguageCode__",
+  MediaSampleRateHertz: (number) 0,
+  MediaEncoding: "__MediaEncoding__",
+  VocabularyName: "__VocabularyName__",
+  Specialty: "__Specialty__",
+  Type: "__Type__",
+  ShowSpeakerLabel: (boolean) false,
+  SessionId: "__SessionId__",
   EnableChannelIdentification: (boolean) false,
   NumberOfChannels: (number) 0,
   ContentIdentificationType: "__ContentIdentificationType__",

@@ -160,11 +160,6 @@ Cg==
 
 --- [output object] ---
 {
-  SessionId: "__SessionId__",
-  RequestId: "__RequestId__",
-  LanguageCode: "__LanguageCode__",
-  MediaSampleRateHertz: (number) 0,
-  MediaEncoding: "__MediaEncoding__",
   ResultStream: async_it[
     {
       TranscriptEvent: {
@@ -260,6 +255,11 @@ Cg==
       }
     }
   ],
+  SessionId: "__SessionId__",
+  RequestId: "__RequestId__",
+  LanguageCode: "__LanguageCode__",
+  MediaSampleRateHertz: (number) 0,
+  MediaEncoding: "__MediaEncoding__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

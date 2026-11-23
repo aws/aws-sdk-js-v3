@@ -292,13 +292,6 @@ Cg==
 
 --- [output object] ---
 {
-  sessionId: "__sessionId__",
-  domainId: "__domainId__",
-  subscriptionId: "__subscriptionId__",
-  requestId: "__requestId__",
-  languageCode: "__languageCode__",
-  mediaSampleRateHertz: (number) 0,
-  mediaEncoding: "__mediaEncoding__",
   responseStream: async_it[
     {
       transcriptEvent: {
@@ -514,6 +507,13 @@ Cg==
       }
     }
   ],
+  sessionId: "__sessionId__",
+  domainId: "__domainId__",
+  subscriptionId: "__subscriptionId__",
+  requestId: "__requestId__",
+  languageCode: "__languageCode__",
+  mediaSampleRateHertz: (number) 0,
+  mediaEncoding: "__mediaEncoding__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

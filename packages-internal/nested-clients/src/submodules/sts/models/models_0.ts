@@ -121,13 +121,6 @@ export interface AssumeRoleRequest {
    *          plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
    *             Service Namespaces</a> in the Amazon Web Services General Reference.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    *          <p>Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -155,13 +148,6 @@ export interface AssumeRoleRequest {
    *          character to the end of the valid character list (\u0020 through \u00FF). It can also
    *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
    *          characters.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    *          <p>For more information about role session permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
    *             policies</a>.</p>
    * @public
@@ -204,13 +190,6 @@ export interface AssumeRoleRequest {
    *          tag keys can’t exceed 128 characters, and the values can’t exceed 256 characters. For these
    *          and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    *          <p>You can pass a session tag with the same key as a tag that is already attached to the
    *          role. When you do, session tags override a role tag with the same key. </p>
    *          <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
@@ -319,9 +298,10 @@ export interface AssumeRoleRequest {
   ProvidedContexts?: ProvidedContext[] | undefined;
 
   /**
-   * The minimum size, in bytes, of the session token that STS issues for the request. STS increases
-   *     the session token to at least this size, regardless of its actual content. The value must not
-   *     exceed 4,096 bytes. When set to 0 or not specified, the session token size is unchanged.
+   * <p>The minimum size, in bytes, of the session token that STS issues for the request. STS
+   *          increases the session token to at least this size, regardless of its actual content. The
+   *          value must not exceed 4,096 bytes. When set to 0 or not specified, the session token size is
+   *          unchanged.</p>
    * @public
    */
   MinimumSessionTokenSize?: number | undefined;
@@ -386,9 +366,9 @@ export interface AssumeRoleResponse {
   AssumedRoleUser?: AssumedRoleUser | undefined;
 
   /**
-   * <p>A percentage value that indicates the packed size of the session policies and session
-   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
-   *       which means the policies and tags exceeded the allowed space.</p>
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
+   *          <p>This field is deprecated. Use <code>SessionTokenUtilization</code> instead.</p>
    *
    * @deprecated (since 2026-06-17) Deprecated. Replaced by SessionTokenUtilization.
    * @public
@@ -414,17 +394,97 @@ export interface AssumeRoleResponse {
   SourceIdentity?: string | undefined;
 
   /**
-   * The percentage (0-100) of the maximum allowed session token size that the returned session
-   *     token consumes.
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
    * @public
    */
   SessionTokenUtilization?: number | undefined;
 
   /**
-   * The size, in bytes, of the session token returned in the Credentials for this response.
+   * <p>The size, in bytes, of the session token returned in the Credentials for this
+   *          response.</p>
    * @public
    */
   SessionTokenSize?: number | undefined;
+}
+
+/**
+ * <p>The session's <code>aws:OriginIdentity/Subject</code>,
+ *             <code>aws:OriginIdentity/SubjectType</code>, <code>aws:OriginIdentity/Issuer</code> and
+ *             <code>aws:OriginIdentity/FederatedProviderArn</code> keys. A member is absent when the
+ *          session does not have the key.</p>
+ * @public
+ */
+export interface OriginIdentity {
+  /**
+   * <p>The value of the <code>aws:OriginIdentity/Subject</code> key: the end user's identifier,
+   *          taken from the token claim that the context provider maps as the subject.</p>
+   * @public
+   */
+  Subject?: string | undefined;
+
+  /**
+   * <p>The value of the <code>aws:OriginIdentity/SubjectType</code> key, which indicates whether
+   *          the end user is a person (<code>user</code>) or a non-human caller such as an application
+   *          or service (<code>workload</code>).</p>
+   * @public
+   */
+  SubjectType?: string | undefined;
+
+  /**
+   * <p>The value of the <code>aws:OriginIdentity/Issuer</code> key. For
+   *             <code>AssumeRoleWithWebIdentity</code>, this is the <code>iss</code> claim of the token
+   *          without the <code>https://</code> prefix. For <code>AssumeRoleWithSAML</code>, this is a
+   *          hash of the key that signed the SAML assertion, not the <code>Issuer</code> element of the
+   *          assertion.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+
+  /**
+   * <p>The value of the <code>aws:OriginIdentity/FederatedProviderArn</code> key: the ARN of
+   *          the IAM identity provider that the request federated through.</p>
+   * @public
+   */
+  FederatedProviderArn?: string | undefined;
+}
+
+/**
+ * <p>The session's <code>aws:TransactionContext/IdentityProvider/*</code> keys.</p>
+ * @public
+ */
+export interface TransactionContext {
+  /**
+   * <p>The session's <code>aws:TransactionContext/IdentityProvider/*</code> keys, keyed by the
+   *          part of the key name after <code>aws:TransactionContext/IdentityProvider/</code>. Each
+   *          value is up to 128 characters.</p>
+   *          <p>The number of entries is bounded twice. IAM limits how many keys a context provider
+   *          maps when you configure it on the identity provider, and Amazon Web Services STS rejects a
+   *          session whose session token exceeds the maximum size with
+   *             <code>PackedPolicyTooLarge</code>.</p>
+   * @public
+   */
+  IdentityProvider?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The trusted identity propagation context that Amazon Web Services STS set in a session
+ *          from the identity provider's token. A member is absent when the session has none of its
+ *          keys.</p>
+ * @public
+ */
+export interface TrustedIdentityPropagationContext {
+  /**
+   * <p>The identity of the end user on whose behalf the session acts.</p>
+   * @public
+   */
+  OriginIdentity?: OriginIdentity | undefined;
+
+  /**
+   * <p>Additional claims about the request that the identity provider asserted.</p>
+   * @public
+   */
+  TransactionContext?: TransactionContext | undefined;
 }
 
 /**
@@ -494,13 +554,6 @@ export interface AssumeRoleWithWebIdentityRequest {
    *          plaintext that you use for both inline and managed session policies can't exceed 2,048
    *          characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
    *             Service Namespaces</a> in the Amazon Web Services General Reference.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    *          <p>Passing policies to this operation returns new
    *          temporary credentials. The resulting session's permissions are the intersection of the
    *          role's identity-based policy and the session policies. You can use the role's temporary
@@ -530,13 +583,6 @@ export interface AssumeRoleWithWebIdentityRequest {
    *          characters.</p>
    *          <p>For more information about role session permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
    *             policies</a>.</p>
-   *          <note>
-   *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
-   *             and session tags into a packed binary format that has a separate limit. Your request can
-   *             fail for this limit even if your plaintext meets the other requirements. The
-   *                <code>PackedPolicySize</code> response element indicates by percentage how close the
-   *             policies and tags for your request are to the upper size limit.</p>
-   *          </note>
    * @public
    */
   Policy?: string | undefined;
@@ -565,9 +611,10 @@ export interface AssumeRoleWithWebIdentityRequest {
   DurationSeconds?: number | undefined;
 
   /**
-   * The minimum size, in bytes, of the session token that STS issues for the request. STS increases
-   *     the session token to at least this size, regardless of its actual content. The value must not
-   *     exceed 4,096 bytes. When set to 0 or not specified, the session token size is unchanged.
+   * <p>The minimum size, in bytes, of the session token that STS issues for the request. STS
+   *          increases the session token to at least this size, regardless of its actual content. The
+   *          value must not exceed 4,096 bytes. When set to 0 or not specified, the session token size is
+   *          unchanged.</p>
    * @public
    */
   MinimumSessionTokenSize?: number | undefined;
@@ -612,9 +659,9 @@ export interface AssumeRoleWithWebIdentityResponse {
   AssumedRoleUser?: AssumedRoleUser | undefined;
 
   /**
-   * <p>A percentage value that indicates the packed size of the session policies and session
-   *       tags combined passed in the request. The request fails if the packed size is greater than 100 percent,
-   *       which means the policies and tags exceeded the allowed space.</p>
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
+   *          <p>This field is deprecated. Use <code>SessionTokenUtilization</code> instead.</p>
    *
    * @deprecated (since 2026-06-17) Deprecated. Replaced by SessionTokenUtilization.
    * @public
@@ -661,15 +708,32 @@ export interface AssumeRoleWithWebIdentityResponse {
   SourceIdentity?: string | undefined;
 
   /**
-   * The percentage (0-100) of the maximum allowed session token size that the returned session
-   *     token consumes.
+   * <p>The percentage (0-100) of the maximum allowed session token size that the returned
+   *          session token consumes.</p>
    * @public
    */
   SessionTokenUtilization?: number | undefined;
 
   /**
-   * The size, in bytes, of the session token returned in the Credentials for this response.
+   * <p>The size, in bytes, of the session token returned in the Credentials for this
+   *          response.</p>
    * @public
    */
   SessionTokenSize?: number | undefined;
+
+  /**
+   * <p>The trusted identity propagation context that Amazon Web Services STS set in the
+   *          session from the web identity token, through the context provider attached to the OpenID
+   *          Connect identity provider. It is present only when Amazon Web Services STS set such
+   *          context in the session. It contains the <code>aws:OriginIdentity/Subject</code>,
+   *             <code>aws:OriginIdentity/SubjectType</code>, <code>aws:OriginIdentity/Issuer</code> and
+   *             <code>aws:OriginIdentity/FederatedProviderArn</code> keys and the
+   *             <code>aws:TransactionContext/IdentityProvider/*</code> keys that Amazon Web Services STS
+   *          set in the session. Other keys in the session, such as
+   *             <code>aws:IdentityCenterInstanceArn</code> and <code>aws:IdentityStoreArn</code> for an
+   *          identity provider with an Identity Center instance attached, are not returned.</p>
+   *          <p>This element contains information about the end user. Do not log it.</p>
+   * @public
+   */
+  TrustedIdentityPropagationContext?: TrustedIdentityPropagationContext | undefined;
 }

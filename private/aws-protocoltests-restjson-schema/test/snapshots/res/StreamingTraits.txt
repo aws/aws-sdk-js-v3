@@ -47,13 +47,13 @@ MQo=
 
 --- [output object] ---
 {
-  foo: "__foo__",
   blob: async_it[
     (number) 1,
     (number) 0,
     (number) 0,
     (number) 1
   ],
+  foo: "__foo__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
