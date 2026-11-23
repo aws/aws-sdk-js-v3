@@ -63,7 +63,7 @@ export interface UpdateIntegrationCommandOutput extends UpdateIntegrationOutput,
  * //   integration: { // Integration
  * //     integrationId: "STRING_VALUE", // required
  * //     integrationArn: "STRING_VALUE",
- * //     integrationType: "AWS_CONFIG_SLREC" || "SLACK" || "EXTERNAL_AGENT" || "AWS_INTEGRATION", // required
+ * //     integrationType: "AWS_CONFIG_SLREC" || "AWS_CONFIG_AZURE_SLREC" || "SLACK" || "EXTERNAL_AGENT" || "AWS_INTEGRATION", // required
  * //     name: "STRING_VALUE", // required
  * //     status: "ACTIVE" || "DELETED" || "PENDING" || "PENDING_OAUTH" || "ERROR" || "FAILED", // required
  * //     authType: "NONE" || "OAUTH2" || "API_KEY",

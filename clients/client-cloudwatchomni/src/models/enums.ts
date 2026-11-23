@@ -435,6 +435,7 @@ export type OrganizationGrantPrincipalType =
  * @enum
  */
 export const IntegrationType = {
+  AWS_CONFIG_AZURE_SLREC: "AWS_CONFIG_AZURE_SLREC",
   AWS_CONFIG_SLREC: "AWS_CONFIG_SLREC",
   AWS_INTEGRATION: "AWS_INTEGRATION",
   EXTERNAL_AGENT: "EXTERNAL_AGENT",
