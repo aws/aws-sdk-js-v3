@@ -23,6 +23,11 @@ export const bindLoggerMiddleware =
     try {
       const response = await next(args);
       const { clientName, commandName, logger } = context;
+
+      // In some other code locations we do a ctor name comparison for this specific Logger class,
+      // but I'm going to use instanceof here. If that requires any adjustment
+      // we'll instead override Symbol.hasInstance in the class.
+      // And if you extended NoOpLogger for some reason (please don't), it will no longer be called.
       if (!logger || logger instanceof NoOpLogger) {
         return response;
       }
