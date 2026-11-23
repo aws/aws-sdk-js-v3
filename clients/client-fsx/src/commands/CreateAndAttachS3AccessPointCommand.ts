@@ -122,6 +122,10 @@ export interface CreateAndAttachS3AccessPointCommandOutput extends CreateAndAtta
  * //     Lifecycle: "AVAILABLE" || "CREATING" || "DELETING" || "UPDATING" || "FAILED" || "MISCONFIGURED",
  * //     LifecycleTransitionReason: { // LifecycleTransitionReason
  * //       Message: "STRING_VALUE",
+ * //       OntapError: { // OntapError
+ * //         Message: "STRING_VALUE",
+ * //         Code: "STRING_VALUE",
+ * //       },
  * //     },
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     Name: "STRING_VALUE",

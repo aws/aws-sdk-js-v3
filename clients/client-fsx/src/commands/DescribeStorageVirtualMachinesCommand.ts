@@ -113,6 +113,10 @@ export interface DescribeStorageVirtualMachinesCommandOutput extends DescribeSto
  * //       ],
  * //       LifecycleTransitionReason: { // LifecycleTransitionReason
  * //         Message: "STRING_VALUE",
+ * //         OntapError: { // OntapError
+ * //           Message: "STRING_VALUE",
+ * //           Code: "STRING_VALUE",
+ * //         },
  * //       },
  * //       RootVolumeSecurityStyle: "UNIX" || "NTFS" || "MIXED",
  * //     },

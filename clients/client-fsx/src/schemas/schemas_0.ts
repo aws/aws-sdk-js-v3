@@ -23,8 +23,12 @@ const _AP = "AdminPassword";
 const _APAOBY = "AccessPointAlreadyOwnedByYou";
 const _APu = "AutocommitPeriod";
 const _ARTI = "AddRouteTableIds";
+const _AS = "AuthenticationStatus";
+const _ASI = "AllowedSvmIds";
+const _ASM = "AllowedSvmMode";
 const _Al = "Alias";
 const _Ali = "Aliases";
+const _Ap = "Applications";
 const _As = "Association";
 const _Ass = "Associations";
 const _B = "Backup";
@@ -38,8 +42,9 @@ const _BNF = "BackupNotFound";
 const _BR = "BackupRestoring";
 const _BRa = "BadRequest";
 const _BSER = "BypassSnaplockEnterpriseRetention";
+const _BT = "BytesTransferred";
 const _Ba = "Backups";
-const _C = "Clients";
+const _C = "Code";
 const _CAASAP = "CreateAndAttachS3AccessPoint";
 const _CAASAPOC = "CreateAndAttachS3AccessPointOntapConfiguration";
 const _CAASAPOZFSC = "CreateAndAttachS3AccessPointOpenZFSConfiguration";
@@ -53,7 +58,12 @@ const _CBRo = "CopyBackupResponse";
 const _CBRr = "CreateBackupRequest";
 const _CBRre = "CreateBackupResponse";
 const _CBr = "CreateBackup";
-const _CC = "ClientConfigurations";
+const _CC = "CloneConfiguration";
+const _CCC = "CreateCloneConfiguration";
+const _CCP = "CreateClusterPeer";
+const _CCPR = "CreateClusterPeerRequest";
+const _CCPRr = "CreateClusterPeerResponse";
+const _CCl = "ClientConfigurations";
 const _CDRA = "CreateDataRepositoryAssociation";
 const _CDRAR = "CreateDataRepositoryAssociationRequest";
 const _CDRARr = "CreateDataRepositoryAssociationResponse";
@@ -79,11 +89,20 @@ const _CFSOZFSC = "CreateFileSystemOpenZFSConfiguration";
 const _CFSR = "CreateFileSystemRequest";
 const _CFSRr = "CreateFileSystemResponse";
 const _CFSWC = "CreateFileSystemWindowsConfiguration";
+const _COSC = "CreateOntapSnapshotConfiguration";
 const _COVC = "CreateOntapVolumeConfiguration";
 const _COZFSOSC = "CreateOpenZFSOriginSnapshotConfiguration";
 const _COZFSVC = "CreateOpenZFSVolumeConfiguration";
-const _CP = "CoolingPeriod";
+const _CP = "ClusterPeer";
 const _CPA = "ConstituentsPerAggregate";
+const _CPAS = "ClusterPeerAuthenticationStatus";
+const _CPF = "ClusterPeerFilter";
+const _CPFl = "ClusterPeerFilters";
+const _CPI = "ClusterPeerId";
+const _CPIl = "ClusterPeerIds";
+const _CPNF = "ClusterPeerNotFound";
+const _CPl = "ClusterPeers";
+const _CPo = "CoolingPeriod";
 const _CR = "CompletionReport";
 const _CRT = "ClientRequestToken";
 const _CS = "CopyStrategy";
@@ -92,12 +111,27 @@ const _CSAUV = "CopySnapshotAndUpdateVolume";
 const _CSAUVR = "CopySnapshotAndUpdateVolumeRequest";
 const _CSAUVRo = "CopySnapshotAndUpdateVolumeResponse";
 const _CSC = "CreateSnaplockConfiguration";
+const _CSD = "CreateSnapmirrorDestination";
+const _CSP = "CreateSnapmirrorPolicy";
+const _CSPR = "CreateSnapmirrorPolicyRequest";
+const _CSPRr = "CreateSnapmirrorPolicyResponse";
+const _CSPRre = "CreateSnapshotPolicyRequest";
+const _CSPRrea = "CreateSnapshotPolicyResponse";
+const _CSPr = "CreateSnapshotPolicy";
 const _CSR = "CreateSnapshotRequest";
+const _CSRR = "CreateSnapmirrorRelationshipRequest";
+const _CSRRr = "CreateSnapmirrorRelationshipResponse";
 const _CSRr = "CreateSnapshotResponse";
+const _CSRre = "CreateSnapmirrorRelationship";
+const _CSS = "CreateSnapmirrorSource";
 const _CSVM = "CreateStorageVirtualMachine";
+const _CSVMP = "CreateStorageVirtualMachinePeer";
+const _CSVMPR = "CreateStorageVirtualMachinePeerRequest";
+const _CSVMPRr = "CreateStorageVirtualMachinePeerResponse";
 const _CSVMR = "CreateStorageVirtualMachineRequest";
 const _CSVMRr = "CreateStorageVirtualMachineResponse";
-const _CSr = "CreateSnapshot";
+const _CSr = "CreationSchedule";
+const _CSre = "CreateSnapshot";
 const _CT = "CreationTime";
 const _CTR = "CapacityToRelease";
 const _CTTB = "CopyTagsToBackups";
@@ -111,6 +145,8 @@ const _CVFBR = "CreateVolumeFromBackupRequest";
 const _CVFBRr = "CreateVolumeFromBackupResponse";
 const _CVR = "CreateVolumeRequest";
 const _CVRr = "CreateVolumeResponse";
+const _Cl = "Clients";
+const _Co = "Count";
 const _D = "Destination";
 const _DABST = "DailyAutomaticBackupStartTime";
 const _DADSAP = "DetachAndDeleteS3AccessPoint";
@@ -122,6 +158,12 @@ const _DBRe = "DeleteBackupResponse";
 const _DBRes = "DescribeBackupsRequest";
 const _DBResc = "DescribeBackupsResponse";
 const _DBe = "DescribeBackups";
+const _DCP = "DeleteClusterPeer";
+const _DCPR = "DeleteClusterPeerRequest";
+const _DCPRe = "DeleteClusterPeerResponse";
+const _DCPRes = "DescribeClusterPeersRequest";
+const _DCPResc = "DescribeClusterPeersResponse";
+const _DCPe = "DescribeClusterPeers";
 const _DCT = "DriveCacheType";
 const _DCTa = "DataCompressionType";
 const _DCV = "DeleteClonedVolumes";
@@ -192,14 +234,38 @@ const _DSAPA = "DescribeS3AccessPointAttachments";
 const _DSAPAR = "DescribeS3AccessPointAttachmentsRequest";
 const _DSAPARe = "DescribeS3AccessPointAttachmentsResponse";
 const _DSLA = "DurationSinceLastAccess";
+const _DSP = "DeleteSnapmirrorPolicy";
+const _DSPR = "DeleteSnapmirrorPolicyRequest";
+const _DSPRe = "DeleteSnapmirrorPolicyResponse";
+const _DSPRel = "DeleteSnapshotPolicyRequest";
+const _DSPRele = "DeleteSnapshotPolicyResponse";
+const _DSPRes = "DescribeSnapmirrorPoliciesRequest";
+const _DSPResc = "DescribeSnapmirrorPoliciesResponse";
+const _DSPRescr = "DescribeSnapshotPoliciesRequest";
+const _DSPRescri = "DescribeSnapshotPoliciesResponse";
+const _DSPe = "DeleteSnapshotPolicy";
+const _DSPes = "DescribeSnapmirrorPolicies";
+const _DSPesc = "DescribeSnapshotPolicies";
 const _DSR = "DeleteSnapshotRequest";
+const _DSRR = "DeleteSnapmirrorRelationshipRequest";
+const _DSRRe = "DeleteSnapmirrorRelationshipResponse";
+const _DSRRes = "DescribeSnapmirrorRelationshipsRequest";
+const _DSRResc = "DescribeSnapmirrorRelationshipsResponse";
 const _DSRe = "DeleteSnapshotResponse";
+const _DSRel = "DeleteSnapmirrorRelationship";
 const _DSRes = "DescribeSnapshotsRequest";
 const _DSResc = "DescribeSnapshotsResponse";
+const _DSRescr = "DescribeSnapmirrorRelationships";
 const _DSVC = "DescribeSharedVpcConfiguration";
 const _DSVCR = "DescribeSharedVpcConfigurationRequest";
 const _DSVCRe = "DescribeSharedVpcConfigurationResponse";
 const _DSVM = "DeleteStorageVirtualMachine";
+const _DSVMP = "DeleteStorageVirtualMachinePeer";
+const _DSVMPR = "DeleteStorageVirtualMachinePeerRequest";
+const _DSVMPRe = "DeleteStorageVirtualMachinePeerResponse";
+const _DSVMPRes = "DescribeStorageVirtualMachinePeersRequest";
+const _DSVMPResc = "DescribeStorageVirtualMachinePeersResponse";
+const _DSVMPe = "DescribeStorageVirtualMachinePeers";
 const _DSVMR = "DeleteStorageVirtualMachineRequest";
 const _DSVMRe = "DeleteStorageVirtualMachineResponse";
 const _DSVMRes = "DescribeStorageVirtualMachinesRequest";
@@ -217,6 +283,7 @@ const _DVRe = "DeleteVolumeResponse";
 const _DVRes = "DescribeVolumesRequest";
 const _DVResc = "DescribeVolumesResponse";
 const _DVe = "DescribeVolumes";
+const _Du = "Duration";
 const _E = "Error";
 const _EC = "ErrorCode";
 const _EE = "EfaEnabled";
@@ -227,7 +294,9 @@ const _EIARn = "EndpointIpv6AddressRange";
 const _EIAn = "EndpointIpv6Address";
 const _ELD = "EventLogDestination";
 const _EP = "ExportPath";
-const _ET = "EndTime";
+const _ES = "ExportedSnapshot";
+const _ET = "ExpiryTime";
+const _ETn = "EndTime";
 const _En = "Enabled";
 const _End = "Endpoints";
 const _Ev = "Events";
@@ -273,6 +342,7 @@ const _FSi = "FileSystems";
 const _Fi = "Filters";
 const _Fil = "Filter";
 const _G = "Gid";
+const _H = "Healthy";
 const _HAP = "HAPairs";
 const _I = "Iops";
 const _IA = "IpAddresses";
@@ -296,6 +366,7 @@ const _ISE = "InternalServerError";
 const _ISGI = "InvalidSecurityGroupId";
 const _ISI = "InvalidSubnetId";
 const _ISKK = "InvalidSourceKmsKey";
+const _IU = "InUse";
 const _Id = "Id";
 const _In = "Intercluster";
 const _Is = "Iscsi";
@@ -314,8 +385,10 @@ const _LRSC = "LustreRootSquashConfiguration";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _LTIM = "LagTimeInMinutes";
 const _LTR = "LifecycleTransitionReason";
 const _LUT = "LastUpdatedTime";
+const _La = "Label";
 const _Le = "Level";
 const _Li = "Lifecycle";
 const _M = "Message";
@@ -332,6 +405,7 @@ const _Ma = "Management";
 const _Mo = "Mode";
 const _N = "Name";
 const _NBN = "NetBiosName";
+const _NCE = "NetworkCompressionEnabled";
 const _NE = "NfsExports";
 const _NFS = "NFS";
 const _NFSDRC = "NFSDataRepositoryConfiguration";
@@ -344,11 +418,13 @@ const _Na = "Names";
 const _Nf = "Nfs";
 const _O = "Options";
 const _OC = "OntapConfiguration";
+const _OE = "OntapError";
 const _OFSC = "OntapFileSystemConfiguration";
 const _OFSI = "OntapFileSystemIdentity";
 const _OI = "OwnerId";
 const _OR = "OntapResponse";
 const _OS = "OriginSnapshot";
+const _OSC = "OntapSnapshotConfiguration";
 const _OUDN = "OrganizationalUnitDistinguishedName";
 const _OUFSU = "OntapUnixFileSystemUser";
 const _OVC = "OntapVolumeConfiguration";
@@ -370,11 +446,18 @@ const _OZFSUAGQ = "OpenZFSUserAndGroupQuotas";
 const _OZFSUOGQ = "OpenZFSUserOrGroupQuota";
 const _OZFSVC = "OpenZFSVolumeConfiguration";
 const _P = "Parameter";
+const _PA = "PeerAddresses";
+const _PCN = "PeerClusterName";
 const _PD = "PrivilegedDelete";
 const _PFSI = "PreferredFileServerIp";
 const _PFSIr = "PreferredFileServerIpv6";
+const _PI = "PolicyId";
+const _PN = "PolicyName";
 const _PP = "ProgressPercent";
+const _PSA = "PassphraseSecretArn";
+const _PSAe = "PeerSvmAlias";
 const _PSI = "PreferredSubnetId";
+const _PSN = "PeerSvmName";
 const _PU = "PosixUser";
 const _PUST = "PerUnitStorageThroughput";
 const _PVI = "ParentVolumeId";
@@ -382,6 +465,7 @@ const _Pa = "Path";
 const _Pas = "Password";
 const _Pat = "Paths";
 const _Po = "Policy";
+const _Pr = "Prefix";
 const _R = "Report";
 const _RAE = "RemoteAdministrationEndpoint";
 const _RARN = "ResourceARN";
@@ -395,6 +479,7 @@ const _RFSNVLRe = "ReleaseFileSystemNfsV3LocksResponse";
 const _RNF = "ResourceNotFound";
 const _RO = "ReadOnly";
 const _RP = "RetentionPeriod";
+const _RR = "RetentionRules";
 const _RRTI = "RemoveRouteTableIds";
 const _RS = "RootSquash";
 const _RSC = "RootSquashConfiguration";
@@ -411,6 +496,7 @@ const _RVFSRe = "RestoreVolumeFromSnapshotResponse";
 const _RVI = "RootVolumeId";
 const _RVSS = "RootVolumeSecurityStyle";
 const _S = "Status";
+const _SA = "SplitAction";
 const _SADC = "SvmActiveDirectoryConfiguration";
 const _SAP = "S3AccessPoint";
 const _SAPA = "S3AccessPointAttachment";
@@ -427,13 +513,17 @@ const _SBI = "SourceBackupId";
 const _SBR = "SourceBackupRegion";
 const _SBU = "SourceBackupUnavailable";
 const _SC = "StorageCapacity";
+const _SCM = "SnapshotCopyMode";
 const _SCQGB = "StorageCapacityQuotaGiB";
 const _SCRGB = "StorageCapacityReservationGiB";
 const _SCn = "SnaplockConfiguration";
 const _SCu = "SucceededCount";
+const _SD = "SnapmirrorDestination";
 const _SDRC = "S3DataRepositoryConfiguration";
 const _SE = "SvmEndpoint";
 const _SEE = "StorageEfficiencyEnabled";
+const _SES = "SnapmirrorExportedSnapshot";
+const _SET = "SnaplockExpiryTime";
 const _SEv = "SvmEndpoints";
 const _SF = "SnapshotFilter";
 const _SFB = "SkipFinalBackup";
@@ -441,11 +531,12 @@ const _SFn = "SnapshotFilters";
 const _SG = "SecondaryGids";
 const _SGB = "SizeGiB";
 const _SGI = "SecurityGroupIds";
-const _SI = "SubnetIds";
+const _SI = "SnapshotId";
 const _SIB = "SizeInBytes";
 const _SIM = "SizeInMegabytes";
-const _SIn = "SnapshotId";
-const _SIna = "SnapshotIds";
+const _SIn = "SnapshotIds";
+const _SIu = "SubnetIds";
+const _SL = "SnapmirrorLabel";
 const _SLE = "ServiceLimitExceeded";
 const _SM = "SizingMode";
 const _SMADA = "SelfManagedActiveDirectoryAttributes";
@@ -454,14 +545,44 @@ const _SMADCU = "SelfManagedActiveDirectoryConfigurationUpdates";
 const _SMSR = "StartMisconfiguredStateRecovery";
 const _SMSRR = "StartMisconfiguredStateRecoveryRequest";
 const _SMSRRt = "StartMisconfiguredStateRecoveryResponse";
+const _SN = "SnapshotName";
 const _SNF = "SnapshotNotFound";
 const _SP = "SnapshotPolicy";
+const _SPF = "SnapmirrorPolicyFilter";
+const _SPFn = "SnapshotPolicyFilter";
+const _SPFna = "SnapmirrorPolicyFilters";
+const _SPFnap = "SnapshotPolicyFilters";
+const _SPI = "SnapmirrorPolicyId";
+const _SPIn = "SnapshotPolicyId";
+const _SPIna = "SnapmirrorPolicyIds";
+const _SPInap = "SnapshotPolicyIds";
+const _SPNF = "SnapmirrorPolicyNotFound";
+const _SPNFn = "SnapshotPolicyNotFound";
+const _SPRP = "SnapshotPolicyRetentionPeriod";
+const _SPRR = "SnapmirrorPolicyRetentionRule";
+const _SPRRn = "SnapmirrorPolicyRetentionRules";
+const _SPS = "SnapshotPolicySchedule";
+const _SPSL = "SnapshotPolicyScheduleList";
+const _SPn = "SnapmirrorPolicy";
+const _SPna = "SnapmirrorPolicies";
+const _SPnap = "SnapshotPolicies";
 const _SR = "SourceRegion";
+const _SRF = "SnapmirrorRelationshipFilter";
+const _SRFn = "SnapmirrorRelationshipFilters";
+const _SRI = "SnapmirrorRelationshipId";
+const _SRIn = "SnapmirrorRelationshipIds";
+const _SRNF = "SnapmirrorRelationshipNotFound";
 const _SRP = "SnaplockRetentionPeriod";
+const _SRPn = "SnapmirrorRelationshipPolicy";
+const _SRn = "SnapmirrorRelationship";
+const _SRna = "SnapmirrorRelationships";
 const _SS = "SecurityStyle";
 const _SSARN = "SourceSnapshotARN";
+const _SSn = "SnapmirrorSource";
 const _ST = "StorageType";
+const _STS = "SnapmirrorTransferState";
 const _STn = "SnaplockType";
+const _STna = "SnapshotType";
 const _STt = "StartTime";
 const _SVM = "StorageVirtualMachine";
 const _SVMF = "StorageVirtualMachineFilter";
@@ -469,13 +590,23 @@ const _SVMFt = "StorageVirtualMachineFilters";
 const _SVMI = "StorageVirtualMachineId";
 const _SVMIt = "StorageVirtualMachineIds";
 const _SVMNF = "StorageVirtualMachineNotFound";
+const _SVMP = "StorageVirtualMachinePeer";
+const _SVMPF = "StorageVirtualMachinePeerFilter";
+const _SVMPFt = "StorageVirtualMachinePeerFilters";
+const _SVMPI = "StorageVirtualMachinePeerId";
+const _SVMPIt = "StorageVirtualMachinePeerIds";
+const _SVMPNF = "StorageVirtualMachinePeerNotFound";
+const _SVMPt = "StorageVirtualMachinePeers";
 const _SVMR = "StorageVirtualMachineRoot";
 const _SVMt = "StorageVirtualMachines";
 const _S_ = "S3";
 const _Sc = "Scope";
+const _Sch = "Schedules";
 const _Sm = "Smb";
 const _Sn = "Snapshot";
 const _Sna = "Snapshots";
+const _So = "Source";
+const _St = "State";
 const _Su = "Subtype";
 const _T = "Type";
 const _TC = "TotalConstituents";
@@ -484,6 +615,7 @@ const _TCh = "ThroughputCapacity";
 const _TCo = "TotalCount";
 const _TFSV = "TargetFileSystemValues";
 const _TI = "TaskId";
+const _TIK = "ThrottleInKbps";
 const _TIa = "TaskIds";
 const _TK = "TagKeys";
 const _TMAP = "TooManyAccessPoints";
@@ -491,13 +623,19 @@ const _TP = "TieringPolicy";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
+const _TS = "TransferSchedule";
 const _TSV = "TargetSnapshotValues";
+const _TSr = "TransferState";
 const _TTB = "TotalTransferBytes";
 const _TVV = "TargetVolumeValues";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _U = "Unit";
 const _UAGQ = "UserAndGroupQuotas";
+const _UCC = "UpdateCloneConfiguration";
+const _UCP = "UpdateClusterPeer";
+const _UCPR = "UpdateClusterPeerRequest";
+const _UCPRp = "UpdateClusterPeerResponse";
 const _UDRA = "UpdateDataRepositoryAssociation";
 const _UDRAR = "UpdateDataRepositoryAssociationRequest";
 const _UDRARp = "UpdateDataRepositoryAssociationResponse";
@@ -515,20 +653,34 @@ const _UFSRp = "UpdateFileSystemResponse";
 const _UFSWC = "UpdateFileSystemWindowsConfiguration";
 const _UN = "UserName";
 const _UO = "UnsupportedOperation";
+const _UOSC = "UpdateOntapSnapshotConfiguration";
 const _UOVC = "UpdateOntapVolumeConfiguration";
 const _UOZFSVC = "UpdateOpenZFSVolumeConfiguration";
-const _UR = "UntagResource";
+const _UR = "UnhealthyReason";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
+const _URn = "UntagResource";
 const _US = "UpdateSnapshot";
 const _USADC = "UpdateSvmActiveDirectoryConfiguration";
 const _USC = "UpdateSnaplockConfiguration";
+const _USP = "UpdateSnapmirrorPolicy";
+const _USPR = "UpdateSnapmirrorPolicyRequest";
+const _USPRp = "UpdateSnapmirrorPolicyResponse";
+const _USPRpd = "UpdateSnapshotPolicyRequest";
+const _USPRpda = "UpdateSnapshotPolicyResponse";
+const _USPp = "UpdateSnapshotPolicy";
 const _USR = "UpdateSnapshotRequest";
+const _USRR = "UpdateSnapmirrorRelationshipRequest";
+const _USRRp = "UpdateSnapmirrorRelationshipResponse";
 const _USRp = "UpdateSnapshotResponse";
+const _USRpd = "UpdateSnapmirrorRelationship";
 const _USVC = "UpdateSharedVpcConfiguration";
 const _USVCR = "UpdateSharedVpcConfigurationRequest";
 const _USVCRp = "UpdateSharedVpcConfigurationResponse";
 const _USVM = "UpdateStorageVirtualMachine";
+const _USVMP = "UpdateStorageVirtualMachinePeer";
+const _USVMPR = "UpdateStorageVirtualMachinePeerRequest";
+const _USVMPRp = "UpdateStorageVirtualMachinePeerResponse";
 const _USVMR = "UpdateStorageVirtualMachineRequest";
 const _USVMRp = "UpdateStorageVirtualMachineResponse";
 const _UU = "UnixUser";
@@ -587,6 +739,7 @@ import {
   BackupNotFound,
   BackupRestoring,
   BadRequest,
+  ClusterPeerNotFound,
   DataRepositoryAssociationNotFound,
   DataRepositoryTaskEnded,
   DataRepositoryTaskExecuting,
@@ -614,9 +767,13 @@ import {
   ResourceNotFound,
   S3AccessPointAttachmentNotFound,
   ServiceLimitExceeded,
+  SnapmirrorPolicyNotFound,
+  SnapmirrorRelationshipNotFound,
   SnapshotNotFound,
+  SnapshotPolicyNotFound,
   SourceBackupUnavailable,
   StorageVirtualMachineNotFound,
+  StorageVirtualMachinePeerNotFound,
   TooManyAccessPoints,
   UnsupportedOperation,
   VolumeNotFound,
@@ -670,6 +827,12 @@ export var BadRequest$: StaticErrorSchema = [-3, n0, _BRa,
   [0]
 ];
 n0_registry.registerError(BadRequest$, BadRequest);
+export var ClusterPeerNotFound$: StaticErrorSchema = [-3, n0, _CPNF,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ClusterPeerNotFound$, ClusterPeerNotFound);
 export var DataRepositoryAssociationNotFound$: StaticErrorSchema = [-3, n0, _DRANF,
   { [_e]: _c },
   [_M],
@@ -832,12 +995,30 @@ export var ServiceLimitExceeded$: StaticErrorSchema = [-3, n0, _SLE,
   [0, 0], 1
 ];
 n0_registry.registerError(ServiceLimitExceeded$, ServiceLimitExceeded);
+export var SnapmirrorPolicyNotFound$: StaticErrorSchema = [-3, n0, _SPNF,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SnapmirrorPolicyNotFound$, SnapmirrorPolicyNotFound);
+export var SnapmirrorRelationshipNotFound$: StaticErrorSchema = [-3, n0, _SRNF,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SnapmirrorRelationshipNotFound$, SnapmirrorRelationshipNotFound);
 export var SnapshotNotFound$: StaticErrorSchema = [-3, n0, _SNF,
   { [_e]: _c },
   [_M],
   [0]
 ];
 n0_registry.registerError(SnapshotNotFound$, SnapshotNotFound);
+export var SnapshotPolicyNotFound$: StaticErrorSchema = [-3, n0, _SPNFn,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SnapshotPolicyNotFound$, SnapshotPolicyNotFound);
 export var SourceBackupUnavailable$: StaticErrorSchema = [-3, n0, _SBU,
   { [_e]: _c },
   [_M, _BI],
@@ -850,6 +1031,12 @@ export var StorageVirtualMachineNotFound$: StaticErrorSchema = [-3, n0, _SVMNF,
   [0]
 ];
 n0_registry.registerError(StorageVirtualMachineNotFound$, StorageVirtualMachineNotFound);
+export var StorageVirtualMachinePeerNotFound$: StaticErrorSchema = [-3, n0, _SVMPNF,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StorageVirtualMachinePeerNotFound$, StorageVirtualMachinePeerNotFound);
 export var TooManyAccessPoints$: StaticErrorSchema = [-3, n0, _TMAP,
   { [_e]: _c, [_hE]: 400, [_xN]: _E },
   [_EC, _M],
@@ -949,6 +1136,26 @@ export var CancelDataRepositoryTaskResponse$: StaticStructureSchema = [3, n0, _C
   [_Li, _TI],
   [0, 0]
 ];
+export var CloneConfiguration$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_PVI, _SI],
+  [0, 0]
+];
+export var ClusterPeer$: StaticStructureSchema = [3, n0, _CP,
+  0,
+  [_RARN, _CPI, _FSI, _Li, _LTR, _Ta, _PA, _PCN, _PSA, _ASM, _ASI, _S, _UUID, _AS],
+  [0, 0, 0, 0, () => LifecycleTransitionReason$, () => Tags, 64 | 0, 0, 0, 0, 64 | 0, 0, 0, () => ClusterPeerAuthenticationStatus$]
+];
+export var ClusterPeerAuthenticationStatus$: StaticStructureSchema = [3, n0, _CPAS,
+  0,
+  [_St, _IU],
+  [0, 0]
+];
+export var ClusterPeerFilter$: StaticStructureSchema = [3, n0, _CPF,
+  0,
+  [_N, _Va],
+  [0, 64 | 0]
+];
 export var CompletionReport$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_En, _Pa, _F, _Sc],
@@ -1014,6 +1221,21 @@ export var CreateBackupResponse$: StaticStructureSchema = [3, n0, _CBRre,
   [_B],
   [[() => Backup$, 0]]
 ];
+export var CreateCloneConfiguration$: StaticStructureSchema = [3, n0, _CCC,
+  0,
+  [_PVI, _SI],
+  [0, 0], 1
+];
+export var CreateClusterPeerRequest$: StaticStructureSchema = [3, n0, _CCPR,
+  0,
+  [_FSI, _PA, _PSA, _ASM, _CRT, _PCN, _ASI, _Ta],
+  [0, 64 | 0, 0, 0, [0, 4], 0, 64 | 0, () => Tags], 4
+];
+export var CreateClusterPeerResponse$: StaticStructureSchema = [3, n0, _CCPRr,
+  0,
+  [_CP],
+  [() => ClusterPeer$]
+];
 export var CreateDataRepositoryAssociationRequest$: StaticStructureSchema = [3, n0, _CDRAR,
   0,
   [_FSI, _DRP, _FSP, _BIMDOC, _IFCS, _S_, _CRT, _Ta],
@@ -1041,7 +1263,7 @@ export var CreateFileCacheLustreConfiguration$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateFileCacheRequest$: StaticStructureSchema = [3, n0, _CFCR,
   0,
-  [_FCT, _FCTV, _SC, _SI, _CRT, _SGI, _Ta, _CTTDRA, _KKI, _LC, _DRA],
+  [_FCT, _FCTV, _SC, _SIu, _CRT, _SGI, _Ta, _CTTDRA, _KKI, _LC, _DRA],
   [0, 0, 1, 64 | 0, [0, 4], 64 | 0, () => Tags, 2, 0, () => CreateFileCacheLustreConfiguration$, () => CreateFileCacheDataRepositoryAssociations], 4
 ];
 export var CreateFileCacheResponse$: StaticStructureSchema = [3, n0, _CFCRr,
@@ -1051,7 +1273,7 @@ export var CreateFileCacheResponse$: StaticStructureSchema = [3, n0, _CFCRr,
 ];
 export var CreateFileSystemFromBackupRequest$: StaticStructureSchema = [3, n0, _CFSFBR,
   0,
-  [_BI, _SI, _CRT, _SGI, _Ta, _WC, _LC, _ST, _KKI, _FSTV, _OZFSC, _SC, _NT],
+  [_BI, _SIu, _CRT, _SGI, _Ta, _WC, _LC, _ST, _KKI, _FSTV, _OZFSC, _SC, _NT],
   [0, 64 | 0, [0, 4], 64 | 0, () => Tags, [() => CreateFileSystemWindowsConfiguration$, 0], () => CreateFileSystemLustreConfiguration$, 0, 0, 0, () => CreateFileSystemOpenZFSConfiguration$, 1, 0], 2
 ];
 export var CreateFileSystemFromBackupResponse$: StaticStructureSchema = [3, n0, _CFSFBRr,
@@ -1081,7 +1303,7 @@ export var CreateFileSystemOpenZFSConfiguration$: StaticStructureSchema = [3, n0
 ];
 export var CreateFileSystemRequest$: StaticStructureSchema = [3, n0, _CFSR,
   0,
-  [_FST, _SI, _CRT, _SC, _ST, _SGI, _Ta, _KKI, _WC, _LC, _OC, _FSTV, _OZFSC, _NT],
+  [_FST, _SIu, _CRT, _SC, _ST, _SGI, _Ta, _KKI, _WC, _LC, _OC, _FSTV, _OZFSC, _NT],
   [0, 64 | 0, [0, 4], 1, 0, 64 | 0, () => Tags, 0, [() => CreateFileSystemWindowsConfiguration$, 0], () => CreateFileSystemLustreConfiguration$, [() => CreateFileSystemOntapConfiguration$, 0], 0, () => CreateFileSystemOpenZFSConfiguration$, 0], 2
 ];
 export var CreateFileSystemResponse$: StaticStructureSchema = [3, n0, _CFSRr,
@@ -1094,10 +1316,15 @@ export var CreateFileSystemWindowsConfiguration$: StaticStructureSchema = [3, n0
   [_TCh, _ADI, _SMADC, _DT, _PSI, _WMST, _DABST, _ABRD, _CTTB, _Ali, _ALC, _DIC, _FCs],
   [1, 0, [() => SelfManagedActiveDirectoryConfiguration$, 0], 0, 0, 0, 0, 1, 2, 64 | 0, () => WindowsAuditLogCreateConfiguration$, () => DiskIopsConfiguration$, () => WindowsFsrmConfiguration$], 1
 ];
+export var CreateOntapSnapshotConfiguration$: StaticStructureSchema = [3, n0, _COSC,
+  0,
+  [_SL, _ET, _SET],
+  [0, 4, 4]
+];
 export var CreateOntapVolumeConfiguration$: StaticStructureSchema = [3, n0, _COVC,
   0,
-  [_SVMI, _JP, _SS, _SIM, _SEE, _TP, _OVT, _SP, _CTTB, _SCn, _VS, _AC, _SIB],
-  [0, 0, 0, 1, 2, () => TieringPolicy$, 0, 0, 2, () => CreateSnaplockConfiguration$, 0, () => CreateAggregateConfiguration$, 1], 1
+  [_SVMI, _JP, _SS, _SIM, _SEE, _TP, _OVT, _SP, _CTTB, _SCn, _VS, _AC, _SIB, _CC],
+  [0, 0, 0, 1, 2, () => TieringPolicy$, 0, 0, 2, () => CreateSnaplockConfiguration$, 0, () => CreateAggregateConfiguration$, 1, () => CreateCloneConfiguration$], 1
 ];
 export var CreateOpenZFSOriginSnapshotConfiguration$: StaticStructureSchema = [3, n0, _COZFSOSC,
   0,
@@ -1114,15 +1341,65 @@ export var CreateSnaplockConfiguration$: StaticStructureSchema = [3, n0, _CSC,
   [_STn, _ALV, _APu, _PD, _RP, _VAME],
   [0, 2, () => AutocommitPeriod$, 0, () => SnaplockRetentionPeriod$, 2], 1
 ];
+export var CreateSnapmirrorDestination$: StaticStructureSchema = [3, n0, _CSD,
+  0,
+  [_VI],
+  [0], 1
+];
+export var CreateSnapmirrorPolicyRequest$: StaticStructureSchema = [3, n0, _CSPR,
+  0,
+  [_N, _CRT, _FSI, _SVMI, _SCM, _RR, _TS, _NCE, _TIK, _Ta],
+  [0, [0, 4], 0, 0, 0, () => SnapmirrorPolicyRetentionRules, 0, 2, 1, () => Tags], 1
+];
+export var CreateSnapmirrorPolicyResponse$: StaticStructureSchema = [3, n0, _CSPRr,
+  0,
+  [_SPn],
+  [() => SnapmirrorPolicy$]
+];
+export var CreateSnapmirrorRelationshipRequest$: StaticStructureSchema = [3, n0, _CSRR,
+  0,
+  [_So, _D, _CRT, _PI, _TS, _TIK, _Ta],
+  [() => CreateSnapmirrorSource$, () => CreateSnapmirrorDestination$, [0, 4], 0, 0, 1, () => Tags], 2
+];
+export var CreateSnapmirrorRelationshipResponse$: StaticStructureSchema = [3, n0, _CSRRr,
+  0,
+  [_SRn],
+  [() => SnapmirrorRelationship$]
+];
+export var CreateSnapmirrorSource$: StaticStructureSchema = [3, n0, _CSS,
+  0,
+  [_Pa],
+  [0], 1
+];
+export var CreateSnapshotPolicyRequest$: StaticStructureSchema = [3, n0, _CSPRre,
+  0,
+  [_N, _Sch, _CRT, _FSI, _SVMI, _En, _Ta],
+  [0, () => SnapshotPolicyScheduleList, [0, 4], 0, 0, 2, () => Tags], 2
+];
+export var CreateSnapshotPolicyResponse$: StaticStructureSchema = [3, n0, _CSPRrea,
+  0,
+  [_SP],
+  [() => SnapshotPolicy$]
+];
 export var CreateSnapshotRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_N, _VI, _CRT, _Ta],
-  [0, 0, [0, 4], () => Tags], 2
+  [_N, _VI, _CRT, _Ta, _OC],
+  [0, 0, [0, 4], () => Tags, () => CreateOntapSnapshotConfiguration$], 2
 ];
 export var CreateSnapshotResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
   [_Sn],
   [() => Snapshot$]
+];
+export var CreateStorageVirtualMachinePeerRequest$: StaticStructureSchema = [3, n0, _CSVMPR,
+  0,
+  [_SVMI, _PSN, _Ap, _CRT, _PCN, _PSAe, _Ta],
+  [0, 0, 64 | 0, [0, 4], 0, 0, () => Tags], 3
+];
+export var CreateStorageVirtualMachinePeerResponse$: StaticStructureSchema = [3, n0, _CSVMPRr,
+  0,
+  [_SVMP],
+  [() => StorageVirtualMachinePeer$]
 ];
 export var CreateStorageVirtualMachineRequest$: StaticStructureSchema = [3, n0, _CSVMR,
   0,
@@ -1176,7 +1453,7 @@ export var DataRepositoryFailureDetails$: StaticStructureSchema = [3, n0, _DRFD,
 ];
 export var DataRepositoryTask$: StaticStructureSchema = [3, n0, _DRT,
   0,
-  [_TI, _Li, _T, _CT, _STt, _ET, _RARN, _Ta, _FSI, _Pat, _FD, _S, _R, _CTR, _FCI, _RC],
+  [_TI, _Li, _T, _CT, _STt, _ETn, _RARN, _Ta, _FSI, _Pat, _FD, _S, _R, _CTR, _FCI, _RC],
   [0, 0, 0, 4, 4, 4, 0, () => Tags, 0, 64 | 0, () => DataRepositoryTaskFailureDetails$, () => DataRepositoryTaskStatus$, () => CompletionReport$, 1, 0, () => ReleaseConfiguration$], 4
 ];
 export var DataRepositoryTaskFailureDetails$: StaticStructureSchema = [3, n0, _DRTFD,
@@ -1202,6 +1479,16 @@ export var DeleteBackupRequest$: StaticStructureSchema = [3, n0, _DBR,
 export var DeleteBackupResponse$: StaticStructureSchema = [3, n0, _DBRe,
   0,
   [_BI, _Li],
+  [0, 0]
+];
+export var DeleteClusterPeerRequest$: StaticStructureSchema = [3, n0, _DCPR,
+  0,
+  [_CPI, _CRT],
+  [0, [0, 4]], 1
+];
+export var DeleteClusterPeerResponse$: StaticStructureSchema = [3, n0, _DCPRe,
+  0,
+  [_CPI, _Li],
   [0, 0]
 ];
 export var DeleteDataRepositoryAssociationRequest$: StaticStructureSchema = [3, n0, _DDRAR,
@@ -1264,14 +1551,54 @@ export var DeleteFileSystemWindowsResponse$: StaticStructureSchema = [3, n0, _DF
   [_FBI, _FBT],
   [0, () => Tags]
 ];
+export var DeleteSnapmirrorPolicyRequest$: StaticStructureSchema = [3, n0, _DSPR,
+  0,
+  [_SPI, _CRT],
+  [0, [0, 4]], 1
+];
+export var DeleteSnapmirrorPolicyResponse$: StaticStructureSchema = [3, n0, _DSPRe,
+  0,
+  [_SPI, _Li],
+  [0, 0]
+];
+export var DeleteSnapmirrorRelationshipRequest$: StaticStructureSchema = [3, n0, _DSRR,
+  0,
+  [_SRI, _CRT],
+  [0, [0, 4]], 1
+];
+export var DeleteSnapmirrorRelationshipResponse$: StaticStructureSchema = [3, n0, _DSRRe,
+  0,
+  [_SRI, _Li],
+  [0, 0]
+];
+export var DeleteSnapshotPolicyRequest$: StaticStructureSchema = [3, n0, _DSPRel,
+  0,
+  [_SPIn, _CRT],
+  [0, [0, 4]], 1
+];
+export var DeleteSnapshotPolicyResponse$: StaticStructureSchema = [3, n0, _DSPRele,
+  0,
+  [_SPIn, _Li],
+  [0, 0]
+];
 export var DeleteSnapshotRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
-  [_SIn, _CRT],
+  [_SI, _CRT],
   [0, [0, 4]], 1
 ];
 export var DeleteSnapshotResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
-  [_SIn, _Li],
+  [_SI, _Li],
+  [0, 0]
+];
+export var DeleteStorageVirtualMachinePeerRequest$: StaticStructureSchema = [3, n0, _DSVMPR,
+  0,
+  [_SVMPI, _CRT],
+  [0, [0, 4]], 1
+];
+export var DeleteStorageVirtualMachinePeerResponse$: StaticStructureSchema = [3, n0, _DSVMPRe,
+  0,
+  [_SVMPI, _Li],
   [0, 0]
 ];
 export var DeleteStorageVirtualMachineRequest$: StaticStructureSchema = [3, n0, _DSVMR,
@@ -1318,6 +1645,16 @@ export var DescribeBackupsResponse$: StaticStructureSchema = [3, n0, _DBResc,
   0,
   [_Ba, _NTe],
   [[() => Backups, 0], 0]
+];
+export var DescribeClusterPeersRequest$: StaticStructureSchema = [3, n0, _DCPRes,
+  0,
+  [_CPIl, _Fi, _MR, _NTe],
+  [64 | 0, () => ClusterPeerFilters, 1, 0]
+];
+export var DescribeClusterPeersResponse$: StaticStructureSchema = [3, n0, _DCPResc,
+  0,
+  [_CPl, _NTe],
+  [() => ClusterPeers, 0]
 ];
 export var DescribeDataRepositoryAssociationsRequest$: StaticStructureSchema = [3, n0, _DDRARes,
   0,
@@ -1389,15 +1726,55 @@ export var DescribeSharedVpcConfigurationResponse$: StaticStructureSchema = [3, 
   [_EFRTUFPA],
   [0]
 ];
+export var DescribeSnapmirrorPoliciesRequest$: StaticStructureSchema = [3, n0, _DSPRes,
+  0,
+  [_SPIna, _Fi, _MR, _NTe],
+  [64 | 0, () => SnapmirrorPolicyFilters, 1, 0]
+];
+export var DescribeSnapmirrorPoliciesResponse$: StaticStructureSchema = [3, n0, _DSPResc,
+  0,
+  [_SPna, _NTe],
+  [() => SnapmirrorPolicies, 0]
+];
+export var DescribeSnapmirrorRelationshipsRequest$: StaticStructureSchema = [3, n0, _DSRRes,
+  0,
+  [_SRIn, _Fi, _MR, _NTe],
+  [64 | 0, () => SnapmirrorRelationshipFilters, 1, 0]
+];
+export var DescribeSnapmirrorRelationshipsResponse$: StaticStructureSchema = [3, n0, _DSRResc,
+  0,
+  [_SRna, _NTe],
+  [() => SnapmirrorRelationships, 0]
+];
+export var DescribeSnapshotPoliciesRequest$: StaticStructureSchema = [3, n0, _DSPRescr,
+  0,
+  [_SPInap, _Fi, _MR, _NTe],
+  [64 | 0, () => SnapshotPolicyFilters, 1, 0]
+];
+export var DescribeSnapshotPoliciesResponse$: StaticStructureSchema = [3, n0, _DSPRescri,
+  0,
+  [_SPnap, _NTe],
+  [() => SnapshotPolicies, 0]
+];
 export var DescribeSnapshotsRequest$: StaticStructureSchema = [3, n0, _DSRes,
   0,
-  [_SIna, _Fi, _MR, _NTe, _IS],
+  [_SIn, _Fi, _MR, _NTe, _IS],
   [64 | 0, () => SnapshotFilters, 1, 0, 2]
 ];
 export var DescribeSnapshotsResponse$: StaticStructureSchema = [3, n0, _DSResc,
   0,
   [_Sna, _NTe],
   [() => Snapshots, 0]
+];
+export var DescribeStorageVirtualMachinePeersRequest$: StaticStructureSchema = [3, n0, _DSVMPRes,
+  0,
+  [_SVMPIt, _Fi, _MR, _NTe],
+  [64 | 0, () => StorageVirtualMachinePeerFilters, 1, 0]
+];
+export var DescribeStorageVirtualMachinePeersResponse$: StaticStructureSchema = [3, n0, _DSVMPResc,
+  0,
+  [_SVMPt, _NTe],
+  [() => StorageVirtualMachinePeers, 0]
 ];
 export var DescribeStorageVirtualMachinesRequest$: StaticStructureSchema = [3, n0, _DSVMRes,
   0,
@@ -1451,12 +1828,12 @@ export var DurationSinceLastAccess$: StaticStructureSchema = [3, n0, _DSLA,
 ];
 export var FileCache$: StaticStructureSchema = [3, n0, _FC,
   0,
-  [_OI, _CT, _FCI, _FCT, _FCTV, _Li, _FD, _SC, _VIp, _SI, _NII, _DNSN, _KKI, _RARN, _LC, _DRAI],
+  [_OI, _CT, _FCI, _FCT, _FCTV, _Li, _FD, _SC, _VIp, _SIu, _NII, _DNSN, _KKI, _RARN, _LC, _DRAI],
   [0, 4, 0, 0, 0, 0, () => FileCacheFailureDetails$, 1, 0, 64 | 0, 64 | 0, 0, 0, 0, () => FileCacheLustreConfiguration$, 64 | 0]
 ];
 export var FileCacheCreating$: StaticStructureSchema = [3, n0, _FCC,
   0,
-  [_OI, _CT, _FCI, _FCT, _FCTV, _Li, _FD, _SC, _VIp, _SI, _NII, _DNSN, _KKI, _RARN, _Ta, _CTTDRA, _LC, _DRAI],
+  [_OI, _CT, _FCI, _FCT, _FCTV, _Li, _FD, _SC, _VIp, _SIu, _NII, _DNSN, _KKI, _RARN, _Ta, _CTTDRA, _LC, _DRAI],
   [0, 4, 0, 0, 0, 0, () => FileCacheFailureDetails$, 1, 0, 64 | 0, 64 | 0, 0, 0, 0, () => Tags, 2, () => FileCacheLustreConfiguration$, 64 | 0]
 ];
 export var FileCacheDataRepositoryAssociation$: StaticStructureSchema = [3, n0, _FCDRA,
@@ -1486,7 +1863,7 @@ export var FileCacheNFSConfiguration$: StaticStructureSchema = [3, n0, _FCNFSC,
 ];
 export var FileSystem$: StaticStructureSchema = [3, n0, _FS,
   0,
-  [_OI, _CT, _FSI, _FST, _Li, _FD, _SC, _ST, _VIp, _SI, _NII, _DNSN, _KKI, _RARN, _Ta, _WC, _LC, _AAd, _OC, _FSTV, _OZFSC, _NT],
+  [_OI, _CT, _FSI, _FST, _Li, _FD, _SC, _ST, _VIp, _SIu, _NII, _DNSN, _KKI, _RARN, _Ta, _WC, _LC, _AAd, _OC, _FSTV, _OZFSC, _NT],
   [0, 4, 0, 0, 0, () => FileSystemFailureDetails$, 1, 0, 0, 64 | 0, 64 | 0, 0, 0, 0, () => Tags, () => WindowsFileSystemConfiguration$, () => LustreFileSystemConfiguration$, [() => AdministrativeActions, 0], [() => OntapFileSystemConfiguration$, 0], 0, () => OpenZFSFileSystemConfiguration$, 0]
 ];
 export var FileSystemEndpoint$: StaticStructureSchema = [3, n0, _FSE,
@@ -1516,8 +1893,8 @@ export var Filter$: StaticStructureSchema = [3, n0, _Fil,
 ];
 export var LifecycleTransitionReason$: StaticStructureSchema = [3, n0, _LTR,
   0,
-  [_M],
-  [0]
+  [_M, _OE],
+  [0, () => OntapError$]
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
@@ -1559,6 +1936,11 @@ export var NFSDataRepositoryConfiguration$: StaticStructureSchema = [3, n0, _NFS
   [_Ve, _DIn, _AEP],
   [0, 64 | 0, () => AutoExportPolicy$], 1
 ];
+export var OntapError$: StaticStructureSchema = [3, n0, _OE,
+  0,
+  [_M, _C],
+  [0, 0]
+];
 export var OntapFileSystemConfiguration$: StaticStructureSchema = [3, n0, _OFSC,
   0,
   [_ABRD, _DABST, _DT, _EIAR, _End, _DIC, _PSI, _RTI, _TCh, _WMST, _FAP, _HAP, _TCPHAP, _EIARn],
@@ -1569,6 +1951,11 @@ export var OntapFileSystemIdentity$: StaticStructureSchema = [3, n0, _OFSI,
   [_T, _UU, _WU],
   [0, () => OntapUnixFileSystemUser$, () => OntapWindowsFileSystemUser$], 1
 ];
+export var OntapSnapshotConfiguration$: StaticStructureSchema = [3, n0, _OSC,
+  0,
+  [_SIM, _SL, _ET, _SET, _UUID],
+  [1, 0, 4, 4, 0]
+];
 export var OntapUnixFileSystemUser$: StaticStructureSchema = [3, n0, _OUFSU,
   0,
   [_N],
@@ -1576,8 +1963,8 @@ export var OntapUnixFileSystemUser$: StaticStructureSchema = [3, n0, _OUFSU,
 ];
 export var OntapVolumeConfiguration$: StaticStructureSchema = [3, n0, _OVC,
   0,
-  [_FCET, _JP, _SS, _SIM, _SEE, _SVMI, _SVMR, _TP, _UUID, _OVT, _SP, _CTTB, _SCn, _VS, _AC, _SIB],
-  [0, 0, 0, 1, 2, 0, 2, () => TieringPolicy$, 0, 0, 0, 2, () => SnaplockConfiguration$, 0, () => AggregateConfiguration$, 1]
+  [_FCET, _JP, _SS, _SIM, _SEE, _SVMI, _SVMR, _TP, _UUID, _OVT, _SP, _CTTB, _SCn, _VS, _AC, _SIB, _CC],
+  [0, 0, 0, 1, 2, 0, 2, () => TieringPolicy$, 0, 0, 0, 2, () => SnaplockConfiguration$, 0, () => AggregateConfiguration$, 1, () => CloneConfiguration$]
 ];
 export var OntapWindowsFileSystemUser$: StaticStructureSchema = [3, n0, _OWFSU,
   0,
@@ -1586,7 +1973,7 @@ export var OntapWindowsFileSystemUser$: StaticStructureSchema = [3, n0, _OWFSU,
 ];
 export var OpenZFSClientConfiguration$: StaticStructureSchema = [3, n0, _OZFSCC,
   0,
-  [_C, _O],
+  [_Cl, _O],
   [0, 64 | 0], 2
 ];
 export var OpenZFSCreateRootVolumeConfiguration$: StaticStructureSchema = [3, n0, _OZFSCRVC,
@@ -1606,7 +1993,7 @@ export var OpenZFSFileSystemIdentity$: StaticStructureSchema = [3, n0, _OZFSFSI,
 ];
 export var OpenZFSNfsExport$: StaticStructureSchema = [3, n0, _OZFSNE,
   0,
-  [_CC],
+  [_CCl],
   [() => OpenZFSClientConfigurations], 1
 ];
 export var OpenZFSOriginSnapshotConfiguration$: StaticStructureSchema = [3, n0, _OZFSOSC,
@@ -1651,7 +2038,7 @@ export var ReleaseFileSystemNfsV3LocksResponse$: StaticStructureSchema = [3, n0,
 ];
 export var RestoreVolumeFromSnapshotRequest$: StaticStructureSchema = [3, n0, _RVFSR,
   0,
-  [_VI, _SIn, _CRT, _O],
+  [_VI, _SI, _CRT, _O],
   [0, 0, [0, 4], 64 | 0], 2
 ];
 export var RestoreVolumeFromSnapshotResponse$: StaticStructureSchema = [3, n0, _RVFSRe,
@@ -1724,15 +2111,85 @@ export var SnaplockRetentionPeriod$: StaticStructureSchema = [3, n0, _SRP,
   [_DR, _MRi, _MRa],
   [() => RetentionPeriod$, () => RetentionPeriod$, () => RetentionPeriod$], 3
 ];
+export var SnapmirrorDestination$: StaticStructureSchema = [3, n0, _SD,
+  0,
+  [_Pa, _VI],
+  [0, 0]
+];
+export var SnapmirrorExportedSnapshot$: StaticStructureSchema = [3, n0, _SES,
+  0,
+  [_SI, _SN],
+  [0, 0]
+];
+export var SnapmirrorPolicy$: StaticStructureSchema = [3, n0, _SPn,
+  0,
+  [_RARN, _SPI, _FSI, _SVMI, _N, _SCM, _RR, _TS, _NCE, _TIK, _Sc, _Li, _UUID, _LTR, _Ta],
+  [0, 0, 0, 0, 0, 0, () => SnapmirrorPolicyRetentionRules, 0, 2, 1, 0, 0, 0, () => LifecycleTransitionReason$, () => Tags]
+];
+export var SnapmirrorPolicyFilter$: StaticStructureSchema = [3, n0, _SPF,
+  0,
+  [_N, _Va],
+  [0, 64 | 0]
+];
+export var SnapmirrorPolicyRetentionRule$: StaticStructureSchema = [3, n0, _SPRR,
+  0,
+  [_La, _Co, _CSr],
+  [0, 1, 0], 2
+];
+export var SnapmirrorRelationship$: StaticStructureSchema = [3, n0, _SRn,
+  0,
+  [_RARN, _SRI, _FSI, _Li, _LTR, _Ta, _So, _D, _SPn, _TS, _TIK, _St, _H, _UR, _LTIM, _ES, _TSr, _UUID],
+  [0, 0, 0, 0, () => LifecycleTransitionReason$, () => Tags, () => SnapmirrorSource$, () => SnapmirrorDestination$, () => SnapmirrorRelationshipPolicy$, 0, 1, 0, 2, 0, 1, () => SnapmirrorExportedSnapshot$, () => SnapmirrorTransferState$, 0]
+];
+export var SnapmirrorRelationshipFilter$: StaticStructureSchema = [3, n0, _SRF,
+  0,
+  [_N, _Va],
+  [0, 64 | 0]
+];
+export var SnapmirrorRelationshipPolicy$: StaticStructureSchema = [3, n0, _SRPn,
+  0,
+  [_PI, _PN],
+  [0, 0]
+];
+export var SnapmirrorSource$: StaticStructureSchema = [3, n0, _SSn,
+  0,
+  [_Pa],
+  [0]
+];
+export var SnapmirrorTransferState$: StaticStructureSchema = [3, n0, _STS,
+  0,
+  [_St, _T, _BT, _Du, _ETn],
+  [0, 0, 1, 0, 4]
+];
 export var Snapshot$: StaticStructureSchema = [3, n0, _Sn,
   0,
-  [_RARN, _SIn, _N, _VI, _CT, _Li, _LTR, _Ta, _AAd],
-  [0, 0, 0, 0, 4, 0, () => LifecycleTransitionReason$, () => Tags, [() => AdministrativeActions, 0]]
+  [_RARN, _SI, _N, _VI, _CT, _Li, _STna, _LTR, _Ta, _AAd, _OC],
+  [0, 0, 0, 0, 4, 0, 0, () => LifecycleTransitionReason$, () => Tags, [() => AdministrativeActions, 0], () => OntapSnapshotConfiguration$]
 ];
 export var SnapshotFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
   [_N, _Va],
   [0, 64 | 0]
+];
+export var SnapshotPolicy$: StaticStructureSchema = [3, n0, _SP,
+  0,
+  [_RARN, _SPIn, _FSI, _SVMI, _N, _En, _Sch, _Sc, _Li, _UUID, _LTR, _Ta],
+  [0, 0, 0, 0, 0, 2, () => SnapshotPolicyScheduleList, 0, 0, 0, () => LifecycleTransitionReason$, () => Tags]
+];
+export var SnapshotPolicyFilter$: StaticStructureSchema = [3, n0, _SPFn,
+  0,
+  [_N, _Va],
+  [0, 64 | 0]
+];
+export var SnapshotPolicyRetentionPeriod$: StaticStructureSchema = [3, n0, _SPRP,
+  0,
+  [_T, _V],
+  [0, 1], 1
+];
+export var SnapshotPolicySchedule$: StaticStructureSchema = [3, n0, _SPS,
+  0,
+  [_N, _Co, _Pr, _SL, _RP],
+  [0, 1, 0, 0, () => SnapshotPolicyRetentionPeriod$], 2
 ];
 export var StartMisconfiguredStateRecoveryRequest$: StaticStructureSchema = [3, n0, _SMSRR,
   0,
@@ -1750,6 +2207,16 @@ export var StorageVirtualMachine$: StaticStructureSchema = [3, n0, _SVM,
   [() => SvmActiveDirectoryConfiguration$, 4, () => SvmEndpoints$, 0, 0, 0, 0, 0, 0, 0, () => Tags, () => LifecycleTransitionReason$, 0]
 ];
 export var StorageVirtualMachineFilter$: StaticStructureSchema = [3, n0, _SVMF,
+  0,
+  [_N, _Va],
+  [0, 64 | 0]
+];
+export var StorageVirtualMachinePeer$: StaticStructureSchema = [3, n0, _SVMP,
+  0,
+  [_RARN, _SVMPI, _SVMI, _FSI, _Li, _LTR, _Ta, _PSN, _PSAe, _PCN, _Ap, _St, _UUID],
+  [0, 0, 0, 0, 0, () => LifecycleTransitionReason$, () => Tags, 0, 0, 0, 64 | 0, 0, 0]
+];
+export var StorageVirtualMachinePeerFilter$: StaticStructureSchema = [3, n0, _SVMPF,
   0,
   [_N, _Va],
   [0, 64 | 0]
@@ -1786,7 +2253,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TieringPolicy$: StaticStructureSchema = [3, n0, _TP,
   0,
-  [_CP, _N],
+  [_CPo, _N],
   [1, 0]
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -1798,6 +2265,21 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
   [],
   []
+];
+export var UpdateCloneConfiguration$: StaticStructureSchema = [3, n0, _UCC,
+  0,
+  [_SA],
+  [0]
+];
+export var UpdateClusterPeerRequest$: StaticStructureSchema = [3, n0, _UCPR,
+  0,
+  [_CPI, _CRT, _PCN, _PA],
+  [0, [0, 4], 0, 64 | 0], 1
+];
+export var UpdateClusterPeerResponse$: StaticStructureSchema = [3, n0, _UCPRp,
+  0,
+  [_CP],
+  [() => ClusterPeer$]
 ];
 export var UpdateDataRepositoryAssociationRequest$: StaticStructureSchema = [3, n0, _UDRAR,
   0,
@@ -1859,10 +2341,15 @@ export var UpdateFileSystemWindowsConfiguration$: StaticStructureSchema = [3, n0
   [_WMST, _DABST, _ABRD, _TCh, _SMADC, _ALC, _DIC, _FCs],
   [0, 0, 1, 1, [() => SelfManagedActiveDirectoryConfigurationUpdates$, 0], () => WindowsAuditLogCreateConfiguration$, () => DiskIopsConfiguration$, () => WindowsFsrmConfiguration$]
 ];
+export var UpdateOntapSnapshotConfiguration$: StaticStructureSchema = [3, n0, _UOSC,
+  0,
+  [_SL, _ET, _SET],
+  [0, 4, 4]
+];
 export var UpdateOntapVolumeConfiguration$: StaticStructureSchema = [3, n0, _UOVC,
   0,
-  [_JP, _SS, _SIM, _SEE, _TP, _SP, _CTTB, _SCn, _SIB],
-  [0, 0, 1, 2, () => TieringPolicy$, 0, 2, () => UpdateSnaplockConfiguration$, 1]
+  [_JP, _SS, _SIM, _SEE, _TP, _SP, _CTTB, _SCn, _SIB, _CC],
+  [0, 0, 1, 2, () => TieringPolicy$, 0, 2, () => UpdateSnaplockConfiguration$, 1, () => UpdateCloneConfiguration$]
 ];
 export var UpdateOpenZFSVolumeConfiguration$: StaticStructureSchema = [3, n0, _UOZFSVC,
   0,
@@ -1884,15 +2371,55 @@ export var UpdateSnaplockConfiguration$: StaticStructureSchema = [3, n0, _USC,
   [_ALV, _APu, _PD, _RP, _VAME],
   [2, () => AutocommitPeriod$, 0, () => SnaplockRetentionPeriod$, 2]
 ];
+export var UpdateSnapmirrorPolicyRequest$: StaticStructureSchema = [3, n0, _USPR,
+  0,
+  [_SPI, _CRT, _RR, _TS, _NCE, _TIK],
+  [0, [0, 4], () => SnapmirrorPolicyRetentionRules, 0, 2, 1], 1
+];
+export var UpdateSnapmirrorPolicyResponse$: StaticStructureSchema = [3, n0, _USPRp,
+  0,
+  [_SPn],
+  [() => SnapmirrorPolicy$]
+];
+export var UpdateSnapmirrorRelationshipRequest$: StaticStructureSchema = [3, n0, _USRR,
+  0,
+  [_SRI, _CRT, _PI, _TS, _TIK, _St],
+  [0, [0, 4], 0, 0, 1, 0], 1
+];
+export var UpdateSnapmirrorRelationshipResponse$: StaticStructureSchema = [3, n0, _USRRp,
+  0,
+  [_SRn],
+  [() => SnapmirrorRelationship$]
+];
+export var UpdateSnapshotPolicyRequest$: StaticStructureSchema = [3, n0, _USPRpd,
+  0,
+  [_SPIn, _CRT, _En],
+  [0, [0, 4], 2], 1
+];
+export var UpdateSnapshotPolicyResponse$: StaticStructureSchema = [3, n0, _USPRpda,
+  0,
+  [_SP],
+  [() => SnapshotPolicy$]
+];
 export var UpdateSnapshotRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_N, _SIn, _CRT],
-  [0, 0, [0, 4]], 2
+  [_SI, _CRT, _N, _OC],
+  [0, [0, 4], 0, () => UpdateOntapSnapshotConfiguration$], 1
 ];
 export var UpdateSnapshotResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
   [_Sn],
   [() => Snapshot$]
+];
+export var UpdateStorageVirtualMachinePeerRequest$: StaticStructureSchema = [3, n0, _USVMPR,
+  0,
+  [_SVMPI, _CRT, _Ap, _PSAe, _St],
+  [0, [0, 4], 64 | 0, 0, 0], 1
+];
+export var UpdateStorageVirtualMachinePeerResponse$: StaticStructureSchema = [3, n0, _USVMPRp,
+  0,
+  [_SVMP],
+  [() => StorageVirtualMachinePeer$]
 ];
 export var UpdateStorageVirtualMachineRequest$: StaticStructureSchema = [3, n0, _USVMR,
   0,
@@ -1957,11 +2484,20 @@ var Aggregates = 64 | 0;
 var Aliases: StaticListSchema = [1, n0, _Ali,
   0, () => Alias$
 ];
+var AllowedSvmIds = 64 | 0;
 var AlternateDNSNames = 64 | 0;
 var BackupIds = 64 | 0;
 var Backups: StaticListSchema = [1, n0, _Ba,
   0, [() => Backup$,
     0]
+];
+var ClusterPeerFilters: StaticListSchema = [1, n0, _CPFl,
+  0, () => ClusterPeerFilter$
+];
+var ClusterPeerFilterValues = 64 | 0;
+var ClusterPeerIds = 64 | 0;
+var ClusterPeers: StaticListSchema = [1, n0, _CPl,
+  0, () => ClusterPeer$
 ];
 var CreateFileCacheDataRepositoryAssociations: StaticListSchema = [1, n0, _CFCDRA,
   0, () => FileCacheDataRepositoryAssociation$
@@ -2010,6 +2546,7 @@ var OpenZFSNfsExports: StaticListSchema = [1, n0, _OZFSNEp,
 var OpenZFSUserAndGroupQuotas: StaticListSchema = [1, n0, _OZFSUAGQ,
   0, () => OpenZFSUserOrGroupQuota$
 ];
+var PeerAddresses = 64 | 0;
 var RepositoryDnsIps = 64 | 0;
 var RestoreOpenZFSVolumeOptions = 64 | 0;
 var RouteTableIds = 64 | 0;
@@ -2022,11 +2559,41 @@ var S3AccessPointAttachmentsFilters: StaticListSchema = [1, n0, _SAPAFc,
 ];
 var S3AccessPointAttachmentsFilterValues = 64 | 0;
 var SecurityGroupIds = 64 | 0;
+var SnapmirrorPolicies: StaticListSchema = [1, n0, _SPna,
+  0, () => SnapmirrorPolicy$
+];
+var SnapmirrorPolicyFilters: StaticListSchema = [1, n0, _SPFna,
+  0, () => SnapmirrorPolicyFilter$
+];
+var SnapmirrorPolicyFilterValues = 64 | 0;
+var SnapmirrorPolicyIds = 64 | 0;
+var SnapmirrorPolicyRetentionRules: StaticListSchema = [1, n0, _SPRRn,
+  0, () => SnapmirrorPolicyRetentionRule$
+];
+var SnapmirrorRelationshipFilters: StaticListSchema = [1, n0, _SRFn,
+  0, () => SnapmirrorRelationshipFilter$
+];
+var SnapmirrorRelationshipFilterValues = 64 | 0;
+var SnapmirrorRelationshipIds = 64 | 0;
+var SnapmirrorRelationships: StaticListSchema = [1, n0, _SRna,
+  0, () => SnapmirrorRelationship$
+];
 var SnapshotFilters: StaticListSchema = [1, n0, _SFn,
   0, () => SnapshotFilter$
 ];
 var SnapshotFilterValues = 64 | 0;
 var SnapshotIds = 64 | 0;
+var SnapshotPolicies: StaticListSchema = [1, n0, _SPnap,
+  0, () => SnapshotPolicy$
+];
+var SnapshotPolicyFilters: StaticListSchema = [1, n0, _SPFnap,
+  0, () => SnapshotPolicyFilter$
+];
+var SnapshotPolicyFilterValues = 64 | 0;
+var SnapshotPolicyIds = 64 | 0;
+var SnapshotPolicyScheduleList: StaticListSchema = [1, n0, _SPSL,
+  0, () => SnapshotPolicySchedule$
+];
 var Snapshots: StaticListSchema = [1, n0, _Sna,
   0, () => Snapshot$
 ];
@@ -2035,6 +2602,15 @@ var StorageVirtualMachineFilters: StaticListSchema = [1, n0, _SVMFt,
 ];
 var StorageVirtualMachineFilterValues = 64 | 0;
 var StorageVirtualMachineIds = 64 | 0;
+var StorageVirtualMachinePeerApplications = 64 | 0;
+var StorageVirtualMachinePeerFilters: StaticListSchema = [1, n0, _SVMPFt,
+  0, () => StorageVirtualMachinePeerFilter$
+];
+var StorageVirtualMachinePeerFilterValues = 64 | 0;
+var StorageVirtualMachinePeerIds = 64 | 0;
+var StorageVirtualMachinePeers: StaticListSchema = [1, n0, _SVMPt,
+  0, () => StorageVirtualMachinePeer$
+];
 var StorageVirtualMachines: StaticListSchema = [1, n0, _SVMt,
   0, () => StorageVirtualMachine$
 ];
@@ -2072,6 +2648,9 @@ export var CreateAndAttachS3AccessPoint$: StaticOperationSchema = [9, n0, _CAASA
 export var CreateBackup$: StaticOperationSchema = [9, n0, _CBr,
   2, () => CreateBackupRequest$, () => CreateBackupResponse$
 ];
+export var CreateClusterPeer$: StaticOperationSchema = [9, n0, _CCP,
+  2, () => CreateClusterPeerRequest$, () => CreateClusterPeerResponse$
+];
 export var CreateDataRepositoryAssociation$: StaticOperationSchema = [9, n0, _CDRA,
   2, () => CreateDataRepositoryAssociationRequest$, () => CreateDataRepositoryAssociationResponse$
 ];
@@ -2087,11 +2666,23 @@ export var CreateFileSystem$: StaticOperationSchema = [9, n0, _CFS,
 export var CreateFileSystemFromBackup$: StaticOperationSchema = [9, n0, _CFSFB,
   0, () => CreateFileSystemFromBackupRequest$, () => CreateFileSystemFromBackupResponse$
 ];
-export var CreateSnapshot$: StaticOperationSchema = [9, n0, _CSr,
+export var CreateSnapmirrorPolicy$: StaticOperationSchema = [9, n0, _CSP,
+  2, () => CreateSnapmirrorPolicyRequest$, () => CreateSnapmirrorPolicyResponse$
+];
+export var CreateSnapmirrorRelationship$: StaticOperationSchema = [9, n0, _CSRre,
+  2, () => CreateSnapmirrorRelationshipRequest$, () => CreateSnapmirrorRelationshipResponse$
+];
+export var CreateSnapshot$: StaticOperationSchema = [9, n0, _CSre,
   2, () => CreateSnapshotRequest$, () => CreateSnapshotResponse$
+];
+export var CreateSnapshotPolicy$: StaticOperationSchema = [9, n0, _CSPr,
+  2, () => CreateSnapshotPolicyRequest$, () => CreateSnapshotPolicyResponse$
 ];
 export var CreateStorageVirtualMachine$: StaticOperationSchema = [9, n0, _CSVM,
   0, () => CreateStorageVirtualMachineRequest$, () => CreateStorageVirtualMachineResponse$
+];
+export var CreateStorageVirtualMachinePeer$: StaticOperationSchema = [9, n0, _CSVMP,
+  2, () => CreateStorageVirtualMachinePeerRequest$, () => CreateStorageVirtualMachinePeerResponse$
 ];
 export var CreateVolume$: StaticOperationSchema = [9, n0, _CV,
   0, () => CreateVolumeRequest$, () => CreateVolumeResponse$
@@ -2102,6 +2693,9 @@ export var CreateVolumeFromBackup$: StaticOperationSchema = [9, n0, _CVFB,
 export var DeleteBackup$: StaticOperationSchema = [9, n0, _DB,
   2, () => DeleteBackupRequest$, () => DeleteBackupResponse$
 ];
+export var DeleteClusterPeer$: StaticOperationSchema = [9, n0, _DCP,
+  2, () => DeleteClusterPeerRequest$, () => DeleteClusterPeerResponse$
+];
 export var DeleteDataRepositoryAssociation$: StaticOperationSchema = [9, n0, _DDRA,
   2, () => DeleteDataRepositoryAssociationRequest$, () => DeleteDataRepositoryAssociationResponse$
 ];
@@ -2111,17 +2705,32 @@ export var DeleteFileCache$: StaticOperationSchema = [9, n0, _DFC,
 export var DeleteFileSystem$: StaticOperationSchema = [9, n0, _DFS,
   2, () => DeleteFileSystemRequest$, () => DeleteFileSystemResponse$
 ];
+export var DeleteSnapmirrorPolicy$: StaticOperationSchema = [9, n0, _DSP,
+  2, () => DeleteSnapmirrorPolicyRequest$, () => DeleteSnapmirrorPolicyResponse$
+];
+export var DeleteSnapmirrorRelationship$: StaticOperationSchema = [9, n0, _DSRel,
+  2, () => DeleteSnapmirrorRelationshipRequest$, () => DeleteSnapmirrorRelationshipResponse$
+];
 export var DeleteSnapshot$: StaticOperationSchema = [9, n0, _DSe,
   2, () => DeleteSnapshotRequest$, () => DeleteSnapshotResponse$
 ];
+export var DeleteSnapshotPolicy$: StaticOperationSchema = [9, n0, _DSPe,
+  2, () => DeleteSnapshotPolicyRequest$, () => DeleteSnapshotPolicyResponse$
+];
 export var DeleteStorageVirtualMachine$: StaticOperationSchema = [9, n0, _DSVM,
   0, () => DeleteStorageVirtualMachineRequest$, () => DeleteStorageVirtualMachineResponse$
+];
+export var DeleteStorageVirtualMachinePeer$: StaticOperationSchema = [9, n0, _DSVMP,
+  2, () => DeleteStorageVirtualMachinePeerRequest$, () => DeleteStorageVirtualMachinePeerResponse$
 ];
 export var DeleteVolume$: StaticOperationSchema = [9, n0, _DV,
   0, () => DeleteVolumeRequest$, () => DeleteVolumeResponse$
 ];
 export var DescribeBackups$: StaticOperationSchema = [9, n0, _DBe,
   0, () => DescribeBackupsRequest$, () => DescribeBackupsResponse$
+];
+export var DescribeClusterPeers$: StaticOperationSchema = [9, n0, _DCPe,
+  0, () => DescribeClusterPeersRequest$, () => DescribeClusterPeersResponse$
 ];
 export var DescribeDataRepositoryAssociations$: StaticOperationSchema = [9, n0, _DDRAe,
   2, () => DescribeDataRepositoryAssociationsRequest$, () => DescribeDataRepositoryAssociationsResponse$
@@ -2144,8 +2753,20 @@ export var DescribeS3AccessPointAttachments$: StaticOperationSchema = [9, n0, _D
 export var DescribeSharedVpcConfiguration$: StaticOperationSchema = [9, n0, _DSVC,
   0, () => DescribeSharedVpcConfigurationRequest$, () => DescribeSharedVpcConfigurationResponse$
 ];
+export var DescribeSnapmirrorPolicies$: StaticOperationSchema = [9, n0, _DSPes,
+  0, () => DescribeSnapmirrorPoliciesRequest$, () => DescribeSnapmirrorPoliciesResponse$
+];
+export var DescribeSnapmirrorRelationships$: StaticOperationSchema = [9, n0, _DSRescr,
+  0, () => DescribeSnapmirrorRelationshipsRequest$, () => DescribeSnapmirrorRelationshipsResponse$
+];
+export var DescribeSnapshotPolicies$: StaticOperationSchema = [9, n0, _DSPesc,
+  0, () => DescribeSnapshotPoliciesRequest$, () => DescribeSnapshotPoliciesResponse$
+];
 export var DescribeSnapshots$: StaticOperationSchema = [9, n0, _DSes,
   0, () => DescribeSnapshotsRequest$, () => DescribeSnapshotsResponse$
+];
+export var DescribeStorageVirtualMachinePeers$: StaticOperationSchema = [9, n0, _DSVMPe,
+  0, () => DescribeStorageVirtualMachinePeersRequest$, () => DescribeStorageVirtualMachinePeersResponse$
 ];
 export var DescribeStorageVirtualMachines$: StaticOperationSchema = [9, n0, _DSVMe,
   0, () => DescribeStorageVirtualMachinesRequest$, () => DescribeStorageVirtualMachinesResponse$
@@ -2174,8 +2795,11 @@ export var StartMisconfiguredStateRecovery$: StaticOperationSchema = [9, n0, _SM
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   2, () => TagResourceRequest$, () => TagResourceResponse$
 ];
-export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
+export var UntagResource$: StaticOperationSchema = [9, n0, _URn,
   2, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateClusterPeer$: StaticOperationSchema = [9, n0, _UCP,
+  2, () => UpdateClusterPeerRequest$, () => UpdateClusterPeerResponse$
 ];
 export var UpdateDataRepositoryAssociation$: StaticOperationSchema = [9, n0, _UDRA,
   2, () => UpdateDataRepositoryAssociationRequest$, () => UpdateDataRepositoryAssociationResponse$
@@ -2189,11 +2813,23 @@ export var UpdateFileSystem$: StaticOperationSchema = [9, n0, _UFS,
 export var UpdateSharedVpcConfiguration$: StaticOperationSchema = [9, n0, _USVC,
   0, () => UpdateSharedVpcConfigurationRequest$, () => UpdateSharedVpcConfigurationResponse$
 ];
+export var UpdateSnapmirrorPolicy$: StaticOperationSchema = [9, n0, _USP,
+  2, () => UpdateSnapmirrorPolicyRequest$, () => UpdateSnapmirrorPolicyResponse$
+];
+export var UpdateSnapmirrorRelationship$: StaticOperationSchema = [9, n0, _USRpd,
+  2, () => UpdateSnapmirrorRelationshipRequest$, () => UpdateSnapmirrorRelationshipResponse$
+];
 export var UpdateSnapshot$: StaticOperationSchema = [9, n0, _US,
   2, () => UpdateSnapshotRequest$, () => UpdateSnapshotResponse$
 ];
+export var UpdateSnapshotPolicy$: StaticOperationSchema = [9, n0, _USPp,
+  2, () => UpdateSnapshotPolicyRequest$, () => UpdateSnapshotPolicyResponse$
+];
 export var UpdateStorageVirtualMachine$: StaticOperationSchema = [9, n0, _USVM,
   0, () => UpdateStorageVirtualMachineRequest$, () => UpdateStorageVirtualMachineResponse$
+];
+export var UpdateStorageVirtualMachinePeer$: StaticOperationSchema = [9, n0, _USVMP,
+  2, () => UpdateStorageVirtualMachinePeerRequest$, () => UpdateStorageVirtualMachinePeerResponse$
 ];
 export var UpdateVolume$: StaticOperationSchema = [9, n0, _UV,
   0, () => UpdateVolumeRequest$, () => UpdateVolumeResponse$

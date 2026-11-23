@@ -23,9 +23,9 @@ export interface CreateSnapshotCommandInput extends CreateSnapshotRequest {}
 export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a snapshot of an existing Amazon FSx for OpenZFS volume. With
- *             snapshots, you can easily undo file changes and compare file versions by restoring the
- *             volume to a previous version.</p>
+ * <p>Creates a snapshot of an existing Amazon FSx for OpenZFS or
+ *             Amazon FSx for NetApp ONTAP volume. With snapshots, you can easily undo file changes
+ *             and compare file versions by restoring the volume to a previous version.</p>
  *          <p>If a snapshot with the specified client request token exists, and the parameters
  *             match, this operation returns the description of the existing snapshot. If a snapshot
  *             with the specified client request token exists, and the parameters don't match, this
@@ -34,7 +34,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  *             following:</p>
  *          <ul>
  *             <li>
- *                <p>Creates a new OpenZFS snapshot with an assigned ID, and an initial lifecycle
+ *                <p>Creates a new snapshot with an assigned ID, and an initial lifecycle
  *                     state of <code>CREATING</code>.</p>
  *             </li>
  *             <li>
@@ -69,6 +69,11 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   OntapConfiguration: { // CreateOntapSnapshotConfiguration
+ *     SnapmirrorLabel: "STRING_VALUE",
+ *     ExpiryTime: new Date("TIMESTAMP"),
+ *     SnaplockExpiryTime: new Date("TIMESTAMP"),
+ *   },
  * };
  * const command = new CreateSnapshotCommand(input);
  * const response = await client.send(command);
@@ -79,9 +84,14 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * //     Name: "STRING_VALUE",
  * //     VolumeId: "STRING_VALUE",
  * //     CreationTime: new Date("TIMESTAMP"),
- * //     Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE",
+ * //     Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE" || "FAILED",
+ * //     SnapshotType: "ONTAP" || "OPENZFS",
  * //     LifecycleTransitionReason: { // LifecycleTransitionReason
  * //       Message: "STRING_VALUE",
+ * //       OntapError: { // OntapError
+ * //         Message: "STRING_VALUE",
+ * //         Code: "STRING_VALUE",
+ * //       },
  * //     },
  * //     Tags: [ // Tags
  * //       { // Tag
@@ -91,7 +101,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * //     ],
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
- * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
+ * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP" || "VOLUME_CLONE_SPLIT",
  * //         ProgressPercent: Number("int"),
  * //         RequestTime: new Date("TIMESTAMP"),
  * //         Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING" || "PAUSED" || "CANCELLED",
@@ -210,7 +220,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * //           },
  * //           AdministrativeActions: [
  * //             {
- * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
+ * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP" || "VOLUME_CLONE_SPLIT",
  * //               ProgressPercent: Number("int"),
  * //               RequestTime: new Date("TIMESTAMP"),
  * //               Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING" || "PAUSED" || "CANCELLED",
@@ -448,6 +458,10 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * //                     TotalConstituents: Number("int"),
  * //                   },
  * //                   SizeInBytes: Number("long"),
+ * //                   CloneConfiguration: { // CloneConfiguration
+ * //                     ParentVolumeId: "STRING_VALUE",
+ * //                     SnapshotId: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //                 ResourceARN: "STRING_VALUE",
  * //                 Tags: "<Tags>",
@@ -455,6 +469,10 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * //                 VolumeType: "ONTAP" || "OPENZFS",
  * //                 LifecycleTransitionReason: {
  * //                   Message: "STRING_VALUE",
+ * //                   OntapError: {
+ * //                     Message: "STRING_VALUE",
+ * //                     Code: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //                 AdministrativeActions: "<AdministrativeActions>",
  * //                 OpenZFSConfiguration: { // OpenZFSVolumeConfiguration
@@ -504,12 +522,24 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * //                 Name: "STRING_VALUE",
  * //                 VolumeId: "STRING_VALUE",
  * //                 CreationTime: new Date("TIMESTAMP"),
- * //                 Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE",
+ * //                 Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE" || "FAILED",
+ * //                 SnapshotType: "ONTAP" || "OPENZFS",
  * //                 LifecycleTransitionReason: {
  * //                   Message: "STRING_VALUE",
+ * //                   OntapError: {
+ * //                     Message: "STRING_VALUE",
+ * //                     Code: "STRING_VALUE",
+ * //                   },
  * //                 },
  * //                 Tags: "<Tags>",
  * //                 AdministrativeActions: "<AdministrativeActions>",
+ * //                 OntapConfiguration: { // OntapSnapshotConfiguration
+ * //                   SizeInMegabytes: Number("long"),
+ * //                   SnapmirrorLabel: "STRING_VALUE",
+ * //                   ExpiryTime: new Date("TIMESTAMP"),
+ * //                   SnaplockExpiryTime: new Date("TIMESTAMP"),
+ * //                   UUID: "STRING_VALUE",
+ * //                 },
  * //               },
  * //               TotalTransferBytes: Number("long"),
  * //               RemainingTransferBytes: Number("long"),
@@ -629,6 +659,10 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * //               TotalConstituents: Number("int"),
  * //             },
  * //             SizeInBytes: Number("long"),
+ * //             CloneConfiguration: {
+ * //               ParentVolumeId: "STRING_VALUE",
+ * //               SnapshotId: "STRING_VALUE",
+ * //             },
  * //           },
  * //           ResourceARN: "STRING_VALUE",
  * //           Tags: "<Tags>",
@@ -683,6 +717,13 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  * //         Message: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     OntapConfiguration: {
+ * //       SizeInMegabytes: Number("long"),
+ * //       SnapmirrorLabel: "STRING_VALUE",
+ * //       ExpiryTime: new Date("TIMESTAMP"),
+ * //       SnaplockExpiryTime: new Date("TIMESTAMP"),
+ * //       UUID: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -696,6 +737,11 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  *
  * @throws {@link BadRequest} (client fault)
  *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
  *
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>

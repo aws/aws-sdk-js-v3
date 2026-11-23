@@ -11,6 +11,7 @@ import {
   AggregateConfiguration$,
   Alias$,
   AliasLifecycle,
+  AllowedSvmMode,
   AssociateFileSystemAliases$,
   AssociateFileSystemAliasesCommand,
   AssociateFileSystemAliasesRequest$,
@@ -38,6 +39,15 @@ import {
   CancelDataRepositoryTaskCommand,
   CancelDataRepositoryTaskRequest$,
   CancelDataRepositoryTaskResponse$,
+  CloneConfiguration$,
+  CloneSplitAction,
+  ClusterPeer$,
+  ClusterPeerAuthenticationStatus$,
+  ClusterPeerFilter$,
+  ClusterPeerFilterName,
+  ClusterPeerLifecycle,
+  ClusterPeerNotFound,
+  ClusterPeerNotFound$,
   CompletionReport$,
   CopyBackup$,
   CopyBackupCommand,
@@ -59,6 +69,11 @@ import {
   CreateBackupCommand,
   CreateBackupRequest$,
   CreateBackupResponse$,
+  CreateCloneConfiguration$,
+  CreateClusterPeer$,
+  CreateClusterPeerCommand,
+  CreateClusterPeerRequest$,
+  CreateClusterPeerResponse$,
   CreateDataRepositoryAssociation$,
   CreateDataRepositoryAssociationCommand,
   CreateDataRepositoryAssociationRequest$,
@@ -85,16 +100,35 @@ import {
   CreateFileSystemRequest$,
   CreateFileSystemResponse$,
   CreateFileSystemWindowsConfiguration$,
+  CreateOntapSnapshotConfiguration$,
   CreateOntapVolumeConfiguration$,
   CreateOpenZFSOriginSnapshotConfiguration$,
   CreateOpenZFSVolumeConfiguration$,
   CreateSnaplockConfiguration$,
+  CreateSnapmirrorDestination$,
+  CreateSnapmirrorPolicy$,
+  CreateSnapmirrorPolicyCommand,
+  CreateSnapmirrorPolicyRequest$,
+  CreateSnapmirrorPolicyResponse$,
+  CreateSnapmirrorRelationship$,
+  CreateSnapmirrorRelationshipCommand,
+  CreateSnapmirrorRelationshipRequest$,
+  CreateSnapmirrorRelationshipResponse$,
+  CreateSnapmirrorSource$,
   CreateSnapshot$,
   CreateSnapshotCommand,
+  CreateSnapshotPolicy$,
+  CreateSnapshotPolicyCommand,
+  CreateSnapshotPolicyRequest$,
+  CreateSnapshotPolicyResponse$,
   CreateSnapshotRequest$,
   CreateSnapshotResponse$,
   CreateStorageVirtualMachine$,
   CreateStorageVirtualMachineCommand,
+  CreateStorageVirtualMachinePeer$,
+  CreateStorageVirtualMachinePeerCommand,
+  CreateStorageVirtualMachinePeerRequest$,
+  CreateStorageVirtualMachinePeerResponse$,
   CreateStorageVirtualMachineRequest$,
   CreateStorageVirtualMachineResponse$,
   CreateSvmActiveDirectoryConfiguration$,
@@ -130,6 +164,10 @@ import {
   DeleteBackupCommand,
   DeleteBackupRequest$,
   DeleteBackupResponse$,
+  DeleteClusterPeer$,
+  DeleteClusterPeerCommand,
+  DeleteClusterPeerRequest$,
+  DeleteClusterPeerResponse$,
   DeleteDataRepositoryAssociation$,
   DeleteDataRepositoryAssociationCommand,
   DeleteDataRepositoryAssociationRequest$,
@@ -150,12 +188,28 @@ import {
   DeleteFileSystemWindowsConfiguration$,
   DeleteFileSystemWindowsResponse$,
   DeleteOpenZFSVolumeOption,
+  DeleteSnapmirrorPolicy$,
+  DeleteSnapmirrorPolicyCommand,
+  DeleteSnapmirrorPolicyRequest$,
+  DeleteSnapmirrorPolicyResponse$,
+  DeleteSnapmirrorRelationship$,
+  DeleteSnapmirrorRelationshipCommand,
+  DeleteSnapmirrorRelationshipRequest$,
+  DeleteSnapmirrorRelationshipResponse$,
   DeleteSnapshot$,
   DeleteSnapshotCommand,
+  DeleteSnapshotPolicy$,
+  DeleteSnapshotPolicyCommand,
+  DeleteSnapshotPolicyRequest$,
+  DeleteSnapshotPolicyResponse$,
   DeleteSnapshotRequest$,
   DeleteSnapshotResponse$,
   DeleteStorageVirtualMachine$,
   DeleteStorageVirtualMachineCommand,
+  DeleteStorageVirtualMachinePeer$,
+  DeleteStorageVirtualMachinePeerCommand,
+  DeleteStorageVirtualMachinePeerRequest$,
+  DeleteStorageVirtualMachinePeerResponse$,
   DeleteStorageVirtualMachineRequest$,
   DeleteStorageVirtualMachineResponse$,
   DeleteVolume$,
@@ -169,6 +223,10 @@ import {
   DescribeBackupsCommand,
   DescribeBackupsRequest$,
   DescribeBackupsResponse$,
+  DescribeClusterPeers$,
+  DescribeClusterPeersCommand,
+  DescribeClusterPeersRequest$,
+  DescribeClusterPeersResponse$,
   DescribeDataRepositoryAssociations$,
   DescribeDataRepositoryAssociationsCommand,
   DescribeDataRepositoryAssociationsRequest$,
@@ -197,10 +255,26 @@ import {
   DescribeSharedVpcConfigurationCommand,
   DescribeSharedVpcConfigurationRequest$,
   DescribeSharedVpcConfigurationResponse$,
+  DescribeSnapmirrorPolicies$,
+  DescribeSnapmirrorPoliciesCommand,
+  DescribeSnapmirrorPoliciesRequest$,
+  DescribeSnapmirrorPoliciesResponse$,
+  DescribeSnapmirrorRelationships$,
+  DescribeSnapmirrorRelationshipsCommand,
+  DescribeSnapmirrorRelationshipsRequest$,
+  DescribeSnapmirrorRelationshipsResponse$,
+  DescribeSnapshotPolicies$,
+  DescribeSnapshotPoliciesCommand,
+  DescribeSnapshotPoliciesRequest$,
+  DescribeSnapshotPoliciesResponse$,
   DescribeSnapshots$,
   DescribeSnapshotsCommand,
   DescribeSnapshotsRequest$,
   DescribeSnapshotsResponse$,
+  DescribeStorageVirtualMachinePeers$,
+  DescribeStorageVirtualMachinePeersCommand,
+  DescribeStorageVirtualMachinePeersRequest$,
+  DescribeStorageVirtualMachinePeersResponse$,
   DescribeStorageVirtualMachines$,
   DescribeStorageVirtualMachinesCommand,
   DescribeStorageVirtualMachinesRequest$,
@@ -303,9 +377,11 @@ import {
   NotServiceResourceError,
   NotServiceResourceError$,
   OntapDeploymentType,
+  OntapError$,
   OntapFileSystemConfiguration$,
   OntapFileSystemIdentity$,
   OntapFileSystemUserType,
+  OntapSnapshotConfiguration$,
   OntapUnixFileSystemUser$,
   OntapVolumeConfiguration$,
   OntapVolumeType,
@@ -327,13 +403,18 @@ import {
   OpenZFSUserOrGroupQuota$,
   OpenZFSVolumeConfiguration$,
   paginateDescribeBackups,
+  paginateDescribeClusterPeers,
   paginateDescribeDataRepositoryAssociations,
   paginateDescribeDataRepositoryTasks,
   paginateDescribeFileCaches,
   paginateDescribeFileSystemAliases,
   paginateDescribeFileSystems,
   paginateDescribeS3AccessPointAttachments,
+  paginateDescribeSnapmirrorPolicies,
+  paginateDescribeSnapmirrorRelationships,
+  paginateDescribeSnapshotPolicies,
   paginateDescribeSnapshots,
+  paginateDescribeStorageVirtualMachinePeers,
   paginateDescribeStorageVirtualMachines,
   paginateDescribeVolumes,
   paginateListTagsForResource,
@@ -379,12 +460,44 @@ import {
   SnaplockConfiguration$,
   SnaplockRetentionPeriod$,
   SnaplockType,
+  SnapmirrorDestination$,
+  SnapmirrorExportedSnapshot$,
+  SnapmirrorPolicy$,
+  SnapmirrorPolicyFilter$,
+  SnapmirrorPolicyFilterName,
+  SnapmirrorPolicyLifecycle,
+  SnapmirrorPolicyNotFound,
+  SnapmirrorPolicyNotFound$,
+  SnapmirrorPolicyRetentionRule$,
+  SnapmirrorPolicyScope,
+  SnapmirrorPolicySnapshotCopyMode,
+  SnapmirrorRelationship$,
+  SnapmirrorRelationshipFilter$,
+  SnapmirrorRelationshipFilterName,
+  SnapmirrorRelationshipLifecycle,
+  SnapmirrorRelationshipNotFound,
+  SnapmirrorRelationshipNotFound$,
+  SnapmirrorRelationshipPolicy$,
+  SnapmirrorRelationshipState,
+  SnapmirrorSource$,
+  SnapmirrorTransferState$,
   Snapshot$,
   SnapshotFilter$,
   SnapshotFilterName,
   SnapshotLifecycle,
   SnapshotNotFound,
   SnapshotNotFound$,
+  SnapshotPolicy$,
+  SnapshotPolicyFilter$,
+  SnapshotPolicyFilterName,
+  SnapshotPolicyLifecycle,
+  SnapshotPolicyNotFound,
+  SnapshotPolicyNotFound$,
+  SnapshotPolicyRetentionPeriod$,
+  SnapshotPolicyRetentionPeriodType,
+  SnapshotPolicySchedule$,
+  SnapshotPolicyScope,
+  SnapshotType,
   SourceBackupUnavailable,
   SourceBackupUnavailable$,
   StartMisconfiguredStateRecovery$,
@@ -399,6 +512,15 @@ import {
   StorageVirtualMachineLifecycle,
   StorageVirtualMachineNotFound,
   StorageVirtualMachineNotFound$,
+  StorageVirtualMachinePeer$,
+  StorageVirtualMachinePeerApplication,
+  StorageVirtualMachinePeerFilter$,
+  StorageVirtualMachinePeerFilterName,
+  StorageVirtualMachinePeerLifecycle,
+  StorageVirtualMachinePeerNotFound,
+  StorageVirtualMachinePeerNotFound$,
+  StorageVirtualMachinePeerState,
+  StorageVirtualMachinePeerUpdateState,
   StorageVirtualMachineRootVolumeSecurityStyle,
   StorageVirtualMachineSubtype,
   SvmActiveDirectoryConfiguration$,
@@ -420,6 +542,12 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdatableSnapmirrorRelationshipState,
+  UpdateCloneConfiguration$,
+  UpdateClusterPeer$,
+  UpdateClusterPeerCommand,
+  UpdateClusterPeerRequest$,
+  UpdateClusterPeerResponse$,
   UpdateDataRepositoryAssociation$,
   UpdateDataRepositoryAssociationCommand,
   UpdateDataRepositoryAssociationRequest$,
@@ -438,6 +566,7 @@ import {
   UpdateFileSystemRequest$,
   UpdateFileSystemResponse$,
   UpdateFileSystemWindowsConfiguration$,
+  UpdateOntapSnapshotConfiguration$,
   UpdateOntapVolumeConfiguration$,
   UpdateOpenZFSVolumeConfiguration$,
   UpdateOpenZFSVolumeOption,
@@ -446,12 +575,28 @@ import {
   UpdateSharedVpcConfigurationRequest$,
   UpdateSharedVpcConfigurationResponse$,
   UpdateSnaplockConfiguration$,
+  UpdateSnapmirrorPolicy$,
+  UpdateSnapmirrorPolicyCommand,
+  UpdateSnapmirrorPolicyRequest$,
+  UpdateSnapmirrorPolicyResponse$,
+  UpdateSnapmirrorRelationship$,
+  UpdateSnapmirrorRelationshipCommand,
+  UpdateSnapmirrorRelationshipRequest$,
+  UpdateSnapmirrorRelationshipResponse$,
   UpdateSnapshot$,
   UpdateSnapshotCommand,
+  UpdateSnapshotPolicy$,
+  UpdateSnapshotPolicyCommand,
+  UpdateSnapshotPolicyRequest$,
+  UpdateSnapshotPolicyResponse$,
   UpdateSnapshotRequest$,
   UpdateSnapshotResponse$,
   UpdateStorageVirtualMachine$,
   UpdateStorageVirtualMachineCommand,
+  UpdateStorageVirtualMachinePeer$,
+  UpdateStorageVirtualMachinePeerCommand,
+  UpdateStorageVirtualMachinePeerRequest$,
+  UpdateStorageVirtualMachinePeerResponse$,
   UpdateStorageVirtualMachineRequest$,
   UpdateStorageVirtualMachineResponse$,
   UpdateSvmActiveDirectoryConfiguration$,
@@ -491,6 +636,8 @@ assert(typeof CreateAndAttachS3AccessPointCommand === "function");
 assert(typeof CreateAndAttachS3AccessPoint$ === "object");
 assert(typeof CreateBackupCommand === "function");
 assert(typeof CreateBackup$ === "object");
+assert(typeof CreateClusterPeerCommand === "function");
+assert(typeof CreateClusterPeer$ === "object");
 assert(typeof CreateDataRepositoryAssociationCommand === "function");
 assert(typeof CreateDataRepositoryAssociation$ === "object");
 assert(typeof CreateDataRepositoryTaskCommand === "function");
@@ -501,30 +648,50 @@ assert(typeof CreateFileSystemCommand === "function");
 assert(typeof CreateFileSystem$ === "object");
 assert(typeof CreateFileSystemFromBackupCommand === "function");
 assert(typeof CreateFileSystemFromBackup$ === "object");
+assert(typeof CreateSnapmirrorPolicyCommand === "function");
+assert(typeof CreateSnapmirrorPolicy$ === "object");
+assert(typeof CreateSnapmirrorRelationshipCommand === "function");
+assert(typeof CreateSnapmirrorRelationship$ === "object");
 assert(typeof CreateSnapshotCommand === "function");
 assert(typeof CreateSnapshot$ === "object");
+assert(typeof CreateSnapshotPolicyCommand === "function");
+assert(typeof CreateSnapshotPolicy$ === "object");
 assert(typeof CreateStorageVirtualMachineCommand === "function");
 assert(typeof CreateStorageVirtualMachine$ === "object");
+assert(typeof CreateStorageVirtualMachinePeerCommand === "function");
+assert(typeof CreateStorageVirtualMachinePeer$ === "object");
 assert(typeof CreateVolumeCommand === "function");
 assert(typeof CreateVolume$ === "object");
 assert(typeof CreateVolumeFromBackupCommand === "function");
 assert(typeof CreateVolumeFromBackup$ === "object");
 assert(typeof DeleteBackupCommand === "function");
 assert(typeof DeleteBackup$ === "object");
+assert(typeof DeleteClusterPeerCommand === "function");
+assert(typeof DeleteClusterPeer$ === "object");
 assert(typeof DeleteDataRepositoryAssociationCommand === "function");
 assert(typeof DeleteDataRepositoryAssociation$ === "object");
 assert(typeof DeleteFileCacheCommand === "function");
 assert(typeof DeleteFileCache$ === "object");
 assert(typeof DeleteFileSystemCommand === "function");
 assert(typeof DeleteFileSystem$ === "object");
+assert(typeof DeleteSnapmirrorPolicyCommand === "function");
+assert(typeof DeleteSnapmirrorPolicy$ === "object");
+assert(typeof DeleteSnapmirrorRelationshipCommand === "function");
+assert(typeof DeleteSnapmirrorRelationship$ === "object");
 assert(typeof DeleteSnapshotCommand === "function");
 assert(typeof DeleteSnapshot$ === "object");
+assert(typeof DeleteSnapshotPolicyCommand === "function");
+assert(typeof DeleteSnapshotPolicy$ === "object");
 assert(typeof DeleteStorageVirtualMachineCommand === "function");
 assert(typeof DeleteStorageVirtualMachine$ === "object");
+assert(typeof DeleteStorageVirtualMachinePeerCommand === "function");
+assert(typeof DeleteStorageVirtualMachinePeer$ === "object");
 assert(typeof DeleteVolumeCommand === "function");
 assert(typeof DeleteVolume$ === "object");
 assert(typeof DescribeBackupsCommand === "function");
 assert(typeof DescribeBackups$ === "object");
+assert(typeof DescribeClusterPeersCommand === "function");
+assert(typeof DescribeClusterPeers$ === "object");
 assert(typeof DescribeDataRepositoryAssociationsCommand === "function");
 assert(typeof DescribeDataRepositoryAssociations$ === "object");
 assert(typeof DescribeDataRepositoryTasksCommand === "function");
@@ -539,8 +706,16 @@ assert(typeof DescribeS3AccessPointAttachmentsCommand === "function");
 assert(typeof DescribeS3AccessPointAttachments$ === "object");
 assert(typeof DescribeSharedVpcConfigurationCommand === "function");
 assert(typeof DescribeSharedVpcConfiguration$ === "object");
+assert(typeof DescribeSnapmirrorPoliciesCommand === "function");
+assert(typeof DescribeSnapmirrorPolicies$ === "object");
+assert(typeof DescribeSnapmirrorRelationshipsCommand === "function");
+assert(typeof DescribeSnapmirrorRelationships$ === "object");
+assert(typeof DescribeSnapshotPoliciesCommand === "function");
+assert(typeof DescribeSnapshotPolicies$ === "object");
 assert(typeof DescribeSnapshotsCommand === "function");
 assert(typeof DescribeSnapshots$ === "object");
+assert(typeof DescribeStorageVirtualMachinePeersCommand === "function");
+assert(typeof DescribeStorageVirtualMachinePeers$ === "object");
 assert(typeof DescribeStorageVirtualMachinesCommand === "function");
 assert(typeof DescribeStorageVirtualMachines$ === "object");
 assert(typeof DescribeVolumesCommand === "function");
@@ -561,6 +736,8 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateClusterPeerCommand === "function");
+assert(typeof UpdateClusterPeer$ === "object");
 assert(typeof UpdateDataRepositoryAssociationCommand === "function");
 assert(typeof UpdateDataRepositoryAssociation$ === "object");
 assert(typeof UpdateFileCacheCommand === "function");
@@ -569,10 +746,18 @@ assert(typeof UpdateFileSystemCommand === "function");
 assert(typeof UpdateFileSystem$ === "object");
 assert(typeof UpdateSharedVpcConfigurationCommand === "function");
 assert(typeof UpdateSharedVpcConfiguration$ === "object");
+assert(typeof UpdateSnapmirrorPolicyCommand === "function");
+assert(typeof UpdateSnapmirrorPolicy$ === "object");
+assert(typeof UpdateSnapmirrorRelationshipCommand === "function");
+assert(typeof UpdateSnapmirrorRelationship$ === "object");
 assert(typeof UpdateSnapshotCommand === "function");
 assert(typeof UpdateSnapshot$ === "object");
+assert(typeof UpdateSnapshotPolicyCommand === "function");
+assert(typeof UpdateSnapshotPolicy$ === "object");
 assert(typeof UpdateStorageVirtualMachineCommand === "function");
 assert(typeof UpdateStorageVirtualMachine$ === "object");
+assert(typeof UpdateStorageVirtualMachinePeerCommand === "function");
+assert(typeof UpdateStorageVirtualMachinePeer$ === "object");
 assert(typeof UpdateVolumeCommand === "function");
 assert(typeof UpdateVolume$ === "object");
 // structural schemas
@@ -590,6 +775,10 @@ assert(typeof Backup$ === "object");
 assert(typeof BackupFailureDetails$ === "object");
 assert(typeof CancelDataRepositoryTaskRequest$ === "object");
 assert(typeof CancelDataRepositoryTaskResponse$ === "object");
+assert(typeof CloneConfiguration$ === "object");
+assert(typeof ClusterPeer$ === "object");
+assert(typeof ClusterPeerAuthenticationStatus$ === "object");
+assert(typeof ClusterPeerFilter$ === "object");
 assert(typeof CompletionReport$ === "object");
 assert(typeof CopyBackupRequest$ === "object");
 assert(typeof CopyBackupResponse$ === "object");
@@ -603,6 +792,9 @@ assert(typeof CreateAndAttachS3AccessPointResponse$ === "object");
 assert(typeof CreateAndAttachS3AccessPointS3Configuration$ === "object");
 assert(typeof CreateBackupRequest$ === "object");
 assert(typeof CreateBackupResponse$ === "object");
+assert(typeof CreateCloneConfiguration$ === "object");
+assert(typeof CreateClusterPeerRequest$ === "object");
+assert(typeof CreateClusterPeerResponse$ === "object");
 assert(typeof CreateDataRepositoryAssociationRequest$ === "object");
 assert(typeof CreateDataRepositoryAssociationResponse$ === "object");
 assert(typeof CreateDataRepositoryTaskRequest$ === "object");
@@ -619,12 +811,23 @@ assert(typeof CreateFileSystemOpenZFSConfiguration$ === "object");
 assert(typeof CreateFileSystemRequest$ === "object");
 assert(typeof CreateFileSystemResponse$ === "object");
 assert(typeof CreateFileSystemWindowsConfiguration$ === "object");
+assert(typeof CreateOntapSnapshotConfiguration$ === "object");
 assert(typeof CreateOntapVolumeConfiguration$ === "object");
 assert(typeof CreateOpenZFSOriginSnapshotConfiguration$ === "object");
 assert(typeof CreateOpenZFSVolumeConfiguration$ === "object");
 assert(typeof CreateSnaplockConfiguration$ === "object");
+assert(typeof CreateSnapmirrorDestination$ === "object");
+assert(typeof CreateSnapmirrorPolicyRequest$ === "object");
+assert(typeof CreateSnapmirrorPolicyResponse$ === "object");
+assert(typeof CreateSnapmirrorRelationshipRequest$ === "object");
+assert(typeof CreateSnapmirrorRelationshipResponse$ === "object");
+assert(typeof CreateSnapmirrorSource$ === "object");
+assert(typeof CreateSnapshotPolicyRequest$ === "object");
+assert(typeof CreateSnapshotPolicyResponse$ === "object");
 assert(typeof CreateSnapshotRequest$ === "object");
 assert(typeof CreateSnapshotResponse$ === "object");
+assert(typeof CreateStorageVirtualMachinePeerRequest$ === "object");
+assert(typeof CreateStorageVirtualMachinePeerResponse$ === "object");
 assert(typeof CreateStorageVirtualMachineRequest$ === "object");
 assert(typeof CreateStorageVirtualMachineResponse$ === "object");
 assert(typeof CreateSvmActiveDirectoryConfiguration$ === "object");
@@ -641,6 +844,8 @@ assert(typeof DataRepositoryTaskFilter$ === "object");
 assert(typeof DataRepositoryTaskStatus$ === "object");
 assert(typeof DeleteBackupRequest$ === "object");
 assert(typeof DeleteBackupResponse$ === "object");
+assert(typeof DeleteClusterPeerRequest$ === "object");
+assert(typeof DeleteClusterPeerResponse$ === "object");
 assert(typeof DeleteDataRepositoryAssociationRequest$ === "object");
 assert(typeof DeleteDataRepositoryAssociationResponse$ === "object");
 assert(typeof DeleteFileCacheRequest$ === "object");
@@ -653,8 +858,16 @@ assert(typeof DeleteFileSystemRequest$ === "object");
 assert(typeof DeleteFileSystemResponse$ === "object");
 assert(typeof DeleteFileSystemWindowsConfiguration$ === "object");
 assert(typeof DeleteFileSystemWindowsResponse$ === "object");
+assert(typeof DeleteSnapmirrorPolicyRequest$ === "object");
+assert(typeof DeleteSnapmirrorPolicyResponse$ === "object");
+assert(typeof DeleteSnapmirrorRelationshipRequest$ === "object");
+assert(typeof DeleteSnapmirrorRelationshipResponse$ === "object");
+assert(typeof DeleteSnapshotPolicyRequest$ === "object");
+assert(typeof DeleteSnapshotPolicyResponse$ === "object");
 assert(typeof DeleteSnapshotRequest$ === "object");
 assert(typeof DeleteSnapshotResponse$ === "object");
+assert(typeof DeleteStorageVirtualMachinePeerRequest$ === "object");
+assert(typeof DeleteStorageVirtualMachinePeerResponse$ === "object");
 assert(typeof DeleteStorageVirtualMachineRequest$ === "object");
 assert(typeof DeleteStorageVirtualMachineResponse$ === "object");
 assert(typeof DeleteVolumeOntapConfiguration$ === "object");
@@ -664,6 +877,8 @@ assert(typeof DeleteVolumeRequest$ === "object");
 assert(typeof DeleteVolumeResponse$ === "object");
 assert(typeof DescribeBackupsRequest$ === "object");
 assert(typeof DescribeBackupsResponse$ === "object");
+assert(typeof DescribeClusterPeersRequest$ === "object");
+assert(typeof DescribeClusterPeersResponse$ === "object");
 assert(typeof DescribeDataRepositoryAssociationsRequest$ === "object");
 assert(typeof DescribeDataRepositoryAssociationsResponse$ === "object");
 assert(typeof DescribeDataRepositoryTasksRequest$ === "object");
@@ -678,8 +893,16 @@ assert(typeof DescribeS3AccessPointAttachmentsRequest$ === "object");
 assert(typeof DescribeS3AccessPointAttachmentsResponse$ === "object");
 assert(typeof DescribeSharedVpcConfigurationRequest$ === "object");
 assert(typeof DescribeSharedVpcConfigurationResponse$ === "object");
+assert(typeof DescribeSnapmirrorPoliciesRequest$ === "object");
+assert(typeof DescribeSnapmirrorPoliciesResponse$ === "object");
+assert(typeof DescribeSnapmirrorRelationshipsRequest$ === "object");
+assert(typeof DescribeSnapmirrorRelationshipsResponse$ === "object");
+assert(typeof DescribeSnapshotPoliciesRequest$ === "object");
+assert(typeof DescribeSnapshotPoliciesResponse$ === "object");
 assert(typeof DescribeSnapshotsRequest$ === "object");
 assert(typeof DescribeSnapshotsResponse$ === "object");
+assert(typeof DescribeStorageVirtualMachinePeersRequest$ === "object");
+assert(typeof DescribeStorageVirtualMachinePeersResponse$ === "object");
 assert(typeof DescribeStorageVirtualMachinesRequest$ === "object");
 assert(typeof DescribeStorageVirtualMachinesResponse$ === "object");
 assert(typeof DescribeVolumesRequest$ === "object");
@@ -712,8 +935,10 @@ assert(typeof LustreLogCreateConfiguration$ === "object");
 assert(typeof LustreReadCacheConfiguration$ === "object");
 assert(typeof LustreRootSquashConfiguration$ === "object");
 assert(typeof NFSDataRepositoryConfiguration$ === "object");
+assert(typeof OntapError$ === "object");
 assert(typeof OntapFileSystemConfiguration$ === "object");
 assert(typeof OntapFileSystemIdentity$ === "object");
+assert(typeof OntapSnapshotConfiguration$ === "object");
 assert(typeof OntapUnixFileSystemUser$ === "object");
 assert(typeof OntapVolumeConfiguration$ === "object");
 assert(typeof OntapWindowsFileSystemUser$ === "object");
@@ -745,12 +970,28 @@ assert(typeof SelfManagedActiveDirectoryConfiguration$ === "object");
 assert(typeof SelfManagedActiveDirectoryConfigurationUpdates$ === "object");
 assert(typeof SnaplockConfiguration$ === "object");
 assert(typeof SnaplockRetentionPeriod$ === "object");
+assert(typeof SnapmirrorDestination$ === "object");
+assert(typeof SnapmirrorExportedSnapshot$ === "object");
+assert(typeof SnapmirrorPolicy$ === "object");
+assert(typeof SnapmirrorPolicyFilter$ === "object");
+assert(typeof SnapmirrorPolicyRetentionRule$ === "object");
+assert(typeof SnapmirrorRelationship$ === "object");
+assert(typeof SnapmirrorRelationshipFilter$ === "object");
+assert(typeof SnapmirrorRelationshipPolicy$ === "object");
+assert(typeof SnapmirrorSource$ === "object");
+assert(typeof SnapmirrorTransferState$ === "object");
 assert(typeof Snapshot$ === "object");
 assert(typeof SnapshotFilter$ === "object");
+assert(typeof SnapshotPolicy$ === "object");
+assert(typeof SnapshotPolicyFilter$ === "object");
+assert(typeof SnapshotPolicyRetentionPeriod$ === "object");
+assert(typeof SnapshotPolicySchedule$ === "object");
 assert(typeof StartMisconfiguredStateRecoveryRequest$ === "object");
 assert(typeof StartMisconfiguredStateRecoveryResponse$ === "object");
 assert(typeof StorageVirtualMachine$ === "object");
 assert(typeof StorageVirtualMachineFilter$ === "object");
+assert(typeof StorageVirtualMachinePeer$ === "object");
+assert(typeof StorageVirtualMachinePeerFilter$ === "object");
 assert(typeof SvmActiveDirectoryConfiguration$ === "object");
 assert(typeof SvmEndpoint$ === "object");
 assert(typeof SvmEndpoints$ === "object");
@@ -760,6 +1001,9 @@ assert(typeof TagResourceResponse$ === "object");
 assert(typeof TieringPolicy$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdateCloneConfiguration$ === "object");
+assert(typeof UpdateClusterPeerRequest$ === "object");
+assert(typeof UpdateClusterPeerResponse$ === "object");
 assert(typeof UpdateDataRepositoryAssociationRequest$ === "object");
 assert(typeof UpdateDataRepositoryAssociationResponse$ === "object");
 assert(typeof UpdateFileCacheLustreConfiguration$ === "object");
@@ -772,13 +1016,22 @@ assert(typeof UpdateFileSystemOpenZFSConfiguration$ === "object");
 assert(typeof UpdateFileSystemRequest$ === "object");
 assert(typeof UpdateFileSystemResponse$ === "object");
 assert(typeof UpdateFileSystemWindowsConfiguration$ === "object");
+assert(typeof UpdateOntapSnapshotConfiguration$ === "object");
 assert(typeof UpdateOntapVolumeConfiguration$ === "object");
 assert(typeof UpdateOpenZFSVolumeConfiguration$ === "object");
 assert(typeof UpdateSharedVpcConfigurationRequest$ === "object");
 assert(typeof UpdateSharedVpcConfigurationResponse$ === "object");
 assert(typeof UpdateSnaplockConfiguration$ === "object");
+assert(typeof UpdateSnapmirrorPolicyRequest$ === "object");
+assert(typeof UpdateSnapmirrorPolicyResponse$ === "object");
+assert(typeof UpdateSnapmirrorRelationshipRequest$ === "object");
+assert(typeof UpdateSnapmirrorRelationshipResponse$ === "object");
+assert(typeof UpdateSnapshotPolicyRequest$ === "object");
+assert(typeof UpdateSnapshotPolicyResponse$ === "object");
 assert(typeof UpdateSnapshotRequest$ === "object");
 assert(typeof UpdateSnapshotResponse$ === "object");
+assert(typeof UpdateStorageVirtualMachinePeerRequest$ === "object");
+assert(typeof UpdateStorageVirtualMachinePeerResponse$ === "object");
 assert(typeof UpdateStorageVirtualMachineRequest$ === "object");
 assert(typeof UpdateStorageVirtualMachineResponse$ === "object");
 assert(typeof UpdateSvmActiveDirectoryConfiguration$ === "object");
@@ -794,10 +1047,14 @@ assert(typeof WindowsFsrmConfiguration$ === "object");
 assert(typeof ActiveDirectoryErrorType === "object");
 assert(typeof AdministrativeActionType === "object");
 assert(typeof AliasLifecycle === "object");
+assert(typeof AllowedSvmMode === "object");
 assert(typeof AutocommitPeriodType === "object");
 assert(typeof AutoImportPolicyType === "object");
 assert(typeof BackupLifecycle === "object");
 assert(typeof BackupType === "object");
+assert(typeof CloneSplitAction === "object");
+assert(typeof ClusterPeerFilterName === "object");
+assert(typeof ClusterPeerLifecycle === "object");
 assert(typeof DataCompressionType === "object");
 assert(typeof DataRepositoryLifecycle === "object");
 assert(typeof DataRepositoryTaskFilterName === "object");
@@ -844,16 +1101,34 @@ assert(typeof S3AccessPointAttachmentType === "object");
 assert(typeof SecurityStyle === "object");
 assert(typeof ServiceLimit === "object");
 assert(typeof SnaplockType === "object");
+assert(typeof SnapmirrorPolicyFilterName === "object");
+assert(typeof SnapmirrorPolicyLifecycle === "object");
+assert(typeof SnapmirrorPolicyScope === "object");
+assert(typeof SnapmirrorPolicySnapshotCopyMode === "object");
+assert(typeof SnapmirrorRelationshipFilterName === "object");
+assert(typeof SnapmirrorRelationshipLifecycle === "object");
+assert(typeof SnapmirrorRelationshipState === "object");
 assert(typeof SnapshotFilterName === "object");
 assert(typeof SnapshotLifecycle === "object");
+assert(typeof SnapshotPolicyFilterName === "object");
+assert(typeof SnapshotPolicyLifecycle === "object");
+assert(typeof SnapshotPolicyRetentionPeriodType === "object");
+assert(typeof SnapshotPolicyScope === "object");
+assert(typeof SnapshotType === "object");
 assert(typeof Status === "object");
 assert(typeof StorageType === "object");
 assert(typeof StorageVirtualMachineFilterName === "object");
 assert(typeof StorageVirtualMachineLifecycle === "object");
+assert(typeof StorageVirtualMachinePeerApplication === "object");
+assert(typeof StorageVirtualMachinePeerFilterName === "object");
+assert(typeof StorageVirtualMachinePeerLifecycle === "object");
+assert(typeof StorageVirtualMachinePeerState === "object");
+assert(typeof StorageVirtualMachinePeerUpdateState === "object");
 assert(typeof StorageVirtualMachineRootVolumeSecurityStyle === "object");
 assert(typeof StorageVirtualMachineSubtype === "object");
 assert(typeof TieringPolicyName === "object");
 assert(typeof Unit === "object");
+assert(typeof UpdatableSnapmirrorRelationshipState === "object");
 assert(typeof UpdateOpenZFSVolumeOption === "object");
 assert(typeof VolumeFilterName === "object");
 assert(typeof VolumeLifecycle === "object");
@@ -876,6 +1151,8 @@ assert(BackupRestoring.prototype instanceof FSxServiceException);
 assert(typeof BackupRestoring$ === "object");
 assert(BadRequest.prototype instanceof FSxServiceException);
 assert(typeof BadRequest$ === "object");
+assert(ClusterPeerNotFound.prototype instanceof FSxServiceException);
+assert(typeof ClusterPeerNotFound$ === "object");
 assert(DataRepositoryAssociationNotFound.prototype instanceof FSxServiceException);
 assert(typeof DataRepositoryAssociationNotFound$ === "object");
 assert(DataRepositoryTaskEnded.prototype instanceof FSxServiceException);
@@ -930,12 +1207,20 @@ assert(S3AccessPointAttachmentNotFound.prototype instanceof FSxServiceException)
 assert(typeof S3AccessPointAttachmentNotFound$ === "object");
 assert(ServiceLimitExceeded.prototype instanceof FSxServiceException);
 assert(typeof ServiceLimitExceeded$ === "object");
+assert(SnapmirrorPolicyNotFound.prototype instanceof FSxServiceException);
+assert(typeof SnapmirrorPolicyNotFound$ === "object");
+assert(SnapmirrorRelationshipNotFound.prototype instanceof FSxServiceException);
+assert(typeof SnapmirrorRelationshipNotFound$ === "object");
 assert(SnapshotNotFound.prototype instanceof FSxServiceException);
 assert(typeof SnapshotNotFound$ === "object");
+assert(SnapshotPolicyNotFound.prototype instanceof FSxServiceException);
+assert(typeof SnapshotPolicyNotFound$ === "object");
 assert(SourceBackupUnavailable.prototype instanceof FSxServiceException);
 assert(typeof SourceBackupUnavailable$ === "object");
 assert(StorageVirtualMachineNotFound.prototype instanceof FSxServiceException);
 assert(typeof StorageVirtualMachineNotFound$ === "object");
+assert(StorageVirtualMachinePeerNotFound.prototype instanceof FSxServiceException);
+assert(typeof StorageVirtualMachinePeerNotFound$ === "object");
 assert(TooManyAccessPoints.prototype instanceof FSxServiceException);
 assert(typeof TooManyAccessPoints$ === "object");
 assert(UnsupportedOperation.prototype instanceof FSxServiceException);
@@ -945,13 +1230,18 @@ assert(typeof VolumeNotFound$ === "object");
 assert(FSxServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeBackups === "function");
+assert(typeof paginateDescribeClusterPeers === "function");
 assert(typeof paginateDescribeDataRepositoryAssociations === "function");
 assert(typeof paginateDescribeDataRepositoryTasks === "function");
 assert(typeof paginateDescribeFileCaches === "function");
 assert(typeof paginateDescribeFileSystemAliases === "function");
 assert(typeof paginateDescribeFileSystems === "function");
 assert(typeof paginateDescribeS3AccessPointAttachments === "function");
+assert(typeof paginateDescribeSnapmirrorPolicies === "function");
+assert(typeof paginateDescribeSnapmirrorRelationships === "function");
+assert(typeof paginateDescribeSnapshotPolicies === "function");
 assert(typeof paginateDescribeSnapshots === "function");
+assert(typeof paginateDescribeStorageVirtualMachinePeers === "function");
 assert(typeof paginateDescribeStorageVirtualMachines === "function");
 assert(typeof paginateDescribeVolumes === "function");
 assert(typeof paginateListTagsForResource === "function");

@@ -73,6 +73,10 @@ import type {
 } from "./commands/CreateAndAttachS3AccessPointCommand";
 import type { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
 import type {
+  CreateClusterPeerCommandInput,
+  CreateClusterPeerCommandOutput,
+} from "./commands/CreateClusterPeerCommand";
+import type {
   CreateDataRepositoryAssociationCommandInput,
   CreateDataRepositoryAssociationCommandOutput,
 } from "./commands/CreateDataRepositoryAssociationCommand";
@@ -86,11 +90,27 @@ import type {
   CreateFileSystemFromBackupCommandInput,
   CreateFileSystemFromBackupCommandOutput,
 } from "./commands/CreateFileSystemFromBackupCommand";
+import type {
+  CreateSnapmirrorPolicyCommandInput,
+  CreateSnapmirrorPolicyCommandOutput,
+} from "./commands/CreateSnapmirrorPolicyCommand";
+import type {
+  CreateSnapmirrorRelationshipCommandInput,
+  CreateSnapmirrorRelationshipCommandOutput,
+} from "./commands/CreateSnapmirrorRelationshipCommand";
 import type { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import type {
+  CreateSnapshotPolicyCommandInput,
+  CreateSnapshotPolicyCommandOutput,
+} from "./commands/CreateSnapshotPolicyCommand";
 import type {
   CreateStorageVirtualMachineCommandInput,
   CreateStorageVirtualMachineCommandOutput,
 } from "./commands/CreateStorageVirtualMachineCommand";
+import type {
+  CreateStorageVirtualMachinePeerCommandInput,
+  CreateStorageVirtualMachinePeerCommandOutput,
+} from "./commands/CreateStorageVirtualMachinePeerCommand";
 import type { CreateVolumeCommandInput, CreateVolumeCommandOutput } from "./commands/CreateVolumeCommand";
 import type {
   CreateVolumeFromBackupCommandInput,
@@ -98,18 +118,42 @@ import type {
 } from "./commands/CreateVolumeFromBackupCommand";
 import type { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "./commands/DeleteBackupCommand";
 import type {
+  DeleteClusterPeerCommandInput,
+  DeleteClusterPeerCommandOutput,
+} from "./commands/DeleteClusterPeerCommand";
+import type {
   DeleteDataRepositoryAssociationCommandInput,
   DeleteDataRepositoryAssociationCommandOutput,
 } from "./commands/DeleteDataRepositoryAssociationCommand";
 import type { DeleteFileCacheCommandInput, DeleteFileCacheCommandOutput } from "./commands/DeleteFileCacheCommand";
 import type { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "./commands/DeleteFileSystemCommand";
+import type {
+  DeleteSnapmirrorPolicyCommandInput,
+  DeleteSnapmirrorPolicyCommandOutput,
+} from "./commands/DeleteSnapmirrorPolicyCommand";
+import type {
+  DeleteSnapmirrorRelationshipCommandInput,
+  DeleteSnapmirrorRelationshipCommandOutput,
+} from "./commands/DeleteSnapmirrorRelationshipCommand";
 import type { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
+import type {
+  DeleteSnapshotPolicyCommandInput,
+  DeleteSnapshotPolicyCommandOutput,
+} from "./commands/DeleteSnapshotPolicyCommand";
 import type {
   DeleteStorageVirtualMachineCommandInput,
   DeleteStorageVirtualMachineCommandOutput,
 } from "./commands/DeleteStorageVirtualMachineCommand";
+import type {
+  DeleteStorageVirtualMachinePeerCommandInput,
+  DeleteStorageVirtualMachinePeerCommandOutput,
+} from "./commands/DeleteStorageVirtualMachinePeerCommand";
 import type { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
 import type { DescribeBackupsCommandInput, DescribeBackupsCommandOutput } from "./commands/DescribeBackupsCommand";
+import type {
+  DescribeClusterPeersCommandInput,
+  DescribeClusterPeersCommandOutput,
+} from "./commands/DescribeClusterPeersCommand";
 import type {
   DescribeDataRepositoryAssociationsCommandInput,
   DescribeDataRepositoryAssociationsCommandOutput,
@@ -139,9 +183,25 @@ import type {
   DescribeSharedVpcConfigurationCommandOutput,
 } from "./commands/DescribeSharedVpcConfigurationCommand";
 import type {
+  DescribeSnapmirrorPoliciesCommandInput,
+  DescribeSnapmirrorPoliciesCommandOutput,
+} from "./commands/DescribeSnapmirrorPoliciesCommand";
+import type {
+  DescribeSnapmirrorRelationshipsCommandInput,
+  DescribeSnapmirrorRelationshipsCommandOutput,
+} from "./commands/DescribeSnapmirrorRelationshipsCommand";
+import type {
+  DescribeSnapshotPoliciesCommandInput,
+  DescribeSnapshotPoliciesCommandOutput,
+} from "./commands/DescribeSnapshotPoliciesCommand";
+import type {
   DescribeSnapshotsCommandInput,
   DescribeSnapshotsCommandOutput,
 } from "./commands/DescribeSnapshotsCommand";
+import type {
+  DescribeStorageVirtualMachinePeersCommandInput,
+  DescribeStorageVirtualMachinePeersCommandOutput,
+} from "./commands/DescribeStorageVirtualMachinePeersCommand";
 import type {
   DescribeStorageVirtualMachinesCommandInput,
   DescribeStorageVirtualMachinesCommandOutput,
@@ -174,6 +234,10 @@ import type {
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
+  UpdateClusterPeerCommandInput,
+  UpdateClusterPeerCommandOutput,
+} from "./commands/UpdateClusterPeerCommand";
+import type {
   UpdateDataRepositoryAssociationCommandInput,
   UpdateDataRepositoryAssociationCommandOutput,
 } from "./commands/UpdateDataRepositoryAssociationCommand";
@@ -183,11 +247,27 @@ import type {
   UpdateSharedVpcConfigurationCommandInput,
   UpdateSharedVpcConfigurationCommandOutput,
 } from "./commands/UpdateSharedVpcConfigurationCommand";
+import type {
+  UpdateSnapmirrorPolicyCommandInput,
+  UpdateSnapmirrorPolicyCommandOutput,
+} from "./commands/UpdateSnapmirrorPolicyCommand";
+import type {
+  UpdateSnapmirrorRelationshipCommandInput,
+  UpdateSnapmirrorRelationshipCommandOutput,
+} from "./commands/UpdateSnapmirrorRelationshipCommand";
 import type { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "./commands/UpdateSnapshotCommand";
+import type {
+  UpdateSnapshotPolicyCommandInput,
+  UpdateSnapshotPolicyCommandOutput,
+} from "./commands/UpdateSnapshotPolicyCommand";
 import type {
   UpdateStorageVirtualMachineCommandInput,
   UpdateStorageVirtualMachineCommandOutput,
 } from "./commands/UpdateStorageVirtualMachineCommand";
+import type {
+  UpdateStorageVirtualMachinePeerCommandInput,
+  UpdateStorageVirtualMachinePeerCommandOutput,
+} from "./commands/UpdateStorageVirtualMachinePeerCommand";
 import type { UpdateVolumeCommandInput, UpdateVolumeCommandOutput } from "./commands/UpdateVolumeCommand";
 import {
   type ClientInputEndpointParameters,
@@ -210,23 +290,34 @@ export type ServiceInputTypes =
   | CopySnapshotAndUpdateVolumeCommandInput
   | CreateAndAttachS3AccessPointCommandInput
   | CreateBackupCommandInput
+  | CreateClusterPeerCommandInput
   | CreateDataRepositoryAssociationCommandInput
   | CreateDataRepositoryTaskCommandInput
   | CreateFileCacheCommandInput
   | CreateFileSystemCommandInput
   | CreateFileSystemFromBackupCommandInput
+  | CreateSnapmirrorPolicyCommandInput
+  | CreateSnapmirrorRelationshipCommandInput
   | CreateSnapshotCommandInput
+  | CreateSnapshotPolicyCommandInput
   | CreateStorageVirtualMachineCommandInput
+  | CreateStorageVirtualMachinePeerCommandInput
   | CreateVolumeCommandInput
   | CreateVolumeFromBackupCommandInput
   | DeleteBackupCommandInput
+  | DeleteClusterPeerCommandInput
   | DeleteDataRepositoryAssociationCommandInput
   | DeleteFileCacheCommandInput
   | DeleteFileSystemCommandInput
+  | DeleteSnapmirrorPolicyCommandInput
+  | DeleteSnapmirrorRelationshipCommandInput
   | DeleteSnapshotCommandInput
+  | DeleteSnapshotPolicyCommandInput
   | DeleteStorageVirtualMachineCommandInput
+  | DeleteStorageVirtualMachinePeerCommandInput
   | DeleteVolumeCommandInput
   | DescribeBackupsCommandInput
+  | DescribeClusterPeersCommandInput
   | DescribeDataRepositoryAssociationsCommandInput
   | DescribeDataRepositoryTasksCommandInput
   | DescribeFileCachesCommandInput
@@ -234,7 +325,11 @@ export type ServiceInputTypes =
   | DescribeFileSystemsCommandInput
   | DescribeS3AccessPointAttachmentsCommandInput
   | DescribeSharedVpcConfigurationCommandInput
+  | DescribeSnapmirrorPoliciesCommandInput
+  | DescribeSnapmirrorRelationshipsCommandInput
+  | DescribeSnapshotPoliciesCommandInput
   | DescribeSnapshotsCommandInput
+  | DescribeStorageVirtualMachinePeersCommandInput
   | DescribeStorageVirtualMachinesCommandInput
   | DescribeVolumesCommandInput
   | DetachAndDeleteS3AccessPointCommandInput
@@ -245,12 +340,17 @@ export type ServiceInputTypes =
   | StartMisconfiguredStateRecoveryCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateClusterPeerCommandInput
   | UpdateDataRepositoryAssociationCommandInput
   | UpdateFileCacheCommandInput
   | UpdateFileSystemCommandInput
   | UpdateSharedVpcConfigurationCommandInput
+  | UpdateSnapmirrorPolicyCommandInput
+  | UpdateSnapmirrorRelationshipCommandInput
   | UpdateSnapshotCommandInput
+  | UpdateSnapshotPolicyCommandInput
   | UpdateStorageVirtualMachineCommandInput
+  | UpdateStorageVirtualMachinePeerCommandInput
   | UpdateVolumeCommandInput;
 
 /**
@@ -263,23 +363,34 @@ export type ServiceOutputTypes =
   | CopySnapshotAndUpdateVolumeCommandOutput
   | CreateAndAttachS3AccessPointCommandOutput
   | CreateBackupCommandOutput
+  | CreateClusterPeerCommandOutput
   | CreateDataRepositoryAssociationCommandOutput
   | CreateDataRepositoryTaskCommandOutput
   | CreateFileCacheCommandOutput
   | CreateFileSystemCommandOutput
   | CreateFileSystemFromBackupCommandOutput
+  | CreateSnapmirrorPolicyCommandOutput
+  | CreateSnapmirrorRelationshipCommandOutput
   | CreateSnapshotCommandOutput
+  | CreateSnapshotPolicyCommandOutput
   | CreateStorageVirtualMachineCommandOutput
+  | CreateStorageVirtualMachinePeerCommandOutput
   | CreateVolumeCommandOutput
   | CreateVolumeFromBackupCommandOutput
   | DeleteBackupCommandOutput
+  | DeleteClusterPeerCommandOutput
   | DeleteDataRepositoryAssociationCommandOutput
   | DeleteFileCacheCommandOutput
   | DeleteFileSystemCommandOutput
+  | DeleteSnapmirrorPolicyCommandOutput
+  | DeleteSnapmirrorRelationshipCommandOutput
   | DeleteSnapshotCommandOutput
+  | DeleteSnapshotPolicyCommandOutput
   | DeleteStorageVirtualMachineCommandOutput
+  | DeleteStorageVirtualMachinePeerCommandOutput
   | DeleteVolumeCommandOutput
   | DescribeBackupsCommandOutput
+  | DescribeClusterPeersCommandOutput
   | DescribeDataRepositoryAssociationsCommandOutput
   | DescribeDataRepositoryTasksCommandOutput
   | DescribeFileCachesCommandOutput
@@ -287,7 +398,11 @@ export type ServiceOutputTypes =
   | DescribeFileSystemsCommandOutput
   | DescribeS3AccessPointAttachmentsCommandOutput
   | DescribeSharedVpcConfigurationCommandOutput
+  | DescribeSnapmirrorPoliciesCommandOutput
+  | DescribeSnapmirrorRelationshipsCommandOutput
+  | DescribeSnapshotPoliciesCommandOutput
   | DescribeSnapshotsCommandOutput
+  | DescribeStorageVirtualMachinePeersCommandOutput
   | DescribeStorageVirtualMachinesCommandOutput
   | DescribeVolumesCommandOutput
   | DetachAndDeleteS3AccessPointCommandOutput
@@ -298,12 +413,17 @@ export type ServiceOutputTypes =
   | StartMisconfiguredStateRecoveryCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateClusterPeerCommandOutput
   | UpdateDataRepositoryAssociationCommandOutput
   | UpdateFileCacheCommandOutput
   | UpdateFileSystemCommandOutput
   | UpdateSharedVpcConfigurationCommandOutput
+  | UpdateSnapmirrorPolicyCommandOutput
+  | UpdateSnapmirrorRelationshipCommandOutput
   | UpdateSnapshotCommandOutput
+  | UpdateSnapshotPolicyCommandOutput
   | UpdateStorageVirtualMachineCommandOutput
+  | UpdateStorageVirtualMachinePeerCommandOutput
   | UpdateVolumeCommandOutput;
 
 /**

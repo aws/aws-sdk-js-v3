@@ -23,9 +23,9 @@ export interface DeleteSnapshotCommandInput extends DeleteSnapshotRequest {}
 export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer
- *             exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a
- *             file system backup. </p>
+ * <p>Deletes an Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP snapshot. After
+ *             deletion, the snapshot no longer exists, and its data is gone. Deleting a snapshot
+ *             doesn't affect snapshots stored in a file system backup.</p>
  *          <p>The <code>DeleteSnapshot</code> operation returns instantly. The snapshot appears with
  *             the lifecycle status of <code>DELETING</code> until the deletion is complete.</p>
  * @example
@@ -44,7 +44,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * const response = await client.send(command);
  * // { // DeleteSnapshotResponse
  * //   SnapshotId: "STRING_VALUE",
- * //   Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE",
+ * //   Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE" || "FAILED",
  * // };
  *
  * ```
@@ -57,6 +57,11 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  *
  * @throws {@link BadRequest} (client fault)
  *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
  *
  * @throws {@link InternalServerError} (server fault)
  *  <p>A generic error indicating a server-side failure.</p>

@@ -856,33 +856,6 @@ export class MissingFileSystemConfiguration extends __BaseException {
 }
 
 /**
- * <p>A volume configuration is required for this operation.</p>
- * @public
- */
-export class MissingVolumeConfiguration extends __BaseException {
-  public static readonly shapeId: string = "com.amazonaws.fsx#MissingVolumeConfiguration";
-  readonly name = "MissingVolumeConfiguration" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>A detailed error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingVolumeConfiguration, __BaseException>) {
-    super({
-      name: "MissingVolumeConfiguration",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingVolumeConfiguration.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
  * @public
  */
@@ -905,6 +878,33 @@ export class StorageVirtualMachineNotFound extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, StorageVirtualMachineNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>A volume configuration is required for this operation.</p>
+ * @public
+ */
+export class MissingVolumeConfiguration extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#MissingVolumeConfiguration";
+  readonly name = "MissingVolumeConfiguration" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingVolumeConfiguration, __BaseException>) {
+    super({
+      name: "MissingVolumeConfiguration",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingVolumeConfiguration.prototype);
     this.Message = opts.Message;
   }
 }
@@ -979,6 +979,34 @@ export class BackupRestoring extends __BaseException {
 }
 
 /**
+ * <p>No Amazon FSx cluster peers were found based on the supplied
+ *             parameters.</p>
+ * @public
+ */
+export class ClusterPeerNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#ClusterPeerNotFound";
+  readonly name = "ClusterPeerNotFound" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterPeerNotFound, __BaseException>) {
+    super({
+      name: "ClusterPeerNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterPeerNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>No data repository associations were found based upon the supplied parameters.</p>
  * @public
  */
@@ -1033,6 +1061,62 @@ export class FileCacheNotFound extends __BaseException {
 }
 
 /**
+ * <p>No Amazon FSx SnapMirror policies were found based on the supplied
+ *             parameters.</p>
+ * @public
+ */
+export class SnapmirrorPolicyNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#SnapmirrorPolicyNotFound";
+  readonly name = "SnapmirrorPolicyNotFound" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapmirrorPolicyNotFound, __BaseException>) {
+    super({
+      name: "SnapmirrorPolicyNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapmirrorPolicyNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>No Amazon FSx SnapMirror relationships were found based on the supplied
+ *             parameters.</p>
+ * @public
+ */
+export class SnapmirrorRelationshipNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#SnapmirrorRelationshipNotFound";
+  readonly name = "SnapmirrorRelationshipNotFound" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapmirrorRelationshipNotFound, __BaseException>) {
+    super({
+      name: "SnapmirrorRelationshipNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapmirrorRelationshipNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>No Amazon FSx snapshots were found based on the supplied parameters.</p>
  * @public
  */
@@ -1055,6 +1139,62 @@ export class SnapshotNotFound extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, SnapshotNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>No Amazon FSx snapshot policies were found based on the supplied
+ *             parameters.</p>
+ * @public
+ */
+export class SnapshotPolicyNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#SnapshotPolicyNotFound";
+  readonly name = "SnapshotPolicyNotFound" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotPolicyNotFound, __BaseException>) {
+    super({
+      name: "SnapshotPolicyNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotPolicyNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>No Amazon FSx storage virtual machine (SVM) peers were found based on the
+ *             supplied parameters.</p>
+ * @public
+ */
+export class StorageVirtualMachinePeerNotFound extends __BaseException {
+  public static readonly shapeId: string = "com.amazonaws.fsx#StorageVirtualMachinePeerNotFound";
+  readonly name = "StorageVirtualMachinePeerNotFound" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>A detailed error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StorageVirtualMachinePeerNotFound, __BaseException>) {
+    super({
+      name: "StorageVirtualMachinePeerNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StorageVirtualMachinePeerNotFound.prototype);
     this.Message = opts.Message;
   }
 }

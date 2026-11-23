@@ -38,6 +38,11 @@ import {
   CreateBackupCommand,
 } from "./commands/CreateBackupCommand";
 import {
+  type CreateClusterPeerCommandInput,
+  type CreateClusterPeerCommandOutput,
+  CreateClusterPeerCommand,
+} from "./commands/CreateClusterPeerCommand";
+import {
   type CreateDataRepositoryAssociationCommandInput,
   type CreateDataRepositoryAssociationCommandOutput,
   CreateDataRepositoryAssociationCommand,
@@ -63,15 +68,35 @@ import {
   CreateFileSystemFromBackupCommand,
 } from "./commands/CreateFileSystemFromBackupCommand";
 import {
+  type CreateSnapmirrorPolicyCommandInput,
+  type CreateSnapmirrorPolicyCommandOutput,
+  CreateSnapmirrorPolicyCommand,
+} from "./commands/CreateSnapmirrorPolicyCommand";
+import {
+  type CreateSnapmirrorRelationshipCommandInput,
+  type CreateSnapmirrorRelationshipCommandOutput,
+  CreateSnapmirrorRelationshipCommand,
+} from "./commands/CreateSnapmirrorRelationshipCommand";
+import {
   type CreateSnapshotCommandInput,
   type CreateSnapshotCommandOutput,
   CreateSnapshotCommand,
 } from "./commands/CreateSnapshotCommand";
 import {
+  type CreateSnapshotPolicyCommandInput,
+  type CreateSnapshotPolicyCommandOutput,
+  CreateSnapshotPolicyCommand,
+} from "./commands/CreateSnapshotPolicyCommand";
+import {
   type CreateStorageVirtualMachineCommandInput,
   type CreateStorageVirtualMachineCommandOutput,
   CreateStorageVirtualMachineCommand,
 } from "./commands/CreateStorageVirtualMachineCommand";
+import {
+  type CreateStorageVirtualMachinePeerCommandInput,
+  type CreateStorageVirtualMachinePeerCommandOutput,
+  CreateStorageVirtualMachinePeerCommand,
+} from "./commands/CreateStorageVirtualMachinePeerCommand";
 import {
   type CreateVolumeCommandInput,
   type CreateVolumeCommandOutput,
@@ -88,6 +113,11 @@ import {
   DeleteBackupCommand,
 } from "./commands/DeleteBackupCommand";
 import {
+  type DeleteClusterPeerCommandInput,
+  type DeleteClusterPeerCommandOutput,
+  DeleteClusterPeerCommand,
+} from "./commands/DeleteClusterPeerCommand";
+import {
   type DeleteDataRepositoryAssociationCommandInput,
   type DeleteDataRepositoryAssociationCommandOutput,
   DeleteDataRepositoryAssociationCommand,
@@ -103,15 +133,35 @@ import {
   DeleteFileSystemCommand,
 } from "./commands/DeleteFileSystemCommand";
 import {
+  type DeleteSnapmirrorPolicyCommandInput,
+  type DeleteSnapmirrorPolicyCommandOutput,
+  DeleteSnapmirrorPolicyCommand,
+} from "./commands/DeleteSnapmirrorPolicyCommand";
+import {
+  type DeleteSnapmirrorRelationshipCommandInput,
+  type DeleteSnapmirrorRelationshipCommandOutput,
+  DeleteSnapmirrorRelationshipCommand,
+} from "./commands/DeleteSnapmirrorRelationshipCommand";
+import {
   type DeleteSnapshotCommandInput,
   type DeleteSnapshotCommandOutput,
   DeleteSnapshotCommand,
 } from "./commands/DeleteSnapshotCommand";
 import {
+  type DeleteSnapshotPolicyCommandInput,
+  type DeleteSnapshotPolicyCommandOutput,
+  DeleteSnapshotPolicyCommand,
+} from "./commands/DeleteSnapshotPolicyCommand";
+import {
   type DeleteStorageVirtualMachineCommandInput,
   type DeleteStorageVirtualMachineCommandOutput,
   DeleteStorageVirtualMachineCommand,
 } from "./commands/DeleteStorageVirtualMachineCommand";
+import {
+  type DeleteStorageVirtualMachinePeerCommandInput,
+  type DeleteStorageVirtualMachinePeerCommandOutput,
+  DeleteStorageVirtualMachinePeerCommand,
+} from "./commands/DeleteStorageVirtualMachinePeerCommand";
 import {
   type DeleteVolumeCommandInput,
   type DeleteVolumeCommandOutput,
@@ -122,6 +172,11 @@ import {
   type DescribeBackupsCommandOutput,
   DescribeBackupsCommand,
 } from "./commands/DescribeBackupsCommand";
+import {
+  type DescribeClusterPeersCommandInput,
+  type DescribeClusterPeersCommandOutput,
+  DescribeClusterPeersCommand,
+} from "./commands/DescribeClusterPeersCommand";
 import {
   type DescribeDataRepositoryAssociationsCommandInput,
   type DescribeDataRepositoryAssociationsCommandOutput,
@@ -158,10 +213,30 @@ import {
   DescribeSharedVpcConfigurationCommand,
 } from "./commands/DescribeSharedVpcConfigurationCommand";
 import {
+  type DescribeSnapmirrorPoliciesCommandInput,
+  type DescribeSnapmirrorPoliciesCommandOutput,
+  DescribeSnapmirrorPoliciesCommand,
+} from "./commands/DescribeSnapmirrorPoliciesCommand";
+import {
+  type DescribeSnapmirrorRelationshipsCommandInput,
+  type DescribeSnapmirrorRelationshipsCommandOutput,
+  DescribeSnapmirrorRelationshipsCommand,
+} from "./commands/DescribeSnapmirrorRelationshipsCommand";
+import {
+  type DescribeSnapshotPoliciesCommandInput,
+  type DescribeSnapshotPoliciesCommandOutput,
+  DescribeSnapshotPoliciesCommand,
+} from "./commands/DescribeSnapshotPoliciesCommand";
+import {
   type DescribeSnapshotsCommandInput,
   type DescribeSnapshotsCommandOutput,
   DescribeSnapshotsCommand,
 } from "./commands/DescribeSnapshotsCommand";
+import {
+  type DescribeStorageVirtualMachinePeersCommandInput,
+  type DescribeStorageVirtualMachinePeersCommandOutput,
+  DescribeStorageVirtualMachinePeersCommand,
+} from "./commands/DescribeStorageVirtualMachinePeersCommand";
 import {
   type DescribeStorageVirtualMachinesCommandInput,
   type DescribeStorageVirtualMachinesCommandOutput,
@@ -213,6 +288,11 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateClusterPeerCommandInput,
+  type UpdateClusterPeerCommandOutput,
+  UpdateClusterPeerCommand,
+} from "./commands/UpdateClusterPeerCommand";
+import {
   type UpdateDataRepositoryAssociationCommandInput,
   type UpdateDataRepositoryAssociationCommandOutput,
   UpdateDataRepositoryAssociationCommand,
@@ -233,15 +313,35 @@ import {
   UpdateSharedVpcConfigurationCommand,
 } from "./commands/UpdateSharedVpcConfigurationCommand";
 import {
+  type UpdateSnapmirrorPolicyCommandInput,
+  type UpdateSnapmirrorPolicyCommandOutput,
+  UpdateSnapmirrorPolicyCommand,
+} from "./commands/UpdateSnapmirrorPolicyCommand";
+import {
+  type UpdateSnapmirrorRelationshipCommandInput,
+  type UpdateSnapmirrorRelationshipCommandOutput,
+  UpdateSnapmirrorRelationshipCommand,
+} from "./commands/UpdateSnapmirrorRelationshipCommand";
+import {
   type UpdateSnapshotCommandInput,
   type UpdateSnapshotCommandOutput,
   UpdateSnapshotCommand,
 } from "./commands/UpdateSnapshotCommand";
 import {
+  type UpdateSnapshotPolicyCommandInput,
+  type UpdateSnapshotPolicyCommandOutput,
+  UpdateSnapshotPolicyCommand,
+} from "./commands/UpdateSnapshotPolicyCommand";
+import {
   type UpdateStorageVirtualMachineCommandInput,
   type UpdateStorageVirtualMachineCommandOutput,
   UpdateStorageVirtualMachineCommand,
 } from "./commands/UpdateStorageVirtualMachineCommand";
+import {
+  type UpdateStorageVirtualMachinePeerCommandInput,
+  type UpdateStorageVirtualMachinePeerCommandOutput,
+  UpdateStorageVirtualMachinePeerCommand,
+} from "./commands/UpdateStorageVirtualMachinePeerCommand";
 import {
   type UpdateVolumeCommandInput,
   type UpdateVolumeCommandOutput,
@@ -249,13 +349,18 @@ import {
 } from "./commands/UpdateVolumeCommand";
 import { FSxClient } from "./FSxClient";
 import { paginateDescribeBackups } from "./pagination/DescribeBackupsPaginator";
+import { paginateDescribeClusterPeers } from "./pagination/DescribeClusterPeersPaginator";
 import { paginateDescribeDataRepositoryAssociations } from "./pagination/DescribeDataRepositoryAssociationsPaginator";
 import { paginateDescribeDataRepositoryTasks } from "./pagination/DescribeDataRepositoryTasksPaginator";
 import { paginateDescribeFileCaches } from "./pagination/DescribeFileCachesPaginator";
 import { paginateDescribeFileSystemAliases } from "./pagination/DescribeFileSystemAliasesPaginator";
 import { paginateDescribeFileSystems } from "./pagination/DescribeFileSystemsPaginator";
 import { paginateDescribeS3AccessPointAttachments } from "./pagination/DescribeS3AccessPointAttachmentsPaginator";
+import { paginateDescribeSnapmirrorPolicies } from "./pagination/DescribeSnapmirrorPoliciesPaginator";
+import { paginateDescribeSnapmirrorRelationships } from "./pagination/DescribeSnapmirrorRelationshipsPaginator";
+import { paginateDescribeSnapshotPolicies } from "./pagination/DescribeSnapshotPoliciesPaginator";
 import { paginateDescribeSnapshots } from "./pagination/DescribeSnapshotsPaginator";
+import { paginateDescribeStorageVirtualMachinePeers } from "./pagination/DescribeStorageVirtualMachinePeersPaginator";
 import { paginateDescribeStorageVirtualMachines } from "./pagination/DescribeStorageVirtualMachinesPaginator";
 import { paginateDescribeVolumes } from "./pagination/DescribeVolumesPaginator";
 import { paginateListTagsForResource } from "./pagination/ListTagsForResourcePaginator";
@@ -267,23 +372,34 @@ const commands = {
   CopySnapshotAndUpdateVolumeCommand,
   CreateAndAttachS3AccessPointCommand,
   CreateBackupCommand,
+  CreateClusterPeerCommand,
   CreateDataRepositoryAssociationCommand,
   CreateDataRepositoryTaskCommand,
   CreateFileCacheCommand,
   CreateFileSystemCommand,
   CreateFileSystemFromBackupCommand,
+  CreateSnapmirrorPolicyCommand,
+  CreateSnapmirrorRelationshipCommand,
   CreateSnapshotCommand,
+  CreateSnapshotPolicyCommand,
   CreateStorageVirtualMachineCommand,
+  CreateStorageVirtualMachinePeerCommand,
   CreateVolumeCommand,
   CreateVolumeFromBackupCommand,
   DeleteBackupCommand,
+  DeleteClusterPeerCommand,
   DeleteDataRepositoryAssociationCommand,
   DeleteFileCacheCommand,
   DeleteFileSystemCommand,
+  DeleteSnapmirrorPolicyCommand,
+  DeleteSnapmirrorRelationshipCommand,
   DeleteSnapshotCommand,
+  DeleteSnapshotPolicyCommand,
   DeleteStorageVirtualMachineCommand,
+  DeleteStorageVirtualMachinePeerCommand,
   DeleteVolumeCommand,
   DescribeBackupsCommand,
+  DescribeClusterPeersCommand,
   DescribeDataRepositoryAssociationsCommand,
   DescribeDataRepositoryTasksCommand,
   DescribeFileCachesCommand,
@@ -291,7 +407,11 @@ const commands = {
   DescribeFileSystemsCommand,
   DescribeS3AccessPointAttachmentsCommand,
   DescribeSharedVpcConfigurationCommand,
+  DescribeSnapmirrorPoliciesCommand,
+  DescribeSnapmirrorRelationshipsCommand,
+  DescribeSnapshotPoliciesCommand,
   DescribeSnapshotsCommand,
+  DescribeStorageVirtualMachinePeersCommand,
   DescribeStorageVirtualMachinesCommand,
   DescribeVolumesCommand,
   DetachAndDeleteS3AccessPointCommand,
@@ -302,23 +422,33 @@ const commands = {
   StartMisconfiguredStateRecoveryCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateClusterPeerCommand,
   UpdateDataRepositoryAssociationCommand,
   UpdateFileCacheCommand,
   UpdateFileSystemCommand,
   UpdateSharedVpcConfigurationCommand,
+  UpdateSnapmirrorPolicyCommand,
+  UpdateSnapmirrorRelationshipCommand,
   UpdateSnapshotCommand,
+  UpdateSnapshotPolicyCommand,
   UpdateStorageVirtualMachineCommand,
+  UpdateStorageVirtualMachinePeerCommand,
   UpdateVolumeCommand,
 };
 const paginators = {
   paginateDescribeBackups,
+  paginateDescribeClusterPeers,
   paginateDescribeDataRepositoryAssociations,
   paginateDescribeDataRepositoryTasks,
   paginateDescribeFileCaches,
   paginateDescribeFileSystemAliases,
   paginateDescribeFileSystems,
   paginateDescribeS3AccessPointAttachments,
+  paginateDescribeSnapmirrorPolicies,
+  paginateDescribeSnapmirrorRelationships,
+  paginateDescribeSnapshotPolicies,
   paginateDescribeSnapshots,
+  paginateDescribeStorageVirtualMachinePeers,
   paginateDescribeStorageVirtualMachines,
   paginateDescribeVolumes,
   paginateListTagsForResource,
@@ -436,6 +566,23 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link CreateClusterPeerCommand}
+   */
+  createClusterPeer(
+    args: CreateClusterPeerCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<CreateClusterPeerCommandOutput>;
+  createClusterPeer(
+    args: CreateClusterPeerCommandInput,
+    cb: (err: any, data?: CreateClusterPeerCommandOutput) => void
+  ): void;
+  createClusterPeer(
+    args: CreateClusterPeerCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: CreateClusterPeerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateDataRepositoryAssociationCommand}
    */
   createDataRepositoryAssociation(
@@ -521,6 +668,40 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link CreateSnapmirrorPolicyCommand}
+   */
+  createSnapmirrorPolicy(
+    args: CreateSnapmirrorPolicyCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<CreateSnapmirrorPolicyCommandOutput>;
+  createSnapmirrorPolicy(
+    args: CreateSnapmirrorPolicyCommandInput,
+    cb: (err: any, data?: CreateSnapmirrorPolicyCommandOutput) => void
+  ): void;
+  createSnapmirrorPolicy(
+    args: CreateSnapmirrorPolicyCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: CreateSnapmirrorPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSnapmirrorRelationshipCommand}
+   */
+  createSnapmirrorRelationship(
+    args: CreateSnapmirrorRelationshipCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<CreateSnapmirrorRelationshipCommandOutput>;
+  createSnapmirrorRelationship(
+    args: CreateSnapmirrorRelationshipCommandInput,
+    cb: (err: any, data?: CreateSnapmirrorRelationshipCommandOutput) => void
+  ): void;
+  createSnapmirrorRelationship(
+    args: CreateSnapmirrorRelationshipCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: CreateSnapmirrorRelationshipCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateSnapshotCommand}
    */
   createSnapshot(
@@ -538,6 +719,23 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link CreateSnapshotPolicyCommand}
+   */
+  createSnapshotPolicy(
+    args: CreateSnapshotPolicyCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<CreateSnapshotPolicyCommandOutput>;
+  createSnapshotPolicy(
+    args: CreateSnapshotPolicyCommandInput,
+    cb: (err: any, data?: CreateSnapshotPolicyCommandOutput) => void
+  ): void;
+  createSnapshotPolicy(
+    args: CreateSnapshotPolicyCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: CreateSnapshotPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateStorageVirtualMachineCommand}
    */
   createStorageVirtualMachine(
@@ -552,6 +750,23 @@ export interface FSx {
     args: CreateStorageVirtualMachineCommandInput,
     options: FSxRequestOptions,
     cb: (err: any, data?: CreateStorageVirtualMachineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateStorageVirtualMachinePeerCommand}
+   */
+  createStorageVirtualMachinePeer(
+    args: CreateStorageVirtualMachinePeerCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<CreateStorageVirtualMachinePeerCommandOutput>;
+  createStorageVirtualMachinePeer(
+    args: CreateStorageVirtualMachinePeerCommandInput,
+    cb: (err: any, data?: CreateStorageVirtualMachinePeerCommandOutput) => void
+  ): void;
+  createStorageVirtualMachinePeer(
+    args: CreateStorageVirtualMachinePeerCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: CreateStorageVirtualMachinePeerCommandOutput) => void
   ): void;
 
   /**
@@ -606,6 +821,23 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link DeleteClusterPeerCommand}
+   */
+  deleteClusterPeer(
+    args: DeleteClusterPeerCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<DeleteClusterPeerCommandOutput>;
+  deleteClusterPeer(
+    args: DeleteClusterPeerCommandInput,
+    cb: (err: any, data?: DeleteClusterPeerCommandOutput) => void
+  ): void;
+  deleteClusterPeer(
+    args: DeleteClusterPeerCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: DeleteClusterPeerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDataRepositoryAssociationCommand}
    */
   deleteDataRepositoryAssociation(
@@ -657,6 +889,40 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link DeleteSnapmirrorPolicyCommand}
+   */
+  deleteSnapmirrorPolicy(
+    args: DeleteSnapmirrorPolicyCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<DeleteSnapmirrorPolicyCommandOutput>;
+  deleteSnapmirrorPolicy(
+    args: DeleteSnapmirrorPolicyCommandInput,
+    cb: (err: any, data?: DeleteSnapmirrorPolicyCommandOutput) => void
+  ): void;
+  deleteSnapmirrorPolicy(
+    args: DeleteSnapmirrorPolicyCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: DeleteSnapmirrorPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSnapmirrorRelationshipCommand}
+   */
+  deleteSnapmirrorRelationship(
+    args: DeleteSnapmirrorRelationshipCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<DeleteSnapmirrorRelationshipCommandOutput>;
+  deleteSnapmirrorRelationship(
+    args: DeleteSnapmirrorRelationshipCommandInput,
+    cb: (err: any, data?: DeleteSnapmirrorRelationshipCommandOutput) => void
+  ): void;
+  deleteSnapmirrorRelationship(
+    args: DeleteSnapmirrorRelationshipCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: DeleteSnapmirrorRelationshipCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteSnapshotCommand}
    */
   deleteSnapshot(
@@ -674,6 +940,23 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link DeleteSnapshotPolicyCommand}
+   */
+  deleteSnapshotPolicy(
+    args: DeleteSnapshotPolicyCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<DeleteSnapshotPolicyCommandOutput>;
+  deleteSnapshotPolicy(
+    args: DeleteSnapshotPolicyCommandInput,
+    cb: (err: any, data?: DeleteSnapshotPolicyCommandOutput) => void
+  ): void;
+  deleteSnapshotPolicy(
+    args: DeleteSnapshotPolicyCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: DeleteSnapshotPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteStorageVirtualMachineCommand}
    */
   deleteStorageVirtualMachine(
@@ -688,6 +971,23 @@ export interface FSx {
     args: DeleteStorageVirtualMachineCommandInput,
     options: FSxRequestOptions,
     cb: (err: any, data?: DeleteStorageVirtualMachineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteStorageVirtualMachinePeerCommand}
+   */
+  deleteStorageVirtualMachinePeer(
+    args: DeleteStorageVirtualMachinePeerCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<DeleteStorageVirtualMachinePeerCommandOutput>;
+  deleteStorageVirtualMachinePeer(
+    args: DeleteStorageVirtualMachinePeerCommandInput,
+    cb: (err: any, data?: DeleteStorageVirtualMachinePeerCommandOutput) => void
+  ): void;
+  deleteStorageVirtualMachinePeer(
+    args: DeleteStorageVirtualMachinePeerCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: DeleteStorageVirtualMachinePeerCommandOutput) => void
   ): void;
 
   /**
@@ -723,6 +1023,24 @@ export interface FSx {
     args: DescribeBackupsCommandInput,
     options: FSxRequestOptions,
     cb: (err: any, data?: DescribeBackupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeClusterPeersCommand}
+   */
+  describeClusterPeers(): Promise<DescribeClusterPeersCommandOutput>;
+  describeClusterPeers(
+    args: DescribeClusterPeersCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<DescribeClusterPeersCommandOutput>;
+  describeClusterPeers(
+    args: DescribeClusterPeersCommandInput,
+    cb: (err: any, data?: DescribeClusterPeersCommandOutput) => void
+  ): void;
+  describeClusterPeers(
+    args: DescribeClusterPeersCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: DescribeClusterPeersCommandOutput) => void
   ): void;
 
   /**
@@ -851,6 +1169,60 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link DescribeSnapmirrorPoliciesCommand}
+   */
+  describeSnapmirrorPolicies(): Promise<DescribeSnapmirrorPoliciesCommandOutput>;
+  describeSnapmirrorPolicies(
+    args: DescribeSnapmirrorPoliciesCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<DescribeSnapmirrorPoliciesCommandOutput>;
+  describeSnapmirrorPolicies(
+    args: DescribeSnapmirrorPoliciesCommandInput,
+    cb: (err: any, data?: DescribeSnapmirrorPoliciesCommandOutput) => void
+  ): void;
+  describeSnapmirrorPolicies(
+    args: DescribeSnapmirrorPoliciesCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: DescribeSnapmirrorPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeSnapmirrorRelationshipsCommand}
+   */
+  describeSnapmirrorRelationships(): Promise<DescribeSnapmirrorRelationshipsCommandOutput>;
+  describeSnapmirrorRelationships(
+    args: DescribeSnapmirrorRelationshipsCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<DescribeSnapmirrorRelationshipsCommandOutput>;
+  describeSnapmirrorRelationships(
+    args: DescribeSnapmirrorRelationshipsCommandInput,
+    cb: (err: any, data?: DescribeSnapmirrorRelationshipsCommandOutput) => void
+  ): void;
+  describeSnapmirrorRelationships(
+    args: DescribeSnapmirrorRelationshipsCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: DescribeSnapmirrorRelationshipsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeSnapshotPoliciesCommand}
+   */
+  describeSnapshotPolicies(): Promise<DescribeSnapshotPoliciesCommandOutput>;
+  describeSnapshotPolicies(
+    args: DescribeSnapshotPoliciesCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<DescribeSnapshotPoliciesCommandOutput>;
+  describeSnapshotPolicies(
+    args: DescribeSnapshotPoliciesCommandInput,
+    cb: (err: any, data?: DescribeSnapshotPoliciesCommandOutput) => void
+  ): void;
+  describeSnapshotPolicies(
+    args: DescribeSnapshotPoliciesCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: DescribeSnapshotPoliciesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeSnapshotsCommand}
    */
   describeSnapshots(): Promise<DescribeSnapshotsCommandOutput>;
@@ -866,6 +1238,24 @@ export interface FSx {
     args: DescribeSnapshotsCommandInput,
     options: FSxRequestOptions,
     cb: (err: any, data?: DescribeSnapshotsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeStorageVirtualMachinePeersCommand}
+   */
+  describeStorageVirtualMachinePeers(): Promise<DescribeStorageVirtualMachinePeersCommandOutput>;
+  describeStorageVirtualMachinePeers(
+    args: DescribeStorageVirtualMachinePeersCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<DescribeStorageVirtualMachinePeersCommandOutput>;
+  describeStorageVirtualMachinePeers(
+    args: DescribeStorageVirtualMachinePeersCommandInput,
+    cb: (err: any, data?: DescribeStorageVirtualMachinePeersCommandOutput) => void
+  ): void;
+  describeStorageVirtualMachinePeers(
+    args: DescribeStorageVirtualMachinePeersCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: DescribeStorageVirtualMachinePeersCommandOutput) => void
   ): void;
 
   /**
@@ -1041,6 +1431,23 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link UpdateClusterPeerCommand}
+   */
+  updateClusterPeer(
+    args: UpdateClusterPeerCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<UpdateClusterPeerCommandOutput>;
+  updateClusterPeer(
+    args: UpdateClusterPeerCommandInput,
+    cb: (err: any, data?: UpdateClusterPeerCommandOutput) => void
+  ): void;
+  updateClusterPeer(
+    args: UpdateClusterPeerCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: UpdateClusterPeerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDataRepositoryAssociationCommand}
    */
   updateDataRepositoryAssociation(
@@ -1110,6 +1517,40 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link UpdateSnapmirrorPolicyCommand}
+   */
+  updateSnapmirrorPolicy(
+    args: UpdateSnapmirrorPolicyCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<UpdateSnapmirrorPolicyCommandOutput>;
+  updateSnapmirrorPolicy(
+    args: UpdateSnapmirrorPolicyCommandInput,
+    cb: (err: any, data?: UpdateSnapmirrorPolicyCommandOutput) => void
+  ): void;
+  updateSnapmirrorPolicy(
+    args: UpdateSnapmirrorPolicyCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: UpdateSnapmirrorPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSnapmirrorRelationshipCommand}
+   */
+  updateSnapmirrorRelationship(
+    args: UpdateSnapmirrorRelationshipCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<UpdateSnapmirrorRelationshipCommandOutput>;
+  updateSnapmirrorRelationship(
+    args: UpdateSnapmirrorRelationshipCommandInput,
+    cb: (err: any, data?: UpdateSnapmirrorRelationshipCommandOutput) => void
+  ): void;
+  updateSnapmirrorRelationship(
+    args: UpdateSnapmirrorRelationshipCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: UpdateSnapmirrorRelationshipCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateSnapshotCommand}
    */
   updateSnapshot(
@@ -1127,6 +1568,23 @@ export interface FSx {
   ): void;
 
   /**
+   * @see {@link UpdateSnapshotPolicyCommand}
+   */
+  updateSnapshotPolicy(
+    args: UpdateSnapshotPolicyCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<UpdateSnapshotPolicyCommandOutput>;
+  updateSnapshotPolicy(
+    args: UpdateSnapshotPolicyCommandInput,
+    cb: (err: any, data?: UpdateSnapshotPolicyCommandOutput) => void
+  ): void;
+  updateSnapshotPolicy(
+    args: UpdateSnapshotPolicyCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: UpdateSnapshotPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateStorageVirtualMachineCommand}
    */
   updateStorageVirtualMachine(
@@ -1141,6 +1599,23 @@ export interface FSx {
     args: UpdateStorageVirtualMachineCommandInput,
     options: FSxRequestOptions,
     cb: (err: any, data?: UpdateStorageVirtualMachineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateStorageVirtualMachinePeerCommand}
+   */
+  updateStorageVirtualMachinePeer(
+    args: UpdateStorageVirtualMachinePeerCommandInput,
+    options?: FSxRequestOptions
+  ): Promise<UpdateStorageVirtualMachinePeerCommandOutput>;
+  updateStorageVirtualMachinePeer(
+    args: UpdateStorageVirtualMachinePeerCommandInput,
+    cb: (err: any, data?: UpdateStorageVirtualMachinePeerCommandOutput) => void
+  ): void;
+  updateStorageVirtualMachinePeer(
+    args: UpdateStorageVirtualMachinePeerCommandInput,
+    options: FSxRequestOptions,
+    cb: (err: any, data?: UpdateStorageVirtualMachinePeerCommandOutput) => void
   ): void;
 
   /**
@@ -1170,6 +1645,17 @@ export interface FSx {
     args?: DescribeBackupsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeBackupsCommandOutput>;
+
+  /**
+   * @see {@link DescribeClusterPeersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeClusterPeersCommandOutput}.
+   */
+  paginateDescribeClusterPeers(
+    args?: DescribeClusterPeersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeClusterPeersCommandOutput>;
 
   /**
    * @see {@link DescribeDataRepositoryAssociationsCommand}
@@ -1238,6 +1724,39 @@ export interface FSx {
   ): Paginator<DescribeS3AccessPointAttachmentsCommandOutput>;
 
   /**
+   * @see {@link DescribeSnapmirrorPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSnapmirrorPoliciesCommandOutput}.
+   */
+  paginateDescribeSnapmirrorPolicies(
+    args?: DescribeSnapmirrorPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSnapmirrorPoliciesCommandOutput>;
+
+  /**
+   * @see {@link DescribeSnapmirrorRelationshipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSnapmirrorRelationshipsCommandOutput}.
+   */
+  paginateDescribeSnapmirrorRelationships(
+    args?: DescribeSnapmirrorRelationshipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSnapmirrorRelationshipsCommandOutput>;
+
+  /**
+   * @see {@link DescribeSnapshotPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeSnapshotPoliciesCommandOutput}.
+   */
+  paginateDescribeSnapshotPolicies(
+    args?: DescribeSnapshotPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeSnapshotPoliciesCommandOutput>;
+
+  /**
    * @see {@link DescribeSnapshotsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1247,6 +1766,17 @@ export interface FSx {
     args?: DescribeSnapshotsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeSnapshotsCommandOutput>;
+
+  /**
+   * @see {@link DescribeStorageVirtualMachinePeersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeStorageVirtualMachinePeersCommandOutput}.
+   */
+  paginateDescribeStorageVirtualMachinePeers(
+    args?: DescribeStorageVirtualMachinePeersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeStorageVirtualMachinePeersCommandOutput>;
 
   /**
    * @see {@link DescribeStorageVirtualMachinesCommand}

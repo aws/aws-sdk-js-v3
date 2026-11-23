@@ -48,7 +48,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //   Lifecycle: "CREATING" || "CREATED" || "DELETING" || "FAILED" || "MISCONFIGURED" || "PENDING" || "AVAILABLE",
  * //   AdministrativeActions: [ // AdministrativeActions
  * //     { // AdministrativeAction
- * //       AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
+ * //       AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP" || "VOLUME_CLONE_SPLIT",
  * //       ProgressPercent: Number("int"),
  * //       RequestTime: new Date("TIMESTAMP"),
  * //       Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING" || "PAUSED" || "CANCELLED",
@@ -167,7 +167,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //         },
  * //         AdministrativeActions: [
  * //           {
- * //             AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
+ * //             AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP" || "VOLUME_CLONE_SPLIT",
  * //             ProgressPercent: Number("int"),
  * //             RequestTime: new Date("TIMESTAMP"),
  * //             Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING" || "PAUSED" || "CANCELLED",
@@ -410,6 +410,10 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //                   TotalConstituents: Number("int"),
  * //                 },
  * //                 SizeInBytes: Number("long"),
+ * //                 CloneConfiguration: { // CloneConfiguration
+ * //                   ParentVolumeId: "STRING_VALUE",
+ * //                   SnapshotId: "STRING_VALUE",
+ * //                 },
  * //               },
  * //               ResourceARN: "STRING_VALUE",
  * //               Tags: [
@@ -422,6 +426,10 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //               VolumeType: "ONTAP" || "OPENZFS",
  * //               LifecycleTransitionReason: { // LifecycleTransitionReason
  * //                 Message: "STRING_VALUE",
+ * //                 OntapError: { // OntapError
+ * //                   Message: "STRING_VALUE",
+ * //                   Code: "STRING_VALUE",
+ * //                 },
  * //               },
  * //               AdministrativeActions: "<AdministrativeActions>",
  * //               OpenZFSConfiguration: { // OpenZFSVolumeConfiguration
@@ -471,9 +479,14 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //               Name: "STRING_VALUE",
  * //               VolumeId: "STRING_VALUE",
  * //               CreationTime: new Date("TIMESTAMP"),
- * //               Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE",
+ * //               Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE" || "FAILED",
+ * //               SnapshotType: "ONTAP" || "OPENZFS",
  * //               LifecycleTransitionReason: {
  * //                 Message: "STRING_VALUE",
+ * //                 OntapError: {
+ * //                   Message: "STRING_VALUE",
+ * //                   Code: "STRING_VALUE",
+ * //                 },
  * //               },
  * //               Tags: [
  * //                 {
@@ -482,6 +495,13 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //                 },
  * //               ],
  * //               AdministrativeActions: "<AdministrativeActions>",
+ * //               OntapConfiguration: { // OntapSnapshotConfiguration
+ * //                 SizeInMegabytes: Number("long"),
+ * //                 SnapmirrorLabel: "STRING_VALUE",
+ * //                 ExpiryTime: new Date("TIMESTAMP"),
+ * //                 SnaplockExpiryTime: new Date("TIMESTAMP"),
+ * //                 UUID: "STRING_VALUE",
+ * //               },
  * //             },
  * //             TotalTransferBytes: Number("long"),
  * //             RemainingTransferBytes: Number("long"),
@@ -601,6 +621,10 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //             TotalConstituents: Number("int"),
  * //           },
  * //           SizeInBytes: Number("long"),
+ * //           CloneConfiguration: {
+ * //             ParentVolumeId: "STRING_VALUE",
+ * //             SnapshotId: "STRING_VALUE",
+ * //           },
  * //         },
  * //         ResourceARN: "STRING_VALUE",
  * //         Tags: [
@@ -613,6 +637,10 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //         VolumeType: "ONTAP" || "OPENZFS",
  * //         LifecycleTransitionReason: {
  * //           Message: "STRING_VALUE",
+ * //           OntapError: {
+ * //             Message: "STRING_VALUE",
+ * //             Code: "STRING_VALUE",
+ * //           },
  * //         },
  * //         AdministrativeActions: "<AdministrativeActions>",
  * //         OpenZFSConfiguration: {
@@ -662,12 +690,24 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //         Name: "STRING_VALUE",
  * //         VolumeId: "STRING_VALUE",
  * //         CreationTime: new Date("TIMESTAMP"),
- * //         Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE",
+ * //         Lifecycle: "PENDING" || "CREATING" || "DELETING" || "AVAILABLE" || "FAILED",
+ * //         SnapshotType: "ONTAP" || "OPENZFS",
  * //         LifecycleTransitionReason: {
  * //           Message: "STRING_VALUE",
+ * //           OntapError: {
+ * //             Message: "STRING_VALUE",
+ * //             Code: "STRING_VALUE",
+ * //           },
  * //         },
  * //         Tags: "<Tags>",
  * //         AdministrativeActions: "<AdministrativeActions>",
+ * //         OntapConfiguration: {
+ * //           SizeInMegabytes: Number("long"),
+ * //           SnapmirrorLabel: "STRING_VALUE",
+ * //           ExpiryTime: new Date("TIMESTAMP"),
+ * //           SnaplockExpiryTime: new Date("TIMESTAMP"),
+ * //           UUID: "STRING_VALUE",
+ * //         },
  * //       },
  * //       TotalTransferBytes: Number("long"),
  * //       RemainingTransferBytes: Number("long"),

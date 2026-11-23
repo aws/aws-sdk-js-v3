@@ -224,6 +224,13 @@ CreateBackup
 </details>
 <details>
 <summary>
+CreateClusterPeer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/CreateClusterPeerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateClusterPeerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateClusterPeerCommandOutput/)
+</details>
+<details>
+<summary>
 CreateDataRepositoryAssociation
 </summary>
 
@@ -259,6 +266,20 @@ CreateFileSystemFromBackup
 </details>
 <details>
 <summary>
+CreateSnapmirrorPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/CreateSnapmirrorPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateSnapmirrorPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateSnapmirrorPolicyCommandOutput/)
+</details>
+<details>
+<summary>
+CreateSnapmirrorRelationship
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/CreateSnapmirrorRelationshipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateSnapmirrorRelationshipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateSnapmirrorRelationshipCommandOutput/)
+</details>
+<details>
+<summary>
 CreateSnapshot
 </summary>
 
@@ -266,10 +287,24 @@ CreateSnapshot
 </details>
 <details>
 <summary>
+CreateSnapshotPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/CreateSnapshotPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateSnapshotPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateSnapshotPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 CreateStorageVirtualMachine
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/CreateStorageVirtualMachineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateStorageVirtualMachineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateStorageVirtualMachineCommandOutput/)
+</details>
+<details>
+<summary>
+CreateStorageVirtualMachinePeer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/CreateStorageVirtualMachinePeerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateStorageVirtualMachinePeerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/CreateStorageVirtualMachinePeerCommandOutput/)
 </details>
 <details>
 <summary>
@@ -294,6 +329,13 @@ DeleteBackup
 </details>
 <details>
 <summary>
+DeleteClusterPeer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DeleteClusterPeerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteClusterPeerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteClusterPeerCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteDataRepositoryAssociation
 </summary>
 
@@ -315,6 +357,20 @@ DeleteFileSystem
 </details>
 <details>
 <summary>
+DeleteSnapmirrorPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DeleteSnapmirrorPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteSnapmirrorPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteSnapmirrorPolicyCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteSnapmirrorRelationship
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DeleteSnapmirrorRelationshipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteSnapmirrorRelationshipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteSnapmirrorRelationshipCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteSnapshot
 </summary>
 
@@ -322,10 +378,24 @@ DeleteSnapshot
 </details>
 <details>
 <summary>
+DeleteSnapshotPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DeleteSnapshotPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteSnapshotPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteSnapshotPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteStorageVirtualMachine
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DeleteStorageVirtualMachineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteStorageVirtualMachineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteStorageVirtualMachineCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteStorageVirtualMachinePeer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DeleteStorageVirtualMachinePeerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteStorageVirtualMachinePeerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DeleteStorageVirtualMachinePeerCommandOutput/)
 </details>
 <details>
 <summary>
@@ -340,6 +410,13 @@ DescribeBackups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DescribeBackupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeBackupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeBackupsCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeClusterPeers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DescribeClusterPeersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeClusterPeersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeClusterPeersCommandOutput/)
 </details>
 <details>
 <summary>
@@ -392,10 +469,38 @@ DescribeSharedVpcConfiguration
 </details>
 <details>
 <summary>
+DescribeSnapmirrorPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DescribeSnapmirrorPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeSnapmirrorPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeSnapmirrorPoliciesCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeSnapmirrorRelationships
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DescribeSnapmirrorRelationshipsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeSnapmirrorRelationshipsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeSnapmirrorRelationshipsCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeSnapshotPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DescribeSnapshotPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeSnapshotPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeSnapshotPoliciesCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeSnapshots
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DescribeSnapshotsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeSnapshotsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeSnapshotsCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeStorageVirtualMachinePeers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/DescribeStorageVirtualMachinePeersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeStorageVirtualMachinePeersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/DescribeStorageVirtualMachinePeersCommandOutput/)
 </details>
 <details>
 <summary>
@@ -469,6 +574,13 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdateClusterPeer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/UpdateClusterPeerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateClusterPeerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateClusterPeerCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateDataRepositoryAssociation
 </summary>
 
@@ -497,6 +609,20 @@ UpdateSharedVpcConfiguration
 </details>
 <details>
 <summary>
+UpdateSnapmirrorPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/UpdateSnapmirrorPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateSnapmirrorPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateSnapmirrorPolicyCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateSnapmirrorRelationship
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/UpdateSnapmirrorRelationshipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateSnapmirrorRelationshipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateSnapmirrorRelationshipCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateSnapshot
 </summary>
 
@@ -504,10 +630,24 @@ UpdateSnapshot
 </details>
 <details>
 <summary>
+UpdateSnapshotPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/UpdateSnapshotPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateSnapshotPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateSnapshotPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateStorageVirtualMachine
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/UpdateStorageVirtualMachineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateStorageVirtualMachineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateStorageVirtualMachineCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateStorageVirtualMachinePeer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fsx/command/UpdateStorageVirtualMachinePeerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateStorageVirtualMachinePeerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fsx/Interface/UpdateStorageVirtualMachinePeerCommandOutput/)
 </details>
 <details>
 <summary>

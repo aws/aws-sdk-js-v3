@@ -116,6 +116,10 @@ export interface UpdateStorageVirtualMachineCommandOutput extends UpdateStorageV
  * //     ],
  * //     LifecycleTransitionReason: { // LifecycleTransitionReason
  * //       Message: "STRING_VALUE",
+ * //       OntapError: { // OntapError
+ * //         Message: "STRING_VALUE",
+ * //         Code: "STRING_VALUE",
+ * //       },
  * //     },
  * //     RootVolumeSecurityStyle: "UNIX" || "NTFS" || "MIXED",
  * //   },

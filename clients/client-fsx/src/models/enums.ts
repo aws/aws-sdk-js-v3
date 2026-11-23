@@ -31,6 +31,7 @@ export const AdministrativeActionType = {
   STORAGE_OPTIMIZATION: "STORAGE_OPTIMIZATION",
   STORAGE_TYPE_OPTIMIZATION: "STORAGE_TYPE_OPTIMIZATION",
   THROUGHPUT_OPTIMIZATION: "THROUGHPUT_OPTIMIZATION",
+  VOLUME_CLONE_SPLIT: "VOLUME_CLONE_SPLIT",
   VOLUME_INITIALIZE_WITH_SNAPSHOT: "VOLUME_INITIALIZE_WITH_SNAPSHOT",
   VOLUME_RESTORE: "VOLUME_RESTORE",
   VOLUME_UPDATE: "VOLUME_UPDATE",
@@ -362,12 +363,26 @@ export const SnapshotLifecycle = {
   AVAILABLE: "AVAILABLE",
   CREATING: "CREATING",
   DELETING: "DELETING",
+  FAILED: "FAILED",
   PENDING: "PENDING",
 } as const;
 /**
  * @public
  */
 export type SnapshotLifecycle = (typeof SnapshotLifecycle)[keyof typeof SnapshotLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotType = {
+  ONTAP: "ONTAP",
+  OPENZFS: "OPENZFS",
+} as const;
+/**
+ * @public
+ */
+export type SnapshotType = (typeof SnapshotType)[keyof typeof SnapshotType];
 
 /**
  * @public
@@ -578,6 +593,20 @@ export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
  * @public
  * @enum
  */
+export const AllowedSvmMode = {
+  ALL: "ALL",
+  NONE: "NONE",
+  SPECIFIED: "SPECIFIED",
+} as const;
+/**
+ * @public
+ */
+export type AllowedSvmMode = (typeof AllowedSvmMode)[keyof typeof AllowedSvmMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const EventType = {
   CHANGED: "CHANGED",
   DELETED: "DELETED",
@@ -747,6 +776,21 @@ export type S3AccessPointAttachmentLifecycle =
  * @public
  * @enum
  */
+export const ClusterPeerLifecycle = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ClusterPeerLifecycle = (typeof ClusterPeerLifecycle)[keyof typeof ClusterPeerLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
 export const NfsVersion = {
   NFS3: "NFS3",
 } as const;
@@ -851,6 +895,129 @@ export type FileCacheLifecycle = (typeof FileCacheLifecycle)[keyof typeof FileCa
  * @public
  * @enum
  */
+export const SnapmirrorPolicySnapshotCopyMode = {
+  COPY_ALL_SOURCE_SNAPSHOTS: "COPY_ALL_SOURCE_SNAPSHOTS",
+  COPY_LATEST_SOURCE_SNAPSHOT: "COPY_LATEST_SOURCE_SNAPSHOT",
+  NO_CREATE_SNAPSHOT_ON_SOURCE: "NO_CREATE_SNAPSHOT_ON_SOURCE",
+} as const;
+/**
+ * @public
+ */
+export type SnapmirrorPolicySnapshotCopyMode =
+  (typeof SnapmirrorPolicySnapshotCopyMode)[keyof typeof SnapmirrorPolicySnapshotCopyMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapmirrorPolicyLifecycle = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type SnapmirrorPolicyLifecycle = (typeof SnapmirrorPolicyLifecycle)[keyof typeof SnapmirrorPolicyLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapmirrorPolicyScope = {
+  FILESYSTEM: "FILESYSTEM",
+  SVM: "SVM",
+} as const;
+/**
+ * @public
+ */
+export type SnapmirrorPolicyScope = (typeof SnapmirrorPolicyScope)[keyof typeof SnapmirrorPolicyScope];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapmirrorRelationshipLifecycle = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type SnapmirrorRelationshipLifecycle =
+  (typeof SnapmirrorRelationshipLifecycle)[keyof typeof SnapmirrorRelationshipLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapmirrorRelationshipState = {
+  BROKEN_OFF: "BROKEN_OFF",
+  PAUSED: "PAUSED",
+  SNAPMIRRORED: "SNAPMIRRORED",
+  TRANSFERRING: "TRANSFERRING",
+  UNINITIALIZED: "UNINITIALIZED",
+} as const;
+/**
+ * @public
+ */
+export type SnapmirrorRelationshipState =
+  (typeof SnapmirrorRelationshipState)[keyof typeof SnapmirrorRelationshipState];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotPolicyRetentionPeriodType = {
+  DAYS: "DAYS",
+  HOURS: "HOURS",
+  INFINITE: "INFINITE",
+  MINUTES: "MINUTES",
+  MONTHS: "MONTHS",
+  SECONDS: "SECONDS",
+  YEARS: "YEARS",
+} as const;
+/**
+ * @public
+ */
+export type SnapshotPolicyRetentionPeriodType =
+  (typeof SnapshotPolicyRetentionPeriodType)[keyof typeof SnapshotPolicyRetentionPeriodType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotPolicyLifecycle = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type SnapshotPolicyLifecycle = (typeof SnapshotPolicyLifecycle)[keyof typeof SnapshotPolicyLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotPolicyScope = {
+  FILESYSTEM: "FILESYSTEM",
+  SVM: "SVM",
+} as const;
+/**
+ * @public
+ */
+export type SnapshotPolicyScope = (typeof SnapshotPolicyScope)[keyof typeof SnapshotPolicyScope];
+
+/**
+ * @public
+ * @enum
+ */
 export const StorageVirtualMachineRootVolumeSecurityStyle = {
   MIXED: "MIXED",
   NTFS: "NTFS",
@@ -895,6 +1062,56 @@ export const StorageVirtualMachineSubtype = {
  */
 export type StorageVirtualMachineSubtype =
   (typeof StorageVirtualMachineSubtype)[keyof typeof StorageVirtualMachineSubtype];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageVirtualMachinePeerApplication = {
+  FILE_COPY: "FILE_COPY",
+  FLEXCACHE: "FLEXCACHE",
+  LUN_COPY: "LUN_COPY",
+  SNAPMIRROR: "SNAPMIRROR",
+} as const;
+/**
+ * @public
+ */
+export type StorageVirtualMachinePeerApplication =
+  (typeof StorageVirtualMachinePeerApplication)[keyof typeof StorageVirtualMachinePeerApplication];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageVirtualMachinePeerLifecycle = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type StorageVirtualMachinePeerLifecycle =
+  (typeof StorageVirtualMachinePeerLifecycle)[keyof typeof StorageVirtualMachinePeerLifecycle];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageVirtualMachinePeerState = {
+  INITIALIZING: "INITIALIZING",
+  INITIATED: "INITIATED",
+  PEERED: "PEERED",
+  PENDING: "PENDING",
+  REJECTED: "REJECTED",
+  SUSPENDED: "SUSPENDED",
+} as const;
+/**
+ * @public
+ */
+export type StorageVirtualMachinePeerState =
+  (typeof StorageVirtualMachinePeerState)[keyof typeof StorageVirtualMachinePeerState];
 
 /**
  * @public
@@ -956,6 +1173,18 @@ export type FilterName = (typeof FilterName)[keyof typeof FilterName];
  * @public
  * @enum
  */
+export const ClusterPeerFilterName = {
+  FILE_SYSTEM_ID: "file-system-id",
+} as const;
+/**
+ * @public
+ */
+export type ClusterPeerFilterName = (typeof ClusterPeerFilterName)[keyof typeof ClusterPeerFilterName];
+
+/**
+ * @public
+ * @enum
+ */
 export const DataRepositoryTaskFilterName = {
   DATA_REPO_ASSOCIATION_ID: "data-repository-association-id",
   FILE_CACHE_ID: "file-cache-id",
@@ -987,6 +1216,46 @@ export type S3AccessPointAttachmentsFilterName =
  * @public
  * @enum
  */
+export const SnapmirrorPolicyFilterName = {
+  FILE_SYSTEM_ID: "file-system-id",
+  STORAGE_VIRTUAL_MACHINE_ID: "storage-virtual-machine-id",
+} as const;
+/**
+ * @public
+ */
+export type SnapmirrorPolicyFilterName = (typeof SnapmirrorPolicyFilterName)[keyof typeof SnapmirrorPolicyFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapmirrorRelationshipFilterName = {
+  DESTINATION_VOLUME_ID: "destination-volume-id",
+  FILE_SYSTEM_ID: "file-system-id",
+} as const;
+/**
+ * @public
+ */
+export type SnapmirrorRelationshipFilterName =
+  (typeof SnapmirrorRelationshipFilterName)[keyof typeof SnapmirrorRelationshipFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotPolicyFilterName = {
+  FILE_SYSTEM_ID: "file-system-id",
+  STORAGE_VIRTUAL_MACHINE_ID: "storage-virtual-machine-id",
+} as const;
+/**
+ * @public
+ */
+export type SnapshotPolicyFilterName = (typeof SnapshotPolicyFilterName)[keyof typeof SnapshotPolicyFilterName];
+
+/**
+ * @public
+ * @enum
+ */
 export const SnapshotFilterName = {
   FILE_SYSTEM_ID: "file-system-id",
   VOLUME_ID: "volume-id",
@@ -995,6 +1264,20 @@ export const SnapshotFilterName = {
  * @public
  */
 export type SnapshotFilterName = (typeof SnapshotFilterName)[keyof typeof SnapshotFilterName];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageVirtualMachinePeerFilterName = {
+  FILE_SYSTEM_ID: "file-system-id",
+  STORAGE_VIRTUAL_MACHINE_ID: "storage-virtual-machine-id",
+} as const;
+/**
+ * @public
+ */
+export type StorageVirtualMachinePeerFilterName =
+  (typeof StorageVirtualMachinePeerFilterName)[keyof typeof StorageVirtualMachinePeerFilterName];
 
 /**
  * @public
@@ -1034,3 +1317,45 @@ export const RestoreOpenZFSVolumeOption = {
  * @public
  */
 export type RestoreOpenZFSVolumeOption = (typeof RestoreOpenZFSVolumeOption)[keyof typeof RestoreOpenZFSVolumeOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdatableSnapmirrorRelationshipState = {
+  BROKEN_OFF: "BROKEN_OFF",
+  PAUSED: "PAUSED",
+  SNAPMIRRORED: "SNAPMIRRORED",
+} as const;
+/**
+ * @public
+ */
+export type UpdatableSnapmirrorRelationshipState =
+  (typeof UpdatableSnapmirrorRelationshipState)[keyof typeof UpdatableSnapmirrorRelationshipState];
+
+/**
+ * @public
+ * @enum
+ */
+export const StorageVirtualMachinePeerUpdateState = {
+  PEERED: "PEERED",
+  REJECTED: "REJECTED",
+  SUSPENDED: "SUSPENDED",
+} as const;
+/**
+ * @public
+ */
+export type StorageVirtualMachinePeerUpdateState =
+  (typeof StorageVirtualMachinePeerUpdateState)[keyof typeof StorageVirtualMachinePeerUpdateState];
+
+/**
+ * @public
+ * @enum
+ */
+export const CloneSplitAction = {
+  START: "START",
+} as const;
+/**
+ * @public
+ */
+export type CloneSplitAction = (typeof CloneSplitAction)[keyof typeof CloneSplitAction];

@@ -2,10 +2,14 @@
 import type {
   AdministrativeActionType,
   AliasLifecycle,
+  AllowedSvmMode,
   AutocommitPeriodType,
   AutoImportPolicyType,
   BackupLifecycle,
   BackupType,
+  CloneSplitAction,
+  ClusterPeerFilterName,
+  ClusterPeerLifecycle,
   DataCompressionType,
   DataRepositoryLifecycle,
   DataRepositoryTaskFilterName,
@@ -51,16 +55,34 @@ import type {
   S3AccessPointAttachmentType,
   SecurityStyle,
   SnaplockType,
+  SnapmirrorPolicyFilterName,
+  SnapmirrorPolicyLifecycle,
+  SnapmirrorPolicyScope,
+  SnapmirrorPolicySnapshotCopyMode,
+  SnapmirrorRelationshipFilterName,
+  SnapmirrorRelationshipLifecycle,
+  SnapmirrorRelationshipState,
   SnapshotFilterName,
   SnapshotLifecycle,
+  SnapshotPolicyFilterName,
+  SnapshotPolicyLifecycle,
+  SnapshotPolicyRetentionPeriodType,
+  SnapshotPolicyScope,
+  SnapshotType,
   Status,
   StorageType,
   StorageVirtualMachineFilterName,
   StorageVirtualMachineLifecycle,
+  StorageVirtualMachinePeerApplication,
+  StorageVirtualMachinePeerFilterName,
+  StorageVirtualMachinePeerLifecycle,
+  StorageVirtualMachinePeerState,
+  StorageVirtualMachinePeerUpdateState,
   StorageVirtualMachineRootVolumeSecurityStyle,
   StorageVirtualMachineSubtype,
   TieringPolicyName,
   Unit,
+  UpdatableSnapmirrorRelationshipState,
   UpdateOpenZFSVolumeOption,
   VolumeFilterName,
   VolumeLifecycle,
@@ -1450,6 +1472,25 @@ export interface WindowsFileSystemConfiguration {
 }
 
 /**
+ * <p>An error returned by ONTAP for an operation on an Amazon FSx for NetApp ONTAP
+ *             resource.</p>
+ * @public
+ */
+export interface OntapError {
+  /**
+   * <p>The error message returned by ONTAP.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The error code returned by ONTAP.</p>
+   * @public
+   */
+  Code?: string | undefined;
+}
+
+/**
  * <p>Describes why a resource lifecycle state changed.</p>
  * @public
  */
@@ -1459,6 +1500,54 @@ export interface LifecycleTransitionReason {
    * @public
    */
   Message?: string | undefined;
+
+  /**
+   * <p>The error returned by ONTAP when an operation on the resource fails. Returned only
+   *             for certain FSx for ONTAP resources.</p>
+   * @public
+   */
+  OntapError?: OntapError | undefined;
+}
+
+/**
+ * <p>The configuration of an Amazon FSx for NetApp ONTAP snapshot.</p>
+ * @public
+ */
+export interface OntapSnapshotConfiguration {
+  /**
+   * <p>The configured size of the snapshot, in megabytes (MBs).</p>
+   * @public
+   */
+  SizeInMegabytes?: number | undefined;
+
+  /**
+   * <p>The SnapMirror label of the snapshot. SnapMirror policies use labels to select which
+   *             snapshots to replicate to a destination volume.</p>
+   * @public
+   */
+  SnapmirrorLabel?: string | undefined;
+
+  /**
+   * <p>The date and time when the snapshot expires. You can't delete the snapshot before
+   *             this time.</p>
+   * @public
+   */
+  ExpiryTime?: Date | undefined;
+
+  /**
+   * <p>The date and time until which the snapshot is locked. This setting takes effect only
+   *             if snapshot locking is enabled on the volume. Snapshot locking is separate from SnapLock,
+   *             and enabling SnapLock on a volume doesn't enable snapshot locking. You can't delete the
+   *             snapshot before this time.</p>
+   * @public
+   */
+  SnaplockExpiryTime?: Date | undefined;
+
+  /**
+   * <p>The snapshot's universally unique identifier (UUID).</p>
+   * @public
+   */
+  UUID?: string | undefined;
 }
 
 /**
@@ -1489,6 +1578,26 @@ export interface AggregateConfiguration {
    * @public
    */
   TotalConstituents?: number | undefined;
+}
+
+/**
+ * <p>Describes the parent volume, and the snapshot if one was specified, that an
+ *             FSx for ONTAP volume clone was created from.</p>
+ * @public
+ */
+export interface CloneConfiguration {
+  /**
+   * <p>The ID of the parent volume that the clone was created from.</p>
+   * @public
+   */
+  ParentVolumeId?: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot of the parent volume that the clone was created from, if you
+   *             specified one when you created the clone.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
 }
 
 /**
@@ -1937,6 +2046,14 @@ export interface OntapVolumeConfiguration {
    * @public
    */
   SizeInBytes?: number | undefined;
+
+  /**
+   * <p>The clone configuration of the volume, if the volume is a clone. This property doesn't
+   *             appear for a volume that isn't a clone, or for a clone that has been split from its
+   *             parent volume.</p>
+   * @public
+   */
+  CloneConfiguration?: CloneConfiguration | undefined;
 }
 
 /**
@@ -2982,6 +3099,236 @@ export interface CreateBackupRequest {
    * @public
    */
   VolumeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateClusterPeerRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the Amazon FSx for NetApp ONTAP file system on which to create the
+   *             cluster peer relationship.</p>
+   * @public
+   */
+  FileSystemId: string | undefined;
+
+  /**
+   * <p>Specifies the IP addresses of the intercluster logical interfaces (LIFs) on the peer
+   *             cluster.</p>
+   * @public
+   */
+  PeerAddresses: string[] | undefined;
+
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager
+   *             secret containing the cluster peering passphrase. Store the passphrase as a plaintext
+   *             secret value, not as a key-value pair. The secret must be in the same
+   *             Amazon Web Services Region as the file system. You must use the same passphrase when you
+   *             create the cluster peer relationship on the peer cluster.</p>
+   * @public
+   */
+  PassphraseSecretArn: string | undefined;
+
+  /**
+   * <p>Specifies the name that the file system uses to identify the peer cluster.</p>
+   * @public
+   */
+  PeerClusterName?: string | undefined;
+
+  /**
+   * <p>Specifies which SVMs on the file system are preauthorized for SVM peering with the
+   *             peer cluster.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> – All SVMs on the file system are preauthorized. You can't
+   *                     specify <code>AllowedSvmIds</code> along with this property.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – No SVMs on the file system are preauthorized. You can't
+   *                     specify <code>AllowedSvmIds</code> along with this property.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPECIFIED</code> – Only the SVMs in <code>AllowedSvmIds</code> are
+   *                     preauthorized. You must specify <code>AllowedSvmIds</code> along with this
+   *                     property.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AllowedSvmMode: AllowedSvmMode | undefined;
+
+  /**
+   * <p>Specifies the IDs of the SVMs on the file system that are preauthorized for SVM
+   *             peering with the peer cluster. You can specify <code>AllowedSvmIds</code> only when
+   *             <code>AllowedSvmMode</code> is <code>SPECIFIED</code>.</p>
+   * @public
+   */
+  AllowedSvmIds?: string[] | undefined;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Describes the authentication status of an Amazon FSx for NetApp ONTAP cluster peer
+ *             relationship.</p>
+ * @public
+ */
+export interface ClusterPeerAuthenticationStatus {
+  /**
+   * <p>The authentication state of the cluster peer relationship.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The status of the authentication that the cluster peer relationship is using.</p>
+   * @public
+   */
+  InUse?: string | undefined;
+}
+
+/**
+ * <p>Describes an Amazon FSx for NetApp ONTAP cluster peer relationship.</p>
+ * @public
+ */
+export interface ClusterPeer {
+  /**
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
+   *             resources. We require an ARN when you need to specify a resource unambiguously across
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  ResourceARN?: string | undefined;
+
+  /**
+   * <p>The system-generated, unique ID of the cluster peer.</p>
+   * @public
+   */
+  ClusterPeerId?: string | undefined;
+
+  /**
+   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   * @public
+   */
+  FileSystemId?: string | undefined;
+
+  /**
+   * <p>The lifecycle status of the cluster peer can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code> – The cluster peer is fully available for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – Amazon FSx is creating the cluster
+   *                     peer.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> – Amazon FSx is deleting the cluster
+   *                     peer.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – Amazon FSx was unable to create the cluster
+   *                     peer.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Lifecycle?: ClusterPeerLifecycle | undefined;
+
+  /**
+   * <p>The reason why the cluster peer lifecycle status changed.</p>
+   * @public
+   */
+  LifecycleTransitionReason?: LifecycleTransitionReason | undefined;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The IP addresses of the intercluster logical interfaces (LIFs) on the peer
+   *             cluster.</p>
+   * @public
+   */
+  PeerAddresses?: string[] | undefined;
+
+  /**
+   * <p>The name that the file system uses to identify the peer cluster.</p>
+   * @public
+   */
+  PeerClusterName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret
+   *             containing the cluster peering passphrase.</p>
+   * @public
+   */
+  PassphraseSecretArn?: string | undefined;
+
+  /**
+   * <p>Indicates which SVMs on the file system are preauthorized for SVM peering with the
+   *             peer cluster.</p>
+   * @public
+   */
+  AllowedSvmMode?: AllowedSvmMode | undefined;
+
+  /**
+   * <p>The IDs of the SVMs on the file system that are preauthorized for SVM peering with the
+   *             peer cluster, if <code>AllowedSvmMode</code> is <code>SPECIFIED</code>.</p>
+   * @public
+   */
+  AllowedSvmIds?: string[] | undefined;
+
+  /**
+   * <p>The status of the connection to the peer cluster.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The cluster peer's universally unique identifier (UUID).</p>
+   * @public
+   */
+  UUID?: string | undefined;
+
+  /**
+   * <p>The authentication status of the cluster peer relationship.</p>
+   * @public
+   */
+  AuthenticationStatus?: ClusterPeerAuthenticationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateClusterPeerResponse {
+  /**
+   * <p>A description of the cluster peer.</p>
+   * @public
+   */
+  ClusterPeer?: ClusterPeer | undefined;
 }
 
 /**
@@ -6043,6 +6390,685 @@ export interface CreateFileSystemFromBackupRequest {
 }
 
 /**
+ * <p>Specifies a snapshot retention rule for an Amazon FSx for NetApp ONTAP SnapMirror
+ *             policy.</p>
+ * @public
+ */
+export interface SnapmirrorPolicyRetentionRule {
+  /**
+   * <p>The SnapMirror label of the snapshots that the rule applies to.</p>
+   * @public
+   */
+  Label: string | undefined;
+
+  /**
+   * <p>The number of snapshots with the label to retain on the destination volume.</p>
+   * @public
+   */
+  Count: number | undefined;
+
+  /**
+   * <p>The name of the ONTAP schedule on which SnapMirror creates snapshots with the label
+   *             directly on the destination volume.</p>
+   * @public
+   */
+  CreationSchedule?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSnapmirrorPolicyRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the Amazon FSx for NetApp ONTAP file system on which to create the
+   *             SnapMirror policy. You must specify either a <code>FileSystemId</code> or a
+   *             <code>StorageVirtualMachineId</code>, but not both.</p>
+   * @public
+   */
+  FileSystemId?: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the SVM on which to create the SnapMirror policy. You must specify
+   *             either a <code>FileSystemId</code> or a <code>StorageVirtualMachineId</code>, but not
+   *             both.</p>
+   * @public
+   */
+  StorageVirtualMachineId?: string | undefined;
+
+  /**
+   * <p>Specifies the name of the SnapMirror policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies which snapshots SnapMirror transfers to the destination volume:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COPY_ALL_SOURCE_SNAPSHOTS</code> – SnapMirror copies all snapshots
+   *                     of the source volume to the destination volume on a transfer. You can't specify
+   *                     <code>RetentionRules</code> along with this property.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COPY_LATEST_SOURCE_SNAPSHOT</code> – SnapMirror copies the latest
+   *                     snapshot of the source volume to the destination volume on a transfer.
+   *                     You can't specify <code>RetentionRules</code> along with this property.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NO_CREATE_SNAPSHOT_ON_SOURCE</code> – SnapMirror doesn't create a
+   *                     snapshot on the source volume at beginning of an update or resync operation.
+   *                     You must specify <code>RetentionRules</code> along with this property.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a <code>SnapshotCopyMode</code>, SnapMirror creates a new
+   *             snapshot of the source volume and copies it, along with any snapshots that match
+   *             <code>RetentionRules</code>, to the destination volume on a transfer.
+   *             <code>RetentionRules</code> is optional.</p>
+   * @public
+   */
+  SnapshotCopyMode?: SnapmirrorPolicySnapshotCopyMode | undefined;
+
+  /**
+   * <p>Specifies the rules that determine which snapshots SnapMirror retains on the
+   *             destination volume, based on their SnapMirror labels.</p>
+   * @public
+   */
+  RetentionRules?: SnapmirrorPolicyRetentionRule[] | undefined;
+
+  /**
+   * <p>Specifies the name of the ONTAP schedule that determines when SnapMirror transfers
+   *             data.</p>
+   * @public
+   */
+  TransferSchedule?: string | undefined;
+
+  /**
+   * <p>Specifies whether SnapMirror compresses data when it transfers the data over the
+   *             network. This value defaults to <code>false</code>.</p>
+   * @public
+   */
+  NetworkCompressionEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies the maximum bandwidth, in kilobytes per second (KBps), that SnapMirror uses to
+   *             transfer data. A value of <code>0</code> means that the bandwidth is unlimited.</p>
+   * @public
+   */
+  ThrottleInKbps?: number | undefined;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Describes an Amazon FSx for NetApp ONTAP SnapMirror policy.</p>
+ * @public
+ */
+export interface SnapmirrorPolicy {
+  /**
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
+   *             resources. We require an ARN when you need to specify a resource unambiguously across
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  ResourceARN?: string | undefined;
+
+  /**
+   * <p>The system-generated, unique ID of the SnapMirror policy.</p>
+   * @public
+   */
+  SnapmirrorPolicyId?: string | undefined;
+
+  /**
+   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   * @public
+   */
+  FileSystemId?: string | undefined;
+
+  /**
+   * <p>The ID of the SnapMirror policy's storage virtual machine, if you created the
+   *             SnapMirror policy on a storage virtual machine.</p>
+   * @public
+   */
+  StorageVirtualMachineId?: string | undefined;
+
+  /**
+   * <p>The name of the SnapMirror policy.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The snapshot copy mode of the SnapMirror policy, which determines which snapshots
+   *             SnapMirror transfers to the destination volume.</p>
+   * @public
+   */
+  SnapshotCopyMode?: SnapmirrorPolicySnapshotCopyMode | undefined;
+
+  /**
+   * <p>The rules that determine which snapshots SnapMirror retains on the destination
+   *             volume.</p>
+   * @public
+   */
+  RetentionRules?: SnapmirrorPolicyRetentionRule[] | undefined;
+
+  /**
+   * <p>The name of the ONTAP schedule that determines when SnapMirror transfers data.</p>
+   * @public
+   */
+  TransferSchedule?: string | undefined;
+
+  /**
+   * <p>Specifies whether SnapMirror compresses data when it transfers the data over the
+   *             network. This value defaults to <code>false</code>.</p>
+   * @public
+   */
+  NetworkCompressionEnabled?: boolean | undefined;
+
+  /**
+   * <p>The maximum bandwidth, in kilobytes per second (KBps), that SnapMirror uses to transfer data.
+   *             A value of <code>0</code> means that the bandwidth is unlimited.</p>
+   * @public
+   */
+  ThrottleInKbps?: number | undefined;
+
+  /**
+   * <p>The scope of the SnapMirror policy can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FILESYSTEM</code> – The SnapMirror policy was created on the file
+   *                     system.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SVM</code> – The SnapMirror policy was created on an SVM.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Scope?: SnapmirrorPolicyScope | undefined;
+
+  /**
+   * <p>The lifecycle status of the SnapMirror policy can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code> – The SnapMirror policy is fully available for
+   *                     use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – Amazon FSx is creating the SnapMirror
+   *                     policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> – Amazon FSx is deleting the SnapMirror
+   *                     policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – Amazon FSx was unable to create the SnapMirror
+   *                     policy.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Lifecycle?: SnapmirrorPolicyLifecycle | undefined;
+
+  /**
+   * <p>The SnapMirror policy's universally unique identifier (UUID).</p>
+   * @public
+   */
+  UUID?: string | undefined;
+
+  /**
+   * <p>The reason why the SnapMirror policy lifecycle status changed.</p>
+   * @public
+   */
+  LifecycleTransitionReason?: LifecycleTransitionReason | undefined;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSnapmirrorPolicyResponse {
+  /**
+   * <p>A description of the SnapMirror policy.</p>
+   * @public
+   */
+  SnapmirrorPolicy?: SnapmirrorPolicy | undefined;
+}
+
+/**
+ * <p>Specifies the destination endpoint of the Amazon FSx for NetApp ONTAP SnapMirror
+ *             relationship that you are creating.</p>
+ * @public
+ */
+export interface CreateSnapmirrorDestination {
+  /**
+   * <p>Specifies the ID of the destination volume.</p>
+   * @public
+   */
+  VolumeId: string | undefined;
+}
+
+/**
+ * <p>Specifies the source endpoint of the Amazon FSx for NetApp ONTAP SnapMirror relationship
+ *             that you are creating.</p>
+ * @public
+ */
+export interface CreateSnapmirrorSource {
+  /**
+   * <p>Specifies the path of the source volume, in the format
+   *             <code>svm_name:volume_name</code>.</p>
+   * @public
+   */
+  Path: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSnapmirrorRelationshipRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>Specifies the source endpoint of the SnapMirror relationship.</p>
+   * @public
+   */
+  Source: CreateSnapmirrorSource | undefined;
+
+  /**
+   * <p>Specifies the destination endpoint of the SnapMirror relationship.</p>
+   * @public
+   */
+  Destination: CreateSnapmirrorDestination | undefined;
+
+  /**
+   * <p>Specifies the ID of the SnapMirror policy that the SnapMirror relationship uses.</p>
+   * @public
+   */
+  PolicyId?: string | undefined;
+
+  /**
+   * <p>Specifies the name of the ONTAP schedule that determines when SnapMirror transfers data
+   *             for the relationship. This schedule overrides the transfer schedule of the SnapMirror
+   *             policy.</p>
+   * @public
+   */
+  TransferSchedule?: string | undefined;
+
+  /**
+   * <p>Specifies the maximum bandwidth, in kilobytes per second (KBps), that SnapMirror uses to
+   *             transfer data for the relationship. A value of <code>0</code> means that the bandwidth is
+   *             unlimited. This value overrides the throttle of the SnapMirror policy.</p>
+   * @public
+   */
+  ThrottleInKbps?: number | undefined;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Describes the destination endpoint of an Amazon FSx for NetApp ONTAP SnapMirror
+ *             relationship. The destination volume is always an Amazon FSx for NetApp ONTAP
+ *             volume.</p>
+ * @public
+ */
+export interface SnapmirrorDestination {
+  /**
+   * <p>The path of the destination volume, in the format
+   *             <code>svm_name:volume_name</code>.</p>
+   * @public
+   */
+  Path?: string | undefined;
+
+  /**
+   * <p>The ID of the destination volume.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+}
+
+/**
+ * <p>Describes the latest snapshot that SnapMirror transferred to the destination volume of an
+ *             Amazon FSx for NetApp ONTAP SnapMirror relationship.</p>
+ * @public
+ */
+export interface SnapmirrorExportedSnapshot {
+  /**
+   * <p>The ID of the snapshot, if Amazon FSx manages the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The name of the snapshot in ONTAP.</p>
+   * @public
+   */
+  SnapshotName?: string | undefined;
+}
+
+/**
+ * <p>Describes the SnapMirror policy that an Amazon FSx for NetApp ONTAP SnapMirror
+ *             relationship uses.</p>
+ * @public
+ */
+export interface SnapmirrorRelationshipPolicy {
+  /**
+   * <p>The ID of the SnapMirror policy.</p>
+   * @public
+   */
+  PolicyId?: string | undefined;
+
+  /**
+   * <p>The name of the SnapMirror policy in ONTAP.</p>
+   * @public
+   */
+  PolicyName?: string | undefined;
+}
+
+/**
+ * <p>Describes the source endpoint of an Amazon FSx for NetApp ONTAP SnapMirror relationship.
+ *             The source volume can be on an Amazon FSx for NetApp ONTAP file system or on another ONTAP
+ *             cluster.</p>
+ * @public
+ */
+export interface SnapmirrorSource {
+  /**
+   * <p>The path of the source volume, in the format
+   *             <code>svm_name:volume_name</code>.</p>
+   * @public
+   */
+  Path?: string | undefined;
+}
+
+/**
+ * <p>Describes the latest transfer of an Amazon FSx for NetApp ONTAP SnapMirror
+ *             relationship.</p>
+ * @public
+ */
+export interface SnapmirrorTransferState {
+  /**
+   * <p>The state of the transfer that ONTAP reports.</p>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The type of the transfer that ONTAP reports.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The number of bytes that the transfer transferred.</p>
+   * @public
+   */
+  BytesTransferred?: number | undefined;
+
+  /**
+   * <p>The duration of the transfer, in ISO 8601 duration format.</p>
+   * @public
+   */
+  Duration?: string | undefined;
+
+  /**
+   * <p>The time that the transfer ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
+ * <p>Describes an Amazon FSx for NetApp ONTAP SnapMirror relationship.</p>
+ * @public
+ */
+export interface SnapmirrorRelationship {
+  /**
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
+   *             resources. We require an ARN when you need to specify a resource unambiguously across
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  ResourceARN?: string | undefined;
+
+  /**
+   * <p>The system-generated, unique ID of the SnapMirror relationship.</p>
+   * @public
+   */
+  SnapmirrorRelationshipId?: string | undefined;
+
+  /**
+   * <p>The globally unique ID of the file system that the destination volume is on, assigned by
+   *             Amazon FSx.</p>
+   * @public
+   */
+  FileSystemId?: string | undefined;
+
+  /**
+   * <p>The lifecycle status of the SnapMirror relationship can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code> – The SnapMirror relationship is fully available for
+   *                     use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – Amazon FSx is creating the SnapMirror
+   *                     relationship.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> – Amazon FSx is deleting the SnapMirror
+   *                     relationship.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – Amazon FSx was unable to create the SnapMirror
+   *                     relationship.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Lifecycle?: SnapmirrorRelationshipLifecycle | undefined;
+
+  /**
+   * <p>The reason why the SnapMirror relationship lifecycle status changed.</p>
+   * @public
+   */
+  LifecycleTransitionReason?: LifecycleTransitionReason | undefined;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The source endpoint of the SnapMirror relationship.</p>
+   * @public
+   */
+  Source?: SnapmirrorSource | undefined;
+
+  /**
+   * <p>The destination endpoint of the SnapMirror relationship.</p>
+   * @public
+   */
+  Destination?: SnapmirrorDestination | undefined;
+
+  /**
+   * <p>The SnapMirror policy that the SnapMirror relationship uses.</p>
+   * @public
+   */
+  SnapmirrorPolicy?: SnapmirrorRelationshipPolicy | undefined;
+
+  /**
+   * <p>The name of the ONTAP schedule that determines when SnapMirror transfers data for the
+   *             relationship. This schedule overrides the transfer schedule of the SnapMirror
+   *             policy.</p>
+   * @public
+   */
+  TransferSchedule?: string | undefined;
+
+  /**
+   * <p>The maximum bandwidth, in kilobytes per second (KBps), that SnapMirror uses to transfer data for
+   *             the relationship. A value of <code>0</code> means that the bandwidth is unlimited. This
+   *             value overrides the throttle of the SnapMirror policy.</p>
+   * @public
+   */
+  ThrottleInKbps?: number | undefined;
+
+  /**
+   * <p>The state of the SnapMirror relationship in ONTAP can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>UNINITIALIZED</code> – SnapMirror hasn't transferred the baseline copy of
+   *                     the source volume to the destination volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRANSFERRING</code> – SnapMirror is transferring data to the destination
+   *                     volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SNAPMIRRORED</code> – SnapMirror transferred the baseline copy, and the
+   *                     destination volume receives updates from the source volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PAUSED</code> – SnapMirror transfers for the relationship are
+   *                     paused.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BROKEN_OFF</code> – The relationship is broken off, and the destination
+   *                     volume is writable. SnapMirror doesn't transfer data to the destination
+   *                     volume.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: SnapmirrorRelationshipState | undefined;
+
+  /**
+   * <p>Indicates whether ONTAP reports the SnapMirror relationship as healthy.</p>
+   * @public
+   */
+  Healthy?: boolean | undefined;
+
+  /**
+   * <p>The reason that ONTAP reports for why the SnapMirror relationship is unhealthy, if
+   *             <code>Healthy</code> is <code>false</code>.</p>
+   * @public
+   */
+  UnhealthyReason?: string | undefined;
+
+  /**
+   * <p>The time, in minutes, since ONTAP created the latest snapshot that SnapMirror transferred
+   *             to the destination volume.</p>
+   * @public
+   */
+  LagTimeInMinutes?: number | undefined;
+
+  /**
+   * <p>The latest snapshot that SnapMirror transferred to the destination volume.</p>
+   * @public
+   */
+  ExportedSnapshot?: SnapmirrorExportedSnapshot | undefined;
+
+  /**
+   * <p>The latest SnapMirror transfer for the relationship. If a transfer is in progress, this is
+   *             the in-progress transfer. Otherwise, it's the most recently completed transfer.</p>
+   * @public
+   */
+  TransferState?: SnapmirrorTransferState | undefined;
+
+  /**
+   * <p>The SnapMirror relationship's universally unique identifier (UUID).</p>
+   * @public
+   */
+  UUID?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSnapmirrorRelationshipResponse {
+  /**
+   * <p>A description of the SnapMirror relationship.</p>
+   * @public
+   */
+  SnapmirrorRelationship?: SnapmirrorRelationship | undefined;
+}
+
+/**
+ * <p>Specifies the configuration of the ONTAP snapshot that you are creating.</p>
+ * @public
+ */
+export interface CreateOntapSnapshotConfiguration {
+  /**
+   * <p>Specifies the SnapMirror label to assign to the snapshot. SnapMirror policies use labels to
+   *             select which snapshots to replicate to a destination volume.</p>
+   * @public
+   */
+  SnapmirrorLabel?: string | undefined;
+
+  /**
+   * <p>Specifies the date and time when the snapshot expires. You can't delete the snapshot before
+   *             this time.</p>
+   * @public
+   */
+  ExpiryTime?: Date | undefined;
+
+  /**
+   * <p>Specifies the date and time until which the snapshot is locked. This setting takes
+   *             effect only if snapshot locking is enabled on the volume. Snapshot locking is separate from
+   *             SnapLock, and enabling SnapLock on a volume doesn't enable snapshot locking. You can't
+   *             delete the snapshot before this time.</p>
+   * @public
+   */
+  SnaplockExpiryTime?: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateSnapshotRequest {
@@ -6071,6 +7097,253 @@ export interface CreateSnapshotRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Specifies the configuration to use when creating the ONTAP snapshot.</p>
+   * @public
+   */
+  OntapConfiguration?: CreateOntapSnapshotConfiguration | undefined;
+}
+
+/**
+ * <p>The length of time that snapshots created by this schedule are locked. This setting
+ *             applies only to volumes that have snapshot locking enabled.</p>
+ * @public
+ */
+export interface SnapshotPolicyRetentionPeriod {
+  /**
+   * <p>The unit of time for the retention period. If you set it to
+   *             <code>INFINITE</code>, the snapshots are retained forever.</p>
+   * @public
+   */
+  Type: SnapshotPolicyRetentionPeriodType | undefined;
+
+  /**
+   * <p>Defines the amount of time for the retention period. You can't set a value for
+   *             <code>INFINITE</code>.</p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * <p>Specifies a schedule for an Amazon FSx for NetApp ONTAP snapshot policy.</p>
+ * @public
+ */
+export interface SnapshotPolicySchedule {
+  /**
+   * <p>The name of the ONTAP schedule that determines when snapshots are created.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The number of snapshots to retain for the schedule.</p>
+   * @public
+   */
+  Count: number | undefined;
+
+  /**
+   * <p>The prefix for the schedule to use when creating snapshots.</p>
+   * @public
+   */
+  Prefix?: string | undefined;
+
+  /**
+   * <p>The SnapMirror label to assign to the snapshots that the schedule creates. SnapMirror
+   *             policies use labels to select which snapshots to replicate to a destination
+   *             volume.</p>
+   * @public
+   */
+  SnapmirrorLabel?: string | undefined;
+
+  /**
+   * <p>The length of time that the snapshots that the schedule creates are locked. This
+   *             setting applies only to volumes that have snapshot locking enabled.</p>
+   * @public
+   */
+  RetentionPeriod?: SnapshotPolicyRetentionPeriod | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSnapshotPolicyRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the Amazon FSx for NetApp ONTAP file system on which to create the
+   *             snapshot policy. You must specify either a <code>FileSystemId</code> or a
+   *             <code>StorageVirtualMachineId</code>, but not both.</p>
+   * @public
+   */
+  FileSystemId?: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the SVM on which to create the snapshot policy. You must specify
+   *             either a <code>FileSystemId</code> or a <code>StorageVirtualMachineId</code>, but not
+   *             both.</p>
+   * @public
+   */
+  StorageVirtualMachineId?: string | undefined;
+
+  /**
+   * <p>Specifies the name of the snapshot policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies whether the snapshot policy is enabled. This value defaults to
+   *             <code>true</code>.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies the schedules on which ONTAP creates snapshots for the snapshot
+   *             policy.</p>
+   * @public
+   */
+  Schedules: SnapshotPolicySchedule[] | undefined;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Describes an Amazon FSx for NetApp ONTAP snapshot policy.</p>
+ * @public
+ */
+export interface SnapshotPolicy {
+  /**
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
+   *             resources. We require an ARN when you need to specify a resource unambiguously across
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  ResourceARN?: string | undefined;
+
+  /**
+   * <p>The system-generated, unique ID of the snapshot policy.</p>
+   * @public
+   */
+  SnapshotPolicyId?: string | undefined;
+
+  /**
+   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   * @public
+   */
+  FileSystemId?: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot policy's storage virtual machine, if you created the
+   *             snapshot policy on a storage virtual machine.</p>
+   * @public
+   */
+  StorageVirtualMachineId?: string | undefined;
+
+  /**
+   * <p>The name of the snapshot policy.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Specifies whether the snapshot policy is enabled. This value defaults to
+   *             <code>true</code>.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The schedules on which ONTAP creates snapshots for the snapshot policy.</p>
+   * @public
+   */
+  Schedules?: SnapshotPolicySchedule[] | undefined;
+
+  /**
+   * <p>The scope of the snapshot policy can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FILESYSTEM</code> – The snapshot policy was created on the file
+   *                     system.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SVM</code> – The snapshot policy was created on an SVM.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Scope?: SnapshotPolicyScope | undefined;
+
+  /**
+   * <p>The lifecycle status of the snapshot policy can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code> – The snapshot policy is fully available for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – Amazon FSx is creating the snapshot
+   *                     policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> – Amazon FSx is deleting the snapshot
+   *                     policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – Amazon FSx was unable to create the snapshot
+   *                     policy.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Lifecycle?: SnapshotPolicyLifecycle | undefined;
+
+  /**
+   * <p>The snapshot policy's universally unique identifier (UUID).</p>
+   * @public
+   */
+  UUID?: string | undefined;
+
+  /**
+   * <p>The reason why the snapshot policy lifecycle status changed.</p>
+   * @public
+   */
+  LifecycleTransitionReason?: LifecycleTransitionReason | undefined;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSnapshotPolicyResponse {
+  /**
+   * <p>A description of the snapshot policy.</p>
+   * @public
+   */
+  SnapshotPolicy?: SnapshotPolicy | undefined;
 }
 
 /**
@@ -6381,6 +7654,221 @@ export interface CreateStorageVirtualMachineResponse {
 }
 
 /**
+ * @public
+ */
+export interface CreateStorageVirtualMachinePeerRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the SVM on which to create the SVM peer relationship.</p>
+   * @public
+   */
+  StorageVirtualMachineId: string | undefined;
+
+  /**
+   * <p>Specifies the name of the SVM to peer with.</p>
+   * @public
+   */
+  PeerSvmName: string | undefined;
+
+  /**
+   * <p>Specifies the name of the peer cluster that the peer SVM is on.</p>
+   * @public
+   */
+  PeerClusterName?: string | undefined;
+
+  /**
+   * <p>Specifies the applications that the SVM peer relationship authorizes.</p>
+   * @public
+   */
+  Applications: StorageVirtualMachinePeerApplication[] | undefined;
+
+  /**
+   * <p>Specifies the name that the local cluster uses to identify the peer SVM.</p>
+   * @public
+   */
+  PeerSvmAlias?: string | undefined;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Describes an Amazon FSx for NetApp ONTAP storage virtual machine (SVM) peer
+ *             relationship.</p>
+ * @public
+ */
+export interface StorageVirtualMachinePeer {
+  /**
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
+   *             resources. We require an ARN when you need to specify a resource unambiguously across
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  ResourceARN?: string | undefined;
+
+  /**
+   * <p>The system-generated, unique ID of the SVM peer.</p>
+   * @public
+   */
+  StorageVirtualMachinePeerId?: string | undefined;
+
+  /**
+   * <p>The ID of the SVM on the file system that the SVM peer relationship belongs to.</p>
+   * @public
+   */
+  StorageVirtualMachineId?: string | undefined;
+
+  /**
+   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   * @public
+   */
+  FileSystemId?: string | undefined;
+
+  /**
+   * <p>The lifecycle status of the SVM peer can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATED</code> – The SVM peer is fully available for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> – Amazon FSx is creating the SVM peer.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> – Amazon FSx is deleting the SVM peer.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – Amazon FSx was unable to create the SVM
+   *                     peer.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Lifecycle?: StorageVirtualMachinePeerLifecycle | undefined;
+
+  /**
+   * <p>The reason why the SVM peer lifecycle status changed.</p>
+   * @public
+   */
+  LifecycleTransitionReason?: LifecycleTransitionReason | undefined;
+
+  /**
+   * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The name of the SVM on the peer cluster.</p>
+   * @public
+   */
+  PeerSvmName?: string | undefined;
+
+  /**
+   * <p>The name that the local cluster uses to identify the peer SVM.</p>
+   * @public
+   */
+  PeerSvmAlias?: string | undefined;
+
+  /**
+   * <p>The name of the peer cluster that the peer SVM is on.</p>
+   * @public
+   */
+  PeerClusterName?: string | undefined;
+
+  /**
+   * <p>The applications that the SVM peer relationship authorizes. The applications can be one
+   *             or more of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SNAPMIRROR</code> – SnapMirror replication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FILE_COPY</code> – File copy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LUN_COPY</code> – LUN copy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FLEXCACHE</code> – FlexCache.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Applications?: StorageVirtualMachinePeerApplication[] | undefined;
+
+  /**
+   * <p>The state of the SVM peer relationship in ONTAP can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PEERED</code> – The SVM peer relationship is established.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INITIATED</code> – The local cluster sent a peering request to the peer
+   *                     SVM.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> – A peering request from the peer SVM is waiting for
+   *                     acceptance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INITIALIZING</code> – ONTAP is setting up the SVM peer
+   *                     relationship.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUSPENDED</code> – The SVM peer relationship is suspended.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTED</code> – The peering request was rejected.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: StorageVirtualMachinePeerState | undefined;
+
+  /**
+   * <p>The SVM peer's universally unique identifier (UUID).</p>
+   * @public
+   */
+  UUID?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateStorageVirtualMachinePeerResponse {
+  /**
+   * <p>A description of the SVM peer.</p>
+   * @public
+   */
+  StorageVirtualMachinePeer?: StorageVirtualMachinePeer | undefined;
+}
+
+/**
  * <p>Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.</p>
  * @public
  */
@@ -6396,6 +7884,28 @@ export interface CreateAggregateConfiguration {
    * @public
    */
   ConstituentsPerAggregate?: number | undefined;
+}
+
+/**
+ * <p>Specifies the parent volume, and optionally the snapshot, that an
+ *             FSx for ONTAP volume clone is created from.</p>
+ * @public
+ */
+export interface CreateCloneConfiguration {
+  /**
+   * <p>Specifies the ID of the volume to clone.</p>
+   * @public
+   */
+  ParentVolumeId: string | undefined;
+
+  /**
+   * <p>Specifies the ID of a snapshot of the parent volume to create the clone from. The
+   *             snapshot's lifecycle state must be <code>AVAILABLE</code>. If you don't specify a
+   *             snapshot, ONTAP creates a new snapshot of the parent volume and creates the clone from
+   *             it.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
 }
 
 /**
@@ -6653,6 +8163,14 @@ export interface CreateOntapVolumeConfiguration {
    * @public
    */
   SizeInBytes?: number | undefined;
+
+  /**
+   * <p>Specifies the configuration to use when creating the volume as a clone of another
+   *             FSx for ONTAP volume. A clone is a writable, point-in-time copy of its parent
+   *             volume.</p>
+   * @public
+   */
+  CloneConfiguration?: CreateCloneConfiguration | undefined;
 }
 
 /**
@@ -6928,6 +8446,44 @@ export interface DeleteBackupResponse {
    * @public
    */
   Lifecycle?: BackupLifecycle | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteClusterPeerRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The ID of the cluster peer that you are deleting.</p>
+   * @public
+   */
+  ClusterPeerId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteClusterPeerResponse {
+  /**
+   * <p>The ID of the cluster peer that's being deleted.</p>
+   * @public
+   */
+  ClusterPeerId?: string | undefined;
+
+  /**
+   * <p>The lifecycle state of the cluster peer being deleted. If the
+   *             <code>DeleteClusterPeer</code> operation is successful, this value is
+   *             <code>DELETING</code>.</p>
+   * @public
+   */
+  Lifecycle?: ClusterPeerLifecycle | undefined;
 }
 
 /**
@@ -7239,6 +8795,82 @@ export interface DeleteFileSystemResponse {
 /**
  * @public
  */
+export interface DeleteSnapmirrorPolicyRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The ID of the SnapMirror policy that you are deleting.</p>
+   * @public
+   */
+  SnapmirrorPolicyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSnapmirrorPolicyResponse {
+  /**
+   * <p>The ID of the SnapMirror policy that's being deleted.</p>
+   * @public
+   */
+  SnapmirrorPolicyId?: string | undefined;
+
+  /**
+   * <p>The lifecycle state of the SnapMirror policy being deleted. If the
+   *             <code>DeleteSnapmirrorPolicy</code> operation is successful, this value is
+   *             <code>DELETING</code>.</p>
+   * @public
+   */
+  Lifecycle?: SnapmirrorPolicyLifecycle | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSnapmirrorRelationshipRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The ID of the SnapMirror relationship that you are deleting.</p>
+   * @public
+   */
+  SnapmirrorRelationshipId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSnapmirrorRelationshipResponse {
+  /**
+   * <p>The ID of the SnapMirror relationship that's being deleted.</p>
+   * @public
+   */
+  SnapmirrorRelationshipId?: string | undefined;
+
+  /**
+   * <p>The lifecycle state of the SnapMirror relationship being deleted. If the
+   *             <code>DeleteSnapmirrorRelationship</code> operation is successful, this value is
+   *             <code>DELETING</code>.</p>
+   * @public
+   */
+  Lifecycle?: SnapmirrorRelationshipLifecycle | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteSnapshotRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
@@ -7276,6 +8908,44 @@ export interface DeleteSnapshotResponse {
 /**
  * @public
  */
+export interface DeleteSnapshotPolicyRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot policy that you are deleting.</p>
+   * @public
+   */
+  SnapshotPolicyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSnapshotPolicyResponse {
+  /**
+   * <p>The ID of the snapshot policy that's being deleted.</p>
+   * @public
+   */
+  SnapshotPolicyId?: string | undefined;
+
+  /**
+   * <p>The lifecycle state of the snapshot policy being deleted. If the
+   *             <code>DeleteSnapshotPolicy</code> operation is successful, this value is
+   *             <code>DELETING</code>.</p>
+   * @public
+   */
+  Lifecycle?: SnapshotPolicyLifecycle | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteStorageVirtualMachineRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
@@ -7307,6 +8977,44 @@ export interface DeleteStorageVirtualMachineResponse {
    * @public
    */
   Lifecycle?: StorageVirtualMachineLifecycle | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteStorageVirtualMachinePeerRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The ID of the SVM peer that you are deleting.</p>
+   * @public
+   */
+  StorageVirtualMachinePeerId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteStorageVirtualMachinePeerResponse {
+  /**
+   * <p>The ID of the SVM peer that's being deleted.</p>
+   * @public
+   */
+  StorageVirtualMachinePeerId?: string | undefined;
+
+  /**
+   * <p>The lifecycle state of the SVM peer being deleted. If the
+   *             <code>DeleteStorageVirtualMachinePeer</code> operation is successful, this value is
+   *             <code>DELETING</code>.</p>
+   * @public
+   */
+  Lifecycle?: StorageVirtualMachinePeerLifecycle | undefined;
 }
 
 /**
@@ -7485,6 +9193,80 @@ export interface DescribeBackupsRequest {
    * <p>An opaque pagination token returned from a previous <code>DescribeBackups</code>
    *             operation. If a token is present, the operation continues the list from where the
    *             returning call left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A filter used to restrict the results of describe calls for Amazon FSx for NetApp ONTAP
+ *             cluster peers.</p>
+ * @public
+ */
+export interface ClusterPeerFilter {
+  /**
+   * <p>The name for this filter.</p>
+   * @public
+   */
+  Name?: ClusterPeerFilterName | undefined;
+
+  /**
+   * <p>The values of the filter. These are all the values for any of the applied filters.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterPeersRequest {
+  /**
+   * <p>The IDs of the cluster peers that you want to retrieve. If you also specify
+   *             <code>Filters</code>, only cluster peers that match both the IDs and the filters
+   *             are returned. If any IDs aren't found, or if a filter excludes any of them, a
+   *             <code>ClusterPeerNotFound</code> error occurs.</p>
+   * @public
+   */
+  ClusterPeerIds?: string[] | undefined;
+
+  /**
+   * <p>The filters structure. The supported name is <code>file-system-id</code>.</p>
+   * @public
+   */
+  Filters?: ClusterPeerFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of resources to return in the response. This value must be an
+   *             integer greater than zero.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeClusterPeersResponse {
+  /**
+   * <p>Describes each cluster peer returned by the <code>DescribeClusterPeers</code>
+   *             operation.</p>
+   * @public
+   */
+  ClusterPeers?: ClusterPeer[] | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -7982,6 +9764,231 @@ export interface DescribeSharedVpcConfigurationResponse {
 }
 
 /**
+ * <p>A filter used to restrict the results of describe calls for Amazon FSx for NetApp ONTAP
+ *             SnapMirror policies.</p>
+ * @public
+ */
+export interface SnapmirrorPolicyFilter {
+  /**
+   * <p>The name for this filter.</p>
+   * @public
+   */
+  Name?: SnapmirrorPolicyFilterName | undefined;
+
+  /**
+   * <p>The values of the filter. These are all the values for any of the applied filters.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapmirrorPoliciesRequest {
+  /**
+   * <p>The IDs of the SnapMirror policies that you want to retrieve. If you also specify
+   *             <code>Filters</code>, only SnapMirror policies that match both the IDs and the filters
+   *             are returned. If any IDs aren't found, or if a filter excludes any of them, a
+   *             <code>SnapmirrorPolicyNotFound</code> error occurs.</p>
+   * @public
+   */
+  SnapmirrorPolicyIds?: string[] | undefined;
+
+  /**
+   * <p>The filters structure. The supported names are <code>file-system-id</code> or
+   *             <code>storage-virtual-machine-id</code>.</p>
+   * @public
+   */
+  Filters?: SnapmirrorPolicyFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of resources to return in the response. This value must be an
+   *             integer greater than zero.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapmirrorPoliciesResponse {
+  /**
+   * <p>Describes each SnapMirror policy returned by the <code>DescribeSnapmirrorPolicies</code>
+   *             operation.</p>
+   * @public
+   */
+  SnapmirrorPolicies?: SnapmirrorPolicy[] | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A filter used to restrict the results of describe calls for Amazon FSx for NetApp ONTAP
+ *             SnapMirror relationships.</p>
+ * @public
+ */
+export interface SnapmirrorRelationshipFilter {
+  /**
+   * <p>The name for this filter.</p>
+   * @public
+   */
+  Name?: SnapmirrorRelationshipFilterName | undefined;
+
+  /**
+   * <p>The values of the filter. These are all the values for any of the applied filters.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapmirrorRelationshipsRequest {
+  /**
+   * <p>The IDs of the SnapMirror relationships that you want to retrieve. If you also specify
+   *             <code>Filters</code>, only SnapMirror relationships that match both the IDs and the filters
+   *             are returned. If any IDs aren't found, or if a filter excludes any of them, a
+   *             <code>SnapmirrorRelationshipNotFound</code> error occurs.</p>
+   * @public
+   */
+  SnapmirrorRelationshipIds?: string[] | undefined;
+
+  /**
+   * <p>The filters structure. The supported names are <code>file-system-id</code> or
+   *             <code>destination-volume-id</code>.</p>
+   * @public
+   */
+  Filters?: SnapmirrorRelationshipFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of resources to return in the response. This value must be an
+   *             integer greater than zero.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapmirrorRelationshipsResponse {
+  /**
+   * <p>Describes each SnapMirror relationship returned by the
+   *             <code>DescribeSnapmirrorRelationships</code> operation.</p>
+   * @public
+   */
+  SnapmirrorRelationships?: SnapmirrorRelationship[] | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A filter used to restrict the results of describe calls for Amazon FSx for NetApp ONTAP
+ *             snapshot policies.</p>
+ * @public
+ */
+export interface SnapshotPolicyFilter {
+  /**
+   * <p>The name for this filter.</p>
+   * @public
+   */
+  Name?: SnapshotPolicyFilterName | undefined;
+
+  /**
+   * <p>The values of the filter. These are all the values for any of the applied filters.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotPoliciesRequest {
+  /**
+   * <p>The IDs of the snapshot policies that you want to retrieve. If you also specify
+   *             <code>Filters</code>, only snapshot policies that match both the IDs and the filters
+   *             are returned. If any IDs aren't found, or if a filter excludes any of them, a
+   *             <code>SnapshotPolicyNotFound</code> error occurs.</p>
+   * @public
+   */
+  SnapshotPolicyIds?: string[] | undefined;
+
+  /**
+   * <p>The filters structure. The supported names are <code>file-system-id</code> or
+   *             <code>storage-virtual-machine-id</code>.</p>
+   * @public
+   */
+  Filters?: SnapshotPolicyFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of resources to return in the response. This value must be an
+   *             integer greater than zero.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotPoliciesResponse {
+  /**
+   * <p>Describes each snapshot policy returned by the <code>DescribeSnapshotPolicies</code>
+   *             operation.</p>
+   * @public
+   */
+  SnapshotPolicies?: SnapshotPolicy[] | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>A filter used to restrict the results of <code>DescribeSnapshots</code> calls. You can
  *             use multiple filters to return results that meet all applied filter requirements.</p>
  * @public
@@ -8007,8 +10014,11 @@ export interface SnapshotFilter {
  */
 export interface DescribeSnapshotsRequest {
   /**
-   * <p>The IDs of the snapshots that you want to retrieve. This parameter value overrides any
-   *             filters. If any IDs aren't found, a <code>SnapshotNotFound</code> error occurs.</p>
+   * <p>The IDs of the snapshots that you want to retrieve. You can include snapshots of
+   *             Amazon FSx for OpenZFS and Amazon FSx for NetApp ONTAP volumes in the same
+   *             request. If you also specify <code>Filters</code>, only snapshots that match both the IDs
+   *             and the filters are returned. If any IDs aren't found, or if a filter excludes any of
+   *             them, a <code>SnapshotNotFound</code> error occurs.</p>
    * @public
    */
   SnapshotIds?: string[] | undefined;
@@ -8042,6 +10052,81 @@ export interface DescribeSnapshotsRequest {
    * @public
    */
   IncludeShared?: boolean | undefined;
+}
+
+/**
+ * <p>A filter used to restrict the results of describe calls for Amazon FSx for NetApp ONTAP
+ *             storage virtual machine (SVM) peers.</p>
+ * @public
+ */
+export interface StorageVirtualMachinePeerFilter {
+  /**
+   * <p>The name for this filter.</p>
+   * @public
+   */
+  Name?: StorageVirtualMachinePeerFilterName | undefined;
+
+  /**
+   * <p>The values of the filter. These are all the values for any of the applied filters.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStorageVirtualMachinePeersRequest {
+  /**
+   * <p>The IDs of the SVM peers that you want to retrieve. If you also specify
+   *             <code>Filters</code>, only SVM peers that match both the IDs and the filters are
+   *             returned. If any IDs aren't found, or if a filter excludes any of them, a
+   *             <code>StorageVirtualMachinePeerNotFound</code> error occurs.</p>
+   * @public
+   */
+  StorageVirtualMachinePeerIds?: string[] | undefined;
+
+  /**
+   * <p>The filters structure. The supported names are <code>file-system-id</code> or
+   *             <code>storage-virtual-machine-id</code>.</p>
+   * @public
+   */
+  Filters?: StorageVirtualMachinePeerFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of resources to return in the response. This value must be an
+   *             integer greater than zero.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStorageVirtualMachinePeersResponse {
+  /**
+   * <p>Describes each SVM peer returned by the
+   *             <code>DescribeStorageVirtualMachinePeers</code> operation.</p>
+   * @public
+   */
+  StorageVirtualMachinePeers?: StorageVirtualMachinePeer[] | undefined;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous operation (String). If
+   *             present, this token indicates from what point you can continue processing the request, where
+   *             the previous <code>NextToken</code> value left off.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8428,6 +10513,49 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateClusterPeerRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The ID of the cluster peer that you want to update.</p>
+   * @public
+   */
+  ClusterPeerId: string | undefined;
+
+  /**
+   * <p>Specifies the name that the file system uses to identify the peer cluster.</p>
+   * @public
+   */
+  PeerClusterName?: string | undefined;
+
+  /**
+   * <p>Specifies the IP addresses of the intercluster logical interfaces (LIFs) on the peer
+   *             cluster. The addresses that you specify replace the existing peer addresses.</p>
+   * @public
+   */
+  PeerAddresses?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterPeerResponse {
+  /**
+   * <p>A description of the cluster peer that was just updated.</p>
+   * @public
+   */
+  ClusterPeer?: ClusterPeer | undefined;
+}
 
 /**
  * @public
@@ -9270,6 +11398,176 @@ export interface UpdateSharedVpcConfigurationResponse {
 /**
  * @public
  */
+export interface UpdateSnapmirrorPolicyRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The ID of the SnapMirror policy that you want to update.</p>
+   * @public
+   */
+  SnapmirrorPolicyId: string | undefined;
+
+  /**
+   * <p>Specifies the rules that determine which snapshots SnapMirror retains on the
+   *             destination volume, based on their SnapMirror labels. The rules that you specify
+   *             replace all the SnapMirror policy's existing retention rules. To keep an existing rule,
+   *             include it in the list. To remove all retention rules, specify an empty list.</p>
+   * @public
+   */
+  RetentionRules?: SnapmirrorPolicyRetentionRule[] | undefined;
+
+  /**
+   * <p>Specifies the name of the ONTAP schedule that determines when SnapMirror transfers
+   *             data. To remove the transfer schedule, specify an empty string.</p>
+   * @public
+   */
+  TransferSchedule?: string | undefined;
+
+  /**
+   * <p>Specifies whether SnapMirror compresses data when it transfers the data over the
+   *             network.</p>
+   * @public
+   */
+  NetworkCompressionEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies the maximum bandwidth, in kilobytes per second (KBps), that SnapMirror uses to
+   *             transfer data. A value of <code>0</code> means that the bandwidth is unlimited.</p>
+   * @public
+   */
+  ThrottleInKbps?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSnapmirrorPolicyResponse {
+  /**
+   * <p>A description of the SnapMirror policy that was just updated.</p>
+   * @public
+   */
+  SnapmirrorPolicy?: SnapmirrorPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSnapmirrorRelationshipRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The ID of the SnapMirror relationship that you want to update.</p>
+   * @public
+   */
+  SnapmirrorRelationshipId: string | undefined;
+
+  /**
+   * <p>Specifies the ID of the SnapMirror policy that the SnapMirror relationship uses.</p>
+   * @public
+   */
+  PolicyId?: string | undefined;
+
+  /**
+   * <p>Specifies the name of the ONTAP schedule that determines when SnapMirror transfers data
+   *             for the relationship. This schedule overrides the transfer schedule of the SnapMirror
+   *             policy.</p>
+   * @public
+   */
+  TransferSchedule?: string | undefined;
+
+  /**
+   * <p>Specifies the maximum bandwidth, in kilobytes per second (KBps), that SnapMirror uses to
+   *             transfer data for the relationship. A value of <code>0</code> means that the bandwidth is
+   *             unlimited. This value overrides the throttle of the SnapMirror policy.</p>
+   * @public
+   */
+  ThrottleInKbps?: number | undefined;
+
+  /**
+   * <p>Specifies the state to set for the SnapMirror relationship:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SNAPMIRRORED</code> – Resumes a paused SnapMirror relationship, or
+   *                     resynchronizes a broken-off SnapMirror relationship.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PAUSED</code> – Pauses SnapMirror transfers for the relationship.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BROKEN_OFF</code> – Breaks off the SnapMirror relationship, which makes the
+   *                     destination volume writable.</p>
+   *             </li>
+   *          </ul>
+   *          <important>
+   *             <p>Setting <code>State</code> to <code>SNAPMIRRORED</code> on a relationship that is
+   *                 <code>BROKEN_OFF</code> might resynchronize the relationship. A resync overwrites the
+   *                 destination volume with data from the source volume, and discards any data written to
+   *                 the destination volume that isn't present on the source volume. Use caution when
+   *                 you resynchronize a relationship.</p>
+   *          </important>
+   * @public
+   */
+  State?: UpdatableSnapmirrorRelationshipState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSnapmirrorRelationshipResponse {
+  /**
+   * <p>A description of the SnapMirror relationship that was just updated.</p>
+   * @public
+   */
+  SnapmirrorRelationship?: SnapmirrorRelationship | undefined;
+}
+
+/**
+ * <p>Used to specify changes to the ONTAP configuration for the snapshot you are updating.</p>
+ * @public
+ */
+export interface UpdateOntapSnapshotConfiguration {
+  /**
+   * <p>Specifies the SnapMirror label for the snapshot. SnapMirror policies use labels to select
+   *             which snapshots to replicate to a destination volume.</p>
+   * @public
+   */
+  SnapmirrorLabel?: string | undefined;
+
+  /**
+   * <p>Specifies the date and time when the snapshot expires. You can't delete the snapshot before
+   *             this time.</p>
+   * @public
+   */
+  ExpiryTime?: Date | undefined;
+
+  /**
+   * <p>Specifies the date and time until which the snapshot is locked. This setting takes
+   *             effect only if snapshot locking is enabled on the volume. Snapshot locking is separate from
+   *             SnapLock, and enabling SnapLock on a volume doesn't enable snapshot locking. You can't
+   *             delete the snapshot before this time.</p>
+   * @public
+   */
+  SnaplockExpiryTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateSnapshotRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
@@ -9283,7 +11581,7 @@ export interface UpdateSnapshotRequest {
    * <p>The name of the snapshot to update.</p>
    * @public
    */
-  Name: string | undefined;
+  Name?: string | undefined;
 
   /**
    * <p>The ID of the snapshot that you want to update, in the format
@@ -9291,6 +11589,48 @@ export interface UpdateSnapshotRequest {
    * @public
    */
   SnapshotId: string | undefined;
+
+  /**
+   * <p>The configuration of the ONTAP snapshot that you are updating.</p>
+   * @public
+   */
+  OntapConfiguration?: UpdateOntapSnapshotConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSnapshotPolicyRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot policy that you want to update.</p>
+   * @public
+   */
+  SnapshotPolicyId: string | undefined;
+
+  /**
+   * <p>Specifies whether the snapshot policy is enabled.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSnapshotPolicyResponse {
+  /**
+   * <p>A description of the snapshot policy that was just updated.</p>
+   * @public
+   */
+  SnapshotPolicy?: SnapshotPolicy | undefined;
 }
 
 /**
@@ -9353,6 +11693,108 @@ export interface UpdateStorageVirtualMachineResponse {
    * @public
    */
   StorageVirtualMachine?: StorageVirtualMachine | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStorageVirtualMachinePeerRequest {
+  /**
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   * @public
+   */
+  ClientRequestToken?: string | undefined;
+
+  /**
+   * <p>The ID of the SVM peer that you want to update.</p>
+   * @public
+   */
+  StorageVirtualMachinePeerId: string | undefined;
+
+  /**
+   * <p>Specifies the applications that the SVM peer relationship authorizes. The applications
+   *             that you specify replace the existing applications.</p>
+   * @public
+   */
+  Applications?: StorageVirtualMachinePeerApplication[] | undefined;
+
+  /**
+   * <p>Specifies the name that the local cluster uses to identify the peer SVM.</p>
+   * @public
+   */
+  PeerSvmAlias?: string | undefined;
+
+  /**
+   * <p>Specifies the state to set for the SVM peer relationship:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PEERED</code> – Accepts a pending peering request, or resumes a
+   *                     suspended SVM peer relationship.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUSPENDED</code> – Suspends the SVM peer relationship.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REJECTED</code> – Rejects a pending peering request.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: StorageVirtualMachinePeerUpdateState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateStorageVirtualMachinePeerResponse {
+  /**
+   * <p>A description of the SVM peer that was just updated.</p>
+   * @public
+   */
+  StorageVirtualMachinePeer?: StorageVirtualMachinePeer | undefined;
+}
+
+/**
+ * <p>Specifies changes to the clone configuration of an FSx for ONTAP
+ *             volume.</p>
+ * @public
+ */
+export interface UpdateCloneConfiguration {
+  /**
+   * <p>Set to <code>START</code> to split the clone from its parent volume. Splitting copies
+   *             the data that the clone shares with the parent volume, so that the clone becomes an
+   *             independent volume that no longer depends on the parent. After the split, the volume
+   *             uses storage for all of its data.</p>
+   *          <p>When you split a clone, keep the following in mind:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SplitAction</code> must be the only property that you change in the
+   *                     <code>UpdateVolume</code> request.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can't split a data protection (<code>DP</code>) clone.</p>
+   *             </li>
+   *             <li>
+   *                <p>The split fails if the clone has locked snapshots, such as snapshots that a
+   *                     SnapMirror relationship uses or that a retention period protects, or if a backup
+   *                     of the clone is in progress. To allow the split, Amazon FSx deletes the
+   *                     snapshots that it created for backups of the clone, so the next backup transfers
+   *                     more data. Amazon FSx doesn't delete snapshots that you created.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The split runs in the background. To monitor its progress, use the
+   *             <code>VOLUME_CLONE_SPLIT</code> administrative action in the volume's
+   *             <code>AdministrativeActions</code>. When the split completes, the volume no longer has a
+   *             <code>CloneConfiguration</code>.</p>
+   * @public
+   */
+  SplitAction?: CloneSplitAction | undefined;
 }
 
 /**
@@ -9492,6 +11934,13 @@ export interface UpdateOntapVolumeConfiguration {
    * @public
    */
   SizeInBytes?: number | undefined;
+
+  /**
+   * <p>Specifies the clone configuration changes to make to the volume. Use this property to
+   *             split a clone from its parent volume.</p>
+   * @public
+   */
+  CloneConfiguration?: UpdateCloneConfiguration | undefined;
 }
 
 /**
@@ -9751,15 +12200,23 @@ export interface AdministrativeAction {
    *                         (<code>CopySnapshotAndUpdateVolume</code>), or CLI
    *                         (<code>copy-snapshot-and-update-volume</code>).</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VOLUME_CLONE_SPLIT</code> - An FSx for ONTAP volume clone is
+   *                     being split from its parent volume. You can initiate this from the
+   *                     Amazon FSx console, Amazon FSx API (<code>UpdateVolume</code>)
+   *                     or CLI (<code>update-volume</code>) by setting <code>SplitAction</code> to
+   *                     <code>START</code> in the volume's <code>CloneConfiguration</code>.</p>
+   *             </li>
    *          </ul>
    * @public
    */
   AdministrativeActionType?: AdministrativeActionType | undefined;
 
   /**
-   * <p>The percentage-complete status of a <code>STORAGE_OPTIMIZATION</code>
-   *              or <code>DOWNLOAD_DATA_FROM_BACKUP</code> administrative action. Does not apply to any
-   *             other administrative action type.</p>
+   * <p>The percentage-complete status of a <code>STORAGE_OPTIMIZATION</code>,
+   *             <code>DOWNLOAD_DATA_FROM_BACKUP</code>, or <code>VOLUME_CLONE_SPLIT</code>
+   *             administrative action. Does not apply to any other administrative action type.</p>
    * @public
    */
   ProgressPercent?: number | undefined;
@@ -9838,7 +12295,7 @@ export interface AdministrativeAction {
   TargetVolumeValues?: Volume | undefined;
 
   /**
-   * <p>A snapshot of an Amazon FSx for OpenZFS volume.</p>
+   * <p>A snapshot of an Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP volume.</p>
    * @public
    */
   TargetSnapshotValues?: Snapshot | undefined;
@@ -10091,7 +12548,7 @@ export interface FileSystem {
 }
 
 /**
- * <p>A snapshot of an Amazon FSx for OpenZFS volume.</p>
+ * <p>A snapshot of an Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP volume.</p>
  * @public
  */
 export interface Snapshot {
@@ -10149,13 +12606,23 @@ export interface Snapshot {
    *                <p>
    *                   <code>AVAILABLE</code> - The snapshot is fully available.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - Amazon FSx was unable to create the snapshot.</p>
+   *             </li>
    *          </ul>
    * @public
    */
   Lifecycle?: SnapshotLifecycle | undefined;
 
   /**
-   * <p>Describes why a resource lifecycle state changed.</p>
+   * <p>The type of the snapshot.</p>
+   * @public
+   */
+  SnapshotType?: SnapshotType | undefined;
+
+  /**
+   * <p>The reason why the snapshot lifecycle status changed.</p>
    * @public
    */
   LifecycleTransitionReason?: LifecycleTransitionReason | undefined;
@@ -10173,6 +12640,12 @@ export interface Snapshot {
    * @public
    */
   AdministrativeActions?: AdministrativeAction[] | undefined;
+
+  /**
+   * <p>The configuration of an Amazon FSx for NetApp ONTAP snapshot.</p>
+   * @public
+   */
+  OntapConfiguration?: OntapSnapshotConfiguration | undefined;
 }
 
 /**
