@@ -23,7 +23,7 @@ export interface ListKeysCommandInput extends ListKeysRequest {}
 export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of key value pairs.</p>
+ * <p>Returns a list of key-value pairs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -159,7 +159,7 @@ export interface CloudFrontKeyValueStore {
 }
 
 /**
- * <p>Amazon CloudFront KeyValueStore Service to View and Update Data in a KVS Resource</p>
+ * <p>You can use Amazon CloudFront KeyValueStore to view and update data in a key value store resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions.html">Using CloudFront KeyValueStore</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @public
  */
 export class CloudFrontKeyValueStore extends CloudFrontKeyValueStoreClient implements CloudFrontKeyValueStore {}

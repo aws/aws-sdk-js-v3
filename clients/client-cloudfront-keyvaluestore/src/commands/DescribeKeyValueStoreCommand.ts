@@ -23,7 +23,7 @@ export interface DescribeKeyValueStoreCommandInput extends DescribeKeyValueStore
 export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Returns metadata information about Key Value Store.</p>
+ * <p>Returns metadata information about the key value store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

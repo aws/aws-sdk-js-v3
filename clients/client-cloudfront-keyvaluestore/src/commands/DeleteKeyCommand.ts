@@ -23,7 +23,7 @@ export interface DeleteKeyCommandInput extends DeleteKeyRequest {}
 export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the key value pair specified by the key.</p>
+ * <p>Deletes the key-value pair specified by the key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

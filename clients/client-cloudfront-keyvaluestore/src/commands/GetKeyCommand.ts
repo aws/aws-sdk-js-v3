@@ -23,7 +23,7 @@ export interface GetKeyCommandInput extends GetKeyRequest {}
 export interface GetKeyCommandOutput extends GetKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a key value pair.</p>
+ * <p>Returns a key-value pair.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

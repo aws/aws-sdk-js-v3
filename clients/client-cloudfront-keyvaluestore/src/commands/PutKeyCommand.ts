@@ -23,7 +23,7 @@ export interface PutKeyCommandInput extends PutKeyRequest {}
 export interface PutKeyCommandOutput extends PutKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new key value pair or replaces the value of an existing key.</p>
+ * <p>Creates a new key-value pair or replaces the value of an existing key.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

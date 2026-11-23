@@ -23,7 +23,7 @@ export interface UpdateKeysCommandInput extends UpdateKeysRequest {}
 export interface UpdateKeysCommandOutput extends UpdateKeysResponse, __MetadataBearer {}
 
 /**
- * <p>Puts or Deletes multiple key value pairs in a single, all-or-nothing operation.</p>
+ * <p>Puts or deletes multiple key-value pairs in a single, all-or-nothing operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
