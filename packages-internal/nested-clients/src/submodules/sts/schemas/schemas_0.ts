@@ -15,12 +15,17 @@ const _DS = "DurationSeconds";
 const _E = "Expiration";
 const _EI = "ExternalId";
 const _ETE = "ExpiredTokenException";
+const _FPA = "FederatedProviderArn";
+const _I = "Issuer";
+const _ICAE = "InvalidContextAssertionException";
 const _IDPCEE = "IDPCommunicationErrorException";
 const _IDPRCE = "IDPRejectedClaimException";
 const _IITE = "InvalidIdentityTokenException";
+const _IP = "IdentityProvider";
 const _K = "Key";
 const _MPDE = "MalformedPolicyDocumentException";
 const _MSTS = "MinimumSessionTokenSize";
+const _OI = "OriginIdentity";
 const _P = "Policy";
 const _PA = "PolicyArns";
 const _PAr = "ProviderArn";
@@ -35,6 +40,7 @@ const _Pr = "Provider";
 const _RA = "RoleArn";
 const _RDE = "RegionDisabledException";
 const _RSN = "RoleSessionName";
+const _S = "Subject";
 const _SAK = "SecretAccessKey";
 const _SFWIT = "SubjectFromWebIdentityToken";
 const _SI = "SourceIdentity";
@@ -42,8 +48,11 @@ const _SN = "SerialNumber";
 const _ST = "SessionToken";
 const _STS = "SessionTokenSize";
 const _STU = "SessionTokenUtilization";
+const _STu = "SubjectType";
 const _T = "Tags";
 const _TC = "TokenCode";
+const _TCr = "TransactionContext";
+const _TIPC = "TrustedIdentityPropagationContext";
 const _TTK = "TransitiveTagKeys";
 const _Ta = "Tag";
 const _V = "Value";
@@ -56,8 +65,13 @@ const _cTT = "clientTokenType";
 const _e = "error";
 const _hE = "httpError";
 const _m = "message";
+const _oIIT = "originIdentityIssuerType";
+const _oIST = "originIdentitySubjectType";
+const _oISTT = "originIdentitySubjectTypeType";
 const _pDLT = "policyDescriptorListType";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.sts";
+const _tCIPMT = "transactionContextIdentityProviderMapType";
+const _tCVT = "transactionContextValueType";
 const _tLT = "tagListType";
 const n0 = "com.amazonaws.sts";
 
@@ -66,6 +80,7 @@ import { TypeRegistry } from "@smithy/core/schema";
 import type {
   StaticErrorSchema,
   StaticListSchema,
+  StaticMapSchema,
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
@@ -75,6 +90,7 @@ import {
   ExpiredTokenException,
   IDPCommunicationErrorException,
   IDPRejectedClaimException,
+  InvalidContextAssertionException,
   InvalidIdentityTokenException,
   MalformedPolicyDocumentException,
   PackedPolicyTooLargeException,
@@ -105,6 +121,12 @@ export var IDPRejectedClaimException$: StaticErrorSchema = [-3, n0, _IDPRCE,
   [0]
 ];
 n0_registry.registerError(IDPRejectedClaimException$, IDPRejectedClaimException);
+export var InvalidContextAssertionException$: StaticErrorSchema = [-3, n0, _ICAE,
+  { [_aQE]: [`InvalidContextAssertion`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidContextAssertionException$, InvalidContextAssertionException);
 export var InvalidIdentityTokenException$: StaticErrorSchema = [-3, n0, _IITE,
   { [_aQE]: [`InvalidIdentityToken`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
@@ -140,6 +162,10 @@ export const errorTypeRegistries = [
 ]
 var accessKeySecretType: StaticSimpleSchema = [0, n0, _aKST, 8, 0];
 var clientTokenType: StaticSimpleSchema = [0, n0, _cTT, 8, 0];
+var originIdentityIssuerType: StaticSimpleSchema = [0, n0, _oIIT, 8, 0];
+var originIdentitySubjectType: StaticSimpleSchema = [0, n0, _oIST, 8, 0];
+var originIdentitySubjectTypeType: StaticSimpleSchema = [0, n0, _oISTT, 8, 0];
+var transactionContextValueType: StaticSimpleSchema = [0, n0, _tCVT, 8, 0];
 export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU,
   0,
   [_ARI, _A],
@@ -162,13 +188,18 @@ export var AssumeRoleWithWebIdentityRequest$: StaticStructureSchema = [3, n0, _A
 ];
 export var AssumeRoleWithWebIdentityResponse$: StaticStructureSchema = [3, n0, _ARWWIRs,
   0,
-  [_C, _SFWIT, _ARU, _PPS, _Pr, _Au, _SI, _STU, _STS],
-  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0, 1, 1]
+  [_C, _SFWIT, _ARU, _PPS, _Pr, _Au, _SI, _STU, _STS, _TIPC],
+  [[() => Credentials$, 0], 0, () => AssumedRoleUser$, 1, 0, 0, 0, 1, 1, [() => TrustedIdentityPropagationContext$, 0]]
 ];
 export var Credentials$: StaticStructureSchema = [3, n0, _C,
   0,
   [_AKI, _SAK, _ST, _E],
   [0, [() => accessKeySecretType, 0], 0, 4], 4
+];
+export var OriginIdentity$: StaticStructureSchema = [3, n0, _OI,
+  0,
+  [_S, _STu, _I, _FPA],
+  [[() => originIdentitySubjectType, 0], [() => originIdentitySubjectTypeType, 0], [() => originIdentityIssuerType, 0], 0]
 ];
 export var PolicyDescriptorType$: StaticStructureSchema = [3, n0, _PDT,
   0,
@@ -185,6 +216,16 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_K, _V],
   [0, 0], 2
 ];
+export var TransactionContext$: StaticStructureSchema = [3, n0, _TCr,
+  0,
+  [_IP],
+  [[() => transactionContextIdentityProviderMapType, 0]]
+];
+export var TrustedIdentityPropagationContext$: StaticStructureSchema = [3, n0, _TIPC,
+  8,
+  [_OI, _TCr],
+  [[() => OriginIdentity$, 0], [() => TransactionContext$, 0]]
+];
 var policyDescriptorListType: StaticListSchema = [1, n0, _pDLT,
   0, () => PolicyDescriptorType$
 ];
@@ -194,6 +235,12 @@ var ProvidedContextsListType: StaticListSchema = [1, n0, _PCLT,
 var tagKeyListType = 64 | 0;
 var tagListType: StaticListSchema = [1, n0, _tLT,
   0, () => Tag$
+];
+var transactionContextIdentityProviderMapType: StaticMapSchema = [2, n0, _tCIPMT,
+  0, [0,
+    0]
+  , [() => transactionContextValueType,
+    0]
 ];
 export var AssumeRole$: StaticOperationSchema = [9, n0, _AR,
   0, () => AssumeRoleRequest$, () => AssumeRoleResponse$

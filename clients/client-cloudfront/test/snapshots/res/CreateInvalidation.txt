@@ -63,7 +63,6 @@ Location: __Location__
 
 --- [output object] ---
 {
-  Location: "__Location__",
   Invalidation: {
     Id: "__Id__",
     Status: "__Status__",
@@ -80,6 +79,7 @@ Location: __Location__
       CallerReference: "__CallerReference__"
     }
   },
+  Location: "__Location__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

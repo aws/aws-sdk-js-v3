@@ -98,6 +98,7 @@ MQo=
     (number) 0,
     (number) 1
   ],
+  ContentType: "__ContentType__",
   DeleteMarker: (boolean) false,
   AcceptRanges: "__AcceptRanges__",
   Expiration: "__Expiration__",
@@ -123,12 +124,10 @@ MQo=
   ContentEncoding: "__ContentEncoding__",
   ContentLanguage: "__ContentLanguage__",
   ContentRange: "__ContentRange__",
-  ContentType: "__ContentType__",
   Expires: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   ExpiresString: "__ExpiresString__",
   WebsiteRedirectLocation: "__WebsiteRedirectLocation__",
   ServerSideEncryption: "__ServerSideEncryption__",
-  Metadata: {},
   SSECustomerAlgorithm: "__SSECustomerAlgorithm__",
   SSECustomerKeyMD5: "__SSECustomerKeyMD5__",
   SSEKMSKeyId: "__SSEKMSKeyId__",
@@ -144,6 +143,7 @@ MQo=
   ObjectLockEventHold: "__ObjectLockEventHold__",
   ObjectLockEventHoldDurationDays: (number) 0,
   ObjectLockEventHoldDurationYears: (number) 0,
+  Metadata: {},
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

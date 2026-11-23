@@ -35,10 +35,10 @@ x-amz-test-id: __testId__
 
 --- [output object] ---
 {
-  testId: "__testId__",
   payloadConfig: {
     data: (number) 0
   },
+  testId: "__testId__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

@@ -55,20 +55,20 @@ MQo=
 
 --- [output object] ---
 {
-  inputMode: "__inputMode__",
-  contentType: "__contentType__",
-  messages: "__messages__",
-  interpretations: "__interpretations__",
-  sessionState: "__sessionState__",
-  requestAttributes: "__requestAttributes__",
-  sessionId: "__sessionId__",
-  inputTranscript: "__inputTranscript__",
   audioStream: async_it[
     (number) 1,
     (number) 0,
     (number) 0,
     (number) 1
   ],
+  contentType: "__contentType__",
+  inputMode: "__inputMode__",
+  messages: "__messages__",
+  interpretations: "__interpretations__",
+  sessionState: "__sessionState__",
+  requestAttributes: "__requestAttributes__",
+  sessionId: "__sessionId__",
+  inputTranscript: "__inputTranscript__",
   recognizedBotMember: "__recognizedBotMember__",
   $metadata: {
     httpStatusCode: (number) 200,

@@ -2,6 +2,23 @@
 
 [Commit logs](https://github.com/aws/aws-sdk-js-v3/commits/main/codegen/smithy-aws-typescript-codegen/src/main/java/software/amazon/smithy/aws/typescript/codegen)
 
+## 0.56.0 (2026-11-23)
+
+### Features
+
+- Added the Smithy RPCv2 JSON protocol ([#8386](https://github.com/aws/aws-sdk-js-v3/pull/8386))
+- Added a default socket timeout per service ([#8396](https://github.com/aws/aws-sdk-js-v3/pull/8396))
+- Enabled the 2026 new retry behavior by default ([#8413](https://github.com/aws/aws-sdk-js-v3/pull/8413))
+- Marked Kinesis ReceiveQueueRecords and ReceiveDeadLetterQueueRecords as long-poll operations ([#8426](https://github.com/aws/aws-sdk-js-v3/pull/8426))
+
+### Bug Fixes
+
+- Dropped a redundant alias from the `node:stream` Readable type import ([#8402](https://github.com/aws/aws-sdk-js-v3/pull/8402))
+
+### Chores
+
+- Upgraded to smithy-typescript 0.56.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0560-2026-11-23))
+
 ## 0.55.0 (2026-10-27)
 
 ### Features

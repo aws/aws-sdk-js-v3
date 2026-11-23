@@ -170,7 +170,7 @@ export interface CreateOAuth2TokenWithIAMRequest {
  */
 export interface CreateOAuth2TokenWithIAMResponse {
   /**
-   * Access token containing principal identity, resource scope, and session metadata.
+   * The access token containing principal identity, resource scope, and session metadata.
    * @public
    */
   accessToken: string | undefined;
@@ -182,7 +182,7 @@ export interface CreateOAuth2TokenWithIAMResponse {
   tokenType: string | undefined;
 
   /**
-   * Token lifetime in seconds. Value is the minimum of the caller's session validity and 1 hour (3600 seconds).
+   * The token lifetime in seconds. Value is the minimum of the caller's session validity and 1 hour (3600 seconds).
    * @public
    */
   expiresIn: number | undefined;

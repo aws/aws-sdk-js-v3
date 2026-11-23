@@ -51,17 +51,17 @@ MQo=
 
 --- [output object] ---
 {
-  contentType: "__contentType__",
-  messages: "__messages__",
-  sessionState: "__sessionState__",
-  requestAttributes: "__requestAttributes__",
-  sessionId: "__sessionId__",
   audioStream: async_it[
     (number) 1,
     (number) 0,
     (number) 0,
     (number) 1
   ],
+  contentType: "__contentType__",
+  messages: "__messages__",
+  sessionState: "__sessionState__",
+  requestAttributes: "__requestAttributes__",
+  sessionId: "__sessionId__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

@@ -1269,10 +1269,14 @@
     "IDPCommunicationErrorException$": "object",
     "IDPRejectedClaimException": "function",
     "IDPRejectedClaimException$": "object",
+    "InvalidContextAssertionException": "function",
+    "InvalidContextAssertionException$": "object",
     "InvalidIdentityTokenException": "function",
     "InvalidIdentityTokenException$": "object",
     "MalformedPolicyDocumentException": "function",
     "MalformedPolicyDocumentException$": "object",
+    "OriginIdentity": "type(interface)",
+    "OriginIdentity$": "object",
     "PackedPolicyTooLargeException": "function",
     "PackedPolicyTooLargeException$": "object",
     "PolicyDescriptorType": "type(interface)",
@@ -1295,7 +1299,11 @@
     "STSServiceException": "function",
     "STSServiceException$": "object",
     "Tag": "type(interface)",
-    "Tag$": "object"
+    "Tag$": "object",
+    "TransactionContext": "type(interface)",
+    "TransactionContext$": "object",
+    "TrustedIdentityPropagationContext": "type(interface)",
+    "TrustedIdentityPropagationContext$": "object"
   },
   "@aws-sdk/polly-request-presigner": {
     "getSynthesizeSpeechUrl": "function",
