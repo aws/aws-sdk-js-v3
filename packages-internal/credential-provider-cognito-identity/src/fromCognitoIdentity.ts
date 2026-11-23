@@ -34,8 +34,9 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
 }
 
 /**
- * @internal
  * Uncached source used by both direct and identity-pool providers.
+ *
+ * @internal
  */
 export const fromCognitoIdentitySource =
   (parameters: FromCognitoIdentityParameters): CognitoIdentityCredentialProvider =>

@@ -15,7 +15,11 @@ export { createProfileKeyedRefreshProvider } from "./credential-refresh/createPr
 export { createLazyCredentialProvider } from "./credential-refresh/createLazyCredentialProvider";
 export { markNonRecoverable, markNonRecoverableStsError } from "./credential-refresh/nonRecoverable";
 export type { RefreshNonRecoverableError } from "./credential-refresh/nonRecoverable";
-export type { CredentialRefreshProvider, CredentialRefreshProviderOptions } from "./credential-refresh/types";
+export type {
+  CredentialRefreshProvider,
+  CredentialRefreshProviderOptions,
+  CredentialSourceOptions,
+} from "./credential-refresh/types";
 
 // middleware-host-header
 export {

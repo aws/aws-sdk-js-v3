@@ -1,4 +1,8 @@
-import { createProfileKeyedRefreshProvider, setCredentialFeature } from "@aws-sdk/core/client";
+import {
+  createProfileKeyedRefreshProvider,
+  type CredentialSourceOptions,
+  setCredentialFeature,
+} from "@aws-sdk/core/client";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { CredentialsProviderError, getProfileName, parseKnownFiles } from "@smithy/core/config";
 
@@ -14,10 +18,7 @@ export const fromLoginCredentials = (init?: FromLoginCredentialsInit): RuntimeCo
     // One lifecycle per profile, so clients with different profiles never share credentials.
     ({ callerClientConfig }: AwsIdentityProperties = {}) =>
       getProfileName({ profile: init?.profile ?? callerClientConfig?.profile }),
-    async ({
-      callerClientConfig,
-      rejectedAccessKeyId,
-    }: AwsIdentityProperties & { rejectedAccessKeyId?: string } = {}) => {
+    async ({ callerClientConfig, rejectedAccessKeyId }: CredentialSourceOptions = {}) => {
       init?.logger?.debug?.("@aws-sdk/credential-providers - fromLoginCredentials");
 
       // Load profiles and check for login_session

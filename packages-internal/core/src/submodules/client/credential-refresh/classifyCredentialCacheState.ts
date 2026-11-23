@@ -20,21 +20,23 @@ export const classifyCredentialCacheState = (
     return "none";
   }
 
+  // Some callers set expiration to a string instead of a Date, so getTime may be missing.
+  const expiresAtMs = credentials.expiration?.getTime?.();
+
+  if (expiresAtMs !== undefined) {
+    const remainingMs = expiresAtMs - nowMs;
+
+    if (remainingMs <= 0) {
+      return "expired";
+    }
+    if (remainingMs < windows.mandatoryWindow) {
+      return "mandatory";
+    }
+    if (remainingMs < windows.advisoryWindow) {
+      return "advisory";
+    }
+  }
+
   // Credentials with no expiration never need refreshing.
-  if (credentials.expiration === undefined) {
-    return "valid";
-  }
-
-  const remainingMs = credentials.expiration.getTime() - nowMs;
-
-  if (remainingMs <= 0) {
-    return "expired";
-  }
-  if (remainingMs < windows.mandatoryWindow) {
-    return "mandatory";
-  }
-  if (remainingMs < windows.advisoryWindow) {
-    return "advisory";
-  }
   return "valid";
 };

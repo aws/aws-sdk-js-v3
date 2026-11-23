@@ -260,6 +260,7 @@
     "createUserAgentStringParsingProvider": "function",
     "CredentialRefreshProvider": "type(interface)",
     "CredentialRefreshProviderOptions": "type(interface)",
+    "CredentialSourceOptions": "type(intersection)",
     "crtAvailability": "object(node-only)",
     "DEFAULT_UA_APP_ID": "undefined",
     "DefaultAwsRegionalEndpointsInputConfig": "type(object)",

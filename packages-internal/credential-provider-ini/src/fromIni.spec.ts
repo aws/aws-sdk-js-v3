@@ -3,16 +3,17 @@ import type { AwsCredentialIdentity } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromIni } from "./fromIni";
-import {
-  getProfileCredentialSource,
-  isCredentialRefreshSource,
-  resolveProfileDataForSource,
-} from "./resolveProfileData";
+import { getProfileCredentialSource, resolveProfileDataForSource } from "./resolveProfileData";
 
 const START_MS = new Date("2024-01-01T00:00:00Z").getTime();
 
 vi.mock("@smithy/core/config");
-vi.mock("./resolveProfileData");
+// Keeps the real CREDENTIAL_REFRESH_SOURCES, which fromIni reads to pick the cache.
+vi.mock(import("./resolveProfileData"), async (importOriginal) => ({
+  ...(await importOriginal()),
+  getProfileCredentialSource: vi.fn(),
+  resolveProfileDataForSource: vi.fn(),
+}));
 
 describe(fromIni.name, () => {
   const mockMasterProfileName = "mockMasterProfileName";
@@ -25,9 +26,6 @@ describe(fromIni.name, () => {
     vi.mocked(parseKnownFiles).mockResolvedValue(mockProfiles);
     vi.mocked(getProfileName).mockReturnValue(mockMasterProfileName);
     vi.mocked(getProfileCredentialSource).mockReturnValue("process");
-    vi.mocked(isCredentialRefreshSource).mockImplementation((source) =>
-      ["assumeRole", "webIdentity", "sso", "login"].includes(source)
-    );
   });
 
   afterEach(() => {

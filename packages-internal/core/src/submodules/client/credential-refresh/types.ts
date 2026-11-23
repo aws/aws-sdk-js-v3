@@ -30,6 +30,14 @@ export interface CredentialCacheWindows {
 export type CredentialRefreshCallOptions = AwsIdentityProperties & { forceRefresh?: boolean };
 
 /**
+ * Options the credential refresh lifecycle passes to a credential source. `rejectedAccessKeyId` is set after a
+ * service rejected the cached credentials, so a token-backed source such as Login gets new ones.
+ *
+ * @internal
+ */
+export type CredentialSourceOptions = CredentialRefreshCallOptions & { rejectedAccessKeyId?: string };
+
+/**
  * A credential provider that owns the credential refresh lifecycle.
  * @internal
  */

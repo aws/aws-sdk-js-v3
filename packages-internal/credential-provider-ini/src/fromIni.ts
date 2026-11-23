@@ -1,4 +1,4 @@
-import { createCredentialRefreshProvider } from "@aws-sdk/core/client";
+import { createCredentialRefreshProvider, type CredentialSourceOptions } from "@aws-sdk/core/client";
 import type { FromLoginCredentialsInit } from "@aws-sdk/credential-provider-login";
 import type { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
 import type {
@@ -13,8 +13,8 @@ import type { AwsCredentialIdentity, Pluggable } from "@smithy/types";
 
 import type { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
 import {
+  CREDENTIAL_REFRESH_SOURCES,
   getProfileCredentialSource,
-  isCredentialRefreshSource,
   type ProfileCredentialSource,
   resolveProfileDataForSource,
 } from "./resolveProfileData";
@@ -94,7 +94,7 @@ export const fromIni = (init: FromIniInit = {}): RuntimeConfigAwsCredentialIdent
     const source = async ({
       callerClientConfig,
       rejectedAccessKeyId,
-    }: AwsIdentityProperties & { rejectedAccessKeyId?: string } = {}): Promise<AwsCredentialIdentity> => {
+    }: CredentialSourceOptions = {}): Promise<AwsCredentialIdentity> => {
       init.logger?.debug("@aws-sdk/credential-provider-ini - fromIni");
       const profiles = firstProfiles ?? (await parseKnownFiles(init));
       firstProfiles = undefined;
@@ -128,7 +128,7 @@ export const fromIni = (init: FromIniInit = {}): RuntimeConfigAwsCredentialIdent
       );
     };
 
-    selected = isCredentialRefreshSource(sourceType)
+    selected = CREDENTIAL_REFRESH_SOURCES.has(sourceType)
       ? createCredentialRefreshProvider(source, { logger: init.logger })
       : memoizeIdentityProvider(source, isIdentityExpired, doesIdentityRequireRefresh)!;
     return Object.assign(selected, { sourceType });

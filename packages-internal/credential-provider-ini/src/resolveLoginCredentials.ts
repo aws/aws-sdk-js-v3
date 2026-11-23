@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core/client";
+import { type CredentialSourceOptions, setCredentialFeature } from "@aws-sdk/core/client";
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 import type { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 
@@ -22,7 +22,7 @@ export const resolveLoginCredentials = async (
 ): Promise<AwsCredentialIdentity> => {
   const { fromLoginCredentials } = await import("@aws-sdk/credential-provider-login");
   // Forwarded so Login refreshes when a service rejected the profile's credentials.
-  const properties: AwsIdentityProperties & { rejectedAccessKeyId?: string } = {
+  const properties: CredentialSourceOptions = {
     callerClientConfig,
     rejectedAccessKeyId,
   };
