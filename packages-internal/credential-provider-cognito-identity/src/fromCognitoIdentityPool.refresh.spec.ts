@@ -82,8 +82,11 @@ describe("fromCognitoIdentityPool credential refresh", () => {
 
     await provider();
 
-    // Inside the 60 minute advisory window, but not yet mandatory.
+    // Inside the 60 minute advisory window, but not yet mandatory. The refresh runs in the background, so this call
+    // still gets the cached credentials and the next one gets the refreshed ones.
     now += SIX_HOURS - ADVISORY_WINDOW + 60_000;
+    await expect(provider()).resolves.toMatchObject({ accessKeyId: "AKID-1" });
+    await new Promise((resolve) => setTimeout(resolve, 0));
     await expect(provider()).resolves.toMatchObject({ accessKeyId: "AKID-2" });
 
     expect(getCredentialsCalls()).toBe(2);

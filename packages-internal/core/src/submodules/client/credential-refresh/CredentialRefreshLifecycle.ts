@@ -37,6 +37,11 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
   // Access key ID of cached credentials a service rejected, until a refresh replaces them.
   private rejectedAccessKeyId: string | undefined;
 
+  // True after a refresh fails with a nonrecoverable error. While true, the next advisory call
+  // refreshes and waits instead of refreshing in the background, so it gets the error. A successful
+  // refresh or other failure sets it back to false.
+  private lastRefreshFailedNonRecoverably = false;
+
   public constructor(
     private readonly source: RuntimeConfigIdentityProvider<Identity>,
     private readonly logger: Logger | undefined
@@ -77,12 +82,21 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
       return this.cached;
     }
 
-    // State 3: advisory. Refresh without blocking, or use cached credentials if a refresh is already in flight.
+    // State 3: advisory. The cached credentials are still valid, so callers don't wait for the refresh.
     if (!this.mandatoryRefreshNeeded()) {
-      return this.refreshUnlessInFlight(
-        () => this.refreshUnderLock(options, () => this.refreshNeeded()),
-        () => this.cached!
-      );
+      const refresh = () => this.refreshUnderLock(options, () => this.refreshNeeded());
+
+      // After a non-recoverable failure, refresh while this caller waits, so it gets the error if it happens again.
+      if (this.lastRefreshFailedNonRecoverably) {
+        return this.refreshUnlessInFlight(refresh, () => this.cached!);
+      }
+
+      // Start the refresh without waiting for it. New credentials go into the cache for the next caller,
+      // and a non-recoverable error is cached so the next caller gets it.
+      if (!this.inFlight) {
+        this.waitThenRefresh(refresh).catch(() => {});
+      }
+      return this.cached;
     }
 
     // States 4 and 5: mandatory or expired. Block, and reuse an in-flight attempt's result.
@@ -179,6 +193,7 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
     this.nextRefreshAllowedAt = undefined;
     this.cachedError = undefined;
     this.cachedErrorExpiresAt = undefined;
+    this.lastRefreshFailedNonRecoverably = false;
   }
 
   // Logs a warning when a refresh fails, to the console if no logger is configured.
@@ -204,6 +219,7 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
     const remainingMs = expiresAtMs === undefined ? Infinity : expiresAtMs - Date.now();
     const backoffMs = refreshBackoffMs(remainingMs);
     this.nextRefreshAllowedAt = Date.now() + backoffMs;
+    this.lastRefreshFailedNonRecoverably = false;
     this.warnRefreshFailed(
       `Credential refresh failed: ${reason}. The SDK will continue using cached credentials. ` +
         `A refresh of these credentials will be attempted again after ${Math.round(backoffMs / 1000)} seconds.`
@@ -214,6 +230,7 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
   private cacheNonRecoverableError(error: RefreshNonRecoverableError): void {
     this.cachedError = error;
     this.cachedErrorExpiresAt = Date.now() + nonRecoverableErrorCacheMs();
+    this.lastRefreshFailedNonRecoverably = true;
   }
 
   /**

@@ -11,7 +11,9 @@ import type {
 /**
  * Wraps a credential source in the credential refresh lifecycle.
  *
- * Advisory window: one caller refreshes while the others keep using the cached credentials.
+ * Advisory window: the refresh runs in the background and callers keep using the cached credentials.
+ * After a refresh fails with an error that needs customer action, the next caller waits for the refresh
+ * instead, so it gets the error.
  * Mandatory window or expired: callers wait for the refresh.
  *
  * If a refresh fails, the cached credentials are kept and returned, even after they expire.

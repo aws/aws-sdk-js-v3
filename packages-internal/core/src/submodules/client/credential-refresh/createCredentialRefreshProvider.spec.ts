@@ -44,6 +44,9 @@ const NON_RECOVERABLE_CACHE_MS =
   NON_RECOVERABLE_ERROR_CACHE_MIN +
   RANDOM_FRACTION * (NON_RECOVERABLE_ERROR_CACHE_MAX - NON_RECOVERABLE_ERROR_CACHE_MIN);
 
+/** Lets a background refresh finish. */
+const settle = () => new Promise((resolve) => setTimeout(resolve, 0));
+
 /** An error a provider has marked as requiring customer action. */
 const nonRecoverableError = (message = "run `aws sso login`") =>
   Object.assign(new Error(message), { $nonRecoverable: true });
@@ -131,11 +134,16 @@ describe("createCredentialRefreshProvider", () => {
     });
 
     // spec: advisory-refresh-succeeds
-    it("returns refreshed credentials when an advisory refresh succeeds", async () => {
+    // The refresh runs in the background, so the refreshed credentials reach the next call.
+    it("refreshes in the background in the advisory window, and the next call gets the refreshed credentials", async () => {
       const ctx = setup();
-      await ctx.seed("advisory");
+      const seeded = await ctx.seed("advisory");
       const fresh = ctx.credentials();
       ctx.source.mockResolvedValueOnce(fresh);
+
+      // The caller that starts the refresh doesn't wait for it.
+      await expect(ctx.cache()).resolves.toBe(seeded);
+      await settle();
 
       await expect(ctx.cache()).resolves.toBe(fresh);
       expect(ctx.source).toHaveBeenCalledTimes(1);
@@ -454,6 +462,7 @@ describe("createCredentialRefreshProvider", () => {
       await ctx.seed(state);
       ctx.source.mockRejectedValueOnce(new Error("STS unreachable"));
       await ctx.cache();
+      await settle();
       ctx.source.mockClear();
 
       // One millisecond short of the minimum: still rate limited.
@@ -495,6 +504,8 @@ describe("createCredentialRefreshProvider", () => {
       advance(SIX_HOURS_MS - 30 * 60_000);
       const newer = ctx.credentials();
       ctx.source.mockResolvedValueOnce(newer);
+      await ctx.cache();
+      await settle();
       await expect(ctx.cache()).resolves.toBe(newer);
     });
   });
@@ -527,6 +538,7 @@ describe("createCredentialRefreshProvider", () => {
     );
 
     // spec: advisory-window-recomputed-after-refresh
+    // The refresh runs in the background, so the refreshed credentials reach the next call.
     it("recomputes the window from the lifetime of each newly refreshed credential set", async () => {
       const ctx = setup();
       // 6 hours selects a 60 minute window.
@@ -536,8 +548,11 @@ describe("createCredentialRefreshProvider", () => {
       // 59 minutes remaining, inside the 60 minute window, so this refreshes.
       // The replacement has a 10 minute lifetime, selecting a 5 minute window.
       advance(SIX_HOURS_MS - 59 * 60_000);
-      ctx.source.mockResolvedValueOnce(ctx.credentials(10 * 60_000));
+      const refreshed = ctx.credentials(10 * 60_000);
+      ctx.source.mockResolvedValueOnce(refreshed);
       await ctx.cache();
+      await settle();
+      await expect(ctx.cache()).resolves.toBe(refreshed);
       ctx.source.mockClear();
 
       // 6 minutes remaining. Outside the new 5 minute window, so no refresh.
@@ -559,6 +574,7 @@ describe("createCredentialRefreshProvider", () => {
       await ctx.seed("advisory"); // 30 minutes remaining, 60 minute window
       ctx.source.mockRejectedValueOnce(new Error("STS unreachable"));
       await ctx.cache();
+      await settle();
 
       advance(backoffFor(ADVISORY_REMAINING) + 1_000);
       // About 25 minutes remaining. Still inside the original 60 minute window,
@@ -567,6 +583,9 @@ describe("createCredentialRefreshProvider", () => {
       const fresh = ctx.credentials();
       ctx.source.mockResolvedValueOnce(fresh);
 
+      await ctx.cache();
+      expect(ctx.source).toHaveBeenCalledTimes(2);
+      await settle();
       await expect(ctx.cache()).resolves.toBe(fresh);
     });
 
@@ -605,10 +624,6 @@ describe("createCredentialRefreshProvider", () => {
     });
 
     it("ignores invalidate for credentials that carry no expiration", async () => {
-      // The spec scopes static credential sources out entirely, and re-resolving
-      // one returns the same value, so a service rejection cannot be fixed by
-      // refreshing. botocore reaches the same outcome by gating invalidation on
-      // the credential type.
       const ctx = setup();
       const staticCredentials = { accessKeyId: "AKID-1", secretAccessKey: "SECRET" };
       ctx.source.mockResolvedValueOnce(staticCredentials);
@@ -623,21 +638,85 @@ describe("createCredentialRefreshProvider", () => {
   });
 
   describe("non-recoverable errors", () => {
-    // spec: advisory-non-recoverable-raises-then-recovers,
-    //      mandatory-non-recoverable-raises-then-recovers
-    it.each(["advisory", "mandatory"] as const)(
-      "raises immediately in the %s window instead of falling back to cached credentials",
-      async (state) => {
-        // Surfacing the error early gives the customer time to act before the
-        // credentials expire, rather than waiting out a 5 to 10 minute backoff.
-        const ctx = setup();
-        await ctx.seed(state);
+    // spec: mandatory-non-recoverable-raises-then-recovers
+    it("raises immediately in the mandatory window instead of falling back to cached credentials", async () => {
+      const ctx = setup();
+      await ctx.seed("mandatory");
+      const failure = nonRecoverableError();
+      ctx.source.mockRejectedValueOnce(failure);
+
+      await expect(ctx.cache()).rejects.toBe(failure);
+    });
+
+    // spec: advisory-non-recoverable-raises-then-recovers
+    // The refresh runs in the background, so the error reaches the next call.
+    describe("from a background refresh in the advisory window", () => {
+      // Surfacing the error before the credentials expire gives the customer time to act.
+      const failInBackground = async (ctx: ReturnType<typeof setup>) => {
+        const seeded = await ctx.seed("advisory");
         const failure = nonRecoverableError();
         ctx.source.mockRejectedValueOnce(failure);
+        await expect(ctx.cache()).resolves.toBe(seeded);
+        await settle();
+        return failure;
+      };
+
+      it("raises the error to the next caller while it is cached", async () => {
+        const ctx = setup();
+        const failure = await failInBackground(ctx);
 
         await expect(ctx.cache()).rejects.toBe(failure);
-      }
-    );
+        expect(ctx.source).toHaveBeenCalledTimes(1);
+      });
+
+      it("refreshes while the next caller waits once the cached error expires, so that caller gets the error", async () => {
+        const ctx = setup();
+        await failInBackground(ctx);
+        advance(NON_RECOVERABLE_CACHE_MS + 1);
+        const again = nonRecoverableError("still needs `aws sso login`");
+        ctx.source.mockRejectedValueOnce(again);
+
+        await expect(ctx.cache()).rejects.toBe(again);
+        expect(ctx.source).toHaveBeenCalledTimes(2);
+      });
+
+      it("returns new credentials to that caller once the customer has acted, then refreshes in the background again", async () => {
+        const ctx = setup();
+        await failInBackground(ctx);
+        advance(NON_RECOVERABLE_CACHE_MS + 1);
+        const fresh = ctx.credentials(10 * 60_000);
+        ctx.source.mockResolvedValueOnce(fresh);
+
+        await expect(ctx.cache()).resolves.toBe(fresh);
+
+        // Inside the new credentials' advisory window, so the next refresh is in the background.
+        advance(6 * 60_000);
+        const newer = ctx.credentials();
+        ctx.source.mockResolvedValueOnce(newer);
+        await expect(ctx.cache()).resolves.toBe(fresh);
+        await settle();
+        await expect(ctx.cache()).resolves.toBe(newer);
+      });
+
+      it("returns to background refresh after a recoverable failure", async () => {
+        const ctx = setup();
+        await failInBackground(ctx);
+        advance(NON_RECOVERABLE_CACHE_MS + 1);
+
+        // This caller refreshes while it waits. A recoverable failure returns the cached credentials and starts the
+        // backoff, which also clears the non-recoverable state.
+        ctx.source.mockRejectedValueOnce(new Error("Sign-In unreachable"));
+        const cachedCredentials = await ctx.cache();
+        expect(ctx.source).toHaveBeenCalledTimes(2);
+
+        advance(backoffFor(ADVISORY_REMAINING) + 1_000);
+        const fresh = ctx.credentials();
+        ctx.source.mockResolvedValueOnce(fresh);
+        await expect(ctx.cache()).resolves.toBe(cachedCredentials);
+        await settle();
+        await expect(ctx.cache()).resolves.toBe(fresh);
+      });
+    });
 
     it("does not apply the refresh backoff to a non-recoverable error", async () => {
       const ctx = setup();
@@ -733,6 +812,8 @@ describe("createCredentialRefreshProvider", () => {
       advance(6 * 60_000);
       const newer = ctx.credentials();
       ctx.source.mockResolvedValueOnce(newer);
+      await ctx.cache();
+      await settle();
       await expect(ctx.cache()).resolves.toBe(newer);
 
       // `storeCredentials` also clears `cachedError` on success, which the spec requires. That
@@ -796,6 +877,7 @@ describe("createCredentialRefreshProvider", () => {
         const refreshing = ctx.cache();
         rejectRefresh(new Error("STS unreachable"));
         await refreshing;
+        await settle();
 
         ctx.cache.invalidate({ accessKeyId: "AKID-1" });
 
@@ -1076,7 +1158,7 @@ describe("createCredentialRefreshProvider", () => {
 
   describe("concurrency", () => {
     // spec concurrency test 1
-    it("advisory: one refresh runs and other callers get cached credentials without waiting", async () => {
+    it("advisory: one background refresh runs and every caller gets cached credentials without waiting", async () => {
       const ctx = setup();
       const seeded = await ctx.seed("advisory");
       let release!: (credentials: AwsCredentialIdentity) => void;
@@ -1087,17 +1169,17 @@ describe("createCredentialRefreshProvider", () => {
           })
       );
 
-      const refreshing = ctx.cache();
+      // Resolve while the refresh is still in flight, with the old credentials, including the caller that started it.
+      await expect(ctx.cache()).resolves.toBe(seeded);
       expect(ctx.source).toHaveBeenCalledTimes(1);
-
-      // Resolves while the refresh is still in flight, with the old credentials.
       await expect(ctx.cache()).resolves.toBe(seeded);
       await expect(ctx.cache()).resolves.toBe(seeded);
       expect(ctx.source).toHaveBeenCalledTimes(1);
 
       const fresh = ctx.credentials();
       release(fresh);
-      await expect(refreshing).resolves.toBe(fresh);
+      await settle();
+      await expect(ctx.cache()).resolves.toBe(fresh);
       expect(ctx.source).toHaveBeenCalledTimes(1);
     });
 
