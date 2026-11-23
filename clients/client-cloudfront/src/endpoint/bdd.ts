@@ -1,10 +1,10 @@
 // smithy-typescript generated code
 import { BinaryDecisionDiagram } from "@smithy/core/endpoints";
 
-const o="ref",
-p="authSchemes",
-q="name",
-s="signingRegion";
+const p="ref",
+q="authSchemes",
+s="name",
+t="signingRegion";
 const a=-1,
 b=true,
 c="isSet",
@@ -12,24 +12,26 @@ d="PartitionResult",
 e="booleanEquals",
 f="stringEquals",
 g="getAttr",
-h={[o]:"Endpoint"},
-i={"fn":g,"argv":[{[o]:d},"name"]},
-j={[o]:d},
-k={[p]:[{[q]:"sigv4",[s]:"us-east-1"}]},
-l={[p]:[{[q]:"sigv4",[s]:"cn-northwest-1"}]},
-m={[p]:[{[q]:"sigv4",[s]:"{PartitionResult#implicitGlobalRegion}"}]},
-n=[{[o]:"Region"}];
+h={[p]:"Endpoint"},
+i={"fn":g,"argv":[{[p]:d},"name"]},
+j={[p]:d},
+k={[q]:[{[s]:"sigv4",[t]:"us-east-1"}]},
+l={[q]:[{[s]:"sigv4",[t]:"cn-northwest-1"}]},
+m={[q]:[{[s]:"sigv4",[t]:"eusc-de-east-1"}]},
+n={[q]:[{[s]:"sigv4",[t]:"{PartitionResult#implicitGlobalRegion}"}]},
+o=[{[p]:"Region"}];
 const _data={
   conditions: [
     [c,[h]],
-    [c,n],
-    ["aws.partition",n,d],
-    [e,[{[o]:"UseFIPS"},b]],
-    [e,[{[o]:"UseDualStack"},b]],
+    [c,o],
+    ["aws.partition",o,d],
+    [e,[{[p]:"UseFIPS"},b]],
+    [e,[{[p]:"UseDualStack"},b]],
     [f,[i,"aws"]],
     [f,[i,"aws-cn"]],
-    [e,[{fn:g,argv:[j,"supportsDualStack"]},b]],
-    [e,[{fn:g,argv:[j,"supportsFIPS"]},b]]
+    [f,[i,"aws-eusc"]],
+    [e,[{fn:g,argv:[j,"supportsFIPS"]},b]],
+    [e,[{fn:g,argv:[j,"supportsDualStack"]},b]]
   ],
   results: [
     [a],
@@ -40,13 +42,15 @@ const _data={
     ["https://cloudfront-fips.global.api.aws",k],
     ["https://cloudfront.cn-northwest-1.amazonaws.com.cn",l],
     ["https://cloudfront-fips.cn-northwest-1.amazonaws.com.cn",l],
-    ["https://cloudfront-fips.{PartitionResult#dualStackDnsSuffix}",m],
+    ["https://cloudfront.amazonaws.eu",m],
+    ["https://cloudfront.global.api.amazonwebservices.eu",m],
+    ["https://cloudfront-fips.{PartitionResult#dualStackDnsSuffix}",n],
     [a,"FIPS and DualStack are enabled, but this partition does not support one or both"],
-    ["https://cloudfront-fips.{PartitionResult#dnsSuffix}",m],
+    ["https://cloudfront-fips.{PartitionResult#dnsSuffix}",n],
     [a,"FIPS is enabled but this partition does not support FIPS"],
-    ["https://cloudfront.{PartitionResult#dualStackDnsSuffix}",m],
+    ["https://cloudfront.{PartitionResult#dualStackDnsSuffix}",n],
     [a,"DualStack is enabled but this partition does not support DualStack"],
-    ["https://cloudfront.{PartitionResult#dnsSuffix}",m],
+    ["https://cloudfront.{PartitionResult#dnsSuffix}",n],
     [a,"Invalid Configuration: Missing Region"]
   ]
 };
@@ -55,21 +59,23 @@ const root = 2;
 const r = 100_000_000;
 const nodes = new Int32Array([
   -1, 1, -1,
-  0, 16, 3,
-  1, 4, r + 15,
-  2, 5, r + 15,
-  3, 10, 6,
-  4, 8, 7,
-  6, r + 6, r + 14,
-  5, r + 4, 9,
-  7, r + 12, r + 13,
-  4, 13, 11,
-  6, r + 7, 12,
-  8, r + 10, r + 11,
-  5, r + 5, 14,
-  7, 15, r + 9,
-  8, r + 8, r + 9,
-  3, r + 1, 17,
+  0, 18, 3,
+  1, 4, r + 17,
+  2, 5, r + 17,
+  3, 12, 6,
+  4, 9, 7,
+  6, r + 6, 8,
+  7, r + 8, r + 16,
+  5, r + 4, 10,
+  7, r + 9, 11,
+  9, r + 14, r + 15,
+  4, 15, 13,
+  6, r + 7, 14,
+  8, r + 12, r + 13,
+  5, r + 5, 16,
+  8, 17, r + 11,
+  9, r + 10, r + 11,
+  3, r + 1, 19,
   4, r + 2, r + 3,
 ]);
 export const bdd = BinaryDecisionDiagram.from(
