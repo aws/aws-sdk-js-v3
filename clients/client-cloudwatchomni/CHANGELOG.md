@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1176.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1175.0...v3.1176.0) (2026-11-23)
+
+
+### Features
+
+* **client-cloudwatchomni:** Release of the new integration type in CreateIntegration API - Used to add Microsoft Azure resources to the Amazon CloudWatch Omni context graph through an AWS Config connector for your Azure tenant. ([4e3609f](https://github.com/aws/aws-sdk-js-v3/commit/4e3609fe690573fe46ca30e960ded06d12af8f52))
+
+
+
+
+
 # [3.1175.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1174.0...v3.1175.0) (2026-11-21)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatchomni

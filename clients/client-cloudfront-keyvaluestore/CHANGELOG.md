@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1176.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1175.0...v3.1176.0) (2026-11-23)
+
+
+### Features
+
+* **client-cloudfront-keyvaluestore:** This release adds support for KVSHQ API in the AWS European Sovereign Cloud. Requests for key value stores in the aws-eusc partition are now routed to account-based endpoints under cloudfront-kvs.global.api.amazonwebservices.eu. ([1453927](https://github.com/aws/aws-sdk-js-v3/commit/14539271385ef12c4c8ffa26be14039922cfd870))
+
+
+
+
+
 # [3.1175.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1174.0...v3.1175.0) (2026-11-21)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudfront-keyvaluestore

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1176.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1175.0...v3.1176.0) (2026-11-23)
+
+
+### Features
+
+* **client-cloudfront-keyvaluestore:** This release adds support for KVSHQ API in the AWS European Sovereign Cloud. Requests for key value stores in the aws-eusc partition are now routed to account-based endpoints under cloudfront-kvs.global.api.amazonwebservices.eu. ([1453927](https://github.com/aws/aws-sdk-js-v3/commit/14539271385ef12c4c8ffa26be14039922cfd870))
+* **client-cloudfront:** Launch CloudFront in AWS European Sovereign Cloud. ([c15b554](https://github.com/aws/aws-sdk-js-v3/commit/c15b5541890a304c5112ea3af958419b799b7626))
+* **client-cloudwatchomni:** Release of the new integration type in CreateIntegration API - Used to add Microsoft Azure resources to the Amazon CloudWatch Omni context graph through an AWS Config connector for your Azure tenant. ([4e3609f](https://github.com/aws/aws-sdk-js-v3/commit/4e3609fe690573fe46ca30e960ded06d12af8f52))
+* **client-fsx:** Adds support for new FSx for NetApp ONTAP resources ([8901af8](https://github.com/aws/aws-sdk-js-v3/commit/8901af81a5ca9eb696a863098b25e7d17b249e4d))
+* **clients:** update client endpoints as of 2026-11-23 ([77fb009](https://github.com/aws/aws-sdk-js-v3/commit/77fb0091d5aa056d4bce08d1daf73f7c47aaf165))
+* **lib-sns:** add modernized sns-validator ([#8397](https://github.com/aws/aws-sdk-js-v3/issues/8397)) ([9dcf792](https://github.com/aws/aws-sdk-js-v3/commit/9dcf7927a3b929dec505dcf0c82ff0a0619323a3))
+
+
+
+
+
 # [3.1175.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1174.0...v3.1175.0) (2026-11-21)
 
 
