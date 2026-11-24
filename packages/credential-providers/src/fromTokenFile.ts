@@ -1,7 +1,7 @@
 import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
-import { createLazyCredentialProvider } from "@aws-sdk/core/client";
+import { memoizeFactory } from "@aws-sdk/core/client";
 
 /**
  * Creates a credential provider function that reads OIDC token from given file, then call STS.AssumeRoleWithWebIdentity
@@ -34,7 +34,7 @@ import { createLazyCredentialProvider } from "@aws-sdk/core/client";
  * @public
  */
 export const fromTokenFile = (init: FromTokenFileInit = {}): RuntimeConfigAwsCredentialIdentityProvider => {
-  return createLazyCredentialProvider(async () => {
+  return memoizeFactory(async () => {
     const { fromTokenFile: _fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
     return _fromTokenFile({ ...init });
   });

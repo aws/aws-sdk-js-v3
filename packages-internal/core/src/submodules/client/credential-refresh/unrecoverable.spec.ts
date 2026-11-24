@@ -1,19 +1,19 @@
 import { describe, expect, it } from "vitest";
 
 import {
-  isNonRecoverable,
-  markNonRecoverable,
-  markNonRecoverableStsError,
-  NON_RECOVERABLE_STS_ERROR_CODES,
-} from "./nonRecoverable";
+  isUnrecoverable,
+  markUnrecoverable,
+  markUnrecoverableStsError,
+  UNRECOVERABLE_STS_ERROR_CODES,
+} from "./unrecoverable";
 
-describe("markNonRecoverable", () => {
+describe("markUnrecoverable", () => {
   it("marks an error so the cache recognizes it", () => {
     const error = new Error("run `aws sso login`");
 
-    expect(isNonRecoverable(error)).toBe(false);
-    expect(markNonRecoverable(error)).toBe(error);
-    expect(isNonRecoverable(error)).toBe(true);
+    expect(isUnrecoverable(error)).toBe(false);
+    expect(markUnrecoverable(error)).toBe(error);
+    expect(isUnrecoverable(error)).toBe(true);
   });
 
   it("leaves a frozen error alone rather than throwing", () => {
@@ -21,8 +21,8 @@ describe("markNonRecoverable", () => {
     // the provider's message with an unrelated failure.
     const error = Object.freeze(new Error("frozen"));
 
-    expect(() => markNonRecoverable(error)).not.toThrow();
-    expect(isNonRecoverable(error)).toBe(false);
+    expect(() => markUnrecoverable(error)).not.toThrow();
+    expect(isUnrecoverable(error)).toBe(false);
   });
 
   it.each([
@@ -30,24 +30,24 @@ describe("markNonRecoverable", () => {
     ["undefined", undefined],
     ["a string", "not an error"],
   ])("tolerates %s", (_label, thrown) => {
-    expect(() => markNonRecoverable(thrown)).not.toThrow();
-    expect(isNonRecoverable(thrown)).toBe(false);
+    expect(() => markUnrecoverable(thrown)).not.toThrow();
+    expect(isUnrecoverable(thrown)).toBe(false);
   });
 });
 
-describe("isNonRecoverable", () => {
+describe("isUnrecoverable", () => {
   it.each([
     ["a truthy non-boolean", "yes"],
     ["false", false],
     ["undefined", undefined],
   ])("requires the marker to be exactly true, not %s", (_label, value) => {
-    expect(isNonRecoverable(Object.assign(new Error("e"), { $nonRecoverable: value }))).toBe(false);
+    expect(isUnrecoverable(Object.assign(new Error("e"), { $unrecoverable: value }))).toBe(false);
   });
 });
 
-describe("markNonRecoverableStsError", () => {
+describe("markUnrecoverableStsError", () => {
   it("lists exactly the error codes the spec names", () => {
-    expect(NON_RECOVERABLE_STS_ERROR_CODES).toEqual([
+    expect(UNRECOVERABLE_STS_ERROR_CODES).toEqual([
       "AccessDenied",
       "IDPRejectedClaim",
       "InvalidIdentityToken",
@@ -57,11 +57,11 @@ describe("markNonRecoverableStsError", () => {
     ]);
   });
 
-  it.each(NON_RECOVERABLE_STS_ERROR_CODES)("marks %s", (code) => {
+  it.each(UNRECOVERABLE_STS_ERROR_CODES)("marks %s", (code) => {
     const error = Object.assign(new Error("sts said no"), { name: code });
 
-    expect(markNonRecoverableStsError(error)).toBe(error);
-    expect(isNonRecoverable(error)).toBe(true);
+    expect(markUnrecoverableStsError(error)).toBe(error);
+    expect(isUnrecoverable(error)).toBe(true);
   });
 
   it.each([
@@ -71,11 +71,11 @@ describe("markNonRecoverableStsError", () => {
   ])("leaves %s recoverable", (_label, code) => {
     const error = Object.assign(new Error("sts is unwell"), { name: code });
 
-    expect(markNonRecoverableStsError(error)).toBe(error);
-    expect(isNonRecoverable(error)).toBe(false);
+    expect(markUnrecoverableStsError(error)).toBe(error);
+    expect(isUnrecoverable(error)).toBe(false);
   });
 
   it("returns a thrown non-object unchanged", () => {
-    expect(markNonRecoverableStsError(undefined)).toBe(undefined);
+    expect(markUnrecoverableStsError(undefined)).toBe(undefined);
   });
 });

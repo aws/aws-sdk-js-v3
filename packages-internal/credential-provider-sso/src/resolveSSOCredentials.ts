@@ -1,4 +1,4 @@
-import { markNonRecoverable, setCredentialFeature } from "@aws-sdk/core/client";
+import { markUnrecoverable, setCredentialFeature } from "@aws-sdk/core/client";
 import { fromSso as getSsoTokenProvider } from "@aws-sdk/token-providers";
 import type { SSOToken } from "@smithy/core/config";
 import { CredentialsProviderError, getSSOTokenFromFile } from "@smithy/core/config";
@@ -51,19 +51,19 @@ export const resolveSSOCredentials = async ({
         tryNextLink: SHOULD_FAIL_CREDENTIAL_CHAIN,
         logger,
       });
-      // Non-recoverable: a `TokenProviderError` means the cached SSO token is expired, missing or
+      // Unrecoverable: a `TokenProviderError` means the cached SSO token is expired, missing or
       // malformed, and the token provider has already tried to refresh it. Only `aws sso login` can
       // produce a usable one. Anything else here, such as a filesystem error reading the config
       // files, may be transient, so it stays recoverable and the lifecycle backs off instead.
-      throw e?.name === "TokenProviderError" ? markNonRecoverable(error) : error;
+      throw e?.name === "TokenProviderError" ? markUnrecoverable(error) : error;
     }
   } else {
     try {
       token = await getSSOTokenFromFile(ssoStartUrl);
     } catch (e) {
-      // Non-recoverable: the legacy token file is absent or unparseable. Re-reading it cannot
+      // Unrecoverable: the legacy token file is absent or unparseable. Re-reading it cannot
       // change that, and only `aws sso login` recreates it.
-      throw markNonRecoverable(
+      throw markUnrecoverable(
         new CredentialsProviderError(`The SSO session associated with this profile is invalid. ${refreshMessage}`, {
           tryNextLink: SHOULD_FAIL_CREDENTIAL_CHAIN,
           logger,
@@ -73,9 +73,9 @@ export const resolveSSOCredentials = async ({
   }
 
   if (new Date(token.expiresAt).getTime() - Date.now() <= 0) {
-    // Non-recoverable: the token is past its own expiry, so SSO would reject it. Detected locally,
+    // Unrecoverable: the token is past its own expiry, so SSO would reject it. Detected locally,
     // before `GetRoleCredentials` is called, and only `aws sso login` issues a replacement.
-    throw markNonRecoverable(
+    throw markUnrecoverable(
       new CredentialsProviderError(`The SSO session associated with this profile has expired. ${refreshMessage}`, {
         tryNextLink: SHOULD_FAIL_CREDENTIAL_CHAIN,
         logger,
@@ -113,10 +113,10 @@ export const resolveSSOCredentials = async ({
       tryNextLink: SHOULD_FAIL_CREDENTIAL_CHAIN,
       logger,
     });
-    // Non-recoverable: `UnauthorizedException` means SSO rejected the token itself, so sending the
+    // Unrecoverable: `UnauthorizedException` means SSO rejected the token itself, so sending the
     // same token again cannot succeed until the customer re-runs `aws sso login`. Other failures,
     // such as throttling or a 5xx, may be transient and stay recoverable.
-    throw e?.name === "UnauthorizedException" ? markNonRecoverable(error) : error;
+    throw e?.name === "UnauthorizedException" ? markUnrecoverable(error) : error;
   }
 
   const {

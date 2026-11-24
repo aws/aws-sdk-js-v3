@@ -4,7 +4,7 @@ import type {
 } from "@aws-sdk/credential-provider-cognito-identity";
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 
-import { createLazyCredentialProvider } from "@aws-sdk/core/client";
+import { memoizeFactory } from "@aws-sdk/core/client";
 
 /**
  * @public
@@ -57,7 +57,7 @@ export interface FromCognitoIdentityPoolParameters extends Omit<_FromCognitoIden
 export const fromCognitoIdentityPool = (
   options: FromCognitoIdentityPoolParameters
 ): CognitoIdentityCredentialProvider => {
-  return createLazyCredentialProvider(async () => {
+  return memoizeFactory(async () => {
     const { fromCognitoIdentityPool: _fromCognitoIdentityPool } =
       await import("@aws-sdk/credential-provider-cognito-identity");
     return _fromCognitoIdentityPool(options);

@@ -1,7 +1,7 @@
 import type { FromSSOInit, SsoCredentialsParameters } from "@aws-sdk/credential-provider-sso";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
-import { createLazyCredentialProvider } from "@aws-sdk/core/client";
+import { memoizeFactory } from "@aws-sdk/core/client";
 
 /**
  * Creates a credential provider function that reads from the _resolved_ access token from local disk then requests
@@ -49,7 +49,7 @@ import { createLazyCredentialProvider } from "@aws-sdk/core/client";
 export const fromSSO = (
   init: FromSSOInit & Partial<SsoCredentialsParameters> = {}
 ): RuntimeConfigAwsCredentialIdentityProvider => {
-  return createLazyCredentialProvider(async () => {
+  return memoizeFactory(async () => {
     const { fromSSO: _fromSSO } = await import("@aws-sdk/credential-provider-sso");
     return _fromSSO({ ...init });
   });

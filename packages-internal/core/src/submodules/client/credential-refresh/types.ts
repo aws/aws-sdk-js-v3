@@ -1,4 +1,4 @@
-import type { AwsIdentityProperties, RuntimeConfigIdentityProvider } from "@aws-sdk/types";
+import type { RuntimeConfigAwsCredentialIdentityProvider, RuntimeConfigIdentityProvider } from "@aws-sdk/types";
 import type { AwsCredentialIdentity, Logger } from "@smithy/types";
 
 /**
@@ -25,9 +25,12 @@ export interface CredentialCacheWindows {
 
 /**
  * Options a caller passes to a credential refresh provider.
+ *
  * @internal
  */
-export type CredentialRefreshCallOptions = AwsIdentityProperties & { forceRefresh?: boolean };
+export type CredentialRefreshCallOptions = { forceRefresh?: boolean } & NonNullable<
+  Parameters<RuntimeConfigAwsCredentialIdentityProvider>[0]
+>;
 
 /**
  * Options the credential refresh lifecycle passes to a credential source. `rejectedAccessKeyId` is set after a
@@ -44,7 +47,7 @@ export type CredentialSourceOptions = CredentialRefreshCallOptions & { rejectedA
 export interface CredentialRefreshProvider<
   Identity extends AwsCredentialIdentity = AwsCredentialIdentity,
 > extends RuntimeConfigIdentityProvider<Identity> {
-  (options?: CredentialRefreshCallOptions): Promise<Identity>;
+  (options?: { forceRefresh?: boolean } & Parameters<RuntimeConfigAwsCredentialIdentityProvider>[0]): Promise<Identity>;
 
   /**
    * Expires the cached credentials if they still have the rejected access key ID, so the next call refreshes.

@@ -89,13 +89,13 @@ describe("fromTemporaryCredentials", () => {
     expect(typeof (provider as any).invalidate).toBe("function");
   });
 
-  it("marks non-recoverable STS failures", async () => {
+  it("marks unrecoverable STS failures", async () => {
     const failure = Object.assign(new Error("denied"), { name: "AccessDenied" });
     mockSend.mockRejectedValueOnce(failure);
     const provider = fromTemporaryCredentials({ params: { RoleArn }, masterCredentials });
 
     await expect(provider()).rejects.toBe(failure);
-    expect((failure as any).$nonRecoverable).toBe(true);
+    expect((failure as any).$unrecoverable).toBe(true);
   });
 
   it("should call STS::AssumeRole API with master credentials", async () => {

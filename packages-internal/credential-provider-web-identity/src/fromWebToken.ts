@@ -1,4 +1,4 @@
-import { createCredentialRefreshProvider, markNonRecoverableStsError } from "@aws-sdk/core/client";
+import { createCredentialRefreshProvider, markUnrecoverableStsError } from "@aws-sdk/core/client";
 import type {
   AwsIdentityProperties,
   CredentialProviderOptions,
@@ -192,7 +192,7 @@ export const fromWebToken = (init: FromWebTokenInit): RuntimeConfigAwsCredential
       } catch (error) {
         // Some STS failures need customer action, e.g. a rejected identity token.
         // Marking them stops the refresh lifecycle from hiding them behind its backoff.
-        throw markNonRecoverableStsError(error);
+        throw markUnrecoverableStsError(error);
       }
     },
     { logger: init.logger }

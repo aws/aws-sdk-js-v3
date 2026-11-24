@@ -1,8 +1,4 @@
-import {
-  createCredentialRefreshProvider,
-  createLazyCredentialProvider,
-  markNonRecoverable,
-} from "@aws-sdk/core/client";
+import { createCredentialRefreshProvider, memoizeFactory, markUnrecoverable } from "@aws-sdk/core/client";
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/core/config";
 import type { AwsCredentialIdentity } from "@smithy/types";
@@ -159,7 +155,7 @@ describe("memoizeChain", () => {
         vi.fn(async () => credentials(SIX_HOURS, "PROCESS")),
         { memoized: true as const }
       );
-      const fromIni = createLazyCredentialProvider(async () => process);
+      const fromIni = memoizeFactory(async () => process);
       const chain = memoizeChain([environment, fromIni], credentialsTreatedAsExpired);
       await expect(chain()).resolves.toMatchObject({ accessKeyId: "PROCESS" });
       environmentAvailable = true;
@@ -221,11 +217,11 @@ describe("memoizeChain", () => {
       await expect(chain()).resolves.toBe(first);
     });
 
-    // Marking an error non-recoverable must not change whether the chain moves to the next provider.
-    describe("non-recoverable errors keep their tryNextLink behavior", () => {
+    // Marking an error unrecoverable must not change whether the chain moves to the next provider.
+    describe("unrecoverable errors keep their tryNextLink behavior", () => {
       it("moves to the next provider when the marked error allows it", async () => {
         const failing = vi.fn<RuntimeConfigAwsCredentialIdentityProvider>(async () => {
-          throw markNonRecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: true }));
+          throw markUnrecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: true }));
         });
         const next = source();
         const chain = memoizeChain([createCredentialRefreshProvider(failing), next], credentialsTreatedAsExpired);
@@ -236,7 +232,7 @@ describe("memoizeChain", () => {
       });
 
       it("stops the chain when the marked error does not allow the next link", async () => {
-        const error = markNonRecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: false }));
+        const error = markUnrecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: false }));
         const next = source();
         const chain = memoizeChain(
           [createCredentialRefreshProvider(async () => Promise.reject(error)), next],
@@ -248,7 +244,7 @@ describe("memoizeChain", () => {
       });
 
       it("keeps the same outcome on a later call while the error is cached", async () => {
-        const error = markNonRecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: false }));
+        const error = markUnrecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: false }));
         const failing = vi.fn<RuntimeConfigAwsCredentialIdentityProvider>(async () => Promise.reject(error));
         const chain = memoizeChain([createCredentialRefreshProvider(failing), source()], credentialsTreatedAsExpired);
 
@@ -265,7 +261,7 @@ describe("memoizeChain", () => {
         await chain();
         advance(SIX_HOURS + 1);
         raw.mockRejectedValueOnce(
-          markNonRecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: true }))
+          markUnrecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: true }))
         );
 
         await expect(chain()).resolves.toMatchObject({ accessKeyId: "NEXT" });
@@ -278,7 +274,7 @@ describe("memoizeChain", () => {
         const chain = memoizeChain([createCredentialRefreshProvider(raw), next], credentialsTreatedAsExpired);
         await chain();
         advance(SIX_HOURS + 1);
-        const error = markNonRecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: false }));
+        const error = markUnrecoverable(new CredentialsProviderError("run aws sso login", { tryNextLink: false }));
         raw.mockRejectedValueOnce(error);
 
         await expect(chain()).rejects.toBe(error);

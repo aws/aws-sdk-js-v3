@@ -31,7 +31,7 @@ vi.mock("crypto");
 
 vi.mock("@aws-sdk/core/client", () => ({
   setCredentialFeature: vi.fn((credentials) => credentials),
-  markNonRecoverable: vi.fn((error) => Object.assign(error, { $nonRecoverable: true })),
+  markUnrecoverable: vi.fn((error) => Object.assign(error, { $unrecoverable: true })),
 }));
 
 const mock_login_session = "arn:aws:sts::012345678910:assumed-role/Admin/admin";
@@ -466,7 +466,7 @@ describe("LoginCredentialsFetcher", () => {
       expect(error).toBeInstanceOf(CredentialsProviderError);
       expect(error.tryNextLink).toBe(false);
       // Recoverable, so the refresh lifecycle keeps its cached credentials and backs off.
-      expect(error.$nonRecoverable).toBeUndefined();
+      expect(error.$unrecoverable).toBeUndefined();
     });
 
     it("returns the token's credentials when another process already replaced the rejected ones", async () => {
@@ -494,7 +494,7 @@ describe("LoginCredentialsFetcher", () => {
     });
   });
 
-  describe("non-recoverable refresh failures", () => {
+  describe("unrecoverable refresh failures", () => {
     const refreshFails = (failure: unknown, token = mockExpiredCreds) => {
       mockReadFile.mockResolvedValue(JSON.stringify(token));
       mockClient.send.mockRejectedValue(failure);
@@ -510,7 +510,7 @@ describe("LoginCredentialsFetcher", () => {
           Object.assign(new Error("denied"), { name: "AccessDeniedException", error: member })
         );
 
-        expect(error.$nonRecoverable).toBe(true);
+        expect(error.$unrecoverable).toBe(true);
       }
     );
 
@@ -519,11 +519,11 @@ describe("LoginCredentialsFetcher", () => {
         Object.assign(new Error("denied"), { name: "AccessDeniedException", error: "SOMETHING_ELSE" })
       );
 
-      expect(error.$nonRecoverable).toBeUndefined();
+      expect(error.$unrecoverable).toBeUndefined();
     });
 
     it("marks ValidationException, and raises it rather than using the still-valid token", async () => {
-      // The spec raises a non-recoverable error even while the cached credentials are valid,
+      // The spec raises an unrecoverable error even while the cached credentials are valid,
       // so the customer can act before they expire.
       const withinRefreshThreshold = {
         ...mockExpiredCreds,
@@ -538,13 +538,13 @@ describe("LoginCredentialsFetcher", () => {
         withinRefreshThreshold
       );
 
-      expect(error.$nonRecoverable).toBe(true);
+      expect(error.$unrecoverable).toBe(true);
     });
 
     it("leaves a transient refresh failure recoverable", async () => {
       const error = await refreshFails(Object.assign(new Error("socket hang up"), { name: "TimeoutError" }));
 
-      expect(error.$nonRecoverable).toBeUndefined();
+      expect(error.$unrecoverable).toBeUndefined();
     });
   });
 

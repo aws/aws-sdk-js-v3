@@ -326,7 +326,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
     });
   });
 
-  describe("non-recoverable STS failures", () => {
+  describe("unrecoverable STS failures", () => {
     const assumeRoleFails = (failure: unknown) =>
       resolveAssumeRoleCredentials(
         mockProfileName,
@@ -345,7 +345,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
         const error = await assumeRoleFails(failure);
 
         expect(error).toBe(failure);
-        expect(error.$nonRecoverable).toBe(true);
+        expect(error.$unrecoverable).toBe(true);
       }
     );
 
@@ -357,7 +357,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
         const error = await assumeRoleFails(failure);
 
         expect(error).toBe(failure);
-        expect(error.$nonRecoverable).toBeUndefined();
+        expect(error.$unrecoverable).toBeUndefined();
       }
     );
   });

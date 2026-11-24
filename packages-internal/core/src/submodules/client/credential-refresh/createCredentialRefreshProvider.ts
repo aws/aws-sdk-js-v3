@@ -29,7 +29,7 @@ export const createCredentialRefreshProvider = <Identity extends AwsCredentialId
   source: RuntimeConfigIdentityProvider<Identity>,
   options: CredentialRefreshProviderOptions = {}
 ): CredentialRefreshProvider<Identity> => {
-  const lifecycle = new CredentialRefreshLifecycle(source, options.logger);
+  const lifecycle = new CredentialRefreshLifecycle({ source, logger: options.logger });
 
   const provider = ((callOptions?: CredentialRefreshCallOptions) =>
     lifecycle.getCredentials(callOptions)) as CredentialRefreshProvider<Identity> & {

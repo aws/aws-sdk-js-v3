@@ -63,7 +63,7 @@ describe(resolveSSOCredentials.name, () => {
         `The SSO session associated with this profile is invalid. ${refreshMessage}`,
         SHOULD_FAIL_CREDENTIAL_CHAIN
       ),
-      { $nonRecoverable: true }
+      { $unrecoverable: true }
     );
     vi.mocked(getSSOTokenFromFile).mockRejectedValue(new Error("error"));
 
@@ -130,13 +130,13 @@ describe(resolveSSOCredentials.name, () => {
     expect(mockTokenProviderFn).toHaveBeenCalledWith({ callerClientConfig: mockCallerClientConfig });
   });
 
-  describe("non-recoverable failures", () => {
+  describe("unrecoverable failures", () => {
     it("marks UnauthorizedException from GetRoleCredentials, which means the token was rejected", async () => {
       mockSsoSend.mockRejectedValue(Object.assign(new Error("token rejected"), { name: "UnauthorizedException" }));
 
       const error = await resolveSSOCredentials(mockOptions).catch((e) => e);
 
-      expect(error.$nonRecoverable).toBe(true);
+      expect(error.$unrecoverable).toBe(true);
     });
 
     it.each(["ThrottlingException", "InternalServerException"])(
@@ -146,7 +146,7 @@ describe(resolveSSOCredentials.name, () => {
 
         const error = await resolveSSOCredentials(mockOptions).catch((e) => e);
 
-        expect(error.$nonRecoverable).toBeUndefined();
+        expect(error.$unrecoverable).toBeUndefined();
       }
     );
 
@@ -157,7 +157,7 @@ describe(resolveSSOCredentials.name, () => {
 
       const error = await resolveSSOCredentials({ ...mockOptions, ssoSession: "mock_sso_session" }).catch((e) => e);
 
-      expect(error.$nonRecoverable).toBe(true);
+      expect(error.$unrecoverable).toBe(true);
     });
 
     it("leaves a non-token failure from the SSO token provider recoverable", async () => {
@@ -169,7 +169,7 @@ describe(resolveSSOCredentials.name, () => {
 
       const error = await resolveSSOCredentials({ ...mockOptions, ssoSession: "mock_sso_session" }).catch((e) => e);
 
-      expect(error.$nonRecoverable).toBeUndefined();
+      expect(error.$unrecoverable).toBeUndefined();
     });
   });
 
@@ -180,7 +180,7 @@ describe(resolveSSOCredentials.name, () => {
           `The SSO session associated with this profile has expired. ${refreshMessage}`,
           SHOULD_FAIL_CREDENTIAL_CHAIN
         ),
-        { $nonRecoverable: true }
+        { $unrecoverable: true }
       );
 
       try {

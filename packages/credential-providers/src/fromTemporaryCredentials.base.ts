@@ -1,4 +1,4 @@
-import { createCredentialRefreshProvider, markNonRecoverableStsError } from "@aws-sdk/core/client";
+import { createCredentialRefreshProvider, markUnrecoverableStsError } from "@aws-sdk/core/client";
 import type {
   AssumeRoleCommandInput,
   AssumeRoleCommandOutput,
@@ -151,7 +151,7 @@ export const fromTemporaryCredentials = (
       try {
         ({ Credentials } = await stsClient.send(new AssumeRoleCommand(params)));
       } catch (error) {
-        throw markNonRecoverableStsError(error);
+        throw markUnrecoverableStsError(error);
       }
       if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
         throw new CredentialsProviderError(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`, {

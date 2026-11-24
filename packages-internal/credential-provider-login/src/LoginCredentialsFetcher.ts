@@ -1,4 +1,4 @@
-import { markNonRecoverable } from "@aws-sdk/core/client";
+import { markUnrecoverable } from "@aws-sdk/core/client";
 import type { CreateOAuth2TokenCommandInput } from "@aws-sdk/nested-clients/signin";
 import type { AwsCredentialIdentity, AwsIdentityProperties, Logger } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/core/config";
@@ -37,7 +37,7 @@ export class LoginCredentialsFetcher {
     const token = await this.loadToken();
 
     if (!token) {
-      throw markNonRecoverable(
+      throw markUnrecoverable(
         new CredentialsProviderError(
           `Failed to load a token for session ${this.loginSession}, please re-authenticate using aws login`,
           { tryNextLink: false, logger: this.logger }
@@ -201,13 +201,13 @@ export class LoginCredentialsFetcher {
           logger: this.logger,
           tryNextLink: false,
         });
-        throw needsCustomerAction ? markNonRecoverable(accessDenied) : accessDenied;
+        throw needsCustomerAction ? markUnrecoverable(accessDenied) : accessDenied;
       }
 
       // The Sign-In service rejected the refresh request itself, so retrying cannot succeed.
       // Raised even while the cached token is still valid, so the customer sees it before expiry.
       if (error.name === "ValidationException") {
-        throw markNonRecoverable(
+        throw markUnrecoverable(
           new CredentialsProviderError(
             `Failed to refresh token: ${String(error)}. Please re-authenticate using \`aws login\``,
             { logger: this.logger, tryNextLink: false }
@@ -257,7 +257,7 @@ export class LoginCredentialsFetcher {
 
       return token;
     } catch (error) {
-      throw markNonRecoverable(
+      throw markUnrecoverable(
         new CredentialsProviderError(`Failed to load token from ${tokenFilePath}: ${String(error)}`, {
           logger: this.logger,
           tryNextLink: false,

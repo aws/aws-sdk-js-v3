@@ -1,9 +1,9 @@
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 import { describe, expect, it, vi } from "vitest";
 
-import { createLazyCredentialProvider } from "./createLazyCredentialProvider";
+import { memoizeFactory } from "./memoizeFactory";
 
-describe("createLazyCredentialProvider", () => {
+describe("memoizeFactory", () => {
   it("creates the provider once and forwards every call", async () => {
     const inner = vi.fn(async (options?: AwsIdentityProperties) => ({
       accessKeyId: "AKID",
@@ -11,7 +11,7 @@ describe("createLazyCredentialProvider", () => {
       options,
     }));
     const factory = vi.fn(async () => inner);
-    const provider = createLazyCredentialProvider(factory);
+    const provider = memoizeFactory(factory);
     const options = { callerClientConfig: { region: async () => "us-west-2" } };
 
     await provider(options);
@@ -27,7 +27,7 @@ describe("createLazyCredentialProvider", () => {
     const inner = vi.fn(async () => ({ accessKeyId: "AKID", secretAccessKey: "SECRET" }));
     let release!: (provider: typeof inner) => void;
     const factory = vi.fn(() => new Promise<typeof inner>((resolve) => (release = resolve)));
-    const provider = createLazyCredentialProvider(factory);
+    const provider = memoizeFactory(factory);
 
     const callers = [provider(), provider(), provider()];
     release(inner);
@@ -40,7 +40,7 @@ describe("createLazyCredentialProvider", () => {
   it("retries initialization after the factory fails", async () => {
     const inner = async () => ({ accessKeyId: "AKID", secretAccessKey: "SECRET" });
     const factory = vi.fn().mockRejectedValueOnce(new Error("load failed")).mockResolvedValueOnce(inner);
-    const provider = createLazyCredentialProvider(factory);
+    const provider = memoizeFactory(factory);
 
     await expect(provider()).rejects.toThrow("load failed");
     await expect(provider()).resolves.toMatchObject({ accessKeyId: "AKID" });
@@ -54,7 +54,7 @@ describe("createLazyCredentialProvider", () => {
     let releaseRetry!: (provider: typeof inner) => void;
     const retry = new Promise<typeof inner>((resolve) => (releaseRetry = resolve));
     const factory = vi.fn().mockReturnValueOnce(first).mockReturnValueOnce(retry).mockResolvedValue(inner);
-    const provider = createLazyCredentialProvider(factory);
+    const provider = memoizeFactory(factory);
 
     // Reactions on `first` run in registration order: waiter A, then the retry starter, then waiter B.
     const waiterA = provider();
@@ -79,7 +79,7 @@ describe("createLazyCredentialProvider", () => {
   it("exposes invalidate only after the inner provider exists", async () => {
     const invalidate = vi.fn();
     const inner = Object.assign(async () => ({ accessKeyId: "AKID", secretAccessKey: "SECRET" }), { invalidate });
-    const provider = createLazyCredentialProvider(async () => inner);
+    const provider = memoizeFactory(async () => inner);
 
     expect(provider.invalidate).toBeUndefined();
     await provider();
@@ -90,7 +90,7 @@ describe("createLazyCredentialProvider", () => {
 
   it("does not invent invalidation for a provider outside the spec", async () => {
     const inner = async () => ({ accessKeyId: "PROCESS", secretAccessKey: "SECRET" });
-    const provider = createLazyCredentialProvider(async () => inner);
+    const provider = memoizeFactory(async () => inner);
 
     await provider();
 

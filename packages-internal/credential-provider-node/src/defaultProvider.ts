@@ -1,5 +1,5 @@
 import { ENV_KEY, ENV_SECRET, fromEnv } from "@aws-sdk/credential-provider-env";
-import { createLazyCredentialProvider } from "@aws-sdk/core/client";
+import { memoizeFactory } from "@aws-sdk/core/client";
 import type { FromHttpOptions } from "@aws-sdk/credential-provider-http";
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
@@ -97,7 +97,7 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedRuntime
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromEnv");
         return fromEnv(init)();
       },
-      createLazyCredentialProvider(async () => {
+      memoizeFactory(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromSSO");
         const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
@@ -111,22 +111,22 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedRuntime
         const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
         return fromSSO(init);
       }),
-      createLazyCredentialProvider(async () => {
+      memoizeFactory(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
         const { fromIni } = await import("@aws-sdk/credential-provider-ini");
         return fromIni(init);
       }),
-      async (awsIdentityProperties?: AwsIdentityProperties) => {
+      memoizeFactory(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
         const { fromProcess } = await import("@aws-sdk/credential-provider-process");
-        return fromProcess(init)(awsIdentityProperties);
-      },
-      createLazyCredentialProvider(async () => {
+        return fromProcess(init);
+      }),
+      memoizeFactory(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
         const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
         return fromTokenFile(init);
       }),
-      createLazyCredentialProvider(async () => {
+      memoizeFactory(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::remoteProvider");
         return remoteProvider(init);
       }),

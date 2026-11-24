@@ -1,19 +1,24 @@
 import { NoOpLogger } from "@smithy/core/client";
 import { CredentialsProviderError } from "@smithy/core/config";
-import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import type { AwsCredentialIdentity } from "@smithy/types";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, expectTypeOf, it, vi } from "vitest";
 
 import {
-  NON_RECOVERABLE_ERROR_CACHE_MAX,
-  NON_RECOVERABLE_ERROR_CACHE_MIN,
+  UNRECOVERABLE_ERROR_CACHE_MAX,
+  UNRECOVERABLE_ERROR_CACHE_MIN,
   REFRESH_BACKOFF_MAX,
   REFRESH_BACKOFF_MIN,
   REFRESH_BACKOFF_MIN_UPPER_BOUND,
   refreshBackoffUpperBoundMs,
 } from "./constants";
 import { createCredentialRefreshProvider } from "./createCredentialRefreshProvider";
-import type { CredentialRefreshProviderOptions, CredentialCacheState } from "./types";
+import type {
+  CredentialCacheState,
+  CredentialRefreshCallOptions,
+  CredentialRefreshProviderOptions,
+  CredentialSourceOptions,
+} from "./types";
 
 const SIX_HOURS_MS = 6 * 3600_000;
 const START_MS = new Date("2024-01-01T00:00:00Z").getTime();
@@ -40,16 +45,15 @@ const ADVISORY_REMAINING = 30 * 60_000;
 const VALID_REMAINING = 2 * 3600_000;
 
 /** 2_600ms. */
-const NON_RECOVERABLE_CACHE_MS =
-  NON_RECOVERABLE_ERROR_CACHE_MIN +
-  RANDOM_FRACTION * (NON_RECOVERABLE_ERROR_CACHE_MAX - NON_RECOVERABLE_ERROR_CACHE_MIN);
+const UNRECOVERABLE_CACHE_MS =
+  UNRECOVERABLE_ERROR_CACHE_MIN + RANDOM_FRACTION * (UNRECOVERABLE_ERROR_CACHE_MAX - UNRECOVERABLE_ERROR_CACHE_MIN);
 
 /** Lets a background refresh finish. */
 const settle = () => new Promise((resolve) => setTimeout(resolve, 0));
 
 /** An error a provider has marked as requiring customer action. */
-const nonRecoverableError = (message = "run `aws sso login`") =>
-  Object.assign(new Error(message), { $nonRecoverable: true });
+const unrecoverableError = (message = "run `aws sso login`") =>
+  Object.assign(new Error(message), { $unrecoverable: true });
 
 let now: number;
 let akidCounter: number;
@@ -637,12 +641,12 @@ describe("createCredentialRefreshProvider", () => {
     });
   });
 
-  describe("non-recoverable errors", () => {
+  describe("unrecoverable errors", () => {
     // spec: mandatory-non-recoverable-raises-then-recovers
     it("raises immediately in the mandatory window instead of falling back to cached credentials", async () => {
       const ctx = setup();
       await ctx.seed("mandatory");
-      const failure = nonRecoverableError();
+      const failure = unrecoverableError();
       ctx.source.mockRejectedValueOnce(failure);
 
       await expect(ctx.cache()).rejects.toBe(failure);
@@ -654,7 +658,7 @@ describe("createCredentialRefreshProvider", () => {
       // Surfacing the error before the credentials expire gives the customer time to act.
       const failInBackground = async (ctx: ReturnType<typeof setup>) => {
         const seeded = await ctx.seed("advisory");
-        const failure = nonRecoverableError();
+        const failure = unrecoverableError();
         ctx.source.mockRejectedValueOnce(failure);
         await expect(ctx.cache()).resolves.toBe(seeded);
         await settle();
@@ -672,8 +676,8 @@ describe("createCredentialRefreshProvider", () => {
       it("refreshes while the next caller waits once the cached error expires, so that caller gets the error", async () => {
         const ctx = setup();
         await failInBackground(ctx);
-        advance(NON_RECOVERABLE_CACHE_MS + 1);
-        const again = nonRecoverableError("still needs `aws sso login`");
+        advance(UNRECOVERABLE_CACHE_MS + 1);
+        const again = unrecoverableError("still needs `aws sso login`");
         ctx.source.mockRejectedValueOnce(again);
 
         await expect(ctx.cache()).rejects.toBe(again);
@@ -683,7 +687,7 @@ describe("createCredentialRefreshProvider", () => {
       it("returns new credentials to that caller once the customer has acted, then refreshes in the background again", async () => {
         const ctx = setup();
         await failInBackground(ctx);
-        advance(NON_RECOVERABLE_CACHE_MS + 1);
+        advance(UNRECOVERABLE_CACHE_MS + 1);
         const fresh = ctx.credentials(10 * 60_000);
         ctx.source.mockResolvedValueOnce(fresh);
 
@@ -701,10 +705,10 @@ describe("createCredentialRefreshProvider", () => {
       it("returns to background refresh after a recoverable failure", async () => {
         const ctx = setup();
         await failInBackground(ctx);
-        advance(NON_RECOVERABLE_CACHE_MS + 1);
+        advance(UNRECOVERABLE_CACHE_MS + 1);
 
         // This caller refreshes while it waits. A recoverable failure returns the cached credentials and starts the
-        // backoff, which also clears the non-recoverable state.
+        // backoff, which also clears the unrecoverable state.
         ctx.source.mockRejectedValueOnce(new Error("Sign-In unreachable"));
         const cachedCredentials = await ctx.cache();
         expect(ctx.source).toHaveBeenCalledTimes(2);
@@ -718,14 +722,14 @@ describe("createCredentialRefreshProvider", () => {
       });
     });
 
-    it("does not apply the refresh backoff to a non-recoverable error", async () => {
+    it("does not apply the refresh backoff to an unrecoverable error", async () => {
       const ctx = setup();
       await ctx.seed("mandatory");
-      ctx.source.mockRejectedValueOnce(nonRecoverableError());
+      ctx.source.mockRejectedValueOnce(unrecoverableError());
       await expect(ctx.cache()).rejects.toThrow();
 
       // Past the error cache but far short of the refresh backoff.
-      advance(NON_RECOVERABLE_ERROR_CACHE_MAX + 1_000);
+      advance(UNRECOVERABLE_ERROR_CACHE_MAX + 1_000);
       const fresh = ctx.credentials();
       ctx.source.mockResolvedValueOnce(fresh);
 
@@ -738,7 +742,7 @@ describe("createCredentialRefreshProvider", () => {
       // retries in a loop.
       const ctx = setup();
       await ctx.seed("mandatory");
-      const failure = nonRecoverableError();
+      const failure = unrecoverableError();
       ctx.source.mockRejectedValueOnce(failure);
       await expect(ctx.cache()).rejects.toBe(failure);
       ctx.source.mockClear();
@@ -752,18 +756,18 @@ describe("createCredentialRefreshProvider", () => {
     it("caches the error for no longer than 5 seconds", async () => {
       const ctx = setup();
       await ctx.seed("mandatory");
-      ctx.source.mockRejectedValueOnce(nonRecoverableError());
+      ctx.source.mockRejectedValueOnce(unrecoverableError());
       await expect(ctx.cache()).rejects.toThrow();
       ctx.source.mockClear();
 
       // One millisecond short of the minimum: still cached whatever value the
       // jitter produced.
-      advance(NON_RECOVERABLE_ERROR_CACHE_MIN - 1);
+      advance(UNRECOVERABLE_ERROR_CACHE_MIN - 1);
       await expect(ctx.cache()).rejects.toThrow();
       expect(ctx.source).not.toHaveBeenCalled();
 
       // Past the maximum: no longer cached whatever value it produced.
-      advance(NON_RECOVERABLE_ERROR_CACHE_MAX - NON_RECOVERABLE_ERROR_CACHE_MIN + 2);
+      advance(UNRECOVERABLE_ERROR_CACHE_MAX - UNRECOVERABLE_ERROR_CACHE_MIN + 2);
       const fresh = ctx.credentials();
       ctx.source.mockResolvedValueOnce(fresh);
       await expect(ctx.cache()).resolves.toBe(fresh);
@@ -772,10 +776,10 @@ describe("createCredentialRefreshProvider", () => {
     it("stops re-raising once the error cache expires", async () => {
       const ctx = setup();
       await ctx.seed("mandatory");
-      ctx.source.mockRejectedValueOnce(nonRecoverableError());
+      ctx.source.mockRejectedValueOnce(unrecoverableError());
       await expect(ctx.cache()).rejects.toThrow();
 
-      advance(NON_RECOVERABLE_CACHE_MS + 1);
+      advance(UNRECOVERABLE_CACHE_MS + 1);
       const fresh = ctx.credentials();
       ctx.source.mockResolvedValueOnce(fresh);
 
@@ -783,16 +787,16 @@ describe("createCredentialRefreshProvider", () => {
     });
 
     // spec: no-cache-non-recoverable-raises-then-recovers
-    it("raises the non-recoverable error from an initial fetch and recovers after the cache expires", async () => {
+    it("raises the unrecoverable error from an initial fetch and recovers after the cache expires", async () => {
       const ctx = setup();
-      const failure = nonRecoverableError();
+      const failure = unrecoverableError();
       ctx.source.mockRejectedValueOnce(failure);
       await expect(ctx.cache()).rejects.toBe(failure);
 
       await expect(ctx.cache()).rejects.toBe(failure);
       expect(ctx.source).toHaveBeenCalledTimes(1);
 
-      advance(NON_RECOVERABLE_CACHE_MS + 1);
+      advance(UNRECOVERABLE_CACHE_MS + 1);
       const fresh = ctx.credentials();
       ctx.source.mockResolvedValueOnce(fresh);
       await expect(ctx.cache()).resolves.toBe(fresh);
@@ -801,10 +805,10 @@ describe("createCredentialRefreshProvider", () => {
     it("does not re-raise a cached error once it has expired and a refresh has succeeded", async () => {
       const ctx = setup();
       await ctx.seed("mandatory");
-      ctx.source.mockRejectedValueOnce(nonRecoverableError());
+      ctx.source.mockRejectedValueOnce(unrecoverableError());
       await expect(ctx.cache()).rejects.toThrow();
 
-      advance(NON_RECOVERABLE_CACHE_MS + 1);
+      advance(UNRECOVERABLE_CACHE_MS + 1);
       ctx.source.mockResolvedValueOnce(ctx.credentials(10 * 60_000));
       await ctx.cache();
 
@@ -823,7 +827,7 @@ describe("createCredentialRefreshProvider", () => {
     });
 
     it("treats an unmarked error as recoverable", async () => {
-      // Misclassifying a recoverable failure as non-recoverable costs
+      // Misclassifying a recoverable failure as unrecoverable costs
       // availability, so only an explicit marker counts.
       const ctx = setup();
       const seeded = await ctx.seed("mandatory");
@@ -1307,6 +1311,17 @@ describe("createCredentialRefreshProvider", () => {
 
       await expect(ctx.cache({ forceRefresh: true })).resolves.toBe(fresh);
       expect(ctx.source).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe("types", () => {
+    it("CredentialSourceOptions extends AwsIdentityProperties", () => {
+      expectTypeOf<CredentialSourceOptions>().toExtend<AwsIdentityProperties>();
+    });
+
+    it("CredentialRefreshCallOptions keeps forceRefresh and extends AwsIdentityProperties", () => {
+      expectTypeOf<CredentialRefreshCallOptions>().toExtend<AwsIdentityProperties>();
+      expectTypeOf<CredentialRefreshCallOptions>().toHaveProperty("forceRefresh");
     });
   });
 });

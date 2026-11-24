@@ -86,7 +86,7 @@ describe("fromWebToken", () => {
     expect(spyDateNow).toHaveBeenCalledTimes(1);
   });
 
-  describe("non-recoverable STS failures", () => {
+  describe("unrecoverable STS failures", () => {
     const assumeFails = (failure: unknown) =>
       fromWebToken({
         webIdentityToken: mockToken,
@@ -104,7 +104,7 @@ describe("fromWebToken", () => {
         const error = await assumeFails(failure);
 
         expect(error).toBe(failure);
-        expect(error.$nonRecoverable).toBe(true);
+        expect(error.$unrecoverable).toBe(true);
       }
     );
 
@@ -116,7 +116,7 @@ describe("fromWebToken", () => {
         const error = await assumeFails(failure);
 
         expect(error).toBe(failure);
-        expect(error.$nonRecoverable).toBeUndefined();
+        expect(error.$unrecoverable).toBeUndefined();
       }
     );
   });

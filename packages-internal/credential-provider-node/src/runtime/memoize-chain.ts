@@ -61,7 +61,7 @@ export function memoizeChain(
         return await pinned(options);
       } catch (err) {
         // An error that allows the next link moves on through the chain, as it did when every
-        // refresh re-ran the full chain. Marking an error non-recoverable doesn't change this.
+        // refresh re-ran the full chain. Marking an error unrecoverable doesn't change this.
         if (!err?.tryNextLink || typeof pinned.invalidate !== "function") {
           throw err;
         }

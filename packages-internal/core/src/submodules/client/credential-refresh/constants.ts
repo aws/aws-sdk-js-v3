@@ -23,16 +23,16 @@ export const REFRESH_BACKOFF_MAX = 600_000;
 export const REFRESH_BACKOFF_MIN_UPPER_BOUND = 90_000;
 
 /**
- * Lower bound of the short-lived cache applied to a non-recoverable error.
+ * Lower bound of the short-lived cache applied to an unrecoverable error.
  * @internal
  */
-export const NON_RECOVERABLE_ERROR_CACHE_MIN = 1_000;
+export const UNRECOVERABLE_ERROR_CACHE_MIN = 1_000;
 
 /**
- * Upper bound of the short-lived cache applied to a non-recoverable error.
+ * Upper bound of the short-lived cache applied to an unrecoverable error.
  * @internal
  */
-export const NON_RECOVERABLE_ERROR_CACHE_MAX = 5_000;
+export const UNRECOVERABLE_ERROR_CACHE_MAX = 5_000;
 
 /**
  * Upper bound of the backoff: half the remaining lifetime, kept between 90 seconds and 10 minutes.
@@ -55,12 +55,12 @@ export const refreshBackoffMs = (remainingMs: number): number =>
   REFRESH_BACKOFF_MIN + Math.floor(Math.random() * (refreshBackoffUpperBoundMs(remainingMs) - REFRESH_BACKOFF_MIN));
 
 /**
- * Jittered 1 to 5 second window for re-raising a cached non-recoverable error.
+ * Jittered 1 to 5 second window for re-raising a cached unrecoverable error.
  * @internal
  */
-export const nonRecoverableErrorCacheMs = (): number =>
-  NON_RECOVERABLE_ERROR_CACHE_MIN +
-  Math.floor(Math.random() * (NON_RECOVERABLE_ERROR_CACHE_MAX - NON_RECOVERABLE_ERROR_CACHE_MIN));
+export const unrecoverableErrorCacheMs = (): number =>
+  UNRECOVERABLE_ERROR_CACHE_MIN +
+  Math.floor(Math.random() * (UNRECOVERABLE_ERROR_CACHE_MAX - UNRECOVERABLE_ERROR_CACHE_MIN));
 
 /**
  * Selects the effective advisory refresh window based on credential lifetime.

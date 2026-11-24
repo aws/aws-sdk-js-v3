@@ -1,18 +1,18 @@
 /**
- * An error with `$nonRecoverable: true` can't succeed on retry until the customer acts, for example
+ * An error with `$unrecoverable: true` can't succeed on retry until the customer acts, for example
  * by running `aws sso login`. The refresh lifecycle throws it right away instead of backing off.
  *
  * @internal
  */
-export interface RefreshNonRecoverableError {
-  $nonRecoverable?: boolean;
+export interface RefreshUnrecoverableError {
+  $unrecoverable?: boolean;
 }
 
 /**
  * STS error codes that cannot succeed until the customer acts.
  * @internal
  */
-export const NON_RECOVERABLE_STS_ERROR_CODES = [
+export const UNRECOVERABLE_STS_ERROR_CODES = [
   "AccessDenied",
   "IDPRejectedClaim",
   "InvalidIdentityToken",
@@ -27,25 +27,25 @@ export const NON_RECOVERABLE_STS_ERROR_CODES = [
  * customer acts, e.g. runs `aws sso login`. Returns `error`, so callers can `throw mark(e)`.
  * @internal
  */
-export const markNonRecoverable = <E>(error: E): E => {
+export const markUnrecoverable = <E>(error: E): E => {
   if (error !== null && typeof error === "object" && Object.isExtensible(error)) {
-    (error as RefreshNonRecoverableError).$nonRecoverable = true;
+    (error as RefreshUnrecoverableError).$unrecoverable = true;
   }
   return error;
 };
 
 /**
- * True if the error was marked by {@link markNonRecoverable}.
+ * True if the error was marked by {@link markUnrecoverable}.
  * @internal
  */
-export const isNonRecoverable = (error: unknown): error is RefreshNonRecoverableError =>
-  (error as RefreshNonRecoverableError | null)?.$nonRecoverable === true;
+export const isUnrecoverable = (error: unknown): error is RefreshUnrecoverableError =>
+  (error as RefreshUnrecoverableError | null)?.$unrecoverable === true;
 
 /**
- * Marks `error` when it carries one of {@link NON_RECOVERABLE_STS_ERROR_CODES}.
+ * Marks `error` when it carries one of {@link UNRECOVERABLE_STS_ERROR_CODES}.
  * @internal
  */
-export const markNonRecoverableStsError = <E>(error: E): E => {
+export const markUnrecoverableStsError = <E>(error: E): E => {
   const code = (error as { name?: string } | null)?.name;
-  return code !== undefined && NON_RECOVERABLE_STS_ERROR_CODES.includes(code) ? markNonRecoverable(error) : error;
+  return code !== undefined && UNRECOVERABLE_STS_ERROR_CODES.includes(code) ? markUnrecoverable(error) : error;
 };

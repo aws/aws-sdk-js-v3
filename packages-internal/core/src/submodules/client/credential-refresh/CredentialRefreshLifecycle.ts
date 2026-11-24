@@ -5,12 +5,17 @@ import type { AwsCredentialIdentity, Logger } from "@smithy/types";
 import { classifyCredentialCacheState } from "./classifyCredentialCacheState";
 import {
   MANDATORY_REFRESH_WINDOW,
-  nonRecoverableErrorCacheMs,
+  unrecoverableErrorCacheMs,
   refreshBackoffMs,
   selectAdvisoryWindowMs,
 } from "./constants";
-import { isNonRecoverable, type RefreshNonRecoverableError } from "./nonRecoverable";
-import type { CredentialCacheState, CredentialRefreshCallOptions, CredentialSourceOptions } from "./types";
+import { isUnrecoverable, type RefreshUnrecoverableError } from "./unrecoverable";
+import type {
+  CredentialCacheState,
+  CredentialRefreshCallOptions,
+  CredentialRefreshProviderOptions,
+  CredentialSourceOptions,
+} from "./types";
 
 /**
  * State and logic of credential refresh lifecycle.
@@ -24,8 +29,8 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
 
   private nextRefreshAllowedAt: number | undefined;
 
-  // A non-recoverable error, re-raised without contacting the source.
-  private cachedError: RefreshNonRecoverableError | undefined;
+  // An unrecoverable error, re-raised without contacting the source.
+  private cachedError: RefreshUnrecoverableError | undefined;
   private cachedErrorExpiresAt: number | undefined;
 
   private initialFetch: Promise<Identity> | undefined;
@@ -37,15 +42,22 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
   // Access key ID of cached credentials a service rejected, until a refresh replaces them.
   private rejectedAccessKeyId: string | undefined;
 
-  // True after a refresh fails with a nonrecoverable error. While true, the next advisory call
+  // True after a refresh fails with an unrecoverable error. While true, the next advisory call
   // refreshes and waits instead of refreshing in the background, so it gets the error. A successful
   // refresh or other failure sets it back to false.
-  private lastRefreshFailedNonRecoverably = false;
+  private lastRefreshFailedUnrecoverably = false;
 
-  public constructor(
-    private readonly source: RuntimeConfigIdentityProvider<Identity>,
-    private readonly logger: Logger | undefined
-  ) {}
+  private readonly source: RuntimeConfigIdentityProvider<Identity>;
+
+  private readonly logger: Logger | undefined;
+
+  public constructor({
+    source,
+    logger,
+  }: CredentialRefreshProviderOptions & { source: RuntimeConfigIdentityProvider<Identity> }) {
+    this.source = source;
+    this.logger = logger;
+  }
 
   /**
    * Returns credentials for a provider call. Uses the cached credentials, refreshes them, or fetches the first set,
@@ -86,13 +98,13 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
     if (!this.mandatoryRefreshNeeded()) {
       const refresh = () => this.refreshUnderLock(options, () => this.refreshNeeded());
 
-      // After a non-recoverable failure, refresh while this caller waits, so it gets the error if it happens again.
-      if (this.lastRefreshFailedNonRecoverably) {
+      // After an unrecoverable failure, refresh while this caller waits, so it gets the error if it happens again.
+      if (this.lastRefreshFailedUnrecoverably) {
         return this.refreshUnlessInFlight(refresh, () => this.cached!);
       }
 
       // Start the refresh without waiting for it. New credentials go into the cache for the next caller,
-      // and a non-recoverable error is cached so the next caller gets it.
+      // and an unrecoverable error is cached so the next caller gets it.
       if (!this.inFlight) {
         this.waitThenRefresh(refresh).catch(() => {});
       }
@@ -153,8 +165,8 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
     return this.nextRefreshAllowedAt !== undefined && Date.now() < this.nextRefreshAllowedAt;
   }
 
-  // True for 1 to 5 seconds after a non-recoverable error, when it's thrown again without calling the source.
-  private nonRecoverableErrorCached(): boolean {
+  // True for 1 to 5 seconds after an unrecoverable error, when it's thrown again without calling the source.
+  private unrecoverableErrorCached(): boolean {
     return this.cachedError !== undefined && Date.now() < this.cachedErrorExpiresAt!;
   }
 
@@ -193,7 +205,7 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
     this.nextRefreshAllowedAt = undefined;
     this.cachedError = undefined;
     this.cachedErrorExpiresAt = undefined;
-    this.lastRefreshFailedNonRecoverably = false;
+    this.lastRefreshFailedUnrecoverably = false;
   }
 
   // Logs a warning when a refresh fails, to the console if no logger is configured.
@@ -219,23 +231,23 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
     const remainingMs = expiresAtMs === undefined ? Infinity : expiresAtMs - Date.now();
     const backoffMs = refreshBackoffMs(remainingMs);
     this.nextRefreshAllowedAt = Date.now() + backoffMs;
-    this.lastRefreshFailedNonRecoverably = false;
+    this.lastRefreshFailedUnrecoverably = false;
     this.warnRefreshFailed(
       `Credential refresh failed: ${reason}. The SDK will continue using cached credentials. ` +
         `A refresh of these credentials will be attempted again after ${Math.round(backoffMs / 1000)} seconds.`
     );
   }
 
-  // Keeps a non-recoverable error for 1 to 5 seconds so repeated calls get it without calling the source.
-  private cacheNonRecoverableError(error: RefreshNonRecoverableError): void {
+  // Keeps an unrecoverable error for 1 to 5 seconds so repeated calls get it without calling the source.
+  private cacheUnrecoverableError(error: RefreshUnrecoverableError): void {
     this.cachedError = error;
-    this.cachedErrorExpiresAt = Date.now() + nonRecoverableErrorCacheMs();
-    this.lastRefreshFailedNonRecoverably = true;
+    this.cachedErrorExpiresAt = Date.now() + unrecoverableErrorCacheMs();
+    this.lastRefreshFailedUnrecoverably = true;
   }
 
   /**
    * Calls the credential source once and updates the cache from the result. Must hold the refresh lock.
-   * New credentials are stored. A non-recoverable error is cached and thrown. Any other failure starts
+   * New credentials are stored. An unrecoverable error is cached and thrown. Any other failure starts
    * the backoff and returns the cached credentials, or throws if nothing is cached yet.
    *
    * @param options - caller options forwarded to the source.
@@ -269,8 +281,8 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
       return fresh;
     }
 
-    if (failure !== undefined && isNonRecoverable(failure)) {
-      this.cacheNonRecoverableError(failure);
+    if (failure !== undefined && isUnrecoverable(failure)) {
+      this.cacheUnrecoverableError(failure);
       throw failure;
     }
 
@@ -296,7 +308,7 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
       if (this.cached !== undefined) {
         return this.cached;
       }
-      if (this.nonRecoverableErrorCached()) {
+      if (this.unrecoverableErrorCached()) {
         throw this.cachedError;
       }
       return this.callSourceAndApply(options, false);
@@ -308,7 +320,7 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
 
   /**
    * Runs once the caller holds the refresh lock, for every refresh path.
-   * The caller ahead may have refreshed, cached a non-recoverable error, or started the backoff while
+   * The caller ahead may have refreshed, cached an unrecoverable error, or started the backoff while
    * this caller waited. Each check below handles one of those before the source is called.
    */
   private async refreshUnderLock(
@@ -319,7 +331,7 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
     if (!stillNeeded()) {
       return this.cached!;
     }
-    if (this.nonRecoverableErrorCached()) {
+    if (this.unrecoverableErrorCached()) {
       throw this.cachedError;
     }
     if (this.refreshRateLimited()) {
