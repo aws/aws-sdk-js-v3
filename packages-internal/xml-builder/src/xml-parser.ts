@@ -305,12 +305,11 @@ class AwsXmlParser {
   }
 
   private decodeEntities(s: string): string {
-    return s.replace(/&(?:#x([0-9a-fA-F]{1,6})|#(\d{1,7})|([a-zA-Z][a-zA-Z0-9]{0,30}));/g, (_, hex, dec, named) => {
-      if (hex) {
-        return String.fromCharCode(parseInt(hex, 16));
-      }
-      if (dec) {
-        return String.fromCharCode(parseInt(dec, 10));
+    return s.replace(/&(?:#x([0-9a-fA-F]{1,6})|#(\d{1,7})|([a-zA-Z][a-zA-Z0-9]{0,30}));/g, (match, hex, dec, named) => {
+      if (hex || dec) {
+        const codePoint = hex ? parseInt(hex, 16) : parseInt(dec, 10);
+        // String.fromCharCode keeps only the low 16 bits, and String.fromCodePoint throws above U+10FFFF.
+        return codePoint <= 0x10ffff ? String.fromCodePoint(codePoint) : match;
       }
       return AwsXmlParser.ENTITIES[named] ?? "";
     });
