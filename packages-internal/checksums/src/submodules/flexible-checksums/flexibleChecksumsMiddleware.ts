@@ -1,6 +1,6 @@
 import { setFeature } from "@aws-sdk/core/client";
 import { HttpRequest } from "@smithy/core/protocols";
-import { createBufferedReadable } from "@smithy/core/serde";
+import { createBufferedReadable, isBlob } from "@smithy/core/serde";
 import type {
   BuildHandler,
   BuildHandlerArguments,
@@ -123,7 +123,8 @@ export const flexibleChecksumsMiddleware =
       }
       const checksumLocationName = getChecksumLocationName(checksumAlgorithm);
       const checksumAlgorithmFn = selectChecksumAlgorithmFunction(checksumAlgorithm, config);
-      if (isStreaming(requestBody)) {
+      const isBlobBody = isBlob(requestBody);
+      if (!isBlobBody && isStreaming(requestBody)) {
         const { getAwsChunkedEncodingStream, bodyLengthChecker } = config;
         updatedBody = getAwsChunkedEncodingStream(
           typeof config.requestStreamBufferSize === "number" && config.requestStreamBufferSize >= 8 * 1024
@@ -149,7 +150,8 @@ export const flexibleChecksumsMiddleware =
         };
         delete updatedHeaders["content-length"];
       } else if (!hasHeader(checksumLocationName, headers)) {
-        const rawChecksum = await stringHasher(checksumAlgorithmFn, requestBody);
+        const hasher = isBlobBody ? streamHasher : stringHasher;
+        const rawChecksum = await hasher(checksumAlgorithmFn, requestBody);
         updatedHeaders = {
           ...headers,
           [checksumLocationName]: base64Encoder(rawChecksum),
