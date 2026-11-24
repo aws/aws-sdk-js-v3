@@ -2722,3 +2722,171 @@ describe("S3TransferManager Unit Tests", () => {
     });
   });
 });
+
+describe.each(["RANGE", "PART"] as const)("S3TransferManager maxInMemoryBytes (worker %s download)", (mode) => {
+  const partSize = 10;
+  const totalParts = 5;
+  const totalSize = partSize * totalParts;
+
+  /**
+   * Mocks the S3 client so each worker GetObject stays pending until the test
+   * calls `finish(rangeIndex)`. Each part's bytes are filled with its part index.
+   */
+  const setup = (maxInMemoryBytes: number) => {
+    const tm = new S3TransferManager({ maxInMemoryBytes, multipartDownloadType: mode }) as any;
+    tm.targetPartSizeBytes = partSize;
+
+    const started: number[] = [];
+    const finishers = new Map<number, () => void>();
+    const results = new Map<string, any>();
+    // In PART mode Part 1 comes from the initial request, so the queue starts at Part 2.
+    const firstQueuedPart = mode === "PART" ? 1 : 0;
+    const contentRange = (part: number) => `bytes ${part * partSize}-${(part + 1) * partSize - 1}/${totalSize}`;
+
+    tm.s3 = {
+      config: { requestHandler: { getStreamDownloadResult: (token: string) => results.get(token) } },
+      send: (command: { constructor: { name: string }; input: any }, options: any) => {
+        if (command.constructor.name === "HeadObjectCommand") {
+          return Promise.resolve({ ContentLength: totalSize, ETag: '"etag"', $metadata: {} });
+        }
+        if (!options?.downloadStream) {
+          return Promise.resolve({
+            Body: Readable.from([Buffer.alloc(partSize, 0)]),
+            ContentLength: partSize,
+            ContentRange: contentRange(0),
+            PartsCount: totalParts,
+            ETag: '"etag"',
+            $metadata: {},
+          });
+        }
+        const rangeIndex = options.downloadStream.rangeIndex as number;
+        const part = rangeIndex + firstQueuedPart;
+        started.push(rangeIndex);
+        return new Promise<void>((resolve) => {
+          finishers.set(rangeIndex, () => {
+            const buffer = new ArrayBuffer(partSize);
+            new Uint8Array(buffer).fill(part);
+            results.set(options.downloadStream.resultToken, {
+              buffer,
+              byteLength: partSize,
+              headers: { "content-range": contentRange(part) },
+            });
+            resolve();
+          });
+        });
+      },
+    };
+
+    const run = async (transferOptions: object = {}) => {
+      const promises: Promise<any>[] = [];
+      const request = { Bucket: "b", Key: "k" };
+      if (mode === "PART") {
+        await tm.downloadByPartWithWorkers(request, transferOptions, promises, [], {}, false);
+      } else {
+        await tm.downloadByRangeWithWorkers(request, transferOptions, promises, [], {}, false);
+      }
+      const streams = (await Promise.all(promises)) as Readable[];
+      // The last stream reads from the OrderedPartQueue.
+      return { body: streams[streams.length - 1], streams };
+    };
+    const tick = () => new Promise((resolve) => setTimeout(resolve, 10));
+    return { run, started, finishers, finish: (i: number) => finishers.get(i)!(), tick };
+  };
+
+  it("sends only as many requests as fit in maxInMemoryBytes", async () => {
+    const { run, started, tick } = setup(2 * partSize);
+    const { body } = await run();
+    await tick();
+
+    expect(started).toEqual([0, 1]);
+    body.destroy();
+  });
+
+  it("sends the next request when the application reads a part", async () => {
+    const { run, started, finish, tick } = setup(2 * partSize);
+    const { body } = await run();
+    await tick();
+    finish(0);
+    finish(1);
+    await tick();
+    // Finished parts keep their reservation until they are read.
+    expect(started).toEqual([0, 1]);
+
+    const iterator = body[Symbol.asyncIterator]();
+    await iterator.next();
+    await tick();
+
+    // The output stream reads ahead one more part, so one or two requests are released.
+    expect(started.slice(0, 3)).toEqual([0, 1, 2]);
+    expect(started.length).toBeLessThanOrEqual(4);
+    body.destroy();
+  });
+
+  it("stops waiting requests when the body is destroyed before it is read", async () => {
+    const { run, started, tick } = setup(partSize);
+    const { body } = await run();
+    await tick();
+    expect(started).toEqual([0]);
+
+    body.destroy();
+    await tick();
+
+    expect(started).toEqual([0]);
+  });
+
+  it("fails the body and stops waiting requests when the user aborts", async () => {
+    const { run, started, tick } = setup(partSize);
+    const controller = new AbortController();
+    const { body } = await run({ abortSignal: controller.signal });
+    await tick();
+    expect(started).toEqual([0]);
+
+    controller.abort();
+    await tick();
+
+    await expect(body[Symbol.asyncIterator]().next()).rejects.toMatchObject({ name: "AbortError" });
+    expect(started).toEqual([0]);
+  });
+
+  it("delivers every part in order when parts finish out of order and the first one is slow", async () => {
+    const { run, started, finishers, finish, tick } = setup(3 * partSize);
+    const { streams } = await run();
+    await tick();
+    expect(started).toEqual([0, 1, 2]);
+
+    // The first queued part is slow. Later parts finish but keep their reservation.
+    finish(2);
+    finish(1);
+    await tick();
+    expect(started).toEqual([0, 1, 2]);
+
+    const chunks: Buffer[] = [];
+    let done = false;
+    const read = (async () => {
+      for (const stream of streams) {
+        for await (const chunk of stream) {
+          chunks.push(chunk);
+        }
+      }
+      done = true;
+    })();
+
+    finish(0);
+    const finished = new Set([0, 1, 2]);
+    for (let i = 0; i < 50 && !done; i++) {
+      await tick();
+      // Finish newly started parts in reverse order.
+      for (const rangeIndex of [...started].reverse()) {
+        if (!finished.has(rangeIndex)) {
+          finished.add(rangeIndex);
+          finishers.get(rangeIndex)!();
+        }
+      }
+    }
+    await read;
+
+    const expected = Buffer.concat(Array.from({ length: totalParts }, (_, part) => Buffer.alloc(partSize, part)));
+    expect(Buffer.concat(chunks)).toEqual(expected);
+    expect([...started].sort()).toEqual([...finished].sort());
+  });
+});
