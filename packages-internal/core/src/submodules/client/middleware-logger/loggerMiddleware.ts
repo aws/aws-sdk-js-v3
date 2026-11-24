@@ -26,12 +26,12 @@ export const bindLoggerMiddleware =
     // but I'm going to use instanceof here. If that requires any adjustment
     // we'll instead override Symbol.hasInstance in the class.
     // And if you extended NoOpLogger for some reason (please don't), it will no longer be called.
-    const isNoOpLogger = logger instanceof NoOpLogger;
+    const callLogger = logger && !(logger instanceof NoOpLogger);
 
     try {
       const response = await next(args);
 
-      if (logger && !isNoOpLogger) {
+      if (callLogger) {
         // filters run only if the logger reads input or output, e.g. not for a level-filtered info().
         logger.info?.(
           lazyLog({
@@ -61,7 +61,7 @@ export const bindLoggerMiddleware =
 
       return response;
     } catch (error) {
-      if (logger && !isNoOpLogger) {
+      if (callLogger) {
         const { dynamoDbDocumentClientOptions = {} } = context;
         const inputFilterSensitiveLog =
           dynamoDbDocumentClientOptions.overrideInputFilterSensitiveLog ?? context.inputFilterSensitiveLog;
