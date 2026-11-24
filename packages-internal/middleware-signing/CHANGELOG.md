@@ -41,6 +41,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.14 (2026-11-23)
+### Chores
+* **codegen:** smithy-aws-typescript-codegen 0.56.0 ([#8437](https://github.com/aws/aws-sdk-js-v3/issues/8437)) ([31e0007](https://github.com/aws/aws-sdk-js-v3/commit/31e0007f8f2ab1d64ee41229a383f6916a02b6b2))
+
+
+
 # 3.973.13 (2026-11-10)
 ### Chores
 * **codegen:** sync for 2026 retry defaults ([#8415](https://github.com/aws/aws-sdk-js-v3/issues/8415)) ([4fd26c2](https://github.com/aws/aws-sdk-js-v3/commit/4fd26c205f8b01b7755b426c7149e4038690563f))

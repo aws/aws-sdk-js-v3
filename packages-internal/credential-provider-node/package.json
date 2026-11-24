@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-node",
-  "version": "3.972.98",
+  "version": "3.972.99",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "keywords": [
     "aws",
@@ -45,12 +45,12 @@
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
   "dependencies": {
-    "@aws-sdk/credential-provider-env": "workspace:^3.972.85",
-    "@aws-sdk/credential-provider-http": "workspace:^3.972.87",
-    "@aws-sdk/credential-provider-ini": "workspace:^3.973.31",
-    "@aws-sdk/credential-provider-process": "workspace:^3.972.85",
-    "@aws-sdk/credential-provider-sso": "workspace:^3.973.29",
-    "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.91",
+    "@aws-sdk/credential-provider-env": "workspace:^3.972.86",
+    "@aws-sdk/credential-provider-http": "workspace:^3.972.88",
+    "@aws-sdk/credential-provider-ini": "workspace:^3.973.32",
+    "@aws-sdk/credential-provider-process": "workspace:^3.972.86",
+    "@aws-sdk/credential-provider-sso": "workspace:^3.973.30",
+    "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.92",
     "@aws-sdk/types": "workspace:^3.975.1",
     "@smithy/core": "^3.41.1",
     "@smithy/credential-provider-imds": "^4.5.2",

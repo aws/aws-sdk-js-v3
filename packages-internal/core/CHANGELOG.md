@@ -91,6 +91,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.981.2 (2026-11-23)
+### Chores
+* **codegen:** smithy-aws-typescript-codegen 0.56.0 ([#8437](https://github.com/aws/aws-sdk-js-v3/issues/8437)) ([31e0007](https://github.com/aws/aws-sdk-js-v3/commit/31e0007f8f2ab1d64ee41229a383f6916a02b6b2))
+
+
+
 # 3.981.1 (2026-11-20)
 ### Bug Fixes
 * **core/client:** skip object traversal when NoOpLogger is present ([#8433](https://github.com/aws/aws-sdk-js-v3/issues/8433)) ([6588aa0](https://github.com/aws/aws-sdk-js-v3/commit/6588aa0b025ad04c83de984799271a25d34c438e))

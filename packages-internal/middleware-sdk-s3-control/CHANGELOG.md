@@ -68,6 +68,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.66 (2026-11-24)
+### Chores
+* **middleware-sdk-s3-control:** update dependencies.
+
+
+
 # 3.972.65 (2026-11-21)
 ### Chores
 * **middleware-sdk-s3-control:** update dependencies.

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1177.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1176.0...v3.1177.0) (2026-11-24)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Adds the optional userLocation parameter to InvokeWebSearch. Specify a two-letter ISO 3166-1 alpha-2 country code to refine web search results for that country. InvokeWebSearch also accepts search queries in languages other than English. ([185b32f](https://github.com/aws/aws-sdk-js-v3/commit/185b32f0748c6506ba5e1f351b4e126f97c4d18c))
+
+
+
+
+
 # [3.1176.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1175.0...v3.1176.0) (2026-11-23)
 
 
