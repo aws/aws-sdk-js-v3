@@ -50,6 +50,9 @@ export interface InvokeWebSearchCommandOutput extends InvokeWebSearchOutput, __M
  *       publishedBefore: new Date("TIMESTAMP"),
  *     },
  *   },
+ *   userLocation: { // WebSearchUserLocation
+ *     country: "STRING_VALUE",
+ *   },
  * };
  * const command = new InvokeWebSearchCommand(input);
  * const response = await client.send(command);
@@ -110,6 +113,9 @@ export interface InvokeWebSearchCommandOutput extends InvokeWebSearchOutput, __M
  *   },
  *   maxResults: 1,
  *   searchQuery: "Amazon Bedrock AgentCore web search",
+ *   userLocation: {
+ *     country: "US"
+ *   },
  *   webSearchId: "web-search.v1"
  * };
  * const command = new InvokeWebSearchCommand(input);

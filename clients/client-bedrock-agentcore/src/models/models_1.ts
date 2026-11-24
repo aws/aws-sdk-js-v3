@@ -1368,6 +1368,18 @@ export interface WebSearchFilters {
 }
 
 /**
+ * <p>The geographic location to use for the web search.</p>
+ * @public
+ */
+export interface WebSearchUserLocation {
+  /**
+   * <p>The two-letter ISO 3166-1 alpha-2 country code. The code is case-insensitive.</p>
+   * @public
+   */
+  country?: string | undefined;
+}
+
+/**
  * <p>Request for the <code>InvokeWebSearch</code> operation.</p>
  * @public
  */
@@ -1395,6 +1407,12 @@ export interface InvokeWebSearchInput {
    * @public
    */
   filters?: WebSearchFilters | undefined;
+
+  /**
+   * <p> <code>userLocation</code> may allow for Web Search results to be refined for that location. This is done by supplying a <code>country</code>. The field is optional.</p> <p>The value is checked against assigned ISO 3166-1 alpha-2 codes, so unassigned and user-assigned codes such as <code>UK</code> and <code>XK</code>, empty or whitespace-only values are rejected. An omitted value is treated as absent. Without location, as a fallback Web Search may use your query to localize results or default to <code>en_US</code>.</p>
+   * @public
+   */
+  userLocation?: WebSearchUserLocation | undefined;
 }
 
 /**

@@ -753,6 +753,7 @@ export type {
   ViewPort,
   WebSearchFilters,
   WebSearchResult,
+  WebSearchUserLocation,
   AccessDeniedException,
   ConflictException,
   DuplicateIdException,

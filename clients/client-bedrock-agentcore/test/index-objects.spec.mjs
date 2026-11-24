@@ -723,6 +723,7 @@ import {
   ViewPort$,
   WebSearchFilters$,
   WebSearchResult$,
+  WebSearchUserLocation$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -1338,6 +1339,7 @@ assert(typeof VariantResult$ === "object");
 assert(typeof ViewPort$ === "object");
 assert(typeof WebSearchFilters$ === "object");
 assert(typeof WebSearchResult$ === "object");
+assert(typeof WebSearchUserLocation$ === "object");
 // enums
 assert(typeof ABTestExecutionStatus === "object");
 assert(typeof ABTestStatus === "object");

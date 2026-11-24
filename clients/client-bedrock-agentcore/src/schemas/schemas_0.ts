@@ -674,6 +674,7 @@ const _WITT = "WorkloadIdentityTokenType";
 const _WSF = "WebSearchFilters";
 const _WSR = "WebSearchResult";
 const _WSRL = "WebSearchResultList";
+const _WSUL = "WebSearchUserLocation";
 const _XABAPAN = "X-Amzn-Bedrock-AgentCore-Payments-Agent-Name";
 const _XABAPUI = "X-Amzn-Bedrock-AgentCore-Payments-User-Id";
 const _XABARSEU = "X-Amzn-Bedrock-AgentCore-Runtime-Session-Endpoint-Url";
@@ -810,6 +811,7 @@ const _conf = "config";
 const _confi = "confidence";
 const _conv = "conversational";
 const _cou = "count";
+const _coun = "country";
 const _cr = "crv";
 const _cre = "credentials";
 const _cu = "currency";
@@ -1283,6 +1285,7 @@ const _uI = "userIdentifier";
 const _uIR = "userIntentResult";
 const _uIs = "userId";
 const _uIse = "userIntents";
+const _uL = "userLocation";
 const _uM = "userMessages";
 const _uT = "userToken";
 const _ur = "uri";
@@ -2610,8 +2613,8 @@ export var InvokeHarnessResponse$: StaticStructureSchema = [3, n0, _IHRn,
 ];
 export var InvokeWebSearchInput$: StaticStructureSchema = [3, n0, _IWSI,
   0,
-  [_wSI, _sQ, _mRa, _f],
-  [[0, 1], 0, 1, () => WebSearchFilters$], 2
+  [_wSI, _sQ, _mRa, _f, _uL],
+  [[0, 1], 0, 1, () => WebSearchFilters$, () => WebSearchUserLocation$], 2
 ];
 export var InvokeWebSearchOutput$: StaticStructureSchema = [3, n0, _IWSO,
   0,
@@ -3432,6 +3435,11 @@ export var WebSearchResult$: StaticStructureSchema = [3, n0, _WSR,
   0,
   [_te, _tit, _url, _pAub],
   [0, 0, 0, 5], 1
+];
+export var WebSearchUserLocation$: StaticStructureSchema = [3, n0, _WSUL,
+  0,
+  [_coun],
+  [0]
 ];
 var __Unit = "unit" as const;
 var ABTestSummaryList: StaticListSchema = [1, n0, _ABTSL,
