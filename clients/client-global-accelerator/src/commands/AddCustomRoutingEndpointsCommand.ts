@@ -77,7 +77,7 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  *  <p>You can't use both of those options.</p>
  *
  * @throws {@link EndpointAlreadyExistsException} (client fault)
- *  <p>The endpoint that you specified doesn't exist.</p>
+ *  <p>The endpoint that you specified already exists.</p>
  *
  * @throws {@link EndpointGroupNotFoundException} (client fault)
  *  <p>The endpoint group that you specified doesn't exist.</p>

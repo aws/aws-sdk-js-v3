@@ -30,7 +30,7 @@
  * 			With a standard accelerator for IPv4, instead of using the addresses that Global Accelerator provides, you can configure
  * 			these entry points to be IPv4 addresses from your own IP address ranges that you bring to Global Accelerator (BYOIP). </p>
  *          <p>For a standard accelerator,
- * 	        they distribute incoming application traffic across multiple endpoint resources in multiple Amazon Web Services Regions , which increases
+ * 	        it distributes incoming application traffic across multiple endpoint resources in multiple Amazon Web Services Regions , which increases
  * 			the availability of your applications. Endpoints for standard accelerators can be Network Load Balancers, Application Load Balancers,
  * 	    	Amazon EC2 instances, or Elastic IP addresses that are located in one Amazon Web Services Region or multiple Amazon Web Services Regions. For custom routing
  * 	        accelerators, you map traffic that arrives to the static IP addresses to specific Amazon EC2 servers in endpoints that

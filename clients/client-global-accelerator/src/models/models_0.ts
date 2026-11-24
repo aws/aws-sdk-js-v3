@@ -127,7 +127,7 @@ export interface Accelerator {
   /**
    * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses.</p>
    *          <p>The naming convention for the DNS name for an accelerator is the following: A lowercase letter a,
-   * 			followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:
+   * 			followed by a 16-character random hexadecimal string, followed by .awsglobalaccelerator.com. For example:
    * 			a1234567890abcdef.awsglobalaccelerator.com.</p>
    *          <p>If you have a dual-stack accelerator, you also have a second DNS name, <code>DualStackDnsName</code>, that points to both
    *  			the A record and the AAAA record for all four static addresses for the accelerator: two IPv4 addresses and two IPv6 addresses.</p>
@@ -159,7 +159,7 @@ export interface Accelerator {
    * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses:
    * 			two IPv4 addresses and two IPv6 addresses.</p>
    *          <p>The naming convention for the dual-stack DNS name is the following: A lowercase letter a,
-   * 			followed by a 16-bit random hex string, followed by .dualstack.awsglobalaccelerator.com. For example:
+   * 			followed by a 16-character random hexadecimal string, followed by .dualstack.awsglobalaccelerator.com. For example:
    * 			a1234567890abcdef.dualstack.awsglobalaccelerator.com.</p>
    *          <p>Note: Global Accelerator also assigns a default DNS name, <code>DnsName</code>, to your accelerator that points just to the static IPv4 addresses. </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
@@ -303,11 +303,13 @@ export interface EndpointConfiguration {
   /**
    * <p>Indicates whether client IP address preservation is enabled for an endpoint.
    * 			The value is true or false. The default value is true for Application Load Balancer endpoints. </p>
-   *          <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
-   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
-   *          <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
-   * 			Balancers, Amazon EC2 instances, and Network Load Balancers with security groups. IMPORTANT: You cannot use client IP address preservation
-   * 			with Network Load Balancers with TLS listeners.</p>
+   *          <p>If the value is set to true, the client's IP address is preserved in packets that arrive at the endpoint.
+   * 			For Amazon EC2 instance and Network Load Balancer endpoints, the client IP address is the source address in the IP header of the packet.
+   * 			For Application Load Balancer endpoints, because the Application Load Balancer terminates the incoming TCP connection, the client IP address is available
+   * 			in the <code>X-Forwarded-For</code> request header.</p>
+   *          <p>Client IP address preservation is supported in all Amazon Web Services Regions where Global Accelerator is supported,
+   * 			for endpoints that are Application Load Balancers, Amazon EC2 instances, and Network Load Balancers with security groups.
+   * 			This includes Network Load Balancers that have TLS listeners.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
    * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    * @public
@@ -379,11 +381,13 @@ export interface EndpointDescription {
   /**
    * <p>Indicates whether client IP address preservation is enabled for an endpoint.
    * 			The value is true or false. The default value is true for Application Load Balancers endpoints. </p>
-   *          <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
-   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
-   *          <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
-   * 			Balancers, Amazon EC2 instances, and Network Load Balancers with security groups. IMPORTANT: You cannot use client IP address preservation
-   * 			with Network Load Balancers with TLS listeners.</p>
+   *          <p>If the value is set to true, the client's IP address is preserved in packets that arrive at the endpoint.
+   * 			For Amazon EC2 instance and Network Load Balancer endpoints, the client IP address is the source address in the IP header of the packet.
+   * 			For Application Load Balancer endpoints, because the Application Load Balancer terminates the incoming TCP connection, the client IP address is available
+   * 			in the <code>X-Forwarded-For</code> request header.</p>
+   *          <p>Client IP address preservation is supported in all Amazon Web Services Regions where Global Accelerator is supported,
+   * 			for endpoints that are Application Load Balancers, Amazon EC2 instances, and Network Load Balancers with security groups.
+   * 			This includes Network Load Balancers that have TLS listeners.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
    * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    * @public
@@ -614,7 +618,7 @@ export interface Resource {
   EndpointId?: string | undefined;
 
   /**
-   * <p>An IP address range, in CIDR format, that is specified as resource. The address must
+   * <p>An IP address range, in CIDR format, that is specified as a resource. The address must
    * 			be provisioned and advertised in Global Accelerator by following the bring your own IP address (BYOIP) process
    * 			for Global Accelerator</p>
    *          <p> For more information, see
@@ -740,8 +744,10 @@ export interface CreateAcceleratorRequest {
    * 	    	to Amazon Web Services, you can assign one IPv4 address from each range to your accelerator. This restriction is
    * 			because Global Accelerator assigns each address range to a different network zone, for high availability.</p>
    *          <p>You can specify one or two addresses, separated by a space. Do not include the /32 suffix.</p>
-   *          <p>Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new
-   * 			accelerator with the new addresses.</p>
+   *          <p>If you create an accelerator with only IP addresses provided by Global Accelerator, you can't update it later to
+   * 			use BYOIP addresses. If you create an accelerator with at least one BYOIP address, you can update its IP addresses later.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.update-accelerator.html">Update
+   * 			an accelerator to change your IP addresses</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
    * 		    your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    * @public
@@ -860,8 +866,10 @@ export interface CreateCustomRoutingAcceleratorRequest {
    * 			to Amazon Web Services, you can assign one IPv4 address from each range to your accelerator. This restriction is
    * 			because Global Accelerator assigns each address range to a different network zone, for high availability.</p>
    *          <p>You can specify one or two addresses, separated by a space. Do not include the /32 suffix.</p>
-   *          <p>Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new
-   * 			accelerator with the new addresses.</p>
+   *          <p>If you create an accelerator with only IP addresses provided by Global Accelerator, you can't update it later to
+   * 			use BYOIP addresses. If you create an accelerator with at least one BYOIP address, you can update its IP addresses later.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.update-accelerator.html">Update
+   * 			an accelerator to change your IP addresses</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
    * 			your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    * @public
@@ -931,7 +939,7 @@ export interface CustomRoutingAccelerator {
   /**
    * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses. </p>
    *          <p>The naming convention for the DNS name is the following: A lowercase letter a,
-   * 			followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:
+   * 			followed by a 16-character random hexadecimal string, followed by .awsglobalaccelerator.com. For example:
    * 			a1234567890abcdef.awsglobalaccelerator.com.</p>
    *          <p>If you have a dual-stack accelerator, you also have a second DNS name, <code>DualStackDnsName</code>, that points to both the A record
    * 			and the AAAA record for all four static addresses for the accelerator: two IPv4 addresses and two IPv6 addresses.</p>
@@ -1978,8 +1986,10 @@ export interface EndpointIdentifier {
 
   /**
    * <p>Indicates whether client IP address preservation is enabled for an endpoint. The value is true or false. </p>
-   *          <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
-   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
+   *          <p>If the value is set to true, the client's IP address is preserved in packets that arrive at the endpoint.
+   * 			For Amazon EC2 instance and Network Load Balancer endpoints, the client IP address is the source address in the IP header of the packet.
+   * 			For Application Load Balancer endpoints, because the Application Load Balancer terminates the incoming TCP connection, the client IP address is available
+   * 			in the <code>X-Forwarded-For</code> request header.</p>
    * @public
    */
   ClientIPPreservationEnabled?: boolean | undefined;
@@ -2315,7 +2325,7 @@ export interface PortMapping {
   EndpointGroupArn?: string | undefined;
 
   /**
-   * <p>The IP address of the VPC subnet (the subnet ID).</p>
+   * <p>The ID of the virtual private cloud (VPC) subnet.</p>
    * @public
    */
   EndpointId?: string | undefined;
@@ -2644,7 +2654,12 @@ export interface UpdateAcceleratorRequest {
   IpAddressType?: IpAddressType | undefined;
 
   /**
-   * <p>The IP addresses for an accelerator.</p>
+   * <p>The IP addresses for an accelerator. Specify one or two IPv4 addresses. Do not include the /32 suffix.</p>
+   *          <p>You can update IP addresses only for an accelerator that you created with at least one BYOIP address. You can't
+   * 			update an accelerator that has only IP addresses provided by Global Accelerator to use BYOIP addresses. Instead, create
+   * 			a new accelerator with your BYOIP addresses.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.update-accelerator.html">Update
+   * 			an accelerator to change your IP addresses</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    * @public
    */
   IpAddresses?: string[] | undefined;

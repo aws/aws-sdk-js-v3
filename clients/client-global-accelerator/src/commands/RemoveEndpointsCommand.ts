@@ -27,7 +27,7 @@ export interface RemoveEndpointsCommandOutput extends __MetadataBearer {}
  *          <p>The <code>RemoveEndpoints</code> API operation is the recommended option for removing endpoints. The alternative is to remove
  * 			endpoints by updating an endpoint group by using the
  * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html">UpdateEndpointGroup</a>
- * 			API operation. There are two advantages to using <code>AddEndpoints</code> to remove endpoints instead:</p>
+ * 			API operation. There are two advantages to using <code>RemoveEndpoints</code> to remove endpoints instead:</p>
  *          <ul>
  *             <li>
  *                <p>It's more convenient, because you only need to specify the endpoints that you want to remove. With the

@@ -96,7 +96,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The endpoint that you specified doesn't exist.</p>
+ * <p>The endpoint that you specified already exists.</p>
  * @public
  */
 export class EndpointAlreadyExistsException extends __BaseException {
