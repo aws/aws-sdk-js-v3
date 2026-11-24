@@ -369,6 +369,30 @@ describe("xml parsing", () => {
     });
   });
 
+  it("should treat an entity named like an Object.prototype member as any other undeclared entity", () => {
+    const undeclared = parseXML(`<Response><Key>a&undeclared;b</Key></Response>`);
+    for (const name of ["constructor", "toString", "valueOf", "hasOwnProperty", "isPrototypeOf"]) {
+      const object = parseXML(`<Response><Key>a&${name};b</Key></Response>`);
+      expect(object).toEqual(undeclared);
+    }
+    expect(parseXML(`<Response><Key>a&amp;b</Key></Response>`)).toEqual({ Response: { Key: "a&b" } });
+  });
+
+  for (const { name, parse } of [
+    { name: "@aws-sdk::AwsXmlParser", parse: parseXML },
+    { name: "DOMParser", parse: parseXMLBrowser },
+  ]) {
+    it(`should read a tag named like an Object.prototype member as a normal key (${name})`, () => {
+      expect(parse(`<a><toString>x</toString></a>`)).toEqual({ a: { toString: "x" } });
+      expect(parse(`<a><constructor>x</constructor><valueOf>y</valueOf></a>`)).toEqual({
+        a: { constructor: "x", valueOf: "y" },
+      });
+      expect(parse(`<a><toString>x</toString><toString>y</toString><b>z</b></a>`)).toEqual({
+        a: { toString: ["x", "y"], b: "z" },
+      });
+    });
+  }
+
   it("throws on parsing error", () => {
     const xmlSamples = [`<unclosed`, `<unmatched></matched>`];
 
