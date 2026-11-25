@@ -9,6 +9,7 @@ import {
   refreshBackoffMs,
   selectAdvisoryWindowMs,
 } from "./constants";
+import { Mutex } from "./Mutex";
 import { isUnrecoverable, type RefreshUnrecoverableError } from "./unrecoverable";
 import type {
   CredentialCacheState,
@@ -35,8 +36,11 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
 
   private initialFetch: Promise<Identity> | undefined;
 
-  private inFlight: Promise<void> | undefined;
+  // Held while a refresh runs, so only one refresh runs at a time.
+  private readonly refreshLock = new Mutex();
 
+  // Goes up by 1 each time new credentials are stored. A forceRefresh call compares it with the value
+  // it saw on arrival to tell whether a refresh succeeded while it waited.
   private generation = 0;
 
   // Access key ID of cached credentials a service rejected, until a refresh replaces them.
@@ -77,7 +81,9 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
 
     if (options?.forceRefresh) {
       const observedGeneration = this.generation;
-      return this.waitThenRefresh(() => this.refreshUnderLock(options, () => this.generation === observedGeneration));
+      return this.refreshLock.runExclusive(() =>
+        this.refreshUnderLock(options, () => this.generation === observedGeneration)
+      );
     }
 
     if (this.isStaticCredentials()) {
@@ -105,14 +111,14 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
 
       // Start the refresh without waiting for it. New credentials go into the cache for the next caller,
       // and an unrecoverable error is cached so the next caller gets it.
-      if (!this.inFlight) {
-        this.waitThenRefresh(refresh).catch(() => {});
+      if (!this.refreshLock.isLocked) {
+        this.refreshLock.runExclusive(refresh).catch(() => {});
       }
       return this.cached;
     }
 
     // States 4 and 5: mandatory or expired. Block, and reuse an in-flight attempt's result.
-    return this.waitThenRefresh(() => this.refreshUnderLock(options, () => this.mandatoryRefreshNeeded()));
+    return this.refreshLock.runExclusive(() => this.refreshUnderLock(options, () => this.mandatoryRefreshNeeded()));
   }
 
   /**
@@ -120,7 +126,7 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
    * call refreshes.
    */
   public invalidate(rejectedIdentity: Pick<AwsCredentialIdentity, "accessKeyId">): void {
-    if (this.inFlight) {
+    if (this.refreshLock.isLocked) {
       return;
     }
     if (this.cached === undefined || this.isStaticCredentials()) {
@@ -170,29 +176,12 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
     return this.cachedError !== undefined && Date.now() < this.cachedErrorExpiresAt!;
   }
 
-  // Waits until no refresh is running, then runs `refresh` while holding the lock so no other call can start one.
-  private async waitThenRefresh<T>(refresh: () => Promise<T>): Promise<T> {
-    while (this.inFlight) {
-      await this.inFlight;
-    }
-    let release!: () => void;
-    this.inFlight = new Promise<void>((resolve) => {
-      release = resolve;
-    });
-    try {
-      return await refresh();
-    } finally {
-      this.inFlight = undefined;
-      release();
-    }
-  }
-
   // Runs `refresh` only if no refresh is running, otherwise returns `useCached()` right away without waiting.
   private async refreshUnlessInFlight<T>(refresh: () => Promise<T>, useCached: () => T): Promise<T> {
-    if (this.inFlight) {
+    if (this.refreshLock.isLocked) {
       return useCached();
     }
-    return this.waitThenRefresh(refresh);
+    return this.refreshLock.runExclusive(refresh);
   }
 
   private storeCredentials(credentials: Identity): void {
@@ -304,17 +293,19 @@ export class CredentialRefreshLifecycle<Identity extends AwsCredentialIdentity> 
 
   // Fetches the first credentials. Calls that arrive while it runs share the same fetch.
   private fetchInitialCredentials(options?: CredentialRefreshCallOptions): Promise<Identity> {
-    this.initialFetch ??= this.waitThenRefresh(async () => {
-      if (this.cached !== undefined) {
-        return this.cached;
-      }
-      if (this.unrecoverableErrorCached()) {
-        throw this.cachedError;
-      }
-      return this.callSourceAndApply(options, false);
-    }).finally(() => {
-      this.initialFetch = undefined;
-    });
+    this.initialFetch ??= this.refreshLock
+      .runExclusive(async () => {
+        if (this.cached !== undefined) {
+          return this.cached;
+        }
+        if (this.unrecoverableErrorCached()) {
+          throw this.cachedError;
+        }
+        return this.callSourceAndApply(options, false);
+      })
+      .finally(() => {
+        this.initialFetch = undefined;
+      });
     return this.initialFetch;
   }
 

@@ -1230,6 +1230,172 @@ describe("createCredentialRefreshProvider", () => {
       expect(ctx.source).toHaveBeenCalledTimes(1);
     });
 
+    describe("many callers sharing one refresh", () => {
+      /** Makes the next source call stay pending until the test settles it. */
+      const pendingSourceCall = (ctx: ReturnType<typeof setup>) => {
+        let resolve!: (credentials: AwsCredentialIdentity) => void;
+        let reject!: (error: Error) => void;
+        ctx.source.mockImplementationOnce(
+          () =>
+            new Promise((resolveFn, rejectFn) => {
+              resolve = resolveFn;
+              reject = rejectFn;
+            })
+        );
+        return {
+          resolve: (credentials: AwsCredentialIdentity) => resolve(credentials),
+          reject: (e: Error) => reject(e),
+        };
+      };
+
+      /** Tracks whether a caller's promise has settled yet. */
+      const track = <T>(promise: Promise<T>) => {
+        const state = { settled: false };
+        promise.then(
+          () => (state.settled = true),
+          () => (state.settled = true)
+        );
+        return state;
+      };
+
+      it("advisory: concurrent callers all get cached credentials while one refresh runs", async () => {
+        const ctx = setup();
+        const seeded = await ctx.seed("advisory");
+        const call = pendingSourceCall(ctx);
+
+        const callers = Array.from({ length: 10 }, () => ctx.cache());
+
+        // Every caller resolves while the refresh is still pending.
+        await expect(Promise.all(callers)).resolves.toEqual(Array(10).fill(seeded));
+        expect(ctx.source).toHaveBeenCalledTimes(1);
+
+        const fresh = ctx.credentials();
+        call.resolve(fresh);
+        await settle();
+        await expect(ctx.cache()).resolves.toBe(fresh);
+        expect(ctx.source).toHaveBeenCalledTimes(1);
+      });
+
+      it("mandatory: callers wait until the refresh finishes", async () => {
+        const ctx = setup();
+        await ctx.seed("mandatory");
+        const call = pendingSourceCall(ctx);
+
+        const callers = Array.from({ length: 5 }, () => ctx.cache());
+        const states = callers.map(track);
+        await settle();
+        expect(states.some((s) => s.settled)).toBe(false);
+
+        const fresh = ctx.credentials();
+        call.resolve(fresh);
+
+        await expect(Promise.all(callers)).resolves.toEqual(Array(5).fill(fresh));
+        expect(ctx.source).toHaveBeenCalledTimes(1);
+      });
+
+      it("mandatory: every waiting caller gets an unrecoverable error without contacting the source again", async () => {
+        const ctx = setup();
+        await ctx.seed("mandatory");
+        const call = pendingSourceCall(ctx);
+        const error = unrecoverableError();
+
+        const callers = Array.from({ length: 3 }, () => ctx.cache());
+        call.reject(error);
+
+        for (const caller of callers) {
+          await expect(caller).rejects.toBe(error);
+        }
+        expect(ctx.source).toHaveBeenCalledTimes(1);
+      });
+
+      it("a caller that reaches the mandatory window waits for an advisory refresh already running", async () => {
+        const ctx = setup();
+        const seeded = await ctx.seed("advisory");
+        const call = pendingSourceCall(ctx);
+
+        // Starts the background refresh.
+        await expect(ctx.cache()).resolves.toBe(seeded);
+        advance(ADVISORY_REMAINING - MANDATORY_REMAINING);
+
+        const mandatoryCallers = [ctx.cache(), ctx.cache()];
+        const states = mandatoryCallers.map(track);
+        await settle();
+        expect(states.some((s) => s.settled)).toBe(false);
+
+        const fresh = ctx.credentials();
+        call.resolve(fresh);
+
+        await expect(Promise.all(mandatoryCallers)).resolves.toEqual([fresh, fresh]);
+        expect(ctx.source).toHaveBeenCalledTimes(1);
+      });
+
+      it("a caller that reaches the mandatory window keeps the cached credentials when the advisory refresh fails", async () => {
+        const ctx = setup();
+        const seeded = await ctx.seed("advisory");
+        const call = pendingSourceCall(ctx);
+
+        await expect(ctx.cache()).resolves.toBe(seeded);
+        advance(ADVISORY_REMAINING - MANDATORY_REMAINING);
+        const mandatoryCaller = ctx.cache();
+
+        call.reject(new Error("STS unreachable"));
+
+        // The backoff the advisory refresh applied stops the waiting caller from retrying.
+        await expect(mandatoryCaller).resolves.toBe(seeded);
+        expect(ctx.source).toHaveBeenCalledTimes(1);
+      });
+
+      it.each(["advisory", "mandatory"] as const)(
+        "forceRefresh: a caller that arrives during a %s refresh gets that refresh's credentials",
+        async (state) => {
+          const ctx = setup();
+          await ctx.seed(state);
+          const call = pendingSourceCall(ctx);
+
+          const triggering = ctx.cache();
+          const forced = ctx.cache({ forceRefresh: true });
+          const forcedState = track(forced);
+          await settle();
+          expect(forcedState.settled).toBe(false);
+
+          const fresh = ctx.credentials();
+          call.resolve(fresh);
+
+          await triggering;
+          await expect(forced).resolves.toBe(fresh);
+          expect(ctx.source).toHaveBeenCalledTimes(1);
+        }
+      );
+
+      it("forceRefresh: a caller that arrives during a refresh that fails gets the cached credentials", async () => {
+        const ctx = setup();
+        const seeded = await ctx.seed("mandatory");
+        const call = pendingSourceCall(ctx);
+
+        const triggering = ctx.cache();
+        const forced = ctx.cache({ forceRefresh: true });
+        call.reject(new Error("STS unreachable"));
+
+        await expect(triggering).resolves.toBe(seeded);
+        await expect(forced).resolves.toBe(seeded);
+        expect(ctx.source).toHaveBeenCalledTimes(1);
+      });
+
+      it("forceRefresh: a caller that arrives after a refresh finished starts a new one", async () => {
+        const ctx = setup();
+        await ctx.seed("mandatory");
+        const first = ctx.credentials();
+        ctx.source.mockResolvedValueOnce(first);
+        await expect(ctx.cache()).resolves.toBe(first);
+
+        const second = ctx.credentials();
+        ctx.source.mockResolvedValueOnce(second);
+
+        await expect(ctx.cache({ forceRefresh: true })).resolves.toBe(second);
+        expect(ctx.source).toHaveBeenCalledTimes(2);
+      });
+    });
+
     it("does not deadlock when a caller arrives during the release of a previous refresh", async () => {
       const ctx = setup();
       await ctx.seed("expired");
