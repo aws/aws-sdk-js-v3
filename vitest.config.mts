@@ -35,6 +35,7 @@ export default defineConfig({
       "packages-internal/middleware-websocket/src/ws-eventstream/**/*.spec.ts",
       "packages-internal/credential-provider-cognito-identity/src/localStorage.spec.ts",
       "packages-internal/xml-builder/src/xml-parser.spec.ts",
+      "packages-internal/xml-builder/src/xml-parser.domparser-fallback.spec.ts",
     ],
     include: ["lib/**/*.spec.ts", "{packages,packages-internal}/**/*.spec.ts"],
     environment: "node",

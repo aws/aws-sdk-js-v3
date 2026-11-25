@@ -1,3 +1,5 @@
+import { parseXML as parseXMLWithoutDOMParser } from "./xml-parser";
+
 let parser: DOMParser | undefined;
 
 /**
@@ -9,6 +11,11 @@ let parser: DOMParser | undefined;
  * @internal
  */
 export function parseXML(xmlString: string): any {
+  // DOMParser is only exposed on Window.
+  if (typeof DOMParser === "undefined") {
+    return parseXMLWithoutDOMParser(xmlString);
+  }
+
   if (!parser) {
     parser = new DOMParser();
   }

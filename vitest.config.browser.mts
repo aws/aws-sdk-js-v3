@@ -13,6 +13,7 @@ export default defineConfig({
       "packages-internal/credential-provider-cognito-identity/src/localStorage.spec.ts",
       "packages-internal/signature-v4-multi-region/src/SignatureV4MultiRegion.browser.spec.ts",
       "packages-internal/xml-builder/src/xml-parser.spec.ts",
+      "packages-internal/xml-builder/src/xml-parser.domparser-fallback.spec.ts",
     ],
     environment: "happy-dom",
   },

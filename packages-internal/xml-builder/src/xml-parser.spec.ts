@@ -2,7 +2,7 @@ import { XMLParser } from "fast-xml-parser";
 import { describe, expect, test as it } from "vitest";
 
 import { parseXML } from "./xml-parser";
-import { parseXML as parseXMLBrowser } from "./xml-parser.browser";
+import { parseXML as parseXMLBrowser } from "./parse-xml.browser";
 
 const parser = new XMLParser({
   attributeNamePrefix: "",
