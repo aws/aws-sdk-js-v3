@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1177.0...v3.1178.0) (2026-11-25)
+
+
+### Features
+
+* **client-wafv2:** AWS WAF added support for associating AWS WAF web ACLs with Elastic Load Balancing proxies. You can now use AssociateWebACL, DisassociateWebACL, GetWebACLForResource, and ListResourcesForWebACL with the ELB PROXY resource type to protect your proxies with AWS WAF ([84a72d0](https://github.com/aws/aws-sdk-js-v3/commit/84a72d0152f9ddf03263e8c345fff30a4c29eafb))
+
+
+
+
+
 # [3.1177.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1176.0...v3.1177.0) (2026-11-24)
 
 **Note:** Version bump only for package @aws-sdk/client-wafv2

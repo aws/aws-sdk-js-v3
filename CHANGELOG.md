@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1177.0...v3.1178.0) (2026-11-25)
+
+
+### Features
+
+* **client-elb-proxy:** Introducing Elastic Load Balancing for Envoy. Run your existing Envoy configurations with AWS integrations, managed scaling, and automatic patching. ([7136593](https://github.com/aws/aws-sdk-js-v3/commit/7136593dccb5d72d3dfbc0a0f899366f2babd36a))
+* **client-wafv2:** AWS WAF added support for associating AWS WAF web ACLs with Elastic Load Balancing proxies. You can now use AssociateWebACL, DisassociateWebACL, GetWebACLForResource, and ListResourcesForWebACL with the ELB PROXY resource type to protect your proxies with AWS WAF ([84a72d0](https://github.com/aws/aws-sdk-js-v3/commit/84a72d0152f9ddf03263e8c345fff30a4c29eafb))
+* **clients:** update client endpoints as of 2026-11-25 ([ef3f797](https://github.com/aws/aws-sdk-js-v3/commit/ef3f797af2c2b933a3251421682af4c46140e301))
+
+
+
+
+
 # [3.1177.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1176.0...v3.1177.0) (2026-11-24)
 
 
