@@ -192,7 +192,7 @@ export const resolveAssumeRoleCredentials = async (
     return options.roleAssumer!(sourceCreds, params)
       .then((creds) => setCredentialFeature(creds, "CREDENTIALS_PROFILE_SOURCE_PROFILE", "o"))
       .catch((error) => {
-        // Some STS failures need customer action, e.g. a denied role or a disabled region.
+        // Some STS failures need external action, e.g. a denied role or a disabled region.
         // Marking them stops the refresh lifecycle from hiding them behind its backoff.
         throw markUnrecoverableStsError(error);
       });

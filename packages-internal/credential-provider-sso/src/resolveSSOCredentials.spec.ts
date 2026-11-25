@@ -63,7 +63,7 @@ describe(resolveSSOCredentials.name, () => {
         `The SSO session associated with this profile is invalid. ${refreshMessage}`,
         SHOULD_FAIL_CREDENTIAL_CHAIN
       ),
-      { $unrecoverable: true }
+      { [Symbol.for("unrecoverable")]: true }
     );
     vi.mocked(getSSOTokenFromFile).mockRejectedValue(new Error("error"));
 
@@ -136,7 +136,7 @@ describe(resolveSSOCredentials.name, () => {
 
       const error = await resolveSSOCredentials(mockOptions).catch((e) => e);
 
-      expect(error.$unrecoverable).toBe(true);
+      expect(error[Symbol.for("unrecoverable")]).toBe(true);
     });
 
     it.each(["ThrottlingException", "InternalServerException"])(
@@ -146,7 +146,7 @@ describe(resolveSSOCredentials.name, () => {
 
         const error = await resolveSSOCredentials(mockOptions).catch((e) => e);
 
-        expect(error.$unrecoverable).toBeUndefined();
+        expect(error[Symbol.for("unrecoverable")]).toBeUndefined();
       }
     );
 
@@ -157,7 +157,7 @@ describe(resolveSSOCredentials.name, () => {
 
       const error = await resolveSSOCredentials({ ...mockOptions, ssoSession: "mock_sso_session" }).catch((e) => e);
 
-      expect(error.$unrecoverable).toBe(true);
+      expect(error[Symbol.for("unrecoverable")]).toBe(true);
     });
 
     it("leaves a non-token failure from the SSO token provider recoverable", async () => {
@@ -169,7 +169,7 @@ describe(resolveSSOCredentials.name, () => {
 
       const error = await resolveSSOCredentials({ ...mockOptions, ssoSession: "mock_sso_session" }).catch((e) => e);
 
-      expect(error.$unrecoverable).toBeUndefined();
+      expect(error[Symbol.for("unrecoverable")]).toBeUndefined();
     });
   });
 
@@ -180,7 +180,7 @@ describe(resolveSSOCredentials.name, () => {
           `The SSO session associated with this profile has expired. ${refreshMessage}`,
           SHOULD_FAIL_CREDENTIAL_CHAIN
         ),
-        { $unrecoverable: true }
+        { [Symbol.for("unrecoverable")]: true }
       );
 
       try {

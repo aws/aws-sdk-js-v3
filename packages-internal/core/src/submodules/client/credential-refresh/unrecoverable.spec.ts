@@ -41,7 +41,7 @@ describe("isUnrecoverable", () => {
     ["false", false],
     ["undefined", undefined],
   ])("requires the marker to be exactly true, not %s", (_label, value) => {
-    expect(isUnrecoverable(Object.assign(new Error("e"), { $unrecoverable: value }))).toBe(false);
+    expect(isUnrecoverable(Object.assign(new Error("e"), { [Symbol.for("unrecoverable")]: value }))).toBe(false);
   });
 });
 

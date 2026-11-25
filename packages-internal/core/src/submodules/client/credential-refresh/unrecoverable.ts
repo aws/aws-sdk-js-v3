@@ -1,15 +1,22 @@
 /**
- * An error with `$unrecoverable: true` can't succeed on retry until the customer acts, for example
- * by running `aws sso login`. The refresh lifecycle throws it right away instead of backing off.
+ * Key of the unrecoverable marker. `Symbol.for` returns the same symbol in every copy of this
+ * package, so an error marked by one copy is recognized by another.
+ * @internal
+ */
+export const UNRECOVERABLE = Symbol.for("unrecoverable");
+
+/**
+ * An error with `[UNRECOVERABLE]: true` can't succeed on retry without external action, for example
+ * by running `aws sso login`. The refresh lifecycle throws it right away instead of applying a backoff.
  *
  * @internal
  */
 export interface RefreshUnrecoverableError {
-  $unrecoverable?: boolean;
+  [UNRECOVERABLE]?: boolean;
 }
 
 /**
- * STS error codes that cannot succeed until the customer acts.
+ * STS error codes that cannot succeed without external action.
  * @internal
  */
 export const UNRECOVERABLE_STS_ERROR_CODES = [
@@ -23,13 +30,13 @@ export const UNRECOVERABLE_STS_ERROR_CODES = [
 
 /**
  * Marks `error` so the credential cache raises it to the caller straight away, instead of keeping
- * the cached credentials and backing off. Use it only when retrying cannot succeed until the
- * customer acts, e.g. runs `aws sso login`. Returns `error`, so callers can `throw mark(e)`.
+ * the cached credentials and backing off. Use it only when retrying cannot succeed without
+ * external action, e.g. running `aws sso login`. Returns `error`, so callers can `throw mark(e)`.
  * @internal
  */
 export const markUnrecoverable = <E>(error: E): E => {
   if (error !== null && typeof error === "object" && Object.isExtensible(error)) {
-    (error as RefreshUnrecoverableError).$unrecoverable = true;
+    (error as RefreshUnrecoverableError)[UNRECOVERABLE] = true;
   }
   return error;
 };
@@ -39,7 +46,7 @@ export const markUnrecoverable = <E>(error: E): E => {
  * @internal
  */
 export const isUnrecoverable = (error: unknown): error is RefreshUnrecoverableError =>
-  (error as RefreshUnrecoverableError | null)?.$unrecoverable === true;
+  (error as RefreshUnrecoverableError | null)?.[UNRECOVERABLE] === true;
 
 /**
  * Marks `error` when it carries one of {@link UNRECOVERABLE_STS_ERROR_CODES}.

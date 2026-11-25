@@ -97,14 +97,14 @@ describe("fromWebToken", () => {
       })().catch((error) => error);
 
     it.each(["AccessDenied", "IDPRejectedClaim", "InvalidIdentityToken", "RegionDisabledException"])(
-      "marks %s, which cannot succeed until the customer acts",
+      "marks %s, which cannot succeed without external action",
       async (name) => {
         const failure = Object.assign(new Error("sts rejected the request"), { name });
 
         const error = await assumeFails(failure);
 
         expect(error).toBe(failure);
-        expect(error.$unrecoverable).toBe(true);
+        expect(error[Symbol.for("unrecoverable")]).toBe(true);
       }
     );
 
@@ -116,7 +116,7 @@ describe("fromWebToken", () => {
         const error = await assumeFails(failure);
 
         expect(error).toBe(failure);
-        expect(error.$unrecoverable).toBeUndefined();
+        expect(error[Symbol.for("unrecoverable")]).toBeUndefined();
       }
     );
   });

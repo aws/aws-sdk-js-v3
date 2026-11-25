@@ -51,9 +51,9 @@ const UNRECOVERABLE_CACHE_MS =
 /** Lets a background refresh finish. */
 const settle = () => new Promise((resolve) => setTimeout(resolve, 0));
 
-/** An error a provider has marked as requiring customer action. */
+/** An error a provider has marked as needing external action. */
 const unrecoverableError = (message = "run `aws sso login`") =>
-  Object.assign(new Error(message), { $unrecoverable: true });
+  Object.assign(new Error(message), { [Symbol.for("unrecoverable")]: true });
 
 let now: number;
 let akidCounter: number;

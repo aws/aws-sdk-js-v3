@@ -177,8 +177,8 @@ export class LoginCredentialsFetcher {
       if (error.name === "AccessDeniedException") {
         const errorType = error.error;
         let message: string;
-        // Only the three error members below need customer action. Any other member may be transient.
-        let needsCustomerAction = true;
+        // Only the three error members below need external action. Any other member may be transient.
+        let needsExternalAction = true;
 
         switch (errorType) {
           case "TOKEN_EXPIRED":
@@ -194,14 +194,14 @@ export class LoginCredentialsFetcher {
             break;
           default:
             message = `Failed to refresh token: ${String(error)}. Please re-authenticate using \`aws login\``;
-            needsCustomerAction = false;
+            needsExternalAction = false;
         }
 
         const accessDenied = new CredentialsProviderError(message, {
           logger: this.logger,
           tryNextLink: false,
         });
-        throw needsCustomerAction ? markUnrecoverable(accessDenied) : accessDenied;
+        throw needsExternalAction ? markUnrecoverable(accessDenied) : accessDenied;
       }
 
       // The Sign-In service rejected the refresh request itself, so retrying cannot succeed.

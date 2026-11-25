@@ -190,7 +190,7 @@ export const fromWebToken = (init: FromWebTokenInit): RuntimeConfigAwsCredential
           DurationSeconds: durationSeconds,
         });
       } catch (error) {
-        // Some STS failures need customer action, e.g. a rejected identity token.
+        // Some STS failures need external action, e.g. a rejected identity token.
         // Marking them stops the refresh lifecycle from hiding them behind its backoff.
         throw markUnrecoverableStsError(error);
       }

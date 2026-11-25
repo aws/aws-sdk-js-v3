@@ -14,7 +14,6 @@ export { createCredentialRefreshProvider } from "./credential-refresh/createCred
 export { createProfileKeyedRefreshProvider } from "./credential-refresh/createProfileKeyedRefreshProvider";
 export { memoizeFactory } from "./credential-refresh/memoizeFactory";
 export { markUnrecoverable, markUnrecoverableStsError } from "./credential-refresh/unrecoverable";
-export type { RefreshUnrecoverableError } from "./credential-refresh/unrecoverable";
 export type {
   CredentialRefreshProvider,
   CredentialRefreshProviderOptions,

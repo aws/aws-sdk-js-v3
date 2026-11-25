@@ -95,7 +95,7 @@ describe("fromTemporaryCredentials", () => {
     const provider = fromTemporaryCredentials({ params: { RoleArn }, masterCredentials });
 
     await expect(provider()).rejects.toBe(failure);
-    expect((failure as any).$unrecoverable).toBe(true);
+    expect((failure as any)[Symbol.for("unrecoverable")]).toBe(true);
   });
 
   it("should call STS::AssumeRole API with master credentials", async () => {

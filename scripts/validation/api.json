@@ -314,7 +314,6 @@
     "recursionDetectionMiddlewareOptions": "object",
     "ReferenceObject": "type(object)",
     "ReferenceRecord": "type(object)",
-    "RefreshUnrecoverableError": "type(interface)",
     "REGION_ENV_NAME": "string(node-only)",
     "REGION_INI_NAME": "string(node-only)",
     "RegionExtensionRuntimeConfigType": "type(object)",

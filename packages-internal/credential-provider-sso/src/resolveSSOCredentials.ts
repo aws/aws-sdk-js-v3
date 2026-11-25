@@ -114,7 +114,7 @@ export const resolveSSOCredentials = async ({
       logger,
     });
     // Unrecoverable: `UnauthorizedException` means SSO rejected the token itself, so sending the
-    // same token again cannot succeed until the customer re-runs `aws sso login`. Other failures,
+    // same token again cannot succeed until `aws sso login` is run again. Other failures,
     // such as throttling or a 5xx, may be transient and stay recoverable.
     throw e?.name === "UnauthorizedException" ? markUnrecoverable(error) : error;
   }
