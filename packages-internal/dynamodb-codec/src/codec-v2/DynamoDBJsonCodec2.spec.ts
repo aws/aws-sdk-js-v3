@@ -136,4 +136,11 @@ describe(DynamoDBJsonCodec2.name, () => {
     const serialization = serializer.flush();
     expect(toUtf8(serialization)).toEqual(JSON.stringify({ S: value }));
   });
+
+  it("escapes special characters in AttributeValue member names", () => {
+    const input = { key: { ['S"\\{}']: "value" } };
+    serializer.write(MapAttributeValue, input);
+    const serialization = serializer.flush();
+    expect(toUtf8(serialization)).toEqual(JSON.stringify(input));
+  });
 });

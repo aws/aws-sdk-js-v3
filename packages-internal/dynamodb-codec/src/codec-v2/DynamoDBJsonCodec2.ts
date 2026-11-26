@@ -64,7 +64,7 @@ class DynamoDBJsonShapeSerializer2 extends JsonShapeSerializer2 {
       }
       first = false;
 
-      this.writeAsciiQuoted(key);
+      this.writeJsonString(key);
       this.writeAscii(":");
 
       switch (key) {
