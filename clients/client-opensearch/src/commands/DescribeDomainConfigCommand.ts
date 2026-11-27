@@ -182,6 +182,20 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * //       },
  * //       Status: "<OptionStatus>",
  * //     },
+ * //     CatalogOptions: { // CatalogOptionsStatus
+ * //       Options: { // CatalogOptions
+ * //         Enabled: true || false, // required
+ * //         Catalog: { // CatalogConfiguration Union: only one key present
+ * //           ServiceManagedS3Tables: { // ServiceManagedS3TablesCatalog
+ * //             EncryptionConfiguration: { // S3TablesEncryptionConfiguration
+ * //               Enabled: true || false,
+ * //               KmsKeyArn: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //       Status: "<OptionStatus>",
+ * //     },
  * //     DomainEndpointOptions: { // DomainEndpointOptionsStatus
  * //       Options: { // DomainEndpointOptions
  * //         EnforceHTTPS: true || false,

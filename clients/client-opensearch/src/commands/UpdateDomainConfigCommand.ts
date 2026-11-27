@@ -99,6 +99,17 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *       Enabled: true || false,
  *     },
  *   },
+ *   CatalogOptions: { // CatalogOptions
+ *     Enabled: true || false, // required
+ *     Catalog: { // CatalogConfiguration Union: only one key present
+ *       ServiceManagedS3Tables: { // ServiceManagedS3TablesCatalog
+ *         EncryptionConfiguration: { // S3TablesEncryptionConfiguration
+ *           Enabled: true || false,
+ *           KmsKeyArn: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
  *   EncryptionAtRestOptions: { // EncryptionAtRestOptions
  *     Enabled: true || false,
  *     KmsKeyId: "STRING_VALUE",
@@ -353,6 +364,20 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //         "<keys>": { // LogPublishingOption
  * //           CloudWatchLogsLogGroupArn: "STRING_VALUE",
  * //           Enabled: true || false,
+ * //         },
+ * //       },
+ * //       Status: "<OptionStatus>",
+ * //     },
+ * //     CatalogOptions: { // CatalogOptionsStatus
+ * //       Options: { // CatalogOptions
+ * //         Enabled: true || false, // required
+ * //         Catalog: { // CatalogConfiguration Union: only one key present
+ * //           ServiceManagedS3Tables: { // ServiceManagedS3TablesCatalog
+ * //             EncryptionConfiguration: { // S3TablesEncryptionConfiguration
+ * //               Enabled: true || false,
+ * //               KmsKeyArn: "STRING_VALUE",
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //       Status: "<OptionStatus>",

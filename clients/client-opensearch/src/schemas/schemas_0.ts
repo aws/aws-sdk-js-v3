@@ -113,6 +113,7 @@ const _CCS = "ConfigChangeStatus";
 const _CCSCP = "CrossClusterSearchConnectionProperties";
 const _CCSl = "ClusterConfigStatus";
 const _CCSr = "CrossClusterSearch";
+const _CCa = "CatalogConfiguration";
 const _CCu = "CurrencyCode";
 const _CD = "CreationDate";
 const _CDC = "CompareDomainConfiguration";
@@ -145,11 +146,13 @@ const _CIr = "CreateIndex";
 const _CM = "ConnectionMode";
 const _CMo = "CommitMessage";
 const _CN = "ClassName";
-const _CO = "CognitoOptions";
+const _CO = "CatalogOptions";
 const _COC = "CreateOutboundConnection";
 const _COCR = "CreateOutboundConnectionRequest";
 const _COCRr = "CreateOutboundConnectionResponse";
-const _COS = "CognitoOptionsStatus";
+const _COS = "CatalogOptionsStatus";
+const _COSo = "CognitoOptionsStatus";
+const _COo = "CognitoOptions";
 const _COu = "CutoverOptions";
 const _CP = "CompletedProperties";
 const _CPD = "ChangeProgressDetails";
@@ -184,8 +187,9 @@ const _CVu = "CurrentVersion";
 const _CWDQDS = "CloudWatchDirectQueryDataSource";
 const _CWL = "CloudWatchLog";
 const _CWLLGA = "CloudWatchLogsLogGroupArn";
-const _Ca = "Categories";
+const _Ca = "Catalog";
 const _Can = "Cancellable";
+const _Cat = "Categories";
 const _Co = "Connections";
 const _Cod = "Code";
 const _Cou = "Count";
@@ -361,7 +365,8 @@ const _EAROS = "EncryptionAtRestOptionsStatus";
 const _EBSE = "EBSEnabled";
 const _EBSO = "EBSOptions";
 const _EBSOS = "EBSOptionsStatus";
-const _EC = "ErrorCode";
+const _EC = "EncryptionConfiguration";
+const _ECr = "ErrorCode";
 const _ED = "ErrorDetails";
 const _EE = "EncryptionEnabled";
 const _EEg = "EgressEnabled";
@@ -487,6 +492,7 @@ const _JWTOI = "JWTOptionsInput";
 const _JWTOO = "JWTOptionsOutput";
 const _K = "Key";
 const _KARA = "KeyAccessRoleArn";
+const _KKA = "KmsKeyArn";
 const _KKI = "KmsKeyId";
 const _KKIm = "KmsKeyIdentifier";
 const _KSAE = "KeyStoreAccessEnabled";
@@ -738,6 +744,8 @@ const _SLe = "SecurityLake";
 const _SM = "StatusMessage";
 const _SMR = "StartMigrationRequest";
 const _SMRt = "StartMigrationResponse";
+const _SMST = "ServiceManagedS3Tables";
+const _SMSTC = "ServiceManagedS3TablesCatalog";
 const _SMt = "StartMigration";
 const _SNAE = "SlotNotAvailableException";
 const _SO = "ServiceOptions";
@@ -761,6 +769,7 @@ const _SSTN = "StorageSubTypeName";
 const _SSt = "StorageSize";
 const _SSte = "StepStatus";
 const _ST = "StartTime";
+const _STEC = "S3TablesEncryptionConfiguration";
 const _STL = "StorageTypeLimits";
 const _STLL = "StorageTypeLimitList";
 const _STLt = "StorageTypeLimit";
@@ -1364,6 +1373,16 @@ export var CapabilityFailure$: StaticStructureSchema = [3, n0, _CF,
   [_r, _d],
   [0, 0]
 ];
+export var CatalogOptions$: StaticStructureSchema = [3, n0, _CO,
+  0,
+  [_E, _Ca],
+  [2, () => CatalogConfiguration$], 1
+];
+export var CatalogOptionsStatus$: StaticStructureSchema = [3, n0, _COS,
+  0,
+  [_O, _S],
+  [() => CatalogOptions$, () => OptionStatus$]
+];
 export var CategoryDiffResult$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_S, _IS, _SOo, _TO, _Di, _I, _T],
@@ -1414,12 +1433,12 @@ export var ClusterConfigStatus$: StaticStructureSchema = [3, n0, _CCSl,
   [_O, _S],
   [() => ClusterConfig$, () => OptionStatus$], 2
 ];
-export var CognitoOptions$: StaticStructureSchema = [3, n0, _CO,
+export var CognitoOptions$: StaticStructureSchema = [3, n0, _COo,
   0,
   [_E, _UPI, _IPI, _RA],
   [2, 0, 0, 0]
 ];
-export var CognitoOptionsStatus$: StaticStructureSchema = [3, n0, _COS,
+export var CognitoOptionsStatus$: StaticStructureSchema = [3, n0, _COSo,
   0,
   [_O, _S],
   [() => CognitoOptions$, () => OptionStatus$], 2
@@ -1431,12 +1450,12 @@ export var ColdStorageOptions$: StaticStructureSchema = [3, n0, _CSO,
 ];
 export var CompareDomainConfigurationRequest$: StaticStructureSchema = [3, n0, _CDCR,
   0,
-  [_SDA, _TDA, _Ca],
+  [_SDA, _TDA, _Cat],
   [0, 0, 64 | 0], 3
 ];
 export var CompareDomainConfigurationResponse$: StaticStructureSchema = [3, n0, _CDCRo,
   0,
-  [_SDA, _TDA, _Ca],
+  [_SDA, _TDA, _Cat],
   [0, 0, () => CompareDomainConfigurationCategoryMap]
 ];
 export var CompatibleVersionsMap$: StaticStructureSchema = [3, n0, _CVM,
@@ -1461,8 +1480,8 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateDomainRequest$: StaticStructureSchema = [3, n0, _CDRr,
   0,
-  [_DN, _EV, _CC, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ICO, _TL, _ATO, _OPWO, _SUO, _AIMLO, _DSO, _ASPO, _UC, _EMn],
-  [0, 0, () => ClusterConfig$, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => TagList, () => AutoTuneOptionsInput$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$, 0, 0], 1
+  [_DN, _EV, _CC, _EBSO, _APc, _IPAT, _SOn, _VPCO, _COo, _EARO, _NTNEO, _AO, _LPO, _CO, _DEO, _ASO, _ICO, _TL, _ATO, _OPWO, _SUO, _AIMLO, _DSO, _ASPO, _UC, _EMn],
+  [0, 0, () => ClusterConfig$, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => CatalogOptions$, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => TagList, () => AutoTuneOptionsInput$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$, 0, 0], 1
 ];
 export var CreateDomainResponse$: StaticStructureSchema = [3, n0, _CDRre,
   0,
@@ -1886,8 +1905,8 @@ export var DivergentItem$: StaticStructureSchema = [3, n0, _DIi,
 ];
 export var DomainConfig$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_EV, _CC, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _MP, _AIMLO, _DSO, _ASPO, _UC, _EMn],
-  [() => VersionStatus$, () => ClusterConfigStatus$, () => EBSOptionsStatus$, () => AccessPoliciesStatus$, () => IPAddressTypeStatus$, () => SnapshotOptionsStatus$, () => VPCDerivedInfoStatus$, () => CognitoOptionsStatus$, () => EncryptionAtRestOptionsStatus$, () => NodeToNodeEncryptionOptionsStatus$, () => AdvancedOptionsStatus$, () => LogPublishingOptionsStatus$, () => DomainEndpointOptionsStatus$, () => AdvancedSecurityOptionsStatus$, () => IdentityCenterOptionsStatus$, () => AutoTuneOptionsStatus$, () => ChangeProgressDetails$, () => OffPeakWindowOptionsStatus$, () => SoftwareUpdateOptionsStatus$, () => ModifyingPropertiesList, () => AIMLOptionsStatus$, () => DeploymentStrategyOptionsStatus$, () => AutomatedSnapshotPauseOptionsStatus$, () => UseCaseStatus$, () => EngineModeStatus$]
+  [_EV, _CC, _EBSO, _APc, _IPAT, _SOn, _VPCO, _COo, _EARO, _NTNEO, _AO, _LPO, _CO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _MP, _AIMLO, _DSO, _ASPO, _UC, _EMn],
+  [() => VersionStatus$, () => ClusterConfigStatus$, () => EBSOptionsStatus$, () => AccessPoliciesStatus$, () => IPAddressTypeStatus$, () => SnapshotOptionsStatus$, () => VPCDerivedInfoStatus$, () => CognitoOptionsStatus$, () => EncryptionAtRestOptionsStatus$, () => NodeToNodeEncryptionOptionsStatus$, () => AdvancedOptionsStatus$, () => LogPublishingOptionsStatus$, () => CatalogOptionsStatus$, () => DomainEndpointOptionsStatus$, () => AdvancedSecurityOptionsStatus$, () => IdentityCenterOptionsStatus$, () => AutoTuneOptionsStatus$, () => ChangeProgressDetails$, () => OffPeakWindowOptionsStatus$, () => SoftwareUpdateOptionsStatus$, () => ModifyingPropertiesList, () => AIMLOptionsStatus$, () => DeploymentStrategyOptionsStatus$, () => AutomatedSnapshotPauseOptionsStatus$, () => UseCaseStatus$, () => EngineModeStatus$]
 ];
 export var DomainEndpointOptions$: StaticStructureSchema = [3, n0, _DEO,
   0,
@@ -1926,8 +1945,8 @@ export var DomainPackageDetails$: StaticStructureSchema = [3, n0, _DPD,
 ];
 export var DomainStatus$: StaticStructureSchema = [3, n0, _DSo,
   0,
-  [_DIom, _DN, _ARN, _CC, _Cr, _De, _En, _EVn, _End, _DEVHZI, _Pro, _UP, _EV, _EBSO, _APc, _IPAT, _SOn, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _SSO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _DPSo, _MP, _AIMLO, _DSO, _ASPO, _UC, _EMn],
-  [0, 0, 0, () => ClusterConfig$, 2, 2, 0, 0, 128 | 0, 0, 2, 2, 0, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCDerivedInfo$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => ServiceSoftwareOptions$, () => DomainEndpointOptions$, () => AdvancedSecurityOptions$, () => IdentityCenterOptions$, () => AutoTuneOptionsOutput$, () => ChangeProgressDetails$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, 0, () => ModifyingPropertiesList, () => AIMLOptionsOutput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseOptions$, 0, 0], 4
+  [_DIom, _DN, _ARN, _CC, _Cr, _De, _En, _EVn, _End, _DEVHZI, _Pro, _UP, _EV, _EBSO, _APc, _IPAT, _SOn, _VPCO, _COo, _EARO, _NTNEO, _AO, _LPO, _CO, _SSO, _DEO, _ASO, _ICO, _ATO, _CPD, _OPWO, _SUO, _DPSo, _MP, _AIMLO, _DSO, _ASPO, _UC, _EMn],
+  [0, 0, 0, () => ClusterConfig$, 2, 2, 0, 0, 128 | 0, 0, 2, 2, 0, () => EBSOptions$, 0, 0, () => SnapshotOptions$, () => VPCDerivedInfo$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => CatalogOptions$, () => ServiceSoftwareOptions$, () => DomainEndpointOptions$, () => AdvancedSecurityOptions$, () => IdentityCenterOptions$, () => AutoTuneOptionsOutput$, () => ChangeProgressDetails$, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, 0, () => ModifyingPropertiesList, () => AIMLOptionsOutput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseOptions$, 0, 0], 4
 ];
 export var DryRunProgressStatus$: StaticStructureSchema = [3, n0, _DRPS,
   0,
@@ -2669,6 +2688,11 @@ export var S3GlueDataCatalog$: StaticStructureSchema = [3, n0, _SGDC,
   [_RA],
   [0]
 ];
+export var S3TablesEncryptionConfiguration$: StaticStructureSchema = [3, n0, _STEC,
+  0,
+  [_E, _KKA],
+  [2, 0]
+];
 export var S3VectorsEngine$: StaticStructureSchema = [3, n0, _SVE,
   0,
   [_E],
@@ -2713,6 +2737,11 @@ export var ServerlessVectorAcceleration$: StaticStructureSchema = [3, n0, _SVA,
   0,
   [_E],
   [2]
+];
+export var ServiceManagedS3TablesCatalog$: StaticStructureSchema = [3, n0, _SMSTC,
+  0,
+  [_EC],
+  [() => S3TablesEncryptionConfiguration$]
 ];
 export var ServiceOptions$: StaticStructureSchema = [3, n0, _SO,
   0,
@@ -2856,8 +2885,8 @@ export var UpdateDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateDomainConfigRequest$: StaticStructureSchema = [3, n0, _UDCR,
   0,
-  [_DN, _CC, _EBSO, _SOn, _VPCO, _CO, _AO, _APc, _IPAT, _LPO, _EARO, _DEO, _NTNEO, _ASO, _ICO, _ATO, _DR, _DRM, _OPWO, _SUO, _AIMLO, _DSO, _ASPO, _UC, _EMn, _AW],
-  [[0, 1], () => ClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, 0, () => LogPublishingOptions, () => EncryptionAtRestOptions$, () => DomainEndpointOptions$, () => NodeToNodeEncryptionOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => AutoTuneOptions$, 2, 0, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$, 0, 0, 64 | 0], 1
+  [_DN, _CC, _EBSO, _SOn, _VPCO, _COo, _AO, _APc, _IPAT, _LPO, _CO, _EARO, _DEO, _NTNEO, _ASO, _ICO, _ATO, _DR, _DRM, _OPWO, _SUO, _AIMLO, _DSO, _ASPO, _UC, _EMn, _AW],
+  [[0, 1], () => ClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, 0, () => LogPublishingOptions, () => CatalogOptions$, () => EncryptionAtRestOptions$, () => DomainEndpointOptions$, () => NodeToNodeEncryptionOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => IdentityCenterOptionsInput$, () => AutoTuneOptions$, 2, 0, () => OffPeakWindowOptions$, () => SoftwareUpdateOptions$, () => AIMLOptionsInput$, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$, 0, 0, 64 | 0], 1
 ];
 export var UpdateDomainConfigResponse$: StaticStructureSchema = [3, n0, _UDCRp,
   0,
@@ -2966,7 +2995,7 @@ export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VEp,
 ];
 export var VpcEndpointError$: StaticStructureSchema = [3, n0, _VEEp,
   0,
-  [_VEI, _EC, _EM],
+  [_VEI, _ECr, _EM],
   [0, 0, 0]
 ];
 export var VpcEndpointSummary$: StaticStructureSchema = [3, n0, _VES,
@@ -3196,6 +3225,11 @@ export var CapabilityExtendedResponseConfig$: StaticUnionSchema = [4, n0, _CERC,
   0,
   [_aCi],
   [() => AIConfig$]
+];
+export var CatalogConfiguration$: StaticUnionSchema = [4, n0, _CCa,
+  0,
+  [_SMST],
+  [() => ServiceManagedS3TablesCatalog$]
 ];
 export var DataSourceType$: StaticUnionSchema = [4, n0, _DST,
   0,

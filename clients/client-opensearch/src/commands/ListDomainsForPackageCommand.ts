@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListDomainsForPackageRequest, ListDomainsForPackageResponse } from "../models/models_0";
+import type { ListDomainsForPackageRequest, ListDomainsForPackageResponse } from "../models/models_1";
 import { ListDomainsForPackage$ } from "../schemas/schemas_0";
 
 /**

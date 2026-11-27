@@ -15,6 +15,10 @@ import type {
   DryRunMode,
   EngineMode,
   IndexStatus,
+  InsightPriorityLevel,
+  InsightSortOrder,
+  InsightStatus,
+  InsightType,
   IPAddressType,
   LogType,
   MaintenanceType,
@@ -35,6 +39,7 @@ import type {
   AuthorizedPrincipal,
   AutomatedSnapshotPauseRequestOptions,
   AutoTuneOptions,
+  CatalogOptions,
   ChangeProgressDetails,
   ClusterConfig,
   CognitoOptions,
@@ -53,7 +58,7 @@ import type {
   IamIdentityCenterOptionsInput,
   IdentityCenterOptionsInput,
   InboundConnection,
-  Insight,
+  InsightEntity,
   LogPublishingOption,
   MigrationError,
   MigrationSource,
@@ -73,6 +78,175 @@ import type {
   VpcEndpointSummary,
   VPCOptions,
 } from "./models_0";
+
+/**
+ * <p>Container for the request parameters to the <code>ListDomainsForPackage</code>
+ *             operation.</p>
+ * @public
+ */
+export interface ListDomainsForPackageRequest {
+  /**
+   * <p>The unique identifier of the package for which to list associated domains.</p>
+   * @public
+   */
+  PackageID: string | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can
+   *             use <code>nextToken</code> to get the next page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If your initial <code>ListDomainsForPackage</code> operation returns a
+   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
+   *             subsequent <code>ListDomainsForPackage</code> operations, which returns results in the
+   *             next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Container for the response parameters to the <code>ListDomainsForPackage</code>
+ *             operation.</p>
+ * @public
+ */
+export interface ListDomainsForPackageResponse {
+  /**
+   * <p>Information about all domains associated with a package.</p>
+   * @public
+   */
+  DomainPackageDetailsList?: DomainPackageDetails[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value
+   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
+   *             again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Specifies the time range for filtering insights.</p>
+ * @public
+ */
+export interface InsightTimeRange {
+  /**
+   * <p>The start of the time range, in epoch milliseconds.</p>
+   * @public
+   */
+  From: number | undefined;
+
+  /**
+   * <p>The end of the time range, in epoch milliseconds.</p>
+   * @public
+   */
+  To: number | undefined;
+}
+
+/**
+ * <p>Container for the parameters to the <code>ListInsights</code> operation.</p>
+ * @public
+ */
+export interface ListInsightsRequest {
+  /**
+   * <p>The entity for which to list insights. Specifies the type and value of the entity,
+   *             such as a domain name or Amazon Web Services account ID.</p>
+   * @public
+   */
+  Entity: InsightEntity | undefined;
+
+  /**
+   * <p>The time range for filtering insights, specified as epoch millisecond timestamps.</p>
+   * @public
+   */
+  TimeRange?: InsightTimeRange | undefined;
+
+  /**
+   * <p>The sort order for the results. Possible values are <code>ASC</code> (ascending) and
+   *             <code>DESC</code> (descending).</p>
+   * @public
+   */
+  SortOrder?: InsightSortOrder | undefined;
+
+  /**
+   * <p>An optional parameter that specifies the maximum number of results to return. You can
+   *             use <code>NextToken</code> to get the next page of results. Valid values are 1 to
+   *             500.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If your initial <code>ListInsights</code> operation returns a
+   *             <code>NextToken</code>, include the returned <code>NextToken</code> in subsequent
+   *             <code>ListInsights</code> operations to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Represents an insight returned by the <code>ListInsights</code> operation. An insight
+ *             is a notification about a domain event or recommendation that helps you optimize your
+ *             Amazon OpenSearch Service domain.</p>
+ * @public
+ */
+export interface Insight {
+  /**
+   * <p>The unique identifier of the insight.</p>
+   * @public
+   */
+  InsightId?: string | undefined;
+
+  /**
+   * <p>The display name of the insight.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The type of the insight. Possible values are <code>EVENT</code> and
+   *             <code>RECOMMENDATION</code>.</p>
+   * @public
+   */
+  Type?: InsightType | undefined;
+
+  /**
+   * <p>The priority level of the insight. Possible values are <code>CRITICAL</code>,
+   *             <code>HIGH</code>, <code>MEDIUM</code>, and <code>LOW</code>.</p>
+   * @public
+   */
+  Priority?: InsightPriorityLevel | undefined;
+
+  /**
+   * <p>The current status of the insight. Possible values are <code>ACTIVE</code>,
+   *             <code>RESOLVED</code>, and <code>DISMISSED</code>.</p>
+   * @public
+   */
+  Status?: InsightStatus | undefined;
+
+  /**
+   * <p>The timestamp when the insight was created, in epoch milliseconds.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the insight was last updated, in epoch milliseconds.</p>
+   * @public
+   */
+  UpdateTime?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the insight is experimental.</p>
+   * @public
+   */
+  IsExperimental?: boolean | undefined;
+}
 
 /**
  * <p>The result of a <code>ListInsights</code> request. Contains the list of insights and
@@ -1799,6 +1973,13 @@ export interface UpdateDomainConfigRequest {
    * @public
    */
   LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>> | undefined;
+
+  /**
+   * <p>Options for publishing the domain's data to a data catalog, such as a
+   *             service-managed Amazon S3 Tables catalog.</p>
+   * @public
+   */
+  CatalogOptions?: CatalogOptions | undefined;
 
   /**
    * <p>Encryption at rest options for the domain.</p>

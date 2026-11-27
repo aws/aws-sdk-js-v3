@@ -88,6 +88,9 @@ import {
   CapabilityFailure$,
   CapabilityFailureReason,
   CapabilityStatus,
+  CatalogConfiguration$,
+  CatalogOptions$,
+  CatalogOptionsStatus$,
   CategoryDiffResult$,
   ChangeProgressDetails$,
   ChangeProgressStage$,
@@ -604,6 +607,7 @@ import {
   RollbackServiceSoftwareUpdateRequest$,
   RollbackServiceSoftwareUpdateResponse$,
   S3GlueDataCatalog$,
+  S3TablesEncryptionConfiguration$,
   S3VectorsEngine$,
   SAMLIdp$,
   SAMLOptionsInput$,
@@ -617,6 +621,7 @@ import {
   ScheduledBy,
   SecurityLakeDirectQueryDataSource$,
   ServerlessVectorAcceleration$,
+  ServiceManagedS3TablesCatalog$,
   ServiceOptions$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
@@ -989,6 +994,9 @@ assert(typeof CapabilityBaseRequestConfig$ === "object");
 assert(typeof CapabilityBaseResponseConfig$ === "object");
 assert(typeof CapabilityExtendedResponseConfig$ === "object");
 assert(typeof CapabilityFailure$ === "object");
+assert(typeof CatalogConfiguration$ === "object");
+assert(typeof CatalogOptions$ === "object");
+assert(typeof CatalogOptionsStatus$ === "object");
 assert(typeof CategoryDiffResult$ === "object");
 assert(typeof ChangeProgressDetails$ === "object");
 assert(typeof ChangeProgressStage$ === "object");
@@ -1253,6 +1261,7 @@ assert(typeof RollbackServiceSoftwareOptions$ === "object");
 assert(typeof RollbackServiceSoftwareUpdateRequest$ === "object");
 assert(typeof RollbackServiceSoftwareUpdateResponse$ === "object");
 assert(typeof S3GlueDataCatalog$ === "object");
+assert(typeof S3TablesEncryptionConfiguration$ === "object");
 assert(typeof S3VectorsEngine$ === "object");
 assert(typeof SAMLIdp$ === "object");
 assert(typeof SAMLOptionsInput$ === "object");
@@ -1262,6 +1271,7 @@ assert(typeof ScheduledAction$ === "object");
 assert(typeof ScheduledAutoTuneDetails$ === "object");
 assert(typeof SecurityLakeDirectQueryDataSource$ === "object");
 assert(typeof ServerlessVectorAcceleration$ === "object");
+assert(typeof ServiceManagedS3TablesCatalog$ === "object");
 assert(typeof ServiceOptions$ === "object");
 assert(typeof ServiceSoftwareOptions$ === "object");
 assert(typeof SnapshotOptions$ === "object");

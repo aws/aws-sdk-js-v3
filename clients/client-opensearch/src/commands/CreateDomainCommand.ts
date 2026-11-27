@@ -108,6 +108,17 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       Enabled: true || false,
  *     },
  *   },
+ *   CatalogOptions: { // CatalogOptions
+ *     Enabled: true || false, // required
+ *     Catalog: { // CatalogConfiguration Union: only one key present
+ *       ServiceManagedS3Tables: { // ServiceManagedS3TablesCatalog
+ *         EncryptionConfiguration: { // S3TablesEncryptionConfiguration
+ *           Enabled: true || false,
+ *           KmsKeyArn: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
  *   DomainEndpointOptions: { // DomainEndpointOptions
  *     EnforceHTTPS: true || false,
  *     TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07" || "Policy-Min-TLS-1-2-PFS-2023-10" || "Policy-Min-TLS-1-2-RFC9151-FIPS-2024-08" || "Policy-Min-TLS-1-2-FIPS-PQ-2026-10",
@@ -303,6 +314,17 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //       "<keys>": { // LogPublishingOption
  * //         CloudWatchLogsLogGroupArn: "STRING_VALUE",
  * //         Enabled: true || false,
+ * //       },
+ * //     },
+ * //     CatalogOptions: { // CatalogOptions
+ * //       Enabled: true || false, // required
+ * //       Catalog: { // CatalogConfiguration Union: only one key present
+ * //         ServiceManagedS3Tables: { // ServiceManagedS3TablesCatalog
+ * //           EncryptionConfiguration: { // S3TablesEncryptionConfiguration
+ * //             Enabled: true || false,
+ * //             KmsKeyArn: "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //     ServiceSoftwareOptions: { // ServiceSoftwareOptions
