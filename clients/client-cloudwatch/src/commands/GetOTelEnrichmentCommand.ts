@@ -57,6 +57,7 @@ export interface GetOTelEnrichmentCommandOutput extends GetOTelEnrichmentOutput,
  * //   ],
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   EnableTagEnrichment: true || false,
  * // };
  *
  * ```

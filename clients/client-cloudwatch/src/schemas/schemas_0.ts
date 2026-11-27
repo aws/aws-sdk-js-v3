@@ -162,6 +162,7 @@ const _ES = "ExtendedStatistics";
 const _ESv = "EvaluationState";
 const _ESx = "ExtendedStatistic";
 const _ET = "EndTime";
+const _ETE = "EnableTagEnrichment";
 const _ETK = "ExcludedTagKeys";
 const _ETO = "EndTimeOffset";
 const _ETR = "ExcludedTimeRanges";
@@ -1014,8 +1015,8 @@ export var GetOTelEnrichmentInput$: StaticStructureSchema = [3, n0, _GOTEI,
 ];
 export var GetOTelEnrichmentOutput$: StaticStructureSchema = [3, n0, _GOTEO,
   0,
-  [_S, _IF, _EF, _CAr, _UA],
-  [0, () => OTelEnrichmentMetricSelectorList, () => OTelEnrichmentMetricSelectorList, 4, 4], 1
+  [_S, _IF, _EF, _CAr, _UA, _ETE],
+  [0, () => OTelEnrichmentMetricSelectorList, () => OTelEnrichmentMetricSelectorList, 4, 4, 2], 1
 ];
 export var GetResourceMetricsConfigurationInput$: StaticStructureSchema = [3, n0, _GRMCI,
   0,
@@ -1374,13 +1375,13 @@ export var StartMetricStreamsOutput$: StaticStructureSchema = [3, n0, _SMSO,
 ];
 export var StartOTelEnrichmentInput$: StaticStructureSchema = [3, n0, _SOTEI,
   0,
-  [_IF, _EF],
-  [() => OTelEnrichmentMetricSelectorList, () => OTelEnrichmentMetricSelectorList]
+  [_IF, _EF, _ETE],
+  [() => OTelEnrichmentMetricSelectorList, () => OTelEnrichmentMetricSelectorList, 2]
 ];
 export var StartOTelEnrichmentOutput$: StaticStructureSchema = [3, n0, _SOTEO,
   0,
-  [_IF, _EF, _CAr, _UA],
-  [() => OTelEnrichmentMetricSelectorList, () => OTelEnrichmentMetricSelectorList, 4, 4]
+  [_IF, _EF, _CAr, _UA, _ETE],
+  [() => OTelEnrichmentMetricSelectorList, () => OTelEnrichmentMetricSelectorList, 4, 4, 2]
 ];
 export var StatisticSet$: StaticStructureSchema = [3, n0, _SS,
   0,
@@ -1434,13 +1435,13 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateOTelEnrichmentInput$: StaticStructureSchema = [3, n0, _UOTEI,
   0,
-  [_IF, _EF],
-  [() => OTelEnrichmentMetricSelectorList, () => OTelEnrichmentMetricSelectorList]
+  [_IF, _EF, _ETE],
+  [() => OTelEnrichmentMetricSelectorList, () => OTelEnrichmentMetricSelectorList, 2]
 ];
 export var UpdateOTelEnrichmentOutput$: StaticStructureSchema = [3, n0, _UOTEO,
   0,
-  [_IF, _EF, _CAr, _UA],
-  [() => OTelEnrichmentMetricSelectorList, () => OTelEnrichmentMetricSelectorList, 4, 4]
+  [_IF, _EF, _CAr, _UA, _ETE],
+  [() => OTelEnrichmentMetricSelectorList, () => OTelEnrichmentMetricSelectorList, 4, 4, 2]
 ];
 export var UpdateResourceMetricsConfigurationInput$: StaticStructureSchema = [3, n0, _URMCI,
   0,

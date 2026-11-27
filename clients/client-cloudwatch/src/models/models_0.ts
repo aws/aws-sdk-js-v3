@@ -4207,6 +4207,13 @@ export interface GetOTelEnrichmentOutput {
    * @public
    */
   UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Specifies whether enriched metrics include resource tag labels for the account.
+   *             This parameter is omitted when enrichment is stopped.</p>
+   * @public
+   */
+  EnableTagEnrichment?: boolean | undefined;
 }
 
 /**
@@ -4540,6 +4547,13 @@ export interface ListMetricsInput {
    *          <p>The results that are returned are an approximation of the value you specify. There is
    *             a low probability that the returned results include metrics with last published data as
    *             much as 50 minutes more than the specified time interval.</p>
+   *          <p>A namespace can contain many metrics that published data in the past two weeks but not
+   *             in the past three hours. In this case, a page of results can contain few or no
+   *             metrics and still include a <code>NextToken</code>. You need to continue making calls
+   *             with the returned <code>NextToken</code> until no token is returned. If you need a
+   *             continuous feed of active metrics across namespaces, use metric streams. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html">Use metric
+   *                 streams</a>.</p>
    * @public
    */
   RecentlyActive?: RecentlyActive | undefined;
@@ -6692,6 +6706,19 @@ export interface StartOTelEnrichmentInput {
    * @public
    */
   ExcludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+
+  /**
+   * <p>Specifies whether enriched metrics include resource tag labels. If
+   *                 <code>true</code>, enriched metrics include resource tag labels. If
+   *                 <code>false</code>, they include resource ARN labels but no resource tag labels. If
+   *             you omit this parameter, the default is <code>true</code>.</p>
+   *          <p>When <code>EnableTagEnrichment</code> is <code>true</code>, enriched metrics that
+   *             carry resource tag labels are charged at the OTel enrichment rate. For more information,
+   *             see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
+   *                 Pricing</a>.</p>
+   * @public
+   */
+  EnableTagEnrichment?: boolean | undefined;
 }
 
 /**
@@ -6722,6 +6749,13 @@ export interface StartOTelEnrichmentOutput {
    * @public
    */
   UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Specifies whether enriched metrics include resource tag labels for the
+   *             account.</p>
+   * @public
+   */
+  EnableTagEnrichment?: boolean | undefined;
 }
 
 /**
@@ -6858,6 +6892,22 @@ export interface UpdateOTelEnrichmentInput {
    * @public
    */
   ExcludeFilters?: OTelEnrichmentMetricSelector[] | undefined;
+
+  /**
+   * <p>Specifies whether enriched metrics include resource tag labels. If
+   *                 <code>true</code>, enriched metrics include resource tag labels. If
+   *                 <code>false</code>, they include resource ARN labels but no resource tag labels. If
+   *             you omit this parameter, the stored value is not changed. The operation also replaces
+   *             the stored filters, so to change only this setting, specify the current
+   *                 <code>IncludeFilters</code> and <code>ExcludeFilters</code> in the same
+   *             request.</p>
+   *          <p>When <code>EnableTagEnrichment</code> is <code>true</code>, enriched metrics that
+   *             carry resource tag labels are charged at the OTel enrichment rate. For more information,
+   *             see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
+   *                 Pricing</a>.</p>
+   * @public
+   */
+  EnableTagEnrichment?: boolean | undefined;
 }
 
 /**
@@ -6892,6 +6942,14 @@ export interface UpdateOTelEnrichmentOutput {
    * @public
    */
   UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Specifies whether enriched metrics include resource tag labels for the account
+   *             after the update. If the request omits <code>EnableTagEnrichment</code>, this is the
+   *             value that was already stored.</p>
+   * @public
+   */
+  EnableTagEnrichment?: boolean | undefined;
 }
 
 /**

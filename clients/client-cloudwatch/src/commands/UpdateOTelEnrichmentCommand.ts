@@ -57,6 +57,7 @@ export interface UpdateOTelEnrichmentCommandOutput extends UpdateOTelEnrichmentO
  *       ],
  *     },
  *   ],
+ *   EnableTagEnrichment: true || false,
  * };
  * const command = new UpdateOTelEnrichmentCommand(input);
  * const response = await client.send(command);
@@ -79,6 +80,7 @@ export interface UpdateOTelEnrichmentCommandOutput extends UpdateOTelEnrichmentO
  * //   ],
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   EnableTagEnrichment: true || false,
  * // };
  *
  * ```

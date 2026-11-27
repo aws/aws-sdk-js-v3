@@ -60,7 +60,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     }
   ],
   "CreatedAt": 946702799.999,
-  "UpdatedAt": 946702799.999
+  "UpdatedAt": 946702799.999,
+  "EnableTagEnrichment": false
 }
 
 
@@ -121,6 +122,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ],
   CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   UpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  EnableTagEnrichment: (boolean) false,
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -193,7 +195,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     }
   ],
   "CreatedAt": 946702799.999,
-  "UpdatedAt": 946702799.999
+  "UpdatedAt": 946702799.999,
+  "EnableTagEnrichment": false
 }
 
 
@@ -254,6 +257,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   ],
   CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   UpdatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  EnableTagEnrichment: (boolean) false,
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
