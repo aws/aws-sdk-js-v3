@@ -1,7 +1,7 @@
 // @ts-check
 // NPM requests are retried.
 
-import { BACKOFF_SECONDS } from "./tuning.mjs";
+import { BACKOFF_SECONDS, REGISTRY_REQUEST_TIMEOUT_SECONDS } from "./tuning.mjs";
 
 const REGISTRY = "https://registry.npmjs.org";
 
@@ -10,6 +10,11 @@ const REGISTRY = "https://registry.npmjs.org";
  * @returns {Promise<void>}
  */
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Thrown from an attempt to end the retries at once.
+ */
+export class NonRetryableError extends Error {}
 
 /**
  * No attempt limit: only the deadline, if any, bounds the retries.
@@ -33,6 +38,9 @@ export const retryWithBackoff = async (label, attemptFn, { quiet = false, deadli
       failure = result.reason;
       retryAfterSeconds = result.retryAfterSeconds;
     } catch (e) {
+      if (e instanceof NonRetryableError) {
+        throw e;
+      }
       failure = e instanceof Error ? e.message : String(e);
     }
     const remaining = deadline - Date.now();
@@ -68,7 +76,10 @@ const parseRetryAfter = (header) => {
  * @returns {Promise<{ status: number, retryAfterSeconds: number | undefined }>}
  */
 const getUrlStatus = async (url) => {
-  const response = await fetch(url, { headers: { accept: "application/json" } });
+  const response = await fetch(url, {
+    headers: { accept: "application/json" },
+    signal: AbortSignal.timeout(REGISTRY_REQUEST_TIMEOUT_SECONDS * 1000),
+  });
   return { status: response.status, retryAfterSeconds: parseRetryAfter(response.headers.get("retry-after")) };
 };
 

@@ -13,10 +13,12 @@ import {
   getPublicPackages,
   tierByDependencies,
 } from "./plan.mjs";
-import { checkTrustedPublishing, getNpmVersion } from "./preflight.mjs";
+import { isTransientPublishFailure, PermanentPublishError } from "./classify.mjs";
+import { checkReleaseCommit, checkTrustedPublishing, getNpmVersion, readGitCommits } from "./preflight.mjs";
 import { confirmPublished, isPublished, retryWithBackoff } from "./registry.mjs";
 import {
   AVAILABILITY_DEADLINE_MINUTES,
+  NPM_PUBLISH_TIMEOUT_MINUTES,
   PROGRESS_LOG_MINUTES,
   PUBLISH_DEADLINE_MINUTES,
   TIER_CONFIRMATION_WAIT_MINUTES,
@@ -56,6 +58,7 @@ const publish = (pkg) => {
         const { stdout, stderr } = await execFileAsync("npm", ["publish", "--access", "public", "--ignore-scripts"], {
           cwd: pkg.dir,
           maxBuffer: 64 * 1024 * 1024,
+          timeout: Math.max(1000, Math.min(NPM_PUBLISH_TIMEOUT_MINUTES * 60 * 1000, publishDeadline - Date.now())),
         });
         console.log(`Published ${id}\n${stdout}${stderr}`.trimEnd());
         return { ok: true, value: undefined };
@@ -64,7 +67,7 @@ const publish = (pkg) => {
          * @type {any}
          */
         const failure = e;
-        const { stdout = "", stderr = "", code } = failure;
+        const { stdout = "", stderr = "", code, killed = false } = failure;
         const output = `${stdout}${stderr}`.trimEnd();
         // A failed attempt may still have been accepted, so republishing is only for versions NPM does not know.
         if (await isPublished(pkg)) {
@@ -75,7 +78,10 @@ const publish = (pkg) => {
           console.warn(`${id} is held by NPM. Waiting for it to become available.`);
           return { ok: true, value: undefined };
         }
-        return { ok: false, reason: `exit ${code}\n${output}` };
+        if (isTransientPublishFailure({ output, timedOut: killed })) {
+          return { ok: false, reason: `exit ${code}\n${output}` };
+        }
+        throw new PermanentPublishError(id, output);
       }
     },
     { deadline: publishDeadline }
@@ -106,11 +112,15 @@ const preflight = checkTrustedPublishing({
   nodeVersion: process.versions.node,
   getNpmVersion,
 });
+const preflightErrors = [
+  ...preflight.errors,
+  ...checkReleaseCommit({ env: process.env, confirm, readCommits: readGitCommits }),
+];
 for (const warning of preflight.warnings) {
   console.warn(`Preflight warning: ${warning}`);
 }
-if (preflight.errors.length > 0) {
-  console.error(`Trusted publishing preflight failed:\n  ${preflight.errors.join("\n  ")}`);
+if (preflightErrors.length > 0) {
+  console.error(`Trusted publishing preflight failed:\n  ${preflightErrors.join("\n  ")}`);
   process.exit(1);
 }
 console.log("Trusted publishing preflight passed.");
@@ -179,7 +189,10 @@ if (!confirm) {
 // Cache reads would let a stale artifact ship under a new version number.
 run("make", ["build"], { AWS_JSV3_TURBO_CACHE_BUILD_TYPE: "RELEASE" });
 run("yarn", ["build:types:downlevel"]);
-run("make", ["static-analysis"]);
+// npm publish uploads package.json as is, so the workspace protocol is replaced first. Static analysis runs
+// afterwards, with the flag that makes it check the rewritten versions, so it sees what is published.
+run("yarn", ["update:versions:current"]);
+run("make", ["static-analysis"], { AWS_SDK_PREPUBLISH: "true" });
 
 // A rerun after a partial failure is safe: versions already on NPM are filtered out above.
 /**
@@ -240,11 +253,46 @@ const logTimeCheck = (deadlineName) => {
  * @type {Promise<void>[]}
  */
 const confirmations = [];
+
+/**
+ * @type {PermanentPublishError[]}
+ */
+const failedPublishes = [];
+
+/**
+ * @type {Set<string>}
+ */
+const blockedByFailures = new Set();
+
+const plannedPackages = tiers.flat();
 logTimeCheck("publish");
 for (const [i, tier] of tiers.entries()) {
   console.log(`Publishing tier ${i + 1} of ${tiers.length}`);
+  /**
+   * @type {import("./plan.mjs").WorkspacePackage[]}
+   */
+  const published = [];
   try {
-    await forEachConcurrent(tier, PUBLISH_CONCURRENCY, publish);
+    await forEachConcurrent(
+      tier.filter(({ name }) => !skippedNames.has(name)),
+      PUBLISH_CONCURRENCY,
+      async (pkg) => {
+        try {
+          await publish(pkg);
+          published.push(pkg);
+        } catch (e) {
+          if (!(e instanceof PermanentPublishError)) {
+            throw e;
+          }
+          console.error(e.message);
+          failedPublishes.push(e);
+          for (const dependent of findDependents(plannedPackages, [pkg])) {
+            skippedNames.add(dependent.name);
+            blockedByFailures.add(dependent.name);
+          }
+        }
+      }
+    );
   } catch (e) {
     /**
      * @type {Error}
@@ -254,7 +302,7 @@ for (const [i, tier] of tiers.entries()) {
     process.exit(1);
   }
 
-  const confirmation = confirmTier(tier);
+  const confirmation = confirmTier(published);
   confirmations.push(confirmation);
 
   // NPM can take hours to release a tier. Past the wait the next tier proceeds, trading strict
@@ -279,6 +327,19 @@ for (const [i, tier] of tiers.entries()) {
 // The run ending signals to customers that the release is available, so unavailable packages fail it.
 await Promise.all(confirmations);
 clearInterval(progress);
+if (failedPublishes.length > 0) {
+  const blocked = plannedPackages.filter(({ name }) => blockedByFailures.has(name));
+  failures.push(
+    `${failedPublishes.length} package(s) failed to publish and were not retried:\n${failedPublishes
+      .map(({ id, output }) => `  ${id}\n${output.split("\n").slice(-15).join("\n").replace(/^/gm, "    ")}`)
+      .join("\n")}` +
+      (blocked.length > 0
+        ? `\n${blocked.length} package(s) were not published because they depend on those:\n${blocked
+            .map(({ name, version }) => `  ${name}@${version}`)
+            .join("\n")}`
+        : "")
+  );
+}
 if (unavailable.size) {
   failures.push(
     `${unavailable.size} package(s) not available within ${AVAILABILITY_DEADLINE_MINUTES} minutes:\n  ${[...unavailable].join("\n  ")}`

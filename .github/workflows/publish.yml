@@ -9,6 +9,10 @@ on:
         description: Publish for real. A dry run logs what would be published.
         type: boolean
         default: false
+      release_commit:
+        description: Full hash of the release commit. The head of main must match it. Required to publish for real.
+        type: string
+        default: ''
       correlation_id:
         description: Set by the release pipeline to find this run.
         type: string
@@ -20,12 +24,12 @@ permissions:
 
 concurrency:
   group: publish-${{ inputs.confirm }}
-  cancel-in-progress: false
+  queue: max
 
 jobs:
   publish:
-    if: github.repository == 'aws/aws-sdk-js-v3' && (github.ref == 'refs/heads/main' || !inputs.confirm)
     runs-on: ubuntu-latest
+    environment: npm-publish
     timeout-minutes: 300
     steps:
       - name: Check out
@@ -46,4 +50,5 @@ jobs:
       - name: Publish
         env:
           CONFIRM: ${{ inputs.confirm && '1' || '' }}
+          AWS_SDK_RELEASE_COMMIT: ${{ inputs.release_commit }}
         run: make publish

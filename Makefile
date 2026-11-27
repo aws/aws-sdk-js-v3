@@ -25,7 +25,7 @@ test-integration: bundles core-prebuild
 	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
 	make static-analysis
 	node ./scripts/compilation/Inliner.spec.js
-	node --test ./scripts/publishing/preflight.test.mjs ./scripts/publishing/plan.test.mjs
+	node --test ./scripts/publishing/*.test.mjs ./scripts/runtime-dependency-version-check/*.test.js
 	yarn g:vitest run -c vitest.config.integ.mts
 	make test-protocols
 	make test-types

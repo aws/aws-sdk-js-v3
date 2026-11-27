@@ -23,6 +23,10 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { listFolders } = require("../utils/list-folders");
+const { findWorkspaceReferences, isCanonicalInternalVersion, isPreviewVersion } = require("./canonical-versions");
+
+// Set by the publish script after update:versions:current, when internal dependencies must no longer use workspace:.
+const prepublish = process.env.AWS_SDK_PREPUBLISH === "true";
 
 const root = path.join(__dirname, "..", "..");
 
@@ -135,6 +139,28 @@ for (const pkg of nonClientPackages) {
 readPackages(nonClientPackages);
 checkVersions();
 
+const nonPreviewVersions = preview.flatMap((pkg) => {
+  const pkgJsonPath = path.join(pkg, "package.json");
+  if (!fs.existsSync(pkgJsonPath)) {
+    return [];
+  }
+  const { name, version } = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"));
+  return isPreviewVersion(version) ? [] : [`${name}: version ${version} in preview/ must be in the 0.x.y range.`];
+});
+if (nonPreviewVersions.length > 0) {
+  throw new Error(nonPreviewVersions.join("\n"));
+}
+
+if (prepublish) {
+  const workspaceReferences = [...clientPackages, ...nonClientPackages].flatMap((pkg) => {
+    const pkgJsonPath = path.join(pkg, "package.json");
+    return fs.existsSync(pkgJsonPath) ? findWorkspaceReferences(JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"))) : [];
+  });
+  if (workspaceReferences.length > 0) {
+    throw new Error(`Packages still use the workspace protocol:\n  ${workspaceReferences.join("\n  ")}`);
+  }
+}
+
 function checkVersions() {
   const errors = [];
   const nonCanonicalVersions = [];
@@ -158,7 +184,7 @@ function checkVersions() {
 
     if (pkg.startsWith("@aws-sdk/")) {
       for (const v of Object.keys(versions)) {
-        if (v !== `workspace:${localCanonicalVersions[pkg]}` && v !== `workspace:^${localCanonicalVersions[pkg]}`) {
+        if (!isCanonicalInternalVersion(v, localCanonicalVersions[pkg], prepublish)) {
           nonCanonicalVersions.push(
             `${pkg}: use of ${v} is non-canonical with version in monorepo (${localCanonicalVersions[pkg]}).`
           );

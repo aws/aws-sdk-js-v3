@@ -19,7 +19,7 @@ const { getPackageDirs } = require("./validation-shared");
 const root = path.join(__dirname, "..", "..");
 const validationDir = __dirname;
 
-const PACKAGE_ROOTS = ["clients", "packages", "packages-internal", "lib", "private"];
+const PACKAGE_ROOTS = ["clients", "packages", "packages-internal", "lib", "preview", "private"];
 
 // Bus-compatible validators — these ride one bus together.
 const BUS_VALIDATIONS = [

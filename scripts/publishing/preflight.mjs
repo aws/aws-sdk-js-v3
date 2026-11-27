@@ -54,6 +54,50 @@ export const normalizeRepositoryUrl = (url) =>
 export const getNpmVersion = () => execFileSync("npm", ["--version"], { encoding: "utf8" }).trim();
 
 /**
+ * @returns {{ head: string, mainHead: string }} the checked-out commit and the head of main, which is fetched fresh.
+ */
+export const readGitCommits = () => {
+  execFileSync("git", ["fetch", "origin", "main"], { stdio: "ignore" });
+  return {
+    head: execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(),
+    mainHead: execFileSync("git", ["rev-parse", "FETCH_HEAD"], { encoding: "utf8" }).trim(),
+  };
+};
+
+/**
+ * A rebuild of a newer commit could differ from what the release pipeline built and tested, so the run fails
+ * unless main still points at the release commit.
+ *
+ * @param {{
+ *   env: Record<string, string | undefined>,
+ *   confirm: boolean,
+ *   readCommits: () => { head: string, mainHead: string },
+ * }} input
+ * @returns {string[]} errors.
+ */
+export const checkReleaseCommit = ({ env, confirm, readCommits }) => {
+  if (env.GITHUB_ACTIONS !== "true") {
+    return [];
+  }
+  const requested = env.AWS_SDK_RELEASE_COMMIT ?? "";
+  if (requested === "") {
+    return confirm ? ["A real publish needs the full hash of the release commit"] : [];
+  }
+  if (!/^[0-9a-f]{40}$/.test(requested)) {
+    return [`The release commit "${requested}" is not a full 40-character hash`];
+  }
+  const { head, mainHead } = readCommits();
+  const errors = [];
+  if (mainHead !== requested) {
+    errors.push(`The head of main is ${mainHead}, not the release commit ${requested}`);
+  }
+  if (head !== requested) {
+    errors.push(`The checked-out commit is ${head}, not the release commit ${requested}`);
+  }
+  return errors;
+};
+
+/**
  * Environment checks apply only inside GitHub Actions, so a local dry run is not blocked by a developer's Node version.
  *
  * @param {{

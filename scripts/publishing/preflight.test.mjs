@@ -2,7 +2,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
-import { checkTrustedPublishing, isAtLeast, normalizeRepositoryUrl } from "./preflight.mjs";
+import { checkReleaseCommit, checkTrustedPublishing, isAtLeast, normalizeRepositoryUrl } from "./preflight.mjs";
 
 const goodPackage = {
   name: "@aws-sdk/core",
@@ -144,5 +144,70 @@ describe("checkTrustedPublishing", () => {
       env: { ...actionsEnv, ACTIONS_ID_TOKEN_REQUEST_URL: undefined },
     });
     assert.equal(errors.length, 3);
+  });
+});
+
+describe("checkReleaseCommit", () => {
+  const sha = "a".repeat(40);
+  const other = "b".repeat(40);
+
+  /**
+   * @param {Partial<Parameters<typeof checkReleaseCommit>[0]>} overrides
+   */
+  const checkCommit = (overrides = {}) =>
+    checkReleaseCommit({
+      env: { GITHUB_ACTIONS: "true", AWS_SDK_RELEASE_COMMIT: sha },
+      confirm: true,
+      readCommits: () => ({ head: sha, mainHead: sha }),
+      ...overrides,
+    });
+
+  it("passes when main and the checkout are at the release commit", () => {
+    assert.deepEqual(checkCommit(), []);
+  });
+
+  it("checks nothing outside GitHub Actions", () => {
+    let read = false;
+    const errors = checkCommit({
+      env: { AWS_SDK_RELEASE_COMMIT: "not a hash" },
+      readCommits: () => {
+        read = true;
+        return { head: other, mainHead: other };
+      },
+    });
+    assert.deepEqual(errors, []);
+    assert.equal(read, false);
+  });
+
+  it("requires the hash for a real publish", () => {
+    assert.equal(checkCommit({ env: { GITHUB_ACTIONS: "true" } }).length, 1);
+  });
+
+  it("allows a dry run without the hash", () => {
+    assert.deepEqual(checkCommit({ env: { GITHUB_ACTIONS: "true" }, confirm: false }), []);
+  });
+
+  it("rejects anything but a full lowercase hash", () => {
+    for (const value of ["v3.1177.0", "abc1234", "A".repeat(40), `${sha} `, "a".repeat(39), "a".repeat(41)]) {
+      const errors = checkCommit({ env: { GITHUB_ACTIONS: "true", AWS_SDK_RELEASE_COMMIT: value } });
+      assert.equal(errors.length, 1, value);
+      assert.match(errors[0], /40-character/);
+    }
+  });
+
+  it("fails when main has moved past the release commit", () => {
+    const errors = checkCommit({ readCommits: () => ({ head: sha, mainHead: other }) });
+    assert.equal(errors.length, 1);
+    assert.match(errors[0], /head of main is b{40}/);
+  });
+
+  it("fails when the checkout is not the release commit", () => {
+    const errors = checkCommit({ readCommits: () => ({ head: other, mainHead: sha }) });
+    assert.equal(errors.length, 1);
+    assert.match(errors[0], /checked-out commit/);
+  });
+
+  it("reports both problems when neither matches", () => {
+    assert.equal(checkCommit({ readCommits: () => ({ head: other, mainHead: other }) }).length, 2);
   });
 });

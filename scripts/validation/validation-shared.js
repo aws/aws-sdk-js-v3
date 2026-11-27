@@ -170,7 +170,7 @@ function resolveRelative(fromFile, specifier) {
   return null;
 }
 
-const PACKAGE_ROOTS = ["clients", "packages", "packages-internal", "lib", "private"];
+const PACKAGE_ROOTS = ["clients", "packages", "packages-internal", "lib", "preview", "private"];
 const GENERATED_ROOTS = new Set(["clients", "private"]);
 
 /**
