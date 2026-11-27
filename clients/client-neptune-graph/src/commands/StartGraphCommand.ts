@@ -23,7 +23,7 @@ export interface StartGraphCommandInput extends StartGraphInput {}
 export interface StartGraphCommandOutput extends StartGraphOutput, __MetadataBearer {}
 
 /**
- * <p>Starts the specific graph.</p>
+ * <p>Starts the specific graph.</p> <note> <p>Graph sessions are started automatically when a query is sent to the graph. While this API is supported for graph sessions, it isn't required.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +45,14 @@ export interface StartGraphCommandOutput extends StartGraphOutput, __MetadataBea
  * //   statusReason: "STRING_VALUE",
  * //   createTime: new Date("TIMESTAMP"),
  * //   provisionedMemory: Number("int"),
+ * //   computeConfiguration: { // ComputeConfiguration Union: only one key present
+ * //     provisionedGraph: { // ProvisionedGraphConfiguration
+ * //       memory: Number("int"), // required
+ * //     },
+ * //     graphSession: { // GraphSessionConfiguration
+ * //       minMemory: Number("int"),
+ * //     },
+ * //   },
  * //   endpoint: "STRING_VALUE",
  * //   publicConnectivity: true || false,
  * //   vectorSearchConfiguration: { // VectorSearchConfiguration

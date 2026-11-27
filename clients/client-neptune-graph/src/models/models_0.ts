@@ -320,6 +320,83 @@ export interface GetQueryOutput {
 }
 
 /**
+ * <p>The compute configuration for a graph session.</p>
+ * @public
+ */
+export interface GraphSessionConfiguration {
+  /**
+   * <p>The minimum Session Neptune Capacity Units (s-NCUs) available to the graph session.</p> <p>A graph session can burst up to 2x the configured min memory. For example, a <code>minMemory</code> of 4 can burst up to 8 s-NCUs, and a <code>minMemory</code> of 8 can burst up to 16 s-NCUs.</p>
+   * @public
+   */
+  minMemory?: number | undefined;
+}
+
+/**
+ * <p>The compute configuration for a provisioned graph.</p>
+ * @public
+ */
+export interface ProvisionedGraphConfiguration {
+  /**
+   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p>
+   * @public
+   */
+  memory: number | undefined;
+}
+
+/**
+ * <p>The compute configuration of a graph. A graph is either a provisioned graph or a graph session.</p>
+ * @public
+ */
+export type ComputeConfiguration =
+  | ComputeConfiguration.GraphSessionMember
+  | ComputeConfiguration.ProvisionedGraphMember
+  | ComputeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ComputeConfiguration {
+  /**
+   * <p>Configuration for a provisioned graph. A provisioned graph uses dedicated compute that is always available. Use provisioned graphs for workloads that require higher memory or predictable latency.</p>
+   * @public
+   */
+  export interface ProvisionedGraphMember {
+    provisionedGraph: ProvisionedGraphConfiguration;
+    graphSession?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for a graph session. A graph session uses ephemeral compute that is bootstrapped when a query is sent to the graph. The compute is automatically stopped after a few minutes with no traffic; the next query bootstraps the compute again. Queries that bootstrap the compute are subject to cold start latency.</p>
+   * @public
+   */
+  export interface GraphSessionMember {
+    provisionedGraph?: never;
+    graphSession: GraphSessionConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    provisionedGraph?: never;
+    graphSession?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    provisionedGraph: (value: ProvisionedGraphConfiguration) => T;
+    graphSession: (value: GraphSessionConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
  * @public
  */
@@ -378,10 +455,18 @@ export interface CreateGraphInput {
   deletionProtection?: boolean | undefined;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 16</p>
+   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Min = 16</p> <note> <p>This field is deprecated. We recommend using <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Use ComputeConfiguration instead.
    * @public
    */
-  provisionedMemory: number | undefined;
+  provisionedMemory?: number | undefined;
+
+  /**
+   * <p>The compute configuration for the new graph. Specify <code>provisionedGraph</code> to create a provisioned graph with dedicated, always-available compute, or <code>graphSession</code> to create a graph session that uses ephemeral compute bootstrapped on demand when a query is sent, and is subject to cold start latency.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 }
 
 /**
@@ -425,10 +510,18 @@ export interface CreateGraphOutput {
   createTime?: Date | undefined;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p> <p>Min = 16</p>
+   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p> <p>Min = 16</p> <note> <p>This field is deprecated. For backward compatibility, it returns <code>memory</code> for a <code>provisionedGraph</code> and <code>minMemory</code> for a <code>graphSession</code>. Use <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Refer to ComputeConfiguration instead.
    * @public
    */
   provisionedMemory?: number | undefined;
+
+  /**
+   * <p>The compute configuration of the graph: either a provisioned graph or a graph session.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>The graph endpoint.</p>
@@ -537,10 +630,18 @@ export interface DeleteGraphOutput {
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p> <note> <p>This field is deprecated. For backward compatibility, it returns <code>memory</code> for a <code>provisionedGraph</code> and <code>minMemory</code> for a <code>graphSession</code>. Use <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Refer to ComputeConfiguration instead.
    * @public
    */
   provisionedMemory?: number | undefined;
+
+  /**
+   * <p>The compute configuration of the graph: either a provisioned graph or a graph session.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>The graph endpoint.</p>
@@ -555,7 +656,7 @@ export interface DeleteGraphOutput {
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * <p>The vector-search configuration for the graph, which specifies the vector dimension to use in the vector index, if any.</p>
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
@@ -643,10 +744,18 @@ export interface GetGraphOutput {
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p> <note> <p>This field is deprecated. For backward compatibility, it returns <code>memory</code> for a <code>provisionedGraph</code> and <code>minMemory</code> for a <code>graphSession</code>. Use <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Refer to ComputeConfiguration instead.
    * @public
    */
   provisionedMemory?: number | undefined;
+
+  /**
+   * <p>The compute configuration of the graph: either a provisioned graph or a graph session.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>The graph endpoint.</p>
@@ -661,7 +770,7 @@ export interface GetGraphOutput {
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * <p>The vector-search configuration for the graph, which specifies the vector dimension to use in the vector index, if any.</p>
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
@@ -744,7 +853,9 @@ export interface GraphSummary {
   status?: GraphStatus | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p> <note> <p>This field is deprecated. For backward compatibility, it returns <code>memory</code> for a <code>provisionedGraph</code> and <code>minMemory</code> for a <code>graphSession</code>. Use <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Refer to ComputeConfiguration instead.
    * @public
    */
   provisionedMemory?: number | undefined;
@@ -778,6 +889,12 @@ export interface GraphSummary {
    * @public
    */
   deletionProtection?: boolean | undefined;
+
+  /**
+   * <p>The compute configuration of the graph: either a provisioned graph or a graph session.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 }
 
 /**
@@ -855,10 +972,18 @@ export interface ResetGraphOutput {
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p> <note> <p>This field is deprecated. For backward compatibility, it returns <code>memory</code> for a <code>provisionedGraph</code> and <code>minMemory</code> for a <code>graphSession</code>. Use <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Refer to ComputeConfiguration instead.
    * @public
    */
   provisionedMemory?: number | undefined;
+
+  /**
+   * <p>The compute configuration of the graph: either a provisioned graph or a graph session.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>The graph endpoint.</p>
@@ -873,7 +998,7 @@ export interface ResetGraphOutput {
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * <p>The vector-search configuration for the graph, which specifies the vector dimension to use in the vector index, if any.</p>
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
@@ -926,10 +1051,18 @@ export interface RestoreGraphFromSnapshotInput {
   graphName: string | undefined;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p> <p>Min = 16</p>
+   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p> <p>Min = 16</p> <note> <p>This field is deprecated. We recommend using <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Use ComputeConfiguration instead.
    * @public
    */
   provisionedMemory?: number | undefined;
+
+  /**
+   * <p>The compute configuration for the restored graph. A snapshot can be restored into either a provisioned graph or a graph session, regardless of the compute type of the source graph. A snapshot taken from a provisioned graph can be restored into a graph session as long as the data in the snapshot fits within the graph session.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.</p>
@@ -997,10 +1130,18 @@ export interface RestoreGraphFromSnapshotOutput {
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p> <note> <p>This field is deprecated. For backward compatibility, it returns <code>memory</code> for a <code>provisionedGraph</code> and <code>minMemory</code> for a <code>graphSession</code>. Use <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Refer to ComputeConfiguration instead.
    * @public
    */
   provisionedMemory?: number | undefined;
+
+  /**
+   * <p>The compute configuration of the graph: either a provisioned graph or a graph session.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>The graph endpoint.</p>
@@ -1015,7 +1156,7 @@ export interface RestoreGraphFromSnapshotOutput {
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * <p>The vector-search configuration for the graph, which specifies the vector dimension to use in the vector index, if any.</p>
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
@@ -1103,10 +1244,18 @@ export interface StartGraphOutput {
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p> <note> <p>This field is deprecated. For backward compatibility, it returns <code>memory</code> for a <code>provisionedGraph</code> and <code>minMemory</code> for a <code>graphSession</code>. Use <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Refer to ComputeConfiguration instead.
    * @public
    */
   provisionedMemory?: number | undefined;
+
+  /**
+   * <p>The compute configuration of the graph: either a provisioned graph or a graph session.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>The graph endpoint.</p>
@@ -1121,7 +1270,7 @@ export interface StartGraphOutput {
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * <p>The vector-search configuration for the graph, which specifies the vector dimension to use in the vector index, if any.</p>
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
@@ -1209,10 +1358,18 @@ export interface StopGraphOutput {
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p> <note> <p>This field is deprecated. For backward compatibility, it returns <code>memory</code> for a <code>provisionedGraph</code> and <code>minMemory</code> for a <code>graphSession</code>. Use <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Refer to ComputeConfiguration instead.
    * @public
    */
   provisionedMemory?: number | undefined;
+
+  /**
+   * <p>The compute configuration of the graph: either a provisioned graph or a graph session.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>The graph endpoint.</p>
@@ -1227,7 +1384,7 @@ export interface StopGraphOutput {
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * <p>The vector-search configuration for the graph, which specifies the vector dimension to use in the vector index, if any.</p>
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
@@ -1280,10 +1437,18 @@ export interface UpdateGraphInput {
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p> <p>Min = 16</p>
+   * <p>The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.</p> <p>Min = 16</p> <note> <p>This field is deprecated. We recommend using <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Use ComputeConfiguration instead.
    * @public
    */
   provisionedMemory?: number | undefined;
+
+  /**
+   * <p>The updated compute configuration for the graph. A graph session can be scaled up to a provisioned graph, and a provisioned graph can be scaled down to a graph session, as long as the data in the graph fits within the graph session.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>A value that indicates whether the graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.</p>
@@ -1333,10 +1498,18 @@ export interface UpdateGraphOutput {
   createTime?: Date | undefined;
 
   /**
-   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p>
+   * <p>The number of memory-optimized Neptune Capacity Units (m-NCUs) allocated to the graph.</p> <note> <p>This field is deprecated. For backward compatibility, it returns <code>memory</code> for a <code>provisionedGraph</code> and <code>minMemory</code> for a <code>graphSession</code>. Use <code>computeConfiguration</code> instead.</p> </note>
+   *
+   * @deprecated (since 2026-11-25) ProvisionedMemory is deprecated. Refer to ComputeConfiguration instead.
    * @public
    */
   provisionedMemory?: number | undefined;
+
+  /**
+   * <p>The compute configuration of the graph: either a provisioned graph or a graph session.</p>
+   * @public
+   */
+  computeConfiguration?: ComputeConfiguration | undefined;
 
   /**
    * <p>The graph endpoint.</p>
@@ -1351,7 +1524,7 @@ export interface UpdateGraphOutput {
   publicConnectivity?: boolean | undefined;
 
   /**
-   * <p>Specifies the number of dimensions for vector embeddings loaded into the graph. Max = 65535</p>
+   * <p>The vector-search configuration for the graph, which specifies the vector dimension to use in the vector index, if any.</p>
    * @public
    */
   vectorSearchConfiguration?: VectorSearchConfiguration | undefined;
@@ -2965,7 +3138,7 @@ export interface StartExportTaskOutput {
  */
 export interface StartImportTaskInput {
   /**
-   * <p>Options for how to perform an import.</p>
+   * <p>Contains options for controlling the import process. For example, if the <code>failOnError</code> key is set to <code>false</code>, the import skips problem data and attempts to continue (whereas if set to <code>true</code>, the default, or if omitted, the import operation halts immediately when an error is encountered.</p>
    * @public
    */
   importOptions?: ImportOptions | undefined;
@@ -3060,7 +3233,7 @@ export interface StartImportTaskOutput {
   status: ImportTaskStatus | undefined;
 
   /**
-   * <p>Options for how to perform an import.</p>
+   * <p>Contains options for controlling the import process. For example, if the <code>failOnError</code> key is set to <code>false</code>, the import skips problem data and attempts to continue (whereas if set to <code>true</code>, the default, or if omitted, the import operation halts immediately when an error is encountered.</p>
    * @public
    */
   importOptions?: ImportOptions | undefined;

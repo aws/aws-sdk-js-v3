@@ -23,7 +23,7 @@ export interface StartImportTaskCommandInput extends StartImportTaskInput {}
 export interface StartImportTaskCommandOutput extends StartImportTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Import data into existing Neptune Analytics graph from Amazon Simple Storage Service (S3). The graph needs to be empty and in the AVAILABLE state.</p>
+ * <p>Import data into existing Neptune Analytics graph from Amazon Simple Storage Service (S3). The graph needs to be empty and in the AVAILABLE state.</p> <note> <p>Graph sessions don't support this API. Use <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/batch-load.html">neptune.load CALL procedure</a> to load data into the Graph Session instead.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

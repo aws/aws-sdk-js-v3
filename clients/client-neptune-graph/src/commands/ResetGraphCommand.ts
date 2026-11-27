@@ -46,6 +46,14 @@ export interface ResetGraphCommandOutput extends ResetGraphOutput, __MetadataBea
  * //   statusReason: "STRING_VALUE",
  * //   createTime: new Date("TIMESTAMP"),
  * //   provisionedMemory: Number("int"),
+ * //   computeConfiguration: { // ComputeConfiguration Union: only one key present
+ * //     provisionedGraph: { // ProvisionedGraphConfiguration
+ * //       memory: Number("int"), // required
+ * //     },
+ * //     graphSession: { // GraphSessionConfiguration
+ * //       minMemory: Number("int"),
+ * //     },
+ * //   },
  * //   endpoint: "STRING_VALUE",
  * //   publicConnectivity: true || false,
  * //   vectorSearchConfiguration: { // VectorSearchConfiguration

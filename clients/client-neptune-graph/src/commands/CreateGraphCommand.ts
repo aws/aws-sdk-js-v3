@@ -23,7 +23,7 @@ export interface CreateGraphCommandInput extends CreateGraphInput {}
 export interface CreateGraphCommandOutput extends CreateGraphOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Neptune Analytics graph.</p>
+ * <p>Creates a new Neptune Analytics graph.</p> <p>Neptune Analytics supports two types of graphs, selected using <code>computeConfiguration</code>:</p> <ul> <li> <p> <i>Provisioned graphs</i> use dedicated compute that is always available. Use provisioned graphs for workloads that require higher memory or predictable latency.</p> </li> <li> <p> <i>Graph sessions</i> use ephemeral compute that is bootstrapped when a query is sent to the graph. The compute is automatically stopped after a few minutes with no traffic. The next query sent to the graph bootstraps the compute again, so queries that bootstrap the compute are subject to cold start latency.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,7 +44,15 @@ export interface CreateGraphCommandOutput extends CreateGraphOutput, __MetadataB
  *   },
  *   replicaCount: Number("int"),
  *   deletionProtection: true || false,
- *   provisionedMemory: Number("int"), // required
+ *   provisionedMemory: Number("int"),
+ *   computeConfiguration: { // ComputeConfiguration Union: only one key present
+ *     provisionedGraph: { // ProvisionedGraphConfiguration
+ *       memory: Number("int"), // required
+ *     },
+ *     graphSession: { // GraphSessionConfiguration
+ *       minMemory: Number("int"),
+ *     },
+ *   },
  * };
  * const command = new CreateGraphCommand(input);
  * const response = await client.send(command);
@@ -56,6 +64,14 @@ export interface CreateGraphCommandOutput extends CreateGraphOutput, __MetadataB
  * //   statusReason: "STRING_VALUE",
  * //   createTime: new Date("TIMESTAMP"),
  * //   provisionedMemory: Number("int"),
+ * //   computeConfiguration: { // ComputeConfiguration Union: only one key present
+ * //     provisionedGraph: { // ProvisionedGraphConfiguration
+ * //       memory: Number("int"), // required
+ * //     },
+ * //     graphSession: { // GraphSessionConfiguration
+ * //       minMemory: Number("int"),
+ * //     },
+ * //   },
  * //   endpoint: "STRING_VALUE",
  * //   publicConnectivity: true || false,
  * //   vectorSearchConfiguration: { // VectorSearchConfiguration

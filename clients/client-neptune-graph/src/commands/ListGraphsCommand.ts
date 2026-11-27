@@ -51,6 +51,14 @@ export interface ListGraphsCommandOutput extends ListGraphsOutput, __MetadataBea
  * //       replicaCount: Number("int"),
  * //       kmsKeyIdentifier: "STRING_VALUE",
  * //       deletionProtection: true || false,
+ * //       computeConfiguration: { // ComputeConfiguration Union: only one key present
+ * //         provisionedGraph: { // ProvisionedGraphConfiguration
+ * //           memory: Number("int"), // required
+ * //         },
+ * //         graphSession: { // GraphSessionConfiguration
+ * //           minMemory: Number("int"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

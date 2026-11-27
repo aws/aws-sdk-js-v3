@@ -13,6 +13,7 @@ import {
   CancelQuery$,
   CancelQueryCommand,
   CancelQueryInput$,
+  ComputeConfiguration$,
   ConflictException,
   ConflictException$,
   ConflictExceptionReason,
@@ -87,6 +88,7 @@ import {
   GetQueryInput$,
   GetQueryOutput$,
   GraphDataSummary$,
+  GraphSessionConfiguration$,
   GraphSnapshotSummary$,
   GraphStatus,
   GraphSummary$,
@@ -140,6 +142,7 @@ import {
   PlanCacheType,
   PrivateGraphEndpointStatus,
   PrivateGraphEndpointSummary$,
+  ProvisionedGraphConfiguration$,
   QueryLanguage,
   QueryState,
   QueryStateInput,
@@ -296,6 +299,7 @@ assert(typeof CancelExportTaskOutput$ === "object");
 assert(typeof CancelImportTaskInput$ === "object");
 assert(typeof CancelImportTaskOutput$ === "object");
 assert(typeof CancelQueryInput$ === "object");
+assert(typeof ComputeConfiguration$ === "object");
 assert(typeof CreateGraphInput$ === "object");
 assert(typeof CreateGraphOutput$ === "object");
 assert(typeof CreateGraphSnapshotInput$ === "object");
@@ -333,6 +337,7 @@ assert(typeof GetPrivateGraphEndpointOutput$ === "object");
 assert(typeof GetQueryInput$ === "object");
 assert(typeof GetQueryOutput$ === "object");
 assert(typeof GraphDataSummary$ === "object");
+assert(typeof GraphSessionConfiguration$ === "object");
 assert(typeof GraphSnapshotSummary$ === "object");
 assert(typeof GraphSummary$ === "object");
 assert(typeof ImportOptions$ === "object");
@@ -355,6 +360,7 @@ assert(typeof ListTagsForResourceOutput$ === "object");
 assert(typeof NeptuneImportOptions$ === "object");
 assert(typeof NodeStructure$ === "object");
 assert(typeof PrivateGraphEndpointSummary$ === "object");
+assert(typeof ProvisionedGraphConfiguration$ === "object");
 assert(typeof QuerySummary$ === "object");
 assert(typeof ResetGraphInput$ === "object");
 assert(typeof ResetGraphOutput$ === "object");

@@ -36,6 +36,14 @@ export interface RestoreGraphFromSnapshotCommandOutput extends RestoreGraphFromS
  *   snapshotIdentifier: "STRING_VALUE", // required
  *   graphName: "STRING_VALUE", // required
  *   provisionedMemory: Number("int"),
+ *   computeConfiguration: { // ComputeConfiguration Union: only one key present
+ *     provisionedGraph: { // ProvisionedGraphConfiguration
+ *       memory: Number("int"), // required
+ *     },
+ *     graphSession: { // GraphSessionConfiguration
+ *       minMemory: Number("int"),
+ *     },
+ *   },
  *   deletionProtection: true || false,
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -53,6 +61,14 @@ export interface RestoreGraphFromSnapshotCommandOutput extends RestoreGraphFromS
  * //   statusReason: "STRING_VALUE",
  * //   createTime: new Date("TIMESTAMP"),
  * //   provisionedMemory: Number("int"),
+ * //   computeConfiguration: { // ComputeConfiguration Union: only one key present
+ * //     provisionedGraph: { // ProvisionedGraphConfiguration
+ * //       memory: Number("int"), // required
+ * //     },
+ * //     graphSession: { // GraphSessionConfiguration
+ * //       minMemory: Number("int"),
+ * //     },
+ * //   },
  * //   endpoint: "STRING_VALUE",
  * //   publicConnectivity: true || false,
  * //   vectorSearchConfiguration: { // VectorSearchConfiguration

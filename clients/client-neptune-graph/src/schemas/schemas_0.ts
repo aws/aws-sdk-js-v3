@@ -1,4 +1,5 @@
 const _ADE = "AccessDeniedException";
+const _CC = "ComputeConfiguration";
 const _CE = "ConflictException";
 const _CET = "CancelExportTask";
 const _CETI = "CancelExportTaskInput";
@@ -65,6 +66,7 @@ const _GQ = "GetQuery";
 const _GQI = "GetQueryInput";
 const _GQO = "GetQueryOutput";
 const _GS = "GraphSummary";
+const _GSC = "GraphSessionConfiguration";
 const _GSL = "GraphSummaryList";
 const _GSS = "GraphSnapshotSummary";
 const _GSSL = "GraphSnapshotSummaryList";
@@ -98,6 +100,7 @@ const _LVML = "LongValuedMapList";
 const _NIO = "NeptuneImportOptions";
 const _NS = "NodeStructure";
 const _NSo = "NodeStructures";
+const _PGC = "ProvisionedGraphConfiguration";
 const _PGES = "PrivateGraphEndpointSummary";
 const _PGESL = "PrivateGraphEndpointSummaryList";
 const _QRB = "QueryResponseBlob";
@@ -141,6 +144,7 @@ const _aN = "attemptNumber";
 const _bN = "buildNumber";
 const _bNH = "blankNodeHandling";
 const _c = "client";
+const _cC = "computeConfiguration";
 const _cT = "createTime";
 const _co = "count";
 const _d = "destination";
@@ -169,6 +173,7 @@ const _gIr = "graphIdentifier";
 const _gN = "graphName";
 const _gS = "graphSummary";
 const _gSr = "graphSnapshots";
+const _gSra = "graphSession";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
@@ -182,10 +187,12 @@ const _kKI = "kmsKeyIdentifier";
 const _l = "language";
 const _lSCT = "lastStatisticsComputationTime";
 const _m = "message";
+const _mM = "minMemory";
 const _mPM = "maxProvisionedMemory";
 const _mPMi = "minProvisionedMemory";
 const _mR = "maxResults";
 const _mVH = "multiValueHandling";
+const _me = "memory";
 const _mo = "mode";
 const _n = "name";
 const _nE = "numEdges";
@@ -207,6 +214,7 @@ const _pC = "publicConnectivity";
 const _pCl = "planCache";
 const _pDVL = "preserveDefaultVertexLabels";
 const _pEI = "preserveEdgeIds";
+const _pG = "provisionedGraph";
 const _pGE = "privateGraphEndpoints";
 const _pM = "provisionedMemory";
 const _pP = "progressPercentage";
@@ -376,13 +384,13 @@ export var CancelQueryInput$: StaticStructureSchema = [3, n0, _CQI,
 ];
 export var CreateGraphInput$: StaticStructureSchema = [3, n0, _CGI,
   0,
-  [_gN, _pM, _t, _pC, _kKI, _vSC, _rC, _dP],
-  [0, 1, 128 | 0, 2, 0, () => VectorSearchConfiguration$, 1, 2], 2
+  [_gN, _t, _pC, _kKI, _vSC, _rC, _dP, _pM, _cC],
+  [0, 128 | 0, 2, 0, () => VectorSearchConfiguration$, 1, 2, 1, () => ComputeConfiguration$], 1
 ];
 export var CreateGraphOutput$: StaticStructureSchema = [3, n0, _CGO,
   0,
-  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _cC, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [0, 0, 0, 0, 0, 4, 1, () => ComputeConfiguration$, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var CreateGraphSnapshotInput$: StaticStructureSchema = [3, n0, _CGSI,
   0,
@@ -421,8 +429,8 @@ export var DeleteGraphInput$: StaticStructureSchema = [3, n0, _DGI,
 ];
 export var DeleteGraphOutput$: StaticStructureSchema = [3, n0, _DGO,
   0,
-  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _cC, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [0, 0, 0, 0, 0, 4, 1, () => ComputeConfiguration$, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var DeleteGraphSnapshotInput$: StaticStructureSchema = [3, n0, _DGSI,
   0,
@@ -501,8 +509,8 @@ export var GetGraphInput$: StaticStructureSchema = [3, n0, _GGI,
 ];
 export var GetGraphOutput$: StaticStructureSchema = [3, n0, _GGO,
   0,
-  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _cC, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [0, 0, 0, 0, 0, 4, 1, () => ComputeConfiguration$, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var GetGraphSnapshotInput$: StaticStructureSchema = [3, n0, _GGSI,
   0,
@@ -559,6 +567,11 @@ export var GraphDataSummary$: StaticStructureSchema = [3, n0, _GDS,
   [_nN, _nE, _nNL, _nEL, _nL, _eL, _nNP, _nEP, _nP, _eP, _tNPV, _tEPV, _nS, _eS],
   [1, 1, 1, 1, 64 | 0, 64 | 0, 1, 1, [1, n0, _LVML, 0, 128 | 1], [1, n0, _LVML, 0, 128 | 1], 1, 1, () => NodeStructures, () => EdgeStructures]
 ];
+export var GraphSessionConfiguration$: StaticStructureSchema = [3, n0, _GSC,
+  0,
+  [_mM],
+  [1]
+];
 export var GraphSnapshotSummary$: StaticStructureSchema = [3, n0, _GSS,
   0,
   [_i, _n, _a, _sGI, _sCT, _sta, _kKI],
@@ -566,8 +579,8 @@ export var GraphSnapshotSummary$: StaticStructureSchema = [3, n0, _GSS,
 ];
 export var GraphSummary$: StaticStructureSchema = [3, n0, _GS,
   0,
-  [_i, _n, _a, _sta, _pM, _pC, _en, _rC, _kKI, _dP],
-  [0, 0, 0, 0, 1, 2, 0, 1, 0, 2], 3
+  [_i, _n, _a, _sta, _pM, _pC, _en, _rC, _kKI, _dP, _cC],
+  [0, 0, 0, 0, 1, 2, 0, 1, 0, 2, () => ComputeConfiguration$], 3
 ];
 export var ImportTaskDetails$: StaticStructureSchema = [3, n0, _ITD,
   0,
@@ -664,6 +677,11 @@ export var PrivateGraphEndpointSummary$: StaticStructureSchema = [3, n0, _PGES,
   [_vI, _sI, _sta, _vEI],
   [0, 64 | 0, 0, 0], 3
 ];
+export var ProvisionedGraphConfiguration$: StaticStructureSchema = [3, n0, _PGC,
+  0,
+  [_me],
+  [1], 1
+];
 export var QuerySummary$: StaticStructureSchema = [3, n0, _QS,
   0,
   [_i, _qS, _w, _el, _stat],
@@ -676,18 +694,18 @@ export var ResetGraphInput$: StaticStructureSchema = [3, n0, _RGI,
 ];
 export var ResetGraphOutput$: StaticStructureSchema = [3, n0, _RGO,
   0,
-  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _cC, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [0, 0, 0, 0, 0, 4, 1, () => ComputeConfiguration$, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var RestoreGraphFromSnapshotInput$: StaticStructureSchema = [3, n0, _RGFSI,
   0,
-  [_sIn, _gN, _pM, _dP, _t, _rC, _pC],
-  [[0, 1], 0, 1, 2, 128 | 0, 1, 2], 2
+  [_sIn, _gN, _pM, _cC, _dP, _t, _rC, _pC],
+  [[0, 1], 0, 1, () => ComputeConfiguration$, 2, 128 | 0, 1, 2], 2
 ];
 export var RestoreGraphFromSnapshotOutput$: StaticStructureSchema = [3, n0, _RGFSO,
   0,
-  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _cC, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [0, 0, 0, 0, 0, 4, 1, () => ComputeConfiguration$, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var StartExportTaskInput$: StaticStructureSchema = [3, n0, _SETI,
   0,
@@ -706,8 +724,8 @@ export var StartGraphInput$: StaticStructureSchema = [3, n0, _SGI,
 ];
 export var StartGraphOutput$: StaticStructureSchema = [3, n0, _SGO,
   0,
-  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _cC, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [0, 0, 0, 0, 0, 4, 1, () => ComputeConfiguration$, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var StartImportTaskInput$: StaticStructureSchema = [3, n0, _SITI,
   0,
@@ -726,8 +744,8 @@ export var StopGraphInput$: StaticStructureSchema = [3, n0, _SGIt,
 ];
 export var StopGraphOutput$: StaticStructureSchema = [3, n0, _SGOt,
   0,
-  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _cC, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [0, 0, 0, 0, 0, 4, 1, () => ComputeConfiguration$, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
@@ -751,13 +769,13 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateGraphInput$: StaticStructureSchema = [3, n0, _UGI,
   0,
-  [_gIr, _pC, _pM, _dP],
-  [[0, 1], 2, 1, 2], 1
+  [_gIr, _pC, _pM, _cC, _dP],
+  [[0, 1], 2, 1, () => ComputeConfiguration$, 2], 1
 ];
 export var UpdateGraphOutput$: StaticStructureSchema = [3, n0, _UGO,
   0,
-  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
-  [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _cC, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [0, 0, 0, 0, 0, 4, 1, () => ComputeConfiguration$, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var VectorSearchConfiguration$: StaticStructureSchema = [3, n0, _VSC,
   0,
@@ -809,6 +827,11 @@ var ExportFilterPropertyMap: StaticMapSchema = [2, n0, _EFPM,
 ];
 var LongValuedMap = 128 | 1;
 var TagMap = 128 | 0;
+export var ComputeConfiguration$: StaticUnionSchema = [4, n0, _CC,
+  0,
+  [_pG, _gSra],
+  [() => ProvisionedGraphConfiguration$, () => GraphSessionConfiguration$]
+];
 export var ImportOptions$: StaticUnionSchema = [4, n0, _IO,
   0,
   [_ne],
