@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1178.0...v3.1179.0) (2026-11-27)
+
+
+### Bug Fixes
+
+* **dynamodb-codec:** escape AttributeValue member names ([#8452](https://github.com/aws/aws-sdk-js-v3/issues/8452)) ([52cc2b5](https://github.com/aws/aws-sdk-js-v3/commit/52cc2b5879170fc8478f603804df5608a25e40c0))
+
+
+### Features
+
+* **client-cloudwatch:** CloudWatch OTel enrichment supports a free basic option and a paid tag enrichment option, using the EnableTagEnrichment flag. Set it to true (default) to enrich vended metrics with resource ARN and tag labels for PromQL queries. Set it to false to get the free basic option without resource tags. ([285094c](https://github.com/aws/aws-sdk-js-v3/commit/285094c947b0a269fac150eb935b8e752e0c5503))
+* **client-elasticsearch-service:** Catalog APIs for Optimized engine domains ([0138a34](https://github.com/aws/aws-sdk-js-v3/commit/0138a34cca2986473c5b33c162191e7ae4d62d6c))
+* **client-marketplace-agreement:** This release adds per-Region pricing to AWS Marketplace usage-based pricing terms. Rate card items can now include Region-specific price overrides. When a Regional price is present for an AWS Region, it replaces the default price for that dimension. ([3a8c56f](https://github.com/aws/aws-sdk-js-v3/commit/3a8c56ff402b9f00dda02c7d5008dbdd73698906))
+* **client-neptune-graph:** Adds support for Graph Sessions, a new offering backed by on-demand ephemeral compute. ([2617c5b](https://github.com/aws/aws-sdk-js-v3/commit/2617c5b0fc78a9084e00b12a786b30676c4fe6d2))
+* **client-opensearch:** Catalog APIs for Optimized engine domains ([859fa69](https://github.com/aws/aws-sdk-js-v3/commit/859fa699d6b8248249c032aec0fa54ea6e3caf3d))
+* **client-rds:** Aurora PostgreSQL and Aurora MySQL now let you delete a DB cluster and all its instances in a single API call or console action, without deleting each instance first. Cluster deletion also completes faster. ([9faefe4](https://github.com/aws/aws-sdk-js-v3/commit/9faefe4e793e940241601218d029ef78a078f835))
+
+
+
+
+
 # [3.1178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1177.0...v3.1178.0) (2026-11-25)
 
 

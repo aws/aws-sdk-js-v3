@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1178.0...v3.1179.0) (2026-11-27)
+
+
+### Features
+
+* **client-cloudwatch:** CloudWatch OTel enrichment supports a free basic option and a paid tag enrichment option, using the EnableTagEnrichment flag. Set it to true (default) to enrich vended metrics with resource ARN and tag labels for PromQL queries. Set it to false to get the free basic option without resource tags. ([285094c](https://github.com/aws/aws-sdk-js-v3/commit/285094c947b0a269fac150eb935b8e752e0c5503))
+
+
+
+
+
 # [3.1178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1177.0...v3.1178.0) (2026-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch

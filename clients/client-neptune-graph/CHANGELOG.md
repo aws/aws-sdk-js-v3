@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1178.0...v3.1179.0) (2026-11-27)
+
+
+### Features
+
+* **client-neptune-graph:** Adds support for Graph Sessions, a new offering backed by on-demand ephemeral compute. ([2617c5b](https://github.com/aws/aws-sdk-js-v3/commit/2617c5b0fc78a9084e00b12a786b30676c4fe6d2))
+
+
+
+
+
 # [3.1178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1177.0...v3.1178.0) (2026-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune-graph

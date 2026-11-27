@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1178.0...v3.1179.0) (2026-11-27)
+
+
+### Features
+
+* **client-rds:** Aurora PostgreSQL and Aurora MySQL now let you delete a DB cluster and all its instances in a single API call or console action, without deleting each instance first. Cluster deletion also completes faster. ([9faefe4](https://github.com/aws/aws-sdk-js-v3/commit/9faefe4e793e940241601218d029ef78a078f835))
+
+
+
+
+
 # [3.1178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1177.0...v3.1178.0) (2026-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-rds

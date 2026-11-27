@@ -92,6 +92,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.61 (2026-11-26)
+### Bug Fixes
+* **dynamodb-codec:** escape AttributeValue member names ([#8452](https://github.com/aws/aws-sdk-js-v3/issues/8452)) ([52cc2b5](https://github.com/aws/aws-sdk-js-v3/commit/52cc2b5879170fc8478f603804df5608a25e40c0))
+
+
+
 # 3.973.60 (2026-11-23)
 ### Chores
 * **codegen:** smithy-aws-typescript-codegen 0.56.0 ([#8437](https://github.com/aws/aws-sdk-js-v3/issues/8437)) ([31e0007](https://github.com/aws/aws-sdk-js-v3/commit/31e0007f8f2ab1d64ee41229a383f6916a02b6b2))

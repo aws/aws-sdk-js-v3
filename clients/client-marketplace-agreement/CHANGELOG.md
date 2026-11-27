@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1179.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1178.0...v3.1179.0) (2026-11-27)
+
+
+### Features
+
+* **client-marketplace-agreement:** This release adds per-Region pricing to AWS Marketplace usage-based pricing terms. Rate card items can now include Region-specific price overrides. When a Regional price is present for an AWS Region, it replaces the default price for that dimension. ([3a8c56f](https://github.com/aws/aws-sdk-js-v3/commit/3a8c56ff402b9f00dda02c7d5008dbdd73698906))
+
+
+
+
+
 # [3.1178.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1177.0...v3.1178.0) (2026-11-25)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-agreement
