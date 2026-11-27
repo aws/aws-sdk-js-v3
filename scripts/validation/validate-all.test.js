@@ -9,6 +9,7 @@
 
 const { execFileSync } = require("node:child_process");
 const fs = require("node:fs");
+const os = require("node:os");
 const path = require("node:path");
 
 const root = path.join(__dirname, "..", "..");
@@ -18,6 +19,11 @@ const validationDir = __dirname;
 const tmpPkgDir = path.join(root, "packages-internal", "__test-violations__");
 const distCjs = path.join(tmpPkgDir, "dist-cjs");
 const distEs = path.join(tmpPkgDir, "dist-es");
+
+// Temporary packages for the downlevel types check and the preview folder.
+const tmpNestedDir = path.join(root, "packages-internal", "__test-nested-downlevel__");
+const tmpSingleDir = path.join(root, "packages-internal", "__test-single-downlevel__");
+const tmpPreviewDir = path.join(root, "preview", "__test-preview__");
 
 function setup() {
   fs.mkdirSync(distCjs, { recursive: true });
@@ -90,15 +96,36 @@ module.exports = { blorp: toHex };
 }
 
 function teardown() {
-  fs.rmSync(tmpPkgDir, { recursive: true, force: true });
+  for (const dir of [tmpPkgDir, tmpNestedDir, tmpSingleDir, tmpPreviewDir]) {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
 }
 
-function runValidator(script, args = []) {
+/**
+ * Creates a package that has every build artifact built.js requires, with the given downlevel type folders.
+ */
+function setupBuiltPackage(dir, name, downlevelFolders) {
+  for (const folder of [
+    "dist-cjs",
+    "dist-es",
+    "dist-types",
+    ...downlevelFolders.map((f) => path.join("dist-types", f)),
+  ]) {
+    fs.mkdirSync(path.join(dir, folder), { recursive: true });
+  }
+  fs.writeFileSync(path.join(dir, "package.json"), JSON.stringify({ name, version: "0.0.0" }));
+  for (const file of ["dist-cjs/index.js", "dist-es/index.js", "dist-types/index.d.ts"]) {
+    fs.writeFileSync(path.join(dir, file), "");
+  }
+}
+
+function runValidator(script, args = [], env = {}) {
   try {
     const output = execFileSync("node", [path.join(validationDir, script), ...args], {
       cwd: root,
       stdio: "pipe",
       encoding: "utf-8",
+      env: { ...process.env, ...env },
     });
     return { exitCode: 0, output };
   } catch (e) {
@@ -181,8 +208,120 @@ function runTests() {
   check(apiExtractorConfig.exitCode !== 0, "api-extractor-config detects @public without api-extractor.json");
   check(apiExtractorConfig.output.includes("no api-extractor.json"), "api-extractor-config names the missing config");
 
+  // 10. built: the downlevel types folder may exist once, at dist-types/ts3.4, and never nested
+  setupBuiltPackage(tmpNestedDir, "@aws-sdk/__test-nested-downlevel__", ["ts3.4", path.join("ts3.4", "ts3.4")]);
+  const nested = runValidator("built.js", [tmpNestedDir]);
+  check(nested.exitCode !== 0, "built detects a nested ts3.4 folder");
+  check(nested.output.includes("ts3.4/ts3.4"), "built names the nested ts3.4 folder");
+  setupBuiltPackage(tmpSingleDir, "@aws-sdk/__test-single-downlevel__", ["ts3.4"]);
+  check(runValidator("built.js", [tmpSingleDir]).exitCode === 0, "built accepts a single ts3.4 folder");
+
+  // 11. the preview folder is covered by the package list that the validators share
+  fs.mkdirSync(tmpPreviewDir, { recursive: true });
+  fs.writeFileSync(path.join(tmpPreviewDir, "package.json"), JSON.stringify({ name: "@aws-sdk/__test-preview__" }));
+  const { getPackageDirs } = require("./validation-shared");
+  check(
+    getPackageDirs().some(({ dir }) => dir === tmpPreviewDir),
+    "validators include packages in preview/"
+  );
+
+  runVersionCheckTests(check);
+
   console.log(`\n${passed + failed} tests: ${passed} passed, ${failed} failed`);
   return failed === 0;
+}
+
+/**
+ * Runs the dependency version check against fixture monorepos, so the result does not depend on the real tree,
+ * which is rewritten before publishing.
+ */
+function runVersionCheckTests(check) {
+  const versionCheck = path.join(root, "scripts", "runtime-dependency-version-check", "runtime-dep-version-check.js");
+
+  const run = (fixtureRoot, prepublish) => {
+    try {
+      const output = execFileSync("node", [versionCheck], {
+        cwd: root,
+        stdio: "pipe",
+        encoding: "utf-8",
+        env: {
+          ...process.env,
+          AWS_SDK_VERSION_CHECK_ROOT: fixtureRoot,
+          AWS_SDK_PREPUBLISH: prepublish ? "true" : "false",
+        },
+      });
+      return { exitCode: 0, output };
+    } catch (e) {
+      return { exitCode: e.status || 1, output: (e.stdout || "") + (e.stderr || "") };
+    }
+  };
+
+  // A fixture monorepo with a dependency @aws-sdk/types and a package that consumes it.
+  const fixture = ({ dependency, peerDependency, previewVersion }) => {
+    const fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), "version-check-"));
+    for (const folder of ["clients", "lib", "packages", "packages-internal", "preview", "private"]) {
+      fs.mkdirSync(path.join(fixtureRoot, folder));
+    }
+    const write = (folder, name, pkg) => {
+      fs.mkdirSync(path.join(fixtureRoot, folder, name));
+      fs.writeFileSync(path.join(fixtureRoot, folder, name, "package.json"), JSON.stringify(pkg));
+    };
+    write("packages-internal", "types", { name: "@aws-sdk/types", version: "3.0.0" });
+    write("packages-internal", "consumer", {
+      name: "@aws-sdk/consumer",
+      version: "3.0.0",
+      dependencies: { "@aws-sdk/types": dependency },
+      ...(peerDependency ? { peerDependencies: { "@aws-sdk/types": peerDependency } } : {}),
+    });
+    write("preview", "previewed", { name: "@aws-sdk/previewed", version: previewVersion });
+    return fixtureRoot;
+  };
+
+  const results = [];
+  try {
+    const make = (options) => {
+      const fixtureRoot = fixture({ previewVersion: "0.1.0", ...options });
+      results.push(fixtureRoot);
+      return fixtureRoot;
+    };
+
+    // Before publishing, internal dependencies use the workspace protocol.
+    const workspace = make({ dependency: "workspace:^3.0.0" });
+    check(run(workspace, false).exitCode === 0, "version check accepts the workspace protocol before publishing");
+    const workspaceInFlagMode = run(workspace, true);
+    check(
+      workspaceInFlagMode.exitCode !== 0,
+      "version check rejects the workspace protocol when AWS_SDK_PREPUBLISH=true"
+    );
+    check(workspaceInFlagMode.output.includes("non-canonical"), "version check names the non-canonical dependency");
+
+    // After update:versions:current, they use real versions.
+    const rewritten = make({ dependency: "^3.0.0" });
+    check(run(rewritten, true).exitCode === 0, "version check accepts real versions when AWS_SDK_PREPUBLISH=true");
+    check(run(rewritten, false).exitCode !== 0, "version check rejects real versions before publishing");
+
+    // A leftover workspace: in a section that the dependency map does not read.
+    const leftoverPeer = make({ dependency: "^3.0.0", peerDependency: "workspace:^3.0.0" });
+    const peer = run(leftoverPeer, true);
+    check(peer.exitCode !== 0, "version check rejects a leftover workspace: peer dependency when publishing");
+    check(peer.output.includes("peerDependencies"), "version check names the section with the leftover workspace:");
+
+    // Packages in preview/ stay on 0.x.y.
+    for (const prepublish of [false, true]) {
+      const dependency = prepublish ? "^3.0.0" : "workspace:^3.0.0";
+      const unstable = run(make({ dependency, previewVersion: "1.0.0" }), prepublish);
+      check(
+        unstable.exitCode !== 0,
+        `version check rejects a preview package outside 0.x.y (prepublish=${prepublish})`
+      );
+      check(unstable.output.includes("@aws-sdk/previewed"), "version check names the preview package");
+      check(unstable.output.includes("0.x.y"), "version check states the 0.x.y requirement");
+    }
+  } finally {
+    for (const dir of results) {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }
 }
 
 process.on("exit", teardown);

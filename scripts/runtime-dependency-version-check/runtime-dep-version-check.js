@@ -28,7 +28,8 @@ const { findWorkspaceReferences, isCanonicalInternalVersion, isPreviewVersion } 
 // Set by the publish script after update:versions:current, when internal dependencies must no longer use workspace:.
 const prepublish = process.env.AWS_SDK_PREPUBLISH === "true";
 
-const root = path.join(__dirname, "..", "..");
+// The validation self-test points this at fixture packages, so its result does not depend on the real tree.
+const root = process.env.AWS_SDK_VERSION_CHECK_ROOT ?? path.join(__dirname, "..", "..");
 
 const clients = listFolders(path.join(root, "clients"), false);
 const lib = listFolders(path.join(root, "lib"), false);
