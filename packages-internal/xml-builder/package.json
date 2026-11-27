@@ -20,7 +20,7 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "browser": {
-    "./dist-es/xml-parser": "./dist-es/xml-parser.browser"
+    "./dist-es/parse-xml": "./dist-es/parse-xml.browser"
   },
   "types": "./dist-types/index.d.ts",
   "typesVersions": {
@@ -31,7 +31,7 @@
     }
   },
   "react-native": {
-    "./dist-es/xml-parser": "./dist-es/xml-parser.browser"
+    "./dist-es/parse-xml": "./dist-es/parse-xml.browser"
   },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
