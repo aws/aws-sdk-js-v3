@@ -1,6 +1,6 @@
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/core/config";
-import type { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
+import type { AwsCredentialIdentity, IniSection, ParsedIniData } from "@smithy/types";
 
 import type { FromIniInit } from "./fromIni";
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
@@ -14,6 +14,95 @@ import { isWebIdentityProfile, resolveWebIdentityCredentials } from "./resolveWe
  * @internal
  */
 export type ResolveProfileData = typeof resolveProfileData;
+
+/**
+ * The kind of credentials a profile resolves to.
+ *
+ * @internal
+ */
+export type ProfileCredentialSource = "assumeRole" | "static" | "webIdentity" | "process" | "sso" | "login" | "unknown";
+
+/**
+ * Returns the kind of credentials a profile resolves to, in the order `resolveProfileData` tries them.
+ *
+ * @internal
+ */
+export const getProfileCredentialSource = (
+  data: IniSection | undefined,
+  profileName: string,
+  logger?: FromIniInit["logger"]
+): ProfileCredentialSource => {
+  if (!data) {
+    return "unknown";
+  }
+
+  // Role assumption keys take precedence over static credentials in the first profile visited.
+  if (isAssumeRoleProfile(data, { profile: profileName, logger })) {
+    return "assumeRole";
+  }
+
+  // If no role assumption metadata is present, load static credentials from the selected profile.
+  if (isStaticCredsProfile(data)) {
+    return "static";
+  }
+
+  // If no static credentials are present, assume role with web identity if web_identity_token_file and role_arn
+  // are available.
+  if (isWebIdentityProfile(data)) {
+    return "webIdentity";
+  }
+
+  // If no web identity is present, use credential_process if available.
+  if (isProcessProfile(data)) {
+    return "process";
+  }
+
+  if (isSsoProfile(data)) {
+    return "sso";
+  }
+
+  if (isLoginProfile(data)) {
+    return "login";
+  }
+
+  return "unknown";
+};
+
+/**
+ * Profile source types that use the credential refresh lifecycle. Static and process profiles keep the
+ * existing caching.
+ *
+ * @internal
+ */
+export const CREDENTIAL_REFRESH_SOURCES: ReadonlySet<ProfileCredentialSource> = new Set([
+  "assumeRole",
+  "webIdentity",
+  "sso",
+  "login",
+]);
+
+/**
+ * Resolves credentials for the source type selected when the provider was first used.
+ *
+ * @internal
+ */
+export const resolveProfileDataForSource = (
+  source: ProfileCredentialSource,
+  profileName: string,
+  profiles: ParsedIniData,
+  options: FromIniInit,
+  callerClientConfig?: AwsIdentityProperties["callerClientConfig"],
+  rejectedAccessKeyId?: string
+): Promise<AwsCredentialIdentity> =>
+  resolveCredentialsForSource({
+    // A profile removed since it was first used can no longer be resolved.
+    source: profiles[profileName] ? source : "unknown",
+    profileName,
+    profiles,
+    options,
+    callerClientConfig,
+    rejectedAccessKeyId,
+  });
 
 /**
  * @internal
@@ -42,52 +131,70 @@ export const resolveProfileData = async (
     return resolveStaticCredentials(data, options);
   }
 
-  // If this is the first profile visited, role assumption keys should be
-  // given precedence over static credentials.
-  if (isAssumeRoleRecursiveCall || isAssumeRoleProfile(data, { profile: profileName, logger: options.logger })) {
-    return resolveAssumeRoleCredentials(
-      profileName,
-      profiles,
-      options,
-      callerClientConfig,
-      visitedProfiles,
-      resolveProfileData
-    );
-  }
+  return resolveCredentialsForSource({
+    source: isAssumeRoleRecursiveCall ? "assumeRole" : getProfileCredentialSource(data, profileName, options.logger),
+    profileName,
+    profiles,
+    options,
+    callerClientConfig,
+    visitedProfiles,
+  });
+};
 
-  // If no role assumption metadata is present, attempt to load static
-  // credentials from the selected profile.
-  if (isStaticCredsProfile(data)) {
-    return resolveStaticCredentials(data, options);
+/**
+ * Calls the resolver for one source type. Shared by `resolveProfileData` and `resolveProfileDataForSource`.
+ */
+const resolveCredentialsForSource = async ({
+  source,
+  profileName,
+  profiles,
+  options,
+  callerClientConfig,
+  visitedProfiles = {},
+  rejectedAccessKeyId,
+}: {
+  source: ProfileCredentialSource;
+  profileName: string;
+  profiles: ParsedIniData;
+  options: FromIniInit;
+  callerClientConfig?: AwsIdentityProperties["callerClientConfig"];
+  visitedProfiles?: Record<string, true>;
+  rejectedAccessKeyId?: string;
+}): Promise<AwsCredentialIdentity> => {
+  const data = profiles[profileName];
+  switch (source) {
+    case "assumeRole":
+      return resolveAssumeRoleCredentials(
+        profileName,
+        profiles,
+        options,
+        callerClientConfig,
+        visitedProfiles,
+        resolveProfileData
+      );
+    case "static":
+      return resolveStaticCredentials(data as Parameters<typeof resolveStaticCredentials>[0], options);
+    case "webIdentity":
+      return resolveWebIdentityCredentials(
+        data as Parameters<typeof resolveWebIdentityCredentials>[0],
+        options,
+        callerClientConfig
+      );
+    case "process":
+      return resolveProcessCredentials(options, profileName);
+    case "sso":
+      return resolveSsoCredentials(profileName, data, options, callerClientConfig);
+    case "login":
+      return resolveLoginCredentials(profileName, options, callerClientConfig, rejectedAccessKeyId);
+    default:
+      // If the profile cannot be parsed or contains neither static credentials
+      // nor role assumption metadata, throw an error. This should be considered a
+      // terminal resolution error if a profile has been specified by the user
+      // (whether via a parameter, an environment variable, or another profile's
+      // `source_profile` key).
+      throw new CredentialsProviderError(
+        `Could not resolve credentials using profile: [${profileName}] in configuration/credentials file(s).`,
+        { logger: options.logger }
+      );
   }
-
-  // If no static credentials are present, attempt to assume role with
-  // web identity if web_identity_token_file and role_arn is available
-  if (isWebIdentityProfile(data)) {
-    return resolveWebIdentityCredentials(data, options, callerClientConfig);
-  }
-
-  // If no web identity is present, attempt to assume role with
-  // process if credential_process is available
-  if (isProcessProfile(data)) {
-    return resolveProcessCredentials(options, profileName);
-  }
-
-  if (isSsoProfile(data)) {
-    return await resolveSsoCredentials(profileName, data, options, callerClientConfig);
-  }
-
-  if (isLoginProfile(data)) {
-    return resolveLoginCredentials(profileName, options, callerClientConfig);
-  }
-
-  // If the profile cannot be parsed or contains neither static credentials
-  // nor role assumption metadata, throw an error. This should be considered a
-  // terminal resolution error if a profile has been specified by the user
-  // (whether via a parameter, an environment variable, or another profile's
-  // `source_profile` key).
-  throw new CredentialsProviderError(
-    `Could not resolve credentials using profile: [${profileName}] in configuration/credentials file(s).`,
-    { logger: options.logger }
-  );
 };

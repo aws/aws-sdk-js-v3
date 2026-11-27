@@ -60,6 +60,13 @@ describe(fromHttp.name, () => {
     vi.resetAllMocks();
   });
 
+  it("returns a provider that owns the credential refresh lifecycle", () => {
+    const provider = fromHttp({ awsContainerCredentialsFullUri: "https://u1.aws" });
+
+    expect((provider as any).memoized).toBe(true);
+    expect(typeof (provider as any).invalidate).toBe("function");
+  });
+
   it("uses the full uri", async () => {
     const provider = fromHttp({
       awsContainerCredentialsFullUri: "https://u1.aws",

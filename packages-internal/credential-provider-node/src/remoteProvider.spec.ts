@@ -1,3 +1,4 @@
+import { createCredentialRefreshProvider } from "@aws-sdk/core/client";
 import { CredentialsProviderError } from "@smithy/core/config";
 import {
   ENV_CMDS_FULL_URI,
@@ -8,6 +9,8 @@ import {
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { ENV_IMDS_DISABLED, remoteProvider } from "./remoteProvider";
+
+const START_MS = new Date("2024-01-01T00:00:00Z").getTime();
 
 vi.mock("@smithy/credential-provider-imds");
 
@@ -48,6 +51,7 @@ describe(remoteProvider.name, () => {
   afterEach(() => {
     process.env = ORIGINAL_ENV;
     vi.clearAllMocks();
+    vi.restoreAllMocks();
   });
 
   it(`returns fromContainerMetadata if env[${ENV_CMDS_RELATIVE_URI}] is set`, async () => {
@@ -66,6 +70,28 @@ describe(remoteProvider.name, () => {
     expect(mockFromHttp).toHaveBeenCalledWith(mockInit);
     expect(fromContainerMetadata).toHaveBeenCalledWith(mockInit);
     expect(fromInstanceMetadata).not.toHaveBeenCalled();
+  });
+
+  it("uses one refresh owner for HTTP credentials, so invalidation contacts the source", async () => {
+    vi.spyOn(Date, "now").mockReturnValue(START_MS);
+    process.env[ENV_CMDS_FULL_URI] = sampleFullUri;
+    let sequence = 0;
+    const source = vi.fn(async () => ({
+      accessKeyId: `AKID-${++sequence}`,
+      secretAccessKey: "SECRET",
+      expiration: new Date(Date.now() + 6 * 3600_000),
+    }));
+    mockFromHttp.mockReturnValueOnce(createCredentialRefreshProvider(source));
+    const provider = (await remoteProvider(mockInit)) as Awaited<ReturnType<typeof remoteProvider>> & {
+      invalidate(identity: { accessKeyId: string }): void;
+    };
+
+    await expect(provider()).resolves.toMatchObject({ accessKeyId: "AKID-1" });
+    provider.invalidate({ accessKeyId: "AKID-1" });
+    await expect(provider()).resolves.toMatchObject({ accessKeyId: "AKID-2" });
+
+    expect(source).toHaveBeenCalledTimes(2);
+    vi.mocked(Date.now).mockRestore();
   });
 
   it(`throws if env['${ENV_IMDS_DISABLED}'] is set`, async () => {

@@ -1,4 +1,5 @@
 import { ENV_KEY, ENV_SECRET, fromEnv } from "@aws-sdk/credential-provider-env";
+import { memoizeFactory } from "@aws-sdk/core/client";
 import type { FromHttpOptions } from "@aws-sdk/credential-provider-http";
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
 import type { FromProcessInit } from "@aws-sdk/credential-provider-process";
@@ -96,37 +97,39 @@ export const defaultProvider = (init: DefaultProviderInit = {}): MemoizedRuntime
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromEnv");
         return fromEnv(init)();
       },
-      async (awsIdentityProperties?: AwsIdentityProperties) => {
+      memoizeFactory(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromSSO");
         const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoSession } = init;
         if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
-          throw new CredentialsProviderError(
-            "Skipping SSO provider in default chain (inputs do not include SSO fields).",
-            { logger: init.logger }
-          );
+          return async () => {
+            throw new CredentialsProviderError(
+              "Skipping SSO provider in default chain (inputs do not include SSO fields).",
+              { logger: init.logger }
+            );
+          };
         }
         const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
-        return fromSSO(init)(awsIdentityProperties);
-      },
-      async (awsIdentityProperties?: AwsIdentityProperties) => {
+        return fromSSO(init);
+      }),
+      memoizeFactory(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromIni");
         const { fromIni } = await import("@aws-sdk/credential-provider-ini");
-        return fromIni(init)(awsIdentityProperties);
-      },
-      async (awsIdentityProperties?: AwsIdentityProperties) => {
+        return fromIni(init);
+      }),
+      memoizeFactory(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromProcess");
         const { fromProcess } = await import("@aws-sdk/credential-provider-process");
-        return fromProcess(init)(awsIdentityProperties);
-      },
-      async (awsIdentityProperties?: AwsIdentityProperties) => {
+        return fromProcess(init);
+      }),
+      memoizeFactory(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::fromTokenFile");
         const { fromTokenFile } = await import("@aws-sdk/credential-provider-web-identity");
-        return fromTokenFile(init)(awsIdentityProperties);
-      },
-      async () => {
+        return fromTokenFile(init);
+      }),
+      memoizeFactory(async () => {
         init.logger?.debug("@aws-sdk/credential-provider-node - defaultProvider::remoteProvider");
-        return (await remoteProvider(init))();
-      },
+        return remoteProvider(init);
+      }),
       async () => {
         throw new CredentialsProviderError("Could not load credentials from any providers", {
           tryNextLink: false,

@@ -9,6 +9,17 @@ export { setFeature } from "./setFeature";
 export { setTokenFeature } from "./setTokenFeature";
 export const getDefaultSocketTimeout = no;
 
+// credential-refresh
+export { createCredentialRefreshProvider } from "./credential-refresh/createCredentialRefreshProvider";
+export { createProfileKeyedRefreshProvider } from "./credential-refresh/createProfileKeyedRefreshProvider";
+export { memoizeFactory } from "./credential-refresh/memoizeFactory";
+export { markUnrecoverable, markUnrecoverableStsError } from "./credential-refresh/unrecoverable";
+export type {
+  CredentialRefreshProvider,
+  CredentialRefreshProviderOptions,
+  CredentialSourceOptions,
+} from "./credential-refresh/types";
+
 // middleware-host-header
 export {
   hostHeaderMiddleware,

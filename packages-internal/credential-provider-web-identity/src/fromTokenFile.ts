@@ -1,4 +1,4 @@
-import { setCredentialFeature } from "@aws-sdk/core/client";
+import { createCredentialRefreshProvider, setCredentialFeature } from "@aws-sdk/core/client";
 import type {
   AttributedAwsCredentialIdentity,
   AwsIdentityProperties,
@@ -31,32 +31,34 @@ export interface FromTokenFileInit
  *
  * Represents OIDC credentials from a file on disk.
  */
-export const fromTokenFile =
-  (init: FromTokenFileInit = {}): RuntimeConfigAwsCredentialIdentityProvider =>
-  async (awsIdentityProperties?: AwsIdentityProperties) => {
-    init.logger?.debug("@aws-sdk/credential-provider-web-identity - fromTokenFile");
-    const webIdentityTokenFile = init?.webIdentityTokenFile ?? process.env[ENV_TOKEN_FILE];
-    const roleArn = init?.roleArn ?? process.env[ENV_ROLE_ARN];
-    const roleSessionName = init?.roleSessionName ?? process.env[ENV_ROLE_SESSION_NAME];
+export const fromTokenFile = (init: FromTokenFileInit = {}): RuntimeConfigAwsCredentialIdentityProvider =>
+  createCredentialRefreshProvider(
+    async (awsIdentityProperties?: AwsIdentityProperties) => {
+      init.logger?.debug("@aws-sdk/credential-provider-web-identity - fromTokenFile");
+      const webIdentityTokenFile = init?.webIdentityTokenFile ?? process.env[ENV_TOKEN_FILE];
+      const roleArn = init?.roleArn ?? process.env[ENV_ROLE_ARN];
+      const roleSessionName = init?.roleSessionName ?? process.env[ENV_ROLE_SESSION_NAME];
 
-    if (!webIdentityTokenFile || !roleArn) {
-      throw new CredentialsProviderError("Web identity configuration not specified", {
-        logger: init.logger,
-      });
-    }
+      if (!webIdentityTokenFile || !roleArn) {
+        throw new CredentialsProviderError("Web identity configuration not specified", {
+          logger: init.logger,
+        });
+      }
 
-    const credentials: AttributedAwsCredentialIdentity = await fromWebToken({
-      ...init,
-      webIdentityToken:
-        externalDataInterceptor?.getTokenRecord?.()[webIdentityTokenFile] ??
-        readFileSync(webIdentityTokenFile, { encoding: "ascii" }),
-      roleArn,
-      roleSessionName,
-    })(awsIdentityProperties);
+      const credentials: AttributedAwsCredentialIdentity = await fromWebToken({
+        ...init,
+        webIdentityToken:
+          externalDataInterceptor?.getTokenRecord?.()[webIdentityTokenFile] ??
+          readFileSync(webIdentityTokenFile, { encoding: "ascii" }),
+        roleArn,
+        roleSessionName,
+      })(awsIdentityProperties);
 
-    if (webIdentityTokenFile === process.env[ENV_TOKEN_FILE]) {
-      setCredentialFeature(credentials, "CREDENTIALS_ENV_VARS_STS_WEB_ID_TOKEN", "h");
-    }
+      if (webIdentityTokenFile === process.env[ENV_TOKEN_FILE]) {
+        setCredentialFeature(credentials, "CREDENTIALS_ENV_VARS_STS_WEB_ID_TOKEN", "h");
+      }
 
-    return credentials;
-  };
+      return credentials;
+    },
+    { logger: init.logger }
+  );

@@ -159,6 +159,6 @@ describe(resolveProfileData.name, () => {
     vi.mocked(resolveLoginCredentials).mockImplementation(() => Promise.resolve(mockCreds));
     const receivedCreds = await resolveProfileData(mockProfileName, mockProfiles, mockOptions);
     expect(receivedCreds).toStrictEqual(mockCreds);
-    expect(resolveLoginCredentials).toHaveBeenCalledWith(mockProfileName, mockOptions, undefined);
+    expect(resolveLoginCredentials).toHaveBeenCalledWith(mockProfileName, mockOptions, undefined, undefined);
   });
 });

@@ -3,7 +3,9 @@ import { externalDataInterceptor } from "@smithy/core/config";
 import type { HttpRequest } from "@smithy/core/protocols";
 import { HttpResponse } from "@smithy/core/protocols";
 import type { NodeHttpHandlerOptions, ParsedIniData } from "@smithy/types";
-import { homedir } from "node:os";
+import { createHash, generateKeyPairSync } from "node:crypto";
+import { promises as fsPromises } from "node:fs";
+import { homedir, tmpdir } from "node:os";
 import { join } from "node:path";
 import { PassThrough } from "node:stream";
 import { afterEach, beforeEach, describe, expect, test as it } from "vitest";
@@ -30,6 +32,12 @@ function setIniProfileData(data: ParsedIniData) {
   externalDataInterceptor.interceptFile(join(dir, "config"), buffer);
 }
 
+/** Controls the mock Sign-In service: counts token refresh requests and sets the response. */
+const signIn = {
+  requests: 0,
+  respondWith: "success" as "success" | "TOKEN_EXPIRED",
+};
+
 class MockNodeHttpHandler {
   static create(instanceOrOptions?: any) {
     if (typeof instanceOrOptions?.handle === "function") {
@@ -43,7 +51,30 @@ class MockNodeHttpHandler {
 
     const region = (request.hostname.match(/sts\.(.*?)\./) || [, "unknown"])[1];
 
-    if (request.headers.Authorization === "container-authorization") {
+    if (request.path?.includes("/v1/token") && request.headers["DPoP"]) {
+      signIn.requests++;
+      if (signIn.respondWith === "TOKEN_EXPIRED") {
+        body.end(JSON.stringify({ error: "TOKEN_EXPIRED", message: "The refresh token has expired." }));
+        return {
+          response: new HttpResponse({
+            statusCode: 403,
+            body,
+            headers: { "x-amzn-errortype": "AccessDeniedException" },
+          }),
+        };
+      }
+      body.write(
+        JSON.stringify({
+          accessToken: {
+            accessKeyId: "LOGIN_REFRESHED_ACCESS_KEY_ID",
+            secretAccessKey: "LOGIN_REFRESHED_SECRET_ACCESS_KEY",
+            sessionToken: "LOGIN_REFRESHED_SESSION_TOKEN",
+          },
+          refreshToken: "REFRESHED_TOKEN",
+          expiresIn: 900,
+        })
+      );
+    } else if (request.headers.Authorization === "container-authorization") {
       body.write(
         JSON.stringify({
           AccessKeyId: "CONTAINER_ACCESS_KEY",
@@ -306,5 +337,92 @@ describe("fromIni region search order", () => {
       secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
       sessionToken: "STS_AR_SESSION_TOKEN_us-east-1",
     });
+  });
+});
+
+describe("fromIni login profile after a service rejects its credentials", () => {
+  const loginSession = "arn:aws:sts::123456789012:assumed-role/Admin/admin";
+  // Environment variables that would make fromIni read real AWS files instead of the intercepted ones.
+  const isolatedEnv = ["AWS_CONFIG_FILE", "AWS_SHARED_CREDENTIALS_FILE", "AWS_PROFILE"] as const;
+  let savedEnv: Partial<Record<(typeof isolatedEnv)[number], string>>;
+  let cacheDirectory: string;
+
+  beforeEach(async () => {
+    savedEnv = {};
+    for (const name of isolatedEnv) {
+      savedEnv[name] = process.env[name];
+      delete process.env[name];
+    }
+    externalDataInterceptor.interceptFile(join(homedir(), ".aws", "credentials"), "");
+    signIn.requests = 0;
+    signIn.respondWith = "success";
+    cacheDirectory = await fsPromises.mkdtemp(join(tmpdir(), "aws-sdk-fromIni-login-"));
+    process.env.AWS_LOGIN_CACHE_DIRECTORY = cacheDirectory;
+
+    const { privateKey } = generateKeyPairSync("ec", { namedCurve: "prime256v1" });
+    const token = {
+      accessToken: {
+        accessKeyId: "LOGIN_REJECTED_ACCESS_KEY_ID",
+        secretAccessKey: "LOGIN_REJECTED_SECRET_ACCESS_KEY",
+        sessionToken: "LOGIN_REJECTED_SESSION_TOKEN",
+        accountId: "123456789012",
+        // Far from its own refresh window, so only the invalidation can trigger a refresh.
+        expiresAt: "3000-01-01T00:00:00.000Z",
+      },
+      clientId: "test-client-id",
+      refreshToken: "test-refresh-token",
+      dpopKey: privateKey.export({ type: "sec1", format: "pem" }),
+    };
+    const tokenFile = `${createHash("sha256").update(Buffer.from(loginSession, "utf8")).digest("hex")}.json`;
+    await fsPromises.writeFile(join(cacheDirectory, tokenFile), JSON.stringify(token), "utf8");
+
+    setIniProfileData({ default: { region: "us-west-2", login_session: loginSession } });
+  });
+
+  afterEach(async () => {
+    for (const name of isolatedEnv) {
+      if (savedEnv[name] === undefined) {
+        delete process.env[name];
+      } else {
+        process.env[name] = savedEnv[name];
+      }
+    }
+    delete process.env.AWS_LOGIN_CACHE_DIRECTORY;
+    await fsPromises.rm(cacheDirectory, { recursive: true, force: true });
+  });
+
+  // fromIni's return type doesn't declare invalidate, but a Login profile's provider has it.
+  const createProvider = () =>
+    fromIni({ clientConfig: { requestHandler: new MockNodeHttpHandler() } }) as ReturnType<typeof fromIni> & {
+      invalidate(identity: { accessKeyId: string }): void;
+    };
+
+  it("uses the cached token without calling Sign-In before any invalidation", async () => {
+    const credentials = await createProvider()();
+
+    expect(credentials.accessKeyId).toBe("LOGIN_REJECTED_ACCESS_KEY_ID");
+    expect(signIn.requests).toBe(0);
+  });
+
+  it("gets new credentials from Sign-In instead of returning the rejected ones", async () => {
+    const provider = createProvider();
+    const rejected = await provider();
+
+    provider.invalidate({ accessKeyId: rejected.accessKeyId });
+    const refreshed = await provider();
+
+    expect(signIn.requests).toBe(1);
+    expect(refreshed.accessKeyId).toBe("LOGIN_REFRESHED_ACCESS_KEY_ID");
+  });
+
+  it("raises the Sign-In error instead of returning the rejected credentials", async () => {
+    const provider = createProvider();
+    const rejected = await provider();
+    signIn.respondWith = "TOKEN_EXPIRED";
+
+    provider.invalidate({ accessKeyId: rejected.accessKeyId });
+
+    await expect(provider()).rejects.toThrow("Your session has expired. Please reauthenticate.");
+    expect(signIn.requests).toBe(1);
   });
 });

@@ -177,6 +177,7 @@ export const bindResolveAwsSdkSigV4Config =
           };
           resolvedCredentials.memoized = boundProvider.memoized;
           resolvedCredentials.configBound = boundProvider.configBound;
+          forwardInvalidate(resolvedCredentials, boundProvider);
           resolvedCredentials.attributed = true;
         } else {
           resolvedCredentials = boundProvider;
@@ -368,5 +369,20 @@ function bindCallerConfig(
     credentialsProvider({ ...options, callerClientConfig: config });
   fn.memoized = credentialsProvider.memoized;
   fn.configBound = true;
+  forwardInvalidate(fn, credentialsProvider);
   return fn;
+}
+
+/**
+ * Exposes the inner provider's `invalidate` on a wrapper, so the signer can mark rejected
+ * credentials for refresh. A getter, because a provider such as the default chain only has
+ * `invalidate` once it has selected a credential source.
+ */
+function forwardInvalidate(wrapper: object, inner: object): void {
+  Object.defineProperty(wrapper, "invalidate", {
+    get: () => {
+      const invalidate = (inner as { invalidate?: unknown }).invalidate;
+      return typeof invalidate === "function" ? invalidate.bind(inner) : undefined;
+    },
+  });
 }
