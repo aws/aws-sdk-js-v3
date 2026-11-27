@@ -387,6 +387,24 @@ export interface Constraints {
 }
 
 /**
+ * <p>A per-Region price override for a product dimension in a rate card.</p>
+ * @public
+ */
+export interface RegionalPrice {
+  /**
+   * <p>The AWS Region that the price override applies to.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>The per unit price for the product dimension in the specified AWS Region.</p>
+   * @public
+   */
+  price: string | undefined;
+}
+
+/**
  * <p>Defines the per unit rates for each individual product dimension.</p>
  * @public
  */
@@ -402,6 +420,12 @@ export interface RateCardItem {
    * @public
    */
   price?: string | undefined;
+
+  /**
+   * <p>The per-Region price overrides for the product dimension. When a Regional price is present for an AWS Region, it replaces the default <code>price</code>. This field is absent when the offer doesn't define regional price overrides.</p>
+   * @public
+   */
+  regionalPrices?: RegionalPrice[] | undefined;
 }
 
 /**

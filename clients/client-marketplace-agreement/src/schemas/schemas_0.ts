@@ -217,6 +217,8 @@ const _RAPRO = "RejectAgreementPaymentRequestOutput";
 const _RCI = "RateCardItem";
 const _RCL = "RateCardList";
 const _RNFE = "ResourceNotFoundException";
+const _RP = "RegionalPrice";
+const _RPL = "RegionalPriceList";
 const _RPT = "RecurringPaymentTerm";
 const _RS = "RenewalSummary";
 const _RT = "RegistrationToken";
@@ -440,8 +442,9 @@ const _rCat = "rateCard";
 const _rI = "requestId";
 const _rIe = "resourceId";
 const _rN = "requesterNote";
-const _rP = "refundPolicy";
+const _rP = "regionalPrices";
 const _rPT = "recurringPaymentTerm";
+const _rPe = "refundPolicy";
 const _rR = "rejectionReason";
 const _rS = "renewalSummary";
 const _rT = "resourceType";
@@ -451,6 +454,7 @@ const _rTen = "renewalTerm";
 const _rTeq = "requestedTerms";
 const _ra = "rate";
 const _re = "resources";
+const _reg = "region";
 const _req = "requester";
 const _res = "resource";
 const _rev = "revision";
@@ -1204,13 +1208,18 @@ export var PurchaseOrder$: StaticStructureSchema = [3, n0, _PO,
 ];
 export var RateCardItem$: StaticStructureSchema = [3, n0, _RCI,
   0,
-  [_dK, _pr],
-  [0, 0]
+  [_dK, _pr, _rP],
+  [0, 0, () => RegionalPriceList]
 ];
 export var RecurringPaymentTerm$: StaticStructureSchema = [3, n0, _RPT,
   0,
   [_t, _i, _cC, _bP, _pr],
   [0, 0, 0, 0, 0]
+];
+export var RegionalPrice$: StaticStructureSchema = [3, n0, _RP,
+  0,
+  [_reg, _pr],
+  [0, 0], 2
 ];
 export var RejectAgreementApprovalInput$: StaticStructureSchema = [3, n0, _RAAI,
   0,
@@ -1324,7 +1333,7 @@ export var StartAgreementApprovalsOutput$: StaticStructureSchema = [3, n0, _SAAO
 ];
 export var SupportTerm$: StaticStructureSchema = [3, n0, _ST,
   0,
-  [_t, _i, _rP],
+  [_t, _i, _rPe],
   [0, 0, 0]
 ];
 export var TaxBreakdownItem$: StaticStructureSchema = [3, n0, _TBI,
@@ -1493,6 +1502,9 @@ var PurchaseOrders: StaticListSchema = [1, n0, _POu,
 ];
 var RateCardList: StaticListSchema = [1, n0, _RCL,
   0, () => RateCardItem$
+];
+var RegionalPriceList: StaticListSchema = [1, n0, _RPL,
+  0, () => RegionalPrice$
 ];
 var RequestedTermList: StaticListSchema = [1, n0, _RTL,
   0, () => RequestedTerm$

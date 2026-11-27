@@ -101,6 +101,12 @@ export interface GetAgreementRequestTermsCommandOutput extends GetAgreementReque
  * //               { // RateCardItem
  * //                 dimensionKey: "STRING_VALUE",
  * //                 price: "STRING_VALUE",
+ * //                 regionalPrices: [ // RegionalPriceList
+ * //                   { // RegionalPrice
+ * //                     region: "STRING_VALUE", // required
+ * //                     price: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
  * //               },
  * //             ],
  * //           },
@@ -124,6 +130,12 @@ export interface GetAgreementRequestTermsCommandOutput extends GetAgreementReque
  * //               {
  * //                 dimensionKey: "STRING_VALUE",
  * //                 price: "STRING_VALUE",
+ * //                 regionalPrices: [
+ * //                   {
+ * //                     region: "STRING_VALUE", // required
+ * //                     price: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
  * //               },
  * //             ],
  * //           },

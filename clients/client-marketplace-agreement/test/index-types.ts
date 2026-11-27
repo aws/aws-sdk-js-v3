@@ -272,6 +272,7 @@ export type {
   PurchaseOrder,
   RateCardItem,
   RecurringPaymentTerm,
+  RegionalPrice,
   RejectAgreementApprovalInput,
   RejectAgreementApprovalOutput,
   RejectAgreementCancellationRequestInput,

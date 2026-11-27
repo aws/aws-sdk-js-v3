@@ -233,6 +233,7 @@ import {
   PurchaseOrder$,
   RateCardItem$,
   RecurringPaymentTerm$,
+  RegionalPrice$,
   RejectAgreementApproval$,
   RejectAgreementApprovalCommand,
   RejectAgreementApprovalInput$,
@@ -509,6 +510,7 @@ assert(typeof Proposer$ === "object");
 assert(typeof PurchaseOrder$ === "object");
 assert(typeof RateCardItem$ === "object");
 assert(typeof RecurringPaymentTerm$ === "object");
+assert(typeof RegionalPrice$ === "object");
 assert(typeof RejectAgreementApprovalInput$ === "object");
 assert(typeof RejectAgreementApprovalOutput$ === "object");
 assert(typeof RejectAgreementCancellationRequestInput$ === "object");
