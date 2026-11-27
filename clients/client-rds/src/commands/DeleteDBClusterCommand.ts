@@ -23,7 +23,7 @@ export interface DeleteDBClusterCommandInput extends DeleteDBClusterMessage {}
 export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.</p> <p>If you're deleting a Multi-AZ DB cluster with read replicas, all cluster members are terminated and read replicas are promoted to standalone instances.</p> <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p>
+ * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered. Manual DB cluster snapshots of the specified DB cluster are not deleted.</p> <p>If you're deleting a Multi-AZ DB cluster with read replicas, all cluster members are terminated and read replicas are promoted to standalone instances.</p> <p>To delete an Amazon Aurora DB cluster and all of its DB instances in a single call, set <code>DeleteDBInstances</code> to <code>true</code>. Otherwise, delete each DB instance in the DB cluster before you delete the DB cluster.</p> <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,6 +37,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *   SkipFinalSnapshot: true || false,
  *   FinalDBSnapshotIdentifier: "STRING_VALUE",
  *   DeleteAutomatedBackups: true || false,
+ *   DeleteDBInstances: true || false,
  * };
  * const command = new DeleteDBClusterCommand(input);
  * const response = await client.send(command);
@@ -301,6 +302,84 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *     DBClusterParameterGroup: "default.aurora-postgresql10",
  *     DBSubnetGroup: "default-vpc-aa11bb22",
  *     Status: "available"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To delete a DB cluster and all of its DB instances
+ * ```javascript
+ * // The following example deletes the Aurora DB cluster named sample-cluster and all of the DB instances in it in a single call.
+ * const input = {
+ *   DBClusterIdentifier: "sample-cluster",
+ *   DeleteDBInstances: true,
+ *   SkipFinalSnapshot: true
+ * };
+ * const command = new DeleteDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AssociatedRoles:     [],
+ *     AutoMinorVersionUpgrade: true,
+ *     AvailabilityZones: [
+ *       "us-east-1a",
+ *       "us-east-1d",
+ *       "us-east-1c"
+ *     ],
+ *     BackupRetentionPeriod: 7,
+ *     ClusterCreateTime: "2026-10-24T05:19:14.105Z",
+ *     CopyTagsToSnapshot: false,
+ *     CrossAccountClone: false,
+ *     DBClusterArn: "arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster",
+ *     DBClusterIdentifier: "sample-cluster",
+ *     DBClusterMembers: [
+ *       {
+ *         DBClusterParameterGroupStatus: "in-sync",
+ *         DBInstanceIdentifier: "sample-cluster-instance-1",
+ *         IsClusterWriter: true,
+ *         PromotionTier: 1
+ *       }
+ *     ],
+ *     DBClusterParameterGroup: "default.aurora-postgresql17",
+ *     DatabaseInsightsMode: "standard",
+ *     DbClusterResourceId: "cluster-EXAMPLE123456789",
+ *     DeletionProtection: false,
+ *     DomainMemberships:     [],
+ *     EarliestRestorableTime: "2026-10-24T05:19:19.661Z",
+ *     Endpoint: "sample-cluster.cluster-############.us-east-1.rds.amazonaws.com",
+ *     Engine: "aurora-postgresql",
+ *     EngineLifecycleSupport: "open-source-rds-extended-support",
+ *     EngineMode: "provisioned",
+ *     EngineVersion: "17.9",
+ *     HostedZoneId: "Z1RLNU0EXAMPLE",
+ *     HttpEndpointEnabled: false,
+ *     IAMDatabaseAuthenticationEnabled: true,
+ *     InternetAccessGatewayEnabled: true,
+ *     LatestRestorableTime: "2026-10-24T05:19:19.661Z",
+ *     LocalWriteForwardingStatus: "disabled",
+ *     MasterUsername: "postgres",
+ *     MultiAZ: false,
+ *     PerformanceInsightsEnabled: false,
+ *     Port: 5432,
+ *     PreferredBackupWindow: "05:05-05:35",
+ *     PreferredMaintenanceWindow: "wed:09:32-wed:10:02",
+ *     ReadReplicaIdentifiers:     [],
+ *     ReaderEndpoint: "sample-cluster.cluster-ro-############.us-east-1.rds.amazonaws.com",
+ *     ServerlessV2PlatformVersion: "4",
+ *     ServerlessV2ScalingConfiguration: {
+ *       MaxCapacity: 16.0,
+ *       MinCapacity: 0.0,
+ *       SecondsUntilAutoPause: 300
+ *     },
+ *     Status: "deleting",
+ *     StorageEncrypted: false,
+ *     StorageEncryptionType: "sse-rds",
+ *     TagList:     [],
+ *     UpgradeRolloutOrder: "second",
+ *     VPCNetworkingEnabled: false,
+ *     VpcSecurityGroups:     []
  *   }
  * }
  * *\/

@@ -524,7 +524,7 @@ const _DDBCSe = "DescribeDBClusterSnapshots";
 const _DDBCe = "DescribeDBClusters";
 const _DDBEV = "DescribeDBEngineVersions";
 const _DDBEVM = "DescribeDBEngineVersionsMessage";
-const _DDBI = "DeleteDBInstance";
+const _DDBI = "DeleteDBInstances";
 const _DDBIAB = "DeleteDBInstanceAutomatedBackup";
 const _DDBIABM = "DeleteDBInstanceAutomatedBackupMessage";
 const _DDBIABMe = "DescribeDBInstanceAutomatedBackupsMessage";
@@ -533,7 +533,8 @@ const _DDBIABe = "DescribeDBInstanceAutomatedBackups";
 const _DDBIM = "DeleteDBInstanceMessage";
 const _DDBIMe = "DescribeDBInstancesMessage";
 const _DDBIR = "DeleteDBInstanceResult";
-const _DDBIe = "DescribeDBInstances";
+const _DDBIe = "DeleteDBInstance";
+const _DDBIes = "DescribeDBInstances";
 const _DDBLF = "DescribeDBLogFiles";
 const _DDBLFD = "DescribeDBLogFilesDetails";
 const _DDBLFL = "DescribeDBLogFilesList";
@@ -3406,8 +3407,8 @@ export var DeleteDBClusterEndpointMessage$: StaticStructureSchema = [3, n0, _DDB
 ];
 export var DeleteDBClusterMessage$: StaticStructureSchema = [3, n0, _DDBCM,
   0,
-  [_DBCI, _SFS, _FDBSI, _DAB],
-  [0, 2, 0, 2], 1
+  [_DBCI, _SFS, _FDBSI, _DAB, _DDBI],
+  [0, 2, 0, 2, 2], 1
 ];
 export var DeleteDBClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _DDBCPGM,
   0,
@@ -5477,7 +5478,7 @@ export var DeleteDBClusterParameterGroup$: StaticOperationSchema = [9, n0, _DDBC
 export var DeleteDBClusterSnapshot$: StaticOperationSchema = [9, n0, _DDBCS,
   0, () => DeleteDBClusterSnapshotMessage$, () => DeleteDBClusterSnapshotResult$
 ];
-export var DeleteDBInstance$: StaticOperationSchema = [9, n0, _DDBI,
+export var DeleteDBInstance$: StaticOperationSchema = [9, n0, _DDBIe,
   0, () => DeleteDBInstanceMessage$, () => DeleteDBInstanceResult$
 ];
 export var DeleteDBInstanceAutomatedBackup$: StaticOperationSchema = [9, n0, _DDBIAB,
@@ -5564,7 +5565,7 @@ export var DescribeDBEngineVersions$: StaticOperationSchema = [9, n0, _DDBEV,
 export var DescribeDBInstanceAutomatedBackups$: StaticOperationSchema = [9, n0, _DDBIABe,
   0, () => DescribeDBInstanceAutomatedBackupsMessage$, () => DBInstanceAutomatedBackupMessage$
 ];
-export var DescribeDBInstances$: StaticOperationSchema = [9, n0, _DDBIe,
+export var DescribeDBInstances$: StaticOperationSchema = [9, n0, _DDBIes,
   0, () => DescribeDBInstancesMessage$, () => DBInstanceMessage$
 ];
 export var DescribeDBLogFiles$: StaticOperationSchema = [9, n0, _DDBLF,
