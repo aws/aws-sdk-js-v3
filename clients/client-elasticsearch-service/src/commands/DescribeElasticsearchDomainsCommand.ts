@@ -116,6 +116,17 @@ export interface DescribeElasticsearchDomainsCommandOutput extends DescribeElast
  * //           Enabled: true || false,
  * //         },
  * //       },
+ * //       CatalogOptions: { // CatalogOptions
+ * //         Enabled: true || false, // required
+ * //         Catalog: { // CatalogConfiguration Union: only one key present
+ * //           ServiceManagedS3Tables: { // ServiceManagedS3TablesCatalog
+ * //             EncryptionConfiguration: { // S3TablesEncryptionConfiguration
+ * //               Enabled: true || false,
+ * //               KmsKeyArn: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         },
+ * //       },
  * //       ServiceSoftwareOptions: { // ServiceSoftwareOptions
  * //         CurrentVersion: "STRING_VALUE",
  * //         NewVersion: "STRING_VALUE",

@@ -919,6 +919,93 @@ export interface AutoTuneOptionsInput {
 }
 
 /**
+ * <p>Specifies the encryption settings for the tables in a service-managed Amazon S3 Tables catalog.</p>
+ * @public
+ */
+export interface S3TablesEncryptionConfiguration {
+  /**
+   * <p>Whether to encrypt the tables with the AWS KMS key specified in <code>KmsKeyArn</code>. Accepted values true or false</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The ARN of the AWS KMS key to encrypt the tables with. Takes the form <code>arn:aws:kms:region:account-id:key/key-id</code>.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+}
+
+/**
+ * <p>Specifies the configuration for an Amazon S3 Tables catalog that the service creates and manages for the domain.</p>
+ * @public
+ */
+export interface ServiceManagedS3TablesCatalog {
+  /**
+   * <p>Encryption settings for the tables in the catalog.</p>
+   * @public
+   */
+  EncryptionConfiguration?: S3TablesEncryptionConfiguration | undefined;
+}
+
+/**
+ * <p>The catalog that a domain publishes to. Specify exactly one catalog type.</p>
+ * @public
+ */
+export type CatalogConfiguration =
+  | CatalogConfiguration.ServiceManagedS3TablesMember
+  | CatalogConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CatalogConfiguration {
+  /**
+   * <p>An Amazon S3 Tables catalog that the service creates and manages for the domain.</p>
+   * @public
+   */
+  export interface ServiceManagedS3TablesMember {
+    ServiceManagedS3Tables: ServiceManagedS3TablesCatalog;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ServiceManagedS3Tables?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ServiceManagedS3Tables: (value: ServiceManagedS3TablesCatalog) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Specifies the configuration for integrating the domain with a data catalog, so that the domain can publish its data as tables. The only supported catalog is an Amazon S3 Tables catalog that the service creates and manages for the domain.</p>
+ * @public
+ */
+export interface CatalogOptions {
+  /**
+   * <p>Whether the domain publishes data to the catalog. Accepted values true or false</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The catalog that the domain publishes to.</p>
+   * @public
+   */
+  Catalog?: CatalogConfiguration | undefined;
+}
+
+/**
  * <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
  * @public
  */
@@ -1299,6 +1386,12 @@ export interface CreateElasticsearchDomainRequest {
   LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>> | undefined;
 
   /**
+   * <p>Options for publishing the domain's data to a data catalog, such as a service-managed Amazon S3 Tables catalog.</p>
+   * @public
+   */
+  CatalogOptions?: CatalogOptions | undefined;
+
+  /**
    * <p>Options to specify configuration that will be applied to the domain endpoint.</p>
    * @public
    */
@@ -1626,6 +1719,12 @@ export interface ElasticsearchDomainStatus {
    * @public
    */
   LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>> | undefined;
+
+  /**
+   * <p>The catalog options for the given domain.</p>
+   * @public
+   */
+  CatalogOptions?: CatalogOptions | undefined;
 
   /**
    * <p>The current status of the Elasticsearch domain's service software.</p>
@@ -2635,6 +2734,24 @@ export interface AutoTuneOptionsStatus {
 }
 
 /**
+ * <p>The configured catalog options for the domain and their current status.</p>
+ * @public
+ */
+export interface CatalogOptionsStatus {
+  /**
+   * <p>The catalog options configured for the domain.</p>
+   * @public
+   */
+  Options?: CatalogOptions | undefined;
+
+  /**
+   * <p>The status of the catalog options for the domain.</p>
+   * @public
+   */
+  Status?: OptionStatus | undefined;
+}
+
+/**
  * <p>Status of the Cognito options for the specified Elasticsearch domain.</p>
  * @public
  */
@@ -2938,6 +3055,12 @@ export interface ElasticsearchDomainConfig {
    * @public
    */
   LogPublishingOptions?: LogPublishingOptionsStatus | undefined;
+
+  /**
+   * <p>The catalog options configured for the given domain and their current status.</p>
+   * @public
+   */
+  CatalogOptions?: CatalogOptionsStatus | undefined;
 
   /**
    * <p>Specifies the <code>DomainEndpointOptions</code> for the Elasticsearch domain.</p>
@@ -5007,6 +5130,12 @@ export interface UpdateElasticsearchDomainConfigRequest {
    * @public
    */
   LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>> | undefined;
+
+  /**
+   * <p>Options for publishing the domain's data to a data catalog, such as a service-managed Amazon S3 Tables catalog.</p>
+   * @public
+   */
+  CatalogOptions?: CatalogOptions | undefined;
 
   /**
    * <p>Options to specify configuration that will be applied to the domain endpoint.</p>

@@ -50,7 +50,7 @@ const _AZ = "AvailabilityZones";
 const _AZC = "AvailabilityZoneCount";
 const _Ac = "Action";
 const _BE = "BaseException";
-const _C = "Created";
+const _C = "Catalog";
 const _CA = "ConnectionAlias";
 const _CAr = "CreatedAt";
 const _CBGO = "ClonedBlueGreenOptions";
@@ -65,6 +65,7 @@ const _CCS = "ConfigChangeStatus";
 const _CCSC = "CrossClusterSearchConnection";
 const _CCSCI = "CrossClusterSearchConnectionId";
 const _CCSCr = "CrossClusterSearchConnections";
+const _CCa = "CatalogConfiguration";
 const _CD = "CreationDate";
 const _CDCC = "CancelDomainConfigChange";
 const _CDCCR = "CancelDomainConfigChangeRequest";
@@ -84,11 +85,13 @@ const _CEVL = "CompatibleElasticsearchVersionsList";
 const _CEu = "CustomEndpoint";
 const _CI = "ChangeId";
 const _CM = "CommitMessage";
-const _CO = "CognitoOptions";
+const _CO = "CatalogOptions";
 const _COCCSC = "CreateOutboundCrossClusterSearchConnection";
 const _COCCSCR = "CreateOutboundCrossClusterSearchConnectionRequest";
 const _COCCSCRr = "CreateOutboundCrossClusterSearchConnectionResponse";
-const _COS = "CognitoOptionsStatus";
+const _COS = "CatalogOptionsStatus";
+const _COSo = "CognitoOptionsStatus";
+const _COo = "CognitoOptions";
 const _COu = "CutoverOptions";
 const _CP = "CompletedProperties";
 const _CPD = "ChangeProgressDetails";
@@ -113,6 +116,7 @@ const _CVM = "CompatibleVersionsMap";
 const _CVu = "CurrentVersion";
 const _CWLLGA = "CloudWatchLogsLogGroupArn";
 const _Ca = "Cancellable";
+const _Cr = "Created";
 const _Cu = "Current";
 const _D = "Duration";
 const _DA = "DomainArn";
@@ -210,9 +214,10 @@ const _EAROS = "EncryptionAtRestOptionsStatus";
 const _EBSE = "EBSEnabled";
 const _EBSO = "EBSOptions";
 const _EBSOS = "EBSOptionsStatus";
-const _EC = "ErrorCode";
+const _EC = "EncryptionConfiguration";
 const _ECC = "ElasticsearchClusterConfig";
 const _ECCS = "ElasticsearchClusterConfigStatus";
+const _ECr = "ErrorCode";
 const _ED = "ErrorDetails";
 const _EDC = "ElasticsearchDomainConfig";
 const _EDS = "ElasticsearchDomainStatus";
@@ -266,6 +271,7 @@ const _IUDE = "InternalUserDatabaseEnabled";
 const _Id = "Idp";
 const _Is = "Issues";
 const _K = "Key";
+const _KKA = "KmsKeyArn";
 const _KKI = "KmsKeyId";
 const _L = "Limits";
 const _LBR = "LimitsByRole";
@@ -407,12 +413,15 @@ const _SI = "SubnetIds";
 const _SK = "S3Key";
 const _SKu = "SubjectKey";
 const _SL = "StepsList";
+const _SMST = "ServiceManagedS3Tables";
+const _SMSTC = "ServiceManagedS3TablesCatalog";
 const _SO = "SnapshotOptions";
 const _SOS = "SnapshotOptionsStatus";
 const _SS = "StepStatus";
 const _SSO = "ServiceSoftwareOptions";
 const _SSTN = "StorageSubTypeName";
 const _ST = "StartTime";
+const _STEC = "S3TablesEncryptionConfiguration";
 const _STL = "StorageTypeLimits";
 const _STLL = "StorageTypeLimitList";
 const _STLt = "StorageTypeLimit";
@@ -779,6 +788,16 @@ export var CancelledChangeProperty$: StaticStructureSchema = [3, n0, _CCPa,
   [_PN, _CV, _AV],
   [0, 0, 0]
 ];
+export var CatalogOptions$: StaticStructureSchema = [3, n0, _CO,
+  0,
+  [_E, _C],
+  [2, () => CatalogConfiguration$], 1
+];
+export var CatalogOptionsStatus$: StaticStructureSchema = [3, n0, _COS,
+  0,
+  [_O, _S],
+  [() => CatalogOptions$, () => OptionStatus$]
+];
 export var ChangeProgressDetails$: StaticStructureSchema = [3, n0, _CPD,
   0,
   [_CI, _M, _CCS, _ST, _LUT, _IB],
@@ -809,12 +828,12 @@ export var ClonedBlueGreenUpgradeDetails$: StaticStructureSchema = [3, n0, _CBGU
   [_TS, _SAc, _RIH],
   [() => TrafficPercents$, () => ClonedBlueGreenScheduledAction$, 1]
 ];
-export var CognitoOptions$: StaticStructureSchema = [3, n0, _CO,
+export var CognitoOptions$: StaticStructureSchema = [3, n0, _COo,
   0,
   [_E, _UPI, _IPI, _RA],
   [2, 0, 0, 0]
 ];
-export var CognitoOptionsStatus$: StaticStructureSchema = [3, n0, _COS,
+export var CognitoOptionsStatus$: StaticStructureSchema = [3, n0, _COSo,
   0,
   [_O, _S],
   [() => CognitoOptions$, () => OptionStatus$], 2
@@ -831,8 +850,8 @@ export var CompatibleVersionsMap$: StaticStructureSchema = [3, n0, _CVM,
 ];
 export var CreateElasticsearchDomainRequest$: StaticStructureSchema = [3, n0, _CEDR,
   0,
-  [_DN, _EV, _ECC, _EBSO, _APc, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ATO, _TL, _DSO, _ASPO, _UC, _EMn],
-  [0, 0, () => ElasticsearchClusterConfig$, () => EBSOptions$, 0, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => AutoTuneOptionsInput$, () => TagList, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$, 0, 0], 1
+  [_DN, _EV, _ECC, _EBSO, _APc, _SO, _VPCO, _COo, _EARO, _NTNEO, _AO, _LPO, _CO, _DEO, _ASO, _ATO, _TL, _DSO, _ASPO, _UC, _EMn],
+  [0, 0, () => ElasticsearchClusterConfig$, () => EBSOptions$, 0, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => CatalogOptions$, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => AutoTuneOptionsInput$, () => TagList, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$, 0, 0], 1
 ];
 export var CreateElasticsearchDomainResponse$: StaticStructureSchema = [3, n0, _CEDRr,
   0,
@@ -1136,13 +1155,13 @@ export var ElasticsearchClusterConfigStatus$: StaticStructureSchema = [3, n0, _E
 ];
 export var ElasticsearchDomainConfig$: StaticStructureSchema = [3, n0, _EDC,
   0,
-  [_EV, _ECC, _EBSO, _APc, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ATO, _CPD, _MP, _DSO, _ASPO, _UC, _EMn],
-  [() => ElasticsearchVersionStatus$, () => ElasticsearchClusterConfigStatus$, () => EBSOptionsStatus$, () => AccessPoliciesStatus$, () => SnapshotOptionsStatus$, () => VPCDerivedInfoStatus$, () => CognitoOptionsStatus$, () => EncryptionAtRestOptionsStatus$, () => NodeToNodeEncryptionOptionsStatus$, () => AdvancedOptionsStatus$, () => LogPublishingOptionsStatus$, () => DomainEndpointOptionsStatus$, () => AdvancedSecurityOptionsStatus$, () => AutoTuneOptionsStatus$, () => ChangeProgressDetails$, () => ModifyingPropertiesList, () => DeploymentStrategyOptionsStatus$, () => AutomatedSnapshotPauseOptionsStatus$, () => UseCaseStatus$, () => EngineModeStatus$]
+  [_EV, _ECC, _EBSO, _APc, _SO, _VPCO, _COo, _EARO, _NTNEO, _AO, _LPO, _CO, _DEO, _ASO, _ATO, _CPD, _MP, _DSO, _ASPO, _UC, _EMn],
+  [() => ElasticsearchVersionStatus$, () => ElasticsearchClusterConfigStatus$, () => EBSOptionsStatus$, () => AccessPoliciesStatus$, () => SnapshotOptionsStatus$, () => VPCDerivedInfoStatus$, () => CognitoOptionsStatus$, () => EncryptionAtRestOptionsStatus$, () => NodeToNodeEncryptionOptionsStatus$, () => AdvancedOptionsStatus$, () => LogPublishingOptionsStatus$, () => CatalogOptionsStatus$, () => DomainEndpointOptionsStatus$, () => AdvancedSecurityOptionsStatus$, () => AutoTuneOptionsStatus$, () => ChangeProgressDetails$, () => ModifyingPropertiesList, () => DeploymentStrategyOptionsStatus$, () => AutomatedSnapshotPauseOptionsStatus$, () => UseCaseStatus$, () => EngineModeStatus$]
 ];
 export var ElasticsearchDomainStatus$: StaticStructureSchema = [3, n0, _EDS,
   0,
-  [_DIom, _DN, _ARN, _ECC, _C, _Del, _En, _End, _Pro, _UP, _EV, _EBSO, _APc, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _SSO, _DEO, _ASO, _ATO, _CPD, _DPSo, _MP, _DSO, _ASPO, _UC, _EMn],
-  [0, 0, 0, () => ElasticsearchClusterConfig$, 2, 2, 0, 128 | 0, 2, 2, 0, () => EBSOptions$, 0, () => SnapshotOptions$, () => VPCDerivedInfo$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => ServiceSoftwareOptions$, () => DomainEndpointOptions$, () => AdvancedSecurityOptions$, () => AutoTuneOptionsOutput$, () => ChangeProgressDetails$, 0, () => ModifyingPropertiesList, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseOptions$, 0, 0], 4
+  [_DIom, _DN, _ARN, _ECC, _Cr, _Del, _En, _End, _Pro, _UP, _EV, _EBSO, _APc, _SO, _VPCO, _COo, _EARO, _NTNEO, _AO, _LPO, _CO, _SSO, _DEO, _ASO, _ATO, _CPD, _DPSo, _MP, _DSO, _ASPO, _UC, _EMn],
+  [0, 0, 0, () => ElasticsearchClusterConfig$, 2, 2, 0, 128 | 0, 2, 2, 0, () => EBSOptions$, 0, () => SnapshotOptions$, () => VPCDerivedInfo$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => CatalogOptions$, () => ServiceSoftwareOptions$, () => DomainEndpointOptions$, () => AdvancedSecurityOptions$, () => AutoTuneOptionsOutput$, () => ChangeProgressDetails$, 0, () => ModifyingPropertiesList, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseOptions$, 0, 0], 4
 ];
 export var ElasticsearchVersionStatus$: StaticStructureSchema = [3, n0, _EVS,
   0,
@@ -1439,6 +1458,11 @@ export var RevokeVpcEndpointAccessResponse$: StaticStructureSchema = [3, n0, _RV
   [],
   []
 ];
+export var S3TablesEncryptionConfiguration$: StaticStructureSchema = [3, n0, _STEC,
+  0,
+  [_E, _KKA],
+  [2, 0]
+];
 export var SAMLIdp$: StaticStructureSchema = [3, n0, _SAMLI,
   0,
   [_MC, _EI],
@@ -1458,6 +1482,11 @@ export var ScheduledAutoTuneDetails$: StaticStructureSchema = [3, n0, _SATD,
   0,
   [_Da, _ATc, _Ac, _Se],
   [4, 0, 0, 0]
+];
+export var ServiceManagedS3TablesCatalog$: StaticStructureSchema = [3, n0, _SMSTC,
+  0,
+  [_EC],
+  [() => S3TablesEncryptionConfiguration$]
 ];
 export var ServiceSoftwareOptions$: StaticStructureSchema = [3, n0, _SSO,
   0,
@@ -1526,8 +1555,8 @@ export var UpdateCloneResponse$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateElasticsearchDomainConfigRequest$: StaticStructureSchema = [3, n0, _UEDCR,
   0,
-  [_DN, _ECC, _EBSO, _SO, _VPCO, _CO, _AO, _APc, _LPO, _DEO, _ASO, _NTNEO, _EARO, _ATO, _DR, _DSO, _ASPO, _UC, _EMn],
-  [[0, 1], () => ElasticsearchClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => NodeToNodeEncryptionOptions$, () => EncryptionAtRestOptions$, () => AutoTuneOptions$, 2, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$, 0, 0], 1
+  [_DN, _ECC, _EBSO, _SO, _VPCO, _COo, _AO, _APc, _LPO, _CO, _DEO, _ASO, _NTNEO, _EARO, _ATO, _DR, _DSO, _ASPO, _UC, _EMn],
+  [[0, 1], () => ElasticsearchClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, () => LogPublishingOptions, () => CatalogOptions$, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => NodeToNodeEncryptionOptions$, () => EncryptionAtRestOptions$, () => AutoTuneOptions$, 2, () => DeploymentStrategyOptions$, () => AutomatedSnapshotPauseRequestOptions$, 0, 0], 1
 ];
 export var UpdateElasticsearchDomainConfigResponse$: StaticStructureSchema = [3, n0, _UEDCRp,
   0,
@@ -1596,7 +1625,7 @@ export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VEp,
 ];
 export var VpcEndpointError$: StaticStructureSchema = [3, n0, _VEEp,
   0,
-  [_VEI, _EC, _EM],
+  [_VEI, _ECr, _EM],
   [0, 0, 0]
 ];
 export var VpcEndpointSummary$: StaticStructureSchema = [3, n0, _VES,
@@ -1719,6 +1748,11 @@ var LimitsByRole: StaticMapSchema = [2, n0, _LBR,
 ];
 var LogPublishingOptions: StaticMapSchema = [2, n0, _LPO,
   0, 0, () => LogPublishingOption$
+];
+export var CatalogConfiguration$: StaticUnionSchema = [4, n0, _CCa,
+  0,
+  [_SMST],
+  [() => ServiceManagedS3TablesCatalog$]
 ];
 export var RetentionOptions$: StaticUnionSchema = [4, n0, _RO,
   0,

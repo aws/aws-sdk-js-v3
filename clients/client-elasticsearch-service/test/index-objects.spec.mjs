@@ -48,6 +48,9 @@ import {
   CancelElasticsearchServiceSoftwareUpdateRequest$,
   CancelElasticsearchServiceSoftwareUpdateResponse$,
   CancelledChangeProperty$,
+  CatalogConfiguration$,
+  CatalogOptions$,
+  CatalogOptionsStatus$,
   ChangeProgressDetails$,
   ChangeProgressStage$,
   ChangeProgressStatusDetails$,
@@ -321,12 +324,14 @@ import {
   RevokeVpcEndpointAccessRequest$,
   RevokeVpcEndpointAccessResponse$,
   RollbackOnDisable,
+  S3TablesEncryptionConfiguration$,
   SAMLIdp$,
   SAMLOptionsInput$,
   SAMLOptionsOutput$,
   ScheduledAutoTuneActionType,
   ScheduledAutoTuneDetails$,
   ScheduledAutoTuneSeverityType,
+  ServiceManagedS3TablesCatalog$,
   ServiceSoftwareOptions$,
   SnapshotOptions$,
   SnapshotOptionsStatus$,
@@ -522,6 +527,9 @@ assert(typeof CancelDomainConfigChangeResponse$ === "object");
 assert(typeof CancelElasticsearchServiceSoftwareUpdateRequest$ === "object");
 assert(typeof CancelElasticsearchServiceSoftwareUpdateResponse$ === "object");
 assert(typeof CancelledChangeProperty$ === "object");
+assert(typeof CatalogConfiguration$ === "object");
+assert(typeof CatalogOptions$ === "object");
+assert(typeof CatalogOptionsStatus$ === "object");
 assert(typeof ChangeProgressDetails$ === "object");
 assert(typeof ChangeProgressStage$ === "object");
 assert(typeof ChangeProgressStatusDetails$ === "object");
@@ -655,10 +663,12 @@ assert(typeof ReservedElasticsearchInstanceOffering$ === "object");
 assert(typeof RetentionOptions$ === "object");
 assert(typeof RevokeVpcEndpointAccessRequest$ === "object");
 assert(typeof RevokeVpcEndpointAccessResponse$ === "object");
+assert(typeof S3TablesEncryptionConfiguration$ === "object");
 assert(typeof SAMLIdp$ === "object");
 assert(typeof SAMLOptionsInput$ === "object");
 assert(typeof SAMLOptionsOutput$ === "object");
 assert(typeof ScheduledAutoTuneDetails$ === "object");
+assert(typeof ServiceManagedS3TablesCatalog$ === "object");
 assert(typeof ServiceSoftwareOptions$ === "object");
 assert(typeof SnapshotOptions$ === "object");
 assert(typeof SnapshotOptionsStatus$ === "object");
