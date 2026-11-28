@@ -347,6 +347,35 @@ describe("xml parsing", () => {
     });
   });
 
+  it("should resolve numeric character references above U+FFFF", () => {
+    const xml = `<Response><Hex>a&#x1F600;b</Hex><Dec>a&#128512;b</Dec><First>&#x10000;</First><Last>&#x10FFFF;</Last></Response>`;
+    const expected = {
+      Response: {
+        Hex: "a\u{1F600}b",
+        Dec: "a\u{1F600}b",
+        First: "\u{10000}",
+        Last: "\u{10FFFF}",
+      },
+    };
+    expect(parseXML(xml)).toEqual(expected);
+    expect(parseXML(xml)).toEqual(fxp(xml));
+    expect(parseXMLBrowser(xml)).toEqual(expected);
+  });
+
+  it("should leave numeric character references above U+10FFFF as written", () => {
+    const xml = `<Response><Hex>a&#x110000;b</Hex><MaxHex>&#xFFFFFF;</MaxHex><Dec>&#1114112;</Dec><MaxDec>&#9999999;</MaxDec></Response>`;
+    const expected = {
+      Response: {
+        Hex: "a&#x110000;b",
+        MaxHex: "&#xFFFFFF;",
+        Dec: "&#1114112;",
+        MaxDec: "&#9999999;",
+      },
+    };
+    expect(parseXML(xml)).toEqual(expected);
+    expect(parseXML(xml)).toEqual(fxp(xml));
+  });
+
   it("should preserve control characters like \\x15 in text content despite xml 1.0 decl", () => {
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <Response><Key>prefix&#x15;suffix</Key></Response>`;
