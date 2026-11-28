@@ -1,0 +1,54 @@
+name: publish
+
+run-name: Publish ${{ inputs.correlation_id || github.run_id }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: Publish for real. A dry run logs what would be published.
+        type: boolean
+        default: false
+      release_commit:
+        description: Full hash of the release commit. The head of main must match it. Required to publish for real.
+        type: string
+        default: ''
+      correlation_id:
+        description: Set by the release pipeline to find this run.
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish-${{ inputs.confirm }}
+  queue: max
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm-publish
+    timeout-minutes: 300
+    steps:
+      - name: Check out
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '24'
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Publish
+        env:
+          CONFIRM: ${{ inputs.confirm && '1' || '' }}
+          AWS_SDK_RELEASE_COMMIT: ${{ inputs.release_commit }}
+        run: make publish

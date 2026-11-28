@@ -2,7 +2,7 @@
 
 /**
  * Runs oxlint in validation mode on package source.
- * Covers packages/, packages-internal/, lib/, and clients/.
+ * Covers packages/, packages-internal/, lib/, preview/, and clients/.
  * Skips private/ (protocol test fixtures).
  *
  * Usage: node oxlint.js
