@@ -57,6 +57,16 @@ export interface S3TransferManagerConfig {
    */
   maxConcurrentDownloads?: number;
   /**
+   * Maximum bytes of data held in memory by each streamed `download()` call,
+   * counting parts being downloaded and parts waiting to be read. Each download
+   * has its own limit.
+   *
+   * Does not apply to `downloadToFile()`, and does not apply to uploads yet.
+   *
+   * Defaults to 8 GB.
+   */
+  maxInMemoryBytes?: number;
+  /**
    * Maximum number of concurrent HTTP requests for multipart upload operations.
    */
   maxConcurrentUploads?: number;

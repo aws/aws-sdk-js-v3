@@ -11,6 +11,13 @@ export interface QueuedPart {
   byteLength: number;
 }
 
+interface PendingPart extends QueuedPart {
+  /**
+   * Bytes this part holds in {@link OrderedPartQueue.bufferedBytes}.
+   */
+  chargedBytes: number;
+}
+
 /**
  * Reorder buffer that accepts out-of-order part arrivals from parallel download
  * workers and delivers them sequentially to a Readable stream consumer.
@@ -21,7 +28,7 @@ export class OrderedPartQueue {
   /**
    * Out-of-order parts waiting for their turn. Keyed by rangeIndex.
    */
-  private pending = new Map<number, QueuedPart>();
+  private pending = new Map<number, PendingPart>();
 
   /**
    * Next sequential rangeIndex the consumer expects.
@@ -43,29 +50,76 @@ export class OrderedPartQueue {
    */
   private error: unknown = undefined;
 
-  constructor(totalParts: number) {
+  /**
+   * Limit on {@link bufferedBytes} for this download.
+   */
+  private readonly maxBufferedBytes: number;
+
+  /**
+   * Bytes reserved for parts whose request was sent but has not finished,
+   * plus parts waiting in `pending`.
+   */
+  private bufferedBytes = 0;
+
+  /**
+   * Reservation requests that did not fit yet. No HTTP request has started
+   * for these. The dispatch loop waits for each reservation before asking
+   * for the next, so this holds at most one entry.
+   */
+  private capacityWaiters: Array<{ partBytes: number; resolve: () => void }> = [];
+
+  constructor(totalParts: number, maxBufferedBytes: number) {
     this.totalParts = totalParts;
+    this.maxBufferedBytes = maxBufferedBytes;
   }
 
   /**
-   * Called when a worker delivers a part (may arrive out of order).
-   * If the consumer is waiting for this exact part, delivers immediately.
-   * Otherwise stores it until its turn.
+   * Called by the dispatch loop before sending a request. Resolves once
+   * `partBytes` is reserved, or without reserving if the queue has an error.
    */
-  public enqueue(rangeIndex: number, buffer: ArrayBuffer, byteLength: number): void {
+  public async reserveCapacity(partBytes: number): Promise<void> {
     if (this.error) {
       return;
     }
 
+    if (this.canAdmit(partBytes)) {
+      this.bufferedBytes += partBytes;
+      return;
+    }
+
+    await new Promise<void>((resolve) => {
+      this.capacityWaiters.push({ partBytes, resolve });
+    });
+  }
+
+  /**
+   * Called when a worker delivers a part (may arrive out of order).
+   * Replaces the `reservedBytes` estimate with the size of the buffer the
+   * worker allocated. If the consumer is waiting for this exact part,
+   * delivers immediately. Otherwise stores it until its turn.
+   *
+   * `reservedBytes` defaults to 0 for parts that were never reserved.
+   */
+  public enqueue(rangeIndex: number, buffer: ArrayBuffer, byteLength: number, reservedBytes = 0): void {
+    if (this.error) {
+      return;
+    }
+
+    const chargedBytes = buffer.byteLength;
+    this.bufferedBytes += chargedBytes - reservedBytes;
+
     if (rangeIndex === this.nextExpected && this.waitingConsumer) {
-      // Consumer is already waiting for this exact part — deliver immediately
+      // Consumer is already waiting for this exact part, so deliver immediately.
       const consumer = this.waitingConsumer;
       this.waitingConsumer = null;
       this.nextExpected++;
+      this.releaseCapacity(chargedBytes);
       consumer({ buffer, byteLength });
     } else {
-      // Out of order — hold until it's this part's turn
-      this.pending.set(rangeIndex, { buffer, byteLength });
+      // Out of order, hold until it's this part's turn.
+      this.pending.set(rangeIndex, { buffer, byteLength, chargedBytes });
+      // A buffer smaller than its estimate frees capacity.
+      this.admitWaiters();
     }
   }
 
@@ -88,13 +142,41 @@ export class OrderedPartQueue {
     if (ready) {
       this.pending.delete(this.nextExpected);
       this.nextExpected++;
-      return ready;
+      this.releaseCapacity(ready.chargedBytes);
+      return { buffer: ready.buffer, byteLength: ready.byteLength };
     }
 
     // Wait for it to arrive
     return new Promise<QueuedPart | null>((resolve) => {
       this.waitingConsumer = resolve;
     });
+  }
+
+  /**
+   * A part may be reserved when this download has nothing reserved, so one
+   * part larger than the limit cannot block forever, or when it fits.
+   */
+  private canAdmit(partBytes: number): boolean {
+    return this.bufferedBytes === 0 || this.bufferedBytes + partBytes <= this.maxBufferedBytes;
+  }
+
+  /**
+   * Called when a part leaves the queue for the output stream.
+   */
+  private releaseCapacity(bytes: number): void {
+    this.bufferedBytes -= bytes;
+    this.admitWaiters();
+  }
+
+  /**
+   * Reserves bytes for each waiting request that now fits, before waking it.
+   */
+  private admitWaiters(): void {
+    while (this.capacityWaiters.length > 0 && this.canAdmit(this.capacityWaiters[0].partBytes)) {
+      const waiter = this.capacityWaiters.shift()!;
+      this.bufferedBytes += waiter.partBytes;
+      waiter.resolve();
+    }
   }
 
   /**
@@ -110,6 +192,11 @@ export class OrderedPartQueue {
       this.waitingConsumer = null;
       consumer(null);
     }
+
+    // Wake the dispatch loop without reserving. It sees hasError() and stops.
+    const waiters = this.capacityWaiters;
+    this.capacityWaiters = [];
+    waiters.forEach(({ resolve }) => resolve());
   }
 
   /**

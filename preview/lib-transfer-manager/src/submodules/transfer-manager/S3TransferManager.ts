@@ -147,6 +147,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
   private readonly eventListeners: TransferEventListeners;
   private readonly abortCleanupFunctions = new WeakMap<AbortSignal, () => void>();
   private readonly maxConcurrentDownloads: number;
+  private readonly maxInMemoryBytes: number;
   private readonly maxConcurrentUploads: number;
   private readonly workerThreadCount: number;
   private readonly workerHttpHandler: IWorkerHttpHandler | undefined;
@@ -163,6 +164,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     this.responseChecksumValidation = config.responseChecksumValidation ?? "WHEN_SUPPORTED";
     this.maxConcurrentUploads = config.maxConcurrentUploads ?? 32;
     this.maxConcurrentDownloads = config.maxConcurrentDownloads ?? 32;
+    this.maxInMemoryBytes = config.maxInMemoryBytes ?? 8 * 1024 * 1024 * 1024; // 8 GB
     this.workerThreadCount = config.workerThreadCount ?? this.deps.defaultWorkerCount();
     this.logger = config.logger ?? new LogLevel("warn");
 
@@ -2049,6 +2051,8 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
    * and transfer ownership back to main (zero-copy). The OrderedPartQueue delivers
    * parts sequentially to the consumer stream regardless of arrival order.
    *
+   * Request concurrency is limited by maxConcurrentDownloads. Memory is limited by
+   * maxInMemoryBytes, which is reserved per part before the request is sent.
    */
   private async downloadByPartWithWorkers(
     request: DownloadRequest,
@@ -2110,15 +2114,16 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     // Workers assemble each part into a dedicated ArrayBuffer and transfer ownership to main
     // (zero-copy). The OrderedPartQueue delivers parts sequentially to the consumer stream.
     const remainingParts = partsCount - 1;
-    const queue = new OrderedPartQueue(remainingParts);
+    const queue = new OrderedPartQueue(remainingParts, this.maxInMemoryBytes);
 
     const abortController = new AbortController();
     const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
-    if (userSignal) {
-      userSignal.addEventListener("abort", () => abortController.abort(), {
-        once: true,
-      });
-    }
+    // Signal the queue as well, so a dispatch loop waiting in reserveCapacity() wakes up.
+    const onUserAbort = () => {
+      queue.setError(Object.assign(new Error("Transfer aborted."), { name: "AbortError" }));
+      abortController.abort();
+    };
+    userSignal?.addEventListener("abort", onUserAbort, { once: true });
 
     // Concurrency limiter: bound in-flight requests to maxConcurrentDownloads.
     // This provides backpressure — waitForSlot blocks when all slots are in use.
@@ -2154,6 +2159,13 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
 
         // Wait for a slot — blocks if all slots are in use (backpressure)
         await waitForSlot();
+        if (abortController.signal.aborted || queue.hasError()) {
+          break;
+        }
+
+        // Reserve memory before sending. Part 1's size estimates later parts and
+        // enqueue() corrects it to the real buffer size.
+        await queue.reserveCapacity(partSize);
         if (abortController.signal.aborted || queue.hasError()) {
           break;
         }
@@ -2199,7 +2211,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
             // Validate ContentRange matches expected part boundaries
             this.validatePartDownload(transferResult.headers["content-range"], partNumber, partSize);
 
-            queue.enqueue(rangeIndex, transferResult.buffer, transferResult.byteLength);
+            queue.enqueue(rangeIndex, transferResult.buffer, transferResult.byteLength, partSize);
 
             // No per-part bytesTransferred here: download() reports cumulative
             // progress from joinStreams as the caller consumes the Body.
@@ -2223,6 +2235,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     // Create a Readable stream that pulls parts sequentially from the ordered queue.
     // Each chunk is a zero-copy Buffer view into the transferred ArrayBuffer.
     let reading = false;
+    let ended = false;
     const transferStream = new Readable({
       read() {
         if (reading) {
@@ -2241,6 +2254,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
                 this.destroy(queue.getError() as Error);
                 return;
               }
+              ended = true;
               this.push(null); // EOF — all parts delivered
               return;
             }
@@ -2256,9 +2270,12 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
           });
       },
       destroy(err, callback) {
-        // On stream destruction (abort/error), signal the queue to stop
-        if (err) {
-          queue.setError(err);
+        userSignal?.removeEventListener("abort", onUserAbort);
+        // Destroyed before all parts were read: stop sending requests.
+        if (err || !ended) {
+          if (!queue.hasError()) {
+            queue.setError(err ?? new Error("Download stream destroyed before all parts were delivered."));
+          }
           abortController.abort();
         }
         callback(err);
@@ -2276,9 +2293,8 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
    * ownership to main (zero-copy). The OrderedPartQueue delivers ranges
    * sequentially to the consumer Readable stream regardless of arrival order.
    *
-   * Memory is bounded by maxConcurrentDownloads in-flight buffers plus the
-   * reorder window in the queue. Backpressure is applied via a concurrency
-   * limiter — dispatch blocks when all slots are in use.
+   * Request concurrency is limited by maxConcurrentDownloads. Memory is limited by
+   * maxInMemoryBytes, which is reserved per range before the request is sent.
    */
   private async downloadByRangeWithWorkers(
     request: DownloadRequest,
@@ -2335,15 +2351,16 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     });
 
     // OrderedPartQueue delivers parts sequentially regardless of arrival order.
-    const queue = new OrderedPartQueue(totalParts);
+    const queue = new OrderedPartQueue(totalParts, this.maxInMemoryBytes);
 
     const abortController = new AbortController();
     const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
-    if (userSignal) {
-      userSignal.addEventListener("abort", () => abortController.abort(), {
-        once: true,
-      });
-    }
+    // Signal the queue as well, so a dispatch loop waiting in reserveCapacity() wakes up.
+    const onUserAbort = () => {
+      queue.setError(Object.assign(new Error("Transfer aborted."), { name: "AbortError" }));
+      abortController.abort();
+    };
+    userSignal?.addEventListener("abort", onUserAbort, { once: true });
 
     // Concurrency limiter: bound in-flight requests to maxConcurrentDownloads.
     let inFlight = 0;
@@ -2385,10 +2402,17 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
           break;
         }
 
-        inFlight++;
         const start = rangeIndex * partSize;
         const end = Math.min(start + partSize - 1, totalSize - 1);
         const expectedLength = end - start + 1;
+
+        // Reserve memory before sending. The range size is exact.
+        await queue.reserveCapacity(expectedLength);
+        if (abortController.signal.aborted || queue.hasError()) {
+          break;
+        }
+
+        inFlight++;
 
         const rangeGetRequest: GetObjectCommandInput = {
           ...request,
@@ -2429,7 +2453,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
             // Validate ContentRange matches the requested byte range
             this.validateRangeDownload(`bytes=${start}-${end}`, transferResult.headers["content-range"]);
 
-            queue.enqueue(rangeIndex, transferResult.buffer, transferResult.byteLength);
+            queue.enqueue(rangeIndex, transferResult.buffer, transferResult.byteLength, expectedLength);
 
             // No per-range bytesTransferred here: download() reports cumulative
             // progress from joinStreams as the caller consumes the Body.
@@ -2451,6 +2475,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
     // Create a Readable stream that pulls ranges sequentially from the ordered queue.
     // Each chunk is a zero-copy Buffer view into the transferred ArrayBuffer.
     let reading = false;
+    let ended = false;
     const transferStream = new Readable({
       read() {
         if (reading) {
@@ -2466,6 +2491,7 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
                 this.destroy(queue.getError() as Error);
                 return;
               }
+              ended = true;
               this.push(null); // EOF — all ranges delivered
               return;
             }
@@ -2481,9 +2507,12 @@ abstract class S3TransferManagerBase implements IS3TransferManager {
           });
       },
       destroy(err, callback) {
-        // On stream destruction (abort/error), signal the queue to stop
-        if (err) {
-          queue.setError(err);
+        userSignal?.removeEventListener("abort", onUserAbort);
+        // Destroyed before all parts were read: stop sending requests.
+        if (err || !ended) {
+          if (!queue.hasError()) {
+            queue.setError(err ?? new Error("Download stream destroyed before all parts were delivered."));
+          }
           abortController.abort();
         }
         callback(err);
