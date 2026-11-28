@@ -11,6 +11,7 @@ vi.mock("fs", () => ({
     writeFile: vi.fn(),
     mkdir: vi.fn(),
     rename: vi.fn(),
+    rm: vi.fn(),
   },
 }));
 
@@ -43,6 +44,8 @@ import { dirname, join } from "node:path";
 const mockReadFile = vi.mocked(fs.readFile);
 const mockMkdir = vi.mocked(fs.mkdir);
 const mockWriteFile = vi.mocked(fs.writeFile);
+const mockRename = vi.mocked(fs.rename);
+const mockRm = vi.mocked(fs.rm);
 const mockClient = {
   send: vi.fn(),
   middlewareStack: {
@@ -234,6 +237,74 @@ describe("LoginCredentialsFetcher", () => {
 
     // Verify mkdir was called to ensure directory exists
     expect(mockMkdir).toHaveBeenCalledWith("/mock/home/.aws/login/cache", { recursive: true });
+  });
+
+  describe("saving the refreshed token", () => {
+    const refreshedTokenOutput = {
+      tokenOutput: {
+        accessToken: {
+          accessKeyId: "NEWREFRESHEDKEY",
+          secretAccessKey: "newRefreshedSecretKey",
+          sessionToken: "newRefreshedSessionToken",
+          accountId: "012345678901",
+        },
+        refreshToken: "new_refresh_token",
+        expiresIn: 900,
+      },
+    };
+
+    beforeEach(() => {
+      mockReadFile.mockResolvedValue(JSON.stringify(mockExpiredCreds));
+      mockMkdir.mockResolvedValue(undefined);
+      mockWriteFile.mockReset();
+      mockWriteFile.mockResolvedValue(undefined);
+      mockRename.mockReset();
+      mockRename.mockResolvedValue(undefined);
+      mockRm.mockReset();
+      mockRm.mockResolvedValue(undefined);
+      mockClient.send.mockResolvedValue(refreshedTokenOutput);
+    });
+
+    afterEach(() => {
+      // vi.clearAllMocks() keeps implementations, so do not leak these rejections into later tests.
+      mockWriteFile.mockReset();
+      mockRename.mockReset();
+      mockRm.mockReset();
+    });
+
+    it("should write a temporary file and rename it over the cache file", async () => {
+      await new LoginCredentialsFetcher(mockProfile).loadCredentials();
+
+      const cacheFilePath = "/mock/home/.aws/login/cache/mockedhash.json";
+      const tempFilePath = mockWriteFile.mock.calls[0][0] as string;
+      expect(tempFilePath).not.toBe(cacheFilePath);
+      expect(tempFilePath.startsWith(`${cacheFilePath}.`)).toBe(true);
+      expect(tempFilePath.endsWith(".tmp")).toBe(true);
+      // The cache file holds secrets, so the new file is private to the user.
+      expect(mockWriteFile.mock.calls[0][2]).toEqual({ encoding: "utf8", mode: 0o600 });
+      expect(mockRename).toHaveBeenCalledWith(tempFilePath, cacheFilePath);
+      // Readers never see the cache file open for writing.
+      expect(mockWriteFile.mock.calls.every(([path]) => path !== cacheFilePath)).toBe(true);
+    });
+
+    it("should remove the temporary file and fail the refresh when the rename fails", async () => {
+      mockRename.mockRejectedValue(new Error("rename failed"));
+
+      await expect(new LoginCredentialsFetcher(mockProfile).loadCredentials()).rejects.toThrow(
+        /Failed to refresh token.*rename failed/
+      );
+
+      expect(mockRm).toHaveBeenCalledWith(mockWriteFile.mock.calls[0][0], { force: true });
+    });
+
+    it("should report the original error when the temporary file cannot be removed either", async () => {
+      mockWriteFile.mockRejectedValue(new Error("disk full"));
+      mockRm.mockRejectedValue(new Error("cannot remove"));
+
+      await expect(new LoginCredentialsFetcher(mockProfile).loadCredentials()).rejects.toThrow(
+        /Failed to refresh token.*disk full/
+      );
+    });
   });
 
   it("should create custom directory when refreshing token if path is set through env var", async () => {

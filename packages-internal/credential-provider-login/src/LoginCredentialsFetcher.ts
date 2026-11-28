@@ -240,7 +240,21 @@ export class LoginCredentialsFetcher {
     } catch (error) {
       // Directory might already exist, ignore error
     }
-    await fs.writeFile(tokenFilePath, JSON.stringify(token, null, 2), "utf8");
+
+    // The cache file is shared with other processes (the AWS CLI, other SDK processes). Rewriting it in place lets
+    // a concurrent reader see a partially written token, so write a temporary file and rename it over the cache file.
+    const tempFilePath = `${tokenFilePath}.${process.pid}.${Date.now()}.tmp`;
+    try {
+      await fs.writeFile(tempFilePath, JSON.stringify(token, null, 2), { encoding: "utf8", mode: 0o600 });
+      await fs.rename(tempFilePath, tokenFilePath);
+    } catch (error) {
+      try {
+        await fs.rm(tempFilePath, { force: true });
+      } catch {
+        // Nothing left to clean up, or it cannot be removed. Report the original error.
+      }
+      throw error;
+    }
   }
 
   private getTokenFilePath(): string {
