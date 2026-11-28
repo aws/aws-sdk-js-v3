@@ -347,6 +347,26 @@ describe("xml parsing", () => {
     });
   });
 
+  it("should preserve character references representing newlines and whitespace", () => {
+    const cases: Array<[string, string]> = [
+      ["a&#10;", "a\n"],
+      ["&#9;", "\t"],
+      ["&#10;", "\n"],
+      ["&#13;&#10;", "\r\n"],
+      [" &#10; ", " \n "],
+    ];
+
+    for (const [xmlKey, expected] of cases) {
+      const xml = `<Response><Key>${xmlKey}</Key></Response>`;
+      const object = parseXML(xml);
+      expect(object).toEqual({
+        Response: {
+          Key: expected,
+        },
+      });
+    }
+  });
+
   it("should preserve control characters like \\x15 in text content despite xml 1.0 decl", () => {
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <Response><Key>prefix&#x15;suffix</Key></Response>`;

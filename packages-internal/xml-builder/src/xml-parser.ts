@@ -176,6 +176,7 @@ class AwsXmlParser {
     ++p.i; // >
 
     const textParts: string[] = [];
+    const rawTextParts: string[] = [];
     const childTags: { tag: string; value: any }[] = [];
     let hasElementChild = false;
 
@@ -192,7 +193,9 @@ class AwsXmlParser {
           p.readTo("-->");
         } else if (p.isNext("<![CDATA[")) {
           p.i += 9; // <![CDATA[
-          textParts.push(p.readTo("]]>"));
+          const cdata = p.readTo("]]>");
+          textParts.push(cdata);
+          rawTextParts.push(cdata);
         } else if (p.isNext("<?")) {
           p.readTo("?>");
         } else {
@@ -206,6 +209,7 @@ class AwsXmlParser {
         while (p.i < p.z && p.x[p.i] !== "<") {
           text += p.x[p.i++];
         }
+        rawTextParts.push(text);
         textParts.push(p.decodeEntities(text));
       }
     }
@@ -228,8 +232,9 @@ class AwsXmlParser {
 
     if (!hasAttrs && !hasElementChild) {
       // text element.
+      const rawText = rawTextParts.length === 1 ? rawTextParts[0] : rawTextParts.join("");
       const text = textParts.length === 1 ? textParts[0] : textParts.join("");
-      if (text.trim() === "" && text.includes("\n")) {
+      if (rawText.trim() === "" && rawText.includes("\n")) {
         return { tag, value: "" };
       }
       return { tag, value: text };
@@ -237,8 +242,10 @@ class AwsXmlParser {
 
     const obj: any = {};
 
-    for (const text of textParts) {
-      if (text.trim() === "" && text.includes("\n")) {
+    for (let i = 0; i < textParts.length; i++) {
+      const raw = rawTextParts[i];
+      const text = textParts[i];
+      if (raw.trim() === "" && raw.includes("\n")) {
         continue;
       }
       // #text is the text node name expected in XMLShapeDeserializer.
