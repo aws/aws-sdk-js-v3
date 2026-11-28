@@ -8,6 +8,7 @@ import type {
   S3Client,
   Tag,
   UploadPartCommandInput,
+  UploadPartCommandOutput,
 } from "@aws-sdk/client-s3";
 import {
   AbortMultipartUploadCommand,
@@ -73,6 +74,7 @@ export class Upload extends EventEmitter {
   private concurrentUploaders: Promise<void>[] = [];
   private createMultiPartPromise?: Promise<CreateMultipartUploadCommandOutput>;
   private abortMultipartUploadCommand: AbortMultipartUploadCommand | null = null;
+  private uploadError?: Error;
 
   private uploadedParts: CompletedPart[] = [];
   private uploadEnqueuedPartsCount = 0;
@@ -246,6 +248,10 @@ export class Upload extends EventEmitter {
 
   private async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart, void, undefined>): Promise<void> {
     for await (const dataPart of dataFeeder) {
+      if (this.uploadError) {
+        return;
+      }
+
       if (this.uploadEnqueuedPartsCount > this.MAX_PARTS) {
         throw new Error(
           `Exceeded ${this.MAX_PARTS} parts in multipart upload to Bucket: ${this.params.Bucket} Key: ${this.params.Key}.`
@@ -262,7 +268,12 @@ export class Upload extends EventEmitter {
       }
 
       if (!this.uploadId) {
-        const { UploadId } = await this.__createMultipartUpload();
+        let UploadId: string | undefined;
+        try {
+          ({ UploadId } = await this.__createMultipartUpload());
+        } catch (error) {
+          throw this.__recordUploadError(error);
+        }
         this.uploadId = UploadId;
         if (this.abortController.signal.aborted) {
           return;
@@ -304,19 +315,23 @@ export class Upload extends EventEmitter {
 
       this.uploadEnqueuedPartsCount += 1;
 
-      this.__validateUploadPart(dataPart);
-
-      const partResult = await this.client.send(
-        new UploadPartCommand({
-          ...this.params,
-          // dataPart.data is chunked into a non-streaming buffer
-          // so the ContentLength from the input should not be used for MPU.
-          ContentLength: undefined,
-          UploadId: this.uploadId,
-          Body: dataPart.data,
-          PartNumber: dataPart.partNumber,
-        })
-      );
+      let partResult: UploadPartCommandOutput;
+      try {
+        this.__validateUploadPart(dataPart);
+        partResult = await this.client.send(
+          new UploadPartCommand({
+            ...this.params,
+            // dataPart.data is chunked into a non-streaming buffer
+            // so the ContentLength from the input should not be used for MPU.
+            ContentLength: undefined,
+            UploadId: this.uploadId,
+            Body: dataPart.data,
+            PartNumber: dataPart.partNumber,
+          })
+        );
+      } catch (error) {
+        throw this.__recordUploadError(error);
+      }
 
       if (eventEmitter !== null) {
         eventEmitter.off("xhr.upload.progress", uploadEventListener);
@@ -327,8 +342,10 @@ export class Upload extends EventEmitter {
       }
 
       if (!partResult.ETag) {
-        throw new Error(
-          `Part ${dataPart.partNumber} is missing ETag in UploadPart response. Missing Bucket CORS configuration for ETag header?`
+        throw this.__recordUploadError(
+          new Error(
+            `Part ${dataPart.partNumber} is missing ETag in UploadPart response. Missing Bucket CORS configuration for ETag header?`
+          )
         );
       }
 
@@ -362,7 +379,8 @@ export class Upload extends EventEmitter {
 
     for (let index = 0; index < this.queueSize; index++) {
       const currentUpload = this.__doConcurrentUpload(dataFeeder).catch((err) => {
-        concurrentUploaderFailures.push(err);
+        const error = this.__recordUploadError(err);
+        concurrentUploaderFailures.push(error);
       });
       this.concurrentUploaders.push(currentUpload);
     }
@@ -444,6 +462,29 @@ to input.params.ContentLength in bytes.
     }
 
     return result;
+  }
+
+  private __recordUploadError(error: unknown): Error {
+    if (this.uploadError) {
+      return this.uploadError;
+    }
+
+    this.uploadError = error instanceof Error ? error : new Error(String(error));
+    this.__abortBody(this.uploadError);
+    return this.uploadError;
+  }
+
+  private __abortBody(error: Error): void {
+    const body = this.params.Body as {
+      destroy?: (error?: Error) => void;
+      cancel?: (reason?: unknown) => PromiseLike<void> | void;
+    };
+
+    if (typeof body?.destroy === "function") {
+      body.destroy(error);
+    } else if (typeof body?.cancel === "function") {
+      void Promise.resolve(body.cancel(error)).catch(() => undefined);
+    }
   }
 
   /**
