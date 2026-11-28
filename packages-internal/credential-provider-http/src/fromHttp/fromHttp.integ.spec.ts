@@ -69,6 +69,46 @@ describe("fromHttp socket cleanup", () => {
     expect(activeConnections.size).toBe(0);
   });
 
+  it("rejects when the server accepts the connection but never answers", async () => {
+    const hangServer = http.createServer(() => {
+      // Accept the request and never answer it.
+    });
+    const hangConnections = new Set<Socket>();
+    hangServer.on("connection", (socket) => {
+      hangConnections.add(socket);
+      socket.on("close", () => hangConnections.delete(socket));
+    });
+    await new Promise<void>((resolve) => hangServer.listen(0, "127.0.0.1", resolve));
+    const hangPort = (hangServer.address() as AddressInfo).port;
+
+    const provider = fromHttp({
+      awsContainerCredentialsFullUri: `http://127.0.0.1:${hangPort}/creds`,
+      maxRetries: 1,
+      timeout: 200,
+    });
+
+    const start = Date.now();
+    const result = await Promise.race([
+      provider().then(
+        () => "resolved",
+        (e: Error) => e.name
+      ),
+      new Promise((resolve) => setTimeout(() => resolve("still pending"), 5_000)),
+    ]);
+
+    // Two attempts of 200 ms plus one 200 ms delay between them.
+    expect(result).toBe("CredentialsProviderError");
+    expect(Date.now() - start).toBeLessThan(2_000);
+
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    expect(hangConnections.size).toBe(0);
+
+    for (const socket of hangConnections) {
+      socket.destroy();
+    }
+    await new Promise<void>((resolve) => hangServer.close(() => resolve()));
+  });
+
   it("re-reads token file on each request", async () => {
     tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "fromHttp-integ-"));
     const tokenFile = path.join(tmpDir, "token");
