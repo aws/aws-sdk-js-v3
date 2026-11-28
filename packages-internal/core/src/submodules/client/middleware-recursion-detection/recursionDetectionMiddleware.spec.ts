@@ -44,7 +44,6 @@ describe(recursionDetectionMiddleware.name, () => {
     it("trace id value is set in InvokeStore", async () => {
       vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
         getXRayTraceId: () => mockTraceIdInvokeStore,
-        getTraceparent: () => undefined,
       } as any);
       process.env = {
         AWS_LAMBDA_FUNCTION_NAME: "some-function",
@@ -63,7 +62,6 @@ describe(recursionDetectionMiddleware.name, () => {
     it("favors trace id value from InvokeStore over that from env variable", async () => {
       vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
         getXRayTraceId: () => mockTraceIdInvokeStore,
-        getTraceparent: () => undefined,
       } as any);
       process.env = {
         AWS_LAMBDA_FUNCTION_NAME: "some-function",
@@ -193,34 +191,12 @@ describe(recursionDetectionMiddleware.name, () => {
     expect(request.headers[existingTraceHeader!]).toBe("some-real-trace-id");
   });
 
-  describe("W3C trace context propagation", () => {
-    const mockTraceparent = "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01";
-    const mockTracestate = "congo=t61rcWkgMzE";
+  describe("W3C baggage propagation", () => {
     const mockBaggage = "userId=alice,serverNode=DF%2028";
 
-    it("should set traceparent from InvokeStore when not already in headers", async () => {
+    it("should set baggage from InvokeStore when not already in headers", async () => {
       vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
         getXRayTraceId: () => undefined,
-        getTraceparent: () => mockTraceparent,
-        getTracestate: () => undefined,
-        getBaggage: () => undefined,
-      } as any);
-
-      const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
-      await handler({
-        input: {},
-        request: new HttpRequest({}),
-      });
-
-      const { request } = mockNextHandler.mock.calls[0][0];
-      expect(request.headers["traceparent"]).toBe(mockTraceparent);
-    });
-
-    it("should set traceparent, tracestate, and baggage from InvokeStore", async () => {
-      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
-        getXRayTraceId: () => undefined,
-        getTraceparent: () => mockTraceparent,
-        getTracestate: () => mockTracestate,
         getBaggage: () => mockBaggage,
       } as any);
 
@@ -231,157 +207,12 @@ describe(recursionDetectionMiddleware.name, () => {
       });
 
       const { request } = mockNextHandler.mock.calls[0][0];
-      expect(request.headers["traceparent"]).toBe(mockTraceparent);
-      expect(request.headers["tracestate"]).toBe(mockTracestate);
-      expect(request.headers["baggage"]).toBe(mockBaggage);
-    });
-
-    it("should NOT set tracestate or baggage when traceparent is absent", async () => {
-      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
-        getXRayTraceId: () => undefined,
-        getTraceparent: () => undefined,
-        getTracestate: () => mockTracestate,
-        getBaggage: () => mockBaggage,
-      } as any);
-
-      const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
-      await handler({
-        input: {},
-        request: new HttpRequest({}),
-      });
-
-      const { request } = mockNextHandler.mock.calls[0][0];
-      expect(request.headers["traceparent"]).toBeUndefined();
-      expect(request.headers["tracestate"]).toBeUndefined();
-      expect(request.headers["baggage"]).toBeUndefined();
-    });
-
-    it("should preserve existing traceparent header and NOT add tracestate/baggage from InvokeStore", async () => {
-      const existingTraceparent = "00-abcdef1234567890abcdef1234567890-1234567890abcdef-01";
-      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
-        getXRayTraceId: () => undefined,
-        getTraceparent: () => mockTraceparent,
-        getTracestate: () => mockTracestate,
-        getBaggage: () => mockBaggage,
-      } as any);
-
-      const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
-      await handler({
-        input: {},
-        request: new HttpRequest({
-          headers: {
-            traceparent: existingTraceparent,
-          },
-        }),
-      });
-
-      const { request } = mockNextHandler.mock.calls[0][0];
-      expect(request.headers["traceparent"]).toBe(existingTraceparent);
-      expect(request.headers["tracestate"]).toBeUndefined();
-      expect(request.headers["baggage"]).toBeUndefined();
-    });
-
-    it("should preserve existing traceparent, tracestate, and baggage headers without overwriting from InvokeStore", async () => {
-      const existingTraceparent = "00-abcdef1234567890abcdef1234567890-1234567890abcdef-01";
-      const existingTracestate = "vendor1=opaqueValue1";
-      const existingBaggage = "key1=value1";
-      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
-        getXRayTraceId: () => undefined,
-        getTraceparent: () => mockTraceparent,
-        getTracestate: () => mockTracestate,
-        getBaggage: () => mockBaggage,
-      } as any);
-
-      const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
-      await handler({
-        input: {},
-        request: new HttpRequest({
-          headers: {
-            traceparent: existingTraceparent,
-            tracestate: existingTracestate,
-            baggage: existingBaggage,
-          },
-        }),
-      });
-
-      const { request } = mockNextHandler.mock.calls[0][0];
-      expect(request.headers["traceparent"]).toBe(existingTraceparent);
-      expect(request.headers["tracestate"]).toBe(existingTracestate);
-      expect(request.headers["baggage"]).toBe(existingBaggage);
-    });
-
-    it("should not overwrite existing traceparent when InvokeStore also has one", async () => {
-      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
-        getXRayTraceId: () => undefined,
-        getTraceparent: () => mockTraceparent,
-        getTracestate: () => undefined,
-        getBaggage: () => undefined,
-      } as any);
-
-      const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
-      await handler({
-        input: {},
-        request: new HttpRequest({
-          headers: {
-            traceparent: "existing-value",
-          },
-        }),
-      });
-
-      const { request } = mockNextHandler.mock.calls[0][0];
-      expect(request.headers["traceparent"]).toBe("existing-value");
-    });
-
-    it("should normalize non-canonical traceparent casing and not overwrite with InvokeStore value", async () => {
-      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
-        getXRayTraceId: () => undefined,
-        getTraceparent: () => mockTraceparent,
-        getTracestate: () => undefined,
-        getBaggage: () => undefined,
-      } as any);
-
-      const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
-      await handler({
-        input: {},
-        request: new HttpRequest({
-          headers: {
-            TraceParent: "existing-value",
-          },
-        }),
-      });
-
-      const { request } = mockNextHandler.mock.calls[0][0];
-      // rewritten to canonical lowercase, value preserved, not overwritten
-      expect(request.headers["traceparent"]).toBe("existing-value");
-      expect(request.headers["TraceParent"]).toBeUndefined();
-      expect(Object.keys(request.headers).filter((h) => h.toLowerCase() === "traceparent").length).toBe(1);
-    });
-
-    it("should NOT set tracestate when InvokeStore does not provide it", async () => {
-      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
-        getXRayTraceId: () => undefined,
-        getTraceparent: () => mockTraceparent,
-        getTracestate: () => undefined,
-        getBaggage: () => mockBaggage,
-      } as any);
-
-      const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
-      await handler({
-        input: {},
-        request: new HttpRequest({}),
-      });
-
-      const { request } = mockNextHandler.mock.calls[0][0];
-      expect(request.headers["traceparent"]).toBe(mockTraceparent);
-      expect(request.headers["tracestate"]).toBeUndefined();
       expect(request.headers["baggage"]).toBe(mockBaggage);
     });
 
     it("should NOT set baggage when InvokeStore does not provide it", async () => {
       vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
         getXRayTraceId: () => undefined,
-        getTraceparent: () => mockTraceparent,
-        getTracestate: () => mockTracestate,
         getBaggage: () => undefined,
       } as any);
 
@@ -392,18 +223,59 @@ describe(recursionDetectionMiddleware.name, () => {
       });
 
       const { request } = mockNextHandler.mock.calls[0][0];
-      expect(request.headers["traceparent"]).toBe(mockTraceparent);
-      expect(request.headers["tracestate"]).toBe(mockTracestate);
       expect(request.headers["baggage"]).toBeUndefined();
     });
 
+    it("should preserve existing baggage header without overwriting from InvokeStore", async () => {
+      const existingBaggage = "key1=value1";
+      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
+        getXRayTraceId: () => undefined,
+        getBaggage: () => mockBaggage,
+      } as any);
+
+      const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
+      await handler({
+        input: {},
+        request: new HttpRequest({
+          headers: {
+            baggage: existingBaggage,
+          },
+        }),
+      });
+
+      const { request } = mockNextHandler.mock.calls[0][0];
+      expect(request.headers["baggage"]).toBe(existingBaggage);
+    });
+
+    it("should propagate baggage independently of traceparent presence on the request", async () => {
+      const existingTraceparent = "00-abcdef1234567890abcdef1234567890-1234567890abcdef-01";
+      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
+        getXRayTraceId: () => undefined,
+        getBaggage: () => mockBaggage,
+      } as any);
+
+      const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
+      await handler({
+        input: {},
+        request: new HttpRequest({
+          headers: {
+            traceparent: existingTraceparent,
+          },
+        }),
+      });
+
+      const { request } = mockNextHandler.mock.calls[0][0];
+      // traceparent is passed through untouched; baggage is still populated from InvokeStore
+      expect(request.headers["traceparent"]).toBe(existingTraceparent);
+      expect(request.headers["baggage"]).toBe(mockBaggage);
+    });
+
     describe("sanitizeTraceHeaders", () => {
-      it("should normalize non-canonical casing of traceparent to lowercase", async () => {
+      it("should normalize non-canonical casing of baggage to lowercase and not overwrite with InvokeStore value", async () => {
+        const existingBaggage = "existing=value";
         vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
           getXRayTraceId: () => undefined,
-          getTraceparent: () => undefined,
-          getTracestate: () => undefined,
-          getBaggage: () => undefined,
+          getBaggage: () => mockBaggage,
         } as any);
 
         const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
@@ -411,69 +283,20 @@ describe(recursionDetectionMiddleware.name, () => {
           input: {},
           request: new HttpRequest({
             headers: {
-              Traceparent: mockTraceparent,
+              Baggage: existingBaggage,
             },
           }),
         });
 
         const { request } = mockNextHandler.mock.calls[0][0];
-        expect(request.headers["traceparent"]).toBe(mockTraceparent);
-        expect(request.headers["Traceparent"]).toBeUndefined();
-      });
-
-      it("should normalize non-canonical casing of tracestate to lowercase", async () => {
-        vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
-          getXRayTraceId: () => undefined,
-          getTraceparent: () => mockTraceparent,
-          getTracestate: () => undefined,
-          getBaggage: () => undefined,
-        } as any);
-
-        const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
-        await handler({
-          input: {},
-          request: new HttpRequest({
-            headers: {
-              traceparent: mockTraceparent,
-              TraceState: mockTracestate,
-            },
-          }),
-        });
-
-        const { request } = mockNextHandler.mock.calls[0][0];
-        expect(request.headers["tracestate"]).toBe(mockTracestate);
-        expect(request.headers["TraceState"]).toBeUndefined();
-      });
-
-      it("should normalize non-canonical casing of baggage to lowercase", async () => {
-        vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
-          getXRayTraceId: () => undefined,
-          getTraceparent: () => mockTraceparent,
-          getTracestate: () => undefined,
-          getBaggage: () => undefined,
-        } as any);
-
-        const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
-        await handler({
-          input: {},
-          request: new HttpRequest({
-            headers: {
-              traceparent: mockTraceparent,
-              Baggage: mockBaggage,
-            },
-          }),
-        });
-
-        const { request } = mockNextHandler.mock.calls[0][0];
-        expect(request.headers["baggage"]).toBe(mockBaggage);
+        expect(request.headers["baggage"]).toBe(existingBaggage);
         expect(request.headers["Baggage"]).toBeUndefined();
+        expect(Object.keys(request.headers).filter((h) => h.toLowerCase() === "baggage").length).toBe(1);
       });
 
-      it("should not modify headers that are already lowercase", async () => {
+      it("should not modify a baggage header that is already lowercase", async () => {
         vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
           getXRayTraceId: () => undefined,
-          getTraceparent: () => undefined,
-          getTracestate: () => undefined,
           getBaggage: () => undefined,
         } as any);
 
@@ -482,24 +305,19 @@ describe(recursionDetectionMiddleware.name, () => {
           input: {},
           request: new HttpRequest({
             headers: {
-              traceparent: mockTraceparent,
-              tracestate: mockTracestate,
               baggage: mockBaggage,
             },
           }),
         });
 
         const { request } = mockNextHandler.mock.calls[0][0];
-        expect(request.headers["traceparent"]).toBe(mockTraceparent);
-        expect(request.headers["tracestate"]).toBe(mockTracestate);
         expect(request.headers["baggage"]).toBe(mockBaggage);
       });
     });
 
-    it("should handle InvokeStore where getTracestate and getBaggage are not defined", async () => {
+    it("should handle InvokeStore where getBaggage is not defined", async () => {
       vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
         getXRayTraceId: () => undefined,
-        getTraceparent: () => mockTraceparent,
       } as any);
 
       const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
@@ -509,17 +327,13 @@ describe(recursionDetectionMiddleware.name, () => {
       });
 
       const { request } = mockNextHandler.mock.calls[0][0];
-      expect(request.headers["traceparent"]).toBe(mockTraceparent);
-      expect(request.headers["tracestate"]).toBeUndefined();
       expect(request.headers["baggage"]).toBeUndefined();
     });
 
-    it("should set both X-Amzn-Trace-Id and W3C headers when in Lambda with InvokeStore", async () => {
+    it("should set both X-Amzn-Trace-Id and baggage when in Lambda with InvokeStore", async () => {
       const mockXRayTraceId = "Root=1-abc-def;Parent=123;Sampled=1";
       vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
         getXRayTraceId: () => mockXRayTraceId,
-        getTraceparent: () => mockTraceparent,
-        getTracestate: () => mockTracestate,
         getBaggage: () => mockBaggage,
       } as any);
       process.env = {
@@ -534,17 +348,13 @@ describe(recursionDetectionMiddleware.name, () => {
 
       const { request } = mockNextHandler.mock.calls[0][0];
       expect(request.headers["X-Amzn-Trace-Id"]).toBe(mockXRayTraceId);
-      expect(request.headers["traceparent"]).toBe(mockTraceparent);
-      expect(request.headers["tracestate"]).toBe(mockTracestate);
       expect(request.headers["baggage"]).toBe(mockBaggage);
     });
 
     it("should only call InvokeStore.getInstanceAsync once when both features need it", async () => {
       vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
         getXRayTraceId: () => "trace-id",
-        getTraceparent: () => mockTraceparent,
-        getTracestate: () => undefined,
-        getBaggage: () => undefined,
+        getBaggage: () => mockBaggage,
       } as any);
       process.env = {
         AWS_LAMBDA_FUNCTION_NAME: "some-function",
