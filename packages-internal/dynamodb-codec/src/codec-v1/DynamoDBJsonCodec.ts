@@ -1,6 +1,6 @@
 import { JsonCodec, JsonShapeDeserializer, JsonShapeSerializer } from "@aws-sdk/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
-import { fromBase64, toBase64 } from "@smithy/core/serde";
+import { fromBase64, toBase64, writeKey } from "@smithy/core/serde";
 import type { Schema } from "@smithy/types";
 
 /**
@@ -100,6 +100,9 @@ class DynamoDBJsonShapeSerializer extends JsonShapeSerializer {
           out.M = {};
           for (const [k, v] of Object.entries(av.M)) {
             if (v != null) {
+              if (k === "__proto__") {
+                writeKey(out.M);
+              }
               out.M[k] = this._write(ns, v, container);
             }
           }
@@ -132,6 +135,9 @@ class DynamoDBJsonShapeSerializer extends JsonShapeSerializer {
         if (["B", "BS", "L", "M"].includes(k)) {
           // handled by mutating serializer.
           continue;
+        }
+        if (k === "__proto__") {
+          writeKey(out);
         }
         out[k] = this.copyRemoveNulls(_v);
       }
@@ -170,6 +176,9 @@ class DynamoDBJsonShapeDeserializer extends JsonShapeDeserializer {
         }
         if (av.M && typeof av.M === "object") {
           for (const [k, v] of Object.entries(av.M)) {
+            if (k === "__proto__") {
+              writeKey(out.M);
+            }
             out.M![k] = this._read(ns, v);
           }
         }
