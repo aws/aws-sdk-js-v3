@@ -249,7 +249,7 @@ class AwsXmlParser {
       if (child.tag === "__proto__") {
         writeKey(obj);
       }
-      if (child.tag in obj) {
+      if (Object.hasOwn(obj, child.tag)) {
         if (Array.isArray(obj[child.tag])) {
           obj[child.tag].push(child.value);
         } else {
@@ -274,13 +274,14 @@ class AwsXmlParser {
     return { tag, value: obj };
   }
 
-  private static readonly ENTITIES: Record<string, string> = {
+  // No prototype, so a lookup finds only these five names and never an Object.prototype member.
+  private static readonly ENTITIES: Record<string, string> = Object.assign(Object.create(null), {
     amp: "&",
     lt: "<",
     gt: ">",
     quot: '"',
     apos: "'",
-  };
+  });
 
   /**
    * Skip a !DOCTYPE block, including internal subsets in [ ].
