@@ -5,9 +5,11 @@ import type {
   CreateMultipartUploadCommandInput,
   CreateMultipartUploadCommandOutput,
   PutObjectCommandInput,
+  PutObjectCommandOutput,
   S3Client,
   Tag,
   UploadPartCommandInput,
+  UploadPartCommandOutput,
 } from "@aws-sdk/client-s3";
 import {
   AbortMultipartUploadCommand,
@@ -165,24 +167,28 @@ export class Upload extends EventEmitter {
       eventEmitter.on("xhr.upload.progress", uploadEventListener);
     }
 
-    const resolved = await Promise.all([this.client.send(new PutObjectCommand(params)), clientConfig?.endpoint?.()]);
-    const putResult = resolved[0];
-    let endpoint: Endpoint | undefined = resolved[1];
+    let putResult: PutObjectCommandOutput;
+    let endpoint: Endpoint | undefined;
+    try {
+      const resolved = await Promise.all([this.client.send(new PutObjectCommand(params)), clientConfig?.endpoint?.()]);
+      putResult = resolved[0];
+      endpoint = resolved[1];
 
-    if (!endpoint) {
-      endpoint = toEndpointV1(
-        await getEndpointFromInstructions(params, PutObjectCommand as EndpointParameterInstructionsSupplier, {
-          ...clientConfig,
-        })
-      );
-    }
+      if (!endpoint) {
+        endpoint = toEndpointV1(
+          await getEndpointFromInstructions(params, PutObjectCommand as EndpointParameterInstructionsSupplier, {
+            ...clientConfig,
+          })
+        );
+      }
 
-    if (!endpoint) {
-      throw new Error('Could not resolve endpoint from S3 "client.config.endpoint()" nor EndpointsV2.');
-    }
-
-    if (eventEmitter !== null) {
-      eventEmitter.off("xhr.upload.progress", uploadEventListener);
+      if (!endpoint) {
+        throw new Error('Could not resolve endpoint from S3 "client.config.endpoint()" nor EndpointsV2.');
+      }
+    } finally {
+      if (eventEmitter !== null) {
+        eventEmitter.off("xhr.upload.progress", uploadEventListener);
+      }
     }
 
     const locationKey = this.params
@@ -302,24 +308,27 @@ export class Upload extends EventEmitter {
         eventEmitter.on("xhr.upload.progress", uploadEventListener);
       }
 
-      this.uploadEnqueuedPartsCount += 1;
+      let partResult: UploadPartCommandOutput;
+      try {
+        this.uploadEnqueuedPartsCount += 1;
 
-      this.__validateUploadPart(dataPart);
+        this.__validateUploadPart(dataPart);
 
-      const partResult = await this.client.send(
-        new UploadPartCommand({
-          ...this.params,
-          // dataPart.data is chunked into a non-streaming buffer
-          // so the ContentLength from the input should not be used for MPU.
-          ContentLength: undefined,
-          UploadId: this.uploadId,
-          Body: dataPart.data,
-          PartNumber: dataPart.partNumber,
-        })
-      );
-
-      if (eventEmitter !== null) {
-        eventEmitter.off("xhr.upload.progress", uploadEventListener);
+        partResult = await this.client.send(
+          new UploadPartCommand({
+            ...this.params,
+            // dataPart.data is chunked into a non-streaming buffer
+            // so the ContentLength from the input should not be used for MPU.
+            ContentLength: undefined,
+            UploadId: this.uploadId,
+            Body: dataPart.data,
+            PartNumber: dataPart.partNumber,
+          })
+        );
+      } finally {
+        if (eventEmitter !== null) {
+          eventEmitter.off("xhr.upload.progress", uploadEventListener);
+        }
       }
 
       if (this.abortController.signal.aborted) {
